@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+
+   <extension point="org.eclipse.ui.commands">
+      <category
+            name="JIUse"
+            id="JIUse.commands.category">
+      </category>
+      <command
+            name="Select to Move"
+            categoryId="JIUse.commands.category"
+            id="JIUse.commands.selectMove">
+      </command>
+      <command
+            categoryId="JIUse.commands.category"
+            id="JIUse.commands.showIUC"
+            name="Show IUC">
+      </command>
+      <command
+            categoryId="JIUse.commands.category"
+            id="JIUse.commands.fromTo"
+            name="Input From and To">
+      </command>
+      <command
+            categoryId="JIUse.commands.category"
+            id="JIUse.commands.movement"
+            name="Input Movement">
+      </command>
+      <command
+            categoryId="JIUse.commands.category"
+            id="JIUse.commands.batchFileMovement"
+            name="Batch File Movement">
+      </command>
+   </extension>
+   <extension point="org.eclipse.ui.handlers">
+      <handler
+            commandId="JIUse.commands.selectMove"
+            class="br.com.bhansen.handler.select.SelectMove">
+      </handler>
+      <handler
+            class="br.com.bhansen.handler.select.ShowIUC"
+            commandId="JIUse.commands.showIUC">
+      </handler>
+      <handler
+            commandId="JIUse.commands.fromTo"
+            class="br.com.bhansen.handler.input.FromToMovement">
+      </handler>
+      <handler
+            commandId="JIUse.commands.movement"
+            class="br.com.bhansen.handler.input.Movement">
+      </handler>
+      <handler
+            commandId="JIUse.commands.batchFileMovement"
+            class="br.com.bhansen.handler.input.BatchFileMovement">
+      </handler>
+   </extension>
+   <extension point="org.eclipse.ui.bindings">
+      <key
+            commandId="JIUse.commands.selectMove"
+            contextId="org.eclipse.ui.contexts.window"
+            sequence="M1+6"
+            schemeId="org.eclipse.ui.defaultAcceleratorConfiguration">
+      </key>
+   </extension>
+   <extension point="org.eclipse.ui.menus">
+      <menuContribution
+            locationURI="menu:org.eclipse.ui.main.menu?after=additions">
+         <menu
+               label="JIUse"
+               mnemonic="M"
+               id="JIUse.menus.selectMove">
+            <command
+                  commandId="JIUse.commands.showIUC"
+                  id="JIUse.menus.showIUC"
+                  label="Show IUC"
+                  mnemonic="S">
+            </command>
+            <command
+                  commandId="JIUse.commands.selectMove"
+                  id="JIUse.menus.selectMove"
+                  label="Select to Move"
+                  mnemonic="S">
+            </command>
+            <command
+                  commandId="JIUse.commands.fromTo"
+                  id="JIUse.menus.fromTo"
+                  label="Input From and To Movement"
+                  mnemonic="S">
+            </command>
+            <command
+                  commandId="JIUse.commands.movement"
+                  id="JIUse.menus.fromTo"
+                  label="Input Movement"
+                  mnemonic="S">
+            </command>
+            <command
+                  commandId="JIUse.commands.batchFileMovement"
+                  id="JIUse.menus.fromTo"
+                  label="Batch File Movement"
+                  mnemonic="S">
+            </command>
+         </menu>
+      </menuContribution>
+   </extension>
+
+</plugin>
