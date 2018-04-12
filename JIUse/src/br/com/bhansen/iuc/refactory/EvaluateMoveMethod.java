@@ -85,14 +85,14 @@ public class EvaluateMoveMethod {
 		IMethod iMethod = getIMethod(method);
 
 		//TODO Quando tiver numero no fim fazer inline
-		//TODO Pode ter colisao verificar se ja tem método no destino
+		//TODO Pode ter colisao verificar se ja tem mï¿½todo no destino
 		MoveInstanceMethodProcessor processor= new MoveInstanceMethodProcessor(iMethod, JavaPreferencesSettings.getCodeGenerationSettings(iMethod.getJavaProject()));
 		Refactoring refactoring= new MoveRefactoring(processor);
 		
 		IProgressMonitor monitor = new NullProgressMonitor();
 		refactoring.checkInitialConditions(monitor);
 		
-		//processor.setMethodName("new name");
+		processor.setMethodName(iMethod.getElementName() + "IUC");
 		processor.setInlineDelegator(true);
 		processor.setRemoveDelegator(true);
 		processor.setDeprecateDelegates(false);
@@ -168,9 +168,8 @@ public class EvaluateMoveMethod {
 	}
 
 	public String toLineString() {
-		return new StringBuilder().append(IUCClass.getClassName(this.classFrom)).append("::").append(method)
-				.append("\t").append(IUCClass.getClassName(this.classTo)).append("\t")
-				.append((shouldMove()) ? "IOK" : "INOK").toString();
+		return new StringBuilder().append((shouldMove()) ? "0" : "1").append("\t").append(IUCClass.getClassName(this.classFrom)).append("::").append(method)
+				.append("\t").append(IUCClass.getClassName(this.classTo)).toString();
 	}
 
 }
