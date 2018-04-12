@@ -16,12 +16,16 @@ import org.eclipse.jdt.internal.corext.callhierarchy.MethodWrapper;
 @SuppressWarnings("restriction")
 public class IUCClass {
 	
+	public static String METHOD_PREFIX = "IUC"; 
+	
 	private String name;
+	private String fakeDelegate;
 	private HashMap<String, HashSet<String>> methods;
 	
-	public IUCClass(IType type) throws Exception {
+	public IUCClass(IType type, String fakeDelegate) throws Exception {
 		this.methods = new HashMap<>();		
 		this.name = getClassName(type);
+		this.fakeDelegate = fakeDelegate;
 		
 		IMethod[] methods = type.getMethods();
 				
@@ -31,6 +35,38 @@ public class IUCClass {
 				throw new Exception("Method " + getSignature(method) + " colision!");
 			};
 		}
+		
+		removeFakeDelegate();
+	}
+	
+	public void removeFakeDelegate() {
+		if(fakeDelegate != null) {
+			
+			for (Entry<String, HashSet<String>> method : methods.entrySet()) {
+				String fDelegateSig = method.getKey();
+				
+				if(fDelegateSig.split("\\(", 2)[0].equals(fakeDelegate)) {
+					String methodSig = fDelegateSig.replaceFirst("[0-9]{0,1}" + METHOD_PREFIX+ "\\(", "(");
+					
+					if(methods.containsKey(methodSig)) {
+						HashSet<String> delegateCallers = method.getValue();
+						
+						if((delegateCallers != null) && (delegateCallers.contains(getName())) && (delegateCallers.size() == 1)) {
+							methods.remove(fDelegateSig);
+							break;
+						}
+					}
+				}
+			}
+		}
+	}
+	
+	public IUCClass(IType type) throws Exception {
+		this(type, null);
+	}
+	
+	public static String getMoveMethodName(String methodName) {
+		return methodName + METHOD_PREFIX;
 	}
 	
 	public static String getClassName(IType type) {
@@ -43,6 +79,16 @@ public class IUCClass {
 		String signature = method.getElementName() + sigParts[1] + ":" + sigParts[0];
 		
 		return signature;
+	}
+	
+	public static String generateSignature(String method) throws Exception {
+		method = method.replaceAll("\\s", " ");// Change whitespace character: [
+												// \t\n\x0B\f\r]
+		method = method.replaceAll(",", ", ");// Add space after comma
+		method = method.replaceAll(" {2,}", " ");// Remove more than one
+		method = method.replaceAll("[a-z|A-Z|_|$]*?\\.", "");// Remove packages
+
+		return method;
 	}
 	
 	public String getName() {

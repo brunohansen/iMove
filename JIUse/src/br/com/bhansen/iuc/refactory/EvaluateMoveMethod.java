@@ -1,13 +1,10 @@
 package br.com.bhansen.iuc.refactory;
 
-import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.jdt.core.IMethod;
 import org.eclipse.jdt.core.IType;
 import org.eclipse.jdt.core.dom.IVariableBinding;
-import org.eclipse.jdt.core.refactoring.descriptors.InlineMethodDescriptor;
-import org.eclipse.jdt.core.refactoring.descriptors.MoveMethodDescriptor;
 import org.eclipse.jdt.internal.corext.refactoring.RefactoringExecutionStarter;
 import org.eclipse.jdt.internal.corext.refactoring.structure.MoveInstanceMethodProcessor;
 import org.eclipse.jdt.internal.ui.preferences.JavaPreferencesSettings;
@@ -18,6 +15,7 @@ import org.eclipse.swt.widgets.Shell;
 
 import br.com.bhansen.iuc.metric.IUCClass;
 
+@SuppressWarnings("restriction")
 public class EvaluateMoveMethod {
 	
 	private Shell shell;
@@ -92,7 +90,7 @@ public class EvaluateMoveMethod {
 		IProgressMonitor monitor = new NullProgressMonitor();
 		refactoring.checkInitialConditions(monitor);
 		
-		processor.setMethodName(iMethod.getElementName() + "IUC");
+		processor.setMethodName(IUCClass.getMoveMethodName(iMethod.getElementName()));
 		processor.setInlineDelegator(true);
 		processor.setRemoveDelegator(true);
 		processor.setDeprecateDelegates(false);
@@ -107,11 +105,11 @@ public class EvaluateMoveMethod {
 		
 		refactoring.checkFinalConditions(monitor);
 		Change change = refactoring.createChange(monitor);
-		Change undo = change.perform(monitor);;
+		Change undo = change.perform(monitor);
 		
 		try {
 			this.newFromIUC = new IUCClass(this.classFrom).getIUC();
-			this.newToIUC = new IUCClass(this.classTo).getIUC();
+			this.newToIUC = new IUCClass(this.classTo, IUCClass.getMoveMethodName(iMethod.getElementName())).getIUC();
 			
 			this.iucDifference = (this.newFromIUC - this.oldFromIUC) + (this.newToIUC - this.oldToIUC);
 		} finally {
@@ -121,7 +119,7 @@ public class EvaluateMoveMethod {
 	}
 
 	private IMethod getIMethod(String method) throws Exception {
-		this.method = generateSignature(method);
+		this.method = IUCClass.generateSignature(method);
 
 		IMethod[] methods = this.classFrom.getMethods();
 
@@ -133,16 +131,6 @@ public class EvaluateMoveMethod {
 		}
 
 		throw new Exception("Method " + this.method + " not found!");
-	}
-
-	public String generateSignature(String method) throws Exception {
-		method = method.replaceAll("\\s", " ");// Change whitespace character: [
-												// \t\n\x0B\f\r]
-		method = method.replaceAll(",", ", ");// Add space after comma
-		method = method.replaceAll(" {2,}", " ");// Remove more than one
-		method = method.replaceAll("[a-z|A-Z|_|$]*?\\.", "");// Remove packages
-
-		return method;
 	}
 
 	public void move(String method, IType classTo) throws Exception {
