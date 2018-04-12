@@ -34,7 +34,8 @@ public class IUCClass {
 	}
 	
 	public static String getClassName(IType type) {
-		return type.getFullyQualifiedName().replaceAll("\\$", ".");
+		// \\$ replace the inner class separator for . and (\\.[0-9])*$ removes the anonymous class representation  
+		return type.getFullyQualifiedName().replaceAll("\\$", ".").replaceFirst("(\\.[0-9])*$", "");
 	}
 	
 	public static String getSignature(IMethod method) throws IllegalArgumentException, JavaModelException {
@@ -73,7 +74,7 @@ public class IUCClass {
 		for (MethodWrapper mw : methodWrappers) {
 			MethodWrapper[] mw2 = mw.getCalls(new NullProgressMonitor());
 			for (MethodWrapper m : mw2) {
-				callerMethods.add(m.getMember().getPath().toOSString());
+				callerMethods.add(getClassName(m.getMember().getDeclaringType()));
 			}
 		}
 		
