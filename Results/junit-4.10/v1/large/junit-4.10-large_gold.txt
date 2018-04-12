@@ -1,0 +1,10 @@
+org.junit.runner.Result::printFailures(TextListener):void	org.junit.internal.TextListener
+junit.framework.TestResult::printFooter(ResultPrinter):void	junit.textui.ResultPrinter
+org.junit.runners.model.Statement::apply(TestWatchman, FrameworkMethod, Object):Statement	org.junit.rules.TestWatchman
+org.junit.experimental.theories.ParameterSignature::addFields(AllMembersSupplier, List<PotentialAssignment>):void	org.junit.experimental.theories.internal.AllMembersSupplier
+org.junit.runner.Description::runBefores(ClassRoadie):void	org.junit.internal.runners.ClassRoadie
+org.junit.runners.model.Statement::evaluate():void	org.junit.internal.runners.statements.ExpectException
+org.junit.runner.notification.RunNotifier::runTestMethod(MethodRoadie):void	org.junit.internal.runners.MethodRoadie
+org.junit.runner.manipulation.Filter::filter2(JUnit38ClassRunner):void	org.junit.internal.runners.JUnit38ClassRunner
+org.junit.runner.manipulation.Filter::filter3(JUnit4ClassRunner):void	org.junit.internal.runners.JUnit4ClassRunner
+org.junit.runner.Result::printFooter(TextListener):void	org.junit.internal.TextListener

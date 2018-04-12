@@ -1,0 +1,56 @@
+org.junit.runners.model.RunnerBuilder
+
+	IUC: 0.22916667 0.28571426
+
+	Num. of methods: 7
+
+	3 -> safeRunnerForClass(Class<?>):Runner
+		\junit-4.10-small\org\junit\runners\model\RunnerBuilder.java
+		\junit-4.10-small\org\junit\internal\requests\ClassRequest.java
+		\junit-4.10-small\org\junit\internal\builders\AllDefaultPossibilitiesBuilder.java
+	1 -> removeParent(Class<?>):void
+		\junit-4.10-small\org\junit\runners\model\RunnerBuilder.java
+	0 -> runners(Class<?>, List<Class<?>>):List<Runner>
+	2 -> runners(Class<?>, Class<?>[]):List<Runner>
+		\junit-4.10-small\org\junit\runners\model\RunnerBuilder.java
+		\junit-4.10-small\org\junit\runners\Suite.java
+	1 -> addParent(Class<?>):Class<?>
+		\junit-4.10-small\org\junit\runners\model\RunnerBuilder.java
+	2 -> runnerForClass(Class<?>):Runner
+		\junit-4.10-small\org\junit\runner\Computer.java
+		\junit-4.10-small\org\junit\runners\model\RunnerBuilder.java
+	1 -> runners(Class<?>[]):List<Runner>
+		\junit-4.10-small\org\junit\runners\model\RunnerBuilder.java
+
+	Num. of callers: 5
+
+	\junit-4.10-small\org\junit\runner\Computer.java -> 1
+	\junit-4.10-small\org\junit\runners\model\RunnerBuilder.java -> 6
+	\junit-4.10-small\org\junit\runners\Suite.java -> 1
+	\junit-4.10-small\org\junit\internal\requests\ClassRequest.java -> 1
+	\junit-4.10-small\org\junit\internal\builders\AllDefaultPossibilitiesBuilder.java -> 1
+
+
+
+org.junit.internal.builders.AnnotatedBuilder
+
+	IUC: 0.44444445 0.3125
+
+	Num. of methods: 4
+
+	1 -> AnnotatedBuilder(RunnerBuilder):void
+		\junit-4.10-small\org\junit\internal\builders\AllDefaultPossibilitiesBuilder.java
+	2 -> runnerForClass(Class<?>):Runner
+		\junit-4.10-small\org\junit\runner\Computer.java
+		\junit-4.10-small\org\junit\runners\model\RunnerBuilder.java
+	1 -> buildRunner(Class<? extends Runner>, Class<?>):Runner
+		\junit-4.10-small\org\junit\internal\builders\AnnotatedBuilder.java
+	1 -> runnerForClass2(AnnotatedBuilder, Class<?>):Runner
+		\junit-4.10-small\org\junit\internal\builders\AnnotatedBuilder.java
+
+	Num. of callers: 4
+
+	\junit-4.10-small\org\junit\runner\Computer.java -> 1
+	\junit-4.10-small\org\junit\runners\model\RunnerBuilder.java -> 1
+	\junit-4.10-small\org\junit\internal\builders\AllDefaultPossibilitiesBuilder.java -> 1
+	\junit-4.10-small\org\junit\internal\builders\AnnotatedBuilder.java -> 2
