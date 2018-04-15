@@ -5,21 +5,17 @@ import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.jdt.core.IMethod;
 import org.eclipse.jdt.core.IType;
 import org.eclipse.jdt.core.dom.IVariableBinding;
-import org.eclipse.jdt.internal.corext.refactoring.RefactoringExecutionStarter;
 import org.eclipse.jdt.internal.corext.refactoring.structure.MoveInstanceMethodProcessor;
 import org.eclipse.jdt.internal.ui.preferences.JavaPreferencesSettings;
 import org.eclipse.ltk.core.refactoring.Change;
 import org.eclipse.ltk.core.refactoring.Refactoring;
 import org.eclipse.ltk.core.refactoring.participants.MoveRefactoring;
-import org.eclipse.swt.widgets.Shell;
 
 import br.com.bhansen.iuc.metric.IUCClass;
 
 @SuppressWarnings("restriction")
 public class EvaluateMoveMethod {
 	
-	private Shell shell;
-
 	private IType classFrom;
 	private IType classTo;
 
@@ -41,9 +37,8 @@ public class EvaluateMoveMethod {
 		this.setClassFrom(classFrom);
 	}
 
-	public EvaluateMoveMethod(Shell shell, IType classFrom, String method, IType classTo) throws Exception {
+	public EvaluateMoveMethod(IType classFrom, String method, IType classTo) throws Exception {
 		this(classFrom);
-		this.shell = shell;
 		this.move(method, classTo);
 	}
 
@@ -67,17 +62,17 @@ public class EvaluateMoveMethod {
 		return classTo;
 	}
 	
-	public void move2(String method) throws Exception {
-		IMethod iMethod = getIMethod(method);
-		
-		RefactoringExecutionStarter.startMoveMethodRefactoring(iMethod, shell);
-		
-		this.newFromIUC = new IUCClass(this.classFrom).getIUC();
-		this.newToIUC = new IUCClass(this.classTo).getIUC();
-		
-		this.iucDifference = (this.newFromIUC - this.oldFromIUC) + (this.newToIUC - this.oldToIUC);
-		
-	}
+//	public void move2(String method) throws Exception {
+//		IMethod iMethod = getIMethod(method);
+//		
+//		RefactoringExecutionStarter.startMoveMethodRefactoring(iMethod, shell);
+//		
+//		this.newFromIUC = new IUCClass(this.classFrom).getIUC();
+//		this.newToIUC = new IUCClass(this.classTo).getIUC();
+//		
+//		this.iucDifference = (this.newFromIUC - this.oldFromIUC) + (this.newToIUC - this.oldToIUC);
+//		
+//	}
 
 	public void move(String method) throws Exception {
 		IMethod iMethod = getIMethod(method);

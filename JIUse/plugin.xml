@@ -32,6 +32,11 @@
             id="JIUse.commands.batchFileMovement"
             name="Batch File Movement">
       </command>
+            <command
+            categoryId="JIUse.commands.category"
+            id="JIUse.commands.batchFileMovement"
+            name="Batch Folder Movement">
+      </command>
    </extension>
    <extension point="org.eclipse.ui.handlers">
       <handler
@@ -54,6 +59,10 @@
             commandId="JIUse.commands.batchFileMovement"
             class="br.com.bhansen.handler.input.BatchFileMovement">
       </handler>
+      <handler
+            commandId="JIUse.commands.batchFolderMovement"
+            class="br.com.bhansen.handler.input.BatchFolderMovement">
+      </handler>
    </extension>
    <extension point="org.eclipse.ui.bindings">
       <key
@@ -69,37 +78,48 @@
          <menu
                label="JIUse"
                mnemonic="M"
-               id="JIUse.menus.selectMove">
-            <command
-                  commandId="JIUse.commands.showIUC"
-                  id="JIUse.menus.showIUC"
-                  label="Show IUC"
-                  mnemonic="S">
-            </command>
-            <command
-                  commandId="JIUse.commands.selectMove"
-                  id="JIUse.menus.selectMove"
-                  label="Select to Move"
-                  mnemonic="S">
-            </command>
-            <command
-                  commandId="JIUse.commands.fromTo"
-                  id="JIUse.menus.fromTo"
-                  label="Input From and To Movement"
-                  mnemonic="S">
-            </command>
-            <command
-                  commandId="JIUse.commands.movement"
-                  id="JIUse.menus.fromTo"
-                  label="Input Movement"
-                  mnemonic="S">
-            </command>
-            <command
-                  commandId="JIUse.commands.batchFileMovement"
-                  id="JIUse.menus.fromTo"
-                  label="Batch File Movement"
-                  mnemonic="S">
-            </command>
+               id="JIUse.menus.jiuse">
+			<menu
+               label="IUC"
+               mnemonic="M"
+               id="JIUse.menus.iuc">
+	            <command
+	                  commandId="JIUse.commands.showIUC"
+	                  id="JIUse.menus.showIUC"
+	                  label="Show IUC"
+	                  mnemonic="S">
+	            </command>
+	            <command
+	                  commandId="JIUse.commands.selectMove"
+	                  id="JIUse.menus.selectMove"
+	                  label="Select to Move"
+	                  mnemonic="S">
+	            </command>
+	            <command
+	                  commandId="JIUse.commands.fromTo"
+	                  id="JIUse.menus.fromTo"
+	                  label="Input From and To Movement"
+	                  mnemonic="S">
+	            </command>
+	            <command
+	                  commandId="JIUse.commands.movement"
+	                  id="JIUse.menus.fromTo"
+	                  label="Input Movement"
+	                  mnemonic="S">
+	            </command>
+	            <command
+	                  commandId="JIUse.commands.batchFileMovement"
+	                  id="JIUse.menus.fromTo"
+	                  label="Batch File Movement"
+	                  mnemonic="S">
+	            </command>
+	           	<command
+	                  commandId="JIUse.commands.batchFolderMovement"
+	                  id="JIUse.menus.fromTo"
+	                  label="Batch Folder Movement"
+	                  mnemonic="S">
+	            </command>
+             </menu>
          </menu>
       </menuContribution>
    </extension>
