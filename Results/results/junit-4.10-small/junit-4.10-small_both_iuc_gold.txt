@@ -1,7 +1,12 @@
 00	junit.framework.AssertionFailedError::addFailure2(Test, ResultPrinter):void	junit.textui.ResultPrinter
 00	org.junit.runner.Description::apply(Statement, Timeout):Statement	org.junit.rules.Timeout
+00	org.junit.runner.Request::sortRequest(MaxCore):Request	org.junit.experimental.max.MaxCore
 00	org.junit.runner.Runner::run2(JUnit4TestAdapter, TestResult):void	junit.framework.JUnit4TestAdapter
+00	org.junit.runner.manipulation.Filter::filterWith2(Request):Request	org.junit.runner.Request
+00	org.junit.runner.notification.RunListener::removeListener(JUnitCore):void	org.junit.runner.JUnitCore
 00	org.junit.runner.notification.RunNotifier::addFailure(ClassRoadie, Throwable):void	org.junit.internal.runners.ClassRoadie
+00	org.junit.runners.model.TestClass::getAllArguments(Assignments, boolean):Object[]	org.junit.experimental.theories.internal.Assignments
+00	org.junit.runners.model.TestClass::getArgumentStrings(Assignments, boolean):Object[]	org.junit.experimental.theories.internal.Assignments
 01	junit.framework.JUnit4TestAdapter::isIgnored(Description):boolean	org.junit.runner.Description
 01	junit.framework.JUnit4TestAdapterCache::getNotifier(TestResult, JUnit4TestAdapter):RunNotifier	junit.framework.TestResult
 01	junit.textui.ResultPrinter::printFooter(TestResult):void	junit.framework.TestResult
