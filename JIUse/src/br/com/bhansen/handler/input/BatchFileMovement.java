@@ -34,19 +34,29 @@ public class BatchFileMovement extends InputMovement {
 		InputDialog inDlg = new InputDialog(window.getShell(), "JIUse - Inform the batch file", "File address", "", null);
 		inDlg.open();
 								
-		MessageDialog.openInformation(window.getShell(), "Result", "Result will be shown on cosole!");
 		Path inFile = Paths.get(inDlg.getValue());
 		
-		String projName = inFile.toString();
-		projName = projName.substring(projName.lastIndexOf(File.separator), projName.lastIndexOf("_"));
-		Path goldFile = Paths.get(inFile.subpath(0, inFile.getNameCount() - 3).toAbsolutePath().toString(), "gold_sets", projName + ".txt");
+		MessageDialog.openInformation(window.getShell(), "Result", "Result will be shown on cosole!");
 		
 		iucCheck(inFile);
-		goldCheck(goldFile, inFile);
+		goldCheck(getGoldPath(inFile), getIUCPath(inFile));
 		
 		MessageDialog.openInformation(window.getShell(), "Finish", "Finish!");
 		
 		return null;
+	}
+	
+	public static String getProjectName(Path path) {
+		String projName = path.toString(); 
+		projName = projName.substring(projName.lastIndexOf(File.separator) + 1);
+		projName = projName.substring(0, projName.indexOf("_"));
+		
+		return projName;
+	}
+		
+	public static Path getGoldPath(Path path) {
+		String goldPath = path.toString();
+		return Paths.get(goldPath.substring(0, goldPath.indexOf("results")), "gold_sets", getProjectName(path) + ".txt");
 	}
 	
 	protected IWorkspaceRoot getRoot() {
@@ -58,6 +68,11 @@ public class BatchFileMovement extends InputMovement {
 	
 	public IJavaProject getProject(String projectName) {
 		IProject project = getRoot().getProject(projectName);
+		
+		if(! project.exists() || ! project.isOpen()) {
+			throw new RuntimeException("Project " + projectName + " not exists or closed!");
+		}
+			
 		return JavaCore.create(project);
 	}
 	
@@ -66,14 +81,11 @@ public class BatchFileMovement extends InputMovement {
 		Stream<String> lines = Files.lines(inFile);
 		
 		try {
-			String projName = inFile.toString();
-			projName = projName.substring(projName.lastIndexOf(File.separator), projName.lastIndexOf("_"));
-			
-			IJavaProject project = getProject(projName);
+			IJavaProject project = getProject(getProjectName(inFile));
 			
 			Set<String> outSet = new HashSet<>();
 			
-			System.out.println("IUC check: " + inFile);
+			System.out.println("\nIUC check: " + inFile + "\n");
 			
 			lines.forEach(new Consumer<String>() {
 
@@ -91,13 +103,17 @@ public class BatchFileMovement extends InputMovement {
 				}
 			});
 			
-			System.out.println("IUC check finished.");
+			System.out.println("\nIUC check finished.\n");
 			
-			Files.write(Paths.get(inFile.toString().replace(".txt", "_iuc.txt")), outSet);
+			Files.write(getIUCPath(inFile), outSet);
 			
 		} finally {
 			lines.close();
 		}
+	}
+	
+	public static Path getIUCPath(Path inFile) {
+		return Paths.get(inFile.toString().replace(".txt", "_iuc.txt"));
 	}
 	
 	public Set<String> goldCheck(Path goldFile, Path inFile) throws IOException {
@@ -111,7 +127,7 @@ public class BatchFileMovement extends InputMovement {
 			Object[] goldArray = goldStream.toArray();
 			Supplier<Stream<Object>> goldLines = () -> Stream.of(goldArray);
 			
-			System.out.println("Gold check: " + inFile);
+			System.out.println("\nGold check: " + inFile + "\n");
 
 			inStream.forEach(new Consumer<String>() {
 				@Override
@@ -134,7 +150,7 @@ public class BatchFileMovement extends InputMovement {
 				}
 			});
 			
-			System.out.println("Gold check finished.");
+			System.out.println("\nGold check finished.\n");
 
 			Files.write(Paths.get(inFile.toString().replace(".txt", "_gold.txt")), outSet);
 			

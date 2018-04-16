@@ -33,7 +33,8 @@ public class BatchFolderMovement extends BatchFileMovement {
 	}
 	
 	public void goldCheckDir(String resultDir) throws Exception {
-		Path inDir = Paths.get("C:\\Users\\bruno\\git\\jiuse\\Results");
+		//Path inDir = Paths.get("C:\\Users\\bruno\\git\\jiuse\\Results");
+		Path inDir = Paths.get(resultDir);
 		
 		if(! Files.isDirectory(inDir)) {
 			throw new Exception("Directory not found!" + inDir);
@@ -96,7 +97,7 @@ public class BatchFolderMovement extends BatchFileMovement {
 			public void accept(Path toolFile) {
 				try {
 					iucCheck(toolFile);
-					outSet.addAll(goldCheck(goldFile, Paths.get(toolFile.toString().replace(".txt", "_iuc.txt"))));
+					outSet.addAll(goldCheck(goldFile, getIUCPath(toolFile)));
 				} catch (IOException e) {
 					throw new RuntimeException(e);
 				}
