@@ -47,78 +47,8 @@ import br.com.bhansen.iuc.metric.IUCClass;
  */
 public class Example extends AbstractHandler {
 	
-	private static IUCClass clazz;
-	private static IUCClass clazz2;
-	private static String method;
-	
-	static {
-		clazz = null;
-		clazz2 = null;
-		method = null;
-	}
-
 	@Override
-	public Object execute(ExecutionEvent event) {
-
-		try {
-			IWorkbenchWindow window = HandlerUtil.getActiveWorkbenchWindowChecked(event);
-						
-			try {
-				if(method != null) {
-					clazz = null;
-					clazz2 = null;
-					method = null;
-				}
-				
-				if(clazz == null) {
-					clazz = new IUCClass(getSelection());
-					
-					System.out.println(clazz);
-					
-					MessageDialog.openInformation(window.getShell(), "Primeira classe selecionada!", clazz.getName());
-					
-					return null;
-				}
-				
-				if(clazz2 == null) {
-					clazz2 = new IUCClass(getSelection());
-					MessageDialog.openInformation(window.getShell(), "Segunda classe selecionada!", clazz2.getName());
-					
-					String [] mtds = clazz.getMethods().keySet().toArray(new String[clazz.getMethods().size()]);
-							
-					SelectDlg dlg = new SelectDlg(window.getShell(), "Qual método deseja mover?", "Método", mtds);
-					dlg.open();
-					
-					method = dlg.getSelection();
-					
-					float iuc11 = clazz.getIUC();
-					float iuc21 = clazz2.getIUC();
-					
-					//clazz.move(method, clazz2);
-					
-					float iuc12 = clazz.getIUC();
-					float iuc22 = clazz2.getIUC();
-					
-					float iucGanho = (iuc12 - iuc11) + (iuc22 - iuc21);
-					
-					StringBuilder txt = new StringBuilder();
-					txt.append(clazz.getName()).append(" ").append(iuc11).append(" -> ").append(iuc12).append("\n");
-					txt.append(clazz2.getName()).append(" ").append(iuc21).append(" -> ").append(iuc22).append("\n");
-					txt.append("IUC ganho: ").append(iucGanho).append("\n\n");
-										
-					MessageDialog.openInformation(window.getShell(), (iucGanho > 0)? "Mova!!!!" : "Não mova!!!", txt.toString());
-				}								
-			} catch (Exception e) {
-				e.printStackTrace();
-				
-				MessageDialog.openInformation(window.getShell(), "JIUse", e.getMessage());
-			}	
-		} catch (Exception e) {
-			e.printStackTrace();
-						
-			MessageDialog.openInformation(null, "JIUse", e.getMessage());
-		}
-		
+	public Object execute(ExecutionEvent event) {	
 		return null;
 	}
 	

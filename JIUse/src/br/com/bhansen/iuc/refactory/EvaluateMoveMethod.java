@@ -12,6 +12,7 @@ import org.eclipse.ltk.core.refactoring.Refactoring;
 import org.eclipse.ltk.core.refactoring.participants.MoveRefactoring;
 
 import br.com.bhansen.iuc.metric.IUCClass;
+import br.com.bhansen.iuc.metric.MetricClass;
 
 @SuppressWarnings("restriction")
 public class EvaluateMoveMethod {
@@ -45,7 +46,7 @@ public class EvaluateMoveMethod {
 	public void setClassFrom(IType classFrom) throws Exception {
 		this.classFrom = classFrom;
 
-		this.oldFromIUC = new IUCClass(classFrom).getIUC();
+		this.oldFromIUC = createMetric(classFrom).getMetric();
 	}
 
 	public IType getClassFrom() {
@@ -55,11 +56,15 @@ public class EvaluateMoveMethod {
 	public void setClassTo(IType classTo) throws Exception {
 		this.classTo = classTo;
 
-		this.oldToIUC = new IUCClass(classTo).getIUC();
+		this.oldToIUC = createMetric(classTo).getMetric();
 	}
 
 	public IType getClassTo() {
 		return classTo;
+	}
+	
+	public MetricClass createMetric(IType type) throws Exception {
+		return new IUCClass(type); 
 	}
 	
 //	public void move2(String method) throws Exception {
@@ -76,16 +81,14 @@ public class EvaluateMoveMethod {
 
 	public void move(String method) throws Exception {
 		IMethod iMethod = getIMethod(method);
-
-		//TODO Quando tiver numero no fim fazer inline
-		//TODO Pode ter colisao verificar se ja tem m�todo no destino
+		
 		MoveInstanceMethodProcessor processor= new MoveInstanceMethodProcessor(iMethod, JavaPreferencesSettings.getCodeGenerationSettings(iMethod.getJavaProject()));
 		Refactoring refactoring= new MoveRefactoring(processor);
 		
 		IProgressMonitor monitor = new NullProgressMonitor();
 		refactoring.checkInitialConditions(monitor);
 		
-		processor.setMethodName(IUCClass.getMoveMethodName(iMethod.getElementName()));
+		processor.setMethodName(MetricClass.getMoveMethodName(iMethod.getElementName()));
 		processor.setInlineDelegator(true);
 		processor.setRemoveDelegator(true);
 		processor.setDeprecateDelegates(false);
@@ -103,8 +106,8 @@ public class EvaluateMoveMethod {
 		Change undo = change.perform(monitor);
 		
 		try {
-			this.newFromIUC = new IUCClass(this.classFrom).getIUC();
-			this.newToIUC = new IUCClass(this.classTo, IUCClass.getMoveMethodName(iMethod.getElementName())).getIUC();
+			this.newFromIUC = createMetric(this.classFrom).getMetric();
+			this.newToIUC = createMetric(this.classTo).getMetric(MetricClass.getMoveMethodName(iMethod.getElementName()));
 			
 			this.iucDifference = (this.newFromIUC - this.oldFromIUC) + (this.newToIUC - this.oldToIUC);
 		} finally {
@@ -114,12 +117,12 @@ public class EvaluateMoveMethod {
 	}
 
 	private IMethod getIMethod(String method) throws Exception {
-		this.method = IUCClass.generateSignature(method);
+		this.method = MetricClass.generateSignature(method);
 
 		IMethod[] methods = this.classFrom.getMethods();
 
 		for (IMethod iMethod : methods) {
-			if (IUCClass.getSignature(iMethod).equals(this.method)) {
+			if (MetricClass.getSignature(iMethod).equals(this.method)) {
 				return iMethod;
 			}
 			;
@@ -141,9 +144,9 @@ public class EvaluateMoveMethod {
 	public String toString() {
 		StringBuilder txt = new StringBuilder();
 
-		txt.append(IUCClass.getClassName(this.classFrom)).append(" ").append(this.oldFromIUC).append(" -> ")
+		txt.append(MetricClass.getClassName(this.classFrom)).append(" ").append(this.oldFromIUC).append(" -> ")
 				.append(this.newFromIUC).append("\n");
-		txt.append(IUCClass.getClassName(this.classTo)).append(" ").append(this.oldToIUC).append(" -> ")
+		txt.append(MetricClass.getClassName(this.classTo)).append(" ").append(this.oldToIUC).append(" -> ")
 				.append(this.newToIUC).append("\n");
 		txt.append("IUC difference: ").append(this.iucDifference).append("\n\n");
 
@@ -151,8 +154,8 @@ public class EvaluateMoveMethod {
 	}
 
 	public String toLineString() {
-		return new StringBuilder().append((shouldMove()) ? "0" : "1").append("\t").append(IUCClass.getClassName(this.classFrom)).append("::").append(method)
-				.append("\t").append(IUCClass.getClassName(this.classTo)).toString();
+		return new StringBuilder().append((shouldMove()) ? "0" : "1").append("\t").append(MetricClass.getClassName(this.classFrom)).append("::").append(method)
+				.append("\t").append(MetricClass.getClassName(this.classTo)).toString();
 	}
 
 }

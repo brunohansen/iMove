@@ -1,0 +1,91 @@
+package br.com.bhansen.iuc.metric;
+
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map.Entry;
+
+import org.eclipse.jdt.core.IMethod;
+import org.eclipse.jdt.core.IType;
+import org.eclipse.jdt.core.JavaModelException;
+import org.eclipse.jdt.core.Signature;
+
+public class MetricClass {
+	
+	public static String METHOD_PREFIX = "IUC"; 
+	
+	private String name;
+	private HashMap<String, HashSet<String>> methods;
+	
+	public MetricClass(String name, HashMap<String, HashSet<String>> methods) {
+		super();
+		this.name = name;
+		this.methods = methods;
+	}
+
+	public static String getMoveMethodName(String methodName) {
+		return methodName + METHOD_PREFIX;
+	}
+	
+	public static String getClassName(IType type) {
+		// \\$ replace the inner class separator for . and (\\.[0-9])*$ removes the anonymous class representation  
+		return type.getFullyQualifiedName().replaceAll("\\$", ".").replaceFirst("(\\.[0-9])*$", "");
+	}
+	
+	public static String getSignature(IMethod method) throws IllegalArgumentException, JavaModelException {
+		String [] sigParts = Signature.toString(method.getSignature()).split(" ", 2);
+		String signature = method.getElementName() + sigParts[1] + ":" + sigParts[0];
+		
+		return signature;
+	}
+	
+	public static String generateSignature(String method) throws Exception {
+		method = method.replaceAll("\\s", " ");// Change whitespace character: [
+												// \t\n\x0B\f\r]
+		method = method.replaceAll(",", ", ");// Add space after comma
+		method = method.replaceAll(" {2,}", " ");// Remove more than one
+		method = method.replaceAll("[a-z|A-Z|_|$]*?\\.", "");// Remove packages
+
+		return method;
+	}
+	
+	public String getName() {
+		return name;
+	}
+	
+	public HashMap<String, HashSet<String>> getMethods() {
+		return methods;
+	}
+	
+	public void removeFakeDelegate(String fakeDelegate) {
+		if(fakeDelegate != null) {
+			
+			for (Entry<String, HashSet<String>> method : methods.entrySet()) {
+				String fDelegateSig = method.getKey();
+				
+				if(fDelegateSig.split("\\(", 2)[0].equals(fakeDelegate)) {
+					String methodSig = fDelegateSig.replaceFirst("[0-9]{0,1}" + METHOD_PREFIX+ "\\(", "(");
+					
+					if(methods.containsKey(methodSig)) {
+						HashSet<String> delegateCallers = method.getValue();
+						
+						if((delegateCallers != null) && (delegateCallers.contains(getName())) && (delegateCallers.size() == 1)) {
+							methods.remove(fDelegateSig);
+							break;
+						}
+					}
+				}
+			}
+		}
+	}
+	
+	public float getMetric() {
+		return getMetric(null);
+	}
+	
+	public float getMetric(String fakeDelegate) {
+		removeFakeDelegate(fakeDelegate);
+		
+		return 0f;
+	}
+
+}
