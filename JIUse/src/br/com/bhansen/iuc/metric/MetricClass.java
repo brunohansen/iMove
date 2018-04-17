@@ -1,8 +1,9 @@
 package br.com.bhansen.iuc.metric;
 
 import java.util.HashMap;
-import java.util.HashSet;
+import java.util.Map;
 import java.util.Map.Entry;
+import java.util.Set;
 
 import org.eclipse.jdt.core.IMethod;
 import org.eclipse.jdt.core.IType;
@@ -14,12 +15,12 @@ public class MetricClass {
 	public static String METHOD_PREFIX = "IUC"; 
 	
 	private String name;
-	private HashMap<String, HashSet<String>> methods;
+	private Map<String, Set<String>> methods;
 	
-	public MetricClass(String name, HashMap<String, HashSet<String>> methods) {
+	public MetricClass(String name) {
 		super();
 		this.name = name;
-		this.methods = methods;
+		this.methods = new HashMap<>();
 	}
 
 	public static String getMoveMethodName(String methodName) {
@@ -52,21 +53,21 @@ public class MetricClass {
 		return name;
 	}
 	
-	public HashMap<String, HashSet<String>> getMethods() {
+	public Map<String, Set<String>> getMethods() {
 		return methods;
 	}
 	
 	public void removeFakeDelegate(String fakeDelegate) {
 		if(fakeDelegate != null) {
 			
-			for (Entry<String, HashSet<String>> method : methods.entrySet()) {
+			for (Entry<String, Set<String>> method : methods.entrySet()) {
 				String fDelegateSig = method.getKey();
 				
 				if(fDelegateSig.split("\\(", 2)[0].equals(fakeDelegate)) {
 					String methodSig = fDelegateSig.replaceFirst("[0-9]{0,1}" + METHOD_PREFIX+ "\\(", "(");
 					
 					if(methods.containsKey(methodSig)) {
-						HashSet<String> delegateCallers = method.getValue();
+						Set<String> delegateCallers = method.getValue();
 						
 						if((delegateCallers != null) && (delegateCallers.contains(getName())) && (delegateCallers.size() == 1)) {
 							methods.remove(fDelegateSig);

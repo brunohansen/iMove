@@ -2,7 +2,9 @@ package br.com.bhansen.iuc.metric;
 
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Map;
 import java.util.Map.Entry;
+import java.util.Set;
 
 import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.jdt.core.IJavaElement;
@@ -15,8 +17,8 @@ import org.eclipse.jdt.internal.corext.callhierarchy.MethodWrapper;
 @SuppressWarnings("restriction")
 public class IUCClass extends MetricClass {
 	
-	public IUCClass(IType type, String fakeDelegate) throws Exception {
-		super(getClassName(type), new HashMap<>());
+	public IUCClass(IType type) throws Exception {
+		super(getClassName(type));
 		
 		IMethod[] methods = type.getMethods();
 				
@@ -28,21 +30,17 @@ public class IUCClass extends MetricClass {
 		}
 		
 	}
-	
-	public IUCClass(IType type) throws Exception {
-		this(type, null);
-	}
-	
+		
 	public float getMetric(String fakeDelegate) {
 		super.getMetric(fakeDelegate);
 		
-		HashMap<String, Integer> callers = getCallerClasses();
+		Map<String, Integer> callers = getCallerClasses();
 		
 		return calcIUC(callers);
 	}
 		
-	private HashSet<String> getCallerMethods(IMethod method) {
-		HashSet<String> callerMethods = new HashSet<>();
+	private Set<String> getCallerMethods(IMethod method) {
+		Set<String> callerMethods = new HashSet<>();
 		
 		CallHierarchy callHierarchy = CallHierarchy.getDefault();
 
@@ -73,10 +71,10 @@ public class IUCClass extends MetricClass {
 		}
 	}
 		
-	private HashMap<String, Integer> getCallerClasses() {
-		HashMap<String, Integer> callerClasses = new HashMap<>();
+	private Map<String, Integer> getCallerClasses() {
+		Map<String, Integer> callerClasses = new HashMap<>();
 		
-		for (Entry<String, HashSet<String>> method : getMethods().entrySet()) {
+		for (Entry<String, Set<String>> method : getMethods().entrySet()) {
 			
 			for (String caller : method.getValue()) {
 				Integer count = callerClasses.get(caller);
@@ -88,7 +86,7 @@ public class IUCClass extends MetricClass {
 		return callerClasses;
 	}
 	
-	private float calcIUC(HashMap<String, Integer> callerClasses) {
+	private float calcIUC(Map<String, Integer> callerClasses) {
 		float iuc = 0.0f;
 		float numMethods = getMethods().size();
 		
@@ -111,12 +109,12 @@ public class IUCClass extends MetricClass {
 		
 		txt.append(getName());
 		
-		HashMap<String, Integer> callers = getCallerClasses();
+		Map<String, Integer> callers = getCallerClasses();
 		
 		txt.append("\n\n\tIUC: ").append(calcIUC(callers));		
 		txt.append("\n\n\tNum. of methods: ").append(getMethods().size()).append("\n");
 		
-		for (Entry<String, HashSet<String>> method : getMethods().entrySet()) {
+		for (Entry<String, Set<String>> method : getMethods().entrySet()) {
 			txt.append("\n\t").append(method.getValue().size()).append(" -> ").append(method.getKey());
 			
 			for (String caller : method.getValue()) {

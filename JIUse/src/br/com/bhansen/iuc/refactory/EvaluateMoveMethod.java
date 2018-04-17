@@ -11,6 +11,7 @@ import org.eclipse.ltk.core.refactoring.Change;
 import org.eclipse.ltk.core.refactoring.Refactoring;
 import org.eclipse.ltk.core.refactoring.participants.MoveRefactoring;
 
+import br.com.bhansen.iuc.metric.CAMCClass;
 import br.com.bhansen.iuc.metric.IUCClass;
 import br.com.bhansen.iuc.metric.MetricClass;
 
@@ -42,6 +43,11 @@ public class EvaluateMoveMethod {
 		this(classFrom);
 		this.move(method, classTo);
 	}
+	
+	public MetricClass createMetric(IType type) throws Exception {
+		//return new IUCClass(type); 
+		return new CAMCClass(type);
+	}
 
 	public void setClassFrom(IType classFrom) throws Exception {
 		this.classFrom = classFrom;
@@ -61,10 +67,6 @@ public class EvaluateMoveMethod {
 
 	public IType getClassTo() {
 		return classTo;
-	}
-	
-	public MetricClass createMetric(IType type) throws Exception {
-		return new IUCClass(type); 
 	}
 	
 //	public void move2(String method) throws Exception {

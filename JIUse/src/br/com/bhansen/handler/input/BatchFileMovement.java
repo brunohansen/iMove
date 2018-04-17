@@ -134,13 +134,21 @@ public class BatchFileMovement extends InputMovement {
 
 					String[] reg = inLine.split("\\t", 2);
 
-					boolean any = goldLines.get().anyMatch(new Predicate<Object>() {
+					boolean exact = goldLines.get().anyMatch(new Predicate<Object>() {
 						public boolean test(Object goldLine) {
 							return reg[1].equals(goldLine);
 						}
 					});
+					
+					boolean origin = goldLines.get().anyMatch(new Predicate<Object>() {
+						public boolean test(Object goldLine) {
+							String[] in = reg[1].split("\\t", 2);
+							String[] gold = ((String) goldLine).split("\\t", 2);
+							return in[0].equals(gold[0]);
+						}
+					});
 
-					String outLine = reg[0] + ((any) ? "0\t" : "1\t") + reg[1];
+					String outLine = reg[0] + ((origin) ? "0" : "1") + ((exact) ? "0\t" : "1\t") + reg[1];
 
 					outSet.add(outLine);
 
