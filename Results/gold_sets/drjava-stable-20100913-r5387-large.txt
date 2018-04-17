@@ -1,0 +1,10 @@
+edu.rice.cs.drjava.config.ConfigOptionListeners.RequiresInteractionsRestartListener::_setupNotificationsPanel(ConfigPanel):void	edu.rice.cs.drjava.ui.config.ConfigFrame
+edu.rice.cs.drjava.model.TestDocGetter::testConstructOneDocWithoutLineNums():void	edu.rice.cs.drjava.model.compiler.CompilerErrorModelTest
+edu.rice.cs.drjava.ui.MainFrame::testNE():void	edu.rice.cs.drjava.CommandLineTest
+edu.rice.cs.util.swing.FileChooser::_runCommand():void	edu.rice.cs.drjava.ui.ExecuteExternalDialog
+edu.rice.cs.util.swing.DelegatingAction::_installNewDocumentListener(OpenDefinitionsDocument):void	edu.rice.cs.drjava.ui.MainFrame
+edu.rice.cs.drjava.model.GlobalEventNotifier::testCommentOutMultipleLines():void	edu.rice.cs.drjava.model.definitions.CommentTest
+edu.rice.cs.util.swing.DirectoryChooser::_setUpLanguageLevelMenu(int, boolean):JMenu	edu.rice.cs.drjava.ui.MainFrame
+edu.rice.cs.drjava.model.FindReplaceMachine::findPrevious():void	edu.rice.cs.drjava.ui.FindReplacePanel
+edu.rice.cs.drjava.ui.config.VectorFileOptionComponent::reset2():void	edu.rice.cs.drjava.ui.ProjectPropertiesFrame
+edu.rice.cs.drjava.model.repl.InteractionsDJDocument::testHistoryRecallNextMovesToEnd():void	edu.rice.cs.drjava.ui.InteractionsPaneTest

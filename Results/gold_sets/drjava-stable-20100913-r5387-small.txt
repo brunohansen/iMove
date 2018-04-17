@@ -1,0 +1,10 @@
+edu.rice.cs.drjava.model.repl.InteractionsScriptModel::setActionsDisabled():void	edu.rice.cs.drjava.ui.InteractionsScriptController
+edu.rice.cs.drjava.model.junit.JUnitError::progressReset(int):void	edu.rice.cs.drjava.ui.JUnitPanel
+edu.rice.cs.drjava.model.definitions.DefinitionsEditorKit::closeProject(boolean):void	edu.rice.cs.drjava.model.AbstractGlobalModel
+edu.rice.cs.drjava.model.MovingDocumentRegion::disableFindAgain():void	edu.rice.cs.drjava.ui.FindResultsPanel
+edu.rice.cs.drjava.ui.config.ConfigFrame::resetDebugFrame():void	edu.rice.cs.drjava.ui.MainFrame
+edu.rice.cs.drjava.config.ConfigOptionListeners.SlaveJVMXMXListener::getSelectedCompilerErrorPanel():CompilerErrorPanel	edu.rice.cs.drjava.ui.MainFrame
+edu.rice.cs.drjava.model.DJError::getPosition(DJError):Position	edu.rice.cs.drjava.model.compiler.CompilerErrorModel
+edu.rice.cs.drjava.model.repl.newjvm.MainJVM::junitJVMReady():void	edu.rice.cs.drjava.model.junit.DefaultJUnitModel
+edu.rice.cs.drjava.model.AbstractDJDocument::testSecondLineMisindented():void	edu.rice.cs.drjava.model.definitions.indent.ActionStartPrevLinePlusTest
+edu.rice.cs.drjava.ui.InteractionsController::tempFile(int):File	edu.rice.cs.drjava.model.GlobalModelTestCase
