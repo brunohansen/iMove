@@ -74,8 +74,7 @@ public class BatchFileMovement extends InputMovement {
 		}
 			
 		return JavaCore.create(project);
-	}
-	
+	}	
 	
 	public void iucCheck(Path inFile) throws IOException {
 		Stream<String> lines = Files.lines(inFile);
@@ -115,8 +114,8 @@ public class BatchFileMovement extends InputMovement {
 	public static Path getIUCPath(Path inFile) {
 		return Paths.get(inFile.toString().replace(".txt", "_iuc.txt"));
 	}
-	
-	public Set<String> goldCheck(Path goldFile, Path inFile) throws IOException {
+		
+	public static Set<String> goldCheck(Path goldFile, Path inFile) throws IOException {
 		Stream<String> inStream = Files.lines(inFile);
 		Stream<String> goldStream = Files.lines(goldFile);
 
