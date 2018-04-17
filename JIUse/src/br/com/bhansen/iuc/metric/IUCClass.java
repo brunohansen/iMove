@@ -5,6 +5,7 @@ import java.util.HashSet;
 import java.util.Map.Entry;
 
 import org.eclipse.core.runtime.NullProgressMonitor;
+import org.eclipse.jdt.core.IJavaElement;
 import org.eclipse.jdt.core.IMember;
 import org.eclipse.jdt.core.IMethod;
 import org.eclipse.jdt.core.IType;
@@ -120,11 +121,25 @@ public class IUCClass {
 		for (MethodWrapper mw : methodWrappers) {
 			MethodWrapper[] mw2 = mw.getCalls(new NullProgressMonitor());
 			for (MethodWrapper m : mw2) {
-				callerMethods.add(getClassName(m.getMember().getDeclaringType()));
+				IMethod im = getIMethodFromMethodWrapper(m);
+				if (im != null) {
+					callerMethods.add(getClassName(im.getDeclaringType()));
+				}
+				//callerMethods.add(getClassName(m.getMember().getDeclaringType()));
 			}
 		}
 		
 		return callerMethods;
+	}
+		
+	IMethod getIMethodFromMethodWrapper(MethodWrapper m) {
+		IMember im = m.getMember();
+		
+		if (im.getElementType() == IJavaElement.METHOD) {
+			return (IMethod) m.getMember();
+		} else {
+			return null;
+		}
 	}
 		
 	private HashMap<String, Integer> getCallerClasses() {
