@@ -104,8 +104,8 @@ public class BatchFolderMovement extends BatchFileMovement {
 			}
 		});
 		
-		Path outPath = Paths.get(sysDir.toString(), goldFile.getFileName().toString().replace(".txt", "_both_iuc_gold.txt"));
-
-		Files.write(outPath, outSet);
+//		Path outPath = Paths.get(sysDir.toString(), goldFile.getFileName().toString().replace(".txt", "_both_iuc_gold.txt"));
+//
+//		Files.write(outPath, outSet);
 	}
 }
