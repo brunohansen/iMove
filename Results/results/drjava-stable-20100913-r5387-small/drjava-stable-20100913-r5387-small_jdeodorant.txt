@@ -1,0 +1,50 @@
+edu.rice.cs.drjava.model.definitions.reducedmodel.ReducedModelComment::_getDistToStart(edu.rice.cs.drjava.model.definitions.reducedmodel.TokenList.Iterator):int	edu.rice.cs.drjava.model.definitions.reducedmodel.TokenList.Iterator
+edu.rice.cs.drjava.model.junit.JUnitError::progressReset(edu.rice.cs.drjava.ui.JUnitPanel, int):void	edu.rice.cs.drjava.ui.JUnitPanel
+edu.rice.cs.drjava.model.repl.InteractionsScriptModel::setActionsDisabled(edu.rice.cs.drjava.ui.InteractionsScriptController):void	edu.rice.cs.drjava.ui.InteractionsScriptController
+edu.rice.cs.drjava.model.MovingDocumentRegion::disableFindAgain(edu.rice.cs.drjava.ui.FindResultsPanel):void	edu.rice.cs.drjava.ui.FindResultsPanel
+edu.rice.cs.drjava.ui.ExecuteExternalDialog::colorVariables(javax.swing.JTextPane, edu.rice.cs.drjava.config.PropertyMaps, javax.swing.event.DocumentListener, javax.swing.text.SimpleAttributeSet, javax.swing.text.SimpleAttributeSet, javax.swing.text.SimpleAttributeSet):void	edu.rice.cs.drjava.config.PropertyMaps
+edu.rice.cs.drjava.ui.GenerateCustomDrJavaJarFrame::addDirectory(java.io.File, edu.rice.cs.util.MD5ChecksumProperties, java.lang.StringBuilder, java.util.zip.ZipOutputStream, edu.rice.cs.plt.lambda.Predicate<java.lang.String>):boolean	edu.rice.cs.util.MD5ChecksumProperties
+edu.rice.cs.drjava.ui.GenerateCustomDrJavaJarFrame::addZipFile(java.io.File, edu.rice.cs.util.MD5ChecksumProperties, java.lang.StringBuilder, java.util.zip.ZipOutputStream, edu.rice.cs.plt.lambda.Predicate<java.lang.String>):boolean	edu.rice.cs.util.MD5ChecksumProperties
+edu.rice.cs.drjava.ui.KeyBindingManager::updateMenuItem(edu.rice.cs.drjava.ui.KeyBindingManager.KeyStrokeData):void	edu.rice.cs.drjava.ui.KeyBindingManager.KeyStrokeData
+edu.rice.cs.drjava.config.ConfigOptionListeners.SlaveJVMXMXListener::getSelectedCompilerErrorPanel(edu.rice.cs.drjava.ui.MainFrame):edu.rice.cs.drjava.ui.CompilerErrorPanel	edu.rice.cs.drjava.ui.MainFrame
+edu.rice.cs.drjava.model.AbstractGlobalModel::_docAppend(edu.rice.cs.util.text.ConsoleDocument, java.lang.String, java.lang.String):void	edu.rice.cs.util.text.ConsoleDocument
+edu.rice.cs.drjava.model.definitions.DefinitionsEditorKit::closeProject(edu.rice.cs.drjava.model.AbstractGlobalModel, boolean):void	edu.rice.cs.drjava.model.GlobalEventNotifier
+edu.rice.cs.drjava.project.ProjectProfile::encodeWatch(edu.rice.cs.drjava.model.debug.DebugWatchData, java.lang.String):java.lang.String	edu.rice.cs.drjava.model.debug.DebugWatchData
+edu.rice.cs.drjava.ui.InteractionsController::tempFile(edu.rice.cs.drjava.model.GlobalModelTestCase, int):java.io.File	edu.rice.cs.drjava.model.GlobalModelTestCase
+edu.rice.cs.util.BalancingStreamTokenizer::wordRange(int, int):void	edu.rice.cs.util.BalancingStreamTokenizer.State
+edu.rice.cs.util.BalancingStreamTokenizer::wordChars(int[]):void	edu.rice.cs.util.BalancingStreamTokenizer.State
+edu.rice.cs.drjava.model.definitions.reducedmodel.AbstractReducedModel::_insertNewGap(int):void	edu.rice.cs.drjava.model.definitions.reducedmodel.TokenList.Iterator
+edu.rice.cs.drjava.ui.ExecuteExternalDialog::runCommand(java.lang.String, java.lang.String, java.lang.String, java.lang.String, edu.rice.cs.drjava.config.PropertyMaps):edu.rice.cs.drjava.ui.ExternalProcessPanel	edu.rice.cs.drjava.ui.MainFrame
+edu.rice.cs.drjava.ui.MainFrame::_displayGUIComponentAvailabilityFrame():void	edu.rice.cs.drjava.ui.avail.GUIAvailabilityNotifier
+edu.rice.cs.drjava.model.debug.jpda.JPDADebugger::setCurrentThread(com.sun.jdi.ThreadReference):boolean	edu.rice.cs.drjava.model.debug.jpda.JPDADebugger.RandomAccessStack
+edu.rice.cs.drjava.model.definitions.indent.IndentRuleQuestion::applyRule(edu.rice.cs.drjava.model.AbstractDJDocument, int, edu.rice.cs.drjava.model.definitions.indent.Indenter.IndentReason):boolean	edu.rice.cs.drjava.model.AbstractDJDocument
+edu.rice.cs.drjava.model.definitions.indent.IndentRuleWithTrace::indentLine(edu.rice.cs.drjava.model.AbstractDJDocument, int, edu.rice.cs.drjava.model.definitions.indent.Indenter.IndentReason):boolean	edu.rice.cs.drjava.model.AbstractDJDocument
+edu.rice.cs.drjava.project.XMLProjectFileParser::readFiles(java.lang.String, java.lang.String):java.util.List<edu.rice.cs.util.AbsRelFile>	edu.rice.cs.util.XMLConfig
+edu.rice.cs.drjava.ui.FindReplacePanel::_selectFoundOrReplacedItem(int, int):void	edu.rice.cs.drjava.ui.DefinitionsPane
+edu.rice.cs.drjava.ui.MainFrame::nextRecentDoc():void	edu.rice.cs.drjava.ui.RecentDocFrame
+edu.rice.cs.drjava.ui.MainFrame::prevRecentDoc():void	edu.rice.cs.drjava.ui.RecentDocFrame
+edu.rice.cs.drjava.ui.MainFrame::isProjectActiveAndMainClassSet():boolean	edu.rice.cs.drjava.model.AbstractGlobalModel
+edu.rice.cs.drjava.model.debug.jpda.JPDADebugger::_getThreadFromDebugThreadData(edu.rice.cs.drjava.model.debug.DebugThreadData):com.sun.jdi.ThreadReference	edu.rice.cs.drjava.model.debug.DebugThreadData
+edu.rice.cs.drjava.model.definitions.reducedmodel.AbstractReducedModel::_augmentCurrentGap(int):void	edu.rice.cs.drjava.model.definitions.reducedmodel.TokenList.Iterator
+edu.rice.cs.drjava.project.XMLProjectFileParser::readCollapsed():java.util.List<java.lang.String>	edu.rice.cs.util.XMLConfig
+edu.rice.cs.drjava.project.XMLProjectFileParser::readWatches():java.util.List<edu.rice.cs.drjava.model.debug.DebugWatchData>	edu.rice.cs.util.XMLConfig
+edu.rice.cs.drjava.ui.MainFrame::_processDocs(java.util.Collection<edu.rice.cs.drjava.model.OpenDefinitionsDocument>, edu.rice.cs.plt.lambda.Runnable1<edu.rice.cs.drjava.model.OpenDefinitionsDocument>):void	edu.rice.cs.drjava.model.AbstractGlobalModel
+edu.rice.cs.drjava.ui.MainFrame::_pageSetup():void	edu.rice.cs.drjava.model.AbstractGlobalModel
+edu.rice.cs.util.swing.SwingWorker::interrupt():void	edu.rice.cs.util.swing.SwingWorker.ThreadVar
+edu.rice.cs.drjava.ui.MainFrame::uncommentLines():void	edu.rice.cs.drjava.ui.DefinitionsPane
+edu.rice.cs.drjava.model.debug.jpda.EventHandlerThread::_handleStepEvent(com.sun.jdi.event.StepEvent):void	edu.rice.cs.drjava.model.debug.jpda.JPDADebugger
+edu.rice.cs.drjava.ui.MainFrame::commentLines():void	edu.rice.cs.drjava.ui.DefinitionsPane
+edu.rice.cs.util.BalancingStreamTokenizer::whitespaceRange(int, int):void	edu.rice.cs.util.BalancingStreamTokenizer.State
+edu.rice.cs.util.BalancingStreamTokenizer::whitespace(int[]):void	edu.rice.cs.util.BalancingStreamTokenizer.State
+edu.rice.cs.util.BalancingStreamTokenizer::addQuotes(java.lang.String, java.lang.String):void	edu.rice.cs.util.BalancingStreamTokenizer.State
+edu.rice.cs.drjava.project.ProjectProfile::encodeDocFile(edu.rice.cs.drjava.project.DocFile, java.lang.String, boolean):java.lang.String	edu.rice.cs.drjava.project.DocFile
+edu.rice.cs.drjava.project.XMLProjectFileParser::readSourceFiles(java.lang.String, java.lang.String):java.util.List<edu.rice.cs.drjava.project.DocFile>	edu.rice.cs.util.XMLConfig
+edu.rice.cs.drjava.project.XMLProjectFileParser::readBreakpoints():java.util.List<edu.rice.cs.drjava.model.debug.DebugBreakpointData>	edu.rice.cs.util.XMLConfig
+edu.rice.cs.util.BalancingStreamTokenizer::addKeyword(java.lang.String):void	edu.rice.cs.util.BalancingStreamTokenizer.State
+edu.rice.cs.drjava.model.debug.jpda.EventHandlerThread::_handleBreakpointEvent(com.sun.jdi.event.BreakpointEvent):void	edu.rice.cs.drjava.model.debug.jpda.JPDADebugger
+edu.rice.cs.drjava.model.debug.jpda.EventHandlerThread::_handleThreadDeathEvent(com.sun.jdi.event.ThreadDeathEvent):void	edu.rice.cs.drjava.model.debug.jpda.JPDADebugger
+edu.rice.cs.drjava.project.XMLProjectFileParser::readBookmarks():java.util.List<edu.rice.cs.drjava.model.FileRegion>	edu.rice.cs.util.XMLConfig
+edu.rice.cs.drjava.ui.MainFrame::_moveAllToAuxiliary():void	edu.rice.cs.drjava.model.AbstractGlobalModel
+edu.rice.cs.drjava.ui.MainFrame::_removeAllAuxiliary():void	edu.rice.cs.drjava.model.AbstractGlobalModel
+edu.rice.cs.drjava.ui.MainFrame::_closeFolder():void	edu.rice.cs.drjava.model.AbstractGlobalModel
+edu.rice.cs.drjava.ui.MainFrame::_setUpGUIComponentAvailability():void	edu.rice.cs.drjava.ui.avail.GUIAvailabilityNotifier
