@@ -36,15 +36,25 @@ public class MetricClass {
 		String [] sigParts = Signature.toString(method.getSignature()).split(" ", 2);
 		String signature = method.getElementName() + sigParts[1] + ":" + sigParts[0];
 		
-		return signature;
+		return generateInnerSignature(signature);
 	}
 	
-	public static String generateSignature(String method) throws Exception {
+	public static String generateSignature(String method) {
 		method = method.replaceAll("\\s", " ");// Change whitespace character: [
 												// \t\n\x0B\f\r]
 		method = method.replaceAll(",", ", ");// Add space after comma
 		method = method.replaceAll(" {2,}", " ");// Remove more than one
-		method = method.replaceAll("[a-z|A-Z|_|$]*?\\.", "");// Remove packages
+		method = method.replaceAll("[a-z|A-Z|0-9|_|$]*?\\.", "");// Remove packages and inner classes
+
+		return method;
+	}
+	
+	public static String generateInnerSignature(String method) {
+		method = method.replaceAll("\\s", " ");// Change whitespace character: [
+												// \t\n\x0B\f\r]
+		method = method.replaceAll(",", ", ");// Add space after comma
+		method = method.replaceAll(" {2,}", " ");// Remove more than one
+		method = method.replaceAll("([a-z|0-9|_|$]*\\.){2,}", "");// Remove just packages
 
 		return method;
 	}

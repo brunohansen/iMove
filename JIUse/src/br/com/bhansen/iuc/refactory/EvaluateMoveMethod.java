@@ -96,13 +96,18 @@ public class EvaluateMoveMethod {
 		processor.setDeprecateDelegates(false);
 		
 		final IVariableBinding[] targets= processor.getCandidateTargets();
+		IVariableBinding target = null;
 		for (int index= 0; index < targets.length; index++) {
 			if (targets[index].getType().getJavaElement().equals(classTo)) {
-				processor.setTarget(targets[index]);
+				target = targets[index];
 				break;
 			}
 		}
 		
+		if(target == null)
+			throw new Exception("Invalid target!");
+		
+		processor.setTarget(target);
 		refactoring.checkFinalConditions(monitor);
 		Change change = refactoring.createChange(monitor);
 		Change undo = change.perform(monitor);
@@ -119,7 +124,7 @@ public class EvaluateMoveMethod {
 	}
 
 	private IMethod getIMethod(String method) throws Exception {
-		this.method = MetricClass.generateSignature(method);
+		this.method = MetricClass.generateInnerSignature(method);
 
 		IMethod[] methods = this.classFrom.getMethods();
 
@@ -127,7 +132,14 @@ public class EvaluateMoveMethod {
 			if (MetricClass.getSignature(iMethod).equals(this.method)) {
 				return iMethod;
 			}
-			;
+		}
+		
+		this.method = MetricClass.generateSignature(method);
+
+		for (IMethod iMethod : methods) {
+			if (MetricClass.getSignature(iMethod).equals(this.method)) {
+				return iMethod;
+			}
 		}
 
 		throw new Exception("Method " + this.method + " not found!");
