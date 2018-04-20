@@ -39,12 +39,12 @@ public class CAMCJClass extends DeclarationMetricClass {
 		
 		Entry<String, Set<String>> [] mxs = getMethods().entrySet().toArray(new Entry [1]);
 		
-		for (int x = 0; x < mxs.length; x++) {
+		for (int x = 0; x < mxs.length - 1; x++) {
 			Entry<String, Set<String>> mx = mxs[x];
 						
 			Entry<String, Set<String>> [] mys = getMethods().entrySet().toArray(new Entry [1]);
 			
-			for (int y = 0; y < mys.length; y++) {
+			for (int y = x + 1; y < mys.length; y++) {
 				Entry<String, Set<String>> my = mys[y];
 								
 				Set<String> intersection = new HashSet<>(mx.getValue());
@@ -61,9 +61,27 @@ public class CAMCJClass extends DeclarationMetricClass {
 			}
 		}
 				
-		metric = metric / (getMethods().size() * getMethods().size());
+		//metric = metric / (getMethods().size() * getMethods().size());
+		System.out.println(fat(getMethods().size()));
+		System.out.println(comb(getMethods().size()));
+		metric = metric / comb(getMethods().size());
 
 		return metric;
+	}
+	
+	public static float comb(int n) {
+		return fat(n) / fat(2) * (n - 2);
+	}
+	
+	public static float fat(int n) {
+		float f = 0f;
+		
+		while (n > 1) {
+			f = f * (n - 1);
+			n--;
+		}
+		
+		return f;
 	}
 	
 	public static void main(String[] args) throws Exception {
