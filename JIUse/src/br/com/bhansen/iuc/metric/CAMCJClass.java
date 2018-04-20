@@ -8,17 +8,17 @@ import org.eclipse.jdt.core.IType;
 
 public class CAMCJClass extends DeclarationMetricClass {
 	
-	public CAMCJClass() {
-		super("Teste");
+	public CAMCJClass() throws Exception {
+		super(null);
 		
 		getMethods().put("m1", new HashSet<>());
-//		getMethods().get("m1").add("X");
+		getMethods().get("m1").add("X");
 		
 		getMethods().put("m2", new HashSet<>());
-//		getMethods().get("m2").add("X");
+		getMethods().get("m2").add("X");
 		
 		getMethods().put("m3", new HashSet<>());
-//		getMethods().get("m3").add("X");
+		getMethods().get("m3").add("X");
 //		getMethods().get("m3").add("Z");
 //		getMethods().get("m3").add("W");
 	}
@@ -26,13 +26,14 @@ public class CAMCJClass extends DeclarationMetricClass {
 	public CAMCJClass(IType type) throws Exception {
 		super(type);
 	}
-	
+		
 	@Override
-	public float getMetric(String fakeDelegate) {
+	@SuppressWarnings("unchecked")
+	public float getMetric(String fakeDelegate) throws Exception {
 		super.getMetric(fakeDelegate);
 		
 		if(getMethods().size() == 0)
-			return 1f;
+			return 0f;
 		
 		float metric = 0;
 		
@@ -53,7 +54,7 @@ public class CAMCJClass extends DeclarationMetricClass {
 				union.addAll(my.getValue());
 				
 				if(union.size() == 0) {
-					metric += 1;
+					metric += 0;
 				} else {
 					metric += (float) intersection.size() / (float) union.size();
 				}
@@ -65,7 +66,7 @@ public class CAMCJClass extends DeclarationMetricClass {
 		return metric;
 	}
 	
-	public static void main(String[] args) {
+	public static void main(String[] args) throws Exception {
 		CAMCJClass cj = new CAMCJClass();
 		
 		System.out.println("Resultado: " + cj.getMetric());

@@ -1,25 +1,35 @@
 package br.com.bhansen.iuc.metric;
 
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
+import org.eclipse.core.runtime.NullProgressMonitor;
+import org.eclipse.jdt.core.IJavaElement;
+import org.eclipse.jdt.core.IMember;
 import org.eclipse.jdt.core.IMethod;
 import org.eclipse.jdt.core.IType;
 import org.eclipse.jdt.core.JavaModelException;
 import org.eclipse.jdt.core.Signature;
+import org.eclipse.jdt.internal.corext.callhierarchy.CallHierarchy;
+import org.eclipse.jdt.internal.corext.callhierarchy.MethodWrapper;
 
+@SuppressWarnings("restriction")
 public class MetricClass {
 	
-	public static String METHOD_PREFIX = "IUC"; 
+	private static String METHOD_PREFIX = "IUC";
+	
+	private IType type;
 	
 	private String name;
 	private Map<String, Set<String>> methods;
 	
-	public MetricClass(String name) {
+	public MetricClass(IType type) {
 		super();
-		this.name = name;
+		this.type = type;
+		// TODO Gatilho 
+		this.name = (type == null)? "Null" : getClassName(type);
 		this.methods = new HashMap<>();
 	}
 
@@ -59,6 +69,64 @@ public class MetricClass {
 		return method;
 	}
 	
+	public void removeFakeDelegate(String fakeDelegate) throws Exception {
+		if(fakeDelegate != null) {
+			IMethod delegate = getFakeDelegate(fakeDelegate);
+			
+			Set<String> callers = getCallerMethods(delegate);
+			
+			if((callers.size() == 1) && (callers.contains(getName()))) {
+				methods.remove(getSignature(delegate));
+			}
+		}
+	}
+	
+	private IMethod getFakeDelegate(String fakeDelegate) throws Exception, JavaModelException {
+		IMethod[] methods = this.type.getMethods();
+		
+		for (IMethod iMethod : methods) {
+			String mSig = getSignature(iMethod);
+			
+			if(mSig.split("\\(", 2)[0].equals(fakeDelegate)) {
+				return iMethod;
+			}
+		}
+		
+		throw new Exception("Delegate " + fakeDelegate + " not found!");
+	}
+	
+	protected Set<String> getCallerMethods(IMethod method) {
+		Set<String> callerMethods = new HashSet<>();
+		
+		CallHierarchy callHierarchy = CallHierarchy.getDefault();
+
+		IMember[] members = { method };
+
+		MethodWrapper[] methodWrappers = callHierarchy.getCallerRoots(members);
+		for (MethodWrapper mw : methodWrappers) {
+			MethodWrapper[] mw2 = mw.getCalls(new NullProgressMonitor());
+			for (MethodWrapper m : mw2) {
+				IMethod im = getIMethodFromMethodWrapper(m);
+				if (im != null) {
+					callerMethods.add(getClassName(im.getDeclaringType()));
+				}
+//				callerMethods.add(getClassName(m.getMember().getDeclaringType()));
+			}
+		}
+		
+		return callerMethods;
+	}
+		
+	protected IMethod getIMethodFromMethodWrapper(MethodWrapper m) {
+		IMember im = m.getMember();
+		
+		if (im.getElementType() == IJavaElement.METHOD) {
+			return (IMethod) m.getMember();
+		} else {
+			return null;
+		}
+	}
+	
 	public String getName() {
 		return name;
 	}
@@ -66,37 +134,12 @@ public class MetricClass {
 	public Map<String, Set<String>> getMethods() {
 		return methods;
 	}
-	
-	//TODO Não funciona quando a assinatura não bate
-	public void removeFakeDelegate(String fakeDelegate) {
-		if(fakeDelegate != null) {
-			
-			for (Entry<String, Set<String>> method : methods.entrySet()) {
-				String fDelegateSig = method.getKey();
-				
-				if(fDelegateSig.split("\\(", 2)[0].equals(fakeDelegate)) {
-					String methodSig = fDelegateSig.replaceFirst("[0-9]{0,1}" + METHOD_PREFIX+ "\\(", "(");
-					
-					if(methods.containsKey(methodSig)) {
-						Set<String> delegateCallers = method.getValue();
-						
-						if((delegateCallers != null) && (delegateCallers.contains(getName())) && (delegateCallers.size() == 1)) {
-							methods.remove(fDelegateSig);
-							break;
-						}
-					} else {
-						break;
-					}
-				}
-			}
-		}
-	}
-	
-	public float getMetric() {
+		
+	public float getMetric() throws Exception {
 		return getMetric(null);
 	}
 	
-	public float getMetric(String fakeDelegate) {
+	public float getMetric(String fakeDelegate) throws Exception {
 		removeFakeDelegate(fakeDelegate);
 		
 		return 0f;

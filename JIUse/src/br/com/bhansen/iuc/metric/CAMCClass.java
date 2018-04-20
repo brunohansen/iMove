@@ -11,7 +11,7 @@ public class CAMCClass extends DeclarationMetricClass {
 	}
 
 	@Override
-	public float getMetric(String fakeDelegate) {
+	public float getMetric(String fakeDelegate) throws Exception {
 		super.getMetric(fakeDelegate);
 		
 		float camc = 0f;

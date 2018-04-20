@@ -8,13 +8,12 @@ import org.eclipse.jdt.core.IType;
 import org.eclipse.jdt.core.JavaModelException;
 
 public class DeclarationMetricClass extends MetricClass {
-	
-	public DeclarationMetricClass(String name) {
-		super(name);
-	}
-	
+		
 	public DeclarationMetricClass(IType type) throws Exception {
-		super(getClassName(type));
+		super(type);
+		
+		// TODO Gatilho
+		if(type == null) return;
 
 		IMethod[] methods = type.getMethods();
 

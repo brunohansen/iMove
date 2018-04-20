@@ -1,24 +1,17 @@
 package br.com.bhansen.iuc.metric;
 
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 
-import org.eclipse.core.runtime.NullProgressMonitor;
-import org.eclipse.jdt.core.IJavaElement;
-import org.eclipse.jdt.core.IMember;
 import org.eclipse.jdt.core.IMethod;
 import org.eclipse.jdt.core.IType;
-import org.eclipse.jdt.internal.corext.callhierarchy.CallHierarchy;
-import org.eclipse.jdt.internal.corext.callhierarchy.MethodWrapper;
 
-@SuppressWarnings("restriction")
 public class IUCClass extends MetricClass {
 	
 	public IUCClass(IType type) throws Exception {
-		super(getClassName(type));
+		super(type);
 		
 		IMethod[] methods = type.getMethods();
 				
@@ -31,44 +24,12 @@ public class IUCClass extends MetricClass {
 		
 	}
 		
-	public float getMetric(String fakeDelegate) {
+	public float getMetric(String fakeDelegate) throws Exception {
 		super.getMetric(fakeDelegate);
 		
 		Map<String, Integer> callers = getCallerClasses();
 		
 		return calcIUC(callers);
-	}
-		
-	private Set<String> getCallerMethods(IMethod method) {
-		Set<String> callerMethods = new HashSet<>();
-		
-		CallHierarchy callHierarchy = CallHierarchy.getDefault();
-
-		IMember[] members = { method };
-
-		MethodWrapper[] methodWrappers = callHierarchy.getCallerRoots(members);
-		for (MethodWrapper mw : methodWrappers) {
-			MethodWrapper[] mw2 = mw.getCalls(new NullProgressMonitor());
-			for (MethodWrapper m : mw2) {
-				IMethod im = getIMethodFromMethodWrapper(m);
-				if (im != null) {
-					callerMethods.add(getClassName(im.getDeclaringType()));
-				}
-//				callerMethods.add(getClassName(m.getMember().getDeclaringType()));
-			}
-		}
-		
-		return callerMethods;
-	}
-		
-	private IMethod getIMethodFromMethodWrapper(MethodWrapper m) {
-		IMember im = m.getMember();
-		
-		if (im.getElementType() == IJavaElement.METHOD) {
-			return (IMethod) m.getMember();
-		} else {
-			return null;
-		}
 	}
 		
 	private Map<String, Integer> getCallerClasses() {

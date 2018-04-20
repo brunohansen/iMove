@@ -11,9 +11,7 @@ import org.eclipse.ltk.core.refactoring.Change;
 import org.eclipse.ltk.core.refactoring.Refactoring;
 import org.eclipse.ltk.core.refactoring.participants.MoveRefactoring;
 
-import br.com.bhansen.iuc.metric.CAMCClass;
 import br.com.bhansen.iuc.metric.CAMCJClass;
-import br.com.bhansen.iuc.metric.IUCClass;
 import br.com.bhansen.iuc.metric.MetricClass;
 
 @SuppressWarnings("restriction")
