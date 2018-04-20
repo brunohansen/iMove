@@ -67,6 +67,7 @@ public class MetricClass {
 		return methods;
 	}
 	
+	//TODO Não funciona quando a assinatura não bate
 	public void removeFakeDelegate(String fakeDelegate) {
 		if(fakeDelegate != null) {
 			
@@ -83,6 +84,8 @@ public class MetricClass {
 							methods.remove(fDelegateSig);
 							break;
 						}
+					} else {
+						break;
 					}
 				}
 			}
