@@ -24,8 +24,8 @@ public class IUCClass extends MetricClass {
 		
 	}
 		
-	public float getMetric(String fakeDelegate) throws Exception {
-		super.getMetric(fakeDelegate);
+	public float getMetric(String fakeDelegate, String fakeParameter) throws Exception {
+		super.getMetric(fakeDelegate, fakeParameter);
 		
 		Map<String, Integer> callers = getCallerClasses();
 		

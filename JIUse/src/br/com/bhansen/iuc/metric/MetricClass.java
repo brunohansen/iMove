@@ -69,14 +69,14 @@ public class MetricClass {
 		return method;
 	}
 	
-	public void removeFakes(String fakeDelegate) throws Exception {
+	public void removeFakes(String fakeDelegate, String fakeParameter) throws Exception {
 		if(fakeDelegate != null) {
 			IMethod delegate = getFakeDelegate(fakeDelegate);
 			
 			if(delegate != null) {
 				methods.remove(getSignature(delegate));
 			} else {
-				System.out.println("Não removeu delegate: " + fakeDelegate);
+				removeFakeParameter(fakeParameter);
 			}
 		}
 	}
@@ -175,11 +175,11 @@ public class MetricClass {
 	}
 		
 	public float getMetric() throws Exception {
-		return getMetric(null);
+		return getMetric(null, null);
 	}
 	
-	public float getMetric(String fakeDelegate) throws Exception {
-		removeFakes(fakeDelegate);
+	public float getMetric(String fakeDelegate, String fakeParameter) throws Exception {
+		removeFakes(fakeDelegate, fakeParameter);
 		
 		return 0f;
 	}

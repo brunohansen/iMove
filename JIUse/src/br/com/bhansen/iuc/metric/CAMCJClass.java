@@ -29,8 +29,8 @@ public class CAMCJClass extends DeclarationMetricClass {
 		
 	@Override
 	@SuppressWarnings("unchecked")
-	public float getMetric(String fakeDelegate) throws Exception {
-		super.getMetric(fakeDelegate);
+	public float getMetric(String fakeDelegate, String fakeParameter) throws Exception {
+		super.getMetric(fakeDelegate, fakeParameter);
 		
 		if(getMethods().size() == 0)
 			return 0f;
