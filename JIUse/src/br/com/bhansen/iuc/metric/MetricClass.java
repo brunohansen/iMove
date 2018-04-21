@@ -71,47 +71,53 @@ public class MetricClass {
 	
 	public void removeFakes(String fakeDelegate, String fakeParameter) throws Exception {
 		if(fakeDelegate != null) {
-			IMethod delegate = getFakeDelegate(fakeDelegate);
+			IMethod delegate = getMethod(fakeDelegate);
 			
-			if(delegate != null) {
+			if(isFakeDelegate(delegate)) {
 				methods.remove(getSignature(delegate));
 			} else {
-				removeFakeParameter(fakeParameter);
+				removeFakeParameter(getSignature(delegate), fakeParameter);
 			}
 		}
 	}
 	
-	public void removeFakeParameter(String fakeParameter) {
+	public void removeFakeParameter(String fakeSignature, String fakeParameter) throws JavaModelException {
 		
 	}
 	
-	//org.apache.tools.ant.util.ScriptRunnerHelper::executeScript2(ScriptDef, Map, Map, ScriptDefBase):void	org.apache.tools.ant.taskdefs.optional.script.ScriptDef
-	//remover fake parameter
-	private IMethod getFakeDelegate(String fakeDelegate) throws Exception, JavaModelException {
+	private IMethod getMethod(String name) throws Exception, JavaModelException {
 		
-		for (IMethod iMethod : this.type.getMethods()) {
+		for (IMethod iMethod : getType().getMethods()) {
 			String mSig = getSignature(iMethod);
 			
-			if(mSig.split("\\(", 2)[0].equals(fakeDelegate)) {
-				Set<String> callers = getCallerMethods(iMethod);
-				
-				if(callers.size() != 1) {
-					return null;
-				}
-				
-				for (String string : callers) {
-					String originalName = mSig.split("\\(", 2)[0].replaceFirst("[0-9]{0,1}" + METHOD_PREFIX, "");
-					
-					if(originalName.equals(string.split("\\(", 2)[0])) {
-						return iMethod;
-					} else {
-						return null;
-					}
-				}				
+			if(mSig.split("\\(", 2)[0].equals(name)) {
+				return iMethod;
 			}
 		}
 		
 		return null;
+	}
+	
+	private boolean isFakeDelegate(IMethod method) throws Exception, JavaModelException {
+
+		Set<String> callers = getCallerMethods(method);
+		String mSig = getSignature(method);
+		
+		if(callers.size() != 1) {
+			return false;
+		}
+		
+		for (String string : callers) {
+			String originalName = mSig.split("\\(", 2)[0].replaceFirst("[0-9]{0,1}" + METHOD_PREFIX, "");
+			
+			if(originalName.equals(string.split("\\(", 2)[0])) {
+				return true;
+			} else {
+				return false;
+			}
+		}				
+		
+		return false;
 	}
 	
 	protected Set<String> getCallerMethods(IMethod method) throws IllegalArgumentException, JavaModelException {
@@ -168,6 +174,10 @@ public class MetricClass {
 	
 	public String getName() {
 		return name;
+	}
+	
+	public IType getType() {
+		return type;
 	}
 	
 	public Map<String, Set<String>> getMethods() {

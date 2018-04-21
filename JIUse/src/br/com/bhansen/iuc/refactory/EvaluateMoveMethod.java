@@ -91,7 +91,6 @@ public class EvaluateMoveMethod {
 		refactoring.checkInitialConditions(monitor);
 		
 		processor.setMethodName(MetricClass.getMoveMethodName(iMethod.getElementName()));
-		processor.setTargetName("paramIUC");
 		processor.setInlineDelegator(true);
 		processor.setRemoveDelegator(true);
 		processor.setDeprecateDelegates(false);
@@ -115,7 +114,7 @@ public class EvaluateMoveMethod {
 		
 		try {
 			this.newFromIUC = createMetric(this.classFrom).getMetric();
-			this.newToIUC = createMetric(this.classTo).getMetric(MetricClass.getMoveMethodName(iMethod.getElementName()));
+			this.newToIUC = createMetric(this.classTo).getMetric(MetricClass.getMoveMethodName(iMethod.getElementName()), MetricClass.getClassName(this.classFrom));
 			
 			this.iucDifference = (this.newFromIUC - this.oldFromIUC) + (this.newToIUC - this.oldToIUC);
 		} finally {

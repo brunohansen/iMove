@@ -3,6 +3,7 @@ package br.com.bhansen.iuc.metric;
 import java.util.HashSet;
 import java.util.Set;
 
+import org.eclipse.jdt.core.IField;
 import org.eclipse.jdt.core.IMethod;
 import org.eclipse.jdt.core.IType;
 import org.eclipse.jdt.core.JavaModelException;
@@ -35,6 +36,31 @@ public class DeclarationMetricClass extends MetricClass {
 		}
 
 		return parameters;
+	}
+	
+	@Override
+	public void removeFakeParameter(String fakeSignature, String fakeParameter) throws JavaModelException {
+		super.removeFakeParameter(fakeSignature, fakeParameter);
+		
+		String fType = generateInnerSignature(fakeParameter);
+		
+		for (IField iField : getType().getFields()) {
+			if(iField.toString().split(" ", 2)[0].equals(fType)) {
+				getMethods().get(fakeSignature).remove(fType);
+				return;
+			}				
+		}
+		
+		fType = generateSignature(fakeParameter);
+		
+		for (IField iField : getType().getFields()) {
+			if(iField.toString().split(" ", 2)[0].equals(fType)) {
+				getMethods().get(fakeSignature).remove(fType);
+				return;
+			}				
+		}
+		
+		
 	}
 	
 	protected Set<String> getParams() {
