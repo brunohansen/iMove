@@ -11,7 +11,7 @@ import org.eclipse.ltk.core.refactoring.Change;
 import org.eclipse.ltk.core.refactoring.Refactoring;
 import org.eclipse.ltk.core.refactoring.participants.MoveRefactoring;
 
-import br.com.bhansen.iuc.metric.CAMCJClass;
+import br.com.bhansen.iuc.metric.CAMCClass;
 import br.com.bhansen.iuc.metric.MetricClass;
 
 @SuppressWarnings("restriction")
@@ -45,8 +45,8 @@ public class EvaluateMoveMethod {
 	
 	public MetricClass createMetric(IType type) throws Exception {
 		//return new IUCClass(type); 
-		//return new CAMCClass(type);
-		return new CAMCJClass(type);
+		return new CAMCClass(type);
+		//return new CAMCJClass(type);
 	}
 
 	public void setClassFrom(IType classFrom) throws Exception {
@@ -91,6 +91,7 @@ public class EvaluateMoveMethod {
 		refactoring.checkInitialConditions(monitor);
 		
 		processor.setMethodName(MetricClass.getMoveMethodName(iMethod.getElementName()));
+		processor.setTargetName("paramIUC");
 		processor.setInlineDelegator(true);
 		processor.setRemoveDelegator(true);
 		processor.setDeprecateDelegates(false);

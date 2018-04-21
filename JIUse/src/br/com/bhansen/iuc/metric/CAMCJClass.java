@@ -74,7 +74,7 @@ public class CAMCJClass extends DeclarationMetricClass {
 	}
 	
 	public static float fat(int n) {
-		float f = 0f;
+		float f = n;
 		
 		while (n > 1) {
 			f = f * (n - 1);

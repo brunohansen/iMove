@@ -17,7 +17,7 @@ public class IUCClass extends MetricClass {
 				
 		for (IMethod method : methods) {
 			
-			if(getMethods().put(getSignature(method), getCallerMethods(method)) != null) {
+			if(getMethods().put(getSignature(method), getCallerClasses(method)) != null) {
 				throw new Exception("Method " + getSignature(method) + " colision!");
 			};
 		}

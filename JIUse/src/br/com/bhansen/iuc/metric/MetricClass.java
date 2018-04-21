@@ -69,33 +69,73 @@ public class MetricClass {
 		return method;
 	}
 	
-	public void removeFakeDelegate(String fakeDelegate) throws Exception {
+	public void removeFakes(String fakeDelegate) throws Exception {
 		if(fakeDelegate != null) {
 			IMethod delegate = getFakeDelegate(fakeDelegate);
 			
-			Set<String> callers = getCallerMethods(delegate);
-			
-			if((callers.size() == 1) && (callers.contains(getName()))) {
+			if(delegate != null) {
 				methods.remove(getSignature(delegate));
+			} else {
+				System.out.println("Não removeu delegate: " + fakeDelegate);
 			}
 		}
 	}
 	
-	private IMethod getFakeDelegate(String fakeDelegate) throws Exception, JavaModelException {
-		IMethod[] methods = this.type.getMethods();
+	public void removeFakeParameter(String fakeParameter) {
 		
-		for (IMethod iMethod : methods) {
+	}
+	
+	//org.apache.tools.ant.util.ScriptRunnerHelper::executeScript2(ScriptDef, Map, Map, ScriptDefBase):void	org.apache.tools.ant.taskdefs.optional.script.ScriptDef
+	//remover fake parameter
+	private IMethod getFakeDelegate(String fakeDelegate) throws Exception, JavaModelException {
+		
+		for (IMethod iMethod : this.type.getMethods()) {
 			String mSig = getSignature(iMethod);
 			
 			if(mSig.split("\\(", 2)[0].equals(fakeDelegate)) {
-				return iMethod;
+				Set<String> callers = getCallerMethods(iMethod);
+				
+				if(callers.size() != 1) {
+					return null;
+				}
+				
+				for (String string : callers) {
+					String originalName = mSig.split("\\(", 2)[0].replaceFirst("[0-9]{0,1}" + METHOD_PREFIX, "");
+					
+					if(originalName.equals(string.split("\\(", 2)[0])) {
+						return iMethod;
+					} else {
+						return null;
+					}
+				}				
 			}
 		}
 		
-		throw new Exception("Delegate " + fakeDelegate + " not found!");
+		return null;
 	}
 	
-	protected Set<String> getCallerMethods(IMethod method) {
+	protected Set<String> getCallerMethods(IMethod method) throws IllegalArgumentException, JavaModelException {
+		Set<String> callerMethods = new HashSet<>();
+		
+		CallHierarchy callHierarchy = CallHierarchy.getDefault();
+
+		IMember[] members = { method };
+
+		MethodWrapper[] methodWrappers = callHierarchy.getCallerRoots(members);
+		for (MethodWrapper mw : methodWrappers) {
+			MethodWrapper[] mw2 = mw.getCalls(new NullProgressMonitor());
+			for (MethodWrapper m : mw2) {
+				IMethod im = getIMethodFromMethodWrapper(m);
+				if (im != null) {
+					callerMethods.add(getSignature(im));
+				}
+			}
+		}
+		
+		return callerMethods;
+	}
+	
+	protected Set<String> getCallerClasses(IMethod method) {
 		Set<String> callerMethods = new HashSet<>();
 		
 		CallHierarchy callHierarchy = CallHierarchy.getDefault();
@@ -110,7 +150,6 @@ public class MetricClass {
 				if (im != null) {
 					callerMethods.add(getClassName(im.getDeclaringType()));
 				}
-//				callerMethods.add(getClassName(m.getMember().getDeclaringType()));
 			}
 		}
 		
@@ -140,7 +179,7 @@ public class MetricClass {
 	}
 	
 	public float getMetric(String fakeDelegate) throws Exception {
-		removeFakeDelegate(fakeDelegate);
+		removeFakes(fakeDelegate);
 		
 		return 0f;
 	}
