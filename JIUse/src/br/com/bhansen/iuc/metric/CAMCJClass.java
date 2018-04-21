@@ -19,8 +19,8 @@ public class CAMCJClass extends DeclarationMetricClass {
 		
 		getMethods().put("m3", new HashSet<>());
 		getMethods().get("m3").add("X");
-//		getMethods().get("m3").add("Z");
-//		getMethods().get("m3").add("W");
+		getMethods().get("m3").add("Z");
+		getMethods().get("m3").add("W");
 	}
 
 	public CAMCJClass(IType type) throws Exception {
@@ -62,14 +62,18 @@ public class CAMCJClass extends DeclarationMetricClass {
 		}
 				
 		//metric = metric / (getMethods().size() * getMethods().size());
-		System.out.println(fat(getMethods().size()));
-		System.out.println(comb(getMethods().size()));
 		metric = metric / comb(getMethods().size());
 
 		return metric;
 	}
 	
 	public static float comb(int n) {
+		if(n == 0)
+			return 0;
+		
+		if(n <= 2)
+			return 1;
+		
 		return fat(n) / fat(2) * (n - 2);
 	}
 	
