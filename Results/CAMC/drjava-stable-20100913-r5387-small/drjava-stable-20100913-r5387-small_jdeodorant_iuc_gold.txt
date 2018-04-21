@@ -1,7 +1,7 @@
 000	edu.rice.cs.drjava.config.ConfigOptionListeners.SlaveJVMXMXListener::getSelectedCompilerErrorPanel(MainFrame):CompilerErrorPanel	edu.rice.cs.drjava.ui.MainFrame
 000	edu.rice.cs.drjava.model.MovingDocumentRegion::disableFindAgain(FindResultsPanel):void	edu.rice.cs.drjava.ui.FindResultsPanel
 000	edu.rice.cs.drjava.model.junit.JUnitError::progressReset(JUnitPanel, int):void	edu.rice.cs.drjava.ui.JUnitPanel
-000	edu.rice.cs.drjava.model.repl.InteractionsScriptModel::setActionsDisabled(InteractionsScriptController):void	edu.rice.cs.drjava.ui.InteractionsScriptController
+000	edu.rice.cs.drjava.ui.InteractionsController::tempFile(GlobalModelTestCase, int):File	edu.rice.cs.drjava.model.GlobalModelTestCase
 001	edu.rice.cs.drjava.model.definitions.DefinitionsEditorKit::closeProject(AbstractGlobalModel, boolean):void	edu.rice.cs.drjava.model.GlobalEventNotifier
 011	edu.rice.cs.drjava.model.AbstractGlobalModel::_docAppend(ConsoleDocument, String, String):void	edu.rice.cs.util.text.ConsoleDocument
 011	edu.rice.cs.drjava.model.debug.jpda.EventHandlerThread::_handleBreakpointEvent(BreakpointEvent):void	edu.rice.cs.drjava.model.debug.jpda.JPDADebugger
@@ -14,9 +14,7 @@
 011	edu.rice.cs.drjava.project.XMLProjectFileParser::readCollapsed():List<String>	edu.rice.cs.util.XMLConfig
 011	edu.rice.cs.drjava.project.XMLProjectFileParser::readWatches():List<DebugWatchData>	edu.rice.cs.util.XMLConfig
 011	edu.rice.cs.drjava.ui.KeyBindingManager::updateMenuItem(KeyStrokeData):void	edu.rice.cs.drjava.ui.KeyBindingManager.KeyStrokeData
-011	edu.rice.cs.drjava.ui.MainFrame::commentLines():void	edu.rice.cs.drjava.ui.DefinitionsPane
-011	edu.rice.cs.drjava.ui.MainFrame::uncommentLines():void	edu.rice.cs.drjava.ui.DefinitionsPane
-100	edu.rice.cs.drjava.ui.InteractionsController::tempFile(GlobalModelTestCase, int):File	edu.rice.cs.drjava.model.GlobalModelTestCase
+100	edu.rice.cs.drjava.model.repl.InteractionsScriptModel::setActionsDisabled(InteractionsScriptController):void	edu.rice.cs.drjava.ui.InteractionsScriptController
 111	edu.rice.cs.drjava.model.debug.jpda.JPDADebugger::_getThreadFromDebugThreadData(DebugThreadData):ThreadReference	edu.rice.cs.drjava.model.debug.DebugThreadData
 111	edu.rice.cs.drjava.model.debug.jpda.JPDADebugger::setCurrentThread(ThreadReference):boolean	edu.rice.cs.drjava.model.debug.jpda.JPDADebugger.RandomAccessStack
 111	edu.rice.cs.drjava.model.definitions.indent.IndentRuleQuestion::applyRule(AbstractDJDocument, int, Indenter.IndentReason):boolean	edu.rice.cs.drjava.model.AbstractDJDocument
@@ -36,9 +34,11 @@
 111	edu.rice.cs.drjava.ui.MainFrame::_pageSetup():void	edu.rice.cs.drjava.model.AbstractGlobalModel
 111	edu.rice.cs.drjava.ui.MainFrame::_processDocs(Collection<OpenDefinitionsDocument>, Runnable1<OpenDefinitionsDocument>):void	edu.rice.cs.drjava.model.AbstractGlobalModel
 111	edu.rice.cs.drjava.ui.MainFrame::_removeAllAuxiliary():void	edu.rice.cs.drjava.model.AbstractGlobalModel
+111	edu.rice.cs.drjava.ui.MainFrame::commentLines():void	edu.rice.cs.drjava.ui.DefinitionsPane
 111	edu.rice.cs.drjava.ui.MainFrame::isProjectActiveAndMainClassSet():boolean	edu.rice.cs.drjava.model.AbstractGlobalModel
 111	edu.rice.cs.drjava.ui.MainFrame::nextRecentDoc():void	edu.rice.cs.drjava.ui.RecentDocFrame
 111	edu.rice.cs.drjava.ui.MainFrame::prevRecentDoc():void	edu.rice.cs.drjava.ui.RecentDocFrame
+111	edu.rice.cs.drjava.ui.MainFrame::uncommentLines():void	edu.rice.cs.drjava.ui.DefinitionsPane
 111	edu.rice.cs.util.BalancingStreamTokenizer::addKeyword(String):void	edu.rice.cs.util.BalancingStreamTokenizer.State
 111	edu.rice.cs.util.BalancingStreamTokenizer::addQuotes(String, String):void	edu.rice.cs.util.BalancingStreamTokenizer.State
 111	edu.rice.cs.util.BalancingStreamTokenizer::whitespace(int[]):void	edu.rice.cs.util.BalancingStreamTokenizer.State

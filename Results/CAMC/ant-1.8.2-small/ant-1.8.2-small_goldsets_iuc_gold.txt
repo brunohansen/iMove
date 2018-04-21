@@ -4,7 +4,7 @@
 000	org.apache.tools.ant.types.Comparison::setValue(SizeSelector, long):void	org.apache.tools.ant.types.selectors.SizeSelector
 000	org.apache.tools.ant.types.Environment::setOutputproperty(Java, String):void	org.apache.tools.ant.taskdefs.Java
 000	org.apache.tools.ant.types.RedirectorElement::setSpawn(ExecTask, boolean):void	org.apache.tools.ant.taskdefs.ExecTask
+000	org.apache.tools.ant.types.RegularExpression::addRegexp(Matches):void	org.apache.tools.ant.taskdefs.condition.Matches
 000	org.apache.tools.ant.types.ZipScanner::setUpdate(Zip, boolean):void	org.apache.tools.ant.taskdefs.Zip
 000	org.apache.tools.ant.util.ClasspathUtils.Delegate::getLoaderId(DefBase):String	org.apache.tools.ant.taskdefs.DefBase
-000	org.apache.tools.ant.util.LineTokenizer::chain(HeadFilter, Reader):Reader	org.apache.tools.ant.filters.HeadFilter
-100	org.apache.tools.ant.types.RegularExpression::addRegexp(Matches):void	org.apache.tools.ant.taskdefs.condition.Matches
+100	org.apache.tools.ant.util.LineTokenizer::chain(HeadFilter, Reader):Reader	org.apache.tools.ant.filters.HeadFilter

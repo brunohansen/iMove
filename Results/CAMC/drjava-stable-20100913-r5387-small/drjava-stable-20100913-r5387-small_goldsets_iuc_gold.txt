@@ -3,8 +3,8 @@
 000	edu.rice.cs.drjava.model.MovingDocumentRegion::disableFindAgain(FindResultsPanel):void	edu.rice.cs.drjava.ui.FindResultsPanel
 000	edu.rice.cs.drjava.model.definitions.DefinitionsEditorKit::closeProject(AbstractGlobalModel, boolean):void	edu.rice.cs.drjava.model.AbstractGlobalModel
 000	edu.rice.cs.drjava.model.junit.JUnitError::progressReset(JUnitPanel, int):void	edu.rice.cs.drjava.ui.JUnitPanel
-000	edu.rice.cs.drjava.model.repl.InteractionsScriptModel::setActionsDisabled(InteractionsScriptController):void	edu.rice.cs.drjava.ui.InteractionsScriptController
 000	edu.rice.cs.drjava.model.repl.newjvm.MainJVM::junitJVMReady(DefaultJUnitModel):void	edu.rice.cs.drjava.model.junit.DefaultJUnitModel
+000	edu.rice.cs.drjava.ui.InteractionsController::tempFile(GlobalModelTestCase, int):File	edu.rice.cs.drjava.model.GlobalModelTestCase
 100	edu.rice.cs.drjava.model.AbstractDJDocument::testSecondLineMisindented(ActionStartPrevLinePlusTest):void	edu.rice.cs.drjava.model.definitions.indent.ActionStartPrevLinePlusTest
-100	edu.rice.cs.drjava.ui.InteractionsController::tempFile(GlobalModelTestCase, int):File	edu.rice.cs.drjava.model.GlobalModelTestCase
+100	edu.rice.cs.drjava.model.repl.InteractionsScriptModel::setActionsDisabled(InteractionsScriptController):void	edu.rice.cs.drjava.ui.InteractionsScriptController
 100	edu.rice.cs.drjava.ui.config.ConfigFrame::resetDebugFrame(MainFrame):void	edu.rice.cs.drjava.ui.MainFrame

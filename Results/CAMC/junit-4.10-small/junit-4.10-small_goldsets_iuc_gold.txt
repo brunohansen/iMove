@@ -6,5 +6,5 @@
 000	org.junit.runner.notification.RunListener::removeListener(JUnitCore):void	org.junit.runner.JUnitCore
 000	org.junit.runner.notification.RunNotifier::addFailure(ClassRoadie, Throwable):void	org.junit.internal.runners.ClassRoadie
 000	org.junit.runners.model.RunnerBuilder::runnerForClass2(AnnotatedBuilder, Class<?>):Runner	org.junit.internal.builders.AnnotatedBuilder
-000	org.junit.runners.model.TestClass::getAllArguments(Assignments, boolean):Object[]	org.junit.experimental.theories.internal.Assignments
-000	org.junit.runners.model.TestClass::getArgumentStrings(Assignments, boolean):Object[]	org.junit.experimental.theories.internal.Assignments
+100	org.junit.runners.model.TestClass::getAllArguments(Assignments, boolean):Object[]	org.junit.experimental.theories.internal.Assignments
+100	org.junit.runners.model.TestClass::getArgumentStrings(Assignments, boolean):Object[]	org.junit.experimental.theories.internal.Assignments

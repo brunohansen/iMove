@@ -1,5 +1,6 @@
+000	org.apache.tools.ant.util.FileUtils::eval2(IsFileSelected):boolean	org.apache.tools.ant.taskdefs.condition.IsFileSelected
+000	org.apache.tools.ant.util.ScriptRunnerHelper::executeScript2(ScriptDef, Map, Map, ScriptDefBase):void	org.apache.tools.ant.taskdefs.optional.script.ScriptDef
 011	org.apache.tools.ant.DirectoryScanner::isDeeper(TokenizedPattern, TokenizedPath):boolean	org.apache.tools.ant.types.selectors.TokenizedPattern
-011	org.apache.tools.ant.helper.ProjectHelper2.AntHandler::onStartChild(String, String, String, Attributes, AntXMLContext):AntHandler	org.apache.tools.ant.helper.AntXMLContext
 011	org.apache.tools.ant.helper.ProjectHelper2.TargetHandler::getTargetPrefix(AntXMLContext):String	org.apache.tools.ant.helper.AntXMLContext
 011	org.apache.tools.ant.taskdefs.AbstractCvsTask::executeToString(Execute):String	org.apache.tools.ant.taskdefs.Execute
 011	org.apache.tools.ant.taskdefs.Ant::addAlmostAll(Hashtable, PropertyType):void	org.apache.tools.ant.Project
@@ -13,8 +14,6 @@
 011	org.apache.tools.ant.taskdefs.rmic.DefaultRmicAdapter::logAndAddFilesToCompile(Commandline):void	org.apache.tools.ant.types.Commandline
 011	org.apache.tools.ant.types.resources.Archives::configureArchive(ArchiveFileSet, Resource):ArchiveFileSet	org.apache.tools.ant.types.ArchiveFileSet
 011	org.apache.tools.zip.ZipFile::getUnicodeStringIfOriginalMatches(AbstractUnicodeExtraField, byte[]):String	org.apache.tools.zip.AbstractUnicodeExtraField
-100	org.apache.tools.ant.util.FileUtils::eval2(IsFileSelected):boolean	org.apache.tools.ant.taskdefs.condition.IsFileSelected
-100	org.apache.tools.ant.util.ScriptRunnerHelper::executeScript2(ScriptDef, Map, Map, ScriptDefBase):void	org.apache.tools.ant.taskdefs.optional.script.ScriptDef
 111	org.apache.tools.ant.AntTypeDefinition::innerCreateAndSet(Class, Project):Object	org.apache.tools.ant.Project
 111	org.apache.tools.ant.ComponentHelper::createComponent(UnknownElement, String, String):Object	org.apache.tools.ant.UnknownElement
 111	org.apache.tools.ant.ComponentHelper::validDefinition(AntTypeDefinition):boolean	org.apache.tools.ant.AntTypeDefinition
@@ -24,6 +23,7 @@
 111	org.apache.tools.ant.filters.ReplaceTokens::getProperties(Resource):Properties	org.apache.tools.ant.types.Resource
 111	org.apache.tools.ant.filters.util.ChainReaderHelper::expandReader(AntFilterReader, Reader, List):Reader	org.apache.tools.ant.types.AntFilterReader
 111	org.apache.tools.ant.helper.ProjectHelper2.AntHandler::characters(char[], int, int, AntXMLContext):void	org.apache.tools.ant.helper.AntXMLContext
+111	org.apache.tools.ant.helper.ProjectHelper2.AntHandler::onStartChild(String, String, String, Attributes, AntXMLContext):AntHandler	org.apache.tools.ant.helper.AntXMLContext
 111	org.apache.tools.ant.helper.ProjectHelper2::parse(Project, Object, RootHandler):void	org.apache.tools.ant.util.FileUtils
 111	org.apache.tools.ant.listener.MailLogger::sendMail(Values, String):void	org.apache.tools.ant.listener.MailLogger.Values
 111	org.apache.tools.ant.listener.MailLogger::sendMimeMail(Project, Values, String):void	org.apache.tools.ant.listener.MailLogger.Values
