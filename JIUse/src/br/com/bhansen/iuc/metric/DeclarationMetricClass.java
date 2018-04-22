@@ -9,6 +9,21 @@ import org.eclipse.jdt.core.IType;
 import org.eclipse.jdt.core.JavaModelException;
 
 public class DeclarationMetricClass extends MetricClass {
+	
+	public DeclarationMetricClass() throws Exception {
+		this(null);
+		
+		getMethods().put("m1", new HashSet<>());
+		getMethods().get("m1").add("X");
+		
+		getMethods().put("m2", new HashSet<>());
+		getMethods().get("m2").add("X");
+		
+		getMethods().put("m3", new HashSet<>());
+		getMethods().get("m3").add("X");
+		getMethods().get("m3").add("Z");
+		getMethods().get("m3").add("W");
+	}
 		
 	public DeclarationMetricClass(IType type) throws Exception {
 		super(type);
@@ -71,5 +86,26 @@ public class DeclarationMetricClass extends MetricClass {
 		}
 		
 		return params;
+	}
+	
+	public static int comb(int n) {
+		if(n == 0)
+			return 0;
+		
+		if(n <= 2)
+			return 1;
+		
+		return fat(n) / fat(2) * (n - 2);
+	}
+	
+	public static int fat(int n) {
+		int f = n;
+		
+		while (n > 1) {
+			f = f * (n - 1);
+			n--;
+		}
+		
+		return f;
 	}
 }
