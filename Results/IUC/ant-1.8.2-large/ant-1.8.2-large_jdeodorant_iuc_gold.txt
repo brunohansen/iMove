@@ -1,3 +1,4 @@
+000	org.apache.tools.ant.util.FileUtils::eval2(IsFileSelected):boolean	org.apache.tools.ant.taskdefs.condition.IsFileSelected
 000	org.apache.tools.ant.util.ScriptRunnerHelper::executeScript2(ScriptDef, Map, Map, ScriptDefBase):void	org.apache.tools.ant.taskdefs.optional.script.ScriptDef
 011	org.apache.tools.ant.AntTypeDefinition::innerCreateAndSet(Class, Project):Object	org.apache.tools.ant.Project
 011	org.apache.tools.ant.ComponentHelper::createComponent(UnknownElement, String, String):Object	org.apache.tools.ant.UnknownElement
@@ -6,7 +7,9 @@
 011	org.apache.tools.ant.helper.ProjectHelper2.AntHandler::characters(char[], int, int, AntXMLContext):void	org.apache.tools.ant.helper.AntXMLContext
 011	org.apache.tools.ant.helper.ProjectHelper2.AntHandler::onStartChild(String, String, String, Attributes, AntXMLContext):AntHandler	org.apache.tools.ant.helper.AntXMLContext
 011	org.apache.tools.ant.helper.ProjectHelper2.TargetHandler::getTargetPrefix(AntXMLContext):String	org.apache.tools.ant.helper.AntXMLContext
+011	org.apache.tools.ant.taskdefs.AbstractCvsTask::addCommandArgument(Commandline, String):void	org.apache.tools.ant.types.Commandline
 011	org.apache.tools.ant.taskdefs.Ant::addAlmostAll(Hashtable, PropertyType):void	org.apache.tools.ant.Project
+011	org.apache.tools.ant.taskdefs.Execute.CommandLauncher::exec(Project, String[], String[]):Process	org.apache.tools.ant.Project
 011	org.apache.tools.ant.taskdefs.Replace::getProperties(Resource):Properties	org.apache.tools.ant.types.Resource
 011	org.apache.tools.ant.taskdefs.ResourceCount::setRefid(Reference):void	org.apache.tools.ant.types.Reference
 011	org.apache.tools.ant.taskdefs.compilers.JavacExternal::execOnVMS(Commandline, int):boolean	org.apache.tools.ant.types.Commandline
@@ -22,7 +25,6 @@
 011	org.apache.tools.ant.taskdefs.rmic.DefaultRmicAdapter::logAndAddFilesToCompile(Commandline):void	org.apache.tools.ant.types.Commandline
 011	org.apache.tools.ant.types.Permissions::createPermission(Permissions.Permission):Permission	org.apache.tools.ant.types.Permissions.Permission
 011	org.apache.tools.ant.types.resources.Archives::configureArchive(ArchiveFileSet, Resource):ArchiveFileSet	org.apache.tools.ant.types.ArchiveFileSet
-100	org.apache.tools.ant.util.FileUtils::eval2(IsFileSelected):boolean	org.apache.tools.ant.taskdefs.condition.IsFileSelected
 111	org.apache.tools.ant.ComponentHelper::validDefinition(AntTypeDefinition):boolean	org.apache.tools.ant.AntTypeDefinition
 111	org.apache.tools.ant.DirectoryScanner::isDeeper(TokenizedPattern, TokenizedPath):boolean	org.apache.tools.ant.types.selectors.TokenizedPattern
 111	org.apache.tools.ant.IntrospectionHelper::findRestrictedDefinition(ComponentHelper, String, List):AntTypeDefinition	org.apache.tools.ant.ComponentHelper
@@ -31,10 +33,8 @@
 111	org.apache.tools.ant.helper.ProjectHelper2::parse(Project, Object, RootHandler):void	org.apache.tools.ant.util.FileUtils
 111	org.apache.tools.ant.listener.MailLogger::sendMail(Values, String):void	org.apache.tools.ant.listener.MailLogger.Values
 111	org.apache.tools.ant.listener.MailLogger::sendMimeMail(Project, Values, String):void	org.apache.tools.ant.listener.MailLogger.Values
-111	org.apache.tools.ant.taskdefs.AbstractCvsTask::addCommandArgument(Commandline, String):void	org.apache.tools.ant.types.Commandline
 111	org.apache.tools.ant.taskdefs.AbstractCvsTask::executeToString(Execute):String	org.apache.tools.ant.taskdefs.Execute
 111	org.apache.tools.ant.taskdefs.DependSet::getXest(ResourceCollection, ResourceComparator):Resource	org.apache.tools.ant.types.resources.comparators.ResourceComparator
-111	org.apache.tools.ant.taskdefs.Execute.CommandLauncher::exec(Project, String[], String[]):Process	org.apache.tools.ant.Project
 111	org.apache.tools.ant.taskdefs.Javadoc::checkPackages(Vector, Path):void	org.apache.tools.ant.types.Path
 111	org.apache.tools.ant.taskdefs.Javadoc::doDoclet(Commandline):void	org.apache.tools.ant.taskdefs.Javadoc.DocletInfo
 111	org.apache.tools.ant.taskdefs.Javadoc::doSourceAndPackageNames(Commandline, Vector, Vector, boolean, File, BufferedWriter):void	org.apache.tools.ant.types.Commandline
