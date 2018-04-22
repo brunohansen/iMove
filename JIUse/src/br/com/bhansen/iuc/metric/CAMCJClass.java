@@ -39,7 +39,7 @@ public class CAMCJClass extends DeclarationMetricClass {
 				union.addAll(my.getValue());
 				
 				if(union.size() == 0) {
-					metric += 0;
+					metric += 1;
 				} else {
 					metric += (float) intersection.size() / (float) union.size();
 				}
