@@ -1,0 +1,10 @@
+000	org.apache.tools.ant.filters.FixCrLfFilter::setDestdir(FixCRLF, File):void	org.apache.tools.ant.taskdefs.FixCRLF
+000	org.apache.tools.ant.filters.StripLineBreaks::addStripLineBreaks(FilterChain):void	org.apache.tools.ant.types.FilterChain
+000	org.apache.tools.ant.taskdefs.Parallel::setFailureMessage(Funtest, String):void	org.apache.tools.ant.taskdefs.optional.testing.Funtest
+000	org.apache.tools.ant.types.Environment::setOutputproperty(Java, String):void	org.apache.tools.ant.taskdefs.Java
+000	org.apache.tools.ant.types.RedirectorElement::setSpawn(ExecTask, boolean):void	org.apache.tools.ant.taskdefs.ExecTask
+000	org.apache.tools.ant.types.ZipScanner::setUpdate(Zip, boolean):void	org.apache.tools.ant.taskdefs.Zip
+100	org.apache.tools.ant.types.Comparison::setValue(SizeSelector, long):void	org.apache.tools.ant.types.selectors.SizeSelector
+100	org.apache.tools.ant.types.RegularExpression::addRegexp(Matches):void	org.apache.tools.ant.taskdefs.condition.Matches
+100	org.apache.tools.ant.util.ClasspathUtils.Delegate::getLoaderId(DefBase):String	org.apache.tools.ant.taskdefs.DefBase
+100	org.apache.tools.ant.util.LineTokenizer::chain(HeadFilter, Reader):Reader	org.apache.tools.ant.filters.HeadFilter
