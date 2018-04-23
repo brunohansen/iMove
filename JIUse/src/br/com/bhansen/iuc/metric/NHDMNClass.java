@@ -39,19 +39,23 @@ public class NHDMNClass extends DeclarationMetricClass {
 		
 		int comb = comb(mxs.length);
 		int result [][] = new int[comb][params.length];
+		int l = 0;
 		
 		for (int x = 0; x < mxs.length - 1; x++) {
 			for (int y = x + 1; y < mxs.length; y++) {
 				for (int i = 0; i < params.length; i++) {
 					
 					if(pMtrx[x][i] && pMtrx[y][i]) {
-						result[x + y - 1][i] = 1;
+						result[l][i] = 1;
 					} else if(pMtrx[x][i] ^ pMtrx[y][i]) {
-						result[x + y - 1][i] = 0;
+						result[l][i] = 0;
 					} else {
-						result[x + y - 1][i] = 2;
+						result[l][i] = 2;
 					}
 				}
+				
+				l++;
+				
 			}
 		}
 				
