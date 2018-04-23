@@ -11,8 +11,9 @@ import org.eclipse.ltk.core.refactoring.Change;
 import org.eclipse.ltk.core.refactoring.Refactoring;
 import org.eclipse.ltk.core.refactoring.participants.MoveRefactoring;
 
-import br.com.bhansen.iuc.metric.CAMCClass;
+import br.com.bhansen.iuc.metric.IUCClass;
 import br.com.bhansen.iuc.metric.MetricClass;
+import br.com.bhansen.iuc.metric.NHDMNClass;
 
 @SuppressWarnings("restriction")
 public class EvaluateMoveMethod {
@@ -44,8 +45,9 @@ public class EvaluateMoveMethod {
 	}
 	
 	public MetricClass createMetric(IType type) throws Exception {
+		return new NHDMNClass(type);
 		//return new IUCClass(type); 
-		return new CAMCClass(type);
+		//return new CAMCClass(type);
 		//return new CAMCJClass(type);
 	}
 

@@ -8,6 +8,10 @@ import org.eclipse.jdt.core.IType;
 
 public class CAMCJClass extends DeclarationMetricClass {
 	
+	public CAMCJClass() throws Exception {
+		super();
+	}
+	
 	public CAMCJClass(IType type) throws Exception {
 		super(type);
 	}
@@ -50,6 +54,12 @@ public class CAMCJClass extends DeclarationMetricClass {
 		metric = metric / comb(getMethods().size());
 
 		return metric;
+	}
+	
+	public static void main(String[] args) throws Exception {
+		CAMCJClass cj = new CAMCJClass();
+		
+		System.out.println("CAMCJ Resultado: " + cj.getMetric());
 	}
 	
 }

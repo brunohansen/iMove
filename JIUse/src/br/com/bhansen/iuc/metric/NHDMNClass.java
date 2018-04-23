@@ -70,7 +70,7 @@ public class NHDMNClass extends DeclarationMetricClass {
 	public static void main(String[] args) throws Exception {
 		NHDMNClass cj = new NHDMNClass();
 		
-		System.out.println("Resultado: " + cj.getMetric());
+		System.out.println("NHDMN Resultado: " + cj.getMetric());
 	}
 
 }
