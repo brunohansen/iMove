@@ -11,8 +11,10 @@ import org.eclipse.ltk.core.refactoring.Change;
 import org.eclipse.ltk.core.refactoring.Refactoring;
 import org.eclipse.ltk.core.refactoring.participants.MoveRefactoring;
 
+import br.com.bhansen.iuc.metric.CAMCClass;
 import br.com.bhansen.iuc.metric.CAMCJClass;
 import br.com.bhansen.iuc.metric.CheckMoves;
+import br.com.bhansen.iuc.metric.CompositeMetric;
 import br.com.bhansen.iuc.metric.IUCClass;
 import br.com.bhansen.iuc.metric.Metric;
 import br.com.bhansen.iuc.metric.MetricClass;
@@ -48,11 +50,12 @@ public class EvaluateMoveMethod {
 	}
 	
 	public Metric createMetric(IType type) throws Exception {
-		return new CheckMoves();
+		//return new CheckMoves();
 		//return new NHDMNClass(type);
 		//return new IUCClass(type); 
 		//return new CAMCClass(type);
 		//return new CAMCJClass(type);
+		return new CompositeMetric(type);
 	}
 
 	public void setClassFrom(IType classFrom) throws Exception {
