@@ -15,13 +15,13 @@ public class DeclarationMetricClass extends MetricClass {
 		this(null);
 		
 		getMethods().put("m1", new HashSet<>());
-//		getMethods().get("m1").add("X");
+		getMethods().get("m1").add("X");
 		
 		getMethods().put("m2", new HashSet<>());
-//		getMethods().get("m2").add("y");
+		getMethods().get("m2").add("y");
 		
 		getMethods().put("m3", new HashSet<>());
-//		getMethods().get("m3").add("X");
+		getMethods().get("m3").add("X");
 //		getMethods().get("m3").add("Z");
 //		getMethods().get("m3").add("W");
 	}

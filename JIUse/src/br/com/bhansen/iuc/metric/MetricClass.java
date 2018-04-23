@@ -16,7 +16,7 @@ import org.eclipse.jdt.internal.corext.callhierarchy.CallHierarchy;
 import org.eclipse.jdt.internal.corext.callhierarchy.MethodWrapper;
 
 @SuppressWarnings("restriction")
-public class MetricClass {
+public class MetricClass implements Metric {
 	
 	private static String METHOD_PREFIX = "IUC";
 	
