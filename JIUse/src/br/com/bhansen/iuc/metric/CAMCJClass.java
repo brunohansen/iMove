@@ -21,7 +21,7 @@ public class CAMCJClass extends DeclarationMetricClass {
 	public float getMetric(String fakeDelegate, String fakeParameter) throws Exception {
 		super.getMetric(fakeDelegate, fakeParameter);
 		
-		if(getMethods().size() == 0)
+		if(getMethods().size() < 2)
 			return 0f;
 		
 		float metric = 0;
@@ -43,14 +43,13 @@ public class CAMCJClass extends DeclarationMetricClass {
 				union.addAll(my.getValue());
 				
 				if(union.size() == 0) {
-					metric += 1;
+					metric += 0;
 				} else {
 					metric += (float) intersection.size() / (float) union.size();
 				}
 			}
 		}
 				
-		//metric = metric / (getMethods().size() * getMethods().size());
 		metric = metric / comb(getMethods().size());
 
 		return metric;
