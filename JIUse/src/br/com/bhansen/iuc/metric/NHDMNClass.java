@@ -59,11 +59,11 @@ public class NHDMNClass extends DeclarationMetricClass {
 		
 		for (int x = 0; x < comb; x++) {
 			for (int i = 0; i < params.length; i++) {
-				metric += (result[x][i] == 0)? 1 : 0;
+				metric += (result[x][i] == 1)? 1 : 0;
 			}
 		}
 
-		return 1 - (metric / (comb * params.length));
+		return (metric / (comb * params.length));
 	}
 	
 	
