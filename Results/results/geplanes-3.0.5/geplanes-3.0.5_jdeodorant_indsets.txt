@@ -12,7 +12,6 @@ br.com.linkcom.sgm.service.AcompanhamentoIndicadorService::getListaDataAcompanha
 br.com.linkcom.sgm.service.AnexoAnomaliaService::excluiAnexoAnomaliaDetalhe(Anomalia):void	br.com.linkcom.sgm.dao.AnexoAnomaliaDAO
 br.com.linkcom.sgm.service.AnexoIndicadorService::excluiAnexoIndicadorDetalhe(Indicador):void	br.com.linkcom.sgm.dao.AnexoIndicadorDAO
 br.com.linkcom.sgm.service.IndicadorService::calculaAcompanhamentosIndicador(Indicador, List<Calendar>):Indicador	br.com.linkcom.sgm.beans.Indicador
-br.com.linkcom.sgm.service.IndicadorService::obtemFrequenciaIndicadorService(Indicador):Indicador	br.com.linkcom.sgm.dao.IndicadorDAO
 br.com.linkcom.sgm.service.ObjetivoMapaEstrategicoService::findByUnidadeGerencialPerspectivaThroughMapaEstrategico(UnidadeGerencial,PerspectivaMapaEstrategico, boolean, boolean, boolean, boolean, boolean, String):List<ObjetivoMapaEstrategico>	br.com.linkcom.sgm.dao.ObjetivoMapaEstrategicoDAO
 br.com.linkcom.sgm.service.UsuarioPapelService::getPapeis(Usuario):java.util.Set<Papel>	br.com.linkcom.sgm.dao.UsuarioPapelDAO
 br.com.linkcom.sgm.service.UsuarioUnidadeGerencialService::findUsuariosQualidadeEnvolvidoAnomalia(PlanoGestao):List<UsuarioUnidadeGerencial>	br.com.linkcom.sgm.dao.UsuarioUnidadeGerencialDAO
