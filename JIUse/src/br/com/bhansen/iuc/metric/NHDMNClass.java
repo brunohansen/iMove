@@ -1,7 +1,7 @@
 package br.com.bhansen.iuc.metric;
 
-import java.util.Set;
 import java.util.Map.Entry;
+import java.util.Set;
 
 import org.eclipse.jdt.core.IType;
 
@@ -19,11 +19,11 @@ public class NHDMNClass extends DeclarationMetricClass {
 	public float getMetric(String fakeDelegate, String fakeParameter) throws Exception {
 		super.getMetric(fakeDelegate, fakeParameter);
 		
-		if(getMethods().size() == 0)
-			return 0f;
+		Entry<String, Set<String>> [] mxs = getMethods().entrySet().toArray(new Entry [0]);
+		String params [] = getParams().toArray(new String[0]);
 		
-		Entry<String, Set<String>> [] mxs = getMethods().entrySet().toArray(new Entry [1]);
-		String params [] = getParams().toArray(new String[1]);
+		if((mxs.length < 2) || (params.length == 0))
+			return 0f;
 		
 		boolean pMtrx[][] = new boolean[mxs.length][params.length];
 		
