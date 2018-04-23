@@ -1,5 +1,6 @@
 package br.com.bhansen.iuc.metric;
 
+import java.math.BigInteger;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -14,15 +15,15 @@ public class DeclarationMetricClass extends MetricClass {
 		this(null);
 		
 		getMethods().put("m1", new HashSet<>());
-		getMethods().get("m1").add("X");
+//		getMethods().get("m1").add("X");
 		
 		getMethods().put("m2", new HashSet<>());
-		getMethods().get("m2").add("X");
+//		getMethods().get("m2").add("y");
 		
 		getMethods().put("m3", new HashSet<>());
-		getMethods().get("m3").add("X");
-		getMethods().get("m3").add("Z");
-		getMethods().get("m3").add("W");
+//		getMethods().get("m3").add("X");
+//		getMethods().get("m3").add("Z");
+//		getMethods().get("m3").add("W");
 	}
 		
 	public DeclarationMetricClass(IType type) throws Exception {
@@ -95,14 +96,14 @@ public class DeclarationMetricClass extends MetricClass {
 		if(n <= 2)
 			return 1;
 		
-		return fat(n) / fat(2) * (n - 2);
+		return fat(n).divide(fat(2).multiply(fat(n - 2))).intValue();
 	}
 	
-	public static int fat(int n) {
-		int f = n;
+	public static BigInteger fat(int n) {
+		BigInteger f = BigInteger.valueOf(n);
 		
 		while (n > 1) {
-			f = f * (n - 1);
+			f = f.multiply(BigInteger.valueOf(n - 1));
 			n--;
 		}
 		
