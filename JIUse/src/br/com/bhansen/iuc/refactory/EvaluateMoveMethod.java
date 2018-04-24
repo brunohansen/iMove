@@ -18,6 +18,7 @@ import br.com.bhansen.iuc.metric.CompositeMetric;
 import br.com.bhansen.iuc.metric.IUCClass;
 import br.com.bhansen.iuc.metric.Metric;
 import br.com.bhansen.iuc.metric.MetricClass;
+import br.com.bhansen.iuc.metric.NHDMClass;
 import br.com.bhansen.iuc.metric.NHDMNClass;
 
 @SuppressWarnings("restriction")
@@ -53,7 +54,8 @@ public class EvaluateMoveMethod {
 		//return new CheckMoves();
 		//return new NHDMNClass(type);
 		//return new IUCClass(type); 
-		return new CAMCClass(type);
+		//return new CAMCClass(type);
+		return new NHDMClass(type);
 		//return new CAMCJClass(type);
 		//return new CompositeMetric(type);
 	}
