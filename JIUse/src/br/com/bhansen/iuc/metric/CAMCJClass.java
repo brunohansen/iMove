@@ -18,13 +18,13 @@ public class CAMCJClass extends DeclarationMetricClass {
 		
 	@Override
 	@SuppressWarnings("unchecked")
-	public float getMetric(String fakeDelegate, String fakeParameter) throws Exception {
+	public double getMetric(String fakeDelegate, String fakeParameter) throws Exception {
 		super.getMetric(fakeDelegate, fakeParameter);
 		
 		if(getMethods().size() < 2)
-			return 0f;
+			return 0;
 		
-		float metric = 0;
+		double metric = 0;
 		
 		Entry<String, Set<String>> [] mxs = getMethods().entrySet().toArray(new Entry [1]);
 		
@@ -45,7 +45,7 @@ public class CAMCJClass extends DeclarationMetricClass {
 				if(union.size() == 0) {
 					metric += 0;
 				} else {
-					metric += (float) intersection.size() / (float) union.size();
+					metric += (double) intersection.size() / (double) union.size();
 				}
 			}
 		}

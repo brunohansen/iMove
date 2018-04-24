@@ -13,12 +13,12 @@ public class CompositeMetric implements Metric {
 	}
 
 	@Override
-	public float getMetric() throws Exception {
+	public double getMetric() throws Exception {
 		return (camc.getMetric() + iuc.getMetric()) / 2;
 	}
 
 	@Override
-	public float getMetric(String fakeDelegate, String fakeParameter) throws Exception {
+	public double getMetric(String fakeDelegate, String fakeParameter) throws Exception {
 		return (camc.getMetric(fakeDelegate, fakeParameter) + iuc.getMetric(fakeDelegate, fakeParameter)) / 2;
 	}
 

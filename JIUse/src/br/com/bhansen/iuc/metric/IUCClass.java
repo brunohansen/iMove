@@ -24,7 +24,7 @@ public class IUCClass extends MetricClass {
 		
 	}
 		
-	public float getMetric(String fakeDelegate, String fakeParameter) throws Exception {
+	public double getMetric(String fakeDelegate, String fakeParameter) throws Exception {
 		super.getMetric(fakeDelegate, fakeParameter);
 		
 		Map<String, Integer> callers = getCallerClasses();
@@ -47,12 +47,12 @@ public class IUCClass extends MetricClass {
 		return callerClasses;
 	}
 	
-	private float calcIUC(Map<String, Integer> callerClasses) {
-		float iuc = 0.0f;
-		float numMethods = getMethods().size();
+	private double calcIUC(Map<String, Integer> callerClasses) {
+		double iuc = 0;
+		double numMethods = getMethods().size();
 		
 		if((numMethods == 0) || (callerClasses.size() == 0)) {
-			return 0.0f;
+			return 0;
 		}
 		
 		for (Entry<String, Integer> caller : callerClasses.entrySet()) {

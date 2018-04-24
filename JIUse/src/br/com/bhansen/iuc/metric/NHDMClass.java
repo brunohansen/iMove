@@ -16,67 +16,46 @@ public class NHDMClass extends DeclarationMetricClass {
 	}
 	
 	@Override
-	public float getMetric(String fakeDelegate, String fakeParameter) throws Exception {
+	public double getMetric(String fakeDelegate, String fakeParameter) throws Exception {
 		super.getMetric(fakeDelegate, fakeParameter);
 		
-		Entry<String, Set<String>> [] mxs = getMethods().entrySet().toArray(new Entry [0]);
+		Entry<String, Set<String>> [] methods = getMethods().entrySet().toArray(new Entry [0]);
 		String params [] = getParams().toArray(new String[0]);
 		
-		if((mxs.length < 2) || (params.length == 0))
+		if((methods.length == 0) || (params.length == 0))
 			return 0f;
 		
-		boolean pMtrx[][] = new boolean[mxs.length][params.length];
+		boolean poMtrx[][] = new boolean[methods.length][params.length];
 		
-		for (int x = 0; x < mxs.length; x++) {
-			Entry<String, Set<String>> method = mxs[x];
+		for (int m = 0; m < methods.length; m++) {
+			Entry<String, Set<String>> method = methods[m];
 			
-			for (int i = 0; i < params.length; i++) {
-				String param = params[i];
+			for (int p = 0; p < params.length; p++) {
+				String param = params[p];
 				
-				pMtrx[x][i] = method.getValue().contains(param);
+				poMtrx[m][p] = method.getValue().contains(param);
 			}
 		}
-		
-		int comb = comb(mxs.length);
-		int result [][] = new int[comb][params.length];
-		int l = 0;
-		
-		for (int x = 0; x < mxs.length - 1; x++) {
-			for (int y = x + 1; y < mxs.length; y++) {
-				for (int i = 0; i < params.length; i++) {
-					
-					if(pMtrx[x][i] && pMtrx[y][i]) {
-						result[l][i] = 1;
-					} else if(pMtrx[x][i] ^ pMtrx[y][i]) {
-						result[l][i] = 0;
-					} else {
-						result[l][i] = 0;
-					}
-				}
-				
-				l++;
-				
-			}
-		}
-				
+						
 		double metric = 0;
 		
-		for (int i = 0; i < params.length; i++) {
+		for (int p = 0; p < params.length; p++) {
 			double ones = 0;
 			double zeros = 0;
 			
-			for (int x = 0; x < comb; x++) {
-				if(result[x][i] == 1) {
+			for (int m = 0; m < methods.length; m++) {
+				if(poMtrx[m][p]) {
 					ones++;
 				} else {
 					zeros++;
 				}
 			}
 			
-			metric += ones * (getMethods().size() - ones) + 0.5 * zeros * (zeros - 1);
+			metric += ones * (methods.length - ones) + 0.5 * zeros * (zeros - 1);
 		}
-		double y1 = (2f / (params.length * getMethods().size() * (getMethods().size() - 1)));
-		double r = y1 * metric;
+		
+		double y1 = (2f / (params.length * methods.length * (methods.length - 1)));
+		double r = 1 - y1 * metric;
 		return new Float(r);
 	}
 	

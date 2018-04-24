@@ -16,7 +16,7 @@ public class NHDMNClass extends DeclarationMetricClass {
 	}
 	
 	@Override
-	public float getMetric(String fakeDelegate, String fakeParameter) throws Exception {
+	public double getMetric(String fakeDelegate, String fakeParameter) throws Exception {
 		super.getMetric(fakeDelegate, fakeParameter);
 		
 		Entry<String, Set<String>> [] mxs = getMethods().entrySet().toArray(new Entry [0]);
@@ -59,7 +59,7 @@ public class NHDMNClass extends DeclarationMetricClass {
 			}
 		}
 				
-		float metric = 0;
+		double metric = 0;
 		
 		for (int x = 0; x < comb; x++) {
 			for (int i = 0; i < params.length; i++) {

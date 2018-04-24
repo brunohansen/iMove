@@ -184,11 +184,11 @@ public class MetricClass implements Metric {
 		return methods;
 	}
 		
-	public float getMetric() throws Exception {
+	public double getMetric() throws Exception {
 		return getMetric(null, null);
 	}
 	
-	public float getMetric(String fakeDelegate, String fakeParameter) throws Exception {
+	public double getMetric(String fakeDelegate, String fakeParameter) throws Exception {
 		removeFakes(fakeDelegate, fakeParameter);
 		
 		return 0f;

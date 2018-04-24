@@ -26,13 +26,13 @@ public class EvaluateMoveMethod {
 	private IType classFrom;
 	private IType classTo;
 
-	private float oldFromIUC;
-	private float oldToIUC;
+	private double oldFromIUC;
+	private double oldToIUC;
 
-	private float newFromIUC;
-	private float newToIUC;
+	private double newFromIUC;
+	private double newToIUC;
 
-	private float iucDifference;
+	private double iucDifference;
 	
 	private String method;
 
@@ -52,8 +52,8 @@ public class EvaluateMoveMethod {
 	public Metric createMetric(IType type) throws Exception {
 		//return new CheckMoves();
 		//return new NHDMNClass(type);
-		return new IUCClass(type); 
-		//return new CAMCClass(type);
+		//return new IUCClass(type); 
+		return new CAMCClass(type);
 		//return new CAMCJClass(type);
 		//return new CompositeMetric(type);
 	}
