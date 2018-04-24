@@ -1,0 +1,17 @@
+1	br.com.linkcom.sgm.controller.crud.AnomaliaCrud::usuarioPodeConsultarAnomalia(Anomalia, Boolean, Boolean, Boolean, Boolean):Boolean	br.com.linkcom.sgm.beans.Anomalia
+1	br.com.linkcom.sgm.controller.crud.AnomaliaCrud::usuarioPodeEncerrarAnomalia(Anomalia, Boolean, Boolean):Boolean	br.com.linkcom.sgm.beans.Anomalia
+1	br.com.linkcom.sgm.service.AcompanhamentoIndicadorService::getListaDataAcompanhamentoIndicador(List<Indicador>, Calendar, Calendar):List<Calendar>	br.com.linkcom.sgm.dao.AcompanhamentoIndicadorDAO
+1	br.com.linkcom.sgm.service.AnexoAnomaliaService::excluiAnexoAnomaliaDetalhe(Anomalia):void	br.com.linkcom.sgm.dao.AnexoAnomaliaDAO
+1	br.com.linkcom.sgm.service.UsuarioPapelService::getPapeis(Usuario):Set<Papel>	br.com.linkcom.sgm.dao.UsuarioPapelDAO
+1	br.com.linkcom.sgm.controller.crud.AnomaliaCrud::exibirBotaoNotificarCumprimentoPendente(Anomalia, Boolean):Boolean	br.com.linkcom.sgm.beans.Anomalia
+0	br.com.linkcom.sgm.service.AnexoIndicadorService::excluiAnexoIndicadorDetalhe(Indicador):void	br.com.linkcom.sgm.dao.AnexoIndicadorDAO
+1	br.com.linkcom.sgm.controller.crud.AnomaliaCrud::usuarioPodeDestravarAnomalia(Anomalia, Boolean, Boolean, Boolean):Boolean	br.com.linkcom.sgm.beans.Anomalia
+1	br.com.linkcom.sgm.service.UsuarioUnidadeGerencialService::findUsuariosQualidadeEnvolvidoAnomalia(PlanoGestao):List<UsuarioUnidadeGerencial>	br.com.linkcom.sgm.dao.UsuarioUnidadeGerencialDAO
+1	br.com.linkcom.sgm.controller.crud.AcaoPreventivaCrud::usuarioPodeEditarAcaoPreventiva(AcaoPreventiva, Boolean, Boolean):Boolean	br.com.linkcom.sgm.beans.AcaoPreventiva
+1	br.com.linkcom.sgm.controller.crud.AnomaliaCrud::exibirBotaoSolicitarEncerramento(Anomalia, Boolean, Boolean):Boolean	br.com.linkcom.sgm.beans.Anomalia
+1	br.com.linkcom.sgm.controller.crud.AnomaliaCrud::usuarioPodeTratarAnomalia(Anomalia, Boolean, Boolean, Boolean):Boolean	br.com.linkcom.sgm.beans.Anomalia
+1	br.com.linkcom.sgm.service.ObjetivoMapaEstrategicoService::findByUnidadeGerencialPerspectivaThroughMapaEstrategico(UnidadeGerencial, PerspectivaMapaEstrategico, boolean, boolean, boolean, boolean, boolean, String):List<ObjetivoMapaEstrategico>	br.com.linkcom.sgm.dao.ObjetivoMapaEstrategicoDAO
+1	br.com.linkcom.sgm.controller.crud.AnomaliaCrud::usuarioPodeCriarPlanoAcao(Anomalia, Boolean, Boolean, Boolean):Boolean	br.com.linkcom.sgm.beans.Anomalia
+1	br.com.linkcom.sgm.controller.crud.AnomaliaCrud::usuarioPodeEditarAnomalia(Anomalia, Boolean, Boolean):Boolean	br.com.linkcom.sgm.beans.Anomalia
+0	br.com.linkcom.sgm.controller.crud.AuditoriaInternaCrud::usuarioPodeEditarAuditoriaInterna(AuditoriaInterna, Boolean, Boolean, Boolean):Boolean	br.com.linkcom.sgm.beans.AuditoriaInterna
+1	br.com.linkcom.sgm.service.IndicadorService::calculaAcompanhamentosIndicador(Indicador, List<Calendar>):Indicador	br.com.linkcom.sgm.beans.Indicador
