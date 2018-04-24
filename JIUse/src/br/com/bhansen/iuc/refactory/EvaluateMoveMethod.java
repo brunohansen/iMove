@@ -52,10 +52,10 @@ public class EvaluateMoveMethod {
 	public Metric createMetric(IType type) throws Exception {
 		//return new CheckMoves();
 		//return new NHDMNClass(type);
-		//return new IUCClass(type); 
+		return new IUCClass(type); 
 		//return new CAMCClass(type);
 		//return new CAMCJClass(type);
-		return new CompositeMetric(type);
+		//return new CompositeMetric(type);
 	}
 
 	public void setClassFrom(IType classFrom) throws Exception {
