@@ -55,8 +55,7 @@ public class NHDMClass extends DeclarationMetricClass {
 		}
 		
 		double y1 = (2f / (params.length * methods.length * (methods.length - 1)));
-		double r = 1 - y1 * metric;
-		return new Float(r);
+		return 1 - y1 * metric;
 	}
 	
 	
