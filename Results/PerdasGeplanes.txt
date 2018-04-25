@@ -1,25 +1,30 @@
 JDeodorant 12
 	IUC + CAMC ===
-		br.com.linkcom.sgm.controller.process.DistribuicaoPesosIndicadoresProcess::resolveAcompanhamentos(PlanoGestao, Indicador):void	br.com.linkcom.sgm.beans.PlanoGestao
+		Só quem usa ele
+		PlanoGestaoService - br.com.linkcom.sgm.controller.process.DistribuicaoPesosIndicadoresProcess::resolveAcompanhamentos(PlanoGestao, Indicador):void	br.com.linkcom.sgm.beans.PlanoGestao
+		Só quem usa é ele
 		br.com.linkcom.sgm.service.AnomaliaService::findUsuariosQualidadeEnvolvidosAnomalia(Anomalia):List<Usuario>	br.com.linkcom.sgm.service.UsuarioService
+		quem usa é ApresentacaoResultadosProcess que usa dto -> 19 que é bem coeso
 		br.com.linkcom.sgm.service.IndicadorService::defineDatas(ApresentacaoResultadosDTO):void	br.com.linkcom.sgm.beans.DTO.ApresentacaoResultadosDTO
+		Só é chamdo por ele
 		br.com.linkcom.sgm.controller.process.DistribuicaoPesosIndicadoresProcess::isAdministradoOuDataLimiteNaoExpirada(Indicador):boolean	br.com.linkcom.sgm.service.IndicadorService
+		Não sei
 		br.com.linkcom.sgm.service.DistribuicaoPesosIndicadoresService::carregaElementosPainelIndicador(UnidadeGerencial):List<PerspectivaMapaEstrategico>	br.com.linkcom.sgm.service.PerspectivaMapaEstrategicoService
-		br.com.linkcom.sgm.controller.crud.AcaoPreventivaCrud::usuarioPodeConsultarAcaoPreventiva(AcaoPreventiva, Boolean, Boolean, Boolean):Boolean	br.com.linkcom.sgm.beans.AcaoPreventiva
+		Só ele usa
+		AcaoPreventivaService - br.com.linkcom.sgm.controller.crud.AcaoPreventivaCrud::usuarioPodeConsultarAcaoPreventiva(AcaoPreventiva, Boolean, Boolean, Boolean):Boolean	br.com.linkcom.sgm.beans.AcaoPreventiva
+		Só ele usa
 		br.com.linkcom.sgm.service.LancamentoValorRealService::configuraEdicaoAcompanhamentos(LancamentoValorRealFiltro, Boolean, Boolean, Boolean):void	br.com.linkcom.sgm.service.AcompanhamentoIndicadorService
+		Só ele usa
 		br.com.linkcom.sgm.service.LancamentoValorRealService::configuraExibicaoAcompanhamentos(LancamentoValorRealFiltro):void	br.com.linkcom.sgm.service.AcompanhamentoIndicadorService
+		Concordo
 		br.com.linkcom.sgm.service.AcaoPreventivaService::getStatusAcaoPreventiva(AcaoPreventiva):StatusAcaoPreventivaEnum	br.com.linkcom.sgm.beans.AcaoPreventiva
 
 JMOVE 10
 	IUC + CAMC
 		br.com.linkcom.sgm.service.DistribuicaoPesosIndicadoresService::carregaElementosPainelIndicador(UnidadeGerencial):List<PerspectivaMapaEstrategico>	br.com.linkcom.sgm.service.PerspectivaMapaEstrategicoService
+		Só ele usa
 		br.com.linkcom.sgm.controller.process.DistribuicaoPesosIndicadoresProcess::resolveAcompanhamentos(PlanoGestao, Indicador):void	br.com.linkcom.sgm.service.AcompanhamentoIndicadorService
-		br.com.linkcom.sgm.service.AnomaliaService::makeDiagramaReport(Anomalia, Image, Image, Image):Report	br.com.linkcom.sgm.service.CausaEfeitoService
+		Ele e mais um
+		- br.com.linkcom.sgm.service.AnomaliaService::makeDiagramaReport(Anomalia, Image, Image, Image):Report	br.com.linkcom.sgm.service.CausaEfeitoService
+		Outro usa
 		br.com.linkcom.sgm.service.UnidadeGerencialService::createReportAlcanceMetaInstitucional(WebRequestContext, AlcanceMetaInstitucionalReportFiltro):IReport	br.com.linkcom.sgm.service.PlanoGestaoService
-		
-		
-		
-		
-		
-		
-		

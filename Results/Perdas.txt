@@ -1,4 +1,4 @@
-ANT LARGE IUC + CAMC = 1 - EjbJar.Config
+ANT LARGE IUC + CAMC = 1 - EjbJar.Config Anomalia do zero metodos
 	IUC
 		org.apache.tools.ant.taskdefs.optional.ejb.EjbJar.Config::checkAndAddDependants(GenericDeploymentTool, Hashtable):void	org.apache.tools.ant.taskdefs.optional.ejb.GenericDeploymentTool
 	CAMC
@@ -27,7 +27,9 @@ ANT SMALL IUC + CAMC = 0
 		
 DRJAVA LARGE IUC + CAMC = 2 - GlobalEventNotifier + MainFrame
 	IUC
+		passa a ter 1 cliente com 8 metodos em vez de 2 e 7 chama um unico metodo / zero argumentos
 		edu.rice.cs.drjava.model.GlobalEventNotifier::testCommentOutMultipleLines(CommentTest):void	edu.rice.cs.drjava.model.definitions.CommentTest
+		mesmo de cima sendo chamado por ninguem
 		edu.rice.cs.drjava.ui.MainFrame::testNE(CommandLineTest):void	edu.rice.cs.drjava.CommandLineTest
 	CAMC
 		edu.rice.cs.drjava.model.GlobalEventNotifier::testCommentOutMultipleLines(CommentTest):void	edu.rice.cs.drjava.model.definitions.CommentTest
@@ -40,8 +42,11 @@ DRJAVA LARGE IUC + CAMC = 2 - GlobalEventNotifier + MainFrame
 		
 DRJAVA SMALL IUC + CAMC = 1 - AbstractDJDocument
 	IUC
+		ninguem chama
 		edu.rice.cs.drjava.model.AbstractDJDocument::testSecondLineMisindented(ActionStartPrevLinePlusTest):void	edu.rice.cs.drjava.model.definitions.indent.ActionStartPrevLinePlusTest
+		nao identifiquei
 		edu.rice.cs.drjava.model.DJError::getPosition(CompilerErrorModel):Position	edu.rice.cs.drjava.model.compiler.CompilerErrorModel
+		Quem chama é o main
 		edu.rice.cs.drjava.model.repl.newjvm.MainJVM::junitJVMReady(DefaultJUnitModel):void	edu.rice.cs.drjava.model.junit.DefaultJUnitModel
 	CAMC
 		edu.rice.cs.drjava.model.AbstractDJDocument::testSecondLineMisindented(ActionStartPrevLinePlusTest):void	edu.rice.cs.drjava.model.definitions.indent.ActionStartPrevLinePlusTest
@@ -63,6 +68,7 @@ DRJAVA SMALL IUC + CAMC = 1 - AbstractDJDocument
 		
 JUNIT LARGE IUC + CAMC = 0
 	IUC
+		Só ele chama (Tem que verificar delegate)
 		junit.framework.TestResult::printFooter(ResultPrinter):void	junit.textui.ResultPrinter
 	CAMC
 		org.junit.runner.Description::runBefores(ClassRoadie):void	org.junit.internal.runners.ClassRoadie
@@ -80,6 +86,7 @@ JUNIT LARGE IUC + CAMC = 0
 		
 JUNIT SMALL IUC + CAMC = 0
 	IUC
+		nao tem como
 		org.junit.runners.model.RunnerBuilder::runnerForClass2(AnnotatedBuilder, Class<?>):Runner	org.junit.internal.builders.AnnotatedBuilder
 	CAMC
 		org.junit.runners.model.TestClass::getAllArguments(Assignments, boolean):Object[]	org.junit.experimental.theories.internal.Assignments
