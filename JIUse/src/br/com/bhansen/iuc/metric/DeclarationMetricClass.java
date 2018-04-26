@@ -35,7 +35,9 @@ public class DeclarationMetricClass extends MetricClass {
 		IMethod[] methods = type.getMethods();
 
 		for (IMethod method : methods) {
-			getMethods().put(getSignature(method), getParameters(method));
+			Set<String> params = getParameters(method);
+			if(params.size() > 0)
+				getMethods().put(getSignature(method), params);
 		}
 	}
 

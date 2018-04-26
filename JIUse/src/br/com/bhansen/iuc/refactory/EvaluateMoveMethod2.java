@@ -22,17 +22,17 @@ import br.com.bhansen.iuc.metric.NHDMClass;
 import br.com.bhansen.iuc.metric.NHDMNClass;
 
 @SuppressWarnings("restriction")
-public class EvaluateMoveMethod {
+public class EvaluateMoveMethod2 {
 	
 	private IType classFrom;
 	private IType classTo;
 	private String method;
 	
-	public EvaluateMoveMethod(IType classFrom) throws Exception {
+	public EvaluateMoveMethod2(IType classFrom) throws Exception {
 		this.setClassFrom(classFrom);
 	}
-	
-	public EvaluateMoveMethod(IType classFrom, String method, IType classTo) throws Exception {
+
+	public EvaluateMoveMethod2(IType classFrom, String method, IType classTo) throws Exception {
 		this(classFrom);
 		this.move(method, classTo);
 	}
