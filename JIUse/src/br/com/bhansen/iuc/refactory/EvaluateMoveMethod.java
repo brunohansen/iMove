@@ -1,32 +1,14 @@
 package br.com.bhansen.iuc.refactory;
 
-import org.eclipse.core.runtime.IProgressMonitor;
-import org.eclipse.core.runtime.NullProgressMonitor;
-import org.eclipse.jdt.core.IMethod;
 import org.eclipse.jdt.core.IType;
-import org.eclipse.jdt.core.dom.IVariableBinding;
-import org.eclipse.jdt.internal.corext.refactoring.structure.MoveInstanceMethodProcessor;
-import org.eclipse.jdt.internal.ui.preferences.JavaPreferencesSettings;
-import org.eclipse.ltk.core.refactoring.Change;
-import org.eclipse.ltk.core.refactoring.Refactoring;
-import org.eclipse.ltk.core.refactoring.participants.MoveRefactoring;
 
-import br.com.bhansen.iuc.metric.CAMCClass;
-import br.com.bhansen.iuc.metric.CAMCJClass;
-import br.com.bhansen.iuc.metric.CheckMoves;
-import br.com.bhansen.iuc.metric.CompositeMetric;
-import br.com.bhansen.iuc.metric.IUCClass;
-import br.com.bhansen.iuc.metric.Metric;
-import br.com.bhansen.iuc.metric.MetricClass;
-import br.com.bhansen.iuc.metric.NHDMClass;
-import br.com.bhansen.iuc.metric.NHDMNClass;
-
-@SuppressWarnings("restriction")
 public class EvaluateMoveMethod {
 	
 	private IType classFrom;
 	private IType classTo;
 	private String method;
+	
+	private EvaluateMM evaluate;
 	
 	public EvaluateMoveMethod(IType classFrom) throws Exception {
 		this.setClassFrom(classFrom);
@@ -54,26 +36,30 @@ public class EvaluateMoveMethod {
 	}
 
 	public void move(String method) throws Exception {
-
+		this.method = method;
+		this.evaluate = create();
+	}
+	
+	private EvaluateMM create() throws Exception {
+		return new EvaluateMoveMethod1(this.classFrom, this.method, this.classTo);
 	}
 
-
-
 	public void move(String method, IType classTo) throws Exception {
-
+		this.setClassTo(classTo);
+		this.move(method);
 	}
 
 	public boolean shouldMove() {
-		return true;
+		return this.evaluate.shouldMove();
 	}
 
 	@Override
 	public String toString() {
-		return "";
+		return this.evaluate.toString();
 	}
 
 	public String toLineString() {
-		return "";
+		return this.evaluate.toLineString();
 	}
 
 }

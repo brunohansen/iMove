@@ -12,19 +12,13 @@ import org.eclipse.ltk.core.refactoring.Refactoring;
 import org.eclipse.ltk.core.refactoring.participants.MoveRefactoring;
 
 import br.com.bhansen.iuc.metric.CAMCClass;
-import br.com.bhansen.iuc.metric.CAMCJClass;
-import br.com.bhansen.iuc.metric.CheckMoves;
-import br.com.bhansen.iuc.metric.CompositeMetric;
-import br.com.bhansen.iuc.metric.IUCClass;
 import br.com.bhansen.iuc.metric.Metric;
 import br.com.bhansen.iuc.metric.MetricClass;
-import br.com.bhansen.iuc.metric.NHDMClass;
-import br.com.bhansen.iuc.metric.NHDMNClass;
 
 @SuppressWarnings("restriction")
-public class EvaluateMoveMethod1 {
+public class EvaluateMoveMethod1 implements EvaluateMM  {
 	
-	private static final int THRESHOLD = 0;    
+	private int threshold = 0;    
 	
 	private IType classFrom;
 	private IType classTo;
@@ -38,21 +32,13 @@ public class EvaluateMoveMethod1 {
 	private double iucDifference;
 	
 	private String method;
-
-	public EvaluateMoveMethod1() {
-	}
-
-	public EvaluateMoveMethod1(IType classFrom) throws Exception {
-		this();
-		this.setClassFrom(classFrom);
-	}
 	
 	public EvaluateMoveMethod1(IType classFrom, String method, IType classTo) throws Exception {
-		this(classFrom);
+		setClassFrom(classFrom);
 		this.move(method, classTo);
 	}
 	
-	public Metric createMetric(IType type) throws Exception {
+	private Metric createMetric(IType type) throws Exception {
 		//return new CheckMoves();
 		//return new NHDMNClass(type);
 		//return new IUCClass(type); 
@@ -62,27 +48,17 @@ public class EvaluateMoveMethod1 {
 		//return new CompositeMetric(type);
 	}
 
-	public void setClassFrom(IType classFrom) throws Exception {
+	private void setClassFrom(IType classFrom) throws Exception {
 		this.classFrom = classFrom;
 
 		this.oldFromIUC = createMetric(classFrom).getMetric();
 	}
 
-	public IType getClassFrom() {
-		return classFrom;
-	}
-
-	public void setClassTo(IType classTo) throws Exception {
+	private void setClassTo(IType classTo) throws Exception {
 		this.classTo = classTo;
 
 		this.oldToIUC = createMetric(classTo).getMetric();
 	}
-
-	public IType getClassTo() {
-		return classTo;
-	}
-	
-	
 	
 //	public void move2(String method) throws Exception {
 //		IMethod iMethod = getIMethod(method);
@@ -96,7 +72,7 @@ public class EvaluateMoveMethod1 {
 //		
 //	}
 
-	public void move(String method) throws Exception {
+	private void move(String method) throws Exception {
 		IMethod iMethod = getIMethod(method);
 		
 		MoveInstanceMethodProcessor processor= new MoveInstanceMethodProcessor(iMethod, JavaPreferencesSettings.getCodeGenerationSettings(iMethod.getJavaProject()));
@@ -160,13 +136,13 @@ public class EvaluateMoveMethod1 {
 		throw new Exception("Method " + this.method + " not found!");
 	}
 
-	public void move(String method, IType classTo) throws Exception {
+	private void move(String method, IType classTo) throws Exception {
 		this.setClassTo(classTo);
 		this.move(method);
 	}
 
 	public boolean shouldMove() {
-		return this.iucDifference > THRESHOLD;
+		return this.iucDifference > threshold;
 	}
 
 	@Override
