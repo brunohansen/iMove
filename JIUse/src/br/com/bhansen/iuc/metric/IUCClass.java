@@ -19,7 +19,7 @@ public class IUCClass extends MetricClass {
 			
 			if(! isFakeDelegate(method, fakeDelegate)) {
 				if(getMethods().put(getSignature(method), getCallerClasses(method)) != null) {
-					throw new Exception("Method " + getSignature(method) + " colision!");
+					System.out.println("Method " + getSignature(method) + " colision!");
 				};
 			}
 
