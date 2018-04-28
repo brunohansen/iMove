@@ -9,10 +9,10 @@ import org.eclipse.jdt.core.IMethod;
 import org.eclipse.jdt.core.IType;
 import org.eclipse.jdt.core.JavaModelException;
 
-public class DeclarationMetricClass extends MetricClass {
+public abstract class DeclarationMetricClass extends MetricClass {
 	
 	public DeclarationMetricClass() throws Exception {
-		this(null, true);
+		this(null, true, null, null);
 		
 		getMethods().put("m1", new HashSet<>());
 		getMethods().get("m1").add("X");
@@ -26,7 +26,7 @@ public class DeclarationMetricClass extends MetricClass {
 //		getMethods().get("m3").add("W");
 	}
 		
-	public DeclarationMetricClass(IType type, boolean zeroParams) throws Exception {
+	public DeclarationMetricClass(IType type, boolean zeroParams, String fakeDelegate, String fakeParameter) throws Exception {
 		super(type);
 		
 		// TODO Gatilho
@@ -35,7 +35,14 @@ public class DeclarationMetricClass extends MetricClass {
 		IMethod[] methods = type.getMethods();
 
 		for (IMethod method : methods) {
+			
+			if(isFakeDelegate(method, fakeDelegate))
+				continue;
+			
 			Set<String> params = getParameters(method);
+			
+			if(isMethod(method, fakeDelegate))
+				removeFakeParameter(params, fakeParameter);
 			
 			if(zeroParams) {
 				getMethods().put(getSignature(method), params);
@@ -61,15 +68,16 @@ public class DeclarationMetricClass extends MetricClass {
 		return parameters;
 	}
 	
-	@Override
-	public void removeFakeParameter(String fakeSignature, String fakeParameter) throws JavaModelException {
-		super.removeFakeParameter(fakeSignature, fakeParameter);
+	public void removeFakeParameter(Set<String> params, String fakeParameter) throws JavaModelException {
+		
+		if(fakeParameter == null)
+			return;
 		
 		String fType = generateInnerSignature(fakeParameter);
 		
 		for (IField iField : getType().getFields()) {
 			if(iField.toString().split(" ", 2)[0].equals(fType)) {
-				getMethods().get(fakeSignature).remove(fType);
+				params.remove(fType);
 				return;
 			}				
 		}
@@ -78,14 +86,14 @@ public class DeclarationMetricClass extends MetricClass {
 		
 		for (IField iField : getType().getFields()) {
 			if(iField.toString().split(" ", 2)[0].equals(fType)) {
-				getMethods().get(fakeSignature).remove(fType);
+				params.remove(fType);
 				return;
 			}				
 		}
 		
 		
 	}
-	
+		
 	protected Set<String> getParams() {
 		Set<String> params = new HashSet<>();
 		

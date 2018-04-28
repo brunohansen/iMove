@@ -10,22 +10,24 @@ import org.eclipse.jdt.core.IType;
 
 public class IUCClass extends MetricClass {
 	
-	public IUCClass(IType type) throws Exception {
+	public IUCClass(IType type, String fakeDelegate) throws Exception {
 		super(type);
 		
 		IMethod[] methods = type.getMethods();
 				
 		for (IMethod method : methods) {
 			
-			if(getMethods().put(getSignature(method), getCallerClasses(method)) != null) {
-				throw new Exception("Method " + getSignature(method) + " colision!");
-			};
+			if(! isFakeDelegate(method, fakeDelegate)) {
+				if(getMethods().put(getSignature(method), getCallerClasses(method)) != null) {
+					throw new Exception("Method " + getSignature(method) + " colision!");
+				};
+			}
+
 		}
 		
 	}
 		
-	public double getMetric(String fakeDelegate, String fakeParameter) throws Exception {
-		super.getMetric(fakeDelegate, fakeParameter);
+	public double getMetric() throws Exception {
 		
 		Map<String, Integer> callers = getCallerClasses();
 		

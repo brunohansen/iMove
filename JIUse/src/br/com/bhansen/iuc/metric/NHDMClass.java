@@ -11,14 +11,14 @@ public class NHDMClass extends DeclarationMetricClass {
 		super();
 	}
 	
-	public NHDMClass(IType type, boolean zeroParams) throws Exception {
-		super(type, zeroParams);
+	public NHDMClass(IType type, boolean zeroParams, String fakeDelegate, String fakeParameter) throws Exception {
+		super(type, zeroParams, fakeDelegate, fakeParameter);
 	}
 	
 	@Override
-	public double getMetric(String fakeDelegate, String fakeParameter) throws Exception {
-		super.getMetric(fakeDelegate, fakeParameter);
+	public double getMetric() throws Exception {
 		
+		@SuppressWarnings("unchecked")
 		Entry<String, Set<String>> [] methods = getMethods().entrySet().toArray(new Entry [0]);
 		String params [] = getParams().toArray(new String[0]);
 		

@@ -7,19 +7,14 @@ public class CompositeMetric implements Metric {
 	private CAMCJClass camc;
 	private IUCClass iuc;
 	
-	public CompositeMetric(IType type) throws Exception {
-		camc = new CAMCJClass(type, false);
-		iuc = new IUCClass(type);
+	public CompositeMetric(IType type, String fakeDelegate, String fakeParameter) throws Exception {
+		camc = new CAMCJClass(type, false, fakeDelegate, fakeParameter);
+		iuc = new IUCClass(type, fakeDelegate);
 	}
 
 	@Override
 	public double getMetric() throws Exception {
-		return (camc.getMetric() + iuc.getMetric()) / 2;
-	}
-
-	@Override
-	public double getMetric(String fakeDelegate, String fakeParameter) throws Exception {
-		return (camc.getMetric(fakeDelegate, fakeParameter) + iuc.getMetric(fakeDelegate, fakeParameter)) / 2;
+		return camc.getMetric() + iuc.getMetric();
 	}
 
 }

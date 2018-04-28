@@ -18,7 +18,7 @@ public class ShowIUC extends SelectionHandler {
 		
 		MessageDialog.openInformation(window.getShell(), "JIUse", "The IUC will be calculated for the openned class!\n\n\n The result dialog will open in a while!");
 		
-		IUCClass clazz = new IUCClass(getSelection());
+		IUCClass clazz = new IUCClass(getSelection(), null);
 		
 		String result = clazz.toString();
 		

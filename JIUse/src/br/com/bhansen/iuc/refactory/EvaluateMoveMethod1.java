@@ -85,7 +85,7 @@ public class EvaluateMoveMethod1 extends MoveMethodEvaluator  {
 		
 		try {
 			this.newFromValue = factory.create(this.classFrom).getMetric();
-			this.newToValue = factory.create(this.classTo).getMetric(MetricClass.getMoveMethodName(iMethod.getElementName()), MetricClass.getClassName(this.classFrom));
+			this.newToValue = factory.create(this.classTo, MetricClass.getMoveMethodName(iMethod.getElementName()), MetricClass.getClassName(this.classFrom)).getMetric();
 			
 			this.valueDifference = (this.newFromValue - this.oldFromValue) + (this.newToValue - this.oldToValue);
 		} finally {

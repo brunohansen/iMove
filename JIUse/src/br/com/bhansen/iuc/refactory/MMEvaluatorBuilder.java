@@ -33,11 +33,11 @@ public class MMEvaluatorBuilder {
 		return new MetricFactory() {
 			
 			@Override
-			public Metric create(IType type) throws Exception {
+			public Metric create(IType type, String fakeDelegate, String fakeParameter) throws Exception {
 				//return new CheckMoves();
 				//return new NHDMNClass(type);
 				//return new IUCClass(type); 
-				return new CAMCClass(type, false);
+				return new CAMCClass(type, false, fakeDelegate, fakeParameter);
 				//return new NHDMClass(type);
 				//return new CAMCJClass(type);
 				//return new CompositeMetric(type);
@@ -49,10 +49,10 @@ public class MMEvaluatorBuilder {
 		return new MetricFactory() {
 			
 			@Override
-			public Metric create(IType type) throws Exception {
+			public Metric create(IType type, String fakeDelegate, String fakeParameter) throws Exception {
 				//return new CheckMoves();
 				//return new NHDMNClass(type);
-				return new IUCClass(type); 
+				return new IUCClass(type, fakeDelegate); 
 				//return new CAMCClass(type);
 				//return new NHDMClass(type);
 				//return new CAMCJClass(type);

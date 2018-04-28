@@ -12,14 +12,13 @@ public class CAMCJClass extends DeclarationMetricClass {
 		super();
 	}
 	
-	public CAMCJClass(IType type, boolean zeroParams) throws Exception {
-		super(type, zeroParams);
+	public CAMCJClass(IType type, boolean zeroParams, String fakeDelegate, String fakeParameter) throws Exception {
+		super(type, zeroParams, fakeDelegate, fakeParameter);
 	}
 		
 	@Override
 	@SuppressWarnings("unchecked")
-	public double getMetric(String fakeDelegate, String fakeParameter) throws Exception {
-		super.getMetric(fakeDelegate, fakeParameter);
+	public double getMetric() throws Exception {
 		
 		if(getMethods().size() < 2)
 			return 0;

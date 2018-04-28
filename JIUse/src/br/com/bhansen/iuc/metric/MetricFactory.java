@@ -2,8 +2,12 @@ package br.com.bhansen.iuc.metric;
 
 import org.eclipse.jdt.core.IType;
 
-public interface MetricFactory {
+public abstract class MetricFactory {
 	
-	Metric create(IType type) throws Exception;
+	public Metric create(IType type) throws Exception {
+		return create(type, null, null);
+	}
+	
+	public abstract Metric create(IType type, String fakeDelegate, String fakeParameter) throws Exception;
 
 }

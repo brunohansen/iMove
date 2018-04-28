@@ -16,7 +16,7 @@ import org.eclipse.jdt.internal.corext.callhierarchy.CallHierarchy;
 import org.eclipse.jdt.internal.corext.callhierarchy.MethodWrapper;
 
 @SuppressWarnings("restriction")
-public class MetricClass implements Metric {
+public abstract class MetricClass implements Metric {
 	
 	private static String METHOD_PREFIX = "Moved";
 	
@@ -49,6 +49,17 @@ public class MetricClass implements Metric {
 		return generateInnerSignature(signature);
 	}
 	
+	public static Set<String> getMethods(IType type) throws JavaModelException {
+		IMethod[] iMethods = type.getMethods();
+		Set<String> methods = new HashSet<>();
+				
+		for (IMethod method : iMethods) {
+			methods.add(getSignature(method));
+		}
+		
+		return methods;
+	}
+	
 	public static String generateSignature(String method) {
 		method = method.replaceAll("\\s", " ");// Change whitespace character: [
 												// \t\n\x0B\f\r]
@@ -68,49 +79,38 @@ public class MetricClass implements Metric {
 
 		return method;
 	}
-	
-	public void removeFakes(String fakeDelegate, String fakeParameter) throws Exception {
-		if(fakeDelegate != null) {
-			IMethod delegate = getMethod(fakeDelegate);
-			
-			if(isFakeDelegate(delegate)) {
-				methods.remove(getSignature(delegate));
-			} else {
-				removeFakeParameter(getSignature(delegate), fakeParameter);
-			}
-		}
+		
+	protected boolean isFakeDelegate(IMethod method, String fakeDelegate) throws Exception, JavaModelException {
+		return isMethod(method, fakeDelegate) && isFakeDelegate(method);
 	}
 	
-	public void removeFakeParameter(String fakeSignature, String fakeParameter) throws JavaModelException {
-		
-	}
-	
-	private IMethod getMethod(String name) throws Exception, JavaModelException {
-		
-		for (IMethod iMethod : getType().getMethods()) {
-			String mSig = getSignature(iMethod);
+	protected boolean isMethod(IMethod method, String name) throws Exception, JavaModelException {
+		if(name == null)
+			return false;
 			
-			if(mSig.split("\\(", 2)[0].equals(name)) {
-				return iMethod;
-			}
+		String mSig = getSignature(method);
+		
+		if(mSig.split("\\(", 2)[0].equals(name)) {
+			return true;
 		}
 		
-		return null;
+		return false;
 	}
 	
 	private boolean isFakeDelegate(IMethod method) throws Exception, JavaModelException {
 
 		Set<String> callers = getCallerMethods(method);
-		String mSig = getSignature(method);
-		
+				
 		if(callers.size() != 1) {
 			return false;
 		}
 		
-		for (String string : callers) {
+		String mSig = getSignature(method);
+		
+		for (String caller : callers) {
 			String originalName = mSig.split("\\(", 2)[0].replaceFirst("[0-9]{0,1}" + METHOD_PREFIX, "");
 			
-			if(originalName.equals(string.split("\\(", 2)[0])) {
+			if(originalName.equals(caller.split("\\(", 2)[0])) {
 				return true;
 			} else {
 				return false;
@@ -182,16 +182,6 @@ public class MetricClass implements Metric {
 	
 	public Map<String, Set<String>> getMethods() {
 		return methods;
-	}
-		
-	public double getMetric() throws Exception {
-		return getMetric(null, null);
-	}
-	
-	public double getMetric(String fakeDelegate, String fakeParameter) throws Exception {
-		removeFakes(fakeDelegate, fakeParameter);
-		
-		return 0f;
 	}
 
 }

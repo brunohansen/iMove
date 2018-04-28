@@ -7,9 +7,4 @@ public class CheckMoves implements Metric{
 		return 0;
 	}
 
-	@Override
-	public double getMetric(String fakeDelegate, String fakeParameter) throws Exception {
-		return 0;
-	}
-
 }

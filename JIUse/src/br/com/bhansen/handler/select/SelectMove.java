@@ -1,11 +1,14 @@
 package br.com.bhansen.handler.select;
 
+import java.util.Set;
+
 import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.ui.IWorkbenchWindow;
 
 import br.com.bhansen.handler.SelectDlg;
 import br.com.bhansen.iuc.metric.IUCClass;
+import br.com.bhansen.iuc.metric.MetricClass;
 import br.com.bhansen.iuc.refactory.MMEvaluatorBuilder;
 
 public class SelectMove extends SelectionHandler {
@@ -38,11 +41,11 @@ public class SelectMove extends SelectionHandler {
 			
 			MessageDialog.openInformation(window.getShell(), "JIUse - Class To Selected!", IUCClass.getClassName(evaluateMoveMethod.getClassFrom()));
 			
-			IUCClass classFrom = new IUCClass(evaluateMoveMethod.getClassFrom());
+			Set<String> methods = MetricClass.getMethods(evaluateMoveMethod.getClassFrom());
 			
-			String [] mtds = new String[classFrom.getMethods().size()];
+			String [] mtds = new String[methods.size()];
 			
-			mtds = classFrom.getMethods().keySet().toArray(mtds);
+			mtds = methods.toArray(mtds);
 					
 			SelectDlg dlg = new SelectDlg(window.getShell(), "JIUse - Choose a method to move!", "Method", mtds);
 			dlg.open();
