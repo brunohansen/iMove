@@ -12,7 +12,7 @@ import org.eclipse.jdt.core.JavaModelException;
 public class DeclarationMetricClass extends MetricClass {
 	
 	public DeclarationMetricClass() throws Exception {
-		this(null);
+		this(null, true);
 		
 		getMethods().put("m1", new HashSet<>());
 		getMethods().get("m1").add("X");
@@ -26,7 +26,7 @@ public class DeclarationMetricClass extends MetricClass {
 //		getMethods().get("m3").add("W");
 	}
 		
-	public DeclarationMetricClass(IType type) throws Exception {
+	public DeclarationMetricClass(IType type, boolean zeroParams) throws Exception {
 		super(type);
 		
 		// TODO Gatilho
@@ -36,8 +36,13 @@ public class DeclarationMetricClass extends MetricClass {
 
 		for (IMethod method : methods) {
 			Set<String> params = getParameters(method);
-			if(params.size() > 0)
+			
+			if(zeroParams) {
 				getMethods().put(getSignature(method), params);
+			} else if(params.size() > 0) {
+				getMethods().put(getSignature(method), params);
+			}
+				
 		}
 	}
 

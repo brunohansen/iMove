@@ -11,8 +11,8 @@ public class NHDMNClass extends DeclarationMetricClass {
 		super();
 	}
 	
-	public NHDMNClass(IType type) throws Exception {
-		super(type);
+	public NHDMNClass(IType type, boolean zeroParams) throws Exception {
+		super(type, zeroParams);
 	}
 	
 	@Override

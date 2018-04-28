@@ -10,8 +10,8 @@ public class CAMCClass extends DeclarationMetricClass {
 		super();
 	}
 	
-	public CAMCClass(IType type) throws Exception {
-		super(type);
+	public CAMCClass(IType type, boolean zeroParams) throws Exception {
+		super(type, zeroParams);
 	}
 
 	@Override

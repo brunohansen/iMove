@@ -8,7 +8,7 @@ public class CompositeMetric implements Metric {
 	private IUCClass iuc;
 	
 	public CompositeMetric(IType type) throws Exception {
-		camc = new CAMCJClass(type);
+		camc = new CAMCJClass(type, false);
 		iuc = new IUCClass(type);
 	}
 

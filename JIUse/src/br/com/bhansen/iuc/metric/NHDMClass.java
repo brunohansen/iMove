@@ -11,8 +11,8 @@ public class NHDMClass extends DeclarationMetricClass {
 		super();
 	}
 	
-	public NHDMClass(IType type) throws Exception {
-		super(type);
+	public NHDMClass(IType type, boolean zeroParams) throws Exception {
+		super(type, zeroParams);
 	}
 	
 	@Override
