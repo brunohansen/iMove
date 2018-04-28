@@ -17,7 +17,7 @@ import br.com.bhansen.iuc.metric.MetricFactory;
 @SuppressWarnings("restriction")
 public class EvaluateMoveMethod1 extends MoveMethodEvaluator  {
 	
-	private int threshold = 0;
+	private double threshold;
 
 	private double oldFromValue;
 	private double oldToValue;
@@ -29,8 +29,10 @@ public class EvaluateMoveMethod1 extends MoveMethodEvaluator  {
 	
 	private MetricFactory factory;
 	
-	public EvaluateMoveMethod1(IType classFrom, String method, IType classTo, MetricFactory factory) throws Exception {
+	public EvaluateMoveMethod1(IType classFrom, String method, IType classTo, MetricFactory factory, double threshold) throws Exception {
 		super(classFrom, method, classTo);
+		
+		this.threshold = threshold;
 		
 		this.factory = factory;
 		

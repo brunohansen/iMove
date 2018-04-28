@@ -11,10 +11,10 @@ public class EvaluateMoveMethod2 extends MoveMethodEvaluator {
 	public EvaluateMoveMethod2(IType classFrom, String method, IType classTo, MetricFactory fac1, MetricFactory fac2) throws Exception {
 		super(classFrom, method, classTo);
 		
-		this.evaluator = new EvaluateMoveMethod1(classFrom, method, classTo, fac1);
+		this.evaluator = new EvaluateMoveMethod1(classFrom, method, classTo, fac1, 0);
 		
 		if(! this.evaluator.shouldMove()) {
-			this.evaluator = new EvaluateMoveMethod1(classFrom, method, classTo, fac2);
+			this.evaluator = new EvaluateMoveMethod1(classFrom, method, classTo, fac2, -0.04);
 		}
 		
 	}
