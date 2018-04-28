@@ -11,47 +11,33 @@ import org.eclipse.ltk.core.refactoring.Change;
 import org.eclipse.ltk.core.refactoring.Refactoring;
 import org.eclipse.ltk.core.refactoring.participants.MoveRefactoring;
 
-import br.com.bhansen.iuc.metric.CheckMoves;
-import br.com.bhansen.iuc.metric.Metric;
 import br.com.bhansen.iuc.metric.MetricClass;
 import br.com.bhansen.iuc.metric.MetricFactory;
 
 @SuppressWarnings("restriction")
-public class EvaluateMoveMethod1 implements MoveMethodEvaluator  {
+public class EvaluateMoveMethod1 extends MoveMethodEvaluator  {
 	
-	private int threshold = 0;    
-	
-	private IType classFrom;
-	private IType classTo;
+	private int threshold = 0;
 
-	private double oldFromIUC;
-	private double oldToIUC;
+	private double oldFromValue;
+	private double oldToValue;
 
-	private double newFromIUC;
-	private double newToIUC;
+	private double newFromValue;
+	private double newToValue;
 
-	private double iucDifference;
-	
-	private String method;
+	private double valueDifference;
 	
 	private MetricFactory factory;
 	
 	public EvaluateMoveMethod1(IType classFrom, String method, IType classTo, MetricFactory factory) throws Exception {
+		super(classFrom, method, classTo);
+		
 		this.factory = factory;
-		setClassFrom(classFrom);
-		this.move(method, classTo);
-	}
-	
-	private void setClassFrom(IType classFrom) throws Exception {
-		this.classFrom = classFrom;
-
-		this.oldFromIUC = factory.create(classFrom).getMetric();
-	}
-
-	private void setClassTo(IType classTo) throws Exception {
-		this.classTo = classTo;
-
-		this.oldToIUC = factory.create(classTo).getMetric();
+		
+		this.oldFromValue = factory.create(classFrom).getMetric();
+		this.oldToValue = factory.create(classTo).getMetric();
+		
+		this.move(method);
 	}
 	
 //	public void move2(String method) throws Exception {
@@ -59,10 +45,10 @@ public class EvaluateMoveMethod1 implements MoveMethodEvaluator  {
 //		
 //		RefactoringExecutionStarter.startMoveMethodRefactoring(iMethod, shell);
 //		
-//		this.newFromIUC = new IUCClass(this.classFrom).getIUC();
-//		this.newToIUC = new IUCClass(this.classTo).getIUC();
+//		this.newFromValue = new ValueClass(this.classFrom).getValue();
+//		this.newToValue = new ValueClass(this.classTo).getValue();
 //		
-//		this.iucDifference = (this.newFromIUC - this.oldFromIUC) + (this.newToIUC - this.oldToIUC);
+//		this.ValueDifference = (this.newFromValue - this.oldFromValue) + (this.newToValue - this.oldToValue);
 //		
 //	}
 
@@ -98,10 +84,10 @@ public class EvaluateMoveMethod1 implements MoveMethodEvaluator  {
 		Change undo = change.perform(monitor);
 		
 		try {
-			this.newFromIUC = factory.create(this.classFrom).getMetric();
-			this.newToIUC = factory.create(this.classTo).getMetric(MetricClass.getMoveMethodName(iMethod.getElementName()), MetricClass.getClassName(this.classFrom));
+			this.newFromValue = factory.create(this.classFrom).getMetric();
+			this.newToValue = factory.create(this.classTo).getMetric(MetricClass.getMoveMethodName(iMethod.getElementName()), MetricClass.getClassName(this.classFrom));
 			
-			this.iucDifference = (this.newFromIUC - this.oldFromIUC) + (this.newToIUC - this.oldToIUC);
+			this.valueDifference = (this.newFromValue - this.oldFromValue) + (this.newToValue - this.oldToValue);
 		} finally {
 			undo.perform(new NullProgressMonitor());
 		}
@@ -130,24 +116,19 @@ public class EvaluateMoveMethod1 implements MoveMethodEvaluator  {
 		throw new Exception("Method " + this.method + " not found!");
 	}
 
-	private void move(String method, IType classTo) throws Exception {
-		this.setClassTo(classTo);
-		this.move(method);
-	}
-
 	public boolean shouldMove() {
-		return this.iucDifference > threshold;
+		return this.valueDifference > threshold;
 	}
 
 	@Override
 	public String toString() {
 		StringBuilder txt = new StringBuilder();
 
-		txt.append(MetricClass.getClassName(this.classFrom)).append(" ").append(this.oldFromIUC).append(" -> ")
-				.append(this.newFromIUC).append("\n");
-		txt.append(MetricClass.getClassName(this.classTo)).append(" ").append(this.oldToIUC).append(" -> ")
-				.append(this.newToIUC).append("\n");
-		txt.append("IUC difference: ").append(this.iucDifference).append("\n\n");
+		txt.append(MetricClass.getClassName(this.classFrom)).append(" ").append(this.oldFromValue).append(" -> ")
+				.append(this.newFromValue).append("\n");
+		txt.append(MetricClass.getClassName(this.classTo)).append(" ").append(this.oldToValue).append(" -> ")
+				.append(this.newToValue).append("\n");
+		txt.append("Value difference: ").append(this.valueDifference).append("\n\n");
 
 		return txt.toString();
 	}
