@@ -1,6 +1,6 @@
 package br.com.bhansen.iuc.refactory;
 
-public interface EvaluateMM {
+public interface MoveMethodEvaluator {
 	
 	boolean shouldMove();
 

@@ -2,21 +2,41 @@ package br.com.bhansen.iuc.refactory;
 
 import org.eclipse.jdt.core.IType;
 
-public class EvaluateMoveMethod {
+import br.com.bhansen.iuc.metric.CheckMoves;
+import br.com.bhansen.iuc.metric.Metric;
+import br.com.bhansen.iuc.metric.MetricFactory;
+
+public class MMEvaluatorBuilder {
 	
 	private IType classFrom;
 	private IType classTo;
 	private String method;
 	
-	private EvaluateMM evaluate;
+	private MoveMethodEvaluator evaluate;
 	
-	public EvaluateMoveMethod(IType classFrom) throws Exception {
+	public MMEvaluatorBuilder(IType classFrom) throws Exception {
 		this.setClassFrom(classFrom);
 	}
 	
-	public EvaluateMoveMethod(IType classFrom, String method, IType classTo) throws Exception {
+	public MMEvaluatorBuilder(IType classFrom, String method, IType classTo) throws Exception {
 		this(classFrom);
 		this.move(method, classTo);
+	}
+	
+	private MetricFactory createFactory() throws Exception {
+		return new MetricFactory() {
+			
+			@Override
+			public Metric create(IType type) {
+				return new CheckMoves();
+				//return new NHDMNClass(type);
+				//return new IUCClass(type); 
+				// return new CAMCClass(type);
+				//return new NHDMClass(type);
+				//return new CAMCJClass(type);
+				//return new CompositeMetric(type);
+			}
+		}; 
 	}
 	
 	public void setClassFrom(IType classFrom) {
@@ -37,11 +57,11 @@ public class EvaluateMoveMethod {
 
 	public void move(String method) throws Exception {
 		this.method = method;
-		this.evaluate = create();
+		this.evaluate = createEvaluate();
 	}
 	
-	private EvaluateMM create() throws Exception {
-		return new EvaluateMoveMethod1(this.classFrom, this.method, this.classTo);
+	private MoveMethodEvaluator createEvaluate() throws Exception {
+		return new EvaluateMoveMethod1(this.classFrom, this.method, this.classTo, createFactory());
 	}
 
 	public void move(String method, IType classTo) throws Exception {

@@ -6,7 +6,7 @@ import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.ui.IWorkbenchWindow;
 
 import br.com.bhansen.handler.SelectProjectDlg;
-import br.com.bhansen.iuc.refactory.EvaluateMoveMethod;
+import br.com.bhansen.iuc.refactory.MMEvaluatorBuilder;
 
 public class FromToMovement extends InputMovement {
 			
@@ -19,7 +19,7 @@ public class FromToMovement extends InputMovement {
 		
 		String movement = fromDlg.getValue() + "\t" + toDlg.getValue();
 						
-		EvaluateMoveMethod evaluateMoveMethod = move(fromDlg.getProject(), movement);
+		MMEvaluatorBuilder evaluateMoveMethod = move(fromDlg.getProject(), movement);
 												
 		MessageDialog.openInformation(window.getShell(), evaluateMoveMethod.shouldMove()? "Move!!!" : "Don't Move!!!", evaluateMoveMethod.toString());
 		

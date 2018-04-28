@@ -14,9 +14,10 @@ import org.eclipse.ltk.core.refactoring.participants.MoveRefactoring;
 import br.com.bhansen.iuc.metric.CheckMoves;
 import br.com.bhansen.iuc.metric.Metric;
 import br.com.bhansen.iuc.metric.MetricClass;
+import br.com.bhansen.iuc.metric.MetricFactory;
 
 @SuppressWarnings("restriction")
-public class EvaluateMoveMethod1 implements EvaluateMM  {
+public class EvaluateMoveMethod1 implements MoveMethodEvaluator  {
 	
 	private int threshold = 0;    
 	
@@ -33,31 +34,24 @@ public class EvaluateMoveMethod1 implements EvaluateMM  {
 	
 	private String method;
 	
-	public EvaluateMoveMethod1(IType classFrom, String method, IType classTo) throws Exception {
+	private MetricFactory factory;
+	
+	public EvaluateMoveMethod1(IType classFrom, String method, IType classTo, MetricFactory factory) throws Exception {
+		this.factory = factory;
 		setClassFrom(classFrom);
 		this.move(method, classTo);
 	}
 	
-	private Metric createMetric(IType type) throws Exception {
-		return new CheckMoves();
-		//return new NHDMNClass(type);
-		//return new IUCClass(type); 
-		// return new CAMCClass(type);
-		//return new NHDMClass(type);
-		//return new CAMCJClass(type);
-		//return new CompositeMetric(type);
-	}
-
 	private void setClassFrom(IType classFrom) throws Exception {
 		this.classFrom = classFrom;
 
-		this.oldFromIUC = createMetric(classFrom).getMetric();
+		this.oldFromIUC = factory.create(classFrom).getMetric();
 	}
 
 	private void setClassTo(IType classTo) throws Exception {
 		this.classTo = classTo;
 
-		this.oldToIUC = createMetric(classTo).getMetric();
+		this.oldToIUC = factory.create(classTo).getMetric();
 	}
 	
 //	public void move2(String method) throws Exception {
@@ -104,8 +98,8 @@ public class EvaluateMoveMethod1 implements EvaluateMM  {
 		Change undo = change.perform(monitor);
 		
 		try {
-			this.newFromIUC = createMetric(this.classFrom).getMetric();
-			this.newToIUC = createMetric(this.classTo).getMetric(MetricClass.getMoveMethodName(iMethod.getElementName()), MetricClass.getClassName(this.classFrom));
+			this.newFromIUC = factory.create(this.classFrom).getMetric();
+			this.newToIUC = factory.create(this.classTo).getMetric(MetricClass.getMoveMethodName(iMethod.getElementName()), MetricClass.getClassName(this.classFrom));
 			
 			this.iucDifference = (this.newFromIUC - this.oldFromIUC) + (this.newToIUC - this.oldToIUC);
 		} finally {

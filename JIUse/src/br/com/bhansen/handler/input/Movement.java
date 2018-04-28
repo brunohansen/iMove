@@ -5,7 +5,7 @@ import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.ui.IWorkbenchWindow;
 
 import br.com.bhansen.handler.SelectProjectDlg;
-import br.com.bhansen.iuc.refactory.EvaluateMoveMethod;
+import br.com.bhansen.iuc.refactory.MMEvaluatorBuilder;
 
 public class Movement extends InputMovement {
 	
@@ -14,7 +14,7 @@ public class Movement extends InputMovement {
 		
 		SelectProjectDlg inDlg = SelectProjectDlg.askProject(window.getShell(), "JIUse - Inform the movement", "Movement");
 		
-		EvaluateMoveMethod evaluateMoveMethod = move(inDlg.getProject(), inDlg.getValue());
+		MMEvaluatorBuilder evaluateMoveMethod = move(inDlg.getProject(), inDlg.getValue());
 												
 		MessageDialog.openInformation(window.getShell(), evaluateMoveMethod.shouldMove()? "Move!!!" : "Don't Move!!!", evaluateMoveMethod.toString());
 		

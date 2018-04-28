@@ -24,7 +24,7 @@ import org.eclipse.jface.dialogs.InputDialog;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.ui.IWorkbenchWindow;
 
-import br.com.bhansen.iuc.refactory.EvaluateMoveMethod;
+import br.com.bhansen.iuc.refactory.MMEvaluatorBuilder;
 
 public class BatchFileMovement extends InputMovement {
 	
@@ -90,7 +90,7 @@ public class BatchFileMovement extends InputMovement {
 
 				public void accept(String movement) {
 					try {
-						EvaluateMoveMethod evaluateMoveMethod = move(project, movement);
+						MMEvaluatorBuilder evaluateMoveMethod = move(project, movement);
 						String str = evaluateMoveMethod.toLineString();
 						outSet.add(str);
 						System.out.println(str);

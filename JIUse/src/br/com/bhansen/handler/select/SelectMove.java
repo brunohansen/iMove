@@ -6,11 +6,11 @@ import org.eclipse.ui.IWorkbenchWindow;
 
 import br.com.bhansen.handler.SelectDlg;
 import br.com.bhansen.iuc.metric.IUCClass;
-import br.com.bhansen.iuc.refactory.EvaluateMoveMethod;
+import br.com.bhansen.iuc.refactory.MMEvaluatorBuilder;
 
 public class SelectMove extends SelectionHandler {
 	
-	private static EvaluateMoveMethod evaluateMoveMethod;
+	private static MMEvaluatorBuilder evaluateMoveMethod;
 	
 	static {
 		evaluateMoveMethod = null;
@@ -23,7 +23,7 @@ public class SelectMove extends SelectionHandler {
 			
 			MessageDialog.openInformation(window.getShell(), "JIUse", "The IUC will be calculated for the openned class!\n\n\n The result dialog will open in a while!");
 			
-			evaluateMoveMethod = new EvaluateMoveMethod(getSelection());
+			evaluateMoveMethod = new MMEvaluatorBuilder(getSelection());
 			
 			MessageDialog.openInformation(window.getShell(), "JIUse - Class From Selected!", IUCClass.getClassName(evaluateMoveMethod.getClassFrom()) + "\n\n\n Open the 'To Class' and click on the select to move menu again!");
 			
