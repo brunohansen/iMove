@@ -2,7 +2,8 @@ package br.com.bhansen.iuc.refactory;
 
 import org.eclipse.jdt.core.IType;
 
-import br.com.bhansen.iuc.metric.CheckMoves;
+import br.com.bhansen.iuc.metric.CAMCClass;
+import br.com.bhansen.iuc.metric.IUCClass;
 import br.com.bhansen.iuc.metric.Metric;
 import br.com.bhansen.iuc.metric.MetricFactory;
 
@@ -32,11 +33,11 @@ public class MMEvaluatorBuilder {
 		return new MetricFactory() {
 			
 			@Override
-			public Metric create(IType type) {
-				return new CheckMoves();
+			public Metric create(IType type) throws Exception {
+				//return new CheckMoves();
 				//return new NHDMNClass(type);
 				//return new IUCClass(type); 
-				// return new CAMCClass(type);
+				return new CAMCClass(type, false);
 				//return new NHDMClass(type);
 				//return new CAMCJClass(type);
 				//return new CompositeMetric(type);
@@ -48,11 +49,11 @@ public class MMEvaluatorBuilder {
 		return new MetricFactory() {
 			
 			@Override
-			public Metric create(IType type) {
-				return new CheckMoves();
+			public Metric create(IType type) throws Exception {
+				//return new CheckMoves();
 				//return new NHDMNClass(type);
-				//return new IUCClass(type); 
-				// return new CAMCClass(type);
+				return new IUCClass(type); 
+				//return new CAMCClass(type);
 				//return new NHDMClass(type);
 				//return new CAMCJClass(type);
 				//return new CompositeMetric(type);
