@@ -14,7 +14,7 @@ public class EvaluateMoveMethod2 extends MoveMethodEvaluator {
 		this.evaluator = new EvaluateMoveMethod1(classFrom, method, classTo, fac1, 0);
 		
 		if(! this.evaluator.shouldMove()) {
-			this.evaluator = new EvaluateMoveMethod1(classFrom, method, classTo, fac2, -0.04);
+			this.evaluator = new EvaluateMoveMethod1(classFrom, method, classTo, fac2, 0);
 		}
 		
 	}
