@@ -6,6 +6,7 @@ import br.com.bhansen.iuc.metric.CAMCClass;
 import br.com.bhansen.iuc.metric.IUCClass;
 import br.com.bhansen.iuc.metric.Metric;
 import br.com.bhansen.iuc.metric.MetricFactory;
+import br.com.bhansen.iuc.metric.NHDMClass;
 
 public class MMEvaluatorBuilder {
 	
@@ -37,8 +38,8 @@ public class MMEvaluatorBuilder {
 				//return new CheckMoves();
 				//return new NHDMNClass(type);
 				//return new IUCClass(type); 
-				return new CAMCClass(type, false, fakeDelegate, fakeParameter);
-				//return new NHDMClass(type);
+				//return new CAMCClass(type, false, fakeDelegate, fakeParameter);
+				return new NHDMClass(type, true, fakeDelegate, fakeParameter);
 				//return new CAMCJClass(type);
 				//return new CompositeMetric(type);
 			}
