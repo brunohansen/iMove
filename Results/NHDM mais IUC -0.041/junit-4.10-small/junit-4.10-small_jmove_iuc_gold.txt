@@ -1,0 +1,12 @@
+-0.0012690589996416923-011	org.junit.experimental.theories.internal.Assignments::getAnnotatedSupplier(ParameterSignature):ParameterSupplier	org.junit.experimental.theories.ParameterSignature
+-0.0017006492058887074-011	org.junit.runners.ParentRunner::validatePublicVoidNoArgMethods(Class<? extends Annotation>, boolean, List<Throwable>):void	org.junit.runners.model.TestClass
+-0.0019152849969371472-011	org.junit.runners.ParentRunner::runLeaf(Statement, Description, RunNotifier):void	org.junit.runner.Description
+-0.006670641643705788-011	org.junit.experimental.theories.Theories.TheoryAnchor::runWithIncompleteAssignment(Assignments):void	org.junit.experimental.theories.internal.Assignments
+-5.479927934004536E-5-011	org.junit.internal.runners.JUnit4ClassRunner::testAborted(RunNotifier, Description, Throwable):void	org.junit.runner.notification.RunNotifier
+0.0029761833212678668-000	org.junit.runners.model.RunnerBuilder::runnerForClass2(AnnotatedBuilder, Class<?>):Runner	org.junit.internal.builders.AnnotatedBuilder
+0.0149255661620869-011	org.junit.internal.runners.JUnit4ClassRunner::classAnnotations():Annotation[]	org.junit.internal.runners.TestClass
+0.02083333333333337-011	org.junit.runner.Computer::getRunner(RunnerBuilder, Class<?>):Runner	org.junit.runners.model.RunnerBuilder
+0.04642581643041713-000	org.junit.runner.notification.RunNotifier::addFailure(ClassRoadie, Throwable):void	org.junit.internal.runners.ClassRoadie
+0.05555555555555558-011	org.junit.runner.Computer::getSuite(RunnerBuilder, Class<?>[]):Runner	org.junit.runners.model.RunnerBuilder
+0.09090906855734904-000	org.junit.runner.Runner::run2(JUnit4TestAdapter, TestResult):void	junit.framework.JUnit4TestAdapter
+0.4589238628950679-011	junit.framework.JUnit4TestAdapterCache::getNotifier(TestResult, JUnit4TestAdapter):RunNotifier	junit.framework.TestResult

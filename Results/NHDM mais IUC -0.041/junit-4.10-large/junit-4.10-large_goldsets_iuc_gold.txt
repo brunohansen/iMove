@@ -1,0 +1,10 @@
+-0.01467520468330491-000	junit.framework.TestResult::printFooter(ResultPrinter):void	junit.textui.ResultPrinter
+-0.024639254829592283-000	org.junit.runner.Result::printFailures(TextListener):void	org.junit.internal.TextListener
+0.023352013296854185-000	org.junit.runner.manipulation.Filter::filter2(JUnit38ClassRunner):void	org.junit.internal.runners.JUnit38ClassRunner
+0.03432538336113333-000	org.junit.runner.manipulation.Filter::filter3(JUnit4ClassRunner):void	org.junit.internal.runners.JUnit4ClassRunner
+0.10464452896734801-000	org.junit.runner.Description::runBefores(ClassRoadie):void	org.junit.internal.runners.ClassRoadie
+0.15185942542136283-000	org.junit.runner.notification.RunNotifier::runTestMethod(MethodRoadie):void	org.junit.internal.runners.MethodRoadie
+0.16255459021259516-000	org.junit.experimental.theories.ParameterSignature::addFields(AllMembersSupplier, List<PotentialAssignment>):void	org.junit.experimental.theories.internal.AllMembersSupplier
+0.16666666666666669-000	org.junit.runners.model.Statement::evaluate2(ExpectException):void	org.junit.internal.runners.statements.ExpectException
+0.16666669646898907-000	org.junit.runners.model.Statement::apply(TestWatchman, FrameworkMethod, Object):Statement	org.junit.rules.TestWatchman
+3.6074517040771137E-4-000	org.junit.runner.Result::printFooter(TextListener):void	org.junit.internal.TextListener

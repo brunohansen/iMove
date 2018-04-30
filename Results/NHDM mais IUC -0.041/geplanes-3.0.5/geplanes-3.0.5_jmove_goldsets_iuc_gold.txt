@@ -1,0 +1,10 @@
+-0.004109698062904912-000	br.com.linkcom.sgm.service.UnidadeGerencialService::createReportAlcanceMetaInstitucional(WebRequestContext, AlcanceMetaInstitucionalReportFiltro):IReport	br.com.linkcom.sgm.service.PlanoGestaoService
+-0.025416611815587825-000	br.com.linkcom.sgm.service.DistribuicaoPesosIndicadoresService::carregaElementosPainelIndicador(UnidadeGerencial):List<PerspectivaMapaEstrategico>	br.com.linkcom.sgm.service.PerspectivaMapaEstrategicoService
+-0.031930839942655706-000	br.com.linkcom.sgm.controller.process.DistribuicaoPesosIndicadoresProcess::isAdministradoOuDataLimiteNaoExpirada(Indicador):boolean	br.com.linkcom.sgm.service.IndicadorService
+-0.04157300500606076-100	br.com.linkcom.sgm.controller.crud.AnomaliaCrud::montaDiagramaCausaEfeito(Anomalia):void	br.com.linkcom.sgm.service.CausaEfeitoService
+-0.044522880763581685-100	br.com.linkcom.sgm.controller.process.DistribuicaoPesosIndicadoresProcess::resolveAcompanhamentos(PlanoGestao, Indicador):void	br.com.linkcom.sgm.service.AcompanhamentoIndicadorService
+-0.055188812227942405-100	br.com.linkcom.sgm.service.AnomaliaService::makeDiagramaReport(Anomalia, Image, Image, Image):Report	br.com.linkcom.sgm.service.CausaEfeitoService
+-0.08201094105236899-100	br.com.linkcom.sgm.controller.process.ApresentacaoResultadosProcess::setListaIndicadores(ApresentacaoResultadosDTO):ApresentacaoResultadosDTO	br.com.linkcom.sgm.service.IndicadorService
+-0.12520426813968452-100	br.com.linkcom.sgm.controller.IndexController::montaTabela(PlanoGestao, List<EstatisticaIndexDTO>):void	br.com.linkcom.sgm.service.UnidadeGerencialService
+0.010659854850319547-000	br.com.linkcom.sgm.service.DistribuicaoPesosIndicadoresService::obtemListaPerspectivaObjetivoEstrategicoIniciativaIndicador(UnidadeGerencial, boolean, boolean, boolean):List<PerspectivaMapaEstrategico>	br.com.linkcom.sgm.service.ObjetivoMapaEstrategicoService
+0.013105431010954044-000	br.com.linkcom.sgm.service.PlanoGestaoService::createReportPendenciaCadastro(PlanoGestao, List<UnidadeGerencial>):IReport	br.com.linkcom.sgm.service.ControleCadastroService

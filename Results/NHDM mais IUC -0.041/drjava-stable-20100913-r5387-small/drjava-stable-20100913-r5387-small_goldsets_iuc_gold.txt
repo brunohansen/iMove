@@ -1,0 +1,10 @@
+-0.0015189401950143067-000	edu.rice.cs.drjava.model.repl.newjvm.MainJVM::junitJVMReady(DefaultJUnitModel):void	edu.rice.cs.drjava.model.junit.DefaultJUnitModel
+-0.0019798944899159787-000	edu.rice.cs.drjava.model.DJError::getPosition(CompilerErrorModel):Position	edu.rice.cs.drjava.model.compiler.CompilerErrorModel
+-0.006555664720885174-000	edu.rice.cs.drjava.model.AbstractDJDocument::testSecondLineMisindented(ActionStartPrevLinePlusTest):void	edu.rice.cs.drjava.model.definitions.indent.ActionStartPrevLinePlusTest
+0.0029857269547786773-000	edu.rice.cs.drjava.ui.config.ConfigFrame::resetDebugFrame(MainFrame):void	edu.rice.cs.drjava.ui.MainFrame
+0.023790749437554472-000	edu.rice.cs.drjava.model.definitions.DefinitionsEditorKit::closeProject(AbstractGlobalModel, boolean):void	edu.rice.cs.drjava.model.AbstractGlobalModel
+0.02411476969099202-000	edu.rice.cs.drjava.model.MovingDocumentRegion::disableFindAgain(FindResultsPanel):void	edu.rice.cs.drjava.ui.FindResultsPanel
+0.024787171410461467-000	edu.rice.cs.drjava.model.junit.JUnitError::progressReset(JUnitPanel, int):void	edu.rice.cs.drjava.ui.JUnitPanel
+0.060214406976286564-000	edu.rice.cs.drjava.ui.InteractionsController::tempFile(GlobalModelTestCase, int):File	edu.rice.cs.drjava.model.GlobalModelTestCase
+0.08333334736526021-000	edu.rice.cs.drjava.model.repl.InteractionsScriptModel::setActionsDisabled(InteractionsScriptController):void	edu.rice.cs.drjava.ui.InteractionsScriptController
+0.3051592000843727-000	edu.rice.cs.drjava.config.ConfigOptionListeners.SlaveJVMXMXListener::getSelectedCompilerErrorPanel(MainFrame):CompilerErrorPanel	edu.rice.cs.drjava.ui.MainFrame
