@@ -22,7 +22,7 @@ public class NHDMClass extends DeclarationMetricClass {
 		Entry<String, Set<String>> [] methods = getMethods().entrySet().toArray(new Entry [0]);
 		String params [] = getParams().toArray(new String[0]);
 		
-		if((methods.length == 0) || (params.length == 0))
+		if((methods.length == 1) || (params.length == 0))
 			return 0f;
 		
 		boolean poMtrx[][] = new boolean[methods.length][params.length];
