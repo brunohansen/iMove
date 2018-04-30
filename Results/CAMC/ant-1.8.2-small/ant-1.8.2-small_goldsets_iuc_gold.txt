@@ -1,10 +1,10 @@
-000	org.apache.tools.ant.filters.FixCrLfFilter::setDestdir(FixCRLF, File):void	org.apache.tools.ant.taskdefs.FixCRLF
-000	org.apache.tools.ant.filters.StripLineBreaks::addStripLineBreaks(FilterChain):void	org.apache.tools.ant.types.FilterChain
-000	org.apache.tools.ant.taskdefs.Parallel::setFailureMessage(Funtest, String):void	org.apache.tools.ant.taskdefs.optional.testing.Funtest
-000	org.apache.tools.ant.types.Comparison::setValue(SizeSelector, long):void	org.apache.tools.ant.types.selectors.SizeSelector
-000	org.apache.tools.ant.types.Environment::setOutputproperty(Java, String):void	org.apache.tools.ant.taskdefs.Java
-000	org.apache.tools.ant.types.RedirectorElement::setSpawn(ExecTask, boolean):void	org.apache.tools.ant.taskdefs.ExecTask
-000	org.apache.tools.ant.types.RegularExpression::addRegexp(Matches):void	org.apache.tools.ant.taskdefs.condition.Matches
-000	org.apache.tools.ant.types.ZipScanner::setUpdate(Zip, boolean):void	org.apache.tools.ant.taskdefs.Zip
-000	org.apache.tools.ant.util.ClasspathUtils.Delegate::getLoaderId(DefBase):String	org.apache.tools.ant.taskdefs.DefBase
-100	org.apache.tools.ant.util.LineTokenizer::chain(HeadFilter, Reader):Reader	org.apache.tools.ant.filters.HeadFilter
+0.000000-100	org.apache.tools.ant.util.LineTokenizer::chain(HeadFilter, Reader):Reader	org.apache.tools.ant.filters.HeadFilter
+0.000427-000	org.apache.tools.ant.util.ClasspathUtils.Delegate::getLoaderId(DefBase):String	org.apache.tools.ant.taskdefs.DefBase
+0.006935-000	org.apache.tools.ant.types.RedirectorElement::setSpawn(ExecTask, boolean):void	org.apache.tools.ant.taskdefs.ExecTask
+0.018344-000	org.apache.tools.ant.filters.FixCrLfFilter::setDestdir(FixCRLF, File):void	org.apache.tools.ant.taskdefs.FixCRLF
+0.019744-000	org.apache.tools.ant.taskdefs.Parallel::setFailureMessage(Funtest, String):void	org.apache.tools.ant.taskdefs.optional.testing.Funtest
+0.032143-000	org.apache.tools.ant.types.Comparison::setValue(SizeSelector, long):void	org.apache.tools.ant.types.selectors.SizeSelector
+0.046081-000	org.apache.tools.ant.filters.StripLineBreaks::addStripLineBreaks(FilterChain):void	org.apache.tools.ant.types.FilterChain
+0.047619-000	org.apache.tools.ant.types.RegularExpression::addRegexp(Matches):void	org.apache.tools.ant.taskdefs.condition.Matches
+0.050132-000	org.apache.tools.ant.types.Environment::setOutputproperty(Java, String):void	org.apache.tools.ant.taskdefs.Java
+0.499741-000	org.apache.tools.ant.types.ZipScanner::setUpdate(Zip, boolean):void	org.apache.tools.ant.taskdefs.Zip
