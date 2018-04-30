@@ -1,0 +1,2 @@
+-0.001429-111	br.com.linkcom.sgm.service.DistribuicaoPesosIndicadoresService::confereSomaPesoIndicadores(DistribuicaoPesosIndicadores, BindException):Boolean	br.com.linkcom.sgm.beans.DistribuicaoPesosIndicadores
+0.002519-011	br.com.linkcom.sgm.service.ObjetivoMapaEstrategicoService::createDesempenhoReport(DesempenhoReportFiltro):IReport	br.com.linkcom.sgm.service.UnidadeGerencialService
