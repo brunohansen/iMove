@@ -1,10 +1,10 @@
-000	br.com.linkcom.sgm.service.DistribuicaoPesosIndicadoresService::obtemListaPerspectivaObjetivoEstrategicoIniciativaIndicador(UnidadeGerencial, boolean, boolean, boolean):List<PerspectivaMapaEstrategico>	br.com.linkcom.sgm.service.ObjetivoMapaEstrategicoService
-000	br.com.linkcom.sgm.service.PlanoGestaoService::createReportPendenciaCadastro(PlanoGestao, List<UnidadeGerencial>):IReport	br.com.linkcom.sgm.service.ControleCadastroService
-100	br.com.linkcom.sgm.controller.IndexController::montaTabela(PlanoGestao, List<EstatisticaIndexDTO>):void	br.com.linkcom.sgm.service.UnidadeGerencialService
-100	br.com.linkcom.sgm.controller.crud.AnomaliaCrud::montaDiagramaCausaEfeito(Anomalia):void	br.com.linkcom.sgm.service.CausaEfeitoService
-100	br.com.linkcom.sgm.controller.process.ApresentacaoResultadosProcess::setListaIndicadores(ApresentacaoResultadosDTO):ApresentacaoResultadosDTO	br.com.linkcom.sgm.service.IndicadorService
-100	br.com.linkcom.sgm.controller.process.DistribuicaoPesosIndicadoresProcess::isAdministradoOuDataLimiteNaoExpirada(Indicador):boolean	br.com.linkcom.sgm.service.IndicadorService
-100	br.com.linkcom.sgm.controller.process.DistribuicaoPesosIndicadoresProcess::resolveAcompanhamentos(PlanoGestao, Indicador):void	br.com.linkcom.sgm.service.AcompanhamentoIndicadorService
-100	br.com.linkcom.sgm.service.AnomaliaService::makeDiagramaReport(Anomalia, Image, Image, Image):Report	br.com.linkcom.sgm.service.CausaEfeitoService
-100	br.com.linkcom.sgm.service.DistribuicaoPesosIndicadoresService::carregaElementosPainelIndicador(UnidadeGerencial):List<PerspectivaMapaEstrategico>	br.com.linkcom.sgm.service.PerspectivaMapaEstrategicoService
-100	br.com.linkcom.sgm.service.UnidadeGerencialService::createReportAlcanceMetaInstitucional(WebRequestContext, AlcanceMetaInstitucionalReportFiltro):IReport	br.com.linkcom.sgm.service.PlanoGestaoService
+-0.004110-100	br.com.linkcom.sgm.service.UnidadeGerencialService::createReportAlcanceMetaInstitucional(WebRequestContext, AlcanceMetaInstitucionalReportFiltro):IReport	br.com.linkcom.sgm.service.PlanoGestaoService
+-0.025417-100	br.com.linkcom.sgm.service.DistribuicaoPesosIndicadoresService::carregaElementosPainelIndicador(UnidadeGerencial):List<PerspectivaMapaEstrategico>	br.com.linkcom.sgm.service.PerspectivaMapaEstrategicoService
+-0.031931-100	br.com.linkcom.sgm.controller.process.DistribuicaoPesosIndicadoresProcess::isAdministradoOuDataLimiteNaoExpirada(Indicador):boolean	br.com.linkcom.sgm.service.IndicadorService
+-0.041573-100	br.com.linkcom.sgm.controller.crud.AnomaliaCrud::montaDiagramaCausaEfeito(Anomalia):void	br.com.linkcom.sgm.service.CausaEfeitoService
+-0.044523-100	br.com.linkcom.sgm.controller.process.DistribuicaoPesosIndicadoresProcess::resolveAcompanhamentos(PlanoGestao, Indicador):void	br.com.linkcom.sgm.service.AcompanhamentoIndicadorService
+-0.055189-100	br.com.linkcom.sgm.service.AnomaliaService::makeDiagramaReport(Anomalia, Image, Image, Image):Report	br.com.linkcom.sgm.service.CausaEfeitoService
+-0.082011-100	br.com.linkcom.sgm.controller.process.ApresentacaoResultadosProcess::setListaIndicadores(ApresentacaoResultadosDTO):ApresentacaoResultadosDTO	br.com.linkcom.sgm.service.IndicadorService
+-0.125204-100	br.com.linkcom.sgm.controller.IndexController::montaTabela(PlanoGestao, List<EstatisticaIndexDTO>):void	br.com.linkcom.sgm.service.UnidadeGerencialService
+0.010660-000	br.com.linkcom.sgm.service.DistribuicaoPesosIndicadoresService::obtemListaPerspectivaObjetivoEstrategicoIniciativaIndicador(UnidadeGerencial, boolean, boolean, boolean):List<PerspectivaMapaEstrategico>	br.com.linkcom.sgm.service.ObjetivoMapaEstrategicoService
+0.013105-000	br.com.linkcom.sgm.service.PlanoGestaoService::createReportPendenciaCadastro(PlanoGestao, List<UnidadeGerencial>):IReport	br.com.linkcom.sgm.service.ControleCadastroService

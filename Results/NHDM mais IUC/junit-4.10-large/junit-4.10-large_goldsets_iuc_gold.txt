@@ -1,10 +1,10 @@
-000	org.junit.experimental.theories.ParameterSignature::addFields(AllMembersSupplier, List<PotentialAssignment>):void	org.junit.experimental.theories.internal.AllMembersSupplier
-000	org.junit.runner.Description::runBefores(ClassRoadie):void	org.junit.internal.runners.ClassRoadie
-000	org.junit.runner.Result::printFooter(TextListener):void	org.junit.internal.TextListener
-000	org.junit.runner.manipulation.Filter::filter2(JUnit38ClassRunner):void	org.junit.internal.runners.JUnit38ClassRunner
-000	org.junit.runner.manipulation.Filter::filter3(JUnit4ClassRunner):void	org.junit.internal.runners.JUnit4ClassRunner
-000	org.junit.runner.notification.RunNotifier::runTestMethod(MethodRoadie):void	org.junit.internal.runners.MethodRoadie
-000	org.junit.runners.model.Statement::apply(TestWatchman, FrameworkMethod, Object):Statement	org.junit.rules.TestWatchman
-000	org.junit.runners.model.Statement::evaluate2(ExpectException):void	org.junit.internal.runners.statements.ExpectException
-100	junit.framework.TestResult::printFooter(ResultPrinter):void	junit.textui.ResultPrinter
-100	org.junit.runner.Result::printFailures(TextListener):void	org.junit.internal.TextListener
+-0.014675-100	junit.framework.TestResult::printFooter(ResultPrinter):void	junit.textui.ResultPrinter
+-0.024639-100	org.junit.runner.Result::printFailures(TextListener):void	org.junit.internal.TextListener
+0.000361-000	org.junit.runner.Result::printFooter(TextListener):void	org.junit.internal.TextListener
+0.023352-000	org.junit.runner.manipulation.Filter::filter2(JUnit38ClassRunner):void	org.junit.internal.runners.JUnit38ClassRunner
+0.034325-000	org.junit.runner.manipulation.Filter::filter3(JUnit4ClassRunner):void	org.junit.internal.runners.JUnit4ClassRunner
+0.104645-000	org.junit.runner.Description::runBefores(ClassRoadie):void	org.junit.internal.runners.ClassRoadie
+0.151859-000	org.junit.runner.notification.RunNotifier::runTestMethod(MethodRoadie):void	org.junit.internal.runners.MethodRoadie
+0.162555-000	org.junit.experimental.theories.ParameterSignature::addFields(AllMembersSupplier, List<PotentialAssignment>):void	org.junit.experimental.theories.internal.AllMembersSupplier
+0.166667-000	org.junit.runners.model.Statement::apply(TestWatchman, FrameworkMethod, Object):Statement	org.junit.rules.TestWatchman
+0.166667-000	org.junit.runners.model.Statement::evaluate2(ExpectException):void	org.junit.internal.runners.statements.ExpectException

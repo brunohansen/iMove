@@ -1,10 +1,10 @@
-000	edu.rice.cs.drjava.config.ConfigOptionListeners.RequiresInteractionsRestartListener::_setupNotificationsPanel(ConfigFrame, ConfigPanel):void	edu.rice.cs.drjava.ui.config.ConfigFrame
-000	edu.rice.cs.drjava.model.FindReplaceMachine::findPrevious(FindReplacePanel):void	edu.rice.cs.drjava.ui.FindReplacePanel
-000	edu.rice.cs.drjava.model.TestDocGetter::testConstructOneDocWithoutLineNums(CompilerErrorModelTest):void	edu.rice.cs.drjava.model.compiler.CompilerErrorModelTest
-000	edu.rice.cs.drjava.model.repl.InteractionsDJDocument::testHistoryRecallNextMovesToEnd(InteractionsPaneTest):void	edu.rice.cs.drjava.ui.InteractionsPaneTest
-000	edu.rice.cs.drjava.ui.config.VectorFileOptionComponent::reset2(ProjectPropertiesFrame, File):void	edu.rice.cs.drjava.ui.ProjectPropertiesFrame
-000	edu.rice.cs.util.swing.DelegatingAction::_installNewDocumentListener(MainFrame, OpenDefinitionsDocument):void	edu.rice.cs.drjava.ui.MainFrame
-000	edu.rice.cs.util.swing.DirectoryChooser::_setUpLanguageLevelMenu(MainFrame, int, boolean):JMenu	edu.rice.cs.drjava.ui.MainFrame
-000	edu.rice.cs.util.swing.FileChooser::_runCommand(ExecuteExternalDialog):void	edu.rice.cs.drjava.ui.ExecuteExternalDialog
-100	edu.rice.cs.drjava.model.GlobalEventNotifier::testCommentOutMultipleLines(CommentTest):void	edu.rice.cs.drjava.model.definitions.CommentTest
-100	edu.rice.cs.drjava.ui.MainFrame::testNE(CommandLineTest):void	edu.rice.cs.drjava.CommandLineTest
+-0.015278-100	edu.rice.cs.drjava.model.GlobalEventNotifier::testCommentOutMultipleLines(CommentTest):void	edu.rice.cs.drjava.model.definitions.CommentTest
+-0.016284-100	edu.rice.cs.drjava.ui.MainFrame::testNE(CommandLineTest):void	edu.rice.cs.drjava.CommandLineTest
+0.002715-000	edu.rice.cs.drjava.model.repl.InteractionsDJDocument::testHistoryRecallNextMovesToEnd(InteractionsPaneTest):void	edu.rice.cs.drjava.ui.InteractionsPaneTest
+0.016217-000	edu.rice.cs.util.swing.DelegatingAction::_installNewDocumentListener(MainFrame, OpenDefinitionsDocument):void	edu.rice.cs.drjava.ui.MainFrame
+0.066871-000	edu.rice.cs.util.swing.DirectoryChooser::_setUpLanguageLevelMenu(MainFrame, int, boolean):JMenu	edu.rice.cs.drjava.ui.MainFrame
+0.079413-000	edu.rice.cs.drjava.config.ConfigOptionListeners.RequiresInteractionsRestartListener::_setupNotificationsPanel(ConfigFrame, ConfigPanel):void	edu.rice.cs.drjava.ui.config.ConfigFrame
+0.084398-000	edu.rice.cs.drjava.ui.config.VectorFileOptionComponent::reset2(ProjectPropertiesFrame, File):void	edu.rice.cs.drjava.ui.ProjectPropertiesFrame
+0.126389-000	edu.rice.cs.drjava.model.TestDocGetter::testConstructOneDocWithoutLineNums(CompilerErrorModelTest):void	edu.rice.cs.drjava.model.compiler.CompilerErrorModelTest
+0.174558-000	edu.rice.cs.drjava.model.FindReplaceMachine::findPrevious(FindReplacePanel):void	edu.rice.cs.drjava.ui.FindReplacePanel
+0.420381-000	edu.rice.cs.util.swing.FileChooser::_runCommand(ExecuteExternalDialog):void	edu.rice.cs.drjava.ui.ExecuteExternalDialog

@@ -1,12 +1,12 @@
-000	org.junit.runner.Runner::run2(JUnit4TestAdapter, TestResult):void	junit.framework.JUnit4TestAdapter
-000	org.junit.runner.notification.RunNotifier::addFailure(ClassRoadie, Throwable):void	org.junit.internal.runners.ClassRoadie
-000	org.junit.runners.model.RunnerBuilder::runnerForClass2(AnnotatedBuilder, Class<?>):Runner	org.junit.internal.builders.AnnotatedBuilder
-011	junit.framework.JUnit4TestAdapterCache::getNotifier(TestResult, JUnit4TestAdapter):RunNotifier	junit.framework.TestResult
-011	org.junit.internal.runners.JUnit4ClassRunner::classAnnotations():Annotation[]	org.junit.internal.runners.TestClass
-011	org.junit.runner.Computer::getRunner(RunnerBuilder, Class<?>):Runner	org.junit.runners.model.RunnerBuilder
-011	org.junit.runner.Computer::getSuite(RunnerBuilder, Class<?>[]):Runner	org.junit.runners.model.RunnerBuilder
-111	org.junit.experimental.theories.Theories.TheoryAnchor::runWithIncompleteAssignment(Assignments):void	org.junit.experimental.theories.internal.Assignments
-111	org.junit.experimental.theories.internal.Assignments::getAnnotatedSupplier(ParameterSignature):ParameterSupplier	org.junit.experimental.theories.ParameterSignature
-111	org.junit.internal.runners.JUnit4ClassRunner::testAborted(RunNotifier, Description, Throwable):void	org.junit.runner.notification.RunNotifier
-111	org.junit.runners.ParentRunner::runLeaf(Statement, Description, RunNotifier):void	org.junit.runner.Description
-111	org.junit.runners.ParentRunner::validatePublicVoidNoArgMethods(Class<? extends Annotation>, boolean, List<Throwable>):void	org.junit.runners.model.TestClass
+-0.000055-111	org.junit.internal.runners.JUnit4ClassRunner::testAborted(RunNotifier, Description, Throwable):void	org.junit.runner.notification.RunNotifier
+-0.001269-111	org.junit.experimental.theories.internal.Assignments::getAnnotatedSupplier(ParameterSignature):ParameterSupplier	org.junit.experimental.theories.ParameterSignature
+-0.001701-111	org.junit.runners.ParentRunner::validatePublicVoidNoArgMethods(Class<? extends Annotation>, boolean, List<Throwable>):void	org.junit.runners.model.TestClass
+-0.001915-111	org.junit.runners.ParentRunner::runLeaf(Statement, Description, RunNotifier):void	org.junit.runner.Description
+-0.006671-111	org.junit.experimental.theories.Theories.TheoryAnchor::runWithIncompleteAssignment(Assignments):void	org.junit.experimental.theories.internal.Assignments
+0.002976-000	org.junit.runners.model.RunnerBuilder::runnerForClass2(AnnotatedBuilder, Class<?>):Runner	org.junit.internal.builders.AnnotatedBuilder
+0.014926-011	org.junit.internal.runners.JUnit4ClassRunner::classAnnotations():Annotation[]	org.junit.internal.runners.TestClass
+0.020833-011	org.junit.runner.Computer::getRunner(RunnerBuilder, Class<?>):Runner	org.junit.runners.model.RunnerBuilder
+0.046426-000	org.junit.runner.notification.RunNotifier::addFailure(ClassRoadie, Throwable):void	org.junit.internal.runners.ClassRoadie
+0.055556-011	org.junit.runner.Computer::getSuite(RunnerBuilder, Class<?>[]):Runner	org.junit.runners.model.RunnerBuilder
+0.090909-000	org.junit.runner.Runner::run2(JUnit4TestAdapter, TestResult):void	junit.framework.JUnit4TestAdapter
+0.458924-011	junit.framework.JUnit4TestAdapterCache::getNotifier(TestResult, JUnit4TestAdapter):RunNotifier	junit.framework.TestResult

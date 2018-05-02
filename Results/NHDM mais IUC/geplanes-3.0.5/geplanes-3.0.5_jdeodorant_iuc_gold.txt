@@ -1,188 +1,188 @@
-000	br.com.linkcom.sgm.service.AcompanhamentoIndicadorService::verificaMelhorIndicador(AcompanhamentoIndicador):Boolean	br.com.linkcom.sgm.beans.AcompanhamentoIndicador
-000	br.com.linkcom.sgm.service.DistribuicaoPesosIndicadoresService::obtemListaPerspectivaObjetivoEstrategicoIniciativaIndicador(UnidadeGerencial, boolean, boolean, boolean):List<PerspectivaMapaEstrategico>	br.com.linkcom.sgm.service.PerspectivaMapaEstrategicoService
-000	br.com.linkcom.sgm.service.PlanoGestaoService::createReportPendenciaCadastro(PlanoGestao, List<UnidadeGerencial>):IReport	br.com.linkcom.sgm.service.ControleCadastroService
-011	br.com.linkcom.sgm.controller.UnidadeGerencialAutoCompleteController::view(WebRequestContext, UnidadeGerencialTreeFiltro):void	br.com.linkcom.sgm.controller.filtro.UnidadeGerencialTreeFiltro
-011	br.com.linkcom.sgm.controller.crud.IndicadorCrud::copiar(WebRequestContext, Indicador):ModelAndView	br.com.linkcom.sgm.service.IndicadorService
-011	br.com.linkcom.sgm.controller.process.DistribuicaoPesosIndicadoresProcess::error(WebRequestContext, DistribuicaoPesosIndicadores):ModelAndView	br.com.linkcom.sgm.service.DistribuicaoPesosIndicadoresService
-011	br.com.linkcom.sgm.controller.process.DistribuicaoPesosIndicadoresProcess::popUpPlanoAcao(WebRequestContext, Iniciativa):ModelAndView	br.com.linkcom.sgm.service.UsuarioService
-011	br.com.linkcom.sgm.controller.process.SolicitacaoCancelamentoIndicadorProcess::incluirComentario(WebRequestContext, ComentarioItem):ModelAndView	br.com.linkcom.sgm.service.UsuarioService
-011	br.com.linkcom.sgm.controller.process.SolicitacaoRepactuacaoIndicadorProcess::incluirComentario(WebRequestContext, ComentarioItem):ModelAndView	br.com.linkcom.sgm.service.UsuarioService
-011	br.com.linkcom.sgm.dao.AcompanhamentoIndicadorDAO::obtemAcompanhamentos(Indicador):List<AcompanhamentoIndicador>	br.com.linkcom.sgm.beans.Indicador
-011	br.com.linkcom.sgm.dao.AcompanhamentoIndicadorDAO::setNullAnomalia(Anomalia):void	br.com.linkcom.sgm.beans.Anomalia
-011	br.com.linkcom.sgm.dao.AcompanhamentoIndicadorDAO::updateValorReal(AcompanhamentoIndicador, Double):void	br.com.linkcom.sgm.beans.AcompanhamentoIndicador
-011	br.com.linkcom.sgm.dao.AnomaliaDAO::deleteByUnidadeGerencial(UnidadeGerencial):void	br.com.linkcom.sgm.beans.UnidadeGerencial
-011	br.com.linkcom.sgm.dao.IniciativaDAO::atualizaIniciativa(Iniciativa):void	br.com.linkcom.sgm.beans.Iniciativa
-011	br.com.linkcom.sgm.dao.IniciativaDAO::deleteWhereNotIn(UnidadeGerencial, ObjetivoMapaEstrategico, String):void	br.com.linkcom.sgm.beans.ObjetivoMapaEstrategico
-011	br.com.linkcom.sgm.dao.PlanoAcaoDAO::findByIniciativas(IniciativaPlanoAcaoFiltro):List<PlanoAcao>	br.com.linkcom.sgm.controller.filtro.IniciativaPlanoAcaoFiltro
-011	br.com.linkcom.sgm.dao.SolicitacaoCancelamentoIndicadorDAO::findSolicitacoes(SolicitacaoCancelamentoIndicadorFiltro):List<SolicitacaoCancelamentoIndicador>	br.com.linkcom.sgm.controller.filtro.SolicitacaoCancelamentoIndicadorFiltro
-011	br.com.linkcom.sgm.dao.SolicitacaoRepactuacaoIndicadorDAO::existeSolicitacaoRepactuacaoAberta(Indicador):Boolean	br.com.linkcom.sgm.beans.Indicador
-011	br.com.linkcom.sgm.dao.SolicitacaoRepactuacaoIndicadorDAO::findSolicitacoes(SolicitacaoRepactuacaoIndicadorFiltro):List<SolicitacaoRepactuacaoIndicador>	br.com.linkcom.sgm.controller.filtro.SolicitacaoRepactuacaoIndicadorFiltro
-011	br.com.linkcom.sgm.dao.UnidadeGerencialDAO::findNodosRaiz(PlanoGestao):List<UnidadeGerencial>	br.com.linkcom.sgm.beans.PlanoGestao
-011	br.com.linkcom.sgm.dao.UnidadeGerencialDAO::getProximoSequencialAcaoPreventiva(UnidadeGerencial):int	br.com.linkcom.sgm.beans.UnidadeGerencial
-011	br.com.linkcom.sgm.dao.UnidadeGerencialDAO::getProximoSequencialOcorrencia(UnidadeGerencial):int	br.com.linkcom.sgm.beans.UnidadeGerencial
-011	br.com.linkcom.sgm.quartzjobs.EnviaEmailLembreteLancamentoResultadosJOB::envia(String, Usuario, StringBuilder):boolean	br.com.linkcom.sgm.beans.Usuario
-011	br.com.linkcom.sgm.quartzjobs.EnviaEmailLembreteTratamentoAnomaliaJOB::envia(String, Usuario, StringBuilder):boolean	br.com.linkcom.sgm.beans.Usuario
-011	br.com.linkcom.sgm.service.AcompanhamentoIndicadorService::updateValorBase(Indicador):void	br.com.linkcom.sgm.beans.Indicador
-011	br.com.linkcom.sgm.service.AnomaliaService::enviaEmailNotificacaoCumprimentoPendente(Anomalia):void	br.com.linkcom.sgm.beans.Anomalia
-011	br.com.linkcom.sgm.service.AnomaliaService::gerarMensagemEmailAnomalia(Anomalia):String	br.com.linkcom.sgm.beans.Anomalia
-011	br.com.linkcom.sgm.service.AnomaliaService::loadParent(Anomalia):Anomalia	br.com.linkcom.sgm.service.PlanoAcaoService
-011	br.com.linkcom.sgm.service.DistribuicaoPesosIndicadoresService::salvar(DistribuicaoPesosIndicadores):void	br.com.linkcom.sgm.service.IniciativaService
-011	br.com.linkcom.sgm.service.IndicadorService::agruparPorFator(Indicador, int, List<Calendar>):List<AcompanhamentoIndicador>	br.com.linkcom.sgm.beans.Indicador
-011	br.com.linkcom.sgm.service.IniciativaService::atualizaIniciativaListaPlanoAcaoDaIniciativa(UnidadeGerencial, ObjetivoMapaEstrategico, Iniciativa):void	br.com.linkcom.sgm.service.PlanoAcaoService
-011	br.com.linkcom.sgm.service.MatrizFCSService::createMatrizFCSReport(MatrizFCSReportFiltro):IReport	br.com.linkcom.sgm.service.UsuarioService
-011	br.com.linkcom.sgm.service.ObjetivoMapaEstrategicoService::createDesempenhoReport(DesempenhoReportFiltro):IReport	br.com.linkcom.sgm.controller.report.filtro.DesempenhoReportFiltro
-011	br.com.linkcom.sgm.service.PerspectivaMapaEstrategicoService::findByMapaEstrategico(MapaEstrategico):List<PerspectivaMapaEstrategico>	br.com.linkcom.sgm.beans.MapaEstrategico
-011	br.com.linkcom.sgm.service.PlanoGestaoService::copiaPlanoGestao(PlanoGestao, PlanoGestao):void	br.com.linkcom.sgm.service.MapaEstrategicoService
-011	br.com.linkcom.sgm.service.SolicitacaoRepactuacaoIndicadorService::findSolicitacoes(SolicitacaoRepactuacaoIndicadorFiltro):List<SolicitacaoRepactuacaoIndicador>	br.com.linkcom.sgm.service.UsuarioService
-100	br.com.linkcom.sgm.controller.crud.AcaoPreventivaCrud::usuarioPodeConsultarAcaoPreventiva(AcaoPreventiva, Boolean, Boolean, Boolean):Boolean	br.com.linkcom.sgm.beans.AcaoPreventiva
-100	br.com.linkcom.sgm.controller.process.DistribuicaoPesosIndicadoresProcess::isAdministradoOuDataLimiteNaoExpirada(Indicador):boolean	br.com.linkcom.sgm.service.IndicadorService
-100	br.com.linkcom.sgm.controller.process.DistribuicaoPesosIndicadoresProcess::resolveAcompanhamentos(PlanoGestao, Indicador):void	br.com.linkcom.sgm.beans.PlanoGestao
-100	br.com.linkcom.sgm.service.AcaoPreventivaService::getStatusAcaoPreventiva(AcaoPreventiva):StatusAcaoPreventivaEnum	br.com.linkcom.sgm.beans.AcaoPreventiva
-100	br.com.linkcom.sgm.service.AnomaliaService::findUsuariosQualidadeEnvolvidosAnomalia(Anomalia):List<Usuario>	br.com.linkcom.sgm.service.UsuarioService
-100	br.com.linkcom.sgm.service.DistribuicaoPesosIndicadoresService::carregaElementosPainelIndicador(UnidadeGerencial):List<PerspectivaMapaEstrategico>	br.com.linkcom.sgm.service.PerspectivaMapaEstrategicoService
-100	br.com.linkcom.sgm.service.IndicadorService::defineDatas(ApresentacaoResultadosDTO):void	br.com.linkcom.sgm.beans.DTO.ApresentacaoResultadosDTO
-100	br.com.linkcom.sgm.service.LancamentoValorRealService::configuraEdicaoAcompanhamentos(LancamentoValorRealFiltro, Boolean, Boolean, Boolean):void	br.com.linkcom.sgm.service.AcompanhamentoIndicadorService
-100	br.com.linkcom.sgm.service.LancamentoValorRealService::configuraExibicaoAcompanhamentos(LancamentoValorRealFiltro):void	br.com.linkcom.sgm.service.AcompanhamentoIndicadorService
-111	br.com.linkcom.sgm.beans.PerspectivaMapaEstrategico::getDescricao():String	br.com.linkcom.sgm.beans.Perspectiva
-111	br.com.linkcom.sgm.controller.IndexController::exec(WebRequestContext):ModelAndView	br.com.linkcom.sgm.service.MensagemService
-111	br.com.linkcom.sgm.controller.crud.AcaoPreventivaCrud::usuarioPodeEditarAcaoPreventiva(AcaoPreventiva, Boolean, Boolean):Boolean	br.com.linkcom.sgm.beans.AcaoPreventiva
-111	br.com.linkcom.sgm.controller.crud.AnomaliaCrud::exibirBotaoNotificarCumprimentoPendente(Anomalia, Boolean):Boolean	br.com.linkcom.sgm.beans.Anomalia
-111	br.com.linkcom.sgm.controller.crud.AnomaliaCrud::exibirBotaoSolicitarEncerramento(Anomalia, Boolean, Boolean):Boolean	br.com.linkcom.sgm.beans.Anomalia
-111	br.com.linkcom.sgm.controller.crud.AnomaliaCrud::exibirBotaoSolicitarReanalise(Anomalia, Boolean, Boolean):Boolean	br.com.linkcom.sgm.beans.Anomalia
-111	br.com.linkcom.sgm.controller.crud.AnomaliaCrud::usuarioPodeConsultarAnomalia(Anomalia, Boolean, Boolean, Boolean, Boolean):Boolean	br.com.linkcom.sgm.beans.Anomalia
-111	br.com.linkcom.sgm.controller.crud.AnomaliaCrud::usuarioPodeCriarPlanoAcao(Anomalia, Boolean, Boolean, Boolean):Boolean	br.com.linkcom.sgm.beans.Anomalia
-111	br.com.linkcom.sgm.controller.crud.AnomaliaCrud::usuarioPodeDestravarAnomalia(Anomalia, Boolean, Boolean, Boolean):Boolean	br.com.linkcom.sgm.beans.Anomalia
-111	br.com.linkcom.sgm.controller.crud.AnomaliaCrud::usuarioPodeEditarAnomalia(Anomalia, Boolean, Boolean):Boolean	br.com.linkcom.sgm.beans.Anomalia
-111	br.com.linkcom.sgm.controller.crud.AnomaliaCrud::usuarioPodeEncerrarAnomalia(Anomalia, Boolean, Boolean):Boolean	br.com.linkcom.sgm.beans.Anomalia
-111	br.com.linkcom.sgm.controller.crud.AnomaliaCrud::usuarioPodeTratarAnomalia(Anomalia, Boolean, Boolean, Boolean):Boolean	br.com.linkcom.sgm.beans.Anomalia
-111	br.com.linkcom.sgm.controller.crud.AuditoriaInternaCrud::ajaxComboRequisito(WebRequestContext):void	br.com.linkcom.sgm.service.RequisitoNormaService
-111	br.com.linkcom.sgm.controller.crud.AuditoriaInternaCrud::doSalvarEEncerrar(WebRequestContext, AuditoriaInterna):ModelAndView	br.com.linkcom.sgm.beans.AuditoriaInterna
-111	br.com.linkcom.sgm.controller.crud.AuditoriaInternaCrud::doSalvarESolicitarEncerramento(WebRequestContext, AuditoriaInterna):ModelAndView	br.com.linkcom.sgm.beans.AuditoriaInterna
-111	br.com.linkcom.sgm.controller.crud.AuditoriaInternaCrud::usuarioPodeEditarAuditoriaInterna(AuditoriaInterna, Boolean, Boolean, Boolean):Boolean	br.com.linkcom.sgm.beans.AuditoriaInterna
-111	br.com.linkcom.sgm.controller.crud.OcorrenciaCrud::salvarAndEncaminhar(WebRequestContext, Ocorrencia):ModelAndView	br.com.linkcom.sgm.beans.Ocorrencia
-111	br.com.linkcom.sgm.controller.crud.ParametrosSistemaCrud::testeemail(WebRequestContext, ParametrosSistema):ModelAndView	br.com.linkcom.sgm.service.ParametrosSistemaService
-111	br.com.linkcom.sgm.controller.process.DefinicaoCompetenciaProcess::entrada(WebRequestContext, PlanoGestaoUnidadeGerencialFiltro):ModelAndView	br.com.linkcom.sgm.service.UsuarioService
-111	br.com.linkcom.sgm.controller.process.DefinicaoCompetenciaProcess::salvar(WebRequestContext, UnidadeGerencial):ModelAndView	br.com.linkcom.sgm.service.MapaCompetenciaService
-111	br.com.linkcom.sgm.controller.process.DefinicaoEstrategiaProcess::entrada(WebRequestContext, DefinicaoEstrategiaFiltro):ModelAndView	br.com.linkcom.sgm.service.UsuarioService
-111	br.com.linkcom.sgm.controller.process.DefinicaoEstrategiaProcess::excluir(WebRequestContext, DefinicaoEstrategiaFiltro):ModelAndView	br.com.linkcom.sgm.service.MapaEstrategicoService
-111	br.com.linkcom.sgm.controller.process.DefinicaoEstrategiaProcess::salvar(WebRequestContext, DefinicaoEstrategiaFiltro):ModelAndView	br.com.linkcom.sgm.service.MapaEstrategicoService
-111	br.com.linkcom.sgm.controller.process.DefinicaoNegocioProcess::entrada(WebRequestContext, PlanoGestaoUnidadeGerencialFiltro):ModelAndView	br.com.linkcom.sgm.service.UsuarioService
-111	br.com.linkcom.sgm.controller.process.DistribuicaoPesosIndicadoresProcess::configuraParametrosTela(WebRequestContext, Indicador):void	br.com.linkcom.sgm.service.UsuarioService
-111	br.com.linkcom.sgm.controller.process.DistribuicaoPesosIndicadoresProcess::executar(WebRequestContext, DistribuicaoPesosIndicadores):ModelAndView	br.com.linkcom.sgm.beans.DistribuicaoPesosIndicadores
-111	br.com.linkcom.sgm.controller.process.DistribuicaoPesosIndicadoresProcess::popUpConfiguraFiltro(WebRequestContext, DistribuicaoPesosIndicadores):ModelAndView	br.com.linkcom.sgm.service.PerspectivaMapaEstrategicoService
-111	br.com.linkcom.sgm.controller.process.DistribuicaoPesosIndicadoresProcess::salvar(WebRequestContext, DistribuicaoPesosIndicadores):ModelAndView	br.com.linkcom.sgm.service.DistribuicaoPesosIndicadoresService
-111	br.com.linkcom.sgm.controller.process.DistribuicaoPesosIndicadoresProcess::salvarPopUpDetalhamentoIndicador(WebRequestContext, Indicador):ModelAndView	br.com.linkcom.sgm.beans.Indicador
-111	br.com.linkcom.sgm.controller.process.DistribuicaoPesosIndicadoresProcess::salvarPopUpPlanoAcao(WebRequestContext, Iniciativa):ModelAndView	br.com.linkcom.sgm.beans.Iniciativa
-111	br.com.linkcom.sgm.controller.process.DistribuicaoPesosIndicadoresProcess::validaForm(Indicador, WebRequestContext):boolean	br.com.linkcom.sgm.service.AnexoIndicadorService
-111	br.com.linkcom.sgm.controller.process.EnvioEmailProcess::carregarPagina(WebRequestContext, EnvioEmailFiltro):ModelAndView	br.com.linkcom.sgm.controller.filtro.EnvioEmailFiltro
-111	br.com.linkcom.sgm.controller.process.EnvioEmailProcess::enviarMailling(WebRequestContext, EnvioEmailFiltro):ModelAndView	br.com.linkcom.sgm.controller.filtro.EnvioEmailFiltro
-111	br.com.linkcom.sgm.controller.process.LancamentoValorRealProcess::alternarValores(WebRequestContext, LancamentoValorRealFiltro):ModelAndView	br.com.linkcom.sgm.controller.filtro.LancamentoValorRealFiltro
-111	br.com.linkcom.sgm.controller.process.LancamentoValorRealProcess::entrada(WebRequestContext, LancamentoValorRealFiltro):ModelAndView	br.com.linkcom.sgm.service.LancamentoValorRealService
-111	br.com.linkcom.sgm.controller.process.MatrizFCSProcess::salvar(WebRequestContext, MatrizFCSFiltro):ModelAndView	br.com.linkcom.sgm.service.MatrizFCSService
-111	br.com.linkcom.sgm.controller.process.SolicitacaoCancelamentoIndicadorProcess::cancelamentoPorLancamento(WebRequestContext, SolicitacaoCancelamentoIndicador):void	br.com.linkcom.sgm.beans.SolicitacaoCancelamentoIndicador
-111	br.com.linkcom.sgm.controller.process.SolicitacaoCancelamentoIndicadorProcess::excluir(WebRequestContext, SolicitacaoCancelamentoIndicadorFiltro):ModelAndView	br.com.linkcom.sgm.controller.filtro.SolicitacaoCancelamentoIndicadorFiltro
-111	br.com.linkcom.sgm.controller.process.SolicitacaoCancelamentoIndicadorProcess::executar(WebRequestContext, SolicitacaoCancelamentoIndicadorFiltro):ModelAndView	br.com.linkcom.sgm.service.SolicitacaoCancelamentoIndicadorService
-111	br.com.linkcom.sgm.controller.process.SolicitacaoCancelamentoIndicadorProcess::salvar(WebRequestContext, SolicitacaoCancelamentoIndicadorFiltro):ModelAndView	br.com.linkcom.sgm.controller.filtro.SolicitacaoCancelamentoIndicadorFiltro
-111	br.com.linkcom.sgm.controller.process.SolicitacaoRepactuacaoIndicadorProcess::excluir(WebRequestContext, SolicitacaoRepactuacaoIndicadorFiltro):ModelAndView	br.com.linkcom.sgm.controller.filtro.SolicitacaoRepactuacaoIndicadorFiltro
-111	br.com.linkcom.sgm.controller.process.SolicitacaoRepactuacaoIndicadorProcess::executar(WebRequestContext, SolicitacaoRepactuacaoIndicadorFiltro):ModelAndView	br.com.linkcom.sgm.service.SolicitacaoRepactuacaoIndicadorService
-111	br.com.linkcom.sgm.controller.process.SolicitacaoRepactuacaoIndicadorProcess::repactuacaoPorLancamento(WebRequestContext, SolicitacaoRepactuacaoIndicador):void	br.com.linkcom.sgm.beans.SolicitacaoRepactuacaoIndicador
-111	br.com.linkcom.sgm.controller.process.SolicitacaoRepactuacaoIndicadorProcess::salvar(WebRequestContext, SolicitacaoRepactuacaoIndicadorFiltro):ModelAndView	br.com.linkcom.sgm.controller.filtro.SolicitacaoRepactuacaoIndicadorFiltro
-111	br.com.linkcom.sgm.dao.AcaoPreventivaDAO::deleteByUnidadeGerencial(UnidadeGerencial):void	br.com.linkcom.sgm.beans.UnidadeGerencial
-111	br.com.linkcom.sgm.dao.AcompanhamentoIndicadorDAO::setNullAcaoPreventiva(AcaoPreventiva):void	br.com.linkcom.sgm.beans.AcaoPreventiva
-111	br.com.linkcom.sgm.dao.AcompanhamentoIndicadorDAO::updateAcaoPreventiva(AcompanhamentoIndicador, AcaoPreventiva):void	br.com.linkcom.sgm.beans.AcaoPreventiva
-111	br.com.linkcom.sgm.dao.AcompanhamentoIndicadorDAO::updateAnomalia(AcompanhamentoIndicador, Anomalia):void	br.com.linkcom.sgm.beans.Anomalia
-111	br.com.linkcom.sgm.dao.AnomaliaDAO::atualizaEnvioLembreteTratamentoAnomalia(Anomalia):void	br.com.linkcom.sgm.beans.Anomalia
-111	br.com.linkcom.sgm.dao.AnomaliaDAO::atualizaStatusAnomalia(Anomalia, StatusAnomaliaEnum):void	br.com.linkcom.sgm.beans.Anomalia
-111	br.com.linkcom.sgm.dao.AnomaliaDAO::findForReportListagemAnomalia(AnomaliaListagemReportFiltro):List<Anomalia>	br.com.linkcom.sgm.controller.report.filtro.AnomaliaListagemReportFiltro
-111	br.com.linkcom.sgm.dao.AuditoriaGestaoDAO::deleteByUnidadeGerencial(UnidadeGerencial):void	br.com.linkcom.sgm.beans.UnidadeGerencial
-111	br.com.linkcom.sgm.dao.IndicadorDAO::atualizaIndicador(Indicador):void	br.com.linkcom.sgm.beans.Indicador
-111	br.com.linkcom.sgm.dao.IndicadorDAO::atualizaStatusIndicador(Indicador, StatusIndicadorEnum):void	br.com.linkcom.sgm.beans.Indicador
-111	br.com.linkcom.sgm.dao.IndicadorDAO::deleteByUnidadeGerencial(UnidadeGerencial):void	br.com.linkcom.sgm.beans.UnidadeGerencial
-111	br.com.linkcom.sgm.dao.IndicadorDAO::deleteWhereNotIn(UnidadeGerencial, ObjetivoMapaEstrategico, String):void	br.com.linkcom.sgm.beans.ObjetivoMapaEstrategico
-111	br.com.linkcom.sgm.dao.IniciativaDAO::deleteByUnidadeGerencial(UnidadeGerencial):void	br.com.linkcom.sgm.beans.UnidadeGerencial
-111	br.com.linkcom.sgm.dao.IniciativaDAO::findByUnidadeGerencial(UnidadeGerencial):List<Iniciativa>	br.com.linkcom.sgm.beans.UnidadeGerencial
-111	br.com.linkcom.sgm.dao.MatrizFCSDAO::deleteByUnidadeGerencial(UnidadeGerencial):void	br.com.linkcom.sgm.beans.UnidadeGerencial
-111	br.com.linkcom.sgm.dao.MatrizFCSDAO::findWithEstrategiasByUnidadeGerencial(UnidadeGerencial):List<MatrizFCS>	br.com.linkcom.sgm.beans.UnidadeGerencial
-111	br.com.linkcom.sgm.dao.MatrizFCSIniciativaDAO::findPrioritariasByUnidadeGerencial(UnidadeGerencial):List<MatrizFCSIniciativa>	br.com.linkcom.sgm.beans.UnidadeGerencial
-111	br.com.linkcom.sgm.dao.OcorrenciaDAO::deleteByUnidadeGerencial(UnidadeGerencial):void	br.com.linkcom.sgm.beans.UnidadeGerencial
-111	br.com.linkcom.sgm.dao.OcorrenciaDAO::setNullAnomalia(Anomalia):void	br.com.linkcom.sgm.beans.Anomalia
-111	br.com.linkcom.sgm.dao.PainelIndicadorFiltroDAO::deleteByUnidadeGerencial(UnidadeGerencial):void	br.com.linkcom.sgm.beans.UnidadeGerencial
-111	br.com.linkcom.sgm.dao.PainelIndicadorFiltroDAO::findByUnidadeGerencial(UnidadeGerencial):List<PainelIndicadorFiltro>	br.com.linkcom.sgm.beans.UnidadeGerencial
-111	br.com.linkcom.sgm.dao.PlanoAcaoDAO::deleteByUnidadeGerencial(UnidadeGerencial):void	br.com.linkcom.sgm.beans.UnidadeGerencial
-111	br.com.linkcom.sgm.dao.SolicitacaoCancelamentoIndicadorDAO::existeSolicitacaoCancelamentoAberta(Indicador):Boolean	br.com.linkcom.sgm.beans.Indicador
-111	br.com.linkcom.sgm.dao.SolicitacaoCancelamentoIndicadorDAO::saveOrUpdateStatus(SolicitacaoCancelamentoIndicador):void	br.com.linkcom.sgm.beans.SolicitacaoCancelamentoIndicador
-111	br.com.linkcom.sgm.dao.SolicitacaoRepactuacaoIndicadorDAO::saveOrUpdateStatus(SolicitacaoRepactuacaoIndicador):void	br.com.linkcom.sgm.beans.SolicitacaoRepactuacaoIndicador
-111	br.com.linkcom.sgm.dao.UnidadeGerencialDAO::getProximoSequencialAnomalia(UnidadeGerencial, int):int	br.com.linkcom.sgm.beans.UnidadeGerencial
-111	br.com.linkcom.sgm.dao.UsuarioDAO::updatePassword(Usuario):void	br.com.linkcom.sgm.beans.Usuario
-111	br.com.linkcom.sgm.report.bean.ApresentacaoResultadosReportBean::getDataFinal():String	br.com.linkcom.sgm.beans.DTO.ApresentacaoResultadosDTO
-111	br.com.linkcom.sgm.report.bean.ApresentacaoResultadosReportBean::getDataInicial():String	br.com.linkcom.sgm.beans.DTO.ApresentacaoResultadosDTO
-111	br.com.linkcom.sgm.report.bean.ApresentacaoResultadosReportBean::getGraficoApresentacao():String	br.com.linkcom.sgm.beans.DTO.ApresentacaoResultadosDTO
-111	br.com.linkcom.sgm.report.bean.ApresentacaoResultadosReportBean::getGraficoTipo():String	br.com.linkcom.sgm.beans.DTO.ApresentacaoResultadosDTO
-111	br.com.linkcom.sgm.report.bean.ApresentacaoResultadosReportBean::getGraficoTipoResultado():String	br.com.linkcom.sgm.beans.DTO.ApresentacaoResultadosDTO
-111	br.com.linkcom.sgm.senha.process.AlterarSenhaProcess::salvar(WebRequestContext, AlterarSenhaFiltro):ModelAndView	br.com.linkcom.sgm.filtro.AlterarSenhaFiltro
-111	br.com.linkcom.sgm.service.AcompanhamentoIndicadorService::getListaDataAcompanhamentoIndicador(List<Indicador>, Calendar, Calendar):List<Calendar>	br.com.linkcom.sgm.dao.AcompanhamentoIndicadorDAO
-111	br.com.linkcom.sgm.service.AnexoAnomaliaService::excluiAnexoAnomaliaDetalhe(Anomalia):void	br.com.linkcom.sgm.dao.AnexoAnomaliaDAO
-111	br.com.linkcom.sgm.service.AnexoIndicadorService::excluiAnexoIndicadorDetalhe(Indicador):void	br.com.linkcom.sgm.dao.AnexoIndicadorDAO
-111	br.com.linkcom.sgm.service.AnomaliaService::calculaLocalAnomalia(Anomalia):LocalAnomaliaEnum	br.com.linkcom.sgm.dao.AnomaliaDAO
-111	br.com.linkcom.sgm.service.AnomaliaService::createAnomaliaListagemReport(AnomaliaListagemReportFiltro):IReport	br.com.linkcom.sgm.controller.report.filtro.AnomaliaListagemReportFiltro
-111	br.com.linkcom.sgm.service.AnomaliaService::createAnomaliaSinteticoPorStatusReport(AnomaliaSinteticoPorStatusReportFiltro):IReport	br.com.linkcom.sgm.controller.report.filtro.AnomaliaSinteticoPorStatusReportFiltro
-111	br.com.linkcom.sgm.service.AnomaliaService::deleteByUnidadeGerencial(UnidadeGerencial):void	br.com.linkcom.sgm.dao.AnomaliaDAO
-111	br.com.linkcom.sgm.service.AnomaliaService::enviaEmailSolicitacaoEncerramento(Anomalia):void	br.com.linkcom.sgm.beans.Anomalia
-111	br.com.linkcom.sgm.service.AnomaliaService::getDataLimiteParaTratamento(Anomalia, int):Date	br.com.linkcom.sgm.beans.Anomalia
-111	br.com.linkcom.sgm.service.AnomaliaService::getStatusAnomalia(Anomalia, int, int):StatusAnomaliaEnum	br.com.linkcom.sgm.beans.Anomalia
-111	br.com.linkcom.sgm.service.AnomaliaService::getStatusTratamentoAnomalia(Anomalia):StatusTratamentoAnomaliaEnum	br.com.linkcom.sgm.beans.Anomalia
-111	br.com.linkcom.sgm.service.AnomaliaService::isAnomaliaTratada(Anomalia):Boolean	br.com.linkcom.sgm.beans.Anomalia
-111	br.com.linkcom.sgm.service.AnomaliaService::isDataEncerramentoAnomaliaExpirada(Anomalia, int):Boolean	br.com.linkcom.sgm.beans.Anomalia
-111	br.com.linkcom.sgm.service.AnomaliaService::isDataLembreteTratamentoAnomaliaAtingida(Anomalia, int):Boolean	br.com.linkcom.sgm.beans.Anomalia
-111	br.com.linkcom.sgm.service.AnomaliaService::isDataTravamentoAnomaliaExpirada(Anomalia, int):Boolean	br.com.linkcom.sgm.beans.Anomalia
-111	br.com.linkcom.sgm.service.AuditoriaInternaService::deleteByUnidadeGerencial(UnidadeGerencial):void	br.com.linkcom.sgm.dao.AuditoriaInternaDAO
-111	br.com.linkcom.sgm.service.AuditoriaInternaService::enviaEmailSolicitacaoEncerramento(AuditoriaInterna):void	br.com.linkcom.sgm.beans.AuditoriaInterna
-111	br.com.linkcom.sgm.service.CausaEfeitoService::excluirCausaEfeito(Anomalia):void	br.com.linkcom.sgm.dao.CausaEfeitoDAO
-111	br.com.linkcom.sgm.service.CausaEfeitoService::preencheListaCausaEfeito(Anomalia):List<CausaEfeito>	br.com.linkcom.sgm.dao.CausaEfeitoDAO
-111	br.com.linkcom.sgm.service.CausaEfeitoService::salvarCausaEfeito(Anomalia):void	br.com.linkcom.sgm.dao.CausaEfeitoDAO
-111	br.com.linkcom.sgm.service.ControleCadastroService::montaItemControleCadastroMapaCompetencia(UnidadeGerencial, HttpServletRequest):ControleCadastroItem	br.com.linkcom.sgm.beans.UnidadeGerencial
-111	br.com.linkcom.sgm.service.ControleCadastroService::montaItemControleCadastroMapaEstrategico(UnidadeGerencial, HttpServletRequest):ControleCadastroItem	br.com.linkcom.sgm.beans.UnidadeGerencial
-111	br.com.linkcom.sgm.service.ControleCadastroService::montaItemControleCadastroMapaNegocio(UnidadeGerencial, HttpServletRequest):ControleCadastroItem	br.com.linkcom.sgm.beans.UnidadeGerencial
-111	br.com.linkcom.sgm.service.ControleCadastroService::montaItemControleCadastroMatrizFCS(UnidadeGerencial, HttpServletRequest):ControleCadastroItem	br.com.linkcom.sgm.beans.UnidadeGerencial
-111	br.com.linkcom.sgm.service.ControleCadastroService::montaItemControleTratamentoAnomlia(Anomalia, HttpServletRequest):ControleCadastroItem	br.com.linkcom.sgm.beans.Anomalia
-111	br.com.linkcom.sgm.service.DistribuicaoPesosIndicadoresService::usuarioPodeAlterar(Boolean, Boolean, PlanoGestao):Boolean	br.com.linkcom.sgm.service.PlanoGestaoService
-111	br.com.linkcom.sgm.service.IndicadorService::atualizaIndicadores(List<Indicador>, UnidadeGerencial, ObjetivoMapaEstrategico):void	br.com.linkcom.sgm.dao.IndicadorDAO
-111	br.com.linkcom.sgm.service.IndicadorService::calculaAcompanhamentosIndicador(Indicador, List<Calendar>):Indicador	br.com.linkcom.sgm.beans.Indicador
-111	br.com.linkcom.sgm.service.IndicadorService::copiaIndicador(UnidadeGerencial, ObjetivoMapaEstrategico, Indicador, boolean):void	br.com.linkcom.sgm.service.AnexoIndicadorService
-111	br.com.linkcom.sgm.service.IndicadorService::createReportApresentacaoResultados(ApresentacaoResultadosDTO):IReport	br.com.linkcom.sgm.beans.DTO.ApresentacaoResultadosDTO
-111	br.com.linkcom.sgm.service.IndicadorService::createReportPendenciaAnomalia(PendenciaAnomaliaReportFiltro):IReport	br.com.linkcom.sgm.dao.IndicadorDAO
-111	br.com.linkcom.sgm.service.IndicadorService::criarRelatorioIndicadoresEstrategico(IndicadoresEstrategicoReportFiltro):IReport	br.com.linkcom.sgm.dao.IndicadorDAO
-111	br.com.linkcom.sgm.service.IndicadorService::dataLimiteCriacaoNaoExpirada(Indicador):boolean	br.com.linkcom.sgm.service.PlanoGestaoService
-111	br.com.linkcom.sgm.service.IndicadorService::obtemSomatorioColecaoAcompanhamento(Indicador, Calendar, Calendar):Indicador	br.com.linkcom.sgm.service.AcompanhamentoIndicadorService
-111	br.com.linkcom.sgm.service.IndicadorService::usuarioPodeAlterar(Indicador):boolean	br.com.linkcom.sgm.service.UsuarioService
-111	br.com.linkcom.sgm.service.IniciativaService::atualizaIniciativas(List<Iniciativa>, UnidadeGerencial, ObjetivoMapaEstrategico):void	br.com.linkcom.sgm.dao.IniciativaDAO
-111	br.com.linkcom.sgm.service.LancamentoValorRealService::pesquisar(LancamentoValorRealFiltro):LancamentoValorRealFiltro	br.com.linkcom.sgm.service.PerspectivaMapaEstrategicoService
-111	br.com.linkcom.sgm.service.LancamentoValorRealService::showBotaoSalvar(LancamentoValorRealFiltro):Boolean	br.com.linkcom.sgm.controller.filtro.LancamentoValorRealFiltro
-111	br.com.linkcom.sgm.service.MapaEstrategicoService::excluiMapaEstrategico(MapaEstrategico):void	br.com.linkcom.sgm.beans.MapaEstrategico
-111	br.com.linkcom.sgm.service.MapaEstrategicoService::salvaDefinicaoObjetivoEstrategico(MapaEstrategico, UnidadeGerencial, boolean):void	br.com.linkcom.sgm.service.PerspectivaMapaEstrategicoService
-111	br.com.linkcom.sgm.service.ObjetivoMapaEstrategicoService::findByUnidadeGerencialPerspectivaThroughMapaEstrategico(UnidadeGerencial, PerspectivaMapaEstrategico, boolean, boolean, boolean, boolean, boolean, String):List<ObjetivoMapaEstrategico>	br.com.linkcom.sgm.dao.ObjetivoMapaEstrategicoDAO
-111	br.com.linkcom.sgm.service.ObjetivoMapaEstrategicoService::findByUnidadeGerencialPerspectivaThroughMatrizFCS(UnidadeGerencial, PerspectivaMapaEstrategico, boolean, boolean, boolean, boolean, boolean):List<ObjetivoMapaEstrategico>	br.com.linkcom.sgm.dao.ObjetivoMapaEstrategicoDAO
-111	br.com.linkcom.sgm.service.ObjetivoMapaEstrategicoService::findByUnidadeGerencialThroughMapaEstrategico(UnidadeGerencial, boolean):List<ObjetivoMapaEstrategico>	br.com.linkcom.sgm.dao.ObjetivoMapaEstrategicoDAO
-111	br.com.linkcom.sgm.service.ObjetivoMapaEstrategicoService::findByUnidadeGerencialThroughMatrizFCS(UnidadeGerencial, boolean):List<ObjetivoMapaEstrategico>	br.com.linkcom.sgm.dao.ObjetivoMapaEstrategicoDAO
-111	br.com.linkcom.sgm.service.OcorrenciaService::createReportDiarioBordo(OcorrenciaFiltro):IReport	br.com.linkcom.sgm.dao.OcorrenciaDAO
-111	br.com.linkcom.sgm.service.OcorrenciaService::podeAlterar(Ocorrencia):Boolean	br.com.linkcom.sgm.service.UsuarioService
-111	br.com.linkcom.sgm.service.PerspectivaMapaEstrategicoService::findByUnidadeGerencialThroughMapaEstrategico(UnidadeGerencial, boolean, String):List<PerspectivaMapaEstrategico>	br.com.linkcom.sgm.dao.PerspectivaMapaEstrategicoDAO
-111	br.com.linkcom.sgm.service.PerspectivaMapaEstrategicoService::findByUnidadeGerencialThroughMatrizFCS(UnidadeGerencial, boolean):List<PerspectivaMapaEstrategico>	br.com.linkcom.sgm.dao.PerspectivaMapaEstrategicoDAO
-111	br.com.linkcom.sgm.service.PlanoAcaoService::createIniciativaPlanoAcaoReport(IniciativaPlanoAcaoFiltro):IReport	br.com.linkcom.sgm.controller.filtro.IniciativaPlanoAcaoFiltro
-111	br.com.linkcom.sgm.service.PlanoAcaoService::findByIniciativas(IniciativaPlanoAcaoFiltro):List<PlanoAcao>	br.com.linkcom.sgm.service.UsuarioService
-111	br.com.linkcom.sgm.service.PlanoGestaoService::isDtLimLancResultadosExpirada(PlanoGestao, Integer):Boolean	br.com.linkcom.sgm.beans.PlanoGestao
-111	br.com.linkcom.sgm.service.PlanoGestaoService::isDtTravLancResultadosExpirada(PlanoGestao, Integer):Boolean	br.com.linkcom.sgm.beans.PlanoGestao
-111	br.com.linkcom.sgm.service.SolicitacaoCancelamentoIndicadorService::findSolicitacoes(SolicitacaoCancelamentoIndicadorFiltro):List<SolicitacaoCancelamentoIndicador>	br.com.linkcom.sgm.service.UsuarioService
-111	br.com.linkcom.sgm.service.UnidadeGerencialService::findAllParents(UnidadeGerencial):List<UnidadeGerencial>	br.com.linkcom.sgm.dao.UnidadeGerencialDAO
-111	br.com.linkcom.sgm.service.UnidadeGerencialService::loadUGObjetivoEstrategicoIndicadorAcompanhamento(PlanoGestao, UnidadeGerencial, boolean):List<UnidadeGerencial>	br.com.linkcom.sgm.service.PerspectivaMapaEstrategicoService
-111	br.com.linkcom.sgm.service.UnidadeGerencialService::montaListaDescricaoUnidadeGerencialComDescendencia(UnidadeGerencial, List<String>):List<String>	br.com.linkcom.sgm.dao.UnidadeGerencialDAO
-111	br.com.linkcom.sgm.service.UnidadeGerencialService::montaListaUnidadeGerencial(PlanoGestao, UnidadeGerencial, boolean):List<UnidadeGerencial>	br.com.linkcom.sgm.service.UsuarioService
-111	br.com.linkcom.sgm.service.UsuarioPapelService::getPapeis(Usuario):Set<Papel>	br.com.linkcom.sgm.dao.UsuarioPapelDAO
-111	br.com.linkcom.sgm.service.UsuarioService::encryptPassword(Usuario):Usuario	br.com.linkcom.sgm.beans.Usuario
-111	br.com.linkcom.sgm.service.UsuarioService::getUsuarioLogadoUGs(PlanoGestao):List<UnidadeGerencial>	br.com.linkcom.sgm.beans.PlanoGestao
-111	br.com.linkcom.sgm.service.UsuarioService::isUsuarioLogadoVinculadoAreaAuditoriaInterna(PlanoGestao):Boolean	br.com.linkcom.sgm.beans.PlanoGestao
-111	br.com.linkcom.sgm.service.UsuarioService::isUsuarioLogadoVinculadoAreaQualidade(PlanoGestao):Boolean	br.com.linkcom.sgm.beans.PlanoGestao
-111	br.com.linkcom.sgm.service.UsuarioService::updatePassword(Usuario, boolean):void	br.com.linkcom.sgm.dao.UsuarioDAO
-111	br.com.linkcom.sgm.service.UsuarioUnidadeGerencialService::findUsuariosQualidadeEnvolvidoAnomalia(PlanoGestao):List<UsuarioUnidadeGerencial>	br.com.linkcom.sgm.dao.UsuarioUnidadeGerencialDAO
-111	br.com.linkcom.sgm.util.email.EnviaEmailTeste::enviaEmail(HttpServletRequest, ParametrosSistema):String	br.com.linkcom.sgm.beans.ParametrosSistema
+-0.000207-111	br.com.linkcom.sgm.service.UsuarioService::encryptPassword(Usuario):Usuario	br.com.linkcom.sgm.beans.Usuario
+-0.000265-111	br.com.linkcom.sgm.service.IndicadorService::calculaAcompanhamentosIndicador(Indicador, List<Calendar>):Indicador	br.com.linkcom.sgm.beans.Indicador
+-0.000527-111	br.com.linkcom.sgm.service.UnidadeGerencialService::montaListaUnidadeGerencial(PlanoGestao, UnidadeGerencial, boolean):List<UnidadeGerencial>	br.com.linkcom.sgm.service.UsuarioService
+-0.000720-111	br.com.linkcom.sgm.service.AnomaliaService::enviaEmailSolicitacaoEncerramento(Anomalia):void	br.com.linkcom.sgm.beans.Anomalia
+-0.000801-111	br.com.linkcom.sgm.service.PlanoAcaoService::findByIniciativas(IniciativaPlanoAcaoFiltro):List<PlanoAcao>	br.com.linkcom.sgm.service.UsuarioService
+-0.001209-111	br.com.linkcom.sgm.service.AnomaliaService::calculaLocalAnomalia(Anomalia):LocalAnomaliaEnum	br.com.linkcom.sgm.dao.AnomaliaDAO
+-0.001377-111	br.com.linkcom.sgm.service.IndicadorService::usuarioPodeAlterar(Indicador):boolean	br.com.linkcom.sgm.service.UsuarioService
+-0.003246-111	br.com.linkcom.sgm.dao.AnomaliaDAO::findForReportListagemAnomalia(AnomaliaListagemReportFiltro):List<Anomalia>	br.com.linkcom.sgm.controller.report.filtro.AnomaliaListagemReportFiltro
+-0.003564-111	br.com.linkcom.sgm.service.UsuarioService::isUsuarioLogadoVinculadoAreaAuditoriaInterna(PlanoGestao):Boolean	br.com.linkcom.sgm.beans.PlanoGestao
+-0.003570-111	br.com.linkcom.sgm.service.UsuarioService::getUsuarioLogadoUGs(PlanoGestao):List<UnidadeGerencial>	br.com.linkcom.sgm.beans.PlanoGestao
+-0.003838-100	br.com.linkcom.sgm.service.AnomaliaService::findUsuariosQualidadeEnvolvidosAnomalia(Anomalia):List<Usuario>	br.com.linkcom.sgm.service.UsuarioService
+-0.003941-111	br.com.linkcom.sgm.service.IndicadorService::dataLimiteCriacaoNaoExpirada(Indicador):boolean	br.com.linkcom.sgm.service.PlanoGestaoService
+-0.004470-111	br.com.linkcom.sgm.service.UnidadeGerencialService::montaListaDescricaoUnidadeGerencialComDescendencia(UnidadeGerencial, List<String>):List<String>	br.com.linkcom.sgm.dao.UnidadeGerencialDAO
+-0.005011-111	br.com.linkcom.sgm.service.UsuarioService::isUsuarioLogadoVinculadoAreaQualidade(PlanoGestao):Boolean	br.com.linkcom.sgm.beans.PlanoGestao
+-0.005172-111	br.com.linkcom.sgm.controller.process.DistribuicaoPesosIndicadoresProcess::popUpConfiguraFiltro(WebRequestContext, DistribuicaoPesosIndicadores):ModelAndView	br.com.linkcom.sgm.service.PerspectivaMapaEstrategicoService
+-0.005548-111	br.com.linkcom.sgm.dao.UnidadeGerencialDAO::getProximoSequencialAnomalia(UnidadeGerencial, int):int	br.com.linkcom.sgm.beans.UnidadeGerencial
+-0.006189-111	br.com.linkcom.sgm.dao.IndicadorDAO::deleteByUnidadeGerencial(UnidadeGerencial):void	br.com.linkcom.sgm.beans.UnidadeGerencial
+-0.006249-111	br.com.linkcom.sgm.dao.IndicadorDAO::deleteWhereNotIn(UnidadeGerencial, ObjetivoMapaEstrategico, String):void	br.com.linkcom.sgm.beans.ObjetivoMapaEstrategico
+-0.006579-111	br.com.linkcom.sgm.dao.IndicadorDAO::atualizaStatusIndicador(Indicador, StatusIndicadorEnum):void	br.com.linkcom.sgm.beans.Indicador
+-0.006709-111	br.com.linkcom.sgm.service.PlanoGestaoService::isDtLimLancResultadosExpirada(PlanoGestao, Integer):Boolean	br.com.linkcom.sgm.beans.PlanoGestao
+-0.007041-111	br.com.linkcom.sgm.service.AnomaliaService::getDataLimiteParaTratamento(Anomalia, int):Date	br.com.linkcom.sgm.beans.Anomalia
+-0.007041-111	br.com.linkcom.sgm.service.AnomaliaService::isDataLembreteTratamentoAnomaliaAtingida(Anomalia, int):Boolean	br.com.linkcom.sgm.beans.Anomalia
+-0.007112-111	br.com.linkcom.sgm.service.UnidadeGerencialService::loadUGObjetivoEstrategicoIndicadorAcompanhamento(PlanoGestao, UnidadeGerencial, boolean):List<UnidadeGerencial>	br.com.linkcom.sgm.service.PerspectivaMapaEstrategicoService
+-0.007702-111	br.com.linkcom.sgm.controller.process.DefinicaoCompetenciaProcess::entrada(WebRequestContext, PlanoGestaoUnidadeGerencialFiltro):ModelAndView	br.com.linkcom.sgm.service.UsuarioService
+-0.007859-111	br.com.linkcom.sgm.service.AnomaliaService::isAnomaliaTratada(Anomalia):Boolean	br.com.linkcom.sgm.beans.Anomalia
+-0.007968-111	br.com.linkcom.sgm.service.AnomaliaService::isDataEncerramentoAnomaliaExpirada(Anomalia, int):Boolean	br.com.linkcom.sgm.beans.Anomalia
+-0.007983-111	br.com.linkcom.sgm.service.AnomaliaService::isDataTravamentoAnomaliaExpirada(Anomalia, int):Boolean	br.com.linkcom.sgm.beans.Anomalia
+-0.007984-111	br.com.linkcom.sgm.dao.IndicadorDAO::atualizaIndicador(Indicador):void	br.com.linkcom.sgm.beans.Indicador
+-0.008139-111	br.com.linkcom.sgm.util.email.EnviaEmailTeste::enviaEmail(HttpServletRequest, ParametrosSistema):String	br.com.linkcom.sgm.beans.ParametrosSistema
+-0.008333-111	br.com.linkcom.sgm.dao.IniciativaDAO::deleteByUnidadeGerencial(UnidadeGerencial):void	br.com.linkcom.sgm.beans.UnidadeGerencial
+-0.008333-111	br.com.linkcom.sgm.dao.IniciativaDAO::findByUnidadeGerencial(UnidadeGerencial):List<Iniciativa>	br.com.linkcom.sgm.beans.UnidadeGerencial
+-0.008333-111	br.com.linkcom.sgm.dao.UsuarioDAO::updatePassword(Usuario):void	br.com.linkcom.sgm.beans.Usuario
+-0.008849-111	br.com.linkcom.sgm.controller.process.DefinicaoEstrategiaProcess::entrada(WebRequestContext, DefinicaoEstrategiaFiltro):ModelAndView	br.com.linkcom.sgm.service.UsuarioService
+-0.009194-111	br.com.linkcom.sgm.service.AnomaliaService::getStatusAnomalia(Anomalia, int, int):StatusAnomaliaEnum	br.com.linkcom.sgm.beans.Anomalia
+-0.009782-111	br.com.linkcom.sgm.service.PlanoGestaoService::isDtTravLancResultadosExpirada(PlanoGestao, Integer):Boolean	br.com.linkcom.sgm.beans.PlanoGestao
+-0.010014-111	br.com.linkcom.sgm.dao.SolicitacaoCancelamentoIndicadorDAO::existeSolicitacaoCancelamentoAberta(Indicador):Boolean	br.com.linkcom.sgm.beans.Indicador
+-0.011481-111	br.com.linkcom.sgm.service.AnomaliaService::getStatusTratamentoAnomalia(Anomalia):StatusTratamentoAnomaliaEnum	br.com.linkcom.sgm.beans.Anomalia
+-0.011782-111	br.com.linkcom.sgm.dao.AnomaliaDAO::atualizaEnvioLembreteTratamentoAnomalia(Anomalia):void	br.com.linkcom.sgm.beans.Anomalia
+-0.011938-111	br.com.linkcom.sgm.dao.AnomaliaDAO::atualizaStatusAnomalia(Anomalia, StatusAnomaliaEnum):void	br.com.linkcom.sgm.beans.Anomalia
+-0.013260-111	br.com.linkcom.sgm.controller.process.MatrizFCSProcess::salvar(WebRequestContext, MatrizFCSFiltro):ModelAndView	br.com.linkcom.sgm.service.MatrizFCSService
+-0.014448-111	br.com.linkcom.sgm.controller.process.DefinicaoNegocioProcess::entrada(WebRequestContext, PlanoGestaoUnidadeGerencialFiltro):ModelAndView	br.com.linkcom.sgm.service.UsuarioService
+-0.014888-111	br.com.linkcom.sgm.service.ControleCadastroService::montaItemControleCadastroMapaCompetencia(UnidadeGerencial, HttpServletRequest):ControleCadastroItem	br.com.linkcom.sgm.beans.UnidadeGerencial
+-0.014888-111	br.com.linkcom.sgm.service.ControleCadastroService::montaItemControleCadastroMapaEstrategico(UnidadeGerencial, HttpServletRequest):ControleCadastroItem	br.com.linkcom.sgm.beans.UnidadeGerencial
+-0.014888-111	br.com.linkcom.sgm.service.ControleCadastroService::montaItemControleCadastroMapaNegocio(UnidadeGerencial, HttpServletRequest):ControleCadastroItem	br.com.linkcom.sgm.beans.UnidadeGerencial
+-0.014888-111	br.com.linkcom.sgm.service.ControleCadastroService::montaItemControleCadastroMatrizFCS(UnidadeGerencial, HttpServletRequest):ControleCadastroItem	br.com.linkcom.sgm.beans.UnidadeGerencial
+-0.016667-111	br.com.linkcom.sgm.dao.MatrizFCSDAO::deleteByUnidadeGerencial(UnidadeGerencial):void	br.com.linkcom.sgm.beans.UnidadeGerencial
+-0.016667-111	br.com.linkcom.sgm.dao.MatrizFCSDAO::findWithEstrategiasByUnidadeGerencial(UnidadeGerencial):List<MatrizFCS>	br.com.linkcom.sgm.beans.UnidadeGerencial
+-0.017130-111	br.com.linkcom.sgm.service.OcorrenciaService::podeAlterar(Ocorrencia):Boolean	br.com.linkcom.sgm.service.UsuarioService
+-0.017727-111	br.com.linkcom.sgm.service.DistribuicaoPesosIndicadoresService::usuarioPodeAlterar(Boolean, Boolean, PlanoGestao):Boolean	br.com.linkcom.sgm.service.PlanoGestaoService
+-0.018511-111	br.com.linkcom.sgm.controller.crud.OcorrenciaCrud::salvarAndEncaminhar(WebRequestContext, Ocorrencia):ModelAndView	br.com.linkcom.sgm.beans.Ocorrencia
+-0.019672-111	br.com.linkcom.sgm.dao.MatrizFCSIniciativaDAO::findPrioritariasByUnidadeGerencial(UnidadeGerencial):List<MatrizFCSIniciativa>	br.com.linkcom.sgm.beans.UnidadeGerencial
+-0.019672-111	br.com.linkcom.sgm.dao.PlanoAcaoDAO::deleteByUnidadeGerencial(UnidadeGerencial):void	br.com.linkcom.sgm.beans.UnidadeGerencial
+-0.020125-111	br.com.linkcom.sgm.service.IndicadorService::obtemSomatorioColecaoAcompanhamento(Indicador, Calendar, Calendar):Indicador	br.com.linkcom.sgm.service.AcompanhamentoIndicadorService
+-0.021002-111	br.com.linkcom.sgm.service.ControleCadastroService::montaItemControleTratamentoAnomlia(Anomalia, HttpServletRequest):ControleCadastroItem	br.com.linkcom.sgm.beans.Anomalia
+-0.022487-111	br.com.linkcom.sgm.dao.SolicitacaoCancelamentoIndicadorDAO::saveOrUpdateStatus(SolicitacaoCancelamentoIndicador):void	br.com.linkcom.sgm.beans.SolicitacaoCancelamentoIndicador
+-0.024083-111	br.com.linkcom.sgm.dao.AcompanhamentoIndicadorDAO::updateAnomalia(AcompanhamentoIndicador, Anomalia):void	br.com.linkcom.sgm.beans.Anomalia
+-0.025417-100	br.com.linkcom.sgm.service.DistribuicaoPesosIndicadoresService::carregaElementosPainelIndicador(UnidadeGerencial):List<PerspectivaMapaEstrategico>	br.com.linkcom.sgm.service.PerspectivaMapaEstrategicoService
+-0.027899-100	br.com.linkcom.sgm.service.LancamentoValorRealService::configuraExibicaoAcompanhamentos(LancamentoValorRealFiltro):void	br.com.linkcom.sgm.service.AcompanhamentoIndicadorService
+-0.028006-111	br.com.linkcom.sgm.dao.AuditoriaGestaoDAO::deleteByUnidadeGerencial(UnidadeGerencial):void	br.com.linkcom.sgm.beans.UnidadeGerencial
+-0.029117-111	br.com.linkcom.sgm.controller.crud.AnomaliaCrud::exibirBotaoSolicitarEncerramento(Anomalia, Boolean, Boolean):Boolean	br.com.linkcom.sgm.beans.Anomalia
+-0.029117-111	br.com.linkcom.sgm.controller.crud.AnomaliaCrud::usuarioPodeDestravarAnomalia(Anomalia, Boolean, Boolean, Boolean):Boolean	br.com.linkcom.sgm.beans.Anomalia
+-0.029117-111	br.com.linkcom.sgm.controller.crud.AnomaliaCrud::usuarioPodeEncerrarAnomalia(Anomalia, Boolean, Boolean):Boolean	br.com.linkcom.sgm.beans.Anomalia
+-0.029117-111	br.com.linkcom.sgm.controller.crud.AnomaliaCrud::usuarioPodeTratarAnomalia(Anomalia, Boolean, Boolean, Boolean):Boolean	br.com.linkcom.sgm.beans.Anomalia
+-0.029226-111	br.com.linkcom.sgm.dao.AcompanhamentoIndicadorDAO::setNullAcaoPreventiva(AcaoPreventiva):void	br.com.linkcom.sgm.beans.AcaoPreventiva
+-0.030045-111	br.com.linkcom.sgm.controller.crud.AnomaliaCrud::exibirBotaoNotificarCumprimentoPendente(Anomalia, Boolean):Boolean	br.com.linkcom.sgm.beans.Anomalia
+-0.030045-111	br.com.linkcom.sgm.controller.crud.AnomaliaCrud::usuarioPodeConsultarAnomalia(Anomalia, Boolean, Boolean, Boolean, Boolean):Boolean	br.com.linkcom.sgm.beans.Anomalia
+-0.030045-111	br.com.linkcom.sgm.controller.crud.AnomaliaCrud::usuarioPodeCriarPlanoAcao(Anomalia, Boolean, Boolean, Boolean):Boolean	br.com.linkcom.sgm.beans.Anomalia
+-0.030045-111	br.com.linkcom.sgm.controller.crud.AnomaliaCrud::usuarioPodeEditarAnomalia(Anomalia, Boolean, Boolean):Boolean	br.com.linkcom.sgm.beans.Anomalia
+-0.030089-111	br.com.linkcom.sgm.controller.crud.AnomaliaCrud::exibirBotaoSolicitarReanalise(Anomalia, Boolean, Boolean):Boolean	br.com.linkcom.sgm.beans.Anomalia
+-0.030433-100	br.com.linkcom.sgm.service.LancamentoValorRealService::configuraEdicaoAcompanhamentos(LancamentoValorRealFiltro, Boolean, Boolean, Boolean):void	br.com.linkcom.sgm.service.AcompanhamentoIndicadorService
+-0.031931-100	br.com.linkcom.sgm.controller.process.DistribuicaoPesosIndicadoresProcess::isAdministradoOuDataLimiteNaoExpirada(Indicador):boolean	br.com.linkcom.sgm.service.IndicadorService
+-0.035218-111	br.com.linkcom.sgm.controller.process.DistribuicaoPesosIndicadoresProcess::configuraParametrosTela(WebRequestContext, Indicador):void	br.com.linkcom.sgm.service.UsuarioService
+-0.036465-111	br.com.linkcom.sgm.service.UnidadeGerencialService::findAllParents(UnidadeGerencial):List<UnidadeGerencial>	br.com.linkcom.sgm.dao.UnidadeGerencialDAO
+-0.037690-111	br.com.linkcom.sgm.controller.process.SolicitacaoRepactuacaoIndicadorProcess::repactuacaoPorLancamento(WebRequestContext, SolicitacaoRepactuacaoIndicador):void	br.com.linkcom.sgm.beans.SolicitacaoRepactuacaoIndicador
+-0.039286-111	br.com.linkcom.sgm.dao.OcorrenciaDAO::setNullAnomalia(Anomalia):void	br.com.linkcom.sgm.beans.Anomalia
+-0.039916-111	br.com.linkcom.sgm.controller.process.DistribuicaoPesosIndicadoresProcess::salvarPopUpPlanoAcao(WebRequestContext, Iniciativa):ModelAndView	br.com.linkcom.sgm.beans.Iniciativa
+-0.040056-100	br.com.linkcom.sgm.controller.process.DistribuicaoPesosIndicadoresProcess::resolveAcompanhamentos(PlanoGestao, Indicador):void	br.com.linkcom.sgm.beans.PlanoGestao
+-0.043965-111	br.com.linkcom.sgm.service.MapaEstrategicoService::excluiMapaEstrategico(MapaEstrategico):void	br.com.linkcom.sgm.beans.MapaEstrategico
+-0.044444-111	br.com.linkcom.sgm.dao.SolicitacaoRepactuacaoIndicadorDAO::saveOrUpdateStatus(SolicitacaoRepactuacaoIndicador):void	br.com.linkcom.sgm.beans.SolicitacaoRepactuacaoIndicador
+-0.045071-111	br.com.linkcom.sgm.service.SolicitacaoCancelamentoIndicadorService::findSolicitacoes(SolicitacaoCancelamentoIndicadorFiltro):List<SolicitacaoCancelamentoIndicador>	br.com.linkcom.sgm.service.UsuarioService
+-0.045457-111	br.com.linkcom.sgm.controller.process.SolicitacaoCancelamentoIndicadorProcess::cancelamentoPorLancamento(WebRequestContext, SolicitacaoCancelamentoIndicador):void	br.com.linkcom.sgm.beans.SolicitacaoCancelamentoIndicador
+-0.046518-111	br.com.linkcom.sgm.controller.process.SolicitacaoCancelamentoIndicadorProcess::excluir(WebRequestContext, SolicitacaoCancelamentoIndicadorFiltro):ModelAndView	br.com.linkcom.sgm.controller.filtro.SolicitacaoCancelamentoIndicadorFiltro
+-0.046518-111	br.com.linkcom.sgm.controller.process.SolicitacaoRepactuacaoIndicadorProcess::excluir(WebRequestContext, SolicitacaoRepactuacaoIndicadorFiltro):ModelAndView	br.com.linkcom.sgm.controller.filtro.SolicitacaoRepactuacaoIndicadorFiltro
+-0.054645-100	br.com.linkcom.sgm.service.AcaoPreventivaService::getStatusAcaoPreventiva(AcaoPreventiva):StatusAcaoPreventivaEnum	br.com.linkcom.sgm.beans.AcaoPreventiva
+-0.055893-111	br.com.linkcom.sgm.dao.AcompanhamentoIndicadorDAO::updateAcaoPreventiva(AcompanhamentoIndicador, AcaoPreventiva):void	br.com.linkcom.sgm.beans.AcaoPreventiva
+-0.061353-111	br.com.linkcom.sgm.dao.AcaoPreventivaDAO::deleteByUnidadeGerencial(UnidadeGerencial):void	br.com.linkcom.sgm.beans.UnidadeGerencial
+-0.061750-111	br.com.linkcom.sgm.dao.OcorrenciaDAO::deleteByUnidadeGerencial(UnidadeGerencial):void	br.com.linkcom.sgm.beans.UnidadeGerencial
+-0.062640-111	br.com.linkcom.sgm.service.IndicadorService::copiaIndicador(UnidadeGerencial, ObjetivoMapaEstrategico, Indicador, boolean):void	br.com.linkcom.sgm.service.AnexoIndicadorService
+-0.066587-111	br.com.linkcom.sgm.service.LancamentoValorRealService::showBotaoSalvar(LancamentoValorRealFiltro):Boolean	br.com.linkcom.sgm.controller.filtro.LancamentoValorRealFiltro
+-0.068709-111	br.com.linkcom.sgm.controller.process.LancamentoValorRealProcess::entrada(WebRequestContext, LancamentoValorRealFiltro):ModelAndView	br.com.linkcom.sgm.service.LancamentoValorRealService
+-0.070085-111	br.com.linkcom.sgm.service.PlanoAcaoService::createIniciativaPlanoAcaoReport(IniciativaPlanoAcaoFiltro):IReport	br.com.linkcom.sgm.controller.filtro.IniciativaPlanoAcaoFiltro
+-0.080780-111	br.com.linkcom.sgm.service.AuditoriaInternaService::deleteByUnidadeGerencial(UnidadeGerencial):void	br.com.linkcom.sgm.dao.AuditoriaInternaDAO
+-0.088981-111	br.com.linkcom.sgm.service.MapaEstrategicoService::salvaDefinicaoObjetivoEstrategico(MapaEstrategico, UnidadeGerencial, boolean):void	br.com.linkcom.sgm.service.PerspectivaMapaEstrategicoService
+-0.089226-111	br.com.linkcom.sgm.service.IndicadorService::createReportApresentacaoResultados(ApresentacaoResultadosDTO):IReport	br.com.linkcom.sgm.beans.DTO.ApresentacaoResultadosDTO
+-0.090090-111	br.com.linkcom.sgm.service.UsuarioService::updatePassword(Usuario, boolean):void	br.com.linkcom.sgm.dao.UsuarioDAO
+-0.092848-111	br.com.linkcom.sgm.report.bean.ApresentacaoResultadosReportBean::getGraficoTipo():String	br.com.linkcom.sgm.beans.DTO.ApresentacaoResultadosDTO
+-0.095011-111	br.com.linkcom.sgm.controller.process.DistribuicaoPesosIndicadoresProcess::salvarPopUpDetalhamentoIndicador(WebRequestContext, Indicador):ModelAndView	br.com.linkcom.sgm.beans.Indicador
+-0.095038-100	br.com.linkcom.sgm.controller.crud.AcaoPreventivaCrud::usuarioPodeConsultarAcaoPreventiva(AcaoPreventiva, Boolean, Boolean, Boolean):Boolean	br.com.linkcom.sgm.beans.AcaoPreventiva
+-0.095038-111	br.com.linkcom.sgm.controller.crud.AcaoPreventivaCrud::usuarioPodeEditarAcaoPreventiva(AcaoPreventiva, Boolean, Boolean):Boolean	br.com.linkcom.sgm.beans.AcaoPreventiva
+-0.100602-100	br.com.linkcom.sgm.service.IndicadorService::defineDatas(ApresentacaoResultadosDTO):void	br.com.linkcom.sgm.beans.DTO.ApresentacaoResultadosDTO
+-0.101544-111	br.com.linkcom.sgm.report.bean.ApresentacaoResultadosReportBean::getGraficoApresentacao():String	br.com.linkcom.sgm.beans.DTO.ApresentacaoResultadosDTO
+-0.101544-111	br.com.linkcom.sgm.report.bean.ApresentacaoResultadosReportBean::getGraficoTipoResultado():String	br.com.linkcom.sgm.beans.DTO.ApresentacaoResultadosDTO
+-0.101580-111	br.com.linkcom.sgm.report.bean.ApresentacaoResultadosReportBean::getDataFinal():String	br.com.linkcom.sgm.beans.DTO.ApresentacaoResultadosDTO
+-0.101580-111	br.com.linkcom.sgm.report.bean.ApresentacaoResultadosReportBean::getDataInicial():String	br.com.linkcom.sgm.beans.DTO.ApresentacaoResultadosDTO
+-0.106814-111	br.com.linkcom.sgm.beans.PerspectivaMapaEstrategico::getDescricao():String	br.com.linkcom.sgm.beans.Perspectiva
+-0.108920-111	br.com.linkcom.sgm.controller.process.DistribuicaoPesosIndicadoresProcess::salvar(WebRequestContext, DistribuicaoPesosIndicadores):ModelAndView	br.com.linkcom.sgm.service.DistribuicaoPesosIndicadoresService
+-0.114771-111	br.com.linkcom.sgm.controller.process.DefinicaoEstrategiaProcess::excluir(WebRequestContext, DefinicaoEstrategiaFiltro):ModelAndView	br.com.linkcom.sgm.service.MapaEstrategicoService
+-0.114771-111	br.com.linkcom.sgm.controller.process.DefinicaoEstrategiaProcess::salvar(WebRequestContext, DefinicaoEstrategiaFiltro):ModelAndView	br.com.linkcom.sgm.service.MapaEstrategicoService
+-0.115046-111	br.com.linkcom.sgm.service.AnomaliaService::createAnomaliaSinteticoPorStatusReport(AnomaliaSinteticoPorStatusReportFiltro):IReport	br.com.linkcom.sgm.controller.report.filtro.AnomaliaSinteticoPorStatusReportFiltro
+-0.122520-111	br.com.linkcom.sgm.service.LancamentoValorRealService::pesquisar(LancamentoValorRealFiltro):LancamentoValorRealFiltro	br.com.linkcom.sgm.service.PerspectivaMapaEstrategicoService
+-0.123270-111	br.com.linkcom.sgm.service.IndicadorService::createReportPendenciaAnomalia(PendenciaAnomaliaReportFiltro):IReport	br.com.linkcom.sgm.dao.IndicadorDAO
+-0.123770-111	br.com.linkcom.sgm.service.AnomaliaService::deleteByUnidadeGerencial(UnidadeGerencial):void	br.com.linkcom.sgm.dao.AnomaliaDAO
+-0.124117-111	br.com.linkcom.sgm.service.IndicadorService::criarRelatorioIndicadoresEstrategico(IndicadoresEstrategicoReportFiltro):IReport	br.com.linkcom.sgm.dao.IndicadorDAO
+-0.124853-111	br.com.linkcom.sgm.service.IndicadorService::atualizaIndicadores(List<Indicador>, UnidadeGerencial, ObjetivoMapaEstrategico):void	br.com.linkcom.sgm.dao.IndicadorDAO
+-0.124880-111	br.com.linkcom.sgm.controller.process.DistribuicaoPesosIndicadoresProcess::validaForm(Indicador, WebRequestContext):boolean	br.com.linkcom.sgm.service.AnexoIndicadorService
+-0.127778-111	br.com.linkcom.sgm.controller.process.DefinicaoCompetenciaProcess::salvar(WebRequestContext, UnidadeGerencial):ModelAndView	br.com.linkcom.sgm.service.MapaCompetenciaService
+-0.129851-111	br.com.linkcom.sgm.controller.process.SolicitacaoCancelamentoIndicadorProcess::salvar(WebRequestContext, SolicitacaoCancelamentoIndicadorFiltro):ModelAndView	br.com.linkcom.sgm.controller.filtro.SolicitacaoCancelamentoIndicadorFiltro
+-0.129851-111	br.com.linkcom.sgm.controller.process.SolicitacaoRepactuacaoIndicadorProcess::salvar(WebRequestContext, SolicitacaoRepactuacaoIndicadorFiltro):ModelAndView	br.com.linkcom.sgm.controller.filtro.SolicitacaoRepactuacaoIndicadorFiltro
+-0.129946-111	br.com.linkcom.sgm.controller.process.LancamentoValorRealProcess::alternarValores(WebRequestContext, LancamentoValorRealFiltro):ModelAndView	br.com.linkcom.sgm.controller.filtro.LancamentoValorRealFiltro
+-0.130963-111	br.com.linkcom.sgm.service.AnomaliaService::createAnomaliaListagemReport(AnomaliaListagemReportFiltro):IReport	br.com.linkcom.sgm.controller.report.filtro.AnomaliaListagemReportFiltro
+-0.133333-111	br.com.linkcom.sgm.controller.crud.ParametrosSistemaCrud::testeemail(WebRequestContext, ParametrosSistema):ModelAndView	br.com.linkcom.sgm.service.ParametrosSistemaService
+-0.140571-111	br.com.linkcom.sgm.controller.process.DistribuicaoPesosIndicadoresProcess::executar(WebRequestContext, DistribuicaoPesosIndicadores):ModelAndView	br.com.linkcom.sgm.beans.DistribuicaoPesosIndicadores
+-0.140809-111	br.com.linkcom.sgm.service.AuditoriaInternaService::enviaEmailSolicitacaoEncerramento(AuditoriaInterna):void	br.com.linkcom.sgm.beans.AuditoriaInterna
+-0.143849-111	br.com.linkcom.sgm.senha.process.AlterarSenhaProcess::salvar(WebRequestContext, AlterarSenhaFiltro):ModelAndView	br.com.linkcom.sgm.filtro.AlterarSenhaFiltro
+-0.148809-111	br.com.linkcom.sgm.controller.IndexController::exec(WebRequestContext):ModelAndView	br.com.linkcom.sgm.service.MensagemService
+-0.156695-111	br.com.linkcom.sgm.controller.crud.AuditoriaInternaCrud::ajaxComboRequisito(WebRequestContext):void	br.com.linkcom.sgm.service.RequisitoNormaService
+-0.171667-111	br.com.linkcom.sgm.service.AnexoIndicadorService::excluiAnexoIndicadorDetalhe(Indicador):void	br.com.linkcom.sgm.dao.AnexoIndicadorDAO
+-0.202649-111	br.com.linkcom.sgm.controller.crud.AuditoriaInternaCrud::doSalvarEEncerrar(WebRequestContext, AuditoriaInterna):ModelAndView	br.com.linkcom.sgm.beans.AuditoriaInterna
+-0.202649-111	br.com.linkcom.sgm.controller.crud.AuditoriaInternaCrud::doSalvarESolicitarEncerramento(WebRequestContext, AuditoriaInterna):ModelAndView	br.com.linkcom.sgm.beans.AuditoriaInterna
+-0.216111-111	br.com.linkcom.sgm.service.AnexoAnomaliaService::excluiAnexoAnomaliaDetalhe(Anomalia):void	br.com.linkcom.sgm.dao.AnexoAnomaliaDAO
+-0.217131-111	br.com.linkcom.sgm.controller.crud.AuditoriaInternaCrud::usuarioPodeEditarAuditoriaInterna(AuditoriaInterna, Boolean, Boolean, Boolean):Boolean	br.com.linkcom.sgm.beans.AuditoriaInterna
+-0.220825-111	br.com.linkcom.sgm.controller.process.SolicitacaoRepactuacaoIndicadorProcess::executar(WebRequestContext, SolicitacaoRepactuacaoIndicadorFiltro):ModelAndView	br.com.linkcom.sgm.service.SolicitacaoRepactuacaoIndicadorService
+-0.283813-111	br.com.linkcom.sgm.service.OcorrenciaService::createReportDiarioBordo(OcorrenciaFiltro):IReport	br.com.linkcom.sgm.dao.OcorrenciaDAO
+-0.310774-111	br.com.linkcom.sgm.controller.process.SolicitacaoCancelamentoIndicadorProcess::executar(WebRequestContext, SolicitacaoCancelamentoIndicadorFiltro):ModelAndView	br.com.linkcom.sgm.service.SolicitacaoCancelamentoIndicadorService
+-0.315873-111	br.com.linkcom.sgm.service.CausaEfeitoService::salvarCausaEfeito(Anomalia):void	br.com.linkcom.sgm.dao.CausaEfeitoDAO
+-0.399206-111	br.com.linkcom.sgm.service.CausaEfeitoService::excluirCausaEfeito(Anomalia):void	br.com.linkcom.sgm.dao.CausaEfeitoDAO
+-0.432540-111	br.com.linkcom.sgm.service.CausaEfeitoService::preencheListaCausaEfeito(Anomalia):List<CausaEfeito>	br.com.linkcom.sgm.dao.CausaEfeitoDAO
+-0.482313-111	br.com.linkcom.sgm.service.UsuarioUnidadeGerencialService::findUsuariosQualidadeEnvolvidoAnomalia(PlanoGestao):List<UsuarioUnidadeGerencial>	br.com.linkcom.sgm.dao.UsuarioUnidadeGerencialDAO
+-0.505478-111	br.com.linkcom.sgm.service.ObjetivoMapaEstrategicoService::findByUnidadeGerencialPerspectivaThroughMatrizFCS(UnidadeGerencial, PerspectivaMapaEstrategico, boolean, boolean, boolean, boolean, boolean):List<ObjetivoMapaEstrategico>	br.com.linkcom.sgm.dao.ObjetivoMapaEstrategicoDAO
+-0.527513-111	br.com.linkcom.sgm.service.IniciativaService::atualizaIniciativas(List<Iniciativa>, UnidadeGerencial, ObjetivoMapaEstrategico):void	br.com.linkcom.sgm.dao.IniciativaDAO
+-0.579362-111	br.com.linkcom.sgm.service.ObjetivoMapaEstrategicoService::findByUnidadeGerencialThroughMatrizFCS(UnidadeGerencial, boolean):List<ObjetivoMapaEstrategico>	br.com.linkcom.sgm.dao.ObjetivoMapaEstrategicoDAO
+-0.588220-111	br.com.linkcom.sgm.service.PerspectivaMapaEstrategicoService::findByUnidadeGerencialThroughMatrizFCS(UnidadeGerencial, boolean):List<PerspectivaMapaEstrategico>	br.com.linkcom.sgm.dao.PerspectivaMapaEstrategicoDAO
+-0.623927-111	br.com.linkcom.sgm.service.PerspectivaMapaEstrategicoService::findByUnidadeGerencialThroughMapaEstrategico(UnidadeGerencial, boolean, String):List<PerspectivaMapaEstrategico>	br.com.linkcom.sgm.dao.PerspectivaMapaEstrategicoDAO
+-0.685505-111	br.com.linkcom.sgm.service.AcompanhamentoIndicadorService::getListaDataAcompanhamentoIndicador(List<Indicador>, Calendar, Calendar):List<Calendar>	br.com.linkcom.sgm.dao.AcompanhamentoIndicadorDAO
+-0.703656-111	br.com.linkcom.sgm.service.ObjetivoMapaEstrategicoService::findByUnidadeGerencialPerspectivaThroughMapaEstrategico(UnidadeGerencial, PerspectivaMapaEstrategico, boolean, boolean, boolean, boolean, boolean, String):List<ObjetivoMapaEstrategico>	br.com.linkcom.sgm.dao.ObjetivoMapaEstrategicoDAO
+-0.736505-111	br.com.linkcom.sgm.service.ObjetivoMapaEstrategicoService::findByUnidadeGerencialThroughMapaEstrategico(UnidadeGerencial, boolean):List<ObjetivoMapaEstrategico>	br.com.linkcom.sgm.dao.ObjetivoMapaEstrategicoDAO
+-1.000000-111	br.com.linkcom.sgm.dao.PainelIndicadorFiltroDAO::deleteByUnidadeGerencial(UnidadeGerencial):void	br.com.linkcom.sgm.beans.UnidadeGerencial
+-1.000000-111	br.com.linkcom.sgm.dao.PainelIndicadorFiltroDAO::findByUnidadeGerencial(UnidadeGerencial):List<PainelIndicadorFiltro>	br.com.linkcom.sgm.beans.UnidadeGerencial
+-1.325641-111	br.com.linkcom.sgm.controller.process.EnvioEmailProcess::carregarPagina(WebRequestContext, EnvioEmailFiltro):ModelAndView	br.com.linkcom.sgm.controller.filtro.EnvioEmailFiltro
+-1.325641-111	br.com.linkcom.sgm.controller.process.EnvioEmailProcess::enviarMailling(WebRequestContext, EnvioEmailFiltro):ModelAndView	br.com.linkcom.sgm.controller.filtro.EnvioEmailFiltro
+0.000000-111	br.com.linkcom.sgm.service.UsuarioPapelService::getPapeis(Usuario):Set<Papel>	br.com.linkcom.sgm.dao.UsuarioPapelDAO
+0.000097-011	br.com.linkcom.sgm.dao.UnidadeGerencialDAO::findNodosRaiz(PlanoGestao):List<UnidadeGerencial>	br.com.linkcom.sgm.beans.PlanoGestao
+0.000399-011	br.com.linkcom.sgm.service.IndicadorService::agruparPorFator(Indicador, int, List<Calendar>):List<AcompanhamentoIndicador>	br.com.linkcom.sgm.beans.Indicador
+0.000719-011	br.com.linkcom.sgm.dao.IniciativaDAO::deleteWhereNotIn(UnidadeGerencial, ObjetivoMapaEstrategico, String):void	br.com.linkcom.sgm.beans.ObjetivoMapaEstrategico
+0.001178-011	br.com.linkcom.sgm.service.PlanoGestaoService::copiaPlanoGestao(PlanoGestao, PlanoGestao):void	br.com.linkcom.sgm.service.MapaEstrategicoService
+0.001544-011	br.com.linkcom.sgm.service.DistribuicaoPesosIndicadoresService::salvar(DistribuicaoPesosIndicadores):void	br.com.linkcom.sgm.service.IniciativaService
+0.002240-011	br.com.linkcom.sgm.service.AnomaliaService::loadParent(Anomalia):Anomalia	br.com.linkcom.sgm.service.PlanoAcaoService
+0.002583-011	br.com.linkcom.sgm.dao.AcompanhamentoIndicadorDAO::setNullAnomalia(Anomalia):void	br.com.linkcom.sgm.beans.Anomalia
+0.002746-011	br.com.linkcom.sgm.controller.process.DistribuicaoPesosIndicadoresProcess::popUpPlanoAcao(WebRequestContext, Iniciativa):ModelAndView	br.com.linkcom.sgm.service.UsuarioService
+0.002847-011	br.com.linkcom.sgm.service.AcompanhamentoIndicadorService::updateValorBase(Indicador):void	br.com.linkcom.sgm.beans.Indicador
+0.003287-011	br.com.linkcom.sgm.service.AnomaliaService::gerarMensagemEmailAnomalia(Anomalia):String	br.com.linkcom.sgm.beans.Anomalia
+0.003463-011	br.com.linkcom.sgm.service.MatrizFCSService::createMatrizFCSReport(MatrizFCSReportFiltro):IReport	br.com.linkcom.sgm.service.UsuarioService
+0.003704-011	br.com.linkcom.sgm.dao.SolicitacaoCancelamentoIndicadorDAO::findSolicitacoes(SolicitacaoCancelamentoIndicadorFiltro):List<SolicitacaoCancelamentoIndicador>	br.com.linkcom.sgm.controller.filtro.SolicitacaoCancelamentoIndicadorFiltro
+0.004013-011	br.com.linkcom.sgm.controller.crud.IndicadorCrud::copiar(WebRequestContext, Indicador):ModelAndView	br.com.linkcom.sgm.service.IndicadorService
+0.004175-011	br.com.linkcom.sgm.service.AnomaliaService::enviaEmailNotificacaoCumprimentoPendente(Anomalia):void	br.com.linkcom.sgm.beans.Anomalia
+0.004707-000	br.com.linkcom.sgm.service.AcompanhamentoIndicadorService::verificaMelhorIndicador(AcompanhamentoIndicador):Boolean	br.com.linkcom.sgm.beans.AcompanhamentoIndicador
+0.006459-011	br.com.linkcom.sgm.service.PerspectivaMapaEstrategicoService::findByMapaEstrategico(MapaEstrategico):List<PerspectivaMapaEstrategico>	br.com.linkcom.sgm.beans.MapaEstrategico
+0.007045-011	br.com.linkcom.sgm.service.SolicitacaoRepactuacaoIndicadorService::findSolicitacoes(SolicitacaoRepactuacaoIndicadorFiltro):List<SolicitacaoRepactuacaoIndicador>	br.com.linkcom.sgm.service.UsuarioService
+0.007126-011	br.com.linkcom.sgm.service.IniciativaService::atualizaIniciativaListaPlanoAcaoDaIniciativa(UnidadeGerencial, ObjetivoMapaEstrategico, Iniciativa):void	br.com.linkcom.sgm.service.PlanoAcaoService
+0.007588-011	br.com.linkcom.sgm.controller.process.SolicitacaoCancelamentoIndicadorProcess::incluirComentario(WebRequestContext, ComentarioItem):ModelAndView	br.com.linkcom.sgm.service.UsuarioService
+0.007588-011	br.com.linkcom.sgm.controller.process.SolicitacaoRepactuacaoIndicadorProcess::incluirComentario(WebRequestContext, ComentarioItem):ModelAndView	br.com.linkcom.sgm.service.UsuarioService
+0.010092-011	br.com.linkcom.sgm.dao.AcompanhamentoIndicadorDAO::obtemAcompanhamentos(Indicador):List<AcompanhamentoIndicador>	br.com.linkcom.sgm.beans.Indicador
+0.010173-011	br.com.linkcom.sgm.dao.AcompanhamentoIndicadorDAO::updateValorReal(AcompanhamentoIndicador, Double):void	br.com.linkcom.sgm.beans.AcompanhamentoIndicador
+0.012729-011	br.com.linkcom.sgm.dao.AnomaliaDAO::deleteByUnidadeGerencial(UnidadeGerencial):void	br.com.linkcom.sgm.beans.UnidadeGerencial
+0.013105-000	br.com.linkcom.sgm.service.PlanoGestaoService::createReportPendenciaCadastro(PlanoGestao, List<UnidadeGerencial>):IReport	br.com.linkcom.sgm.service.ControleCadastroService
+0.013463-011	br.com.linkcom.sgm.service.ObjetivoMapaEstrategicoService::createDesempenhoReport(DesempenhoReportFiltro):IReport	br.com.linkcom.sgm.controller.report.filtro.DesempenhoReportFiltro
+0.015322-000	br.com.linkcom.sgm.service.DistribuicaoPesosIndicadoresService::obtemListaPerspectivaObjetivoEstrategicoIniciativaIndicador(UnidadeGerencial, boolean, boolean, boolean):List<PerspectivaMapaEstrategico>	br.com.linkcom.sgm.service.PerspectivaMapaEstrategicoService
+0.021667-011	br.com.linkcom.sgm.dao.PlanoAcaoDAO::findByIniciativas(IniciativaPlanoAcaoFiltro):List<PlanoAcao>	br.com.linkcom.sgm.controller.filtro.IniciativaPlanoAcaoFiltro
+0.022667-011	br.com.linkcom.sgm.dao.UnidadeGerencialDAO::getProximoSequencialAcaoPreventiva(UnidadeGerencial):int	br.com.linkcom.sgm.beans.UnidadeGerencial
+0.022667-011	br.com.linkcom.sgm.dao.UnidadeGerencialDAO::getProximoSequencialOcorrencia(UnidadeGerencial):int	br.com.linkcom.sgm.beans.UnidadeGerencial
+0.022766-011	br.com.linkcom.sgm.controller.process.DistribuicaoPesosIndicadoresProcess::error(WebRequestContext, DistribuicaoPesosIndicadores):ModelAndView	br.com.linkcom.sgm.service.DistribuicaoPesosIndicadoresService
+0.041667-011	br.com.linkcom.sgm.dao.IniciativaDAO::atualizaIniciativa(Iniciativa):void	br.com.linkcom.sgm.beans.Iniciativa
+0.055556-011	br.com.linkcom.sgm.controller.UnidadeGerencialAutoCompleteController::view(WebRequestContext, UnidadeGerencialTreeFiltro):void	br.com.linkcom.sgm.controller.filtro.UnidadeGerencialTreeFiltro
+0.150000-011	br.com.linkcom.sgm.dao.SolicitacaoRepactuacaoIndicadorDAO::findSolicitacoes(SolicitacaoRepactuacaoIndicadorFiltro):List<SolicitacaoRepactuacaoIndicador>	br.com.linkcom.sgm.controller.filtro.SolicitacaoRepactuacaoIndicadorFiltro
+0.150568-011	br.com.linkcom.sgm.dao.SolicitacaoRepactuacaoIndicadorDAO::existeSolicitacaoRepactuacaoAberta(Indicador):Boolean	br.com.linkcom.sgm.beans.Indicador
+0.304274-011	br.com.linkcom.sgm.quartzjobs.EnviaEmailLembreteLancamentoResultadosJOB::envia(String, Usuario, StringBuilder):boolean	br.com.linkcom.sgm.beans.Usuario
+0.304274-011	br.com.linkcom.sgm.quartzjobs.EnviaEmailLembreteTratamentoAnomaliaJOB::envia(String, Usuario, StringBuilder):boolean	br.com.linkcom.sgm.beans.Usuario
 ﻿br.com.linkcom.sgm.beans.ObjetivoMapaEstrategico::getDescricao():String11	br.com.linkcom.sgm.beans.ObjetivoEstrategico	 Error: Class ﻿br.com.linkcom.sgm.beans.ObjetivoMapaEstrategico not found!
