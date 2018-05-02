@@ -3,6 +3,7 @@ package br.com.bhansen.iuc.refactory;
 import org.eclipse.jdt.core.IType;
 
 import br.com.bhansen.iuc.metric.CAMCClass;
+import br.com.bhansen.iuc.metric.CompositeMetric;
 import br.com.bhansen.iuc.metric.IUCClass;
 import br.com.bhansen.iuc.metric.Metric;
 import br.com.bhansen.iuc.metric.MetricFactory;
@@ -26,8 +27,8 @@ public class MMEvaluatorBuilder {
 	}
 	
 	private MoveMethodEvaluator createEvaluate() throws Exception {
-		//return new EvaluateMoveMethod1(this.classFrom, this.method, this.classTo, createFactory());
-		return new EvaluateMoveMethod2(this.classFrom, this.method, this.classTo, createFactory(), createFactory2());
+		return new EvaluateMoveMethod1(this.classFrom, this.method, this.classTo, createFactory(), 0);
+		//return new EvaluateMoveMethod2(this.classFrom, this.method, this.classTo, createFactory(), createFactory2());
 	}
 	
 	private MetricFactory createFactory() throws Exception {
@@ -37,11 +38,11 @@ public class MMEvaluatorBuilder {
 			public Metric create(IType type, String fakeDelegate, String fakeParameter) throws Exception {
 				//return new CheckMoves();
 				//return new NHDMNClass(type);
-				//return new IUCClass(type); 
-				//return new CAMCClass(type, false, fakeDelegate, fakeParameter);
-				return new NHDMClass(type, true, fakeDelegate, fakeParameter);
+				//return new IUCClass(type, fakeDelegate); 
+				//return new CAMCClass(type, true, fakeDelegate, fakeParameter);
+				//return new NHDMClass(type, true, fakeDelegate, fakeParameter);
 				//return new CAMCJClass(type);
-				//return new CompositeMetric(type);
+				return new CompositeMetric(type, fakeDelegate, fakeParameter);
 			}
 		}; 
 	}
