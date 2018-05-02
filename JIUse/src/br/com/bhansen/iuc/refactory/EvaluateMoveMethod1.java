@@ -1,5 +1,8 @@
 package br.com.bhansen.iuc.refactory;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
+
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.jdt.core.IMethod;
@@ -136,7 +139,7 @@ public class EvaluateMoveMethod1 extends MoveMethodEvaluator  {
 	}
 
 	public String toLineString() {
-		return new StringBuilder().append((shouldMove()) ? "0" : "1").append("\t").append(MetricClass.getClassName(this.classFrom)).append("::").append(method)
+		return new StringBuilder().append(new BigDecimal(this.valueDifference).setScale(6, RoundingMode.HALF_EVEN) + "-").append((shouldMove()) ? "0" : "1").append("\t").append(MetricClass.getClassName(this.classFrom)).append("::").append(method)
 				.append("\t").append(MetricClass.getClassName(this.classTo)).toString();
 	}
 
