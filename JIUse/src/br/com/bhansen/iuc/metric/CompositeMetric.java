@@ -4,17 +4,17 @@ import org.eclipse.jdt.core.IType;
 
 public class CompositeMetric implements Metric {
 	
-	private CAMCJClass camc;
-	private IUCClass iuc;
+	private NHDMClass one;
+	private IUCClass two;
 	
 	public CompositeMetric(IType type, String fakeDelegate, String fakeParameter) throws Exception {
-		camc = new CAMCJClass(type, false, fakeDelegate, fakeParameter);
-		iuc = new IUCClass(type, fakeDelegate);
+		one = new NHDMClass(type, true, fakeDelegate, fakeParameter);
+		two = new IUCClass(type, fakeDelegate);
 	}
 
 	@Override
 	public double getMetric() throws Exception {
-		return camc.getMetric() + iuc.getMetric();
+		return one.getMetric() + two.getMetric();
 	}
 
 }
