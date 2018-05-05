@@ -1,0 +1,72 @@
+-0.000515-111	br.com.linkcom.sgm.beans.UnidadeGerencial::getPlanoGestao():PlanoGestao	br.com.linkcom.sgm.beans.PlanoGestao
+-0.001038-111	br.com.linkcom.sgm.beans.MatrizFCSIniciativa::getMatrizFCS():MatrizFCS	br.com.linkcom.sgm.beans.MatrizFCS
+-0.001219-111	br.com.linkcom.sgm.service.PerspectivaMapaEstrategicoService::montaArvorePlanejamentoEstrategico(UnidadeGerencial, boolean, boolean, boolean):List<PerspectivaMapaEstrategico>	br.com.linkcom.sgm.service.IndicadorService
+-0.002051-111	br.com.linkcom.sgm.dao.AnomaliaDAO::findForAnomaliaSinteticoPorStatusReport(AnomaliaSinteticoPorStatusReportFiltro, StatusAnomaliaEnum):Integer	br.com.linkcom.sgm.dao.UnidadeGerencialDAO
+-0.002415-111	br.com.linkcom.sgm.beans.AuditoriaGestao::getPlanoGestao():PlanoGestao	br.com.linkcom.sgm.beans.PlanoGestao
+-0.002521-111	br.com.linkcom.sgm.beans.UnidadeGerencial::getMapaNegocio():MapaNegocio	br.com.linkcom.sgm.beans.MapaNegocio
+-0.003646-111	br.com.linkcom.sgm.beans.AcaoPreventiva::getPlanoGestao():PlanoGestao	br.com.linkcom.sgm.beans.PlanoGestao
+-0.003913-111	br.com.linkcom.sgm.controller.filtro.DefinicaoEstrategiaFiltro::getPlanoGestao():PlanoGestao	br.com.linkcom.sgm.beans.PlanoGestao
+-0.003913-111	br.com.linkcom.sgm.controller.filtro.MatrizFCSFiltro::getPlanoGestao():PlanoGestao	br.com.linkcom.sgm.beans.PlanoGestao
+-0.004021-111	br.com.linkcom.sgm.dao.AnomaliaDAO::existeAnomaliaVinculada(ItemAuditoriaInterna):Boolean	br.com.linkcom.sgm.dao.UnidadeGerencialDAO
+-0.004021-111	br.com.linkcom.sgm.dao.AnomaliaDAO::fazParteAnomalia(Ocorrencia):Boolean	br.com.linkcom.sgm.dao.UnidadeGerencialDAO
+-0.004069-111	br.com.linkcom.sgm.service.UnidadeGerencialService::createMapaCompetenciaReport(MapaCompetenciaReportFiltro):Resource	br.com.linkcom.sgm.service.UsuarioService
+-0.004175-111	br.com.linkcom.sgm.beans.Anomalia::getPlanoGestao():PlanoGestao	br.com.linkcom.sgm.beans.PlanoGestao
+-0.007069-111	br.com.linkcom.sgm.beans.Ocorrencia::getDataLancamento():Date	br.com.linkcom.sgm.beans.PlanoGestao
+-0.007361-100	br.com.linkcom.sgm.service.UnidadeGerencialService::createReportAlcanceMetaInstitucional(WebRequestContext, AlcanceMetaInstitucionalReportFiltro):IReport	br.com.linkcom.sgm.service.PlanoGestaoService
+-0.013252-111	br.com.linkcom.sgm.controller.process.DistribuicaoPesosIndicadoresProcess::salvarPopUpPlanoAcao(WebRequestContext, Iniciativa):ModelAndView	br.com.linkcom.sgm.service.IniciativaService
+-0.014679-111	br.com.linkcom.sgm.beans.AuditoriaInterna::getDataAuditoria():Date	br.com.linkcom.sgm.beans.PlanoGestao
+-0.015362-111	br.com.linkcom.sgm.service.IndicadorService::agruparPorFator(Indicador, int, List<Calendar>):List<AcompanhamentoIndicador>	br.com.linkcom.sgm.service.AcompanhamentoIndicadorService
+-0.015877-111	br.com.linkcom.sgm.service.AnomaliaService::salvaAnomalia(Anomalia, boolean):String	br.com.linkcom.sgm.service.PlanoAcaoService
+-0.020249-111	br.com.linkcom.sgm.service.UnidadeGerencialService::concatenaNomesResponsaveisUnidadeGerencial(UnidadeGerencial):String	br.com.linkcom.sgm.service.UsuarioUnidadeGerencialService
+-0.023675-111	br.com.linkcom.sgm.controller.filtro.IniciativaPlanoAcaoFiltro::getPlanoGestao():PlanoGestao	br.com.linkcom.sgm.beans.PlanoGestao
+-0.031660-111	br.com.linkcom.sgm.controller.crud.AnomaliaCrud::getAcompanhamentoIndicador(WebRequestContext):AcompanhamentoIndicador	br.com.linkcom.sgm.service.AcompanhamentoIndicadorService
+-0.032807-100	br.com.linkcom.sgm.controller.process.DistribuicaoPesosIndicadoresProcess::isAdministradoOuDataLimiteNaoExpirada(Indicador):boolean	br.com.linkcom.sgm.service.IndicadorService
+-0.032920-100	br.com.linkcom.sgm.service.DistribuicaoPesosIndicadoresService::carregaElementosPainelIndicador(UnidadeGerencial):List<PerspectivaMapaEstrategico>	br.com.linkcom.sgm.service.PerspectivaMapaEstrategicoService
+-0.034846-111	br.com.linkcom.sgm.beans.ItemAuditoriaInterna::getDescricao():String	br.com.linkcom.sgm.beans.RequisitoNorma
+-0.036488-111	br.com.linkcom.sgm.beans.DistribuicaoPesosIndicadores::getPlanoGestao():PlanoGestao	br.com.linkcom.sgm.beans.PlanoGestao
+-0.039627-111	br.com.linkcom.sgm.controller.report.filtro.PendenciaCadastroReportFiltro::getPlanoGestao():PlanoGestao	br.com.linkcom.sgm.beans.PlanoGestao
+-0.041301-111	br.com.linkcom.sgm.beans.UnidadeGerencial::getMapaCompetencia():MapaCompetencia	br.com.linkcom.sgm.beans.MapaCompetencia
+-0.043128-111	br.com.linkcom.sgm.controller.filtro.SolicitacaoCancelamentoIndicadorFiltro::getPlanoGestao():PlanoGestao	br.com.linkcom.sgm.beans.PlanoGestao
+-0.043128-111	br.com.linkcom.sgm.controller.filtro.SolicitacaoRepactuacaoIndicadorFiltro::getPlanoGestao():PlanoGestao	br.com.linkcom.sgm.beans.PlanoGestao
+-0.046713-100	br.com.linkcom.sgm.controller.process.DistribuicaoPesosIndicadoresProcess::resolveAcompanhamentos(PlanoGestao, Indicador):void	br.com.linkcom.sgm.service.AcompanhamentoIndicadorService
+-0.059531-100	br.com.linkcom.sgm.controller.crud.AnomaliaCrud::montaDiagramaCausaEfeito(Anomalia):void	br.com.linkcom.sgm.service.CausaEfeitoService
+-0.060323-111	br.com.linkcom.sgm.filtro.PainelControleFiltro::getPlanoGestao():PlanoGestao	br.com.linkcom.sgm.beans.PlanoGestao
+-0.063756-111	br.com.linkcom.sgm.controller.crud.AcaoPreventivaCrud::getAcompanhamentoIndicador(WebRequestContext):AcompanhamentoIndicador	br.com.linkcom.sgm.service.AcompanhamentoIndicadorService
+-0.073912-100	br.com.linkcom.sgm.controller.process.ApresentacaoResultadosProcess::setListaIndicadores(ApresentacaoResultadosDTO):ApresentacaoResultadosDTO	br.com.linkcom.sgm.service.IndicadorService
+-0.077891-111	br.com.linkcom.sgm.beans.UnidadeGerencial::getMapaEstrategico():MapaEstrategico	br.com.linkcom.sgm.beans.MapaEstrategico
+-0.087246-111	br.com.linkcom.sgm.controller.report.filtro.AlcanceMetaInstitucionalReportFiltro::getPlanoGestao():PlanoGestao	br.com.linkcom.sgm.beans.PlanoGestao
+-0.091173-111	br.com.linkcom.sgm.service.IndicadorService::createReportApresentacaoResultados(ApresentacaoResultadosDTO):IReport	br.com.linkcom.sgm.beans.DTO.ApresentacaoResultadosDTO
+-0.092934-100	br.com.linkcom.sgm.service.AnomaliaService::makeDiagramaReport(Anomalia, Image, Image, Image):Report	br.com.linkcom.sgm.service.CausaEfeitoService
+-0.108226-100	br.com.linkcom.sgm.controller.IndexController::montaTabela(PlanoGestao, List<EstatisticaIndexDTO>):void	br.com.linkcom.sgm.service.UnidadeGerencialService
+-0.149746-111	br.com.linkcom.sgm.controller.filtro.PlanoGestaoUnidadeGerencialFiltro::getPlanoGestao():PlanoGestao	br.com.linkcom.sgm.beans.PlanoGestao
+-0.166802-111	br.com.linkcom.sgm.controller.process.DistribuicaoPesosIndicadoresProcess::validaForm(Indicador, WebRequestContext):boolean	br.com.linkcom.sgm.service.AnexoIndicadorService
+-0.180956-111	br.com.linkcom.sgm.service.ControleCadastroService::montaItemControleCadastroMapaCompetencia(UnidadeGerencial, HttpServletRequest):ControleCadastroItem	br.com.linkcom.sgm.service.MapaCompetenciaService
+-0.181044-111	br.com.linkcom.sgm.service.DistribuicaoPesosIndicadoresService::confereSomaPesoIndicadores(DistribuicaoPesosIndicadores, BindException):Boolean	br.com.linkcom.sgm.beans.DistribuicaoPesosIndicadores
+-0.193884-111	br.com.linkcom.sgm.service.AuditoriaInternaService::salvaAuditoriaInterna(AuditoriaInterna, boolean, boolean):String	br.com.linkcom.sgm.dao.AuditoriaInternaDAO
+-0.205556-111	br.com.linkcom.sgm.controller.process.DefinicaoCompetenciaProcess::salvar(WebRequestContext, UnidadeGerencial):ModelAndView	br.com.linkcom.sgm.service.MapaCompetenciaService
+-0.212698-111	br.com.linkcom.sgm.controller.process.DefinicaoNegocioProcess::salvar(WebRequestContext, UnidadeGerencial):ModelAndView	br.com.linkcom.sgm.service.MapaNegocioService
+-0.249686-111	br.com.linkcom.sgm.beans.UnidadeGerencial::getSigla():String	br.com.linkcom.sgm.beans.NivelHierarquico
+-0.253913-111	br.com.linkcom.sgm.controller.report.filtro.IndicadoresEstrategicoReportFiltro::getPlanoGestao():PlanoGestao	br.com.linkcom.sgm.beans.PlanoGestao
+-0.318071-111	br.com.linkcom.sgm.controller.crud.AuditoriaInternaCrud::ajaxComboRequisito(WebRequestContext):void	br.com.linkcom.sgm.service.RequisitoNormaService
+-0.354545-111	br.com.linkcom.sgm.service.AuditoriaGestaoService::createAuditoriaGestaoReport(AuditoriaGestao):IReport	br.com.linkcom.sgm.service.ItemFatorAvaliacaoService
+-0.663265-111	br.com.linkcom.sgm.service.UsuarioUnidadeGerencialService::findResponsaveisByUnidadeGerencial(UnidadeGerencial):List<UsuarioUnidadeGerencial>	br.com.linkcom.sgm.dao.UsuarioUnidadeGerencialDAO
+0.000181-011	br.com.linkcom.sgm.dao.AnomaliaDAO::findForReportListagemAnomalia(AnomaliaListagemReportFiltro):List<Anomalia>	br.com.linkcom.sgm.dao.UnidadeGerencialDAO
+0.002800-011	br.com.linkcom.sgm.service.PlanoGestaoService::copiaPlanoGestao(PlanoGestao, PlanoGestao):void	br.com.linkcom.sgm.dao.PlanoGestaoDAO
+0.003741-011	br.com.linkcom.sgm.service.DistribuicaoPesosIndicadoresService::salvar(DistribuicaoPesosIndicadores):void	br.com.linkcom.sgm.service.IniciativaService
+0.003976-011	br.com.linkcom.sgm.service.AnomaliaService::createAnomaliaSinteticoPorStatusReport(AnomaliaSinteticoPorStatusReportFiltro):IReport	br.com.linkcom.sgm.service.UnidadeGerencialService
+0.004998-011	br.com.linkcom.sgm.beans.AuditoriaGestao::getDataAuditoria():Date	br.com.linkcom.sgm.beans.PlanoGestao
+0.007992-011	br.com.linkcom.sgm.controller.report.filtro.PendenciaAnomaliaReportFiltro::getPlanoGestao():PlanoGestao	br.com.linkcom.sgm.beans.PlanoGestao
+0.010416-000	br.com.linkcom.sgm.service.DistribuicaoPesosIndicadoresService::obtemListaPerspectivaObjetivoEstrategicoIniciativaIndicador(UnidadeGerencial, boolean, boolean, boolean):List<PerspectivaMapaEstrategico>	br.com.linkcom.sgm.service.ObjetivoMapaEstrategicoService
+0.017343-011	br.com.linkcom.sgm.service.ObjetivoMapaEstrategicoService::createDesempenhoReport(DesempenhoReportFiltro):IReport	br.com.linkcom.sgm.service.UnidadeGerencialService
+0.018372-000	br.com.linkcom.sgm.service.PlanoGestaoService::createReportPendenciaCadastro(PlanoGestao, List<UnidadeGerencial>):IReport	br.com.linkcom.sgm.service.ControleCadastroService
+0.018405-011	br.com.linkcom.sgm.beans.Iniciativa::getUnidadeGerencial():UnidadeGerencial	br.com.linkcom.sgm.beans.UnidadeGerencial
+0.026023-011	br.com.linkcom.sgm.controller.IndexController::exec(WebRequestContext):ModelAndView	br.com.linkcom.sgm.service.PlanoGestaoService
+0.035489-011	br.com.linkcom.sgm.beans.EmailHistoricoUsuario::getUsuarioEmail():String	br.com.linkcom.sgm.beans.EmailHistorico
+0.048285-011	br.com.linkcom.sgm.filtro.AuditoriaInternaFiltro::getPlanoGestao():PlanoGestao	br.com.linkcom.sgm.beans.PlanoGestao
+0.050849-011	br.com.linkcom.sgm.filtro.AcaoPreventivaFiltro::getPlanoGestao():PlanoGestao	br.com.linkcom.sgm.beans.PlanoGestao
+0.052982-011	br.com.linkcom.sgm.controller.crud.IndicadorCrud::copiar(WebRequestContext, Indicador):ModelAndView	br.com.linkcom.sgm.service.IndicadorService
+0.058587-011	br.com.linkcom.sgm.controller.report.filtro.MatrizFCSReportFiltro::getPlanoGestao():PlanoGestao	br.com.linkcom.sgm.beans.PlanoGestao
+0.067818-011	br.com.linkcom.sgm.filtro.AnomaliaFiltro::getPlanoGestao():PlanoGestao	br.com.linkcom.sgm.beans.PlanoGestao
+0.110643-011	br.com.linkcom.sgm.service.ControleCadastroService::geraListaControleCadastro(PlanoGestao, List<UnidadeGerencial>):List<ControleCadastro>	br.com.linkcom.sgm.service.IniciativaService
+0.125000-011	br.com.linkcom.sgm.controller.UnidadeGerencialAutoCompleteController::view(WebRequestContext, UnidadeGerencialTreeFiltro):void	br.com.linkcom.sgm.controller.filtro.UnidadeGerencialTreeFiltro
+1.000000-011	br.com.linkcom.sgm.dao.MapaCompetenciaDAO::loadByUnidadeGerencial(UnidadeGerencial):MapaCompetencia	br.com.linkcom.sgm.beans.UnidadeGerencial
