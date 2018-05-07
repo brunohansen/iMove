@@ -1,8 +1,0 @@
-000	org.apache.tools.ant.types.CommandlineJava::execute2(JJDoc):void	org.apache.tools.ant.taskdefs.optional.javacc.JJDoc
-000	org.apache.tools.ant.types.FileSet::XsetIgnore(MatchingTask, String):void	org.apache.tools.ant.taskdefs.MatchingTask
-000	org.apache.tools.ant.types.Reference::loadProperties(Property, Properties, InputStream, boolean):void	org.apache.tools.ant.taskdefs.Property
-000	org.apache.tools.ant.types.selectors.TokenizedPath::isIncluded2(DirectoryScanner):boolean	org.apache.tools.ant.DirectoryScanner
-000	org.apache.tools.ant.util.FileUtils::eval2(IsFileSelected):boolean	org.apache.tools.ant.taskdefs.condition.IsFileSelected
-000	org.apache.tools.ant.util.ScriptRunnerHelper::executeScript2(ScriptDef, Map, Map, ScriptDefBase):void	org.apache.tools.ant.taskdefs.optional.script.ScriptDef
-000	org.apache.tools.ant.util.SymbolicLinkUtils::loadLinks2(Symlink, Vector):Properties	org.apache.tools.ant.taskdefs.optional.unix.Symlink
-100	org.apache.tools.ant.taskdefs.optional.ejb.EjbJar.Config::checkAndAddDependants(GenericDeploymentTool, Hashtable):void	org.apache.tools.ant.taskdefs.optional.ejb.GenericDeploymentTool
