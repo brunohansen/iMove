@@ -57,8 +57,10 @@ public class IUCClass extends MetricClass {
 			return 0;
 		}
 		
+		double deduct = (numMethods > 1)? 1: 0;
+				
 		for (Entry<String, Integer> caller : callerClasses.entrySet()) {
-			iuc += caller.getValue() / numMethods;			
+			iuc += (caller.getValue() - deduct) / numMethods;			
 		}
 		
 		iuc = iuc / callerClasses.size();
