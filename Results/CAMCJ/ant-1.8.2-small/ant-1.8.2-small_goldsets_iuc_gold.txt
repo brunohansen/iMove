@@ -1,10 +1,10 @@
-000	org.apache.tools.ant.filters.FixCrLfFilter::setDestdir(FixCRLF, File):void	org.apache.tools.ant.taskdefs.FixCRLF
-000	org.apache.tools.ant.filters.StripLineBreaks::addStripLineBreaks(FilterChain):void	org.apache.tools.ant.types.FilterChain
-000	org.apache.tools.ant.taskdefs.Parallel::setFailureMessage(Funtest, String):void	org.apache.tools.ant.taskdefs.optional.testing.Funtest
-000	org.apache.tools.ant.types.Environment::setOutputproperty(Java, String):void	org.apache.tools.ant.taskdefs.Java
-000	org.apache.tools.ant.types.RedirectorElement::setSpawn(ExecTask, boolean):void	org.apache.tools.ant.taskdefs.ExecTask
-000	org.apache.tools.ant.types.ZipScanner::setUpdate(Zip, boolean):void	org.apache.tools.ant.taskdefs.Zip
-100	org.apache.tools.ant.types.Comparison::setValue(SizeSelector, long):void	org.apache.tools.ant.types.selectors.SizeSelector
-100	org.apache.tools.ant.types.RegularExpression::addRegexp(Matches):void	org.apache.tools.ant.taskdefs.condition.Matches
-100	org.apache.tools.ant.util.ClasspathUtils.Delegate::getLoaderId(DefBase):String	org.apache.tools.ant.taskdefs.DefBase
-100	org.apache.tools.ant.util.LineTokenizer::chain(HeadFilter, Reader):Reader	org.apache.tools.ant.filters.HeadFilter
+-0.000500-100	org.apache.tools.ant.util.ClasspathUtils.Delegate::getLoaderId(DefBase):String	org.apache.tools.ant.taskdefs.DefBase
+-0.004762-100	org.apache.tools.ant.types.RegularExpression::addRegexp(Matches):void	org.apache.tools.ant.taskdefs.condition.Matches
+-0.083333-100	org.apache.tools.ant.util.LineTokenizer::chain(HeadFilter, Reader):Reader	org.apache.tools.ant.filters.HeadFilter
+0.000000-100	org.apache.tools.ant.types.Comparison::setValue(SizeSelector, long):void	org.apache.tools.ant.types.selectors.SizeSelector
+0.001944-000	org.apache.tools.ant.types.ZipScanner::setUpdate(Zip, boolean):void	org.apache.tools.ant.taskdefs.Zip
+0.004865-000	org.apache.tools.ant.types.Environment::setOutputproperty(Java, String):void	org.apache.tools.ant.taskdefs.Java
+0.005739-000	org.apache.tools.ant.types.RedirectorElement::setSpawn(ExecTask, boolean):void	org.apache.tools.ant.taskdefs.ExecTask
+0.007654-000	org.apache.tools.ant.filters.FixCrLfFilter::setDestdir(FixCRLF, File):void	org.apache.tools.ant.taskdefs.FixCRLF
+0.011905-000	org.apache.tools.ant.filters.StripLineBreaks::addStripLineBreaks(FilterChain):void	org.apache.tools.ant.types.FilterChain
+0.012059-000	org.apache.tools.ant.taskdefs.Parallel::setFailureMessage(Funtest, String):void	org.apache.tools.ant.taskdefs.optional.testing.Funtest
