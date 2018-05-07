@@ -2,12 +2,10 @@ package br.com.bhansen.iuc.refactory;
 
 import org.eclipse.jdt.core.IType;
 
-import br.com.bhansen.iuc.metric.CAMCClass;
 import br.com.bhansen.iuc.metric.CompositeMetric;
 import br.com.bhansen.iuc.metric.IUCClass;
 import br.com.bhansen.iuc.metric.Metric;
 import br.com.bhansen.iuc.metric.MetricFactory;
-import br.com.bhansen.iuc.metric.NHDMClass;
 
 public class MMEvaluatorBuilder {
 	
@@ -41,7 +39,7 @@ public class MMEvaluatorBuilder {
 				//return new IUCClass(type, fakeDelegate); 
 				//return new CAMCClass(type, true, fakeDelegate, fakeParameter);
 				//return new NHDMClass(type, true, fakeDelegate, fakeParameter);
-				//return new CAMCJClass(type);
+				//return new CAMCJClass(type, true, fakeDelegate, fakeParameter);
 				return new CompositeMetric(type, fakeDelegate, fakeParameter);
 			}
 		}; 
