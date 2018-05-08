@@ -4,6 +4,7 @@ import java.math.BigInteger;
 import java.util.HashSet;
 import java.util.Set;
 
+import org.eclipse.jdt.core.Flags;
 import org.eclipse.jdt.core.IField;
 import org.eclipse.jdt.core.IMethod;
 import org.eclipse.jdt.core.IType;
@@ -36,10 +37,11 @@ public abstract class DeclarationMetricClass extends MetricClass {
 
 		for (IMethod method : methods) {
 			
-			if(isFakeDelegate(method, fakeDelegate))
+			if((! Flags.isPublic(method.getFlags())) || (isFakeDelegate(method, fakeDelegate)))
 				continue;
 			
 			Set<String> params = getParameters(method);
+			//Set<String> params = getParametersAndReturn(method);
 			
 			if(isMethod(method, fakeDelegate))
 				removeFakeParameter(params, fakeParameter);
@@ -52,11 +54,10 @@ public abstract class DeclarationMetricClass extends MetricClass {
 				
 		}
 	}
-
-	private Set<String> getParameters(IMethod method) throws IllegalArgumentException, JavaModelException {
+	
+	private Set<String> getParameters(String signature) throws IllegalArgumentException, JavaModelException {
 		Set<String> parameters = new HashSet<>();
 
-		String signature = getSignature(method);
 		String strParameters = signature.replaceAll(".*\\(", "").replaceAll("\\).*", "");
 
 		if(! strParameters.isEmpty()) {
@@ -64,6 +65,22 @@ public abstract class DeclarationMetricClass extends MetricClass {
 				parameters.add(param);
 			}
 		}
+
+		return parameters;
+	}
+
+	private Set<String> getParameters(IMethod method) throws IllegalArgumentException, JavaModelException {
+		return getParameters(getSignature(method));
+	}
+	
+	private Set<String> getParametersAndReturn(IMethod method) throws IllegalArgumentException, JavaModelException {
+		String signature = getSignature(method);
+		Set<String> parameters = getParameters(signature);
+		
+		String ret = signature.split(":", 2)[1];
+		
+		if(! ret.equals("void"))
+			parameters.add(ret);
 
 		return parameters;
 	}

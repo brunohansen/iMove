@@ -5,6 +5,7 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 
+import org.eclipse.jdt.core.Flags;
 import org.eclipse.jdt.core.IMethod;
 import org.eclipse.jdt.core.IType;
 
@@ -17,7 +18,7 @@ public class IUCClass extends MetricClass {
 				
 		for (IMethod method : methods) {
 			
-			if(! isFakeDelegate(method, fakeDelegate)) {
+			if((Flags.isPublic(method.getFlags())) && (! isFakeDelegate(method, fakeDelegate))) {
 				if(getMethods().put(getSignature(method), getCallerClasses(method)) != null) {
 					System.out.println("Method " + getSignature(method) + " colision!");
 				};
@@ -30,6 +31,8 @@ public class IUCClass extends MetricClass {
 	public double getMetric() throws Exception {
 		
 		Map<String, Integer> callers = getCallerClasses();
+		
+		//callers.remove(getName());
 		
 		return calcIUC(callers);
 	}
