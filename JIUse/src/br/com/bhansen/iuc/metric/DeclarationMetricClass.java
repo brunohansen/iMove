@@ -37,7 +37,7 @@ public abstract class DeclarationMetricClass extends MetricClass {
 
 		for (IMethod method : methods) {
 			
-			if((! Flags.isPublic(method.getFlags())) || (isFakeDelegate(method, fakeDelegate)))
+			if((Flags.isPrivate(method.getFlags())) || (isFakeDelegate(method, fakeDelegate)))
 				continue;
 			
 			Set<String> params = getParameters(method);

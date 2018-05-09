@@ -18,7 +18,7 @@ public class IUCClass extends MetricClass {
 				
 		for (IMethod method : methods) {
 			
-			if((Flags.isPublic(method.getFlags())) && (! isFakeDelegate(method, fakeDelegate))) {
+			if((! Flags.isPrivate(method.getFlags())) && (! isFakeDelegate(method, fakeDelegate))) {
 				if(getMethods().put(getSignature(method), getCallerClasses(method)) != null) {
 					System.out.println("Method " + getSignature(method) + " colision!");
 				};
