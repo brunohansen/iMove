@@ -140,28 +140,7 @@ public abstract class MetricClass implements Metric {
 		
 		return callerMethods;
 	}
-	
-	protected Set<String> getCallerClasses(IMethod method) {
-		Set<String> callerMethods = new HashSet<>();
-		
-		CallHierarchy callHierarchy = CallHierarchy.getDefault();
-
-		IMember[] members = { method };
-
-		MethodWrapper[] methodWrappers = callHierarchy.getCallerRoots(members);
-		for (MethodWrapper mw : methodWrappers) {
-			MethodWrapper[] mw2 = mw.getCalls(new NullProgressMonitor());
-			for (MethodWrapper m : mw2) {
-				IMethod im = getIMethodFromMethodWrapper(m);
-				if (im != null) {
-					callerMethods.add(getClassName(im.getDeclaringType()));
-				}
-			}
-		}
-		
-		return callerMethods;
-	}
-		
+			
 	protected IMethod getIMethodFromMethodWrapper(MethodWrapper m) {
 		IMember im = m.getMember();
 		
