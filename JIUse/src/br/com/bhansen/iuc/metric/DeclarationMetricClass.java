@@ -68,6 +68,18 @@ public abstract class DeclarationMetricClass extends MetricClass {
 
 		return parameters;
 	}
+	
+	private String explodGenerics(String signature) {
+		String generics = signature;
+		
+		generics = generics.replaceAll("\\w+ super ", "");
+		generics = generics.replaceAll("\\w+ extends ", "");
+		generics = generics.replaceAll("<", ", ");
+		generics = generics.replaceAll(">", "");
+		generics = generics.replaceAll(", \\?", "");
+		
+		return generics;
+	}
 
 	private Set<String> getParameters(IMethod method) throws IllegalArgumentException, JavaModelException {
 		return getParameters(getSignature(method));
@@ -140,5 +152,13 @@ public abstract class DeclarationMetricClass extends MetricClass {
 		}
 		
 		return f;
+	}
+	
+	public static void main(String[] args) throws Exception {
+		String generics = "AbstractChain0_<Input, Output>,    AbstractDelegate<Chain<Input, Output>>, EntityFactory<Ent extends Entity<?>>, Id<T extends Id<T>>, CRUDer<Id, Ent extends Entity<Id>>, ServiceProvider<Service super Retriever<?, ?>>";
+
+		
+		
+		System.out.println(generics);
 	}
 }
