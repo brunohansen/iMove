@@ -9,7 +9,6 @@ import org.eclipse.jdt.core.IField;
 import org.eclipse.jdt.core.IMethod;
 import org.eclipse.jdt.core.IType;
 import org.eclipse.jdt.core.JavaModelException;
-import org.eclipse.jdt.core.Signature;
 
 public abstract class DeclarationMetricClass extends MetricClass {
 
@@ -68,8 +67,12 @@ public abstract class DeclarationMetricClass extends MetricClass {
 			if ((Flags.isPrivate(method.getFlags())) || (isFakeDelegate(method, fakeDelegate)))
 				continue;
 
-			// Set<String> params = getParameters(method);
-			Set<String> params = getParametersAndReturn(method);
+			//String strParams = getParameters(method);
+			String strParams = getParametersAndReturn(method);
+			strParams = explodGenerics(strParams);
+			
+			Set<String> params = createParametersSet(strParams);
+			
 			params = removePrimitives(params);
 
 			if (isMethod(method, fakeDelegate))
@@ -84,12 +87,14 @@ public abstract class DeclarationMetricClass extends MetricClass {
 		}
 	}
 
-	private Set<String> getParameters(String signature) throws IllegalArgumentException, JavaModelException {
+	private  static String getParameters(String signature) {
+		return signature.replaceAll(".*\\(", "").replaceAll("\\).*", "");
+	}
+	
+	private static Set<String> createParametersSet(String strParameters) {
 		Set<String> parameters = new HashSet<>();
 
-		String strParameters = signature.replaceAll(".*\\(", "").replaceAll("\\).*", "");
-
-		if (!strParameters.isEmpty()) {
+		if (! strParameters.isEmpty()) {
 			for (String param : strParameters.split(", ")) {
 				parameters.add(param);
 			}
@@ -98,8 +103,8 @@ public abstract class DeclarationMetricClass extends MetricClass {
 		return parameters;
 	}
 	
-	private String explodGenerics(String signature) {
-		String generics = signature;
+	private static String explodGenerics(String strParameters) {
+		String generics = strParameters;
 		
 		generics = generics.replaceAll("\\w+ super ", "");
 		generics = generics.replaceAll("\\w+ extends ", "");
@@ -110,23 +115,28 @@ public abstract class DeclarationMetricClass extends MetricClass {
 		return generics;
 	}
 
-	private Set<String> getParameters(IMethod method) throws IllegalArgumentException, JavaModelException {
+	private static String getParameters(IMethod method) throws IllegalArgumentException, JavaModelException {
 		return getParameters(getSignature(method));
 	}
 
-	private Set<String> getParametersAndReturn(IMethod method) throws IllegalArgumentException, JavaModelException {
+	private static String getParametersAndReturn(IMethod method) throws IllegalArgumentException, JavaModelException {
 		String signature = getSignature(method);
-		Set<String> parameters = getParameters(signature);
+		String parameters = getParameters(signature);
 
 		String ret = signature.split(":", 2)[1];
 
-		if (!ret.equals("void"))
-			parameters.add(ret);
+		if (! ret.equals("void")) {
+			if (! parameters.isEmpty()) {
+				parameters = parameters + ", " + ret;
+			} else {
+				parameters = ret;
+			}
+		}
 
 		return parameters;
 	}
 	
-	private Set<String> removePrimitives(Set<String> parameters) {
+	private static Set<String> removePrimitives(Set<String> parameters) {
 		Set<String> params = new HashSet<>();
 		
 		for (String param : parameters) {
@@ -196,9 +206,13 @@ public abstract class DeclarationMetricClass extends MetricClass {
 	
 	public static void main(String[] args) throws Exception {
 		String generics = "AbstractChain0_<Input, Output>,    AbstractDelegate<Chain<Input, Output>>, EntityFactory<Ent extends Entity<?>>, Id<T extends Id<T>>, CRUDer<Id, Ent extends Entity<Id>>, ServiceProvider<Service super Retriever<?, ?>>";
-
+		generics = getParameters(generics);
+		generics = explodGenerics(generics);
+		
+		Set<String> parameters = createParametersSet(generics);
+		parameters = removePrimitives(parameters);
 		
 		
-		System.out.println(generics);
+		System.out.println(parameters);
 	}
 }
