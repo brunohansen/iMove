@@ -35,7 +35,7 @@ public class MMEvaluatorBuilder {
 			@Override
 			public Metric create(IType type, String fakeDelegate, String fakeParameter) throws Exception {
 				//return new CheckMoves();
-				//return new NHDMNClass(type);
+				//return new NHDMNClass(type, true, fakeDelegate, fakeParameter);
 				//return new IUCClass(type, fakeDelegate); 
 				//return new CAMCClass(type, true, fakeDelegate, fakeParameter);
 				//return new NHDMClass(type, true, fakeDelegate, fakeParameter);
