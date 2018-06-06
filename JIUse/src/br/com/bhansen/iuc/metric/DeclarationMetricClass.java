@@ -73,7 +73,7 @@ public abstract class DeclarationMetricClass extends MetricClass {
 			
 			Set<String> params = createParametersSet(strParams);
 			
-			params = removePrimitives(params);
+			//params = removePrimitives(params);
 
 			if (isMethod(method, fakeDelegate))
 				removeFakeParameter(params, fakeParameter);
