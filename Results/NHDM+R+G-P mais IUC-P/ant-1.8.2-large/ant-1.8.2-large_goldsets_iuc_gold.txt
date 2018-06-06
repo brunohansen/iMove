@@ -1,0 +1,8 @@
+-0.982835-100	org.apache.tools.ant.taskdefs.optional.ejb.EjbJar.Config::checkAndAddDependants(GenericDeploymentTool, Hashtable):void	org.apache.tools.ant.taskdefs.optional.ejb.GenericDeploymentTool
+0.001814-000	org.apache.tools.ant.types.CommandlineJava::execute2(JJDoc):void	org.apache.tools.ant.taskdefs.optional.javacc.JJDoc
+0.002581-000	org.apache.tools.ant.util.FileUtils::eval2(IsFileSelected):boolean	org.apache.tools.ant.taskdefs.condition.IsFileSelected
+0.008708-000	org.apache.tools.ant.types.selectors.TokenizedPath::isIncluded2(DirectoryScanner):boolean	org.apache.tools.ant.DirectoryScanner
+0.037064-000	org.apache.tools.ant.types.FileSet::XsetIgnore(MatchingTask, String):void	org.apache.tools.ant.taskdefs.MatchingTask
+0.076181-000	org.apache.tools.ant.types.Reference::loadProperties(Property, Properties, InputStream, boolean):void	org.apache.tools.ant.taskdefs.Property
+0.080574-000	org.apache.tools.ant.util.SymbolicLinkUtils::loadLinks2(Symlink, Vector):Properties	org.apache.tools.ant.taskdefs.optional.unix.Symlink
+0.121088-000	org.apache.tools.ant.util.ScriptRunnerHelper::executeScript2(ScriptDef, Map, Map, ScriptDefBase):void	org.apache.tools.ant.taskdefs.optional.script.ScriptDef
