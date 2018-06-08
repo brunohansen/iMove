@@ -75,7 +75,7 @@ public abstract class DeclarationMetricClass extends AbsMetric {
 			
 			//params = removePrimitives(params);
 
-			if (isMethod(iMethod, method))
+			if (isMovedMethod(iMethod, method))
 				removeFakeParameter(params, parameter);
 
 			if (zeroParams) {

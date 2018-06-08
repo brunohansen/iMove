@@ -8,10 +8,18 @@ import br.com.bhansen.metric.AbsMetric;
 
 public class IUCMethod extends IUC {
 	
+	private String method;
+	
 	public IUCMethod(IType type, String method) throws Exception {
 		super(type);
-		
+				
 		IMethod[] iMethods = type.getMethods();
+		
+		if(isMovedMethod(method)) {
+			
+		} else {
+			
+		}
 				
 		for (IMethod iMethod : iMethods) {
 			

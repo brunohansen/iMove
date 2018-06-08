@@ -18,7 +18,7 @@ import org.eclipse.jdt.internal.corext.callhierarchy.MethodWrapper;
 @SuppressWarnings("restriction")
 public abstract class AbsMetric implements Metric {
 	
-	private static String METHOD_PREFIX = "Moved";
+	private static String METHOD_SUFFIX = "Moved";
 	
 	private IType type;
 	
@@ -34,7 +34,7 @@ public abstract class AbsMetric implements Metric {
 	}
 
 	public static String getMoveMethodName(String methodName) {
-		return methodName + METHOD_PREFIX;
+		return methodName + METHOD_SUFFIX;
 	}
 	
 	public static String getClassName(IType type) {
@@ -81,13 +81,20 @@ public abstract class AbsMetric implements Metric {
 	}
 		
 	protected boolean isFakeDelegate(IMethod iMethod, String method) throws Exception, JavaModelException {
-		return isMethod(iMethod, method) && isFakeDelegate(iMethod);
+		return isMovedMethod(iMethod, method) && (getOriginalMethod(iMethod) != null);
 	}
 	
-	protected boolean isMethod(IMethod method, String name) throws Exception, JavaModelException {
+	protected boolean isMovedMethod(String name) throws Exception, JavaModelException {
 		if(name == null)
 			return false;
-			
+
+		return name.endsWith(METHOD_SUFFIX);
+	}
+	
+	protected boolean isMovedMethod(IMethod method, String name) throws Exception, JavaModelException {
+		if(! isMovedMethod(name))
+			return false;
+					
 		String mSig = getSignature(method);
 		
 		if(mSig.split("\\(", 2)[0].equals(name)) {
@@ -97,27 +104,27 @@ public abstract class AbsMetric implements Metric {
 		return false;
 	}
 	
-	private boolean isFakeDelegate(IMethod method) throws Exception, JavaModelException {
+	private String getOriginalMethod(IMethod method) throws Exception, JavaModelException {
 
 		Set<String> callers = getCallerMethods(method);
 				
 		if(callers.size() != 1) {
-			return false;
+			return null;
 		}
 		
 		String mSig = getSignature(method);
 		
 		for (String caller : callers) {
-			String originalName = mSig.split("\\(", 2)[0].replaceFirst("[0-9]{0,1}" + METHOD_PREFIX, "");
+			String originalName = mSig.split("\\(", 2)[0].replaceFirst("[0-9]{0,1}" + METHOD_SUFFIX, "");
 			
 			if(originalName.equals(caller.split("\\(", 2)[0])) {
-				return true;
+				return caller;
 			} else {
-				return false;
+				return caller;
 			}
 		}				
 		
-		return false;
+		return null;
 	}
 	
 	protected Set<String> getCallerMethods(IMethod method) throws IllegalArgumentException, JavaModelException {
