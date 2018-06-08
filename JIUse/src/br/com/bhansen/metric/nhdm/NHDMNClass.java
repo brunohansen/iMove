@@ -13,8 +13,8 @@ public class NHDMNClass extends DeclarationMetricClass {
 		super();
 	}
 	
-	public NHDMNClass(IType type, boolean zeroParams, String method, String fakeParameter) throws Exception {
-		super(type, zeroParams, method, fakeParameter);
+	public NHDMNClass(IType type, boolean zeroParams, String method, String parameter) throws Exception {
+		super(type, zeroParams, method, parameter);
 	}
 	
 	@Override

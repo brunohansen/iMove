@@ -52,7 +52,7 @@ public abstract class DeclarationMetricClass extends AbsMetric {
 		// getMethods().get("m3").add("W");
 	}
 
-	public DeclarationMetricClass(IType type, boolean zeroParams, String method, String fakeParameter)
+	public DeclarationMetricClass(IType type, boolean zeroParams, String method, String parameter)
 			throws Exception {
 		super(type);
 
@@ -76,7 +76,7 @@ public abstract class DeclarationMetricClass extends AbsMetric {
 			//params = removePrimitives(params);
 
 			if (isMethod(iMethod, method))
-				removeFakeParameter(params, fakeParameter);
+				removeFakeParameter(params, parameter);
 
 			if (zeroParams) {
 				getMethods().put(getSignature(iMethod), params);
@@ -148,12 +148,12 @@ public abstract class DeclarationMetricClass extends AbsMetric {
 		return params;
 	}
 
-	public void removeFakeParameter(Set<String> params, String fakeParameter) throws JavaModelException {
+	public void removeFakeParameter(Set<String> params, String parameter) throws JavaModelException {
 
-		if (fakeParameter == null)
+		if (parameter == null)
 			return;
 
-		String fType = generateInnerSignature(fakeParameter);
+		String fType = generateInnerSignature(parameter);
 
 		for (IField iField : getType().getFields()) {
 			if (iField.toString().split(" ", 2)[0].equals(fType)) {
@@ -162,7 +162,7 @@ public abstract class DeclarationMetricClass extends AbsMetric {
 			}
 		}
 
-		fType = generateSignature(fakeParameter);
+		fType = generateSignature(parameter);
 
 		for (IField iField : getType().getFields()) {
 			if (iField.toString().split(" ", 2)[0].equals(fType)) {

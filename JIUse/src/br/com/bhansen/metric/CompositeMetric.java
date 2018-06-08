@@ -10,8 +10,8 @@ public class CompositeMetric implements Metric {
 	private CAMCClass one;
 	private IUCClass two;
 	
-	public CompositeMetric(IType type, String method, String fakeParameter) throws Exception {
-		one = new CAMCClass(type, true, method, fakeParameter);
+	public CompositeMetric(IType type, String method, String parameter) throws Exception {
+		one = new CAMCClass(type, true, method, parameter);
 		two = new IUCClass(type, method);
 	}
 
