@@ -37,7 +37,7 @@ import org.eclipse.ui.handlers.HandlerUtil;
 import org.eclipse.ui.texteditor.ITextEditor;
 
 import br.com.bhansen.handler.SelectDlg;
-import br.com.bhansen.iuc.metric.IUCClass;
+import br.com.bhansen.metric.iuc.IUCClass;
 
 /**
  * Our sample handler extends AbstractHandler, an IHandler base class.

@@ -1,10 +1,12 @@
-package br.com.bhansen.iuc.metric;
+package br.com.bhansen.metric.camc;
 
 import java.util.HashSet;
 import java.util.Map.Entry;
 import java.util.Set;
 
 import org.eclipse.jdt.core.IType;
+
+import br.com.bhansen.iuc.metric.DeclarationMetricClass;
 
 public class CAMCJClass extends DeclarationMetricClass {
 	

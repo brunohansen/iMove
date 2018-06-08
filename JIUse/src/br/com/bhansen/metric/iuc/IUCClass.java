@@ -1,4 +1,4 @@
-package br.com.bhansen.iuc.metric;
+package br.com.bhansen.metric.iuc;
 
 import java.util.HashMap;
 import java.util.HashSet;
@@ -13,6 +13,8 @@ import org.eclipse.jdt.core.IMethod;
 import org.eclipse.jdt.core.IType;
 import org.eclipse.jdt.internal.corext.callhierarchy.CallHierarchy;
 import org.eclipse.jdt.internal.corext.callhierarchy.MethodWrapper;
+
+import br.com.bhansen.iuc.metric.MetricClass;
 
 @SuppressWarnings("restriction")
 public class IUCClass extends MetricClass {

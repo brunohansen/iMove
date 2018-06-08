@@ -7,9 +7,9 @@ import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.ui.IWorkbenchWindow;
 
 import br.com.bhansen.handler.SelectDlg;
-import br.com.bhansen.iuc.metric.IUCClass;
 import br.com.bhansen.iuc.metric.MetricClass;
 import br.com.bhansen.iuc.refactory.MMEvaluatorBuilder;
+import br.com.bhansen.metric.iuc.IUCClass;
 
 public class SelectMove extends SelectionHandler {
 	

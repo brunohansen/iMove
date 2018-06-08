@@ -4,7 +4,7 @@ import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.ui.IWorkbenchWindow;
 
-import br.com.bhansen.iuc.metric.IUCClass;
+import br.com.bhansen.metric.iuc.IUCClass;
 
 /**
  * Our sample handler extends AbstractHandler, an IHandler base class.
