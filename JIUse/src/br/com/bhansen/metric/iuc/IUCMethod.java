@@ -1,8 +1,9 @@
 package br.com.bhansen.metric.iuc;
 
+import java.util.HashSet;
+import java.util.Map.Entry;
 import java.util.Set;
 
-import org.eclipse.jdt.core.Flags;
 import org.eclipse.jdt.core.IMethod;
 import org.eclipse.jdt.core.IType;
 
@@ -14,7 +15,7 @@ public class IUCMethod extends IUC {
 	
 	public IUCMethod(IType type, String method) throws Exception {
 		super(type);
-				
+		
 		IMethod[] iMethods = type.getMethods();
 		
 		if(isMovedMethod(method)) {
@@ -43,18 +44,16 @@ public class IUCMethod extends IUC {
 		} else {
 			for (IMethod iMethod : iMethods) {
 				
-				if(! isMethod(iMethod, method)) {
+				if(isMethod(iMethod, method)) {
+					this.method = getCallerClasses(iMethod);
+				} else {
 					if(getMethods().put(getSignature(iMethod), getCallerClasses(iMethod)) != null) {
 						System.out.println("Method " + getSignature(iMethod) + " colision!");
 					};
-				} else {
-					this.method = getCallerClasses(iMethod);
 				}
 
 			}
 		}
-				
-
 		
 	}
 	
@@ -75,8 +74,27 @@ public class IUCMethod extends IUC {
 
 	@Override
 	public double getMetric() throws Exception {
-		// TODO Auto-generated method stub
-		return 0;
+		double metric = 0;
+		
+		for (Entry<String, Set<String>> entry : getMethods().entrySet()) {
+			
+			Set<String> intersection = new HashSet<>(method);
+			intersection.retainAll(entry.getValue());
+			
+			Set<String> union = new HashSet<>(method);
+			union.addAll(entry.getValue());
+			
+			if(union.size() == 0) {
+				metric += 0;
+			} else {
+				metric += (double) intersection.size() / (double) union.size();
+			}
+			
+		}
+		
+		metric = metric / getMethods().size();
+
+		return metric;
 	}
 
 }
