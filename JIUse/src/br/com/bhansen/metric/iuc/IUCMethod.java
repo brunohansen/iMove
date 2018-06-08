@@ -1,5 +1,7 @@
 package br.com.bhansen.metric.iuc;
 
+import java.util.Set;
+
 import org.eclipse.jdt.core.Flags;
 import org.eclipse.jdt.core.IMethod;
 import org.eclipse.jdt.core.IType;
@@ -8,7 +10,7 @@ import br.com.bhansen.metric.AbsMetric;
 
 public class IUCMethod extends IUC {
 	
-	private String method;
+	private Set<String> method;
 	
 	public IUCMethod(IType type, String method) throws Exception {
 		super(type);
@@ -16,24 +18,47 @@ public class IUCMethod extends IUC {
 		IMethod[] iMethods = type.getMethods();
 		
 		if(isMovedMethod(method)) {
+			IMethod movedMethod = null;
+			
+			for (IMethod iMethod : iMethods) {
+				
+				if(isMovedMethod(iMethod, method)) {
+					movedMethod = iMethod;
+				} else {
+					if(getMethods().put(getSignature(iMethod), getCallerClasses(iMethod)) != null) {
+						System.out.println("Method " + getSignature(iMethod) + " colision!");
+					};	
+				}
+				
+			}
+			
+			String original = getOriginalMethod(movedMethod);
+			
+			if(original != null) {
+				this.method = getMethods().remove(original);
+			} else {
+				this.method = getCallerClasses(movedMethod);
+			}
 			
 		} else {
-			
+			for (IMethod iMethod : iMethods) {
+				
+				if(! isMethod(iMethod, method)) {
+					if(getMethods().put(getSignature(iMethod), getCallerClasses(iMethod)) != null) {
+						System.out.println("Method " + getSignature(iMethod) + " colision!");
+					};
+				} else {
+					this.method = getCallerClasses(iMethod);
+				}
+
+			}
 		}
 				
-		for (IMethod iMethod : iMethods) {
-			
-			if((! Flags.isPrivate(iMethod.getFlags())) && (! isFakeDelegate(iMethod, method))) {
-				if(getMethods().put(getSignature(iMethod), getCallerClasses(iMethod)) != null) {
-					System.out.println("Method " + getSignature(iMethod) + " colision!");
-				};
-			}
 
-		}
 		
 	}
 	
-	private boolean isIMethod(IMethod iMethod, String method) throws Exception {
+	private boolean isMethod(IMethod iMethod, String method) throws Exception {
 		if(method == null)
 			return false;
 

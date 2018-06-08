@@ -1,8 +1,12 @@
 package br.com.bhansen.handler.select;
 
+import java.util.HashSet;
 import java.util.Set;
 
 import org.eclipse.core.commands.ExecutionEvent;
+import org.eclipse.jdt.core.IMethod;
+import org.eclipse.jdt.core.IType;
+import org.eclipse.jdt.core.JavaModelException;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.ui.IWorkbenchWindow;
 
@@ -41,7 +45,7 @@ public class SelectMove extends SelectionHandler {
 			
 			MessageDialog.openInformation(window.getShell(), "JIUse - Class To Selected!", IUCClass.getClassName(evaluateMoveMethod.getClassFrom()));
 			
-			Set<String> methods = AbsMetric.getMethods(evaluateMoveMethod.getClassFrom());
+			Set<String> methods = getMethods(evaluateMoveMethod.getClassFrom());
 			
 			String [] mtds = new String[methods.size()];
 			
@@ -58,6 +62,17 @@ public class SelectMove extends SelectionHandler {
 		}
 		
 		return null;
+	}
+	
+	private static Set<String> getMethods(IType type) throws JavaModelException {
+		IMethod[] iMethods = type.getMethods();
+		Set<String> methods = new HashSet<>();
+				
+		for (IMethod method : iMethods) {
+			methods.add(AbsMetric.getSignature(method));
+		}
+		
+		return methods;
 	}
 	
 }

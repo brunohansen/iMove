@@ -48,18 +48,7 @@ public abstract class AbsMetric implements Metric {
 		
 		return generateInnerSignature(signature);
 	}
-	
-	public static Set<String> getMethods(IType type) throws JavaModelException {
-		IMethod[] iMethods = type.getMethods();
-		Set<String> methods = new HashSet<>();
-				
-		for (IMethod method : iMethods) {
-			methods.add(getSignature(method));
-		}
 		
-		return methods;
-	}
-	
 	public static String generateSignature(String method) {
 		method = method.replaceAll("\\s", " ");// Change whitespace character: [
 												// \t\n\x0B\f\r]
@@ -91,11 +80,11 @@ public abstract class AbsMetric implements Metric {
 		return name.endsWith(METHOD_SUFFIX);
 	}
 	
-	protected boolean isMovedMethod(IMethod method, String name) throws Exception, JavaModelException {
+	protected boolean isMovedMethod(IMethod iMethod, String name) throws Exception, JavaModelException {
 		if(! isMovedMethod(name))
 			return false;
 					
-		String mSig = getSignature(method);
+		String mSig = getSignature(iMethod);
 		
 		if(mSig.split("\\(", 2)[0].equals(name)) {
 			return true;
@@ -104,7 +93,7 @@ public abstract class AbsMetric implements Metric {
 		return false;
 	}
 	
-	private String getOriginalMethod(IMethod method) throws Exception, JavaModelException {
+	protected String getOriginalMethod(IMethod method) throws Exception, JavaModelException {
 
 		Set<String> callers = getCallerMethods(method);
 				
