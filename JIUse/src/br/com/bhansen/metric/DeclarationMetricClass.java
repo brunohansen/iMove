@@ -10,7 +10,7 @@ import org.eclipse.jdt.core.IMethod;
 import org.eclipse.jdt.core.IType;
 import org.eclipse.jdt.core.JavaModelException;
 
-public abstract class DeclarationMetricClass extends MetricClass {
+public abstract class DeclarationMetricClass extends AbsMetric {
 
 	private static Set<String> primitives;
 

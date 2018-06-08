@@ -2,7 +2,7 @@ package br.com.bhansen.metric.iuc;
 
 import org.eclipse.jdt.core.IMethod;
 
-import br.com.bhansen.metric.MetricClass;
+import br.com.bhansen.metric.AbsMetric;
 
 public class IUCMethod {
 	
@@ -11,11 +11,11 @@ public class IUCMethod {
 		if(method == method)
 			return false;
 
-		if (MetricClass.getSignature(iMethod).equals(MetricClass.generateInnerSignature(method))) {
+		if (AbsMetric.getSignature(iMethod).equals(AbsMetric.generateInnerSignature(method))) {
 			return true;
 		}
 
-		if (MetricClass.getSignature(iMethod).equals(MetricClass.generateSignature(method))) {
+		if (AbsMetric.getSignature(iMethod).equals(AbsMetric.generateSignature(method))) {
 			return true;
 		}
 

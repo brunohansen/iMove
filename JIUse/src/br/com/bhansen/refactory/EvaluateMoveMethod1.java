@@ -14,7 +14,7 @@ import org.eclipse.ltk.core.refactoring.Change;
 import org.eclipse.ltk.core.refactoring.Refactoring;
 import org.eclipse.ltk.core.refactoring.participants.MoveRefactoring;
 
-import br.com.bhansen.metric.MetricClass;
+import br.com.bhansen.metric.AbsMetric;
 import br.com.bhansen.metric.MetricFactory;
 
 @SuppressWarnings("restriction")
@@ -66,7 +66,7 @@ public class EvaluateMoveMethod1 extends MoveMethodEvaluator  {
 		IProgressMonitor monitor = new NullProgressMonitor();
 		refactoring.checkInitialConditions(monitor);
 		
-		processor.setMethodName(MetricClass.getMoveMethodName(iMethod.getElementName()));
+		processor.setMethodName(AbsMetric.getMoveMethodName(iMethod.getElementName()));
 		processor.setInlineDelegator(true);
 		processor.setRemoveDelegator(true);
 		processor.setDeprecateDelegates(false);
@@ -90,7 +90,7 @@ public class EvaluateMoveMethod1 extends MoveMethodEvaluator  {
 		
 		try {
 			this.newFromValue = factory.create(this.classFrom).getMetric();
-			this.newToValue = factory.create(this.classTo, MetricClass.getMoveMethodName(iMethod.getElementName()), MetricClass.getClassName(this.classFrom)).getMetric();
+			this.newToValue = factory.create(this.classTo, AbsMetric.getMoveMethodName(iMethod.getElementName()), AbsMetric.getClassName(this.classFrom)).getMetric();
 			
 			this.valueDifference = (this.newFromValue - this.oldFromValue) + (this.newToValue - this.oldToValue);
 		} finally {
@@ -100,20 +100,20 @@ public class EvaluateMoveMethod1 extends MoveMethodEvaluator  {
 	}
 
 	private IMethod getIMethod(String method) throws Exception {
-		this.method = MetricClass.generateInnerSignature(method);
+		this.method = AbsMetric.generateInnerSignature(method);
 
 		IMethod[] methods = this.classFrom.getMethods();
 
 		for (IMethod iMethod : methods) {
-			if (MetricClass.getSignature(iMethod).equals(this.method)) {
+			if (AbsMetric.getSignature(iMethod).equals(this.method)) {
 				return iMethod;
 			}
 		}
 		
-		this.method = MetricClass.generateSignature(method);
+		this.method = AbsMetric.generateSignature(method);
 
 		for (IMethod iMethod : methods) {
-			if (MetricClass.getSignature(iMethod).equals(this.method)) {
+			if (AbsMetric.getSignature(iMethod).equals(this.method)) {
 				return iMethod;
 			}
 		}
@@ -129,9 +129,9 @@ public class EvaluateMoveMethod1 extends MoveMethodEvaluator  {
 	public String toString() {
 		StringBuilder txt = new StringBuilder();
 
-		txt.append(MetricClass.getClassName(this.classFrom)).append(" ").append(this.oldFromValue).append(" -> ")
+		txt.append(AbsMetric.getClassName(this.classFrom)).append(" ").append(this.oldFromValue).append(" -> ")
 				.append(this.newFromValue).append("\n");
-		txt.append(MetricClass.getClassName(this.classTo)).append(" ").append(this.oldToValue).append(" -> ")
+		txt.append(AbsMetric.getClassName(this.classTo)).append(" ").append(this.oldToValue).append(" -> ")
 				.append(this.newToValue).append("\n");
 		txt.append("Value difference: ").append(this.valueDifference).append("\n\n");
 
@@ -139,8 +139,8 @@ public class EvaluateMoveMethod1 extends MoveMethodEvaluator  {
 	}
 
 	public String toLineString() {
-		return new StringBuilder().append(new BigDecimal(this.valueDifference).setScale(6, RoundingMode.HALF_EVEN) + "-").append((shouldMove()) ? "0" : "1").append("\t").append(MetricClass.getClassName(this.classFrom)).append("::").append(method)
-				.append("\t").append(MetricClass.getClassName(this.classTo)).toString();
+		return new StringBuilder().append(new BigDecimal(this.valueDifference).setScale(6, RoundingMode.HALF_EVEN) + "-").append((shouldMove()) ? "0" : "1").append("\t").append(AbsMetric.getClassName(this.classFrom)).append("::").append(method)
+				.append("\t").append(AbsMetric.getClassName(this.classTo)).toString();
 	}
 
 }

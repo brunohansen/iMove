@@ -7,7 +7,7 @@ import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.ui.IWorkbenchWindow;
 
 import br.com.bhansen.handler.SelectDlg;
-import br.com.bhansen.metric.MetricClass;
+import br.com.bhansen.metric.AbsMetric;
 import br.com.bhansen.metric.iuc.IUCClass;
 import br.com.bhansen.refactory.MMEvaluatorBuilder;
 
@@ -41,7 +41,7 @@ public class SelectMove extends SelectionHandler {
 			
 			MessageDialog.openInformation(window.getShell(), "JIUse - Class To Selected!", IUCClass.getClassName(evaluateMoveMethod.getClassFrom()));
 			
-			Set<String> methods = MetricClass.getMethods(evaluateMoveMethod.getClassFrom());
+			Set<String> methods = AbsMetric.getMethods(evaluateMoveMethod.getClassFrom());
 			
 			String [] mtds = new String[methods.size()];
 			
