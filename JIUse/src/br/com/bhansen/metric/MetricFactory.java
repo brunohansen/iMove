@@ -8,6 +8,6 @@ public abstract class MetricFactory {
 		return create(type, null, null);
 	}
 	
-	public abstract Metric create(IType type, String fakeDelegate, String fakeParameter) throws Exception;
+	public abstract Metric create(IType type, String method, String fakeParameter) throws Exception;
 
 }

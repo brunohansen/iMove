@@ -9,16 +9,16 @@ import org.eclipse.jdt.core.IType;
 
 public class IUCClass extends IUC {
 	
-	public IUCClass(IType type, String fakeDelegate) throws Exception {
+	public IUCClass(IType type, String method) throws Exception {
 		super(type);
 		
-		IMethod[] methods = type.getMethods();
+		IMethod[] iMethods = type.getMethods();
 				
-		for (IMethod method : methods) {
+		for (IMethod iMethod : iMethods) {
 			
-			if((! Flags.isPrivate(method.getFlags())) && (! isFakeDelegate(method, fakeDelegate))) {
-				if(getMethods().put(getSignature(method), getCallerClasses(method)) != null) {
-					System.out.println("Method " + getSignature(method) + " colision!");
+			if((! Flags.isPrivate(iMethod.getFlags())) && (! isFakeDelegate(iMethod, method))) {
+				if(getMethods().put(getSignature(iMethod), getCallerClasses(iMethod)) != null) {
+					System.out.println("Method " + getSignature(iMethod) + " colision!");
 				};
 			}
 

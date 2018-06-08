@@ -52,7 +52,7 @@ public abstract class DeclarationMetricClass extends AbsMetric {
 		// getMethods().get("m3").add("W");
 	}
 
-	public DeclarationMetricClass(IType type, boolean zeroParams, String fakeDelegate, String fakeParameter)
+	public DeclarationMetricClass(IType type, boolean zeroParams, String method, String fakeParameter)
 			throws Exception {
 		super(type);
 
@@ -60,28 +60,28 @@ public abstract class DeclarationMetricClass extends AbsMetric {
 		if (type == null)
 			return;
 
-		IMethod[] methods = type.getMethods();
+		IMethod[] iMethods = type.getMethods();
 
-		for (IMethod method : methods) {
+		for (IMethod iMethod : iMethods) {
 
-			if ((Flags.isPrivate(method.getFlags())) || (isFakeDelegate(method, fakeDelegate)))
+			if ((Flags.isPrivate(iMethod.getFlags())) || (isFakeDelegate(iMethod, method)))
 				continue;
 
 			//String strParams = getParameters(method);
-			String strParams = getParametersAndReturn(method);
+			String strParams = getParametersAndReturn(iMethod);
 			strParams = explodGenerics(strParams);
 			
 			Set<String> params = createParametersSet(strParams);
 			
 			//params = removePrimitives(params);
 
-			if (isMethod(method, fakeDelegate))
+			if (isMethod(iMethod, method))
 				removeFakeParameter(params, fakeParameter);
 
 			if (zeroParams) {
-				getMethods().put(getSignature(method), params);
+				getMethods().put(getSignature(iMethod), params);
 			} else if (params.size() > 0) {
-				getMethods().put(getSignature(method), params);
+				getMethods().put(getSignature(iMethod), params);
 			}
 
 		}

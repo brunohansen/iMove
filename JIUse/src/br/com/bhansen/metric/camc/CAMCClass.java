@@ -12,8 +12,8 @@ public class CAMCClass extends DeclarationMetricClass {
 		super();
 	}
 	
-	public CAMCClass(IType type, boolean zeroParams, String fakeDelegate, String fakeParameter) throws Exception {
-		super(type, zeroParams, fakeDelegate, fakeParameter);
+	public CAMCClass(IType type, boolean zeroParams, String method, String fakeParameter) throws Exception {
+		super(type, zeroParams, method, fakeParameter);
 	}
 
 	@Override

@@ -80,8 +80,8 @@ public abstract class AbsMetric implements Metric {
 		return method;
 	}
 		
-	protected boolean isFakeDelegate(IMethod method, String fakeDelegate) throws Exception, JavaModelException {
-		return isMethod(method, fakeDelegate) && isFakeDelegate(method);
+	protected boolean isFakeDelegate(IMethod iMethod, String method) throws Exception, JavaModelException {
+		return isMethod(iMethod, method) && isFakeDelegate(iMethod);
 	}
 	
 	protected boolean isMethod(IMethod method, String name) throws Exception, JavaModelException {
