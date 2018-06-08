@@ -14,7 +14,7 @@ import org.eclipse.jdt.core.IType;
 import org.eclipse.jdt.internal.corext.callhierarchy.CallHierarchy;
 import org.eclipse.jdt.internal.corext.callhierarchy.MethodWrapper;
 
-import br.com.bhansen.iuc.metric.MetricClass;
+import br.com.bhansen.metric.MetricClass;
 
 @SuppressWarnings("restriction")
 public class IUCClass extends MetricClass {

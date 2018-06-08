@@ -1,4 +1,4 @@
-package br.com.bhansen.iuc.metric;
+package br.com.bhansen.metric;
 
 public class CheckMoves implements Metric{
 

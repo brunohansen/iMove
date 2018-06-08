@@ -1,4 +1,4 @@
-package br.com.bhansen.iuc.refactory;
+package br.com.bhansen.refactory;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
@@ -14,8 +14,8 @@ import org.eclipse.ltk.core.refactoring.Change;
 import org.eclipse.ltk.core.refactoring.Refactoring;
 import org.eclipse.ltk.core.refactoring.participants.MoveRefactoring;
 
-import br.com.bhansen.iuc.metric.MetricClass;
-import br.com.bhansen.iuc.metric.MetricFactory;
+import br.com.bhansen.metric.MetricClass;
+import br.com.bhansen.metric.MetricFactory;
 
 @SuppressWarnings("restriction")
 public class EvaluateMoveMethod1 extends MoveMethodEvaluator  {

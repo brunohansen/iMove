@@ -1,4 +1,4 @@
-package br.com.bhansen.iuc.metric;
+package br.com.bhansen.metric;
 
 import java.math.BigInteger;
 import java.util.HashSet;

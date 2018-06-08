@@ -6,7 +6,7 @@ import java.util.Set;
 
 import org.eclipse.jdt.core.IType;
 
-import br.com.bhansen.iuc.metric.DeclarationMetricClass;
+import br.com.bhansen.metric.DeclarationMetricClass;
 
 public class CAMCJClass extends DeclarationMetricClass {
 	

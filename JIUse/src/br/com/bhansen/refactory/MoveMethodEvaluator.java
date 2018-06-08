@@ -1,4 +1,4 @@
-package br.com.bhansen.iuc.refactory;
+package br.com.bhansen.refactory;
 
 import org.eclipse.jdt.core.IType;
 

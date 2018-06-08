@@ -2,7 +2,7 @@ package br.com.bhansen.metric.iuc;
 
 import org.eclipse.jdt.core.IMethod;
 
-import br.com.bhansen.iuc.metric.MetricClass;
+import br.com.bhansen.metric.MetricClass;
 
 public class IUCMethod {
 	

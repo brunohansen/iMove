@@ -1,8 +1,8 @@
-package br.com.bhansen.iuc.refactory;
+package br.com.bhansen.refactory;
 
 import org.eclipse.jdt.core.IType;
 
-import br.com.bhansen.iuc.metric.MetricFactory;
+import br.com.bhansen.metric.MetricFactory;
 
 public class EvaluateMoveMethod2 extends MoveMethodEvaluator {
 	

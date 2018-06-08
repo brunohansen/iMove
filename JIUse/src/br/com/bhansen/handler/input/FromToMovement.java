@@ -6,7 +6,7 @@ import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.ui.IWorkbenchWindow;
 
 import br.com.bhansen.handler.SelectProjectDlg;
-import br.com.bhansen.iuc.refactory.MMEvaluatorBuilder;
+import br.com.bhansen.refactory.MMEvaluatorBuilder;
 
 public class FromToMovement extends InputMovement {
 			

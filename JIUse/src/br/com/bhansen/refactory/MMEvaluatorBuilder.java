@@ -1,10 +1,10 @@
-package br.com.bhansen.iuc.refactory;
+package br.com.bhansen.refactory;
 
 import org.eclipse.jdt.core.IType;
 
-import br.com.bhansen.iuc.metric.CompositeMetric;
-import br.com.bhansen.iuc.metric.Metric;
-import br.com.bhansen.iuc.metric.MetricFactory;
+import br.com.bhansen.metric.CompositeMetric;
+import br.com.bhansen.metric.Metric;
+import br.com.bhansen.metric.MetricFactory;
 import br.com.bhansen.metric.iuc.IUCClass;
 
 public class MMEvaluatorBuilder {

@@ -4,7 +4,7 @@ import org.eclipse.jdt.core.IJavaProject;
 import org.eclipse.jdt.core.IType;
 
 import br.com.bhansen.handler.JIUseHandler;
-import br.com.bhansen.iuc.refactory.MMEvaluatorBuilder;
+import br.com.bhansen.refactory.MMEvaluatorBuilder;
 
 public abstract class InputMovement extends JIUseHandler {
 		

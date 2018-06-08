@@ -1,4 +1,4 @@
-package br.com.bhansen.iuc.metric;
+package br.com.bhansen.metric;
 
 import org.eclipse.jdt.core.IType;
 
