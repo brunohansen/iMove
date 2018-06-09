@@ -39,7 +39,7 @@ public class EvaluateMoveMethod3 extends MoveMethodEvaluator  {
 		StringBuilder txt = new StringBuilder();
 
 		txt.append(AbsMetric.getClassName(this.classFrom)).append(" ").append(this.oldValue).append("\n");
-		txt.append(AbsMetric.getClassName(this.classTo)).append(" ").append(this.oldValue).append("\n");
+		txt.append(AbsMetric.getClassName(this.classTo)).append(" ").append(this.newValue).append("\n");
 		txt.append("Value difference: ").append(this.valueDifference).append("\n\n");
 
 		return txt.toString();
