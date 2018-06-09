@@ -86,11 +86,15 @@ public abstract class AbsMetric implements Metric {
 					
 		String mSig = getSignature(iMethod);
 		
-		if(mSig.split("\\(", 2)[0].equals(name)) {
+		if(getName(mSig).equals(name)) {
 			return true;
 		}
 		
 		return false;
+	}
+	
+	public static String getName(String method) {
+		return method.split("\\(", 2)[0];
 	}
 	
 	protected String getOriginalMethod(IMethod method) throws Exception, JavaModelException {
@@ -104,9 +108,9 @@ public abstract class AbsMetric implements Metric {
 		String mSig = getSignature(method);
 		
 		for (String caller : callers) {
-			String originalName = mSig.split("\\(", 2)[0].replaceFirst("[0-9]{0,1}" + METHOD_SUFFIX, "");
+			String originalName = getName(mSig).replaceFirst("[0-9]{0,1}" + METHOD_SUFFIX, "");
 			
-			if(originalName.equals(caller.split("\\(", 2)[0])) {
+			if(originalName.equals(getName(caller))) {
 				return caller;
 			} else {
 				return caller;

@@ -9,7 +9,7 @@ public class EvaluateMoveMethod2 extends MoveMethodEvaluator {
 	private MoveMethodEvaluator evaluator;
 		
 	public EvaluateMoveMethod2(IType classFrom, String method, IType classTo, MetricFactory fac1, MetricFactory fac2) throws Exception {
-		super(classFrom, method, classTo);
+		super(classFrom, method, classTo, fac2, 0);
 		
 		this.evaluator = new EvaluateMoveMethod1(classFrom, method, classTo, fac1, 0);
 		

@@ -76,6 +76,9 @@ public class IUCMethod extends IUC {
 	public double getMetric() throws Exception {
 		double metric = 0;
 		
+		if(getMethods().size() == 0)
+			return 0;
+		
 		for (Entry<String, Set<String>> entry : getMethods().entrySet()) {
 			
 			Set<String> intersection = new HashSet<>(method);
