@@ -106,10 +106,9 @@ public abstract class AbsMetric implements Metric {
 		}
 		
 		String mSig = getSignature(method);
+		String originalName = getName(mSig).replaceFirst("[0-9]{0,1}" + METHOD_SUFFIX, "");
 		
-		for (String caller : callers) {
-			String originalName = getName(mSig).replaceFirst("[0-9]{0,1}" + METHOD_SUFFIX, "");
-			
+		for (String caller : callers) {						
 			if(originalName.equals(getName(caller))) {
 				return caller;
 			} else {
