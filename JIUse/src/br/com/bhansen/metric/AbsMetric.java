@@ -113,7 +113,7 @@ public abstract class AbsMetric implements Metric {
 			if(originalName.equals(getName(caller))) {
 				return caller;
 			} else {
-				return caller;
+				return null;
 			}
 		}				
 		
