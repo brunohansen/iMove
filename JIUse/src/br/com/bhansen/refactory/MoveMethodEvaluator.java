@@ -34,7 +34,7 @@ public abstract class MoveMethodEvaluator {
 	}
 	
 	public boolean shouldMove() {
-		return this.valueDifference > threshold;
+		return this.valueDifference >= threshold;
 	}
 
 	public String toLineString() {
