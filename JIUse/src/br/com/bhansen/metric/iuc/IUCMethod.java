@@ -25,6 +25,7 @@ public class IUCMethod extends IUC {
 				
 				if(isMovedMethod(iMethod, method)) {
 					movedMethod = iMethod;
+					this.method = getCallerClasses(movedMethod);
 				} else {
 					if(getMethods().put(getSignature(iMethod), getCallerClasses(iMethod)) != null) {
 						System.out.println("Method " + getSignature(iMethod) + " colision!");
@@ -35,11 +36,10 @@ public class IUCMethod extends IUC {
 			
 			String original = getOriginalMethod(movedMethod);
 			
+			//Does not make sense compare itself
 			if(original != null) {
 				this.method = getMethods().remove(original);
-			} else {
-				this.method = getCallerClasses(movedMethod);
-			}
+			} 
 			
 		} else {
 			for (IMethod iMethod : iMethods) {
