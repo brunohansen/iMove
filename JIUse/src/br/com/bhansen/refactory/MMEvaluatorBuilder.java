@@ -6,6 +6,7 @@ import br.com.bhansen.metric.CompositeMetric;
 import br.com.bhansen.metric.Metric;
 import br.com.bhansen.metric.MetricFactory;
 import br.com.bhansen.metric.iuc.IUCClass;
+import br.com.bhansen.metric.iuc.IUCMethod;
 
 public class MMEvaluatorBuilder {
 	
@@ -25,8 +26,9 @@ public class MMEvaluatorBuilder {
 	}
 	
 	private MoveMethodEvaluator createEvaluate() throws Exception {
-		return new EvaluateMoveMethod1(this.classFrom, this.method, this.classTo, createFactory(), 0);
+		//return new EvaluateMoveMethod1(this.classFrom, this.method, this.classTo, createFactory(), 0);
 		//return new EvaluateMoveMethod2(this.classFrom, this.method, this.classTo, createFactory(), createFactory2());
+		return new EvaluateMoveMethod3(classFrom, method, classTo, createFactory(), 0);
 	}
 	
 	private MetricFactory createFactory() throws Exception {
@@ -40,7 +42,9 @@ public class MMEvaluatorBuilder {
 				//return new CAMCClass(type, true, method, parameter);
 				//return new NHDMClass(type, true, method, parameter);
 				//return new CAMCJClass(type, true, method, parameter);
-				return new CompositeMetric(type, method, parameter);
+				//return new CompositeMetric(type, method, parameter);
+				
+				return new IUCMethod(type, method);
 			}
 		}; 
 	}
