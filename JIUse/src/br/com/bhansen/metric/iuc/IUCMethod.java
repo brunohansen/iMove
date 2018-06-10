@@ -38,7 +38,7 @@ public class IUCMethod extends IUC {
 			
 			//Does not make sense compare itself
 			if(original != null) {
-				this.method = getMethods().remove(original);
+				getMethods().remove(original);
 			} 
 			
 		} else {
