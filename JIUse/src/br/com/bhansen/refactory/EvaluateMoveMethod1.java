@@ -21,15 +21,15 @@ public class EvaluateMoveMethod1 extends MoveMethodEvaluator  {
 		this.oldFromValue = factory.create(classFrom).getMetric();
 		this.oldToValue = factory.create(classTo).getMetric();
 		
-		this.move(method);
+		this.move();
 	}
 	
-	private void move(String method) throws Exception {
-		Change undo = MoveMethodRefactor.move(this.classFrom, method, this.classTo);
+	private void move() throws Exception {
+		Change undo = MoveMethodRefactor.move(this.classFrom, this.iMethod, this.classTo);
 		
 		try {
 			this.newFromValue = factory.create(this.classFrom).getMetric();
-			this.newToValue = factory.create(this.classTo, AbsMetric.getMoveMethodName(AbsMetric.getName(method)), AbsMetric.getClassName(this.classFrom)).getMetric();
+			this.newToValue = factory.create(this.classTo, AbsMetric.getMoveMethodName(AbsMetric.getName(this.mSig)), AbsMetric.getClassName(this.classFrom)).getMetric();
 			
 			this.valueDifference = (this.newFromValue - this.oldFromValue) + (this.newToValue - this.oldToValue);
 		} finally {

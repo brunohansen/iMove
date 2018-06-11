@@ -10,7 +10,6 @@ import br.com.bhansen.metric.MetricFactory;
 public class EvaluateMoveMethod3 extends MoveMethodEvaluator  {
 
 	private double oldValue;
-
 	private double newValue;
 	
 	public EvaluateMoveMethod3(IType classFrom, String method, IType classTo, MetricFactory factory, double threshold) throws Exception {
@@ -18,14 +17,14 @@ public class EvaluateMoveMethod3 extends MoveMethodEvaluator  {
 		
 		this.oldValue = factory.create(classFrom, method).getMetric();
 		
-		this.move(method);
+		this.move();
 	}
 	
-	private void move(String method) throws Exception {
-		Change undo = MoveMethodRefactor.move(this.classFrom, method, this.classTo);
+	private void move() throws Exception {
+		Change undo = MoveMethodRefactor.move(this.classFrom, this.iMethod, this.classTo);
 		
 		try {
-			this.newValue = factory.create(this.classTo, AbsMetric.getMoveMethodName(AbsMetric.getName(method)), AbsMetric.getClassName(this.classFrom)).getMetric();
+			this.newValue = factory.create(this.classTo, AbsMetric.getMoveMethodName(AbsMetric.getName(this.mSig)), AbsMetric.getClassName(this.classFrom)).getMetric();
 			
 			this.valueDifference = (this.newValue - this.oldValue);
 		} finally {

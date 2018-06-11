@@ -69,18 +69,18 @@ public abstract class AbsMetric implements Metric {
 		return method;
 	}
 		
-	protected boolean isFakeDelegate(IMethod iMethod, String method) throws Exception, JavaModelException {
+	protected boolean isFakeDelegate(IMethod iMethod, String method) throws IllegalArgumentException, JavaModelException {
 		return isMovedMethod(iMethod, method) && (getOriginalMethod(iMethod) != null);
 	}
 	
-	protected boolean isMovedMethod(String name) throws Exception, JavaModelException {
+	protected boolean isMovedMethod(String name) {
 		if(name == null)
 			return false;
 
 		return name.endsWith(METHOD_SUFFIX);
 	}
 	
-	protected boolean isMovedMethod(IMethod iMethod, String name) throws Exception, JavaModelException {
+	protected boolean isMovedMethod(IMethod iMethod, String name) throws IllegalArgumentException, JavaModelException {
 		if(! isMovedMethod(name))
 			return false;
 					
@@ -97,7 +97,7 @@ public abstract class AbsMetric implements Metric {
 		return method.split("\\(", 2)[0];
 	}
 	
-	protected String getOriginalMethod(IMethod method) throws Exception, JavaModelException {
+	protected String getOriginalMethod(IMethod method) throws IllegalArgumentException, JavaModelException {
 
 		Set<String> callers = getCallerMethods(method);
 				

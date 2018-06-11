@@ -16,9 +16,7 @@ import br.com.bhansen.metric.AbsMetric;
 @SuppressWarnings("restriction")
 public class MoveMethodRefactor {
 	
-	public static Change move(IType classFrom, String method, IType classTo) throws Exception {
-		IMethod iMethod = getIMethod(classFrom, method);
-		
+	public static Change move(IType classFrom, IMethod iMethod, IType classTo) throws Exception {
 		MoveInstanceMethodProcessor processor= new MoveInstanceMethodProcessor(iMethod, JavaPreferencesSettings.getCodeGenerationSettings(iMethod.getJavaProject()));
 		Refactoring refactoring= new MoveRefactoring(processor);
 		
@@ -62,27 +60,5 @@ public class MoveMethodRefactor {
 //	this.ValueDifference = (this.newFromValue - this.oldFromValue) + (this.newToValue - this.oldToValue);
 //	
 //}
-	
-	private static IMethod getIMethod(IType classFrom, String method) throws Exception {
-		String m = AbsMetric.generateInnerSignature(method);
-
-		IMethod[] methods = classFrom.getMethods();
-
-		for (IMethod iMethod : methods) {
-			if (AbsMetric.getSignature(iMethod).equals(m)) {
-				return iMethod;
-			}
-		}
-		
-		m = AbsMetric.generateSignature(method);
-
-		for (IMethod iMethod : methods) {
-			if (AbsMetric.getSignature(iMethod).equals(m)) {
-				return iMethod;
-			}
-		}
-
-		throw new Exception("Method " + m + " not found!");
-	}
 
 }
