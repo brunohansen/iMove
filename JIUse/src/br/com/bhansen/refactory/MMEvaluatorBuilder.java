@@ -7,7 +7,7 @@ import br.com.bhansen.metric.Metric;
 import br.com.bhansen.metric.MetricFactory;
 import br.com.bhansen.metric.camc.CAMCMethod;
 import br.com.bhansen.metric.iuc.IUCClass;
-import br.com.bhansen.metric.iuc.IUCMethod;
+import br.com.bhansen.metric.iuc.IUCJMethod;
 
 public class MMEvaluatorBuilder {
 	
