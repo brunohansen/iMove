@@ -9,11 +9,7 @@ import org.eclipse.jdt.core.IType;
 import br.com.bhansen.metric.DeclarationMetricClass;
 
 public class CAMCJClass extends DeclarationMetricClass {
-	
-	public CAMCJClass() throws Exception {
-		super();
-	}
-	
+
 	public CAMCJClass(IType type, boolean zeroParams, String method, String parameter) throws Exception {
 		super(type, zeroParams, method, parameter);
 	}
@@ -54,12 +50,6 @@ public class CAMCJClass extends DeclarationMetricClass {
 		metric = metric / comb(getMethods().size());
 
 		return metric;
-	}
-	
-	public static void main(String[] args) throws Exception {
-		CAMCJClass cj = new CAMCJClass();
-		
-		System.out.println("CAMCJ Resultado: " + cj.getMetric());
 	}
 	
 }

@@ -28,8 +28,7 @@ public abstract class AbsMetric implements Metric {
 	public AbsMetric(IType type) {
 		super();
 		this.type = type;
-		// TODO Gatilho 
-		this.name = (type == null)? "Null" : getClassName(type);
+		this.name = getClassName(type);
 		this.methods = new HashMap<>();
 	}
 
@@ -90,6 +89,21 @@ public abstract class AbsMetric implements Metric {
 			return true;
 		}
 		
+		return false;
+	}
+	
+	protected boolean isMethod(IMethod iMethod, String method) throws Exception {
+		if(method == null)
+			return false;
+
+		if (AbsMetric.getSignature(iMethod).equals(AbsMetric.generateInnerSignature(method))) {
+			return true;
+		}
+
+		if (AbsMetric.getSignature(iMethod).equals(AbsMetric.generateSignature(method))) {
+			return true;
+		}
+
 		return false;
 	}
 	

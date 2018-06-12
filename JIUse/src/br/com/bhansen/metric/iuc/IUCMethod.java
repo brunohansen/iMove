@@ -7,8 +7,6 @@ import java.util.Set;
 import org.eclipse.jdt.core.IMethod;
 import org.eclipse.jdt.core.IType;
 
-import br.com.bhansen.metric.AbsMetric;
-
 public class IUCMethod extends IUC {
 	
 	private Set<String> method;
@@ -58,21 +56,6 @@ public class IUCMethod extends IUC {
 		
 	}
 	
-	private boolean isMethod(IMethod iMethod, String method) throws Exception {
-		if(method == null)
-			return false;
-
-		if (AbsMetric.getSignature(iMethod).equals(AbsMetric.generateInnerSignature(method))) {
-			return true;
-		}
-
-		if (AbsMetric.getSignature(iMethod).equals(AbsMetric.generateSignature(method))) {
-			return true;
-		}
-
-		return false;
-	}
-
 	@Override
 	public double getMetric() throws Exception {
 		double metric = 0;

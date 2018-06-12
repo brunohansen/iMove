@@ -9,10 +9,6 @@ import br.com.bhansen.metric.DeclarationMetricClass;
 
 public class NHDMClass extends DeclarationMetricClass {
 	
-	public NHDMClass() throws Exception {
-		super();
-	}
-	
 	public NHDMClass(IType type, boolean zeroParams, String method, String parameter) throws Exception {
 		super(type, zeroParams, method, parameter);
 	}
@@ -58,13 +54,6 @@ public class NHDMClass extends DeclarationMetricClass {
 		
 		double y1 = (2f / (params.length * methods.length * (methods.length - 1)));
 		return 1 - y1 * metric;
-	}
-	
-	
-	public static void main(String[] args) throws Exception {
-		NHDMClass cj = new NHDMClass();
-		
-		System.out.println("NHDMN Resultado: " + cj.getMetric());
 	}
 
 }

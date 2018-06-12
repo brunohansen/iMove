@@ -8,11 +8,7 @@ import org.eclipse.jdt.core.IType;
 import br.com.bhansen.metric.DeclarationMetricClass;
 
 public class NHDMNClass extends DeclarationMetricClass {
-	
-	public NHDMNClass() throws Exception {
-		super();
-	}
-	
+		
 	public NHDMNClass(IType type, boolean zeroParams, String method, String parameter) throws Exception {
 		super(type, zeroParams, method, parameter);
 	}
@@ -70,13 +66,6 @@ public class NHDMNClass extends DeclarationMetricClass {
 		}
 
 		return 1 - (metric / (comb * params.length));
-	}
-	
-	
-	public static void main(String[] args) throws Exception {
-		NHDMNClass cj = new NHDMNClass();
-		
-		System.out.println("NHDMN Resultado: " + cj.getMetric());
 	}
 
 }

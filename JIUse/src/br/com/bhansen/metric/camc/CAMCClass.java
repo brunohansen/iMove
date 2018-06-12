@@ -7,11 +7,7 @@ import org.eclipse.jdt.core.IType;
 import br.com.bhansen.metric.DeclarationMetricClass;
 
 public class CAMCClass extends DeclarationMetricClass {
-	
-	public CAMCClass() throws Exception {
-		super();
-	}
-	
+		
 	public CAMCClass(IType type, boolean zeroParams, String method, String parameter) throws Exception {
 		super(type, zeroParams, method, parameter);
 	}
@@ -33,12 +29,6 @@ public class CAMCClass extends DeclarationMetricClass {
 		camc = camc / numMethods;
 		
 		return camc;
-	}
-	
-	public static void main(String[] args) throws Exception {
-		CAMCClass cj = new CAMCClass();
-		
-		System.out.println("CAMC Resultado: " + cj.getMetric());
 	}
 
 }

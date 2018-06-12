@@ -5,6 +5,7 @@ import org.eclipse.jdt.core.IType;
 import br.com.bhansen.metric.CompositeMetric;
 import br.com.bhansen.metric.Metric;
 import br.com.bhansen.metric.MetricFactory;
+import br.com.bhansen.metric.camc.CAMCMethod;
 import br.com.bhansen.metric.iuc.IUCClass;
 import br.com.bhansen.metric.iuc.IUCMethod;
 
@@ -44,7 +45,8 @@ public class MMEvaluatorBuilder {
 				//return new CAMCJClass(type, true, method, parameter);
 				//return new CompositeMetric(type, method, parameter);
 				
-				return new IUCMethod(type, method);
+				//return new IUCMethod(type, method);
+				return new CAMCMethod(type, true, method, parameter);
 			}
 		}; 
 	}
