@@ -7,11 +7,11 @@ import java.util.Set;
 import org.eclipse.jdt.core.IMethod;
 import org.eclipse.jdt.core.IType;
 
-public class IUCMethod extends IUC {
+public class IUCJMethod extends IUC {
 	
 	private Set<String> method;
 	
-	public IUCMethod(IType type, String method) throws Exception {
+	public IUCJMethod(IType type, String method) throws Exception {
 		super(type);
 		
 		IMethod[] iMethods = type.getMethods();
