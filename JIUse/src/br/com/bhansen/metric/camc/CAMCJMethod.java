@@ -28,6 +28,7 @@ public class CAMCJMethod extends DeclarationMetric {
 				
 				if(isMovedMethod(iMethod, method)) {
 					movedMethod = iMethod;
+					this.method = params;
 				} else {
 					if (zeroParams) {
 						getMethods().put(getSignature(iMethod), params);
@@ -45,7 +46,7 @@ public class CAMCJMethod extends DeclarationMetric {
 //				this.method = getMethods().remove(original);
 //			} else {
 //				removeFakeParameter(params, parameter);
-				this.method = params;
+//				this.method = params;
 //			}
 			
 		} else {
@@ -74,6 +75,9 @@ public class CAMCJMethod extends DeclarationMetric {
 		
 		if(getMethods().size() == 0)
 			return 0;
+		
+		if(method.size() == 0)
+			return 1;
 		
 		for (Entry<String, Set<String>> entry : getMethods().entrySet()) {
 			

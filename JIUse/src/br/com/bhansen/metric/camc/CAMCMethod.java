@@ -23,16 +23,17 @@ public class CAMCMethod extends DeclarationMetric {
 
 			Set<String> params = createParametersSet(iMethod);
 			
-			if((isMethod(iMethod, method)) || (isMovedMethod(iMethod, method)))
+			if((isMethod(iMethod, method)) || (isMovedMethod(iMethod, method))) {
 				this.method = params;
 
-//			if (isMovedMethod(iMethod, method))
-//				removeFakeParameter(params, parameter);
-
-			if (zeroParams) {
-				getMethods().put(getSignature(iMethod), params);
-			} else if (params.size() > 0) {
-				getMethods().put(getSignature(iMethod), params);
+//				if (isMovedMethod(iMethod, method))
+//					removeFakeParameter(params, parameter);
+			} else {
+				if (zeroParams) {
+					getMethods().put(getSignature(iMethod), params);
+				} else if (params.size() > 0) {
+					getMethods().put(getSignature(iMethod), params);
+				}
 			}
 
 		}
