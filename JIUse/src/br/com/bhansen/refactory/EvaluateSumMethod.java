@@ -7,12 +7,12 @@ import org.eclipse.ltk.core.refactoring.Change;
 import br.com.bhansen.metric.AbsMetric;
 import br.com.bhansen.metric.MetricFactory;
 
-public class EvaluateMoveMethod3 extends MoveMethodEvaluator  {
+public class EvaluateSumMethod extends MoveMethodEvaluator  {
 
 	private double oldValue;
 	private double newValue;
 	
-	public EvaluateMoveMethod3(IType classFrom, String method, IType classTo, MetricFactory factory, double threshold) throws Exception {
+	public EvaluateSumMethod(IType classFrom, String method, IType classTo, MetricFactory factory, double threshold) throws Exception {
 		super(classFrom, method, classTo, factory, threshold);
 		
 		this.oldValue = factory.create(classFrom, method).getMetric();

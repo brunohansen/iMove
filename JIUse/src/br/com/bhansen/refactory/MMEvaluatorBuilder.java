@@ -28,7 +28,7 @@ public class MMEvaluatorBuilder {
 	
 	private MoveMethodEvaluator createEvaluate() throws Exception {
 		//return new EvaluateMoveMethod1(this.classFrom, this.method, this.classTo, createFactory(), 0);
-		return new EvaluateMoveMethod2(this.classFrom, this.method, this.classTo, createFactory(), createFactory2());
+		return new EvaluateOr(this.classFrom, this.method, this.classTo, createFactory(), createFactory2());
 		//return new EvaluateMoveMethod3(classFrom, method, classTo, createFactory(), 0);
 	}
 	

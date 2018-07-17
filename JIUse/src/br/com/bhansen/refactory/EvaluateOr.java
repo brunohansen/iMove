@@ -4,17 +4,17 @@ import org.eclipse.jdt.core.IType;
 
 import br.com.bhansen.metric.MetricFactory;
 
-public class EvaluateMoveMethod2 extends MoveMethodEvaluator {
+public class EvaluateOr extends MoveMethodEvaluator {
 	
 	private MoveMethodEvaluator evaluator;
 		
-	public EvaluateMoveMethod2(IType classFrom, String method, IType classTo, MetricFactory fac1, MetricFactory fac2) throws Exception {
+	public EvaluateOr(IType classFrom, String method, IType classTo, MetricFactory fac1, MetricFactory fac2) throws Exception {
 		super(classFrom, method, classTo, fac2, 0);
 		
-		this.evaluator = new EvaluateMoveMethod3(classFrom, method, classTo, fac1, 0);
+		this.evaluator = new EvaluateSumMethod(classFrom, method, classTo, fac1, 0);
 		
 		if(! this.evaluator.shouldMove()) {
-			this.evaluator = new EvaluateMoveMethod3(classFrom, method, classTo, fac2, 0);
+			this.evaluator = new EvaluateSumMethod(classFrom, method, classTo, fac2, 0);
 		}
 		
 	}
