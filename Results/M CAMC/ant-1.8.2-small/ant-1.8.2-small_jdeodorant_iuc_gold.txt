@@ -21,7 +21,6 @@
 -0.020958-111	org.apache.tools.ant.taskdefs.optional.Cab::appendFiles(Vector, DirectoryScanner):void	org.apache.tools.ant.DirectoryScanner
 -0.026132-111	org.apache.tools.ant.helper.ProjectHelper2::parse(Project, Object, RootHandler):void	org.apache.tools.ant.util.FileUtils
 -0.035417-100	org.apache.tools.ant.types.Comparison::setValue(SizeSelector, long):void	org.apache.tools.ant.types.selectors.SizeSelector
--0.040000-111	org.apache.tools.ant.taskdefs.optional.extension.LibraryDisplayer::displaySpecification(Specification):void	org.apache.tools.ant.taskdefs.optional.extension.Specification
 -0.046296-111	org.apache.tools.ant.listener.MailLogger::sendMail(Values, String):void	org.apache.tools.ant.listener.MailLogger.Values
 -0.050446-111	org.apache.tools.ant.taskdefs.optional.jsp.compilers.DefaultJspCompilerAdapter::logAndAddFilesToCompile(JspC, Vector, CommandlineJava):void	org.apache.tools.ant.types.CommandlineJava
 -0.058333-111	org.apache.tools.ant.types.Permissions::createPermission(Permissions.Permission):Permission	org.apache.tools.ant.types.Permissions.Permission
@@ -38,6 +37,7 @@
 -0.330660-111	org.apache.tools.ant.taskdefs.optional.javah.SunJavah::setupJavahCommand(Javah):Commandline	org.apache.tools.ant.taskdefs.optional.Javah
 -0.374471-111	org.apache.tools.ant.taskdefs.Execute.CommandLauncher::exec(Project, String[], String[]):Process	org.apache.tools.ant.Project
 -0.490596-111	org.apache.tools.ant.taskdefs.compilers.JavacExternal::execOnVMS(Commandline, int):boolean	org.apache.tools.ant.types.Commandline
+0.000000-011	org.apache.tools.ant.taskdefs.optional.ejb.EjbJar::validateConfig():void	org.apache.tools.ant.taskdefs.optional.ejb.EjbJar.Config
 0.000126-011	org.apache.tools.ant.taskdefs.AbstractCvsTask::executeToString(Execute):String	org.apache.tools.ant.taskdefs.Execute
 0.000596-011	org.apache.tools.ant.taskdefs.Javadoc::checkPackages(Vector, Path):void	org.apache.tools.ant.types.Path
 0.000596-011	org.apache.tools.ant.taskdefs.Javadoc::doSourcePath(Commandline, Path):void	org.apache.tools.ant.types.Path
@@ -58,8 +58,8 @@
 0.091071-011	org.apache.tools.ant.filters.ReplaceTokens::addConfiguredToken(Token):void	org.apache.tools.ant.filters.ReplaceTokens.Token
 0.166234-011	org.apache.tools.ant.taskdefs.Javadoc::doDoclet(Commandline):void	org.apache.tools.ant.taskdefs.Javadoc.DocletInfo
 0.497290-011	org.apache.tools.bzip2.CBZip2OutputStream::sendMTFValues3(int, int):void	org.apache.tools.bzip2.CBZip2OutputStream.Data
+0.960000-011	org.apache.tools.ant.taskdefs.optional.extension.LibraryDisplayer::displaySpecification(Specification):void	org.apache.tools.ant.taskdefs.optional.extension.Specification
 0.997669-011	org.apache.tools.ant.taskdefs.optional.ejb.GenericDeploymentTool::getJarBaseName(String):String	org.apache.tools.ant.taskdefs.optional.ejb.EjbJar.Config
 0.997669-011	org.apache.tools.ant.taskdefs.optional.ejb.GenericDeploymentTool::getVendorDDPrefix(String, String):String	org.apache.tools.ant.taskdefs.optional.ejb.EjbJar.Config
 0.997685-011	org.apache.tools.ant.taskdefs.optional.ejb.EjbJar::setBasejarname(String):void	org.apache.tools.ant.taskdefs.optional.ejb.EjbJar.Config
 0.997685-011	org.apache.tools.ant.taskdefs.optional.ejb.EjbJar::setNaming(NamingScheme):void	org.apache.tools.ant.taskdefs.optional.ejb.EjbJar.Config
-1.000000-011	org.apache.tools.ant.taskdefs.optional.ejb.EjbJar::validateConfig():void	org.apache.tools.ant.taskdefs.optional.ejb.EjbJar.Config
