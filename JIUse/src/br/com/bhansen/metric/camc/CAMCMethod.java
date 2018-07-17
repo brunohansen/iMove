@@ -46,7 +46,11 @@ public class CAMCMethod extends DeclarationMetric {
 		double numMethods = getMethods().size();
 		
 		if((numMethods == 0) || (numParams == 0)) {
-			return 0.0f;
+			return 0;
+		}
+		
+		if(method.size() == 0) {
+			return 1;
 		}
 		
 		camc += method.size() / numParams;
