@@ -1,1 +1,309 @@
-aaaa
+Refactoring Type	Source Entity	Target Class	Source/Target accessed members	Rate it!
+Move Method	org.apache.lucene.analysis.core.TestDuelingAnalyzers::assertEquals(java.lang.String, org.apache.lucene.analysis.TokenStream, org.apache.lucene.analysis.TokenStream):void	org.apache.lucene.analysis.TokenStream	0/7	
+Move Method	org.apache.lucene.analysis.util.RollingCharBuffer::normalizeIterationMark(org.apache.lucene.analysis.ja.JapaneseIterationMarkCharFilter, char):char	org.apache.lucene.analysis.ja.JapaneseIterationMarkCharFilter	0/6	
+Move Method	org.apache.lucene.benchmark.byTask.feeds.DemoHTMLParser::parse(org.apache.lucene.benchmark.byTask.feeds.DocData, java.lang.String, java.util.Date, org.xml.sax.InputSource, org.apache.lucene.benchmark.byTask.feeds.TrecContentSource):org.apache.lucene.benchmark.byTask.feeds.DocData	org.apache.lucene.benchmark.byTask.feeds.DocData	0/6	
+Move Method	org.apache.lucene.index.TestIndexWriterMergePolicy::checkInvariants(org.apache.lucene.index.IndexWriter):void	org.apache.lucene.index.IndexWriter	0/6	
+Move Method	org.apache.lucene.codecs.lucene41.TestBlockPostingsFormat3::assertTermsStatistics(org.apache.lucene.index.Terms, org.apache.lucene.index.Terms):void	org.apache.lucene.index.Terms	0/5	
+Move Method	org.apache.lucene.collation.TestCollationKeyFilterFactory::assertCollatesToSame(org.apache.lucene.analysis.TokenStream, org.apache.lucene.analysis.TokenStream):void	org.apache.lucene.analysis.TokenStream	0/5	
+Move Method	org.apache.lucene.search.similarities.SimilarityBase::fillBasicStats(org.apache.lucene.search.similarities.BasicStats, org.apache.lucene.search.CollectionStatistics, org.apache.lucene.search.TermStatistics):void	org.apache.lucene.search.similarities.BasicStats	0/5	
+Move Method	org.apache.lucene.analysis.payloads.DelimitedPayloadTokenFilterTest::assertTermEquals(java.lang.String, org.apache.lucene.analysis.TokenStream, byte[]):void	org.apache.lucene.analysis.TokenStream	0/4	
+Move Method	org.apache.lucene.benchmark.byTask.feeds.TrecContentSourceTest::assertDocData(org.apache.lucene.benchmark.byTask.feeds.DocData, java.lang.String, java.lang.String, java.lang.String, java.util.Date):void	org.apache.lucene.benchmark.byTask.feeds.DocData	0/4	
+Move Method	org.apache.lucene.codecs.lucene3x.TermInfosReader::sameTermInfo(org.apache.lucene.codecs.lucene3x.TermInfo, org.apache.lucene.codecs.lucene3x.TermInfo, org.apache.lucene.codecs.lucene3x.SegmentTermEnum):boolean	org.apache.lucene.codecs.lucene3x.TermInfo	0/4	
+Move Method	org.apache.lucene.index.IndexWriter::getFieldInfos(org.apache.lucene.index.SegmentInfo):org.apache.lucene.index.FieldInfos	org.apache.lucene.index.SegmentInfo	0/4	
+Move Method	org.apache.lucene.index.TestIntBlockPool::assertReader(org.apache.lucene.util.IntBlockPool.SliceReader, org.apache.lucene.index.TestIntBlockPool.StartEndAndValues):void	org.apache.lucene.index.TestIntBlockPool.StartEndAndValues	0/4	
+Move Method	org.apache.lucene.index.TestPerSegmentDeletes::part2(org.apache.lucene.index.IndexWriter, org.apache.lucene.index.TestPerSegmentDeletes.RangeMergePolicy):void	org.apache.lucene.index.IndexWriter	0/4	
+Move Method	org.apache.lucene.search.TestFieldValueFilter::buildIndex(org.apache.lucene.index.RandomIndexWriter, int):int[]	org.apache.lucene.index.RandomIndexWriter	0/4	
+Move Method	org.apache.lucene.search.grouping.TestGrouping::fillFields(org.apache.lucene.search.grouping.TestGrouping.GroupDoc, org.apache.lucene.search.Sort):java.lang.Comparable<?>[]	org.apache.lucene.search.grouping.TestGrouping.GroupDoc	0/4	
+Move Method	org.apache.lucene.search.spans.TestSpans::tstNextSpans(org.apache.lucene.search.spans.Spans, int, int, int):void	org.apache.lucene.search.spans.Spans	0/4	
+Move Method	org.apache.lucene.search.suggest.SortedTermFreqIteratorWrapper::encode(org.apache.lucene.search.suggest.Sort.ByteSequencesWriter, org.apache.lucene.store.ByteArrayDataOutput, byte[], org.apache.lucene.util.BytesRef, long):void	org.apache.lucene.store.ByteArrayDataOutput	0/4	
+Move Method	org.apache.lucene.store.CompoundFileWriter::copyFileEntry(org.apache.lucene.store.IndexOutput, org.apache.lucene.store.CompoundFileWriter.FileEntry):long	org.apache.lucene.store.CompoundFileWriter.FileEntry	0/4	
+Move Method	org.apache.lucene.analysis.core.TestAnalyzers::verifyPayload(org.apache.lucene.analysis.TokenStream):void	org.apache.lucene.analysis.TokenStream	0/3	
+Move Method	org.apache.lucene.analysis.miscellaneous.PrefixAndSuffixAwareTokenFilter::updateInputToken(org.apache.lucene.analysis.Token, org.apache.lucene.analysis.Token):org.apache.lucene.analysis.Token	org.apache.lucene.analysis.Token	0/3	
+Move Method	org.apache.lucene.analysis.miscellaneous.PrefixAndSuffixAwareTokenFilter::updateSuffixToken(org.apache.lucene.analysis.Token, org.apache.lucene.analysis.Token):org.apache.lucene.analysis.Token	org.apache.lucene.analysis.Token	0/3	
+Move Method	org.apache.lucene.analysis.miscellaneous.PrefixAwareTokenFilter::updateSuffixToken(org.apache.lucene.analysis.Token, org.apache.lucene.analysis.Token):org.apache.lucene.analysis.Token	org.apache.lucene.analysis.Token	0/3	
+Move Method	org.apache.lucene.analysis.morfologik.TestMorfologikAnalyzer::assertPOSToken(org.apache.lucene.analysis.TokenStream, java.lang.String, java.lang.String[]):void	org.apache.lucene.analysis.TokenStream	0/3	
+Move Method	org.apache.lucene.analysis.synonym.SynonymMap.Builder::hasHoles(org.apache.lucene.util.CharsRef):boolean	org.apache.lucene.util.CharsRef	0/3	
+Move Method	org.apache.lucene.analysis.synonym.SynonymMap.Builder::countWords(org.apache.lucene.util.CharsRef):int	org.apache.lucene.util.CharsRef	0/3	
+Move Method	org.apache.lucene.codecs.blockterms.BlockTermsWriter.TermsWriter::sharedPrefix(org.apache.lucene.util.BytesRef, org.apache.lucene.util.BytesRef):int	org.apache.lucene.util.BytesRef	0/3	
+Move Method	org.apache.lucene.codecs.blockterms.FixedGapTermsIndexWriter::indexedTermPrefixLength(org.apache.lucene.util.BytesRef, org.apache.lucene.util.BytesRef):int	org.apache.lucene.util.BytesRef	0/3	
+Move Method	org.apache.lucene.codecs.blockterms.VariableGapTermsIndexWriter::indexedTermPrefixLength(org.apache.lucene.util.BytesRef, org.apache.lucene.util.BytesRef):int	org.apache.lucene.util.BytesRef	0/3	
+Move Method	org.apache.lucene.codecs.lucene40.TestBitVector::doCompare(org.apache.lucene.codecs.lucene40.BitVector, org.apache.lucene.codecs.lucene40.BitVector):boolean	org.apache.lucene.codecs.lucene40.BitVector	0/3	
+Move Method	org.apache.lucene.codecs.simpletext.SimpleTextFieldInfosReader::readString(int, org.apache.lucene.util.BytesRef):java.lang.String	org.apache.lucene.util.BytesRef	0/3	
+Move Method	org.apache.lucene.codecs.simpletext.SimpleTextLiveDocsFormat::parseIntAt(org.apache.lucene.util.BytesRef, int, org.apache.lucene.util.CharsRef):int	org.apache.lucene.util.BytesRef	0/3	
+Move Method	org.apache.lucene.codecs.simpletext.SimpleTextSegmentInfoReader::readString(int, org.apache.lucene.util.BytesRef):java.lang.String	org.apache.lucene.util.BytesRef	0/3	
+Move Method	org.apache.lucene.codecs.simpletext.SimpleTextStoredFieldsReader::equalsAt(org.apache.lucene.util.BytesRef, org.apache.lucene.util.BytesRef, int):boolean	org.apache.lucene.util.BytesRef	0/3	
+Move Method	org.apache.lucene.collation.TestICUCollationDocValuesField::doTestRanges(org.apache.lucene.search.IndexSearcher, java.lang.String, java.lang.String, org.apache.lucene.search.Query, com.ibm.icu.text.Collator):void	org.apache.lucene.search.IndexSearcher	0/3	
+Move Method	org.apache.lucene.index.CheckIndex::fixIndex(org.apache.lucene.index.CheckIndex.Status, org.apache.lucene.codecs.Codec):void	org.apache.lucene.index.CheckIndex.Status	0/3	
+Move Method	org.apache.lucene.index.PrefixCodedTerms.Builder::sharedPrefix(org.apache.lucene.util.BytesRef, org.apache.lucene.util.BytesRef):int	org.apache.lucene.util.BytesRef	0/3	
+Move Method	org.apache.lucene.index.TestDocumentsWriterStallControl::assertState(int, int, int, java.lang.Thread[], org.apache.lucene.index.DocumentsWriterStallControl):void	org.apache.lucene.index.DocumentsWriterStallControl	0/3	
+Move Method	org.apache.lucene.index.TestIndexInput::checkReads(org.apache.lucene.store.DataInput, java.lang.Class<? extends java.lang.Exception>):void	org.apache.lucene.store.DataInput	0/3	
+Move Method	org.apache.lucene.index.TestTermsEnum::accepts(org.apache.lucene.util.automaton.CompiledAutomaton, org.apache.lucene.util.BytesRef):boolean	org.apache.lucene.util.BytesRef	0/3	
+Move Method	org.apache.lucene.search.similarities.TestSimilarityBase::toCollectionStats(org.apache.lucene.search.similarities.BasicStats):org.apache.lucene.search.CollectionStatistics	org.apache.lucene.search.similarities.BasicStats	0/3	
+Move Method	org.apache.lucene.search.spans.TestPayloadSpans::checkSpans(org.apache.lucene.search.spans.Spans, int, int, int, int):void	org.apache.lucene.search.spans.Spans	0/3	
+Move Method	org.apache.lucene.search.suggest.SortedTermFreqIteratorWrapper::decode(org.apache.lucene.util.BytesRef, org.apache.lucene.store.ByteArrayDataInput):long	org.apache.lucene.store.ByteArrayDataInput	0/3	
+Move Method	org.apache.lucene.search.suggest.analyzing.AnalyzingSuggester::copyDestTransitions(org.apache.lucene.util.automaton.State, org.apache.lucene.util.automaton.State, java.util.List<org.apache.lucene.util.automaton.Transition>):void	org.apache.lucene.util.automaton.State	0/3	
+Move Method	org.apache.lucene.store.TestDirectory::checkDirectoryFilter(org.apache.lucene.store.Directory):void	org.apache.lucene.store.Directory	0/3	
+Move Method	org.apache.lucene.util.fst.FSTTester::run(org.apache.lucene.util.fst.FST<T>, org.apache.lucene.util.IntsRef, int[]):T	org.apache.lucene.util.IntsRef	0/3	
+Move Method	org.apache.lucene.util.fst.TestFSTs::assertSame(org.apache.lucene.index.TermsEnum, org.apache.lucene.util.fst.BytesRefFSTEnum<?>, boolean):void	org.apache.lucene.index.TermsEnum	0/3	
+Move Method	org.apache.lucene.analysis.CollationTestBase::assertMatches(org.apache.lucene.search.IndexSearcher, org.apache.lucene.search.Query, org.apache.lucene.search.Sort, java.lang.String):void	org.apache.lucene.search.IndexSearcher	0/2	
+Move Method	org.apache.lucene.analysis.cn.smart.hhmm.SegTokenFilter::filter(org.apache.lucene.analysis.cn.smart.hhmm.SegToken):org.apache.lucene.analysis.cn.smart.hhmm.SegToken	org.apache.lucene.analysis.cn.smart.hhmm.SegToken	0/2	
+Move Method	org.apache.lucene.analysis.payloads.DelimitedPayloadTokenFilterTest::assertTermEquals(java.lang.String, org.apache.lucene.analysis.TokenStream, org.apache.lucene.analysis.tokenattributes.CharTermAttribute, org.apache.lucene.analysis.tokenattributes.PayloadAttribute, byte[]):void	org.apache.lucene.analysis.TokenStream	0/2	
+Move Method	org.apache.lucene.codecs.lucene41.TestBlockPostingsFormat3::assertTermStats(org.apache.lucene.index.TermsEnum, org.apache.lucene.index.TermsEnum):void	org.apache.lucene.index.TermsEnum	0/2	
+Move Method	org.apache.lucene.collation.TestICUCollationKeyFilterFactory::assertCollation(org.apache.lucene.analysis.TokenStream, org.apache.lucene.analysis.TokenStream, int):void	org.apache.lucene.analysis.TokenStream	0/2	
+Move Method	org.apache.lucene.facet.taxonomy.writercache.cl2o.CompactLabelToOrdinal::addLabelOffsetToHashArray(org.apache.lucene.facet.taxonomy.writercache.cl2o.CompactLabelToOrdinal.HashArray, int, int, int):boolean	org.apache.lucene.facet.taxonomy.writercache.cl2o.CompactLabelToOrdinal.HashArray	0/2	
+Move Method	org.apache.lucene.index.DocTermOrds::lookupTerm(org.apache.lucene.index.TermsEnum, int):org.apache.lucene.util.BytesRef	org.apache.lucene.index.TermsEnum	0/2	
+Move Method	org.apache.lucene.index.DocumentsWriterPerThreadPool::deactivateThreadState(org.apache.lucene.index.DocumentsWriterPerThreadPool.ThreadState):void	org.apache.lucene.index.DocumentsWriterPerThreadPool.ThreadState	0/2	
+Move Method	org.apache.lucene.index.DocumentsWriterPerThreadPool::reinitThreadState(org.apache.lucene.index.DocumentsWriterPerThreadPool.ThreadState):void	org.apache.lucene.index.DocumentsWriterPerThreadPool.ThreadState	0/2	
+Move Method	org.apache.lucene.index.TestAddIndexes::verifyTermDocs(org.apache.lucene.store.Directory, org.apache.lucene.index.Term, int):void	org.apache.lucene.index.Term	0/2	
+Move Method	org.apache.lucene.index.TestBackwardsCompatibility::doTestHits(org.apache.lucene.search.ScoreDoc[], int, org.apache.lucene.index.IndexReader):void	org.apache.lucene.index.IndexReader	0/2	
+Move Method	org.apache.lucene.index.TestBackwardsCompatibility3x::doTestHits(org.apache.lucene.search.ScoreDoc[], int, org.apache.lucene.index.IndexReader):void	org.apache.lucene.index.IndexReader	0/2	
+Move Method	org.apache.lucene.index.TestCodecs.Verify::verifyPositions(org.apache.lucene.index.TestCodecs.PositionData[], org.apache.lucene.index.DocsAndPositionsEnum):void	org.apache.lucene.index.DocsAndPositionsEnum	0/2	
+Move Method	org.apache.lucene.index.TestCompoundFile::demo_FSIndexInputBug(org.apache.lucene.store.Directory, java.lang.String):void	org.apache.lucene.store.Directory	0/2	
+Move Method	org.apache.lucene.index.TestCrash::crash(org.apache.lucene.index.IndexWriter):void	org.apache.lucene.index.IndexWriter	0/2	
+Move Method	org.apache.lucene.index.TestDirectoryReader::assertTermDocsCount(java.lang.String, org.apache.lucene.index.IndexReader, org.apache.lucene.index.Term, int):void	org.apache.lucene.index.Term	0/2	
+Move Method	org.apache.lucene.index.TestFieldInfos::assertReadOnly(org.apache.lucene.index.FieldInfos, org.apache.lucene.index.FieldInfos):void	org.apache.lucene.index.FieldInfos	0/2	
+Move Method	org.apache.lucene.index.TestFlushByRamOrCountsPolicy::assertActiveBytesAfter(org.apache.lucene.index.DocumentsWriterFlushControl):void	org.apache.lucene.index.DocumentsWriterFlushControl	0/2	
+Move Method	org.apache.lucene.index.TestIndexFileDeleter::copyFile(org.apache.lucene.store.Directory, java.lang.String, java.lang.String):void	org.apache.lucene.store.Directory	0/2	
+Move Method	org.apache.lucene.index.TestPKIndexSplitter::checkContents(org.apache.lucene.index.IndexReader, java.lang.String):void	org.apache.lucene.index.IndexReader	0/2	
+Move Method	org.apache.lucene.index.TestPerSegmentDeletes::toDocsArray(org.apache.lucene.index.Term, org.apache.lucene.util.Bits, org.apache.lucene.index.IndexReader):int[]	org.apache.lucene.index.Term	0/2	
+Move Method	org.apache.lucene.index.TestSizeBoundedForceMerge::addDocs(org.apache.lucene.index.IndexWriter, int, boolean):void	org.apache.lucene.index.IndexWriter	0/2	
+Move Method	org.apache.lucene.index.ThreadedIndexingAndSearchingTestCase::runQuery(org.apache.lucene.search.IndexSearcher, org.apache.lucene.search.Query):int	org.apache.lucene.search.IndexSearcher	0/2	
+Move Method	org.apache.lucene.search.IndexSearcher::search(java.util.List<org.apache.lucene.index.AtomicReaderContext>, org.apache.lucene.search.Weight, org.apache.lucene.search.Collector):void	org.apache.lucene.search.Collector	0/2	
+Move Method	org.apache.lucene.search.IndexSearcher::termStatistics(org.apache.lucene.index.Term, org.apache.lucene.index.TermContext):org.apache.lucene.search.TermStatistics	org.apache.lucene.index.TermContext	0/2	
+Move Method	org.apache.lucene.search.MultiThreadTermVectorsReader::verifyVector(org.apache.lucene.index.TermsEnum, int):void	org.apache.lucene.index.TermsEnum	0/2	
+Move Method	org.apache.lucene.search.SloppyPhraseScorer::lesser(org.apache.lucene.search.PhrasePositions, org.apache.lucene.search.PhrasePositions):org.apache.lucene.search.PhrasePositions	org.apache.lucene.search.PhrasePositions	0/2	
+Move Method	org.apache.lucene.search.SloppyPhraseScorer::tpPos(org.apache.lucene.search.PhrasePositions):int	org.apache.lucene.search.PhrasePositions	0/2	
+Move Method	org.apache.lucene.search.TestBooleanMinShouldMatch::assertSubsetOfSameScores(org.apache.lucene.search.Query, org.apache.lucene.search.TopDocs, org.apache.lucene.search.TopDocs):void	org.apache.lucene.search.TopDocs	0/2	
+Move Method	org.apache.lucene.search.grouping.GroupFacetCollectorTest::createExpectedFacetResult(java.lang.String, org.apache.lucene.search.grouping.GroupFacetCollectorTest.IndexContext, int, int, int, boolean, java.lang.String):org.apache.lucene.search.grouping.GroupFacetCollectorTest.GroupedFacetResult	org.apache.lucene.search.grouping.GroupFacetCollectorTest.IndexContext	0/2	
+Move Method	org.apache.lucene.search.grouping.TestGrouping::createSecondPassCollector(org.apache.lucene.search.grouping.AbstractFirstPassGroupingCollector, java.lang.String, org.apache.lucene.search.Sort, org.apache.lucene.search.Sort, int, int, boolean, boolean, boolean):org.apache.lucene.search.grouping.AbstractSecondPassGroupingCollector<T>	org.apache.lucene.search.grouping.AbstractFirstPassGroupingCollector	0/2	
+Move Method	org.apache.lucene.search.join.TestBlockJoin::compareChildHits(org.apache.lucene.index.IndexReader, org.apache.lucene.index.IndexReader, org.apache.lucene.search.TopDocs, org.apache.lucene.search.TopDocs):void	org.apache.lucene.search.TopDocs	0/2	
+Move Method	org.apache.lucene.search.similarities.BM25Similarity::avgFieldLength(org.apache.lucene.search.CollectionStatistics):float	org.apache.lucene.search.CollectionStatistics	0/2	
+Move Method	org.apache.lucene.search.similarities.TestSimilarityBase::toTermStats(org.apache.lucene.search.similarities.BasicStats):org.apache.lucene.search.TermStatistics	org.apache.lucene.search.similarities.BasicStats	0/2	
+Move Method	org.apache.lucene.spatial.SpatialExample::assertDocMatchedIds(org.apache.lucene.search.IndexSearcher, org.apache.lucene.search.TopDocs, int[]):void	org.apache.lucene.search.TopDocs	0/2	
+Move Method	org.apache.lucene.util.TestFixedBitSet::doGet(java.util.BitSet, org.apache.lucene.util.FixedBitSet):void	org.apache.lucene.util.FixedBitSet	0/2	
+Move Method	org.apache.lucene.util.TestFixedBitSet::doNextSetBit(java.util.BitSet, org.apache.lucene.util.FixedBitSet):void	org.apache.lucene.util.FixedBitSet	0/2	
+Move Method	org.apache.lucene.util.TestFixedBitSet::doPrevSetBit(java.util.BitSet, org.apache.lucene.util.FixedBitSet):void	org.apache.lucene.util.FixedBitSet	0/2	
+Move Method	org.apache.lucene.util.TestFixedBitSet::doIterate1(java.util.BitSet, org.apache.lucene.util.FixedBitSet):void	org.apache.lucene.util.FixedBitSet	0/2	
+Move Method	org.apache.lucene.util.TestOpenBitSet::doGet(java.util.BitSet, org.apache.lucene.util.OpenBitSet):void	org.apache.lucene.util.OpenBitSet	0/2	
+Move Method	org.apache.lucene.util.TestOpenBitSet::doGetFast(java.util.BitSet, org.apache.lucene.util.OpenBitSet, int):void	org.apache.lucene.util.OpenBitSet	0/2	
+Move Method	org.apache.lucene.analysis.BaseTokenStreamTestCase::toDot(org.apache.lucene.analysis.Analyzer, java.lang.String):java.lang.String	org.apache.lucene.analysis.Analyzer	0/1	
+Move Method	org.apache.lucene.analysis.BaseTokenStreamTestCase::toDotFile(org.apache.lucene.analysis.Analyzer, java.lang.String, java.lang.String):void	org.apache.lucene.analysis.Analyzer	0/1	
+Move Method	org.apache.lucene.analysis.CollationTestBase::assertThreadSafe(org.apache.lucene.analysis.Analyzer):void	org.apache.lucene.analysis.Analyzer	0/1	
+Move Method	org.apache.lucene.analysis.miscellaneous.TestASCIIFoldingFilter::assertTermEquals(java.lang.String, org.apache.lucene.analysis.TokenStream, org.apache.lucene.analysis.tokenattributes.CharTermAttribute):void	org.apache.lucene.analysis.TokenStream	0/1	
+Move Method	org.apache.lucene.analysis.synonym.SlowSynonymFilter::copy(org.apache.lucene.util.AttributeSource, org.apache.lucene.util.AttributeSource):void	org.apache.lucene.util.AttributeSource	0/1	
+Move Method	org.apache.lucene.benchmark.byTask.TestPerfTasksLogic::assertEqualCollation(org.apache.lucene.analysis.Analyzer, org.apache.lucene.analysis.Analyzer, java.lang.String):void	org.apache.lucene.analysis.Analyzer	0/1	
+Move Method	org.apache.lucene.benchmark.byTask.utils.Algorithm::initTasksPackages(org.apache.lucene.benchmark.byTask.utils.Config):java.lang.String[]	org.apache.lucene.benchmark.byTask.utils.Config	0/1	
+Move Method	org.apache.lucene.codecs.bloom.BloomFilterFactory::downsize(org.apache.lucene.index.FieldInfo, org.apache.lucene.codecs.bloom.FuzzySet):org.apache.lucene.codecs.bloom.FuzzySet	org.apache.lucene.codecs.bloom.FuzzySet	0/1	
+Move Method	org.apache.lucene.codecs.lucene41.TestBlockPostingsFormat3::assertTermsSeeking(org.apache.lucene.index.Terms, org.apache.lucene.index.Terms):void	org.apache.lucene.index.Terms	0/1	
+Move Method	org.apache.lucene.demo.facet.MultiCategoryListsFacetsExample::add(org.apache.lucene.index.IndexWriter, org.apache.lucene.facet.index.FacetFields, java.lang.String[]):void	org.apache.lucene.index.IndexWriter	0/1	
+Move Method	org.apache.lucene.demo.facet.MultiCategoryListsFacetsExample::add(org.apache.lucene.index.IndexWriter, org.apache.lucene.facet.index.FacetFields, java.lang.String[]):void	org.apache.lucene.facet.index.FacetFields	0/1	
+Move Method	org.apache.lucene.demo.facet.SimpleFacetsExample::add(org.apache.lucene.index.IndexWriter, org.apache.lucene.facet.index.FacetFields, java.lang.String[]):void	org.apache.lucene.index.IndexWriter	0/1	
+Move Method	org.apache.lucene.demo.facet.SimpleFacetsExample::add(org.apache.lucene.index.IndexWriter, org.apache.lucene.facet.index.FacetFields, java.lang.String[]):void	org.apache.lucene.facet.index.FacetFields	0/1	
+Move Method	org.apache.lucene.document.TestDocument::doAssert(org.apache.lucene.document.Document, boolean):void	org.apache.lucene.document.Document	0/1	
+Move Method	org.apache.lucene.document.TestField::trySetByteValue(org.apache.lucene.document.Field):void	org.apache.lucene.document.Field	0/1	
+Move Method	org.apache.lucene.document.TestField::trySetBytesValue(org.apache.lucene.document.Field):void	org.apache.lucene.document.Field	0/1	
+Move Method	org.apache.lucene.document.TestField::trySetBytesRefValue(org.apache.lucene.document.Field):void	org.apache.lucene.document.Field	0/1	
+Move Method	org.apache.lucene.document.TestField::trySetDoubleValue(org.apache.lucene.document.Field):void	org.apache.lucene.document.Field	0/1	
+Move Method	org.apache.lucene.document.TestField::trySetIntValue(org.apache.lucene.document.Field):void	org.apache.lucene.document.Field	0/1	
+Move Method	org.apache.lucene.document.TestField::trySetLongValue(org.apache.lucene.document.Field):void	org.apache.lucene.document.Field	0/1	
+Move Method	org.apache.lucene.document.TestField::trySetFloatValue(org.apache.lucene.document.Field):void	org.apache.lucene.document.Field	0/1	
+Move Method	org.apache.lucene.document.TestField::trySetReaderValue(org.apache.lucene.document.Field):void	org.apache.lucene.document.Field	0/1	
+Move Method	org.apache.lucene.document.TestField::trySetShortValue(org.apache.lucene.document.Field):void	org.apache.lucene.document.Field	0/1	
+Move Method	org.apache.lucene.document.TestField::trySetStringValue(org.apache.lucene.document.Field):void	org.apache.lucene.document.Field	0/1	
+Move Method	org.apache.lucene.document.TestField::trySetTokenStreamValue(org.apache.lucene.document.Field):void	org.apache.lucene.document.Field	0/1	
+Move Method	org.apache.lucene.document.TestField::trySetBoost(org.apache.lucene.document.Field):void	org.apache.lucene.document.Field	0/1	
+Move Method	org.apache.lucene.facet.FacetTestBase::indexDoc(org.apache.lucene.facet.params.FacetIndexingParams, org.apache.lucene.index.RandomIndexWriter, org.apache.lucene.facet.taxonomy.TaxonomyWriter, java.lang.String, java.util.List<org.apache.lucene.facet.taxonomy.CategoryPath>):void	org.apache.lucene.index.RandomIndexWriter	0/1	
+Move Method	org.apache.lucene.facet.partitions.PartitionsFacetResultsHandler::isSelfPartition(int, org.apache.lucene.facet.search.FacetArrays, int):boolean	org.apache.lucene.facet.search.FacetArrays	0/1	
+Move Method	org.apache.lucene.index.BasePostingsFormatTestCase::testFields(org.apache.lucene.index.Fields):void	org.apache.lucene.index.Fields	0/1	
+Move Method	org.apache.lucene.index.TestAddIndexes::newWriter(org.apache.lucene.store.Directory, org.apache.lucene.index.IndexWriterConfig):org.apache.lucene.index.IndexWriter	org.apache.lucene.index.IndexWriterConfig	0/1	
+Move Method	org.apache.lucene.index.TestAddIndexes::addDocs(org.apache.lucene.index.IndexWriter, int):void	org.apache.lucene.index.IndexWriter	0/1	
+Move Method	org.apache.lucene.index.TestAddIndexes::addDocs2(org.apache.lucene.index.IndexWriter, int):void	org.apache.lucene.index.IndexWriter	0/1	
+Move Method	org.apache.lucene.index.TestAddIndexes::addDoc(org.apache.lucene.index.IndexWriter):void	org.apache.lucene.index.IndexWriter	0/1	
+Move Method	org.apache.lucene.index.TestAddIndexes::addDocsWithID(org.apache.lucene.index.IndexWriter, int, int):void	org.apache.lucene.index.IndexWriter	0/1	
+Move Method	org.apache.lucene.index.TestBackwardsCompatibility::addDoc(org.apache.lucene.index.IndexWriter, int):void	org.apache.lucene.index.IndexWriter	0/1	
+Move Method	org.apache.lucene.index.TestBackwardsCompatibility::addNoProxDoc(org.apache.lucene.index.IndexWriter):void	org.apache.lucene.index.IndexWriter	0/1	
+Move Method	org.apache.lucene.index.TestBackwardsCompatibility3x::addDoc(org.apache.lucene.index.IndexWriter, int):void	org.apache.lucene.index.IndexWriter	0/1	
+Move Method	org.apache.lucene.index.TestBackwardsCompatibility3x::addNoProxDoc(org.apache.lucene.index.IndexWriter):void	org.apache.lucene.index.IndexWriter	0/1	
+Move Method	org.apache.lucene.index.TestCodecs::search(org.apache.lucene.index.IndexWriter, org.apache.lucene.search.Query, int):org.apache.lucene.search.ScoreDoc[]	org.apache.lucene.index.IndexWriter	0/1	
+Move Method	org.apache.lucene.index.TestCompoundFile::createRandomFile(org.apache.lucene.store.Directory, java.lang.String, int):void	org.apache.lucene.store.Directory	0/1	
+Move Method	org.apache.lucene.index.TestCompoundFile::createSequenceFile(org.apache.lucene.store.Directory, java.lang.String, byte, int):void	org.apache.lucene.store.Directory	0/1	
+Move Method	org.apache.lucene.index.TestDeletionPolicy::addDocWithID(org.apache.lucene.index.IndexWriter, int):void	org.apache.lucene.index.IndexWriter	0/1	
+Move Method	org.apache.lucene.index.TestDeletionPolicy::addDoc(org.apache.lucene.index.IndexWriter):void	org.apache.lucene.index.IndexWriter	0/1	
+Move Method	org.apache.lucene.index.TestDocCount::verifyCount(org.apache.lucene.index.IndexReader):void	org.apache.lucene.index.IndexReader	0/1	
+Move Method	org.apache.lucene.index.TestDocumentsWriterDeleteQueue::assertAllBetween(int, int, org.apache.lucene.index.BufferedDeletes, java.lang.Integer[]):void	org.apache.lucene.index.BufferedDeletes	0/1	
+Move Method	org.apache.lucene.index.TestIndexFileDeleter::addDoc(org.apache.lucene.index.IndexWriter, int):void	org.apache.lucene.index.IndexWriter	0/1	
+Move Method	org.apache.lucene.index.TestIndexWriterDelete::updateDoc(org.apache.lucene.index.IndexWriter, int, int):void	org.apache.lucene.index.IndexWriter	0/1	
+Move Method	org.apache.lucene.index.TestIndexWriterDelete::addDoc(org.apache.lucene.index.IndexWriter, int, int):void	org.apache.lucene.index.IndexWriter	0/1	
+Move Method	org.apache.lucene.index.TestIndexWriterExceptions::addDoc(org.apache.lucene.index.IndexWriter):void	org.apache.lucene.index.IndexWriter	0/1	
+Move Method	org.apache.lucene.index.TestIndexWriterMergePolicy::addDoc(org.apache.lucene.index.IndexWriter):void	org.apache.lucene.index.IndexWriter	0/1	
+Move Method	org.apache.lucene.index.TestIndexWriterOnDiskFull::addDoc(org.apache.lucene.index.IndexWriter):void	org.apache.lucene.index.IndexWriter	0/1	
+Move Method	org.apache.lucene.index.TestIndexWriterOnDiskFull::addDocWithIndex(org.apache.lucene.index.IndexWriter, int):void	org.apache.lucene.index.IndexWriter	0/1	
+Move Method	org.apache.lucene.index.TestOmitNorms::assertNoNrm(org.apache.lucene.store.Directory):void	org.apache.lucene.store.Directory	0/1	
+Move Method	org.apache.lucene.index.TestOmitPositions::assertNoPrx(org.apache.lucene.store.Directory):void	org.apache.lucene.store.Directory	0/1	
+Move Method	org.apache.lucene.index.TestOmitTf::assertNoPrx(org.apache.lucene.store.Directory):void	org.apache.lucene.store.Directory	0/1	
+Move Method	org.apache.lucene.index.TestParallelTermEnum::checkTerms(org.apache.lucene.index.Terms, org.apache.lucene.util.Bits, java.lang.String[]):void	org.apache.lucene.index.Terms	0/1	
+Move Method	org.apache.lucene.index.TestSegmentTermDocs::addDoc(org.apache.lucene.index.IndexWriter, java.lang.String):void	org.apache.lucene.index.IndexWriter	0/1	
+Move Method	org.apache.lucene.index.TestSegmentTermEnum::addDoc(org.apache.lucene.index.IndexWriter, java.lang.String):void	org.apache.lucene.index.IndexWriter	0/1	
+Move Method	org.apache.lucene.index.memory.MemoryIndex.MemoryIndexReader.MemoryTermsEnum::binarySearch(org.apache.lucene.util.BytesRef, org.apache.lucene.util.BytesRef, int, int, org.apache.lucene.util.BytesRefHash, int[], java.util.Comparator<org.apache.lucene.util.BytesRef>):int	org.apache.lucene.util.BytesRefHash	0/1	
+Move Method	org.apache.lucene.queries.BooleanFilterTest::addDoc(org.apache.lucene.index.RandomIndexWriter, java.lang.String, java.lang.String, java.lang.String, java.lang.String):void	org.apache.lucene.index.RandomIndexWriter	0/1	
+Move Method	org.apache.lucene.queries.ChainedFilter::getDISI(org.apache.lucene.search.Filter, org.apache.lucene.index.AtomicReaderContext):org.apache.lucene.search.DocIdSetIterator	org.apache.lucene.search.Filter	0/1	
+Move Method	org.apache.lucene.queries.mlt.TestMoreLikeThis::addDoc(org.apache.lucene.index.RandomIndexWriter, java.lang.String):void	org.apache.lucene.index.RandomIndexWriter	0/1	
+Move Method	org.apache.lucene.queryparser.classic.QueryParserBase::handleBoost(org.apache.lucene.search.Query, org.apache.lucene.queryparser.classic.Token):org.apache.lucene.search.Query	org.apache.lucene.queryparser.classic.Token	0/1	
+Move Method	org.apache.lucene.queryparser.classic.QueryParserBase::handleBoost(org.apache.lucene.search.Query, org.apache.lucene.queryparser.classic.Token):org.apache.lucene.search.Query	org.apache.lucene.search.Query	0/1	
+Move Method	org.apache.lucene.queryparser.flexible.standard.TestQPHelper::assertQueryEquals(org.apache.lucene.queryparser.flexible.standard.StandardQueryParser, java.lang.String, java.lang.String, java.lang.String):void	org.apache.lucene.queryparser.flexible.standard.StandardQueryParser	0/1	
+Move Method	org.apache.lucene.queryparser.flexible.standard.TestQPHelper::assertHits(int, java.lang.String, org.apache.lucene.search.IndexSearcher):void	org.apache.lucene.search.IndexSearcher	0/1	
+Move Method	org.apache.lucene.sandbox.queries.FuzzyLikeThisQueryTest::addDoc(org.apache.lucene.index.RandomIndexWriter, java.lang.String, java.lang.String):void	org.apache.lucene.index.RandomIndexWriter	0/1	
+Move Method	org.apache.lucene.sandbox.queries.TestSlowFuzzyQuery::addDoc(java.lang.String, org.apache.lucene.index.RandomIndexWriter):void	org.apache.lucene.index.RandomIndexWriter	0/1	
+Move Method	org.apache.lucene.search.PhraseQuery.PhraseWeight::termNotInReader(org.apache.lucene.index.AtomicReader, org.apache.lucene.index.Term):boolean	org.apache.lucene.index.AtomicReader	0/1	
+Move Method	org.apache.lucene.search.TermQuery.TermWeight::termNotInReader(org.apache.lucene.index.AtomicReader, org.apache.lucene.index.Term):boolean	org.apache.lucene.index.AtomicReader	0/1	
+Move Method	org.apache.lucene.search.TestBooleanMinShouldMatch::assertSubsetOfSameScores(org.apache.lucene.search.Query, org.apache.lucene.search.TopDocs, org.apache.lucene.search.TopDocs):void	org.apache.lucene.search.Query	0/1	
+Move Method	org.apache.lucene.search.TestConstantScoreQuery::checkHits(org.apache.lucene.search.IndexSearcher, org.apache.lucene.search.Query, float, java.lang.String, java.lang.String):void	org.apache.lucene.search.IndexSearcher	0/1	
+Move Method	org.apache.lucene.search.TestFuzzyQuery::addDoc(java.lang.String, org.apache.lucene.index.RandomIndexWriter):void	org.apache.lucene.index.RandomIndexWriter	0/1	
+Move Method	org.apache.lucene.search.TestMatchAllDocsQuery::addDoc(java.lang.String, org.apache.lucene.index.IndexWriter, float):void	org.apache.lucene.index.IndexWriter	0/1	
+Move Method	org.apache.lucene.search.TestMultiPhraseQuery::add(java.lang.String, org.apache.lucene.index.RandomIndexWriter):void	org.apache.lucene.index.RandomIndexWriter	0/1	
+Move Method	org.apache.lucene.search.TestMultiPhraseQuery::add(java.lang.String, java.lang.String, org.apache.lucene.index.RandomIndexWriter):void	org.apache.lucene.index.RandomIndexWriter	0/1	
+Move Method	org.apache.lucene.search.TestScorerPerf::doSloppyPhrase(org.apache.lucene.search.IndexSearcher, int, int, int):int	org.apache.lucene.search.IndexSearcher	0/1	
+Move Method	org.apache.lucene.search.TestSloppyPhraseQuery::checkPhraseQuery(org.apache.lucene.document.Document, org.apache.lucene.search.PhraseQuery, int, int):float	org.apache.lucene.search.PhraseQuery	0/1	
+Move Method	org.apache.lucene.search.TestSloppyPhraseQuery::assertSaneScoring(org.apache.lucene.search.PhraseQuery, org.apache.lucene.search.IndexSearcher):void	org.apache.lucene.search.IndexSearcher	0/1	
+Move Method	org.apache.lucene.search.TestTermRangeQuery::checkBooleanTerms(org.apache.lucene.search.IndexSearcher, org.apache.lucene.search.TermRangeQuery, java.lang.String[]):void	org.apache.lucene.search.IndexSearcher	0/1	
+Move Method	org.apache.lucene.search.TestWildcard::assertMatches(org.apache.lucene.search.IndexSearcher, org.apache.lucene.search.Query, int):void	org.apache.lucene.search.IndexSearcher	0/1	
+Move Method	org.apache.lucene.search.grouping.DistinctValuesCollectorTest::createExpectedResult(org.apache.lucene.search.grouping.DistinctValuesCollectorTest.IndexContext, java.lang.String, org.apache.lucene.search.Sort, int):java.util.List<org.apache.lucene.search.grouping.AbstractDistinctValuesCollector.GroupCount<java.lang.Comparable<?>>>	org.apache.lucene.search.grouping.DistinctValuesCollectorTest.IndexContext	0/1	
+Move Method	org.apache.lucene.search.grouping.TestGrouping::getTopGroups(org.apache.lucene.search.grouping.AbstractSecondPassGroupingCollector, int):org.apache.lucene.search.grouping.TopGroups<org.apache.lucene.util.BytesRef>	org.apache.lucene.search.grouping.AbstractSecondPassGroupingCollector	0/1	
+Move Method	org.apache.lucene.search.join.TestBlockJoin::getParentDoc(org.apache.lucene.index.IndexReader, org.apache.lucene.search.Filter, int):org.apache.lucene.document.Document	org.apache.lucene.index.IndexReader	0/1	
+Move Method	org.apache.lucene.search.join.TestBlockJoin::compareChildHits(org.apache.lucene.index.IndexReader, org.apache.lucene.index.IndexReader, org.apache.lucene.search.TopDocs, org.apache.lucene.search.TopDocs):void	org.apache.lucene.index.IndexReader	0/1	
+Move Method	org.apache.lucene.search.join.TestBlockJoin::compareHits(org.apache.lucene.index.IndexReader, org.apache.lucene.index.IndexReader, org.apache.lucene.search.TopDocs, org.apache.lucene.search.grouping.TopGroups<java.lang.Integer>):void	org.apache.lucene.index.IndexReader	0/1	
+Move Method	org.apache.lucene.search.postingshighlight.TestPostingsHighlighterRanking::checkQuery(org.apache.lucene.search.IndexSearcher, org.apache.lucene.search.Query, int, int):void	org.apache.lucene.search.IndexSearcher	0/1	
+Move Method	org.apache.lucene.search.spans.TestSpans::addDoc(org.apache.lucene.index.IndexWriter, java.lang.String, java.lang.String):void	org.apache.lucene.index.IndexWriter	0/1	
+Move Method	org.apache.lucene.search.spans.TestSpans::hitCount(org.apache.lucene.search.IndexSearcher, java.lang.String):int	org.apache.lucene.search.IndexSearcher	0/1	
+Move Method	org.apache.lucene.search.spell.WordBreakSpellChecker::generateSuggestWord(org.apache.lucene.index.IndexReader, java.lang.String, java.lang.String):org.apache.lucene.search.spell.SuggestWord	org.apache.lucene.index.IndexReader	0/1	
+Move Method	org.apache.lucene.search.suggest.fst.FSTCompletion::checkExistingAndReorder(java.util.ArrayList<org.apache.lucene.search.suggest.fst.FSTCompletion.Completion>, org.apache.lucene.util.BytesRef):boolean	org.apache.lucene.util.BytesRef	0/1	
+Move Method	org.apache.lucene.search.vectorhighlight.AbstractTestCase::analyze(java.lang.String, java.lang.String, org.apache.lucene.analysis.Analyzer):java.util.List<org.apache.lucene.util.BytesRef>	org.apache.lucene.analysis.Analyzer	0/1	
+Move Method	org.apache.lucene.search.vectorhighlight.BaseFragmentsBuilder::getFields(org.apache.lucene.index.IndexReader, int, java.lang.String):org.apache.lucene.document.Field[]	org.apache.lucene.index.IndexReader	0/1	
+Move Method	org.apache.lucene.store.TestFileSwitchDirectory::createSequenceFile(org.apache.lucene.store.Directory, java.lang.String, byte, int):void	org.apache.lucene.store.Directory	0/1	
+Move Method	org.apache.lucene.store.TestLockFactory::addDoc(org.apache.lucene.index.IndexWriter):void	org.apache.lucene.index.IndexWriter	0/1	
+Move Method	org.apache.lucene.store.TestNRTCachingDirectory::createSequenceFile(org.apache.lucene.store.Directory, java.lang.String, byte, int):void	org.apache.lucene.store.Directory	0/1	
+Move Method	org.apache.lucene.util.TestFixedBitSet::doIterate2(java.util.BitSet, org.apache.lucene.util.FixedBitSet):void	org.apache.lucene.util.FixedBitSet	0/1	
+Move Method	org.apache.lucene.util.TestOpenBitSet::doNextSetBit(java.util.BitSet, org.apache.lucene.util.OpenBitSet):void	org.apache.lucene.util.OpenBitSet	0/1	
+Move Method	org.apache.lucene.util.TestOpenBitSet::doNextSetBitLong(java.util.BitSet, org.apache.lucene.util.OpenBitSet):void	org.apache.lucene.util.OpenBitSet	0/1	
+Move Method	org.apache.lucene.util.TestOpenBitSet::doPrevSetBit(java.util.BitSet, org.apache.lucene.util.OpenBitSet):void	org.apache.lucene.util.OpenBitSet	0/1	
+Move Method	org.apache.lucene.util.TestOpenBitSet::doPrevSetBitLong(java.util.BitSet, org.apache.lucene.util.OpenBitSet):void	org.apache.lucene.util.OpenBitSet	0/1	
+Move Method	org.apache.lucene.util.automaton.CharacterRunAutomaton::getEnablePositionIncrements(org.apache.lucene.analysis.MockTokenFilter):boolean	org.apache.lucene.analysis.MockTokenFilter	0/1	
+Move Method	org.apache.lucene.util.automaton.TestCompiledAutomaton::testFloor(org.apache.lucene.util.automaton.CompiledAutomaton, java.lang.String, java.lang.String):void	org.apache.lucene.util.automaton.CompiledAutomaton	0/1	
+Move Method	org.egothor.stemmer.Gener::eat(org.egothor.stemmer.Row, int[]):boolean	org.egothor.stemmer.Row	0/1	
+Move Method	org.apache.lucene.search.spans.TestPayloadSpans::checkSpans(org.apache.lucene.search.spans.Spans, int, int[]):void	org.apache.lucene.search.spans.Spans	1/6	
+Move Method	org.apache.lucene.codecs.cheapbastard.CheapBastardDocValuesProducer::getVariableBinary(org.apache.lucene.index.FieldInfo, org.apache.lucene.codecs.cheapbastard.CheapBastardDocValuesProducer.BinaryEntry):org.apache.lucene.index.BinaryDocValues	org.apache.lucene.codecs.cheapbastard.CheapBastardDocValuesProducer.BinaryEntry	1/5	
+Move Method	org.apache.lucene.index.SegmentMerger::setMatchingSegmentReaders():void	org.apache.lucene.index.MergeState	1/5	
+Move Method	org.apache.lucene.index.TestDuelingCodecs::assertTermsStatistics(org.apache.lucene.index.Terms, org.apache.lucene.index.Terms):void	org.apache.lucene.index.Terms	1/5	
+Move Method	org.apache.lucene.index.TestMultiLevelSkipList::checkSkipTo(org.apache.lucene.index.DocsAndPositionsEnum, int, int):void	org.apache.lucene.index.DocsAndPositionsEnum	1/5	
+Move Method	org.apache.lucene.analysis.cn.smart.hhmm.HHMMSegmenter::createSegGraph(java.lang.String):org.apache.lucene.analysis.cn.smart.hhmm.SegGraph	org.apache.lucene.analysis.cn.smart.hhmm.WordDictionary	1/4	
+Move Method	org.apache.lucene.codecs.cheapbastard.CheapBastardDocValuesProducer::getNumeric(org.apache.lucene.index.FieldInfo, org.apache.lucene.codecs.cheapbastard.CheapBastardDocValuesProducer.NumericEntry):org.apache.lucene.codecs.cheapbastard.CheapBastardDocValuesProducer.LongNumericDocValues	org.apache.lucene.codecs.cheapbastard.CheapBastardDocValuesProducer.NumericEntry	1/4	
+Move Method	org.apache.lucene.codecs.diskdv.DiskDocValuesProducer::getNumeric(org.apache.lucene.codecs.diskdv.DiskDocValuesProducer.NumericEntry):org.apache.lucene.codecs.diskdv.DiskDocValuesProducer.LongNumericDocValues	org.apache.lucene.codecs.diskdv.DiskDocValuesProducer.NumericEntry	1/4	
+Move Method	org.apache.lucene.index.TestDuelingCodecs::assertReaderStatistics(org.apache.lucene.index.IndexReader, org.apache.lucene.index.IndexReader):void	org.apache.lucene.index.IndexReader	1/4	
+Move Method	org.apache.lucene.search.TermCollectingRewrite::collectTerms(org.apache.lucene.index.IndexReader, org.apache.lucene.search.MultiTermQuery, org.apache.lucene.search.TermCollectingRewrite.TermCollector):void	org.apache.lucene.search.TermCollectingRewrite.TermCollector	1/4	
+Move Method	org.apache.lucene.search.TestShardSearching::assertSame(org.apache.lucene.search.IndexSearcher, org.apache.lucene.search.ShardSearchingTestBase.NodeState.ShardIndexSearcher, org.apache.lucene.search.Query, org.apache.lucene.search.Sort, org.apache.lucene.search.TestShardSearching.PreviousSearchState):org.apache.lucene.search.TestShardSearching.PreviousSearchState	org.apache.lucene.search.ShardSearchingTestBase.NodeState.ShardIndexSearcher	1/4	
+Move Method	org.apache.lucene.search.suggest.Sort.ByteSequencesReader::read(org.apache.lucene.util.BytesRef):boolean	org.apache.lucene.util.BytesRef	1/4	
+Move Method	org.apache.lucene.util.fst.FSTTester::randomAcceptedWord(org.apache.lucene.util.fst.FST<T>, org.apache.lucene.util.IntsRef):T	org.apache.lucene.util.IntsRef	1/4	
+Move Method	org.egothor.stemmer.Reduce::optimize(org.egothor.stemmer.Trie):org.egothor.stemmer.Trie	org.egothor.stemmer.Trie	1/4	
+Move Method	org.apache.lucene.analysis.core.TestFactories::initialize(org.apache.lucene.analysis.util.AbstractAnalysisFactory):boolean	org.apache.lucene.analysis.util.AbstractAnalysisFactory	1/3	
+Move Method	org.apache.lucene.codecs.BlockTreeTermsReader::seekDir(org.apache.lucene.store.IndexInput, long):void	org.apache.lucene.store.IndexInput	1/3	
+Move Method	org.apache.lucene.codecs.blockterms.BlockTermsReader::seekDir(org.apache.lucene.store.IndexInput, long):void	org.apache.lucene.store.IndexInput	1/3	
+Move Method	org.apache.lucene.codecs.blockterms.FixedGapTermsIndexReader::seekDir(org.apache.lucene.store.IndexInput, long):void	org.apache.lucene.store.IndexInput	1/3	
+Move Method	org.apache.lucene.codecs.blockterms.VariableGapTermsIndexReader::seekDir(org.apache.lucene.store.IndexInput, long):void	org.apache.lucene.store.IndexInput	1/3	
+Move Method	org.apache.lucene.codecs.lucene40.Lucene40DocValuesReader::correctBuggyOrds(org.apache.lucene.index.SortedDocValues):org.apache.lucene.index.SortedDocValues	org.apache.lucene.index.SortedDocValues	1/3	
+Move Method	org.apache.lucene.codecs.simpletext.SimpleTextDocValuesReader::stripPrefix(org.apache.lucene.util.BytesRef):java.lang.String	org.apache.lucene.util.BytesRef	1/3	
+Move Method	org.apache.lucene.codecs.simpletext.SimpleTextTermVectorsReader::readString(int, org.apache.lucene.util.BytesRef):java.lang.String	org.apache.lucene.util.BytesRef	1/3	
+Move Method	org.apache.lucene.index.DocumentsWriterPerThreadPool::replaceForFlush(org.apache.lucene.index.DocumentsWriterPerThreadPool.ThreadState, boolean):org.apache.lucene.index.DocumentsWriterPerThread	org.apache.lucene.index.DocumentsWriterPerThreadPool.ThreadState	1/3	
+Move Method	org.apache.lucene.index.SegmentMerger::setDocMaps():int	org.apache.lucene.index.MergeState	1/3	
+Move Method	org.apache.lucene.index.TestCompoundFile::assertSameStreams(java.lang.String, org.apache.lucene.store.IndexInput, org.apache.lucene.store.IndexInput):void	org.apache.lucene.store.IndexInput	1/3	
+Move Method	org.apache.lucene.index.TestDoc::indexDoc(org.apache.lucene.index.IndexWriter, java.lang.String):org.apache.lucene.index.SegmentInfoPerCommit	org.apache.lucene.index.IndexWriter	1/3	
+Move Method	org.apache.lucene.index.TestSegmentReader::testOutOfBoundsAccess():void	org.apache.lucene.index.SegmentReader	1/3	
+Move Method	org.apache.lucene.search.FieldValueHitQueue::fillFields(org.apache.lucene.search.FieldValueHitQueue.Entry):org.apache.lucene.search.FieldDoc	org.apache.lucene.search.FieldValueHitQueue.Entry	1/3	
+Move Method	org.apache.lucene.search.TestFilteredSearch::searchFiltered(org.apache.lucene.index.IndexWriter, org.apache.lucene.store.Directory, org.apache.lucene.search.Filter, boolean):void	org.apache.lucene.index.IndexWriter	1/3	
+Move Method	org.apache.lucene.search.suggest.Sort.ByteSequencesWriter::write(org.apache.lucene.util.BytesRef):void	org.apache.lucene.util.BytesRef	1/3	
+Move Method	org.apache.lucene.search.suggest.fst.FSTCompletion::descendWithPrefix(org.apache.lucene.util.fst.FST.Arc<java.lang.Object>, org.apache.lucene.util.BytesRef):boolean	org.apache.lucene.util.BytesRef	1/3	
+Move Method	org.apache.lucene.search.suggest.fst.WFSTCompletionLookup::lookupPrefix(org.apache.lucene.util.BytesRef, org.apache.lucene.util.fst.FST.Arc<java.lang.Long>):java.lang.Long	org.apache.lucene.util.BytesRef	1/3	
+Move Method	org.apache.lucene.util.fst.FST::writeLabel(org.apache.lucene.store.DataOutput, int):void	org.apache.lucene.store.DataOutput	1/3	
+Move Method	org.apache.lucene.util.fst.FST::readLabel(org.apache.lucene.store.DataInput):int	org.apache.lucene.store.DataInput	1/3	
+Move Method	org.apache.lucene.util.fst.TestBytesStore::verify(org.apache.lucene.util.fst.BytesStore, byte[], int):void	org.apache.lucene.util.fst.BytesStore	1/3	
+Move Method	org.apache.lucene.analysis.TestCachingTokenFilter::checkTokens(org.apache.lucene.analysis.TokenStream):void	org.apache.lucene.analysis.TokenStream	1/2	
+Move Method	org.apache.lucene.analysis.compound.hyphenation.HyphenationTree::packValues(java.lang.String):int	org.apache.lucene.analysis.compound.hyphenation.ByteVector	1/2	
+Move Method	org.apache.lucene.analysis.in.IndicNormalizer::compose(int, java.lang.Character.UnicodeBlock, org.apache.lucene.analysis.in.IndicNormalizer.ScriptData, char[], int, int):int	org.apache.lucene.analysis.in.IndicNormalizer.ScriptData	1/2	
+Move Method	org.apache.lucene.analysis.ja.dict.UnknownDictionary::lookup(char[], int, int):int	org.apache.lucene.analysis.ja.dict.CharacterDefinition	1/2	
+Move Method	org.apache.lucene.codecs.cheapbastard.CheapBastardDocValuesProducer::getFixedBinary(org.apache.lucene.index.FieldInfo, org.apache.lucene.codecs.cheapbastard.CheapBastardDocValuesProducer.BinaryEntry):org.apache.lucene.index.BinaryDocValues	org.apache.lucene.codecs.cheapbastard.CheapBastardDocValuesProducer.BinaryEntry	1/2	
+Move Method	org.apache.lucene.codecs.diskdv.DiskDocValuesProducer::getFixedBinary(org.apache.lucene.index.FieldInfo, org.apache.lucene.codecs.diskdv.DiskDocValuesProducer.BinaryEntry):org.apache.lucene.index.BinaryDocValues	org.apache.lucene.codecs.diskdv.DiskDocValuesProducer.BinaryEntry	1/2	
+Move Method	org.apache.lucene.codecs.lucene3x.TermInfosReader::compareAsUTF16(org.apache.lucene.index.Term, org.apache.lucene.index.Term):int	org.apache.lucene.index.Term	1/2	
+Move Method	org.apache.lucene.document.LazyDocument::getField(org.apache.lucene.index.FieldInfo):org.apache.lucene.index.IndexableField	org.apache.lucene.index.FieldInfo	1/2	
+Move Method	org.apache.lucene.facet.index.FacetFields::createCategoryListMapping(java.lang.Iterable<org.apache.lucene.facet.taxonomy.CategoryPath>):java.util.Map<org.apache.lucene.facet.params.CategoryListParams,java.lang.Iterable<org.apache.lucene.facet.taxonomy.CategoryPath>>	org.apache.lucene.facet.params.FacetIndexingParams	1/2	
+Move Method	org.apache.lucene.facet.search.TestDrillSideways::verifyEquals(java.lang.String[][], org.apache.lucene.search.IndexSearcher, org.apache.lucene.facet.search.TestDrillSideways.SimpleFacetResult, org.apache.lucene.facet.search.DrillSideways.DrillSidewaysResult, java.util.Map<java.lang.String,java.lang.Float>):void	org.apache.lucene.facet.search.TestDrillSideways.SimpleFacetResult	1/2	
+Move Method	org.apache.lucene.facet.taxonomy.writercache.cl2o.CompactLabelToOrdinal::addLabel(org.apache.lucene.facet.taxonomy.writercache.cl2o.CompactLabelToOrdinal.HashArray, org.apache.lucene.facet.taxonomy.CategoryPath, int, int):boolean	org.apache.lucene.facet.taxonomy.writercache.cl2o.CompactLabelToOrdinal.HashArray	1/2	
+Move Method	org.apache.lucene.index.AutomatonTermsEnum::backtrack(int):int	org.apache.lucene.util.BytesRef	1/2	
+Move Method	org.apache.lucene.index.DocumentsWriterFlushControl::assertActiveDeleteQueue(org.apache.lucene.index.DocumentsWriterDeleteQueue):boolean	org.apache.lucene.index.DocumentsWriterPerThreadPool	1/2	
+Move Method	org.apache.lucene.index.IndexSplitter::listSegments():void	org.apache.lucene.index.SegmentInfos	1/2	
+Move Method	org.apache.lucene.index.IndexSplitter::getIdx(java.lang.String):int	org.apache.lucene.index.SegmentInfos	1/2	
+Move Method	org.apache.lucene.index.IndexSplitter::getInfo(java.lang.String):org.apache.lucene.index.SegmentInfoPerCommit	org.apache.lucene.index.SegmentInfos	1/2	
+Move Method	org.apache.lucene.index.LogMergePolicy::isMerged(org.apache.lucene.index.SegmentInfos, int, java.util.Map<org.apache.lucene.index.SegmentInfoPerCommit,java.lang.Boolean>):boolean	org.apache.lucene.index.SegmentInfos	1/2	
+Move Method	org.apache.lucene.index.TestCompoundFile::assertSameStreams(java.lang.String, org.apache.lucene.store.IndexInput, org.apache.lucene.store.IndexInput, long):void	org.apache.lucene.store.IndexInput	1/2	
+Move Method	org.apache.lucene.index.TestDirectoryReaderReopen::refreshReader(org.apache.lucene.index.DirectoryReader, org.apache.lucene.index.TestDirectoryReaderReopen.TestReopen, int, boolean):org.apache.lucene.index.TestDirectoryReaderReopen.ReaderCouple	org.apache.lucene.index.TestDirectoryReaderReopen.TestReopen	1/2	
+Move Method	org.apache.lucene.index.TestDocTermOrds::verify(org.apache.lucene.index.AtomicReader, int[][], org.apache.lucene.util.BytesRef[], org.apache.lucene.util.BytesRef):void	org.apache.lucene.index.AtomicReader	1/2	
+Move Method	org.apache.lucene.index.TestDuelingCodecs::assertFieldStatistics(org.apache.lucene.index.Fields, org.apache.lucene.index.Fields):void	org.apache.lucene.index.Fields	1/2	
+Move Method	org.apache.lucene.index.TestDuelingCodecs::assertTermStats(org.apache.lucene.index.TermsEnum, org.apache.lucene.index.TermsEnum):void	org.apache.lucene.index.TermsEnum	1/2	
+Move Method	org.apache.lucene.index.TestDuelingCodecs::assertTermVectors(org.apache.lucene.index.IndexReader, org.apache.lucene.index.IndexReader):void	org.apache.lucene.index.IndexReader	1/2	
+Move Method	org.apache.lucene.index.TestDuelingCodecs::assertDeletedDocs(org.apache.lucene.index.IndexReader, org.apache.lucene.index.IndexReader):void	org.apache.lucene.index.IndexReader	1/2	
+Move Method	org.apache.lucene.index.TestIndexWriterMergePolicy::assertSetters(org.apache.lucene.index.LogMergePolicy):void	org.apache.lucene.index.LogMergePolicy	1/2	
+Move Method	org.apache.lucene.index.TestIndexWriterWithThreads::_testSingleThreadFailure(org.apache.lucene.store.MockDirectoryWrapper.Failure):void	org.apache.lucene.store.MockDirectoryWrapper.Failure	1/2	
+Move Method	org.apache.lucene.index.TestReaderClosed::test():void	org.apache.lucene.index.IndexReader	1/2	
+Move Method	org.apache.lucene.index.TieredMergePolicy::size(org.apache.lucene.index.SegmentInfoPerCommit):long	org.apache.lucene.index.SegmentInfoPerCommit	1/2	
+Move Method	org.apache.lucene.misc.TermStatsQueue::fill(java.lang.String, org.apache.lucene.index.TermsEnum):void	org.apache.lucene.index.TermsEnum	1/2	
+Move Method	org.apache.lucene.queries.BooleanFilterTest::tstFilterCard(java.lang.String, int, org.apache.lucene.search.Filter):void	org.apache.lucene.index.AtomicReader	1/2	
+Move Method	org.apache.lucene.queries.function.FunctionValues::bytesVal(int, org.apache.lucene.util.BytesRef):boolean	org.apache.lucene.util.BytesRef	1/2	
+Move Method	org.apache.lucene.queryparser.ext.TestExtensions::testAddGetExtension():void	org.apache.lucene.queryparser.ext.Extensions	1/2	
+Move Method	org.apache.lucene.search.TestBooleanQueryVisitSubscorers.MyCollector::fillLeaves(org.apache.lucene.search.Scorer, java.util.Set<org.apache.lucene.search.Scorer>):void	org.apache.lucene.search.Scorer	1/2	
+Move Method	org.apache.lucene.search.highlight.WeightedSpanTermExtractor::extractWeightedTerms(java.util.Map<java.lang.String,org.apache.lucene.search.highlight.WeightedSpanTerm>, org.apache.lucene.search.Query):void	org.apache.lucene.search.Query	1/2	
+Move Method	org.apache.lucene.search.payloads.PayloadSpanUtil::getPayloads(java.util.Collection<byte[]>, org.apache.lucene.search.spans.SpanQuery):void	org.apache.lucene.search.spans.SpanQuery	1/2	
+Move Method	org.apache.lucene.search.payloads.TestPayloadTermQuery::test():void	org.apache.lucene.search.IndexSearcher	1/2	
+Move Method	org.apache.lucene.search.payloads.TestPayloadTermQuery::testMultipleMatchesPerDoc():void	org.apache.lucene.search.IndexSearcher	1/2	
+Move Method	org.apache.lucene.search.spell.TestSpellChecker::checkCommonSuggestions(org.apache.lucene.index.IndexReader):void	org.apache.lucene.search.spell.SpellChecker	1/2	
+Move Method	org.apache.lucene.search.spell.TestSpellChecker::checkLevenshteinSuggestions(org.apache.lucene.index.IndexReader):void	org.apache.lucene.search.spell.SpellChecker	1/2	
+Move Method	org.apache.lucene.spatial.SpatialTestCase::executeQuery(org.apache.lucene.search.Query, int):org.apache.lucene.spatial.SpatialTestCase.SearchResults	org.apache.lucene.search.IndexSearcher	1/2	
+Move Method	org.apache.lucene.util.automaton.BasicOperations.PointTransitionSet::add(org.apache.lucene.util.automaton.Transition):void	org.apache.lucene.util.automaton.Transition	1/2	
+Move Method	org.apache.lucene.util.automaton.TestUTF32ToUTF8::matches(org.apache.lucene.util.automaton.ByteRunAutomaton, int):boolean	org.apache.lucene.util.BytesRef	1/2	
+Move Method	org.apache.lucene.search.TestSearchAfter::assertQuery(org.apache.lucene.search.Query, org.apache.lucene.search.Filter, org.apache.lucene.search.Sort):void	org.apache.lucene.search.IndexSearcher	2/7	
+Move Method	org.apache.lucene.analysis.TokenStreamToAutomaton::toAutomaton(org.apache.lucene.analysis.TokenStream):org.apache.lucene.util.automaton.Automaton	org.apache.lucene.analysis.TokenStream	2/5	
+Move Method	org.apache.lucene.codecs.diskdv.DiskDocValuesProducer::getVariableBinary(org.apache.lucene.index.FieldInfo, org.apache.lucene.codecs.diskdv.DiskDocValuesProducer.BinaryEntry):org.apache.lucene.index.BinaryDocValues	org.apache.lucene.codecs.diskdv.DiskDocValuesProducer.BinaryEntry	2/5	
+Move Method	org.apache.lucene.codecs.BlockTreeTermsReader.FieldReader.IntersectEnum::getState():int	org.apache.lucene.codecs.BlockTreeTermsReader.FieldReader.IntersectEnum.Frame	2/4	
+Move Method	org.apache.lucene.codecs.BlockTreeTermsReader.FieldReader.IntersectEnum::copyTerm():void	org.apache.lucene.codecs.BlockTreeTermsReader.FieldReader.IntersectEnum.Frame	2/4	
+Move Method	org.apache.lucene.codecs.compressing.CompressingTermVectorsReader::readPositions(int, int, org.apache.lucene.util.packed.PackedInts.Reader, org.apache.lucene.util.packed.PackedInts.Reader, int[], int, int, int[][]):int[][]	org.apache.lucene.util.packed.BlockPackedReaderIterator	2/4	
+Move Method	org.apache.lucene.codecs.lucene3x.TermInfosWriter::writeTerm(int, org.apache.lucene.util.BytesRef):void	org.apache.lucene.util.BytesRef	2/4	
+Move Method	org.apache.lucene.codecs.lucene41.ForUtil::skipBlock(org.apache.lucene.store.IndexInput):void	org.apache.lucene.store.IndexInput	2/4	
+Move Method	org.apache.lucene.facet.search.FacetsAccumulator::createFacetResultsHandler(org.apache.lucene.facet.search.FacetRequest):org.apache.lucene.facet.search.FacetResultsHandler	org.apache.lucene.facet.search.FacetRequest	2/4	
+Move Method	org.apache.lucene.search.ConstantScoreQuery.ConstantScorer::wrapCollector(org.apache.lucene.search.Collector):org.apache.lucene.search.Collector	org.apache.lucene.search.Collector	2/4	
+Move Method	org.apache.lucene.search.FuzzyTermsEnum.AutomatonFuzzyTermsEnum::matches(org.apache.lucene.util.BytesRef, int):boolean	org.apache.lucene.util.BytesRef	2/4	
+Move Method	org.apache.lucene.search.spans.TestSpans::testSpanScorerZeroSloppyFreq():void	org.apache.lucene.search.IndexSearcher	2/4	
+Move Method	org.apache.lucene.analysis.hunspell.HunspellStemmer::uniqueStems(char[], int):java.util.List<org.apache.lucene.analysis.hunspell.HunspellStemmer.Stem>	org.apache.lucene.analysis.hunspell.HunspellDictionary	2/3	
+Move Method	org.apache.lucene.analysis.ja.dict.BinaryDictionary::lookupWordIds(int, org.apache.lucene.util.IntsRef):void	org.apache.lucene.util.IntsRef	2/3	
+Move Method	org.apache.lucene.analysis.morfologik.MorfologikFilter::toLowercase(java.lang.CharSequence):java.lang.CharSequence	org.apache.lucene.util.CharsRef	2/3	
+Move Method	org.apache.lucene.codecs.lucene3x.TermInfosReaderIndex::compareTo(org.apache.lucene.index.Term, int, org.apache.lucene.util.PagedBytes.PagedBytesDataInput, org.apache.lucene.util.BytesRef):int	org.apache.lucene.util.BytesRef	2/3	
+Move Method	org.apache.lucene.codecs.lucene3x.TestTermInfosReaderIndex::testCompareTo():void	org.apache.lucene.codecs.lucene3x.TermInfosReaderIndex	2/3	
+Move Method	org.apache.lucene.codecs.lucene40.Lucene40DocValuesWriter::addVarStraightBytesField(org.apache.lucene.index.FieldInfo, org.apache.lucene.store.IndexOutput, org.apache.lucene.store.IndexOutput, java.lang.Iterable<org.apache.lucene.util.BytesRef>):void	org.apache.lucene.store.IndexOutput	2/3	
+Move Method	org.apache.lucene.codecs.lucene40.Lucene40DocValuesWriter::addVarDerefBytesField(org.apache.lucene.index.FieldInfo, org.apache.lucene.store.IndexOutput, org.apache.lucene.store.IndexOutput, java.lang.Iterable<org.apache.lucene.util.BytesRef>):void	org.apache.lucene.store.IndexOutput	2/3	
+Move Method	org.apache.lucene.codecs.lucene40.Lucene40DocValuesWriter::addVarSortedBytesField(org.apache.lucene.index.FieldInfo, org.apache.lucene.store.IndexOutput, org.apache.lucene.store.IndexOutput, java.lang.Iterable<org.apache.lucene.util.BytesRef>, java.lang.Iterable<java.lang.Number>):void	org.apache.lucene.store.IndexOutput	2/3	
+Move Method	org.apache.lucene.codecs.lucene40.Lucene40StoredFieldsWriter::addRawDocuments(org.apache.lucene.store.IndexInput, int[], int):void	org.apache.lucene.store.IndexOutput	2/3	
+Move Method	org.apache.lucene.codecs.memory.DirectPostingsFormat.DirectField::compare(int, org.apache.lucene.util.BytesRef):int	org.apache.lucene.util.BytesRef	2/3	
+Move Method	org.apache.lucene.codecs.simpletext.SimpleTextStoredFieldsReader::parseIntAt(int):int	org.apache.lucene.util.BytesRef	2/3	
+Move Method	org.apache.lucene.codecs.simpletext.SimpleTextTermVectorsReader::parseIntAt(int):int	org.apache.lucene.util.BytesRef	2/3	
+Move Method	org.apache.lucene.facet.sampling.Sampler::trimResult(org.apache.lucene.facet.search.FacetResult):org.apache.lucene.facet.search.FacetResult	org.apache.lucene.facet.search.FacetResult	2/3	
+Move Method	org.apache.lucene.index.TestSegmentReader::testDocument():void	org.apache.lucene.index.SegmentReader	2/3	
+Move Method	org.apache.lucene.sandbox.queries.FuzzyLikeThisQueryTest::testClosestEditDistanceMatchComesFirst():void	org.apache.lucene.search.IndexSearcher	2/3	
+Move Method	org.apache.lucene.sandbox.queries.FuzzyLikeThisQueryTest::testMultiWord():void	org.apache.lucene.search.IndexSearcher	2/3	
+Move Method	org.apache.lucene.sandbox.queries.FuzzyLikeThisQueryTest::testNonExistingField():void	org.apache.lucene.search.IndexSearcher	2/3	
+Move Method	org.apache.lucene.sandbox.queries.FuzzyLikeThisQueryTest::testNoMatchFirstWordBug():void	org.apache.lucene.search.IndexSearcher	2/3	
+Move Method	org.apache.lucene.search.TestBooleanMinShouldMatch::testRewriteCoord1():void	org.apache.lucene.search.IndexSearcher	2/3	
+Move Method	org.apache.lucene.search.TestBooleanMinShouldMatch::testRewriteNegate():void	org.apache.lucene.search.IndexSearcher	2/3	
+Move Method	org.apache.lucene.search.join.ToParentBlockJoinCollector::copyGroups(org.apache.lucene.search.join.ToParentBlockJoinCollector.OneGroup):void	org.apache.lucene.search.join.ToParentBlockJoinCollector.OneGroup	2/3	
+Move Method	org.apache.lucene.search.postingshighlight.PostingsHighlighter::highlightDoc(java.lang.String, org.apache.lucene.index.Term[], int, java.text.BreakIterator, int, org.apache.lucene.index.TermsEnum, org.apache.lucene.index.DocsAndPositionsEnum[], int):org.apache.lucene.search.postingshighlight.Passage[]	org.apache.lucene.search.postingshighlight.PassageScorer	2/3	
+Move Method	org.apache.lucene.search.similarities.TFIDFSimilarity::explainScore(int, org.apache.lucene.search.Explanation, org.apache.lucene.search.similarities.TFIDFSimilarity.IDFStats, org.apache.lucene.index.NumericDocValues):org.apache.lucene.search.Explanation	org.apache.lucene.search.similarities.TFIDFSimilarity.IDFStats	2/3	
+Move Method	org.apache.lucene.search.suggest.fst.FSTCompletion::collect(java.util.List<org.apache.lucene.search.suggest.fst.FSTCompletion.Completion>, int, int, org.apache.lucene.util.BytesRef, org.apache.lucene.util.fst.FST.Arc<java.lang.Object>):boolean	org.apache.lucene.util.BytesRef	2/3	
+Move Method	org.apache.lucene.search.vectorhighlight.FieldQuery::checkOverlap(java.util.Collection<org.apache.lucene.search.Query>, org.apache.lucene.search.PhraseQuery, org.apache.lucene.search.PhraseQuery):void	org.apache.lucene.search.PhraseQuery	2/3	
+Move Method	org.apache.lucene.util.automaton.AutomatonTestUtil.RandomAcceptedStrings::getRandomAcceptedString(java.util.Random):int[]	org.apache.lucene.util.automaton.Automaton	2/3	
+Move Method	org.apache.lucene.util.automaton.CompiledAutomaton::addTail(int, org.apache.lucene.util.BytesRef, int, int):org.apache.lucene.util.BytesRef	org.apache.lucene.util.BytesRef	2/3	
+
