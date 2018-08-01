@@ -28,6 +28,7 @@ public class CAMCJMethod extends DeclarationMetric {
 				
 				if(isMovedMethod(iMethod, method)) {
 					movedMethod = iMethod;
+					//removeFakeParameter(params, parameter);
 					this.method = params;
 				} else {
 					if (zeroParams) {

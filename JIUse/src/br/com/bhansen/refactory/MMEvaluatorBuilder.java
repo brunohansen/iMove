@@ -2,11 +2,9 @@ package br.com.bhansen.refactory;
 
 import org.eclipse.jdt.core.IType;
 
-import br.com.bhansen.metric.CompositeMetric;
+import br.com.bhansen.metric.CheckMoves;
 import br.com.bhansen.metric.Metric;
 import br.com.bhansen.metric.MetricFactory;
-import br.com.bhansen.metric.camc.CAMCJMethod;
-import br.com.bhansen.metric.iuc.IUCClass;
 import br.com.bhansen.metric.iuc.IUCJMethod;
 
 public class MMEvaluatorBuilder {
@@ -27,9 +25,9 @@ public class MMEvaluatorBuilder {
 	}
 	
 	private MoveMethodEvaluator createEvaluate() throws Exception {
-		//return new EvaluateMoveMethod1(this.classFrom, this.method, this.classTo, createFactory(), 0);
-		return new EvaluateOr(this.classFrom, this.method, this.classTo, createFactory(), createFactory2());
-		//return new EvaluateMoveMethod3(classFrom, method, classTo, createFactory(), 0);
+		//return new EvaluateSumClass(this.classFrom, this.method, this.classTo, createFactory(), 0);
+		//return new EvaluateOr(this.classFrom, this.method, this.classTo, createFactory(), createFactory2());
+		return new EvaluateSumMethod(classFrom, method, classTo, createFactory(), 0);
 	}
 	
 	private MetricFactory createFactory() throws Exception {
@@ -37,7 +35,7 @@ public class MMEvaluatorBuilder {
 			
 			@Override
 			public Metric create(IType type, String method, String parameter) throws Exception {
-				//return new CheckMoves();
+				return new CheckMoves();
 				//return new NHDMNClass(type, true, method, parameter);
 				//return new IUCClass(type, method); 
 				//return new CAMCClass(type, true, method, parameter);
@@ -47,7 +45,7 @@ public class MMEvaluatorBuilder {
 				
 				//return new IUCJMethod(type, method);
 				//return new CAMCMethod(type, true, method, parameter);
-				return new CAMCJMethod(type, true, method, parameter);
+				//return new CAMCJMethod(type, true, method, parameter);
 			}
 		}; 
 	}
