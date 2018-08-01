@@ -95,7 +95,7 @@ public class BatchFileMovement extends InputMovement {
 						outSet.add(str);
 						System.out.println(str);
 					} catch (Exception e) {
-						String str = movement + "\t Error: " + e.getMessage();
+						String str = "E\t" + movement + "\t Error: " + e.getMessage();
 						outSet.add(str);
 						System.out.println(str);
 					}
