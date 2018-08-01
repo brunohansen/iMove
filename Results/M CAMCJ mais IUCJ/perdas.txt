@@ -56,3 +56,6 @@ BOTH	-0.215580-100	br.com.linkcom.sgm.controller.process.DistribuicaoPesosIndica
 BOTH 	-0.440585-100	br.com.linkcom.sgm.service.AnomaliaService::findUsuariosQualidadeEnvolvidosAnomalia(Anomalia):List<Usuario>	br.com.linkcom.sgm.service.UsuarioService
 BOTH 	-0.550298-100	br.com.linkcom.sgm.service.LancamentoValorRealService::configuraEdicaoAcompanhamentos(LancamentoValorRealFiltro, Boolean, Boolean, Boolean):void	br.com.linkcom.sgm.service.AcompanhamentoIndicadorService
 BOTH 	-0.597321-100	br.com.linkcom.sgm.service.LancamentoValorRealService::configuraExibicaoAcompanhamentos(LancamentoValorRealFiltro):void	br.com.linkcom.sgm.service.AcompanhamentoIndicadorService
+
+
+org.apache.tools.ant.taskdefs.optional.javah.SunJavah::setupJavahCommand(org.apache.tools.ant.taskdefs.optional.Javah):org.apache.tools.ant.types.Commandline	org.apache.tools.ant.taskdefs.optional.Javah	 Error: null
