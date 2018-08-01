@@ -1,0 +1,10 @@
+com.ibm.as400.access.FTPThread::readObject(java.io.ObjectInputStream):void	com.ibm.as400.access.FTP
+com.ibm.as400.vaccess.SQLMetaDataTableModel::readObject(java.io.ObjectInputStream):void	com.ibm.as400.vaccess.SQLMetaDataTablePane
+com.ibm.as400.data.ProgramCallDocument::endInternal(int):void	com.ibm.as400.resource.RJob
+com.ibm.as400.util.html.HTMLVector::readObject(java.io.ObjectInputStream):void	com.ibm.as400.util.html.HTMLTree
+com.ibm.as400.resource.IntegerValueMap::start():void	com.ibm.as400.access.NetServer
+com.ibm.as400.vaccess.SQLResultSetTableModel::readObject(java.io.ObjectInputStream):void	com.ibm.as400.vaccess.SQLResultSetTablePane
+com.ibm.as400.access.SpooledFile::applyChanges():void	com.ibm.as400.vaccess.OutputPropertiesPane
+com.ibm.as400.access.AS400JDBCDataSource::applyChanges():boolean	com.ibm.as400.vaccess.AS400JDBCDataSourcePane
+com.ibm.as400.access.Permission::removeRow(int):void	com.ibm.as400.vaccess.PermissionTableModelQSYS
+com.ibm.as400.access.AS400ZonedDecimal::addToHashtable(PcmlDocNode):void	com.ibm.as400.data.PcmlDocument
