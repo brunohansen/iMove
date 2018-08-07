@@ -1,9 +1,9 @@
-method net.myvietnam.mvncore.interceptor.InterceptorService::prepareAdd(GenericRequest, GenericResponse):void need move com.mvnforum.user.PostWebHandler
-method com.mvnforum.common.ForumIconLegend::drawForum2(CategoryTreeEvent):String need move com.mvnforum.categorytree.impl.CategoryTreeListenerImpl
-method com.mvnforum.db.WatchBean::appendWatch2(WatchBean):void need move com.mvnforum.user.WatchMail
-method com.mvnforum.db.PostBean::deletePost(GenericRequest, PostBean):void need move com.mvnforum.user.PostWebHandler
-method com.mvnforum.db.CategoryBean::drawForum2(CategoryTreeEvent):String need move com.mvnforum.categorytree.impl.ListForums
-method com.mvnsoft.mvnad.db.ZoneBean::getNextBanner():BannerBean need move com.mvnsoft.mvnad.delivery.ZoneManager
-method com.mvnforum.db.MemberBean::createWatchMessageBean(Collection):void need move com.mvnforum.user.WatchMail
-method com.mvnforum.admin.GroupXML::setGroupClass(String):void need move com.mvnforum.admin.importexport.mvnforum.MvnForumGroupXML
-method com.mvnforum.categorytree.CategoryTreeEvent::drawForum2(CategoryTreeEvent):String need move com.mvnforum.categorytree.impl.RSSImpl
+net.myvietnam.mvncore.interceptor.InterceptorService::prepareAdd(GenericRequest, GenericResponse):void	com.mvnforum.user.PostWebHandler
+com.mvnforum.common.ForumIconLegend::drawForum2(CategoryTreeEvent):String	com.mvnforum.categorytree.impl.CategoryTreeListenerImpl
+com.mvnforum.db.WatchBean::appendWatch2(WatchBean):void	com.mvnforum.user.WatchMail
+com.mvnforum.db.PostBean::deletePost(GenericRequest, PostBean):void	com.mvnforum.user.PostWebHandler
+com.mvnforum.db.CategoryBean::drawForum2(CategoryTreeEvent):String	com.mvnforum.categorytree.impl.ListForums
+com.mvnsoft.mvnad.db.ZoneBean::getNextBanner():BannerBean	com.mvnsoft.mvnad.delivery.ZoneManager
+com.mvnforum.db.MemberBean::createWatchMessageBean(Collection):void	com.mvnforum.user.WatchMail
+com.mvnforum.admin.GroupXML::setGroupClass(String):void	com.mvnforum.admin.importexport.mvnforum.MvnForumGroupXML
+com.mvnforum.categorytree.CategoryTreeEvent::drawForum2(CategoryTreeEvent):String	com.mvnforum.categorytree.impl.RSSImpl
