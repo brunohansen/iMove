@@ -1,41 +1,40 @@
-Refactoring Type	Source Entity	Target Class	Source/Target accessed members	Rate it!
-Move Method	org.jgroups.blocks.DistributedTree::clearTable(org.jgroups.demos.DistributedTreeDemo):void	org.jgroups.demos.DistributedTreeDemo	0/3	
-Move Method	org.jgroups.blocks.ConnectionTableNIO.ReadHandler::readHeader(org.jgroups.blocks.ConnectionTableNIO.Connection):int	org.jgroups.blocks.ConnectionTableNIO.Connection	0/2	
-Move Method	org.jgroups.blocks.ConnectionTableNIO.ReadHandler::readBody(org.jgroups.blocks.ConnectionTableNIO.Connection):int	org.jgroups.blocks.ConnectionTableNIO.Connection	0/2	
-Move Method	org.jgroups.blocks.RpcDispatcher::setNumMessages(org.jgroups.tests.UnicastTestRpc):void	org.jgroups.tests.UnicastTestRpc	0/2	
-Move Method	org.jgroups.blocks.MuxRpcDispatcherTest::verifyResponse(java.util.Map<org.jgroups.Address,org.jgroups.util.Rsp>, org.jgroups.Channel, java.lang.Object):void	org.jgroups.Channel	0/1	
-Move Method	org.jgroups.tests.TimeSchedulerTest::printExecutionTimes(org.jgroups.tests.TimeSchedulerTest.RepeatingTask):java.lang.String	org.jgroups.tests.TimeSchedulerTest.RepeatingTask	0/1	
-Move Method	org.jgroups.util.TimeScheduler::getNumberOfReceiverScopes(org.jgroups.protocols.SCOPE):int	org.jgroups.protocols.SCOPE	0/1	
-Move Method	org.jgroups.tests.UnicastLoopbackTest::testUnicastMsgsWithLoopback():void	org.jgroups.JChannel	1/4	
-Move Method	org.jgroups.tests.ConnectionTableUnitTest::testSendEmptyData():void	org.jgroups.blocks.BasicConnectionTable	1/3	
-Move Method	org.jgroups.tests.ConnectionTableUnitTest::testSendToSelf():void	org.jgroups.blocks.BasicConnectionTable	1/3	
-Move Method	org.jgroups.tests.DigestTest::testAddDigest():void	org.jgroups.util.MutableDigest	1/3	
-Move Method	org.jgroups.tests.RspListTest::testAddRsp():void	org.jgroups.util.RspList	1/3	
-Move Method	org.jgroups.tests.perf.IPerf::sendResult(java.lang.Object, org.jgroups.tests.perf.IPerf.Entry):void	org.jgroups.tests.perf.IPerf.Entry	1/3	
-Move Method	org.jgroups.protocols.pbcast.GMS::determineCoordinator():org.jgroups.Address	org.jgroups.Membership	1/2	
-Move Method	org.jgroups.protocols.pbcast.GMS::wouldBeNewCoordinator(org.jgroups.Address):boolean	org.jgroups.Membership	1/2	
-Move Method	org.jgroups.protocols.pbcast.GMS::makeView(java.util.Vector<org.jgroups.Address>):org.jgroups.View	org.jgroups.ViewId	1/2	
-Move Method	org.jgroups.tests.ConnectionTableUnitTest::testSendNullData():void	org.jgroups.blocks.BasicConnectionTable	1/2	
-Move Method	org.jgroups.tests.DigestTest::testConstructor():void	org.jgroups.util.MutableDigest	1/2	
-Move Method	org.jgroups.tests.MessageDispatcherUnitTest::testNullMessageToSelf():void	org.jgroups.blocks.MessageDispatcher	1/2	
-Move Method	org.jgroups.tests.MessageDispatcherUnitTest::sendMessage(int):void	org.jgroups.blocks.MessageDispatcher	1/2	
-Move Method	org.jgroups.tests.ReconciliationTest::flush(org.jgroups.Channel, long):void	org.jgroups.Channel	1/2	
-Move Method	org.jgroups.tests.RspListTest::testClear():void	org.jgroups.util.RspList	1/2	
-Move Method	org.jgroups.tests.RspListTest::testKeySet2():void	org.jgroups.util.RspList	1/2	
-Move Method	org.jgroups.tests.RspListTest::testElementAt():void	org.jgroups.util.RspList	1/2	
-Move Method	org.jgroups.tests.UnicastTest::getReceiver():org.jgroups.Address	org.jgroups.JChannel	1/2	
-Move Method	org.jgroups.tests.UnicastTestRpc::getReceiver():org.jgroups.Address	org.jgroups.JChannel	1/2	
-Move Method	org.jgroups.tests.UnicastTestSimple::getReceiver():org.jgroups.Address	org.jgroups.JChannel	1/2	
-Move Method	org.jgroups.protocols.pbcast.Merger::sendMergeView(java.util.Collection<org.jgroups.Address>, org.jgroups.protocols.pbcast.MergeData, org.jgroups.util.MergeId):void	org.jgroups.protocols.pbcast.GMS	2/6	
-Move Method	org.jgroups.tests.UNICAST_OOB_Test::sendMessages(boolean):void	org.jgroups.JChannel	2/6	
-Move Method	org.jgroups.tests.DigestTest::testResetAt():void	org.jgroups.util.MutableDigest	2/4	
-Move Method	org.jgroups.tests.LastMessageDroppedTest::testLastMessageDropped():void	org.jgroups.JChannel	2/4	
-Move Method	org.jgroups.blocks.GroupRequestTest.MyTransport::sendResponses():void	org.jgroups.blocks.GroupRequest	2/3	
-Move Method	org.jgroups.blocks.RpcDispatcherSerializationTest::testMarshaller():void	org.jgroups.blocks.RpcDispatcher	2/3	
-Move Method	org.jgroups.protocols.pbcast.Merger::sendMergeResponse(org.jgroups.Address, org.jgroups.View, org.jgroups.util.Digest, org.jgroups.util.MergeId):void	org.jgroups.stack.Protocol	2/3	
-Move Method	org.jgroups.protocols.pbcast.Merger::sendMergeCancelledMessage(java.util.Collection<org.jgroups.Address>, org.jgroups.util.MergeId):void	org.jgroups.stack.Protocol	2/3	
-Move Method	org.jgroups.protocols.pbcast.Merger::fixDigests():void	org.jgroups.stack.Protocol	2/3	
-Move Method	org.jgroups.tests.ConnectionTableUnitTest::testSendToOther():void	org.jgroups.blocks.BasicConnectionTable	2/3	
-Move Method	org.jgroups.tests.ConnectionTableUnitTest::testSendToOtherGetResponse():void	org.jgroups.blocks.BasicConnectionTable	2/3	
-Move Method	org.jgroups.tests.DigestTest::testMutableCopy():void	org.jgroups.util.MutableDigest	2/3	
-Move Method	org.jgroups.tests.RspListTest::testAddRsp2():void	org.jgroups.util.RspList	2/3	
+org.jgroups.blocks.DistributedTree::clearTable(org.jgroups.demos.DistributedTreeDemo):void	org.jgroups.demos.DistributedTreeDemo
+org.jgroups.blocks.ConnectionTableNIO.ReadHandler::readHeader(org.jgroups.blocks.ConnectionTableNIO.Connection):int	org.jgroups.blocks.ConnectionTableNIO.Connection
+org.jgroups.blocks.ConnectionTableNIO.ReadHandler::readBody(org.jgroups.blocks.ConnectionTableNIO.Connection):int	org.jgroups.blocks.ConnectionTableNIO.Connection
+org.jgroups.blocks.RpcDispatcher::setNumMessages(org.jgroups.tests.UnicastTestRpc):void	org.jgroups.tests.UnicastTestRpc
+org.jgroups.blocks.MuxRpcDispatcherTest::verifyResponse(java.util.Map<org.jgroups.Address,org.jgroups.util.Rsp>, org.jgroups.Channel, java.lang.Object):void	org.jgroups.Channel
+org.jgroups.tests.TimeSchedulerTest::printExecutionTimes(org.jgroups.tests.TimeSchedulerTest.RepeatingTask):java.lang.String	org.jgroups.tests.TimeSchedulerTest.RepeatingTask
+org.jgroups.util.TimeScheduler::getNumberOfReceiverScopes(org.jgroups.protocols.SCOPE):int	org.jgroups.protocols.SCOPE
+org.jgroups.tests.UnicastLoopbackTest::testUnicastMsgsWithLoopback():void	org.jgroups.JChannel
+org.jgroups.tests.ConnectionTableUnitTest::testSendEmptyData():void	org.jgroups.blocks.BasicConnectionTable
+org.jgroups.tests.ConnectionTableUnitTest::testSendToSelf():void	org.jgroups.blocks.BasicConnectionTable
+org.jgroups.tests.DigestTest::testAddDigest():void	org.jgroups.util.MutableDigest
+org.jgroups.tests.RspListTest::testAddRsp():void	org.jgroups.util.RspList
+org.jgroups.tests.perf.IPerf::sendResult(java.lang.Object, org.jgroups.tests.perf.IPerf.Entry):void	org.jgroups.tests.perf.IPerf.Entry
+org.jgroups.protocols.pbcast.GMS::determineCoordinator():org.jgroups.Address	org.jgroups.Membership
+org.jgroups.protocols.pbcast.GMS::wouldBeNewCoordinator(org.jgroups.Address):boolean	org.jgroups.Membership
+org.jgroups.protocols.pbcast.GMS::makeView(java.util.Vector<org.jgroups.Address>):org.jgroups.View	org.jgroups.ViewId
+org.jgroups.tests.ConnectionTableUnitTest::testSendNullData():void	org.jgroups.blocks.BasicConnectionTable
+org.jgroups.tests.DigestTest::testConstructor():void	org.jgroups.util.MutableDigest
+org.jgroups.tests.MessageDispatcherUnitTest::testNullMessageToSelf():void	org.jgroups.blocks.MessageDispatcher
+org.jgroups.tests.MessageDispatcherUnitTest::sendMessage(int):void	org.jgroups.blocks.MessageDispatcher
+org.jgroups.tests.ReconciliationTest::flush(org.jgroups.Channel, long):void	org.jgroups.Channel
+org.jgroups.tests.RspListTest::testClear():void	org.jgroups.util.RspList
+org.jgroups.tests.RspListTest::testKeySet2():void	org.jgroups.util.RspList
+org.jgroups.tests.RspListTest::testElementAt():void	org.jgroups.util.RspList
+org.jgroups.tests.UnicastTest::getReceiver():org.jgroups.Address	org.jgroups.JChannel
+org.jgroups.tests.UnicastTestRpc::getReceiver():org.jgroups.Address	org.jgroups.JChannel
+org.jgroups.tests.UnicastTestSimple::getReceiver():org.jgroups.Address	org.jgroups.JChannel
+org.jgroups.protocols.pbcast.Merger::sendMergeView(java.util.Collection<org.jgroups.Address>, org.jgroups.protocols.pbcast.MergeData, org.jgroups.util.MergeId):void	org.jgroups.protocols.pbcast.GMS
+org.jgroups.tests.UNICAST_OOB_Test::sendMessages(boolean):void	org.jgroups.JChannel
+org.jgroups.tests.DigestTest::testResetAt():void	org.jgroups.util.MutableDigest
+org.jgroups.tests.LastMessageDroppedTest::testLastMessageDropped():void	org.jgroups.JChannel
+org.jgroups.blocks.GroupRequestTest.MyTransport::sendResponses():void	org.jgroups.blocks.GroupRequest
+org.jgroups.blocks.RpcDispatcherSerializationTest::testMarshaller():void	org.jgroups.blocks.RpcDispatcher
+org.jgroups.protocols.pbcast.Merger::sendMergeResponse(org.jgroups.Address, org.jgroups.View, org.jgroups.util.Digest, org.jgroups.util.MergeId):void	org.jgroups.stack.Protocol
+org.jgroups.protocols.pbcast.Merger::sendMergeCancelledMessage(java.util.Collection<org.jgroups.Address>, org.jgroups.util.MergeId):void	org.jgroups.stack.Protocol
+org.jgroups.protocols.pbcast.Merger::fixDigests():void	org.jgroups.stack.Protocol
+org.jgroups.tests.ConnectionTableUnitTest::testSendToOther():void	org.jgroups.blocks.BasicConnectionTable
+org.jgroups.tests.ConnectionTableUnitTest::testSendToOtherGetResponse():void	org.jgroups.blocks.BasicConnectionTable
+org.jgroups.tests.DigestTest::testMutableCopy():void	org.jgroups.util.MutableDigest
+org.jgroups.tests.RspListTest::testAddRsp2():void	org.jgroups.util.RspList
