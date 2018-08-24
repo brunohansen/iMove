@@ -1,0 +1,14 @@
+-0.354386-111	com.mvnforum.admin.importexport.jive.JiveThreadXML::updateAddedPost(PostXML, String, Timestamp):void	com.mvnforum.admin.ThreadXML
+-0.443798-111	net.myvietnam.mvncore.configuration.ConfigurationFactory.ConfigurationBuilder::createAdditionalConfiguration(Collection):Configuration	net.myvietnam.mvncore.configuration.CompositeConfiguration
+-0.656609-111	com.mvnforum.admin.importexport.mvnforum.MvnForumMemberXML::addGlobalWatch(String, String, String, String, String, String):void	com.mvnforum.admin.MemberXML
+-0.656609-111	com.mvnforum.admin.importexport.mvnforum.MvnForumMemberXML::addMessageFolder(String, String, String, String):void	com.mvnforum.admin.MemberXML
+-0.909615-111	com.mvnsoft.mvnad.admin.ConfigForumWebHandler::prepare(GenericRequest):void	com.mvnforum.auth.OnlineUserManager
+-1.039286-111	com.mvnforum.admin.CategoryWebHandler::prepareAdd(GenericRequest, GenericResponse):void	com.mvnforum.service.CategoryService
+-1.087143-111	com.mvnforum.user.ThreadWebHandler::deleteSuccessForRender(GenericRequest, GenericResponse):void	com.mvnforum.service.CategoryService
+0.036797-000	com.mvnforum.common.ForumIconLegend::drawForum2(CategoryTreeListenerImpl, CategoryTreeEvent):String	com.mvnforum.categorytree.impl.CategoryTreeListenerImpl
+0.281916-000	com.mvnforum.db.PostBean::deletePost(GenericRequest, PostWebHandler):void	com.mvnforum.user.PostWebHandler
+0.315527-000	com.mvnforum.db.CategoryBean::drawForum2(ListForums, CategoryTreeEvent):String	com.mvnforum.categorytree.impl.ListForums
+0.409824-000	com.mvnforum.db.MemberBean::createWatchMessageBean(WatchMail, Collection):void	com.mvnforum.user.WatchMail
+0.555556-000	com.mvnforum.db.WatchBean::appendWatch2(WatchMail):void	com.mvnforum.user.WatchMail
+0.556250-000	com.mvnforum.categorytree.CategoryTreeEvent::drawForum2(RSSImpl):String	com.mvnforum.categorytree.impl.RSSImpl
+1.410714-000	net.myvietnam.mvncore.interceptor.InterceptorService::prepareAdd(PostWebHandler, GenericRequest, GenericResponse):void	com.mvnforum.user.PostWebHandler
