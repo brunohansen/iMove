@@ -2,7 +2,7 @@ package br.com.bhansen.refactory;
 
 import org.eclipse.jdt.core.IType;
 
-import br.com.bhansen.metric.CheckMoves;
+import br.com.bhansen.metric.CompositeMetric;
 import br.com.bhansen.metric.Metric;
 import br.com.bhansen.metric.MetricFactory;
 import br.com.bhansen.metric.iuc.IUCJMethod;
@@ -35,13 +35,13 @@ public class MMEvaluatorBuilder {
 			
 			@Override
 			public Metric create(IType type, String method, String parameter) throws Exception {
-				return new CheckMoves();
+				//return new CheckMoves();
 				//return new NHDMNClass(type, true, method, parameter);
 				//return new IUCClass(type, method); 
 				//return new CAMCClass(type, true, method, parameter);
 				//return new NHDMClass(type, true, method, parameter);
 				//return new CAMCJClass(type, true, method, parameter);
-				//return new CompositeMetric(type, method, parameter);
+				return new CompositeMetric(type, method, parameter);
 				
 				//return new IUCJMethod(type, method);
 				//return new CAMCMethod(type, true, method, parameter);
