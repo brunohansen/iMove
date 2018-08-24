@@ -39,11 +39,7 @@ public class FileMerger {
 					
 					if(! contains) {
 						outSet.add(lineOne);
-						System.out.println("D " + lineOne);
-					} else {
-						System.out.println("E " + lineOne);
-					}
-
+					} 
 				}
 			});
 						
@@ -64,8 +60,48 @@ public class FileMerger {
 
 	}
 	
-	public static void main(String[] args) throws IOException {
-		merge(Paths.get("/home/hansen/git/jiuse/Results/M CAMCJ mais IUCJ/jtopen-7.8-small/jtopen-7.8-small_jdeodorant_iuc_gold.txt"), Paths.get("/home/hansen/git/jiuse/Results/M CAMCJ mais IUCJ/jtopen-7.8-large/jtopen-7.8-large_jdeodorant_iuc_gold.txt"));
+	public static void mergeDir(String dir) throws Exception {
+		Path inDir = Paths.get(dir);
+		
+		if(! Files.isDirectory(inDir)) {
+			throw new Exception("Directory not found!" + inDir);
+		}
+		
+		Files.list(inDir).forEach(
+				new Consumer<Path>() {
+
+					@Override
+					public void accept(Path softDir) {
+						try {
+							if(! Files.isDirectory(softDir)) return;
+							
+							Files.list(softDir).forEach(
+									new Consumer<Path>() {
+
+										@Override
+										public void accept(Path moveFile) {
+											try {
+												if(Files.isDirectory(moveFile)) return;
+												
+												if(moveFile.toString().contains("small")) {
+													merge(moveFile, Paths.get(moveFile.toString().replace("small", "large")));
+												}
+											} catch (Exception e) {
+												throw new RuntimeException(e);
+											}											
+										}
+									}
+							);
+						} catch (Exception e) {
+							throw new RuntimeException(e);
+						}						
+					}
+				}
+		);
+	}
+	
+	public static void main(String[] args) throws Exception {
+		mergeDir("/home/hansen/git/jiuse/Results/M CAMCJ mais IUCJ");
 	}
 
 }
