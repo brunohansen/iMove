@@ -1,0 +1,20 @@
+-0.014945-100	org.jfree.data.DefaultKeyedValues2D::removeRow(DefaultCategoryDataset, int):void	org.jfree.data.category.DefaultCategoryDataset
+-0.020889-100	org.jfree.chart.plot.Plot::setPlot(Axis):void	org.jfree.chart.axis.Axis
+-0.043846-100	org.jfree.chart.ClipPath::setDomainCrosshairLockedOnData(ContourPlot, boolean):void	org.jfree.chart.plot.ContourPlot
+-0.091111-100	org.jfree.chart.ChartPanel::setFollowDataInSubranges(JThermometer, boolean):void	org.jfree.chart.plot.JThermometer
+-1.379129-100	org.jfree.chart.event.TitleChangeEvent::notifyListeners(Title):void	org.jfree.chart.title.Title
+0.036329-000	org.jfree.chart.title.Title::drawTitle(JFreeChart, Graphics2D, Rectangle2D, boolean):EntityCollection	org.jfree.chart.JFreeChart
+0.063046-000	org.jfree.chart.axis.AxisLocation::draw2(PaintScaleLegend, Graphics2D, Rectangle2D, Object):Object	org.jfree.chart.title.PaintScaleLegend
+0.088598-000	org.jfree.data.general.DatasetGroup::setDatasetGroup(Plot):void	org.jfree.chart.plot.Plot
+0.105799-000	org.jfree.chart.block.RectangleConstraint::arrange2(Graphics2D, LegendGraphic):Size2D	org.jfree.chart.title.LegendGraphic
+0.141925-000	org.jfree.chart.LegendItem::createLegendItemBlock(LegendTitle):Block	org.jfree.chart.title.LegendTitle
+0.142857-000	org.jfree.chart.JFreeChart::testReplaceDataset(StackedBarChartTests):void	org.jfree.chart.junit.StackedBarChartTests
+0.177798-000	org.jfree.chart.PaintMap::setIgnoreNullValues(PiePlot, boolean):void	org.jfree.chart.plot.PiePlot
+0.253821-000	org.jfree.chart.plot.PlotState::draw2(Graphics2D, Rectangle2D, Point2D, DialPlot, PlotRenderingInfo):void	org.jfree.chart.plot.dial.DialPlot
+0.253933-000	org.jfree.chart.axis.ValueAxis::setRangeGridlinesVisible(FastScatterPlot, boolean):void	org.jfree.chart.plot.FastScatterPlot
+0.274911-000	org.jfree.chart.event.PlotChangeEvent::plotChanged(CombinedDomainXYPlot):void	org.jfree.chart.plot.CombinedDomainXYPlot
+0.318960-000	org.jfree.data.RangeType::autoAdjustRange2(NumberAxis):void	org.jfree.chart.axis.NumberAxis
+0.412711-000	org.jfree.chart.LegendItemCollection::drawDomainMarkers(XYPlot, Graphics2D, Rectangle2D, int, Layer):void	org.jfree.chart.plot.XYPlot
+0.445387-000	org.jfree.chart.ChartRenderingInfo::doSaveAs(ChartComposite):void	org.jfree.experimental.chart.swt.ChartComposite
+0.465170-000	org.jfree.data.Range::getItemCount(DynamicTimeSeriesCollection, int):int	org.jfree.data.time.DynamicTimeSeriesCollection
+0.819218-000	org.jfree.chart.renderer.xy.XYItemRendererState::drawPrimaryLine2(XYSmoothLineAndShapeRenderer, Graphics2D, XYPlot, XYDataset, int, int, int, ValueAxis, ValueAxis, Rectangle2D):void	org.jfree.experimental.chart.renderer.xy.XYSmoothLineAndShapeRenderer

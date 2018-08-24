@@ -1,0 +1,20 @@
+-0.170833-100	org.apache.tapestry5.services.BeanBlockContribution::toBlock(BeanBlockOverrideSourceImpl):Block	org.apache.tapestry5.internal.services.BeanBlockOverrideSourceImpl
+0.000000-000	org.apache.tapestry5.corelib.components.BeanEditor::onActionFromClear(BeanEditorBeanEditContext):void	org.apache.tapestry5.integration.app1.pages.BeanEditorBeanEditContext
+0.000000-000	org.apache.tapestry5.integration.app1.data.SubscribeData::onActionFromClear(FormFragmentDemo):void	org.apache.tapestry5.integration.app1.pages.FormFragmentDemo
+0.000000-000	org.example.testapp.services.SpringStatusProvider::onSuccess(Start):void	org.example.testapp.pages.Start
+0.027311-000	org.apache.tapestry5.internal.services.ComponentResultProcessorWrapper::fireValidateFormEvent(EventContext, Form):void	org.apache.tapestry5.corelib.components.Form
+0.035714-000	org.apache.tapestry5.corelib.mixins.RenderDisabled::defaultModel(Select):SelectModel	org.apache.tapestry5.corelib.components.Select
+0.036297-000	org.apache.tapestry5.internal.services.ComponentRequestHandlerTerminator::buildComponentRequestHandler(List<ComponentRequestFilter>, TapestryModule, Logger):ComponentRequestHandler	org.apache.tapestry5.services.TapestryModule
+0.125000-000	org.apache.tapestry5.corelib.components.Checkbox::getTextFieldTranslator(PropertyEditBlocks):FieldTranslator	org.apache.tapestry5.corelib.pages.PropertyEditBlocks
+0.166667-000	org.apache.tapestry5.corelib.internal.ComponentActionSink::afterRender(FormFragment, MarkupWriter):void	org.apache.tapestry5.corelib.components.FormFragment
+0.181985-000	org.apache.tapestry5.ioc.internal.services.RegistryShutdownHubImpl::findServiceIdsForInterface(RegistryImpl, Class):List<String>	org.apache.tapestry5.ioc.internal.RegistryImpl
+0.416667-000	org.apache.tapestry5.corelib.data.BlankOption::setBlankOption(Select, String):void	org.apache.tapestry5.corelib.components.Select
+0.500000-000	org.apache.tapestry5.integration.app1.data.Track::getTracks(GridSetDemo):Set<Track>	org.apache.tapestry5.integration.app1.pages.GridSetDemo
+0.500000-000	org.apache.tapestry5.services.ComponentEventRequestParameters::handle2(AjaxComponentEventRequestHandler):void	org.apache.tapestry5.internal.services.AjaxComponentEventRequestHandler
+0.507519-000	org.apache.tapestry5.FieldFocusPriority::autofocus2(RenderSupportImpl, String):void	org.apache.tapestry5.internal.services.RenderSupportImpl
+0.527647-000	org.apache.tapestry5.ioc.internal.util.IdAllocator::copyMethod2(InternalClassTransformationImpl, TransformMethodSignature, int, String):void	org.apache.tapestry5.internal.services.InternalClassTransformationImpl
+0.529618-000	org.apache.tapestry5.ioc.services.MethodSignature::failIfNotFrozen(InternalClassTransformationImpl):void	org.apache.tapestry5.internal.services.InternalClassTransformationImpl
+0.559259-000	org.apache.tapestry5.corelib.data.InsertPosition::addFormInjector2(String, Link, ClientBehaviorSupportImpl, String):void	org.apache.tapestry5.internal.services.ClientBehaviorSupportImpl
+0.566667-000	org.apache.tapestry5.internal.parser.AttributeToken::newAttributeElement2(ComponentResources, PageElementFactoryImpl):RenderCommand	org.apache.tapestry5.internal.services.PageElementFactoryImpl
+0.617407-000	org.apache.tapestry5.services.PageRenderRequestParameters::createPageRenderLink2(ComponentEventLinkEncoderImpl):Link	org.apache.tapestry5.internal.services.ComponentEventLinkEncoderImpl
+0.934673-000	org.apache.tapestry5.internal.parser.ExtensionPointToken::queueOverrideTokensForExtensionPoint(PageLoaderImpl, Stack<TemplateToken>, List<ComponentTemplate>):void	org.apache.tapestry5.internal.pageload.PageLoaderImpl
