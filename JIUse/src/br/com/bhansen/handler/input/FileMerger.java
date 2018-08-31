@@ -8,10 +8,12 @@ import java.util.Arrays;
 import java.util.Set;
 import java.util.TreeSet;
 import java.util.function.Consumer;
+import java.util.function.Predicate;
+import java.util.function.Supplier;
 import java.util.stream.Stream;
 
 public class FileMerger {
-	
+		
 	// cat jtopen-7.8-small/jtopen-7.8-small_jdeodorant_iuc_gold.txt jtopen-7.8-large/jtopen-7.8-large_jdeodorant_iuc_gold.txt | sort | uniq | wc -l
 	public static Set<String> merge(Path fileOne, Path fileTwo) throws IOException {
 		Stream<String> streamOne = Files.lines(fileOne);
@@ -20,12 +22,28 @@ public class FileMerger {
 		Set<String> outSet = new TreeSet<>();
 
 		try {
-			Object[] arrayOne = streamOne.toArray();
-			Object[] arrayTwo = streamTwo.toArray();
+			Object[] arrayObj = streamTwo.toArray();			
+			String[] arrayTwo = Arrays.copyOf(arrayObj, arrayObj.length, String[].class);
+			Supplier<Stream<String>> linesTwo = () -> Stream.of(arrayTwo);
 			
 			System.out.println("\nMerge: " + fileOne + " + " + fileTwo + "\n");
 			
-			outSet.addAll(Arrays.asList(Arrays.copyOf(arrayOne, arrayOne.length, String[].class)));
+			streamOne.forEach(new Consumer<String>() {
+				@Override
+				public void accept(String lineOne) {
+
+					boolean contains = linesTwo.get().anyMatch(new Predicate<String>() {
+						public boolean test(String lineTwo) {
+							return lineOne.replaceFirst("(\\d|\\.|-)+-", "").equals(lineTwo.replaceFirst("(\\d|\\.|-)+-", ""));
+						}
+					});
+					
+					if(! contains) {
+						outSet.add(lineOne);
+					} 
+				}
+			});
+						
 			outSet.addAll(Arrays.asList(Arrays.copyOf(arrayTwo, arrayTwo.length, String[].class)));
 			
 			Path out = Paths.get(fileOne.toString().replace("small", "all"));
@@ -42,7 +60,7 @@ public class FileMerger {
 		return outSet;
 
 	}
-	
+			
 	public static void mergeDir(String dir) throws Exception {
 		Path inDir = Paths.get(dir);
 		
@@ -83,6 +101,9 @@ public class FileMerger {
 		);
 	}
 	
+//	cat ant-1.8.2-all_jdeodorant_iuc_gold.txt | cut -f2,3 | sort | uniq -d
+//	org.apache.tools.ant.taskdefs.optional.ejb.GenericDeploymentTool::getJarBaseName(String):String	org.apache.tools.ant.taskdefs.optional.ejb.EjbJar.Config
+//	org.apache.tools.ant.taskdefs.optional.ejb.GenericDeploymentTool::getVendorDDPrefix(String, String):String	org.apache.tools.ant.taskdefs.optional.ejb.EjbJar.Config
 	public static void main(String[] args) throws Exception {
 		//merge(Paths.get("/home/hansen/git/jiuse/Results/M CAMCJ mais IUCJ/ant-1.8.2/ant-1.8.2-small_jmove_iuc_gold.txt"), Paths.get("/home/hansen/git/jiuse/Results/M CAMCJ mais IUCJ/ant-1.8.2/ant-1.8.2-large_jmove_iuc_gold.txt"));
 		mergeDir("/home/hansen/git/jiuse/Results/M CAMCJ");
