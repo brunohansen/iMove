@@ -8,8 +8,6 @@ import java.util.Arrays;
 import java.util.Set;
 import java.util.TreeSet;
 import java.util.function.Consumer;
-import java.util.function.Predicate;
-import java.util.function.Supplier;
 import java.util.stream.Stream;
 
 public class FileMerger {
@@ -22,27 +20,12 @@ public class FileMerger {
 		Set<String> outSet = new TreeSet<>();
 
 		try {
+			Object[] arrayOne = streamOne.toArray();
 			Object[] arrayTwo = streamTwo.toArray();
-			Supplier<Stream<Object>> linesTwo = () -> Stream.of(arrayTwo);
 			
 			System.out.println("\nMerge: " + fileOne + " + " + fileTwo + "\n");
 			
-			streamOne.forEach(new Consumer<String>() {
-				@Override
-				public void accept(String lineOne) {
-
-					boolean contains = linesTwo.get().anyMatch(new Predicate<Object>() {
-						public boolean test(Object lineTwo) {
-							return lineOne.equals(lineTwo);
-						}
-					});
-					
-					if(! contains) {
-						outSet.add(lineOne);
-					} 
-				}
-			});
-						
+			outSet.addAll(Arrays.asList(Arrays.copyOf(arrayOne, arrayOne.length, String[].class)));
 			outSet.addAll(Arrays.asList(Arrays.copyOf(arrayTwo, arrayTwo.length, String[].class)));
 			
 			Path out = Paths.get(fileOne.toString().replace("small", "all"));
@@ -101,7 +84,8 @@ public class FileMerger {
 	}
 	
 	public static void main(String[] args) throws Exception {
-		mergeDir("/home/hansen/git/jiuse/Results/M CAMCJ mais IUCJ");
+		//mergeDir("/home/hansen/git/jiuse/Results/M CAMCJ mais IUCJ");
+		merge(Paths.get("/home/hansen/git/jiuse/Results/M CAMCJ mais IUCJ/ant-1.8.2/ant-1.8.2-small_jmove_iuc_gold.txt"), Paths.get("/home/hansen/git/jiuse/Results/M CAMCJ mais IUCJ/ant-1.8.2/ant-1.8.2-large_jmove_iuc_gold.txt"));
 	}
 
 }
