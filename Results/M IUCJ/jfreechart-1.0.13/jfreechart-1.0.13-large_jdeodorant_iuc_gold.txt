@@ -1,0 +1,32 @@
+-0.065957-111	org.jfree.chart.renderer.category.AbstractCategoryItemRenderer::updateCrosshairValues(CategoryCrosshairState, Comparable, Comparable, double, int, double, double, PlotOrientation):void	org.jfree.chart.plot.CategoryCrosshairState
+-0.115973-111	org.jfree.chart.renderer.category.BarRenderer::calculateSeriesWidth(double, CategoryAxis, int, int):double	org.jfree.chart.axis.CategoryAxis
+-0.116411-111	org.jfree.chart.renderer.xy.AbstractXYItemRenderer::updateCrosshairValues(CrosshairState, double, double, int, int, double, double, PlotOrientation):void	org.jfree.chart.plot.CrosshairState
+-0.140180-111	org.jfree.chart.renderer.category.AbstractCategoryItemRenderer::drawRangeLine(Graphics2D, CategoryPlot, ValueAxis, Rectangle2D, double, Paint, Stroke):void	org.jfree.chart.plot.CategoryPlot
+-0.141621-111	org.jfree.chart.renderer.xy.AbstractXYItemRenderer::drawDomainLine(Graphics2D, XYPlot, ValueAxis, Rectangle2D, double, Paint, Stroke):void	org.jfree.chart.axis.ValueAxis
+-0.158169-111	org.jfree.chart.renderer.category.AbstractCategoryItemRenderer::drawRangeLine(Graphics2D, CategoryPlot, ValueAxis, Rectangle2D, double, Paint, Stroke):void	org.jfree.chart.axis.ValueAxis
+-0.169646-111	org.jfree.data.general.WaferMapDataset::getUniqueValues():Set	org.jfree.data.DefaultKeyedValues2D
+-0.171872-111	org.jfree.chart.plot.PolarPlot::refreshAngleTicks():List	org.jfree.chart.axis.TickUnit
+-0.188469-111	org.jfree.chart.renderer.category.CategoryStepRenderer::drawLine(Graphics2D, State, PlotOrientation, double, double, double, double):void	org.jfree.chart.renderer.category.CategoryStepRenderer.State
+-0.201652-111	org.jfree.chart.renderer.xy.XYLineAndShapeRenderer::drawPrimaryLineAsPath(XYItemRendererState, Graphics2D, XYPlot, XYDataset, int, int, int, ValueAxis, ValueAxis, Rectangle2D):void	org.jfree.chart.plot.XYPlot
+-0.225895-111	org.jfree.data.general.WaferMapDataset::getChipValue(Comparable, Comparable):Number	org.jfree.data.DefaultKeyedValues2D
+-0.238129-111	org.jfree.chart.StandardChartTheme::applyToAbstractRenderer(AbstractRenderer):void	org.jfree.chart.renderer.AbstractRenderer
+-0.238129-111	org.jfree.chart.StandardChartTheme::applyToSpiderWebPlot(SpiderWebPlot):void	org.jfree.chart.plot.SpiderWebPlot
+-0.312332-111	org.jfree.chart.renderer.xy.XYLineAndShapeRenderer::drawPrimaryLine(XYItemRendererState, Graphics2D, XYPlot, XYDataset, int, int, int, ValueAxis, ValueAxis, Rectangle2D):void	org.jfree.chart.plot.XYPlot
+-0.336743-111	org.jfree.chart.plot.ContourPlot::drawDomainMarker(Graphics2D, ContourPlot, ValueAxis, Marker, Rectangle2D):void	org.jfree.chart.axis.ValueAxis
+-0.336743-111	org.jfree.chart.plot.ContourPlot::drawRangeMarker(Graphics2D, ContourPlot, ValueAxis, Marker, Rectangle2D):void	org.jfree.chart.axis.ValueAxis
+-0.341409-111	org.jfree.chart.plot.XYPlot::drawDomainCrosshair(Graphics2D, Rectangle2D, PlotOrientation, double, ValueAxis, Stroke, Paint):void	org.jfree.chart.axis.ValueAxis
+-0.341409-111	org.jfree.chart.plot.XYPlot::drawRangeCrosshair(Graphics2D, Rectangle2D, PlotOrientation, double, ValueAxis, Stroke, Paint):void	org.jfree.chart.axis.ValueAxis
+-0.350653-111	org.jfree.chart.plot.CategoryPlot::drawRangeCrosshair(Graphics2D, Rectangle2D, PlotOrientation, double, ValueAxis, Stroke, Paint):void	org.jfree.chart.axis.ValueAxis
+-0.357387-111	org.jfree.chart.axis.ModuloAxis::mapValueToFixedRange(double):double	org.jfree.data.Range
+-0.384751-111	org.jfree.chart.axis.DateAxis::calculateDateForPosition(RegularTimePeriod, DateTickMarkPosition):Date	org.jfree.data.time.RegularTimePeriod
+-0.412639-111	org.jfree.chart.renderer.category.LevelRenderer::calculateSeriesWidth(double, CategoryAxis, int, int):double	org.jfree.chart.axis.CategoryAxis
+-0.543889-111	org.jfree.chart.block.CenterArrangement::arrangeFN(BlockContainer, Graphics2D, RectangleConstraint):Size2D	org.jfree.chart.block.RectangleConstraint
+-0.564935-111	org.jfree.chart.block.CenterArrangement::arrangeFN(BlockContainer, Graphics2D, RectangleConstraint):Size2D	org.jfree.chart.block.BlockContainer
+-0.564935-111	org.jfree.chart.block.CenterArrangement::arrangeNN(BlockContainer, Graphics2D):Size2D	org.jfree.chart.block.BlockContainer
+0.000000-001	org.jfree.chart.renderer.xy.XYItemRendererState::drawPrimaryLine2(XYSmoothLineAndShapeRenderer, Graphics2D, XYPlot, XYDataset, int, int, int, ValueAxis, ValueAxis, Rectangle2D):void	org.jfree.chart.plot.XYPlot
+0.174603-011	org.jfree.chart.renderer.OutlierListCollection::updateOutlierList(OutlierList, Outlier):boolean	org.jfree.chart.renderer.OutlierList
+0.202628-011	org.jfree.chart.renderer.xy.AbstractXYItemRenderer::drawDomainLine(Graphics2D, XYPlot, ValueAxis, Rectangle2D, double, Paint, Stroke):void	org.jfree.chart.plot.XYPlot
+0.220488-000	org.jfree.chart.plot.PlotState::draw2(Graphics2D, Rectangle2D, Point2D, DialPlot, PlotRenderingInfo):void	org.jfree.chart.plot.dial.DialPlot
+0.266328-000	org.jfree.data.RangeType::autoAdjustRange2(NumberAxis):void	org.jfree.chart.axis.NumberAxis
+0.360897-000	org.jfree.chart.LegendItemCollection::drawDomainMarkers(XYPlot, Graphics2D, Rectangle2D, int, Layer):void	org.jfree.chart.plot.XYPlot
+0.429762-000	org.jfree.chart.ChartRenderingInfo::doSaveAs(ChartComposite):void	org.jfree.experimental.chart.swt.ChartComposite

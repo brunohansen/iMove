@@ -1,0 +1,10 @@
+-0.039639-100	org.jfree.chart.plot.Plot::setPlot(Axis):void	org.jfree.chart.axis.Axis
+-0.379129-100	org.jfree.chart.event.TitleChangeEvent::notifyListeners(Title):void	org.jfree.chart.title.Title
+0.000000-000	org.jfree.chart.ChartPanel::setFollowDataInSubranges(JThermometer, boolean):void	org.jfree.chart.plot.JThermometer
+0.000000-000	org.jfree.chart.ClipPath::setDomainCrosshairLockedOnData(ContourPlot, boolean):void	org.jfree.chart.plot.ContourPlot
+0.013437-000	org.jfree.data.DefaultKeyedValues2D::removeRow(DefaultCategoryDataset, int):void	org.jfree.data.category.DefaultCategoryDataset
+0.073446-000	org.jfree.data.general.DatasetGroup::setDatasetGroup(Plot):void	org.jfree.chart.plot.Plot
+0.168538-000	org.jfree.chart.PaintMap::setIgnoreNullValues(PiePlot, boolean):void	org.jfree.chart.plot.PiePlot
+0.209720-000	org.jfree.chart.axis.ValueAxis::setRangeGridlinesVisible(FastScatterPlot, boolean):void	org.jfree.chart.plot.FastScatterPlot
+0.229581-000	org.jfree.data.Range::getItemCount(DynamicTimeSeriesCollection, int):int	org.jfree.data.time.DynamicTimeSeriesCollection
+0.234911-000	org.jfree.chart.event.PlotChangeEvent::plotChanged(CombinedDomainXYPlot):void	org.jfree.chart.plot.CombinedDomainXYPlot
