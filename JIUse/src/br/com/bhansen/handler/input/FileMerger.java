@@ -84,8 +84,8 @@ public class FileMerger {
 	}
 	
 	public static void main(String[] args) throws Exception {
-		//mergeDir("/home/hansen/git/jiuse/Results/M CAMCJ mais IUCJ");
-		merge(Paths.get("/home/hansen/git/jiuse/Results/M CAMCJ mais IUCJ/ant-1.8.2/ant-1.8.2-small_jmove_iuc_gold.txt"), Paths.get("/home/hansen/git/jiuse/Results/M CAMCJ mais IUCJ/ant-1.8.2/ant-1.8.2-large_jmove_iuc_gold.txt"));
+		//merge(Paths.get("/home/hansen/git/jiuse/Results/M CAMCJ mais IUCJ/ant-1.8.2/ant-1.8.2-small_jmove_iuc_gold.txt"), Paths.get("/home/hansen/git/jiuse/Results/M CAMCJ mais IUCJ/ant-1.8.2/ant-1.8.2-large_jmove_iuc_gold.txt"));
+		mergeDir("/home/hansen/git/jiuse/Results/M CAMCJ");
 	}
 
 }
