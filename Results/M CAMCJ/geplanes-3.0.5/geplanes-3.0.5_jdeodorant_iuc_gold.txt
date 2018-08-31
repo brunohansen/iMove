@@ -185,4 +185,4 @@
 0.263095-000	br.com.linkcom.sgm.service.DistribuicaoPesosIndicadoresService::obtemListaPerspectivaObjetivoEstrategicoIniciativaIndicador(UnidadeGerencial, boolean, boolean, boolean):List<PerspectivaMapaEstrategico>	br.com.linkcom.sgm.service.PerspectivaMapaEstrategicoService
 0.294048-011	br.com.linkcom.sgm.service.DistribuicaoPesosIndicadoresService::usuarioPodeAlterar(Boolean, Boolean, PlanoGestao):Boolean	br.com.linkcom.sgm.service.PlanoGestaoService
 0.987179-000	br.com.linkcom.sgm.service.IndicadorService::defineDatas(ApresentacaoResultadosDTO):void	br.com.linkcom.sgm.beans.DTO.ApresentacaoResultadosDTO
-﻿br.com.linkcom.sgm.beans.ObjetivoMapaEstrategico::getDescricao():String11	br.com.linkcom.sgm.beans.ObjetivoEstrategico	 Error: Class ﻿br.com.linkcom.sgm.beans.ObjetivoMapaEstrategico not found!
+E11	﻿br.com.linkcom.sgm.beans.ObjetivoMapaEstrategico::getDescricao():String	br.com.linkcom.sgm.beans.ObjetivoEstrategico	 Error: Class ﻿br.com.linkcom.sgm.beans.ObjetivoMapaEstrategico not found!

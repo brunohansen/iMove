@@ -1,0 +1,10 @@
+-0.113889-100	org.junit.runner.Request::sortRequest(MaxCore):Request	org.junit.experimental.max.MaxCore
+0.040000-000	org.junit.runner.notification.RunNotifier::addFailure(ClassRoadie, Throwable):void	org.junit.internal.runners.ClassRoadie
+0.041667-000	org.junit.runner.Runner::run2(JUnit4TestAdapter, TestResult):void	junit.framework.JUnit4TestAdapter
+0.071429-000	org.junit.runner.notification.RunListener::removeListener(JUnitCore):void	org.junit.runner.JUnitCore
+0.098016-000	org.junit.runners.model.TestClass::getAllArguments(Assignments, boolean):Object[]	org.junit.experimental.theories.internal.Assignments
+0.098016-000	org.junit.runners.model.TestClass::getArgumentStrings(Assignments, boolean):Object[]	org.junit.experimental.theories.internal.Assignments
+0.112698-000	org.junit.runners.model.RunnerBuilder::runnerForClass2(AnnotatedBuilder, Class<?>):Runner	org.junit.internal.builders.AnnotatedBuilder
+0.176471-000	junit.framework.AssertionFailedError::addFailure2(Test, ResultPrinter):void	junit.textui.ResultPrinter
+0.272727-000	org.junit.runner.manipulation.Filter::filterWith2(Request):Request	org.junit.runner.Request
+0.500000-000	org.junit.runner.Description::apply(Statement, Timeout):Statement	org.junit.rules.Timeout

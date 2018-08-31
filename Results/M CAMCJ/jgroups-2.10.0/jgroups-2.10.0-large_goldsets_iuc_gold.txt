@@ -1,0 +1,10 @@
+-0.023769-100	org.jgroups.stack.Protocol::down(NAKACK, Event):Object	org.jgroups.protocols.pbcast.NAKACK
+-0.117113-100	org.jgroups.util.Queue::up(JChannel, Event):Object	org.jgroups.JChannel
+0.000000-000	org.jgroups.stack.NakReceiverWindow::testConcurrentInsertionOfSameSeqno(NakReceiverWindowTest2):void	org.jgroups.tests.NakReceiverWindowTest2
+0.000000-000	org.jgroups.stack.ProtocolStack::testDefaultAssignment(ProtocolConfigurationTest):void	org.jgroups.tests.ProtocolConfigurationTest
+0.031689-000	org.jgroups.JChannel::findParentNode(ReplicatedTree, String, StringHolder, boolean):Node	org.jgroups.blocks.ReplicatedTree
+0.049020-000	org.jgroups.util.BoundedList::determinePingDest(FD_SOCK):Address	org.jgroups.protocols.FD_SOCK
+0.050000-000	org.jgroups.stack.IpAddress::testStreamableAdditionalData(IpAddressTest):void	org.jgroups.tests.IpAddressTest
+0.054590-000	org.jgroups.util.AckCollector::fetchServiceStates(Multiplexer, Address, Set<String>, long):boolean	org.jgroups.mux.Multiplexer
+0.075342-000	org.jgroups.util.Digest::rebroadcastMessages(NAKACK):void	org.jgroups.protocols.pbcast.NAKACK
+0.122222-000	org.jgroups.util.Promise::sendNotification(NotificationBus, Address, Serializable):void	org.jgroups.blocks.NotificationBus
