@@ -4,63 +4,105 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Comparator;
+import java.util.Iterator;
+import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
 import java.util.function.Consumer;
-import java.util.function.Predicate;
-import java.util.function.Supplier;
 import java.util.stream.Stream;
 
 public class FileMerger {
-		
+	
 	// cat jtopen-7.8-small/jtopen-7.8-small_jdeodorant_iuc_gold.txt jtopen-7.8-large/jtopen-7.8-large_jdeodorant_iuc_gold.txt | sort | uniq | wc -l
 	public static Set<String> merge(Path fileOne, Path fileTwo) throws IOException {
 		Stream<String> streamOne = Files.lines(fileOne);
 		Stream<String> streamTwo = Files.lines(fileTwo);
-
-		Set<String> outSet = new TreeSet<>();
+		
+		Set<String> set = new TreeSet<>();
 
 		try {
-			Object[] arrayObj = streamTwo.toArray();			
-			String[] arrayTwo = Arrays.copyOf(arrayObj, arrayObj.length, String[].class);
-			Supplier<Stream<String>> linesTwo = () -> Stream.of(arrayTwo);
+			System.out.println("\nMerge: " + fileOne + " + " + fileTwo);
 			
-			System.out.println("\nMerge: " + fileOne + " + " + fileTwo + "\n");
+			Object[] arrayOne = streamOne.toArray();
+			set.addAll(Arrays.asList(Arrays.copyOf(arrayOne, arrayOne.length, String[].class)));
 			
-			streamOne.forEach(new Consumer<String>() {
-				@Override
-				public void accept(String lineOne) {
+			Object[] arrayTwo = streamTwo.toArray();			
+			set.addAll(Arrays.asList(Arrays.copyOf(arrayTwo, arrayTwo.length, String[].class)));
+			
+			System.out.println("Original: " + (arrayOne.length + arrayTwo.length));
+			System.out.println("Sem duplicatas exatas: " + set.size());
+			
+			List<String> list = new ArrayList<>(set);
+			list.sort(new Comparator<String>() {
 
-					boolean contains = linesTwo.get().anyMatch(new Predicate<String>() {
-						public boolean test(String lineTwo) {
-							return lineOne.replaceFirst("(\\d|\\.|-)+-", "").equals(lineTwo.replaceFirst("(\\d|\\.|-)+-", ""));
-						}
-					});
-					
-					if(! contains) {
-						outSet.add(lineOne);
-					} 
+				@Override
+				public int compare(String s1, String s2) {
+					return s1.replaceFirst("(\\d|\\.|-)+\\t", "").compareTo(s2.replaceFirst("(\\d|\\.|-)+\\t", ""));
 				}
 			});
+			
+			set = new TreeSet<>();
+			
+			Iterator<String> iterator = list.iterator();
+			
+			if(iterator.hasNext()) {
+				String actual = iterator.next();
+				String actualStr = actual.replaceFirst("(\\d|\\.|-)+\\t", "");
+				
+				while (iterator.hasNext()) {
+					String next = iterator.next();
+					String nextStr = next.replaceFirst("(\\d|\\.|-)+\\t", "");
+					
+					if(actualStr.equals(nextStr)) {
+						System.out.println(actual);
+						System.out.println(next);
 						
-			outSet.addAll(Arrays.asList(Arrays.copyOf(arrayTwo, arrayTwo.length, String[].class)));
+						if(actual.replaceFirst("(\\d|\\.|-)+-", "").startsWith("0")) {
+							set.add(actual);
+						} else {
+							set.add(next);
+						}
+						
+						if(iterator.hasNext()) {
+							next = iterator.next();
+							nextStr = next.replaceFirst("(\\d|\\.|-)+\\t", "");
+						} else {
+							actual = null;
+							break;
+						}
+					} else {
+						set.add(actual);
+					}
+					
+					actual = next;
+					actualStr = nextStr;
+				}
+				
+				if(actual != null) {
+					set.add(actual);
+				}
+			}
+			
+			System.out.println("Sem movimentacoes duplicadas: " + set.size());
 			
 			Path out = Paths.get(fileOne.toString().replace("small", "all"));
 			
 			System.out.println("\nMerge finished.\n");
 
-			Files.write(out, outSet);
+			Files.write(out, set);
 			
 		} finally {
 			streamOne.close();
 			streamTwo.close();
 		}
 
-		return outSet;
+		return set;
 
 	}
-			
+				
 	public static void mergeDir(String dir) throws Exception {
 		Path inDir = Paths.get(dir);
 		
@@ -106,7 +148,7 @@ public class FileMerger {
 //	org.apache.tools.ant.taskdefs.optional.ejb.GenericDeploymentTool::getVendorDDPrefix(String, String):String	org.apache.tools.ant.taskdefs.optional.ejb.EjbJar.Config
 	public static void main(String[] args) throws Exception {
 		//merge(Paths.get("/home/hansen/git/jiuse/Results/M CAMCJ mais IUCJ/ant-1.8.2/ant-1.8.2-small_jmove_iuc_gold.txt"), Paths.get("/home/hansen/git/jiuse/Results/M CAMCJ mais IUCJ/ant-1.8.2/ant-1.8.2-large_jmove_iuc_gold.txt"));
-		mergeDir("/home/hansen/git/jiuse/Results/M CAMCJ");
+		mergeDir("C:\\Users\\bruno\\git\\jiuse\\Results\\M CAMCJ mais IUCJ");
 	}
 
 }
