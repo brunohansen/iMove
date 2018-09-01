@@ -16,8 +16,11 @@ import java.util.stream.Stream;
 
 public class FileMerger {
 	
+	private static final String OR = "0";
+	private static final String AND = "1";
+	
 	// cat jtopen-7.8-small/jtopen-7.8-small_jdeodorant_iuc_gold.txt jtopen-7.8-large/jtopen-7.8-large_jdeodorant_iuc_gold.txt | sort | uniq | wc -l
-	public static Set<String> merge(Path fileOne, Path fileTwo) throws IOException {
+	public static Set<String> merge(Path fileOne, Path fileTwo, String operator) throws IOException {
 		Stream<String> streamOne = Files.lines(fileOne);
 		Stream<String> streamTwo = Files.lines(fileTwo);
 		
@@ -60,7 +63,7 @@ public class FileMerger {
 						System.out.println(actual);
 						System.out.println(next);
 						
-						if(actual.replaceFirst("(\\d|\\.|-)+-", "").startsWith("0")) {
+						if(actual.replaceFirst("(\\d|\\.|-)+-", "").startsWith(operator)) {
 							set.add(actual);
 						} else {
 							set.add(next);
@@ -127,7 +130,7 @@ public class FileMerger {
 												if(Files.isDirectory(moveFile)) return;
 												
 												if(moveFile.toString().contains("small")) {
-													merge(moveFile, Paths.get(moveFile.toString().replace("small", "large")));
+													merge(moveFile, Paths.get(moveFile.toString().replace("small", "large")), OR);
 												}
 											} catch (Exception e) {
 												throw new RuntimeException(e);
@@ -148,7 +151,7 @@ public class FileMerger {
 //	org.apache.tools.ant.taskdefs.optional.ejb.GenericDeploymentTool::getVendorDDPrefix(String, String):String	org.apache.tools.ant.taskdefs.optional.ejb.EjbJar.Config
 	public static void main(String[] args) throws Exception {
 		//merge(Paths.get("/home/hansen/git/jiuse/Results/M CAMCJ mais IUCJ/ant-1.8.2/ant-1.8.2-small_jmove_iuc_gold.txt"), Paths.get("/home/hansen/git/jiuse/Results/M CAMCJ mais IUCJ/ant-1.8.2/ant-1.8.2-large_jmove_iuc_gold.txt"));
-		mergeDir("C:\\Users\\bruno\\git\\jiuse\\Results\\M CAMCJ mais IUCJ");
+		mergeDir("C:\\Users\\bruno\\git\\jiuse\\Results\\M IUCJ");
 	}
 
 }
