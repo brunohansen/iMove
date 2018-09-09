@@ -4,7 +4,7 @@ import org.eclipse.jdt.core.IJavaProject;
 import org.eclipse.jdt.core.IType;
 
 import br.com.bhansen.handler.JIUseHandler;
-import br.com.bhansen.refactory.MMEvaluatorBuilder;
+import br.com.bhansen.refactory.MoveMethodEvaluator;
 
 public abstract class InputMovement extends JIUseHandler {
 		
@@ -18,7 +18,7 @@ public abstract class InputMovement extends JIUseHandler {
 		}
 	}
 	
-	protected MMEvaluatorBuilder move(IJavaProject javaProject, String movement) throws Exception {
+	protected MoveMethodEvaluator create(IJavaProject javaProject, String movement, String type, String metric) throws Exception {
 		String [] parts = movement.split("::");
 		
 		IType classFrom = findType(javaProject, parts[0]);
@@ -26,8 +26,10 @@ public abstract class InputMovement extends JIUseHandler {
 		parts = parts[1].split("\t");
 		
 		IType classTo = findType(javaProject, parts[1]);
+		
+		return createEvaluator(classFrom, parts[0], classTo, type, metric);
 						
-		return new MMEvaluatorBuilder(classFrom, parts[0], classTo);
+		//return new MMEvaluatorBuilder(classFrom, parts[0], classTo, evaluator);
 	}
-
+	
 }

@@ -11,11 +11,26 @@
             name="Select to Move"
             categoryId="JIUse.commands.category"
             id="JIUse.commands.selectMove">
+         <commandParameter
+               id="JIUse.type"
+               name="type"
+               optional="false">
+         </commandParameter>
+         <commandParameter
+               id="JIUse.metric"
+               name="metric"
+               optional="false">
+         </commandParameter>
       </command>
       <command
             categoryId="JIUse.commands.category"
             id="JIUse.commands.showClassMetric"
             name="Show Class Metric">
+         <commandParameter
+               id="JIUse.type"
+               name="type"
+               optional="false">
+         </commandParameter>
          <commandParameter
                id="JIUse.metric"
                name="metric"
@@ -27,6 +42,11 @@
             id="JIUse.commands.showMethodMetric"
             name="Show Method Metric">
          <commandParameter
+               id="JIUse.type"
+               name="type"
+               optional="false">
+         </commandParameter>
+         <commandParameter
                id="JIUse.metric"
                name="metric"
                optional="false">
@@ -34,23 +54,48 @@
       </command>
       <command
             categoryId="JIUse.commands.category"
-            id="JIUse.commands.fromTo"
-            name="Input From and To">
-      </command>
-      <command
-            categoryId="JIUse.commands.category"
             id="JIUse.commands.movement"
             name="Input Movement">
+         <commandParameter
+               id="JIUse.type"
+               name="type"
+               optional="false">
+         </commandParameter>
+         <commandParameter
+               id="JIUse.metric"
+               name="metric"
+               optional="false">
+         </commandParameter>
       </command>
       <command
             categoryId="JIUse.commands.category"
             id="JIUse.commands.batchFileMovement"
             name="Batch File Movement">
+         <commandParameter
+               id="JIUse.type"
+               name="type"
+               optional="false">
+         </commandParameter>
+         <commandParameter
+               id="JIUse.metric"
+               name="metric"
+               optional="false">
+         </commandParameter>
       </command>
             <command
             categoryId="JIUse.commands.category"
             id="JIUse.commands.batchFolderMovement"
             name="Batch Folder Movement">
+        <commandParameter
+               id="JIUse.type"
+               name="type"
+               optional="false">
+         </commandParameter>
+         <commandParameter
+               id="JIUse.metric"
+               name="metric"
+               optional="false">
+         </commandParameter>
       </command>
    </extension>
    <extension point="org.eclipse.ui.handlers">
@@ -65,10 +110,6 @@
       <handler
             class="br.com.bhansen.handler.select.ShowMethodMetric"
             commandId="JIUse.commands.showMethodMetric">
-      </handler>
-      <handler
-            commandId="JIUse.commands.fromTo"
-            class="br.com.bhansen.handler.input.FromToMovement">
       </handler>
       <handler
             commandId="JIUse.commands.movement"
@@ -111,6 +152,10 @@
 	                  id="JIUse.menus.showIUCClass"
 	                  label="Show IUC"
 	                  mnemonic="S">
+	            <parameter
+                      name="JIUse.type"
+                      value="class">
+                </parameter>
                 <parameter
                       name="JIUse.metric"
                       value="IUC">
@@ -121,19 +166,13 @@
 	                  id="JIUse.menus.showCAMCClass"
 	                  label="Show CAMC"
 	                  mnemonic="S">
+				<parameter
+                      name="JIUse.type"
+                      value="class">
+                </parameter>
                 <parameter
                       name="JIUse.metric"
                       value="CAMC">
-                </parameter>
-	            </command>
-	           	<command
-	                  commandId="JIUse.commands.showClassMetric"
-	                  id="JIUse.menus.showNHDMClass"
-	                  label="Show NHDM"
-	                  mnemonic="S">
-                <parameter
-                      name="JIUse.metric"
-                      value="NHDM">
                 </parameter>
 	            </command>
              </menu>
@@ -156,6 +195,10 @@
 	                  id="JIUse.menus.showCAMCMethod"
 	                  label="Show CAMC"
 	                  mnemonic="S">
+	            <parameter
+                      name="JIUse.type"
+                      value="method">
+                </parameter>
                 <parameter
                       name="JIUse.metric"
                       value="CAMC">
@@ -172,32 +215,70 @@
 	                  id="JIUse.menus.selectMove"
 	                  label="Select to Move"
 	                  mnemonic="S">
-	            </command>
-	            <command
-	                  commandId="JIUse.commands.fromTo"
-	                  id="JIUse.menus.fromTo"
-	                  label="Input From and To Movement"
-	                  mnemonic="S">
+	            <parameter
+                      name="JIUse.type"
+                      value="method">
+                </parameter>
+                <parameter
+                      name="JIUse.metric"
+                      value="IUC + CAMC">
+                </parameter>
 	            </command>
 	            <command
 	                  commandId="JIUse.commands.movement"
 	                  id="JIUse.menus.movement"
 	                  label="Input Movement"
 	                  mnemonic="S">
+	            <parameter
+                      name="JIUse.type"
+                      value="method">
+                </parameter>
+                <parameter
+                      name="JIUse.metric"
+                      value="IUC + CAMC">
+                </parameter>
 	            </command>
 	            <command
 	                  commandId="JIUse.commands.batchFileMovement"
 	                  id="JIUse.menus.batchFileMovement"
 	                  label="Batch File Movement"
 	                  mnemonic="S">
+	            <parameter
+                      name="JIUse.type"
+                      value="method">
+                </parameter>
+                <parameter
+                      name="JIUse.metric"
+                      value="IUC + CAMC">
+                </parameter>
 	            </command>
 	           	<command
 	                  commandId="JIUse.commands.batchFolderMovement"
 	                  id="JIUse.menus.batchFolderMovement"
 	                  label="Batch Folder Movement"
 	                  mnemonic="S">
+	            <parameter
+                      name="JIUse.type"
+                      value="method">
+                </parameter>
+                <parameter
+                      name="JIUse.metric"
+                      value="IUC + CAMC">
+                </parameter>
 	            </command>
              </menu>
+				<command
+	                  commandId="JIUse.commands.goldCheck"
+	                  id="JIUse.menus.goldCheck"
+	                  label="Gold Check"
+	                  mnemonic="S">
+	            </command>
+	           	<command
+	                  commandId="JIUse.commands.mergeResults"
+	                  id="JIUse.menus.mergeResults"
+	                  label="Merge Results"
+	                  mnemonic="S">
+	            </command>
          </menu>
       </menuContribution>
    </extension>

@@ -5,10 +5,7 @@ import org.eclipse.jdt.core.IType;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.ui.IWorkbenchWindow;
 
-import br.com.bhansen.metric.AbsMetric;
-import br.com.bhansen.metric.camc.CAMCClass;
-import br.com.bhansen.metric.iuc.IUCClass;
-import br.com.bhansen.metric.nhdm.NHDMClass;
+import br.com.bhansen.metric.Metric;
 
 /**
  * Our sample handler extends AbstractHandler, an IHandler base class.
@@ -18,35 +15,19 @@ import br.com.bhansen.metric.nhdm.NHDMClass;
 public class ShowClassMetric extends SelectionHandler {
 
 	@Override
-	protected Object execute(IWorkbenchWindow window, ExecutionEvent event) throws Exception {
+	protected Object execute(IWorkbenchWindow window, ExecutionEvent event, String type, String metric) throws Exception {
 		
 		IType selection = getType();
-		
-		String metric = event.getParameter("JIUse.metric");
-		
+				
 		MessageDialog.openInformation(window.getShell(), "iMove", "The " + metric + " will be calculated for the openned class!\n\n\n The result dialog will open in a while!");
 		
-		AbsMetric clazz = null;
+		Metric m = createFactory("class", metric).create(selection);
 		
-		switch (metric) {
-			case "IUC":
-				clazz = new IUCClass(selection, null);
-				break;
-			case "CAMC":
-				clazz = new CAMCClass(selection, true, null, null);
-				break;
-			case "NHDM":
-				clazz = new NHDMClass(selection, true, null, null);
-				break;
-			default:
-				throw new Exception("Invalid metric!");
-		}		
-		
-		String result = clazz.toString();
+		String result = m.toString();
 		
 		System.out.println(result);
 				
-		MessageDialog.openInformation(window.getShell(), "iMove " + metric + " - " + clazz.getName(), result);
+		MessageDialog.openInformation(window.getShell(), "iMove " + metric + " - " + m.getName(), result);
 		
 		return null;
 	}

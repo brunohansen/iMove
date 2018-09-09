@@ -18,21 +18,21 @@ import org.eclipse.ui.IWorkbenchWindow;
 public class BatchFolderMovement extends BatchFileMovement {
 	
 	@Override
-	protected Object execute(IWorkbenchWindow window, ExecutionEvent event) throws Exception {
+	protected Object execute(IWorkbenchWindow window, ExecutionEvent event, String type, String metric) throws Exception {
 		
 		InputDialog inDlg = new InputDialog(window.getShell(), "JIUse - Inform the batch directory", "Directory address", "", null);
 		inDlg.open();
 						
 		MessageDialog.openInformation(window.getShell(), "Result", "Result will be saved in file and shown on cosole!");
 		
-		goldCheckDir(inDlg.getValue());
+		goldCheckDir(inDlg.getValue(), type, metric);
 		
 		MessageDialog.openInformation(window.getShell(), "Finish", "Finish!");
 		
 		return null;
 	}
 	
-	public void goldCheckDir(String resultDir) throws Exception {
+	public void goldCheckDir(String resultDir, String type, String metric) throws Exception {
 		//Path inDir = Paths.get("C:\\Users\\bruno\\git\\jiuse\\Results");
 		Path inDir = Paths.get(resultDir);
 		
@@ -52,7 +52,7 @@ public class BatchFolderMovement extends BatchFileMovement {
 					@Override
 					public void accept(Path goldFile) {
 						try {
-							goldCheck(goldFile);
+							goldCheck(goldFile, type, metric);
 						} catch (Exception e) {
 							throw new RuntimeException(e);
 						}
@@ -62,7 +62,7 @@ public class BatchFolderMovement extends BatchFileMovement {
 		);
 	}
 	
-	public void goldCheck(Path goldFile) throws Exception {
+	public void goldCheck(Path goldFile, String type, String metric) throws Exception {
 		Path resultsDir = Paths.get(goldFile.getParent().getParent().toString(), "results");
 		
 		if(! Files.isDirectory(resultsDir)) {
@@ -86,17 +86,17 @@ public class BatchFolderMovement extends BatchFileMovement {
 			}
 		});
 		
-		goldCheck(goldFile, sysFiles, sysDir);
+		goldCheck(goldFile, sysFiles, sysDir, type, metric);
 		
 	}
 	
-	public void goldCheck(Path goldFile, Stream<Path> sysFiles, Path sysDir) throws IOException {
+	public void goldCheck(Path goldFile, Stream<Path> sysFiles, Path sysDir, String type, String metric) throws IOException {
 		Set<String> outSet = new TreeSet<>();
 		
 		sysFiles.forEach(new Consumer<Path>() {
 			public void accept(Path toolFile) {
 				try {
-					iucCheck(toolFile);
+					iucCheck(toolFile, type, metric);
 					outSet.addAll(goldCheck(goldFile, getIUCPath(toolFile)));
 				} catch (IOException e) {
 					throw new RuntimeException(e);

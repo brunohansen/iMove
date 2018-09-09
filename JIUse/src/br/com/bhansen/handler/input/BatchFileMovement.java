@@ -24,12 +24,12 @@ import org.eclipse.jface.dialogs.InputDialog;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.ui.IWorkbenchWindow;
 
-import br.com.bhansen.refactory.MMEvaluatorBuilder;
+import br.com.bhansen.refactory.MoveMethodEvaluator;
 
 public class BatchFileMovement extends InputMovement {
 	
 	@Override
-	protected Object execute(IWorkbenchWindow window, ExecutionEvent event) throws Exception {
+	protected Object execute(IWorkbenchWindow window, ExecutionEvent event, String type, String metric) throws Exception {
 		
 		InputDialog inDlg = new InputDialog(window.getShell(), "JIUse - Inform the batch file", "File address", "", null);
 		inDlg.open();
@@ -38,7 +38,7 @@ public class BatchFileMovement extends InputMovement {
 		
 		MessageDialog.openInformation(window.getShell(), "Result", "Result will be shown on cosole!");
 		
-		iucCheck(inFile);
+		iucCheck(inFile, type, metric);
 		goldCheck(getGoldPath(inFile), getIUCPath(inFile));
 		
 		MessageDialog.openInformation(window.getShell(), "Finish", "Finish!");
@@ -76,7 +76,7 @@ public class BatchFileMovement extends InputMovement {
 		return JavaCore.create(project);
 	}	
 	
-	public void iucCheck(Path inFile) throws IOException {
+	public void iucCheck(Path inFile, String type, String metric) throws IOException {
 		Stream<String> lines = Files.lines(inFile);
 		
 		try {
@@ -90,8 +90,8 @@ public class BatchFileMovement extends InputMovement {
 
 				public void accept(String movement) {
 					try {
-						MMEvaluatorBuilder evaluateMoveMethod = move(project, movement);
-						String str = evaluateMoveMethod.toLineString();
+						MoveMethodEvaluator evaluator = create(project, movement, type, metric);
+						String str = evaluator.toLineString();
 						outSet.add(str);
 						System.out.println(str);
 					} catch (Exception e) {

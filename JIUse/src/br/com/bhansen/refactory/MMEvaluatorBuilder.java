@@ -5,6 +5,7 @@ import org.eclipse.jdt.core.IType;
 import br.com.bhansen.metric.CompositeMetric;
 import br.com.bhansen.metric.Metric;
 import br.com.bhansen.metric.MetricFactory;
+import br.com.bhansen.metric.camc.CAMCJMethod;
 import br.com.bhansen.metric.iuc.IUCJMethod;
 
 public class MMEvaluatorBuilder {
@@ -41,7 +42,7 @@ public class MMEvaluatorBuilder {
 				//return new CAMCClass(type, true, method, parameter);
 				//return new NHDMClass(type, true, method, parameter);
 				//return new CAMCJClass(type, true, method, parameter);
-				return new CompositeMetric(type, method, parameter);
+				return new CompositeMetric(new CAMCJMethod(type, true, method, parameter), new IUCJMethod(type, method));
 				
 				//return new IUCJMethod(type, method);
 				//return new CAMCMethod(type, true, method, parameter);

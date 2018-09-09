@@ -7,4 +7,9 @@ public class CheckMoves implements Metric{
 		return 0;
 	}
 
+	@Override
+	public String getName() {
+		return "Just check";
+	}
+
 }
