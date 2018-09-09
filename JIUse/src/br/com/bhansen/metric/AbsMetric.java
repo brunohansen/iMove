@@ -175,5 +175,14 @@ public abstract class AbsMetric implements Metric {
 	public Map<String, Set<String>> getMethods() {
 		return methods;
 	}
+	
+	@Override
+	public String toString() {
+		try {
+			return getName() + ": " + getMetric();
+		} catch (Exception e) {
+			throw new RuntimeException(e);
+		}
+	}
 
 }

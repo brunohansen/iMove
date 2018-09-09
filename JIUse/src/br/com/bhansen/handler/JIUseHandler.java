@@ -21,12 +21,12 @@ public abstract class JIUseHandler extends AbstractHandler {
 			} catch (Exception e) {
 				e.printStackTrace();
 				
-				MessageDialog.openInformation(window.getShell(), "JIUse", e.getMessage());
+				MessageDialog.openInformation(window.getShell(), "iMove", e.getMessage());
 			}	
 		} catch (Exception e) {
 			e.printStackTrace();
 						
-			MessageDialog.openInformation(null, "JIUse", e.getMessage());
+			MessageDialog.openInformation(null, "iMove", e.getMessage());
 		}
 		
 		return null;

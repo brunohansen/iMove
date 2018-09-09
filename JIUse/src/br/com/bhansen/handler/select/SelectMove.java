@@ -30,7 +30,7 @@ public class SelectMove extends SelectionHandler {
 			
 			MessageDialog.openInformation(window.getShell(), "JIUse", "The IUC will be calculated for the openned class!\n\n\n The result dialog will open in a while!");
 			
-			evaluateMoveMethod = new MMEvaluatorBuilder(getSelection());
+			evaluateMoveMethod = new MMEvaluatorBuilder(getType());
 			
 			MessageDialog.openInformation(window.getShell(), "JIUse - Class From Selected!", IUCClass.getClassName(evaluateMoveMethod.getClassFrom()) + "\n\n\n Open the 'To Class' and click on the select to move menu again!");
 			
@@ -41,7 +41,7 @@ public class SelectMove extends SelectionHandler {
 			
 			MessageDialog.openInformation(window.getShell(), "JIUse", "The IUC will be calculated for the openned class!\n\n\n The result dialog will open in a while!");
 			
-			evaluateMoveMethod.setClassTo(getSelection());
+			evaluateMoveMethod.setClassTo(getType());
 			
 			MessageDialog.openInformation(window.getShell(), "JIUse - Class To Selected!", IUCClass.getClassName(evaluateMoveMethod.getClassFrom()));
 			
