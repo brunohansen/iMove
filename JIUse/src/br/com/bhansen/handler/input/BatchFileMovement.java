@@ -38,8 +38,8 @@ public class BatchFileMovement extends InputMovement {
 		
 		MessageDialog.openInformation(window.getShell(), "Result", "Result will be shown on cosole!");
 		
-		iucCheck(inFile, type, metric);
-		goldCheck(getGoldPath(inFile), getIUCPath(inFile));
+		metricCheck(inFile, type, metric);
+		goldCheck(getGoldPath(inFile), getMetricPath(inFile));
 		
 		MessageDialog.openInformation(window.getShell(), "Finish", "Finish!");
 		
@@ -76,7 +76,7 @@ public class BatchFileMovement extends InputMovement {
 		return JavaCore.create(project);
 	}	
 	
-	public void iucCheck(Path inFile, String type, String metric) throws IOException {
+	public void metricCheck(Path inFile, String type, String metric) throws IOException {
 		Stream<String> lines = Files.lines(inFile);
 		
 		try {
@@ -84,7 +84,7 @@ public class BatchFileMovement extends InputMovement {
 			
 			Set<String> outSet = new HashSet<>();
 			
-			System.out.println("\nIUC check: " + inFile + "\n");
+			System.out.println("\nMetric check: " + inFile + "\n");
 			
 			lines.forEach(new Consumer<String>() {
 
@@ -102,17 +102,17 @@ public class BatchFileMovement extends InputMovement {
 				}
 			});
 			
-			System.out.println("\nIUC check finished.\n");
+			System.out.println("\nMetric check finished.\n");
 			
-			Files.write(getIUCPath(inFile), outSet);
+			Files.write(getMetricPath(inFile), outSet);
 			
 		} finally {
 			lines.close();
 		}
 	}
 	
-	public static Path getIUCPath(Path inFile) {
-		return Paths.get(inFile.toString().replace(".txt", "_iuc.txt"));
+	public static Path getMetricPath(Path inFile) {
+		return Paths.get(inFile.toString().replace(".txt", "_metric.txt"));
 	}
 		
 	public static Set<String> goldCheck(Path goldFile, Path inFile) throws IOException {

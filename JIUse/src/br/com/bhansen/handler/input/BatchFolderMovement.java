@@ -82,7 +82,7 @@ public class BatchFolderMovement extends BatchFileMovement {
 			@Override
 			public boolean test(Path sysFile) {
 				String path = sysFile.toString(); 
-				return ! path.endsWith("_iuc.txt") && ! path.endsWith("_gold.txt");
+				return ! path.endsWith("_metric.txt") && ! path.endsWith("_gold.txt");
 			}
 		});
 		
@@ -96,15 +96,15 @@ public class BatchFolderMovement extends BatchFileMovement {
 		sysFiles.forEach(new Consumer<Path>() {
 			public void accept(Path toolFile) {
 				try {
-					iucCheck(toolFile, type, metric);
-					outSet.addAll(goldCheck(goldFile, getIUCPath(toolFile)));
+					metricCheck(toolFile, type, metric);
+					outSet.addAll(goldCheck(goldFile, getMetricPath(toolFile)));
 				} catch (IOException e) {
 					throw new RuntimeException(e);
 				}
 			}
 		});
 		
-//		Path outPath = Paths.get(sysDir.toString(), goldFile.getFileName().toString().replace(".txt", "_both_iuc_gold.txt"));
+//		Path outPath = Paths.get(sysDir.toString(), goldFile.getFileName().toString().replace(".txt", "_both_metric_gold.txt"));
 //
 //		Files.write(outPath, outSet);
 	}

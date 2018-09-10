@@ -12,7 +12,6 @@ import org.eclipse.ui.IWorkbenchWindow;
 
 import br.com.bhansen.handler.SelectDlg;
 import br.com.bhansen.metric.AbsMetric;
-import br.com.bhansen.metric.iuc.IUCClass;
 import br.com.bhansen.refactory.MoveMethodEvaluator;
 
 public class SelectMove extends SelectionHandler {
@@ -32,22 +31,22 @@ public class SelectMove extends SelectionHandler {
 		
 		if(classFrom == null) {
 			
-			MessageDialog.openInformation(window.getShell(), "iMove", "The IUC will be calculated for the openned class!\n\n\n The result dialog will open in a while!");
+			MessageDialog.openInformation(window.getShell(), "iMove", "The Metric will be calculated for the openned class!\n\n\n The result dialog will open in a while!");
 			
 			classFrom = getType();
 			
-			MessageDialog.openInformation(window.getShell(), "iMove - Class From Selected!", IUCClass.getClassName(classFrom) + "\n\n\n Open the 'To Class' and click on the select to move menu again!");
+			MessageDialog.openInformation(window.getShell(), "iMove - Class From Selected!", AbsMetric.getClassName(classFrom) + "\n\n\n Open the 'To Class' and click on the select to move menu again!");
 			
 			return null;
 		}
 		
 		if(classFrom != null) {
 			
-			MessageDialog.openInformation(window.getShell(), "iMove", "The IUC will be calculated for the openned class!\n\n\n The result dialog will open in a while!");
+			MessageDialog.openInformation(window.getShell(), "iMove", "The Metric will be calculated for the openned class!\n\n\n The result dialog will open in a while!");
 			
 			classTo = getType();
 			
-			MessageDialog.openInformation(window.getShell(), "iMove - Class To Selected!", IUCClass.getClassName(classTo));
+			MessageDialog.openInformation(window.getShell(), "iMove - Class To Selected!", AbsMetric.getClassName(classTo));
 			
 			Set<String> methods = getMethods(classTo);
 			

@@ -19,7 +19,7 @@ public class FileMerger {
 	private static final String OR = "0";
 	private static final String AND = "1";
 	
-	// cat jtopen-7.8-small/jtopen-7.8-small_jdeodorant_iuc_gold.txt jtopen-7.8-large/jtopen-7.8-large_jdeodorant_iuc_gold.txt | sort | uniq | wc -l
+	// cat jtopen-7.8-small/jtopen-7.8-small_jdeodorant_metric_gold.txt jtopen-7.8-large/jtopen-7.8-large_jdeodorant_metric_gold.txt | sort | uniq | wc -l
 	public static Set<String> merge(Path fileOne, Path fileTwo, String operator) throws IOException {
 		Stream<String> streamOne = Files.lines(fileOne);
 		Stream<String> streamTwo = Files.lines(fileTwo);
@@ -146,11 +146,11 @@ public class FileMerger {
 		);
 	}
 	
-//	cat ant-1.8.2-all_jdeodorant_iuc_gold.txt | cut -f2,3 | sort | uniq -d
+//	cat ant-1.8.2-all_jdeodorant_metric_gold.txt | cut -f2,3 | sort | uniq -d
 //	org.apache.tools.ant.taskdefs.optional.ejb.GenericDeploymentTool::getJarBaseName(String):String	org.apache.tools.ant.taskdefs.optional.ejb.EjbJar.Config
 //	org.apache.tools.ant.taskdefs.optional.ejb.GenericDeploymentTool::getVendorDDPrefix(String, String):String	org.apache.tools.ant.taskdefs.optional.ejb.EjbJar.Config
 	public static void main(String[] args) throws Exception {
-		//merge(Paths.get("/home/hansen/git/jiuse/Results/M CAMCJ mais IUCJ/ant-1.8.2/ant-1.8.2-small_jmove_iuc_gold.txt"), Paths.get("/home/hansen/git/jiuse/Results/M CAMCJ mais IUCJ/ant-1.8.2/ant-1.8.2-large_jmove_iuc_gold.txt"));
+		//merge(Paths.get("/home/hansen/git/jiuse/Results/M CAMCJ mais IUCJ/ant-1.8.2/ant-1.8.2-small_jmove_metric_gold.txt"), Paths.get("/home/hansen/git/jiuse/Results/M CAMCJ mais IUCJ/ant-1.8.2/ant-1.8.2-large_jmove_metric_gold.txt"));
 		mergeDir("C:\\Users\\bruno\\git\\jiuse\\Results\\M IUCJ");
 	}
 
