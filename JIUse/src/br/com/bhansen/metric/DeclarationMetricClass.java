@@ -3,7 +3,6 @@ package br.com.bhansen.metric;
 import java.math.BigInteger;
 import java.util.Set;
 
-import org.eclipse.jdt.core.Flags;
 import org.eclipse.jdt.core.IMethod;
 import org.eclipse.jdt.core.IType;
 
@@ -16,13 +15,13 @@ public abstract class DeclarationMetricClass extends DeclarationMetric {
 
 		for (IMethod iMethod : iMethods) {
 
-			if ((Flags.isPrivate(iMethod.getFlags())) || (isFakeDelegate(iMethod, method)))
-				continue;
+//			if ((Flags.isPrivate(iMethod.getFlags())) || (isFakeDelegate(iMethod, method)))
+//				continue;
 
 			Set<String> params = createParametersSet(iMethod);
 
-			if (isMovedMethod(iMethod, method))
-				removeFakeParameter(params, parameter);
+//			if (isMovedMethod(iMethod, method))
+//				removeFakeParameter(params, parameter);
 
 			if (zeroParams) {
 				getMethods().put(getSignature(iMethod), params);

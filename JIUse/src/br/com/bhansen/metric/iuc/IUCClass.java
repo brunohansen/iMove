@@ -3,7 +3,6 @@ package br.com.bhansen.metric.iuc;
 import java.util.Map;
 import java.util.Map.Entry;
 
-import org.eclipse.jdt.core.Flags;
 import org.eclipse.jdt.core.IMethod;
 import org.eclipse.jdt.core.IType;
 
@@ -16,11 +15,11 @@ public class IUCClass extends IUC {
 				
 		for (IMethod iMethod : iMethods) {
 			
-			if((! Flags.isPrivate(iMethod.getFlags())) && (! isFakeDelegate(iMethod, method))) {
+		//	if((! Flags.isPrivate(iMethod.getFlags())) && (! isFakeDelegate(iMethod, method))) {
 				if(getMethods().put(getSignature(iMethod), getCallerClasses(iMethod)) != null) {
 					System.out.println("Method " + getSignature(iMethod) + " colision!");
 				};
-			}
+		//	}
 
 		}
 		
