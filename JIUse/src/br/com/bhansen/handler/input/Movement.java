@@ -12,7 +12,7 @@ public class Movement extends InputMovement {
 	@Override
 	protected Object execute(IWorkbenchWindow window, ExecutionEvent event, String type, String metric) throws Exception {
 		
-		SelectProjectDlg inDlg = SelectProjectDlg.askProject(window.getShell(), "JIUse - Inform the movement", "Movement");
+		SelectProjectDlg inDlg = SelectProjectDlg.askProject(window.getShell(), "iMove - Inform the movement", "Movement");
 		
 		MoveMethodEvaluator evaluator = create(inDlg.getProject(), inDlg.getValue(), type, metric);
 												

@@ -20,7 +20,7 @@ public class BatchFolderMovement extends BatchFileMovement {
 	@Override
 	protected Object execute(IWorkbenchWindow window, ExecutionEvent event, String type, String metric) throws Exception {
 		
-		InputDialog inDlg = new InputDialog(window.getShell(), "JIUse - Inform the batch directory", "Directory address", "", null);
+		InputDialog inDlg = new InputDialog(window.getShell(), "iMove - Inform the batch directory", "Directory address", "", null);
 		inDlg.open();
 						
 		MessageDialog.openInformation(window.getShell(), "Result", "Result will be saved in file and shown on cosole!");

@@ -19,7 +19,7 @@ import br.com.bhansen.refactory.EvaluateSumClass;
 import br.com.bhansen.refactory.EvaluateSumMethod;
 import br.com.bhansen.refactory.MoveMethodEvaluator;
 
-public abstract class JIUseHandler extends AbstractHandler {
+public abstract class IMoveHandler extends AbstractHandler {
 
 	@Override
 	public Object execute(ExecutionEvent event) {
@@ -29,7 +29,7 @@ public abstract class JIUseHandler extends AbstractHandler {
 
 			try {
 
-				return execute(window, event, event.getParameter("JIUse.type"), event.getParameter("JIUse.metric"));
+				return execute(window, event, event.getParameter("iMove.type"), event.getParameter("iMove.metric"));
 
 			} catch (Exception e) {
 				e.printStackTrace();

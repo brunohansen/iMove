@@ -31,7 +31,7 @@ public class BatchFileMovement extends InputMovement {
 	@Override
 	protected Object execute(IWorkbenchWindow window, ExecutionEvent event, String type, String metric) throws Exception {
 		
-		InputDialog inDlg = new InputDialog(window.getShell(), "JIUse - Inform the batch file", "File address", "", null);
+		InputDialog inDlg = new InputDialog(window.getShell(), "iMove - Inform the batch file", "File address", "", null);
 		inDlg.open();
 								
 		Path inFile = Paths.get(inDlg.getValue());

@@ -4,95 +4,95 @@
 
    <extension point="org.eclipse.ui.commands">
       <category
-            name="JIUse"
-            id="JIUse.commands.category">
+            name="iMove"
+            id="iMove.commands.category">
       </category>
       <command
             name="Select to Move"
-            categoryId="JIUse.commands.category"
-            id="JIUse.commands.selectMove">
+            categoryId="iMove.commands.category"
+            id="iMove.commands.selectMove">
          <commandParameter
-               id="JIUse.type"
+               id="iMove.type"
                name="type"
                optional="false">
          </commandParameter>
          <commandParameter
-               id="JIUse.metric"
+               id="iMove.metric"
                name="metric"
                optional="false">
          </commandParameter>
       </command>
       <command
-            categoryId="JIUse.commands.category"
-            id="JIUse.commands.showClassMetric"
+            categoryId="iMove.commands.category"
+            id="iMove.commands.showClassMetric"
             name="Show Class Metric">
          <commandParameter
-               id="JIUse.type"
+               id="iMove.type"
                name="type"
                optional="false">
          </commandParameter>
          <commandParameter
-               id="JIUse.metric"
+               id="iMove.metric"
                name="metric"
                optional="false">
          </commandParameter>
       </command>
             <command
-            categoryId="JIUse.commands.category"
-            id="JIUse.commands.showMethodMetric"
+            categoryId="iMove.commands.category"
+            id="iMove.commands.showMethodMetric"
             name="Show Method Metric">
          <commandParameter
-               id="JIUse.type"
+               id="iMove.type"
                name="type"
                optional="false">
          </commandParameter>
          <commandParameter
-               id="JIUse.metric"
+               id="iMove.metric"
                name="metric"
                optional="false">
          </commandParameter>
       </command>
       <command
-            categoryId="JIUse.commands.category"
-            id="JIUse.commands.movement"
+            categoryId="iMove.commands.category"
+            id="iMove.commands.movement"
             name="Input Movement">
          <commandParameter
-               id="JIUse.type"
+               id="iMove.type"
                name="type"
                optional="false">
          </commandParameter>
          <commandParameter
-               id="JIUse.metric"
+               id="iMove.metric"
                name="metric"
                optional="false">
          </commandParameter>
       </command>
       <command
-            categoryId="JIUse.commands.category"
-            id="JIUse.commands.batchFileMovement"
+            categoryId="iMove.commands.category"
+            id="iMove.commands.batchFileMovement"
             name="Batch File Movement">
          <commandParameter
-               id="JIUse.type"
+               id="iMove.type"
                name="type"
                optional="false">
          </commandParameter>
          <commandParameter
-               id="JIUse.metric"
+               id="iMove.metric"
                name="metric"
                optional="false">
          </commandParameter>
       </command>
             <command
-            categoryId="JIUse.commands.category"
-            id="JIUse.commands.batchFolderMovement"
+            categoryId="iMove.commands.category"
+            id="iMove.commands.batchFolderMovement"
             name="Batch Folder Movement">
         <commandParameter
-               id="JIUse.type"
+               id="iMove.type"
                name="type"
                optional="false">
          </commandParameter>
          <commandParameter
-               id="JIUse.metric"
+               id="iMove.metric"
                name="metric"
                optional="false">
          </commandParameter>
@@ -100,33 +100,33 @@
    </extension>
    <extension point="org.eclipse.ui.handlers">
       <handler
-            commandId="JIUse.commands.selectMove"
+            commandId="iMove.commands.selectMove"
             class="br.com.bhansen.handler.select.SelectMove">
       </handler>
       <handler
             class="br.com.bhansen.handler.select.ShowClassMetric"
-            commandId="JIUse.commands.showClassMetric">
+            commandId="iMove.commands.showClassMetric">
       </handler>
       <handler
             class="br.com.bhansen.handler.select.ShowMethodMetric"
-            commandId="JIUse.commands.showMethodMetric">
+            commandId="iMove.commands.showMethodMetric">
       </handler>
       <handler
-            commandId="JIUse.commands.movement"
+            commandId="iMove.commands.movement"
             class="br.com.bhansen.handler.input.Movement">
       </handler>
       <handler
-            commandId="JIUse.commands.batchFileMovement"
+            commandId="iMove.commands.batchFileMovement"
             class="br.com.bhansen.handler.input.BatchFileMovement">
       </handler>
       <handler
-            commandId="JIUse.commands.batchFolderMovement"
+            commandId="iMove.commands.batchFolderMovement"
             class="br.com.bhansen.handler.input.BatchFolderMovement">
       </handler>
    </extension>
    <extension point="org.eclipse.ui.bindings">
       <key
-            commandId="JIUse.commands.selectMove"
+            commandId="iMove.commands.selectMove"
             contextId="org.eclipse.ui.contexts.window"
             sequence="M1+6"
             schemeId="org.eclipse.ui.defaultAcceleratorConfiguration">
@@ -138,40 +138,40 @@
          <menu
                label="iMove"
                mnemonic="M"
-               id="JIUse.menus.jiuse">
+               id="iMove.menus.jiuse">
 			<menu
                label="Metrics"
                mnemonic="M"
-               id="JIUse.menus.metrics">
+               id="iMove.menus.metrics">
 			<menu
                label="Class"
                mnemonic="M"
-               id="JIUse.menus.ClassMetric">
+               id="iMove.menus.ClassMetric">
 	            <command
-	                  commandId="JIUse.commands.showClassMetric"
-	                  id="JIUse.menus.showIUCClass"
+	                  commandId="iMove.commands.showClassMetric"
+	                  id="iMove.menus.showIUCClass"
 	                  label="Show IUC"
 	                  mnemonic="S">
 	            <parameter
-                      name="JIUse.type"
+                      name="iMove.type"
                       value="class">
                 </parameter>
                 <parameter
-                      name="JIUse.metric"
+                      name="iMove.metric"
                       value="IUC">
                 </parameter>
 	            </command>
 	            <command
-	                  commandId="JIUse.commands.showClassMetric"
-	                  id="JIUse.menus.showCAMCClass"
+	                  commandId="iMove.commands.showClassMetric"
+	                  id="iMove.menus.showCAMCClass"
 	                  label="Show CAMC"
 	                  mnemonic="S">
 				<parameter
-                      name="JIUse.type"
+                      name="iMove.type"
                       value="class">
                 </parameter>
                 <parameter
-                      name="JIUse.metric"
+                      name="iMove.metric"
                       value="CAMC">
                 </parameter>
 	            </command>
@@ -179,28 +179,28 @@
              <menu
                label="Method"
                mnemonic="M"
-               id="JIUse.menus.MethodMetric">
+               id="iMove.menus.MethodMetric">
 	            <command
-	                  commandId="JIUse.commands.showMethodMetric"
-	                  id="JIUse.menus.showIUCMethod"
+	                  commandId="iMove.commands.showMethodMetric"
+	                  id="iMove.menus.showIUCMethod"
 	                  label="Show IUC"
 	                  mnemonic="S">
                 <parameter
-                      name="JIUse.metric"
+                      name="iMove.metric"
                       value="IUC">
                 </parameter>
 	            </command>
 	            <command
-	                  commandId="JIUse.commands.showMethodMetric"
-	                  id="JIUse.menus.showCAMCMethod"
+	                  commandId="iMove.commands.showMethodMetric"
+	                  id="iMove.menus.showCAMCMethod"
 	                  label="Show CAMC"
 	                  mnemonic="S">
 	            <parameter
-                      name="JIUse.type"
+                      name="iMove.type"
                       value="method">
                 </parameter>
                 <parameter
-                      name="JIUse.metric"
+                      name="iMove.metric"
                       value="CAMC">
                 </parameter>
 	            </command>
@@ -209,73 +209,73 @@
              <menu
                label="Move Method"
                mnemonic="M"
-               id="JIUse.menus.movemethod">
+               id="iMove.menus.movemethod">
 	            <command
-	                  commandId="JIUse.commands.selectMove"
-	                  id="JIUse.menus.selectMove"
+	                  commandId="iMove.commands.selectMove"
+	                  id="iMove.menus.selectMove"
 	                  label="Select to Move"
 	                  mnemonic="S">
 	            <parameter
-                      name="JIUse.type"
+                      name="iMove.type"
                       value="method">
                 </parameter>
                 <parameter
-                      name="JIUse.metric"
+                      name="iMove.metric"
                       value="IUC + CAMC">
                 </parameter>
 	            </command>
 	            <command
-	                  commandId="JIUse.commands.movement"
-	                  id="JIUse.menus.movement"
+	                  commandId="iMove.commands.movement"
+	                  id="iMove.menus.movement"
 	                  label="Input Movement"
 	                  mnemonic="S">
 	            <parameter
-                      name="JIUse.type"
+                      name="iMove.type"
                       value="method">
                 </parameter>
                 <parameter
-                      name="JIUse.metric"
+                      name="iMove.metric"
                       value="IUC + CAMC">
                 </parameter>
 	            </command>
 	            <command
-	                  commandId="JIUse.commands.batchFileMovement"
-	                  id="JIUse.menus.batchFileMovement"
+	                  commandId="iMove.commands.batchFileMovement"
+	                  id="iMove.menus.batchFileMovement"
 	                  label="Batch File Movement"
 	                  mnemonic="S">
 	            <parameter
-                      name="JIUse.type"
+                      name="iMove.type"
                       value="method">
                 </parameter>
                 <parameter
-                      name="JIUse.metric"
+                      name="iMove.metric"
                       value="IUC + CAMC">
                 </parameter>
 	            </command>
 	           	<command
-	                  commandId="JIUse.commands.batchFolderMovement"
-	                  id="JIUse.menus.batchFolderMovement"
+	                  commandId="iMove.commands.batchFolderMovement"
+	                  id="iMove.menus.batchFolderMovement"
 	                  label="Batch Folder Movement"
 	                  mnemonic="S">
 	            <parameter
-                      name="JIUse.type"
+                      name="iMove.type"
                       value="method">
                 </parameter>
                 <parameter
-                      name="JIUse.metric"
+                      name="iMove.metric"
                       value="IUC + CAMC">
                 </parameter>
 	            </command>
              </menu>
 				<command
-	                  commandId="JIUse.commands.goldCheck"
-	                  id="JIUse.menus.goldCheck"
+	                  commandId="iMove.commands.goldCheck"
+	                  id="iMove.menus.goldCheck"
 	                  label="Gold Check"
 	                  mnemonic="S">
 	            </command>
 	           	<command
-	                  commandId="JIUse.commands.mergeResults"
-	                  id="JIUse.menus.mergeResults"
+	                  commandId="iMove.commands.mergeResults"
+	                  id="iMove.menus.mergeResults"
 	                  label="Merge Results"
 	                  mnemonic="S">
 	            </command>

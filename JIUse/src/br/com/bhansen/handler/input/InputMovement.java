@@ -3,10 +3,10 @@ package br.com.bhansen.handler.input;
 import org.eclipse.jdt.core.IJavaProject;
 import org.eclipse.jdt.core.IType;
 
-import br.com.bhansen.handler.JIUseHandler;
+import br.com.bhansen.handler.IMoveHandler;
 import br.com.bhansen.refactory.MoveMethodEvaluator;
 
-public abstract class InputMovement extends JIUseHandler {
+public abstract class InputMovement extends IMoveHandler {
 		
 	protected IType findType(IJavaProject javaProject, String fullyQualifiedName) throws Exception {
 		IType iType = javaProject.findType(fullyQualifiedName);

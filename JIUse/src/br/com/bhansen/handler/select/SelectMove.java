@@ -32,22 +32,22 @@ public class SelectMove extends SelectionHandler {
 		
 		if(classFrom == null) {
 			
-			MessageDialog.openInformation(window.getShell(), "JIUse", "The IUC will be calculated for the openned class!\n\n\n The result dialog will open in a while!");
+			MessageDialog.openInformation(window.getShell(), "iMove", "The IUC will be calculated for the openned class!\n\n\n The result dialog will open in a while!");
 			
 			classFrom = getType();
 			
-			MessageDialog.openInformation(window.getShell(), "JIUse - Class From Selected!", IUCClass.getClassName(classFrom) + "\n\n\n Open the 'To Class' and click on the select to move menu again!");
+			MessageDialog.openInformation(window.getShell(), "iMove - Class From Selected!", IUCClass.getClassName(classFrom) + "\n\n\n Open the 'To Class' and click on the select to move menu again!");
 			
 			return null;
 		}
 		
 		if(classFrom != null) {
 			
-			MessageDialog.openInformation(window.getShell(), "JIUse", "The IUC will be calculated for the openned class!\n\n\n The result dialog will open in a while!");
+			MessageDialog.openInformation(window.getShell(), "iMove", "The IUC will be calculated for the openned class!\n\n\n The result dialog will open in a while!");
 			
 			classTo = getType();
 			
-			MessageDialog.openInformation(window.getShell(), "JIUse - Class To Selected!", IUCClass.getClassName(classTo));
+			MessageDialog.openInformation(window.getShell(), "iMove - Class To Selected!", IUCClass.getClassName(classTo));
 			
 			Set<String> methods = getMethods(classTo);
 			
@@ -55,7 +55,7 @@ public class SelectMove extends SelectionHandler {
 			
 			mtds = methods.toArray(mtds);
 					
-			SelectDlg dlg = new SelectDlg(window.getShell(), "JIUse - Choose a method to move!", "Method", mtds);
+			SelectDlg dlg = new SelectDlg(window.getShell(), "iMove - Choose a method to move!", "Method", mtds);
 			dlg.open();
 			
 			MoveMethodEvaluator evaluator = createEvaluator(classFrom, dlg.getSelection(), classTo, type, metric);

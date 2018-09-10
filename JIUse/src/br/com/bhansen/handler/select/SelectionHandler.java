@@ -10,9 +10,9 @@ import org.eclipse.ui.IEditorInput;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.texteditor.ITextEditor;
 
-import br.com.bhansen.handler.JIUseHandler;
+import br.com.bhansen.handler.IMoveHandler;
 
-public abstract class SelectionHandler extends JIUseHandler {
+public abstract class SelectionHandler extends IMoveHandler {
 	
 	protected IType getType() throws Exception {
 		ITextEditor editor = (ITextEditor) PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage().getActiveEditor();
