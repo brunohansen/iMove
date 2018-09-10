@@ -20,7 +20,7 @@ public class ShowMethodMetric extends SelectionHandler {
 				
 		MessageDialog.openInformation(window.getShell(), "iMove", "The " + metric + " will be calculated for the selcted method!\n\n\n The result dialog will open in a while!");
 		
-		Metric m = createFactory("method", metric).create(selection);			
+		Metric m = createFactory("method", metric).create(selection, strMethod);	
 						
 		MessageDialog.openInformation(window.getShell(), "iMove " + metric + " - " + m.getName(), strMethod + ": " + m.getMetric());
 		
