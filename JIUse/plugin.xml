@@ -245,7 +245,7 @@
 	                  mnemonic="S">
 	            <parameter
                       name="iMove.type"
-                      value="method">
+                      value="class">
                 </parameter>
                 <parameter
                       name="iMove.metric"
@@ -259,7 +259,7 @@
 	                  mnemonic="S">
 	            <parameter
                       name="iMove.type"
-                      value="method">
+                      value="class">
                 </parameter>
                 <parameter
                       name="iMove.metric"
