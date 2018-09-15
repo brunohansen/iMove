@@ -14,8 +14,6 @@ import org.eclipse.jface.action.IMenuListener;
 import org.eclipse.jface.action.IMenuManager;
 import org.eclipse.jface.action.IToolBarManager;
 import org.eclipse.jface.action.MenuManager;
-import org.eclipse.jface.action.Separator;
-import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.viewers.ArrayContentProvider;
 import org.eclipse.jface.viewers.ColumnLabelProvider;
 import org.eclipse.jface.viewers.ColumnViewerToolTipSupport;
@@ -34,8 +32,6 @@ import org.eclipse.swt.widgets.TableColumn;
 import org.eclipse.swt.widgets.TableItem;
 import org.eclipse.ui.IActionBars;
 import org.eclipse.ui.ISharedImages;
-import org.eclipse.ui.IWorkbenchActionConstants;
-import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.part.ViewPart;
 
@@ -102,11 +98,6 @@ public class MoveMethod extends ViewPart {
 			public String getText(Object element) {
 				return (element.toString().split("\t", 2)[0].replaceFirst("(\\d|\\.|-)+-", "").startsWith("0"))? "Yes" : "No";
 			}
-
-			@Override
-			public String getToolTipText(Object element) {
-				return "Double click to apply!";
-			}
 		});
 
 		TableViewerColumn sourceMethod = new TableViewerColumn(viewer, SWT.NONE);
@@ -116,11 +107,6 @@ public class MoveMethod extends ViewPart {
 			@Override
 			public String getText(Object element) {
 				return element.toString().split("\t", 3)[1];
-			}
-
-			@Override
-			public String getToolTipText(Object element) {
-				return "Double click to apply!";
 			}
 		});
 
@@ -132,11 +118,6 @@ public class MoveMethod extends ViewPart {
 			public String getText(Object element) {
 				return element.toString().split("\t", 4)[2];
 			}
-
-			@Override
-			public String getToolTipText(Object element) {
-				return "Double click to apply!";
-			}
 		});
 
 		getSite().setSelectionProvider(viewer);
@@ -144,8 +125,6 @@ public class MoveMethod extends ViewPart {
 		hookContextMenu();
 		hookDoubleClickAction();
 		contributeToActionBars();
-
-		viewer.setInput(new String[] { "-0.013393-100\tmethod\tclass", "-0.013393-100\tmethod\tclass", "0.013393-000\tmethod\tclass" });
 	}
 	
 	public void update(IJavaProject project, Collection<String> input) {
