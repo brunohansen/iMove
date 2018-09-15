@@ -8,7 +8,7 @@ import br.com.bhansen.refactory.MoveMethodEvaluator;
 
 public abstract class InputMovement extends IMoveHandler {
 		
-	protected IType findType(IJavaProject javaProject, String fullyQualifiedName) throws Exception {
+	public static IType findType(IJavaProject javaProject, String fullyQualifiedName) throws Exception {
 		IType iType = javaProject.findType(fullyQualifiedName);
 		
 		if(iType != null) {

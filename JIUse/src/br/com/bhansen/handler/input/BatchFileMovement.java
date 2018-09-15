@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.TreeSet;
@@ -25,21 +26,31 @@ import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.ui.IWorkbenchWindow;
 
 import br.com.bhansen.refactory.MoveMethodEvaluator;
+import br.com.bhansen.view.MoveMethod;
 
 public class BatchFileMovement extends InputMovement {
 	
 	@Override
 	protected Object execute(IWorkbenchWindow window, ExecutionEvent event, String type, String metric) throws Exception {
 		
+		MoveMethod moveMethod = (MoveMethod) window.getActivePage().showView("iMove.view.movemethod");
+		
 		InputDialog inDlg = new InputDialog(window.getShell(), "iMove - Inform the batch file", "File address", "", null);
 		inDlg.open();
 								
 		Path inFile = Paths.get(inDlg.getValue());
-		
+				
 		MessageDialog.openInformation(window.getShell(), "Result", "Result will be shown on cosole!");
 		
-		metricCheck(inFile, type, metric);
+		Collection<String> out = metricCheck(inFile, type, metric);
 		goldCheck(getGoldPath(inFile), getMetricPath(inFile));
+		
+		try {
+			moveMethod.update(getProject(getProjectName(inFile)), out);
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		
 		
 		MessageDialog.openInformation(window.getShell(), "Finish", "Finish!");
 		
@@ -76,7 +87,7 @@ public class BatchFileMovement extends InputMovement {
 		return JavaCore.create(project);
 	}	
 	
-	public void metricCheck(Path inFile, String type, String metric) throws IOException {
+	public Set<String> metricCheck(Path inFile, String type, String metric) throws IOException {
 		Stream<String> lines = Files.lines(inFile);
 		
 		try {
@@ -105,6 +116,8 @@ public class BatchFileMovement extends InputMovement {
 			System.out.println("\nMetric check finished.\n");
 			
 			Files.write(getMetricPath(inFile), outSet);
+			
+			return outSet;
 			
 		} finally {
 			lines.close();

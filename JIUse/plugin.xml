@@ -249,7 +249,7 @@
                 </parameter>
                 <parameter
                       name="iMove.metric"
-                      value="IUC + CAMC">
+                      value="CAMC">
                 </parameter>
 	            </command>
 	           	<command
@@ -281,6 +281,21 @@
 	            </command>
          </menu>
       </menuContribution>
+   </extension>
+   <extension
+         point="org.eclipse.ui.views">
+      <category
+            id="iMove.views.category"
+            name="iMove">
+      </category>
+      <view
+            allowMultiple="false"
+            category="iMove.views.category"
+            class="br.com.bhansen.view.MoveMethod"
+            id="iMove.view.movemethod"
+            name="iMove - Move Methods"
+            restorable="true">
+      </view>
    </extension>
 
 </plugin>

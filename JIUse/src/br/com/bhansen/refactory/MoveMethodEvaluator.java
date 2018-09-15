@@ -61,6 +61,29 @@ public abstract class MoveMethodEvaluator {
 		throw new Exception("Method " + method + " not found!");
 	}
 	
+	public static IMethod getMethod(IType classFrom, String method) throws Exception {
+		
+		String mSig = AbsMetric.generateInnerSignature(method);
+
+		IMethod[] methods = classFrom.getMethods();
+
+		for (IMethod iMethod : methods) {
+			if (AbsMetric.getSignature(iMethod).equals(mSig)) {
+				return iMethod;
+			}
+		}
+		
+		mSig = AbsMetric.generateSignature(method);
+
+		for (IMethod iMethod : methods) {
+			if (AbsMetric.getSignature(iMethod).equals(mSig)) {
+				return iMethod;
+			}
+		}
+
+		throw new Exception("Method " + method + " not found!");
+	}
+	
 	public boolean shouldMove() {
 		return this.valueDifference >= threshold;
 	}
