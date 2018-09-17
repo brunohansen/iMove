@@ -241,11 +241,11 @@
 	            <command
 	                  commandId="iMove.commands.batchFileMovement"
 	                  id="iMove.menus.batchFileMovement"
-	                  label="Batch File Movement"
+	                  label="Movements Batch File"
 	                  mnemonic="S">
 	            <parameter
                       name="iMove.type"
-                      value="class">
+                      value="method">
                 </parameter>
                 <parameter
                       name="iMove.metric"
@@ -255,11 +255,11 @@
 	           	<command
 	                  commandId="iMove.commands.batchFolderMovement"
 	                  id="iMove.menus.batchFolderMovement"
-	                  label="Batch Folder Movement"
+	                  label="Movements Batch Folder"
 	                  mnemonic="S">
 	            <parameter
                       name="iMove.type"
-                      value="class">
+                      value="method">
                 </parameter>
                 <parameter
                       name="iMove.metric"

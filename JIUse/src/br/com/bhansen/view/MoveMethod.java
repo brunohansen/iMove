@@ -204,7 +204,7 @@ public class MoveMethod extends ViewPart {
 		manager.add(new Action() {
 			@Override
 			public String getText() {
-				return "Apply Move Method";
+				return "Open Move Method Assitant";
 			}
 			
 			@Override
