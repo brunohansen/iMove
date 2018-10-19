@@ -1,0 +1,106 @@
+ANT 100%
+	
+DRJAVA 95%
+	
+	SMALL
+		P edu.rice.cs.drjava.ui.config.ConfigFrame::resetDebugFrame(MainFrame):void	edu.rice.cs.drjava.ui.MainFrame
+			Chamado só por ConfigFrame chama 29 dos 32 IUC 0.87 CAMC 0.03
+	        Chamado só por ConfigFrame chama 11 dos 294 IUC 0.03 CAMC 0 / 1 zero param
+	            Eclipse adiciona parametro ConfigFrame que não é usado, senão moveria pelo CAMC
+	            Identificado pelo JMove
+	            
+JFREECHART 75%
+
+	SMALL
+		F org.jfree.data.DefaultKeyedValues2D::removeRow(DefaultCategoryDataset, int):void	org.jfree.data.category.DefaultCategoryDataset
+			Chamado só por JDBCCategoryDataset 1 de 24 IUC 0 CAMC 0.18
+	        Chamado só por JDBCCategoryDataset 4 de 25 IUC 0.0134 CAMC 0.1527 / 0.278
+	    		Eclipse adiciona parametro DefaultKeyedValues2D que é atributo, senão moveria pelo CAMC.
+	    		Ninguém identificou
+
+		F org.jfree.chart.plot.Plot::setPlot(Axis):void	org.jfree.chart.axis.Axis
+			Chamado por 6 Axis 1 de 66 IUC 0.082 CAMC 0
+			Chamado por 6 Axis 11 de 65 IUC 0.042 CAMC 0.0187
+				Eclipse adiciona parametro que é atributo, mas não pode ser removido
+				Identificado pelo JDeodorant
+
+		P org.jfree.chart.ClipPath::setDomainCrosshairLockedOnData(ContourPlot, boolean):void	org.jfree.chart.plot.ContourPlot
+			Chamado por 0 de 26 IUC 0 CAMC 0.14
+			Chamado por 0 de X	IUC 0 CAMC 0.096 / 0.16
+				Eclipse adiciona parametro ClipPath que não é usado, senão moveria pelo CAMC
+				Identificado pelo JDeodorant
+
+		F org.jfree.chart.ChartPanel::setFollowDataInSubranges(JThermometer, boolean):void	org.jfree.chart.plot.JThermometer
+			Chamado por 0 de 115 IUC 0 CAMC 0.111
+			Chamado por 0 de 26 IUC 0 CAMC 0.02 / 0.04
+				Eclipse adiciona parametro ChartPanel que não é usado, mesmo assim não moveria muito boolean em ChartPanel
+				Ninguém identificou
+
+		Q org.jfree.chart.event.TitleChangeEvent::notifyListeners(Title):void	org.jfree.chart.title.Title
+			Chamado por 6 Title 2 de 3 IUC 0.5 CAMC 1.0
+			Chamado por 6 Title 4 de 22 IUC 0.120 CAMC 0.0
+				Bem questionavél Tanto pelo IUC quanto pelo CAMC
+				Ninguém identificou
+	            
+JGROUPS 95%
+	
+	LARGE
+		F org.jgroups.util.Queue::up(JChannel, Event):Object	org.jgroups.JChannel
+			Chamado por 4 JChannel X de 24 métodos IUC 0.000159 CAMC 0.16
+			Chamado por 4 JChannel X de 92 metodos IUC 0.015 CAMC 0.04 / 0.059
+				Eclipse adiciona parametro Queue que é atributo, mesmo assim não moveria muito Object em Queue (Trocar Object por Generics)
+				Identificado pelo JDeodorant e JMove
+				
+JTOPEN 80%
+
+	SMALL
+		D com.ibm.as400.access.SystemValueList::removeWorkingListener(VSystemValueList, WorkingListener):void	com.ibm.as400.vaccess.VSystemValueList
+			Chamado só por VSystemValueList 5 de 6 IUC 0.22 CAMC 0.0
+			Chamado só por VSystemValueList 5 de 40 IUC 0.03 CAMC 0.038 / 0.051
+				Eclipse adiciona parametro SystemValueList que não é usado, mesmo assim não moveria IUC muito alto
+				Chamado só pelo destino, moveria só pelo CAMC
+				Identificado pelo JMove
+
+		F com.ibm.as400.vaccess.SQLMetaDataTablePane::readObject(SQLQueryFieldsPane, ObjectInputStream):void	com.ibm.as400.vaccess.SQLQueryFieldsPane
+			Chamado só por SQLQueryFieldsPane 3 de 7 IUC 0.33 CAMC 0.083
+			Chamado só por SQLQueryFieldsPane 4 de 15 IUC 0.097 CAMC 0.035 / 0.071
+				Eclipse adiciona parametro SQLMetaDataTablePane que não é usado, mesmo assim não moveria IUC muito alto
+				Chamado só pelo destino, mesmo assim não moveria CAMC mais baixo
+				Ninguém identificou
+				
+	LARGE
+		D com.ibm.as400.vaccess.SQLResultSetTableModel::readObject2(SQLResultSetTablePane, ObjectInputStream):void	com.ibm.as400.vaccess.SQLResultSetTablePane
+			Chamado só por SQLResultSetTablePane 27 de 40 IUC 0.55 CAMC 0.012
+			Chamado só por SQLResultSetTablePane 9 de 43 IUC 0.095 CAMC 0.023 / 0.0238
+				Eclipse adiciona parametro SQLResultSetTableModel que é atributo, mesmo assim não moveria IUC muito alto
+				Chamado só pelo destino, moveria só pelo CAMC
+				Ninguém identificou
+
+		F com.ibm.as400.access.FTPThread::readObject2(FTP, ObjectInputStream):void	com.ibm.as400.access.FTP
+			Chamado só por FTP 6 de 8 IUC 0.71 CAMC 0.071
+			Chamado só por FTP 32 de 66 IUC 0.21 CAMC 0.0076 / 0.015
+				Eclipse adiciona parametro FTPThread que não é usado, mesmo assim não moveria IUC muito alto
+				Chamado só pelo destino, mesmo assim não moveria CAMC mais baixo
+				Identificado pelo JDeodorant
+	
+JUNIT 95%
+	
+	SMALL
+		D org.junit.runner.Runner::run2(JUnit4TestAdapter, TestResult):void	junit.framework.JUnit4TestAdapter
+			Chamado só por JUnit4TestAdapter 3 de 4 IUC 0.36 CAMC 0
+	        Chamado só por JUnit4TestAdapter 5 de 13 IUC 0.27 CAMC 0.04 / 0.083
+	        	Eclipse adiciona parametro Runner que é atributo, mesmo assim não moveria IUC muito alto
+	        	Chamado só pelo destino, moveria só pelo CAMC
+	        	Foi identificado pelo JMove
+
+MVNFORUM 100%
+	        
+TAPESTRY 95%
+	
+	SMALL
+		D org.apache.tapestry5.services.BeanBlockContribution::toBlock(BeanBlockOverrideSourceImpl):Block	org.apache.tapestry5.internal.services.BeanBlockOverrideSourceImpl
+			Chamado só por BeanBlockOverrideSourceImpl 3 de 6 IUC 0.40 CAMC 0.0
+			Chamado só por BeanBlockOverrideSourceImpl 1 de 5 IUC 0.0 CAMC 0.229
+				Chamado só pelo destino, moveria só pelo CAMC
+				Identificado pelo JMove
+	        
