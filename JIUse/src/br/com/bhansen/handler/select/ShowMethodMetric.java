@@ -1,5 +1,8 @@
 package br.com.bhansen.handler.select;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
+
 import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.jdt.core.IMethod;
 import org.eclipse.jdt.core.IType;
@@ -22,7 +25,7 @@ public class ShowMethodMetric extends SelectionHandler {
 		
 		Metric m = createFactory("method", metric).create(selection, strMethod);	
 						
-		MessageDialog.openInformation(window.getShell(), "iMove " + metric + " - " + m.getName(), strMethod + ": " + m.getMetric());
+		MessageDialog.openInformation(window.getShell(), "iMove " + metric + " - " + m.getName(), strMethod + ": " + new BigDecimal(m.getMetric()).setScale(6, RoundingMode.HALF_EVEN));
 		
 		return null;
 	}
