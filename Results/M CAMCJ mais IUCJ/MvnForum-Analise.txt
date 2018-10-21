@@ -1,0 +1,213 @@
+A primeira coluna é a indicação do iMove, a segunda é a indicação do GoldSet e a terceira e quarta é a movimentação como esta no artigo.
+
+O arquivo IUC + CAMC esta usando o somatório das duas métricas (Usado no artigo), ou seja, uma métrica pode possuir uma diferença positiva 
+o suficiente para sobrepor a diferença negativa da outra métrica, validando a movimentação e vice-versa. Os arquivos IUC ou CAMC estão usando 
+as métricas separadamente.  
+
+-----------------------------------------------------------------------------
+
+MS JDEODORANT IUC + CAMC
+
+DMove	Wrong	net.myvietnam.mvncore.configuration.HierarchicalConfiguration::nodeDefined(Node):boolean	net.myvietnam.mvncore.configuration.HierarchicalConfiguration.Node
+DMove	Wrong	com.mvnforum.user.PostWebHandler::deletePost(GenericRequest, PostBean):void	com.mvnforum.db.PostBean
+DMove	Wrong	com.mvnforum.user.ThreadWebHandler::deleteThread(GenericRequest, ThreadBean):void	com.mvnforum.db.ThreadBean
+DMove	Wrong	com.mvnforum.admin.importexport.jive.JiveThreadXML::updateAddedPost(PostXML, String, Timestamp):void	com.mvnforum.admin.ThreadXML
+DMove	Wrong	com.mvnforum.admin.importexport.jive.JiveForumXML::updateAddedPost(PostXML, String, Timestamp):void	com.mvnforum.admin.ForumXML
+DMove	Wrong	com.mvnforum.categorytree.CategoryTree::build():String	com.mvnforum.categorytree.CategoryBuilder
+DMove	Wrong	com.mvnsoft.mvnad.delivery.ZoneManager::getBannerInZone(Timestamp):String	com.mvnsoft.mvnad.db.ZoneBean
+DMove	Wrong	net.myvietnam.mvncore.configuration.HierarchicalConfigurationXMLReader.SAXVisitor::isAttributeNode(Node):boolean	net.myvietnam.mvncore.configuration.HierarchicalConfiguration.Node
+DMove	Wrong	net.myvietnam.mvncore.configuration.HierarchicalConfigurationConverter::reverseIterator(ConfigurationKey):Iterator	net.myvietnam.mvncore.configuration.ConfigurationKey
+Move	Gold	com.mvnforum.common.ForumIconLegend::drawForum2(CategoryTreeListenerImpl, CategoryTreeEvent):String	com.mvnforum.categorytree.impl.CategoryTreeListenerImpl
+Move	Gold	com.mvnforum.admin.CategoryXML::setCategoryOrder(MvnForumCategoryXML, String):void	com.mvnforum.admin.importexport.mvnforum.MvnForumCategoryXML
+Move	Gold	com.mvnforum.admin.ThreadXML::addJiveThreadWatch(JiveThreadXML, String, String, String):void	com.mvnforum.admin.importexport.jive.JiveThreadXML
+Move	Gold	com.mvnforum.admin.ForumXML::setForumPassword(MvnForumForumXML, String):void	com.mvnforum.admin.importexport.mvnforum.MvnForumForumXML
+Move	Gold	com.mvnforum.admin.MemberXML::setMemberEmailVisible(MvnForumMemberXML, String):void	com.mvnforum.admin.importexport.mvnforum.MvnForumMemberXML
+Move	Gold	com.mvnforum.admin.AttachmentXML::setAttachDownloadCount(MvnForumAttachmentXML, String):void	com.mvnforum.admin.importexport.mvnforum.MvnForumAttachmentXML
+Move	Gold	com.mvnforum.db.CategoryBean::drawForum2(ListForums, CategoryTreeEvent):String	com.mvnforum.categorytree.impl.ListForums
+Move	Gold	com.mvnsoft.mvnad.db.ZoneBean::getNextBanner(ZoneManager):BannerBean	com.mvnsoft.mvnad.delivery.ZoneManager
+Move	Gold	com.mvnforum.db.MemberBean::createWatchMessageBean(WatchMail, Collection):void	com.mvnforum.user.WatchMail
+Move	Gold	com.mvnforum.categorytree.CategoryTreeEvent::drawForum2(RSSImpl):String	com.mvnforum.categorytree.impl.RSSImpl
+Move	Wrong	com.mvnforum.admin.GeneralAdminTasksWebHandler::processMailTemplate(MemberBean, String):String	com.mvnforum.db.MemberBean
+DMove	Wrong	net.myvietnam.mvncore.configuration.HierarchicalConfiguration::createAddPath(net.myvietnam.mvncore.configuration.ConfigurationKey.KeyIterator, net.myvietnam.mvncore.configuration.HierarchicalConfiguration.Node):net.myvietnam.mvncore.configuration.HierarchicalConfiguration.Node	net.myvietnam.mvncore.configuration.ConfigurationKey.KeyIterator	 Error: Method createAddPath(net.myvietnam.mvncore.configuration.ConfigurationKey.KeyIterator, net.myvietnam.mvncore.configuration.HierarchicalConfiguration.Node):net.myvietnam.mvncore.configuration.HierarchicalConfiguration.Node not found!
+DMove	Wrong	net.myvietnam.mvncore.configuration.HierarchicalConfiguration::findLastPathNode(net.myvietnam.mvncore.configuration.ConfigurationKey.KeyIterator, net.myvietnam.mvncore.configuration.HierarchicalConfiguration.Node):net.myvietnam.mvncore.configuration.HierarchicalConfiguration.Node	net.myvietnam.mvncore.configuration.ConfigurationKey.KeyIterator	 Error: Method findLastPathNode(net.myvietnam.mvncore.configuration.ConfigurationKey.KeyIterator, net.myvietnam.mvncore.configuration.HierarchicalConfiguration.Node):net.myvietnam.mvncore.configuration.HierarchicalConfiguration.Node not found!
+DMove	Wrong	net.myvietnam.mvncore.configuration.HierarchicalConfiguration::findPropertyNodes(net.myvietnam.mvncore.configuration.ConfigurationKey.KeyIterator, net.myvietnam.mvncore.configuration.HierarchicalConfiguration.Node, java.util.Collection):void	net.myvietnam.mvncore.configuration.ConfigurationKey.KeyIterator	 Error: Method findPropertyNodes(net.myvietnam.mvncore.configuration.ConfigurationKey.KeyIterator, net.myvietnam.mvncore.configuration.HierarchicalConfiguration.Node, java.util.Collection):void not found!
+
+DMove	Wrong	com.mvnforum.categorytree.CategoryTree::build():String	com.mvnforum.categorytree.CategoryBuilder
+
+Neste caso é interessante pois se eu extraio e mantenho o padraão delegate em category tree
+
+DMove	Wrong	net.myvietnam.mvncore.configuration.HierarchicalConfigurationXMLReader.SAXVisitor::isAttributeNode(Node):boolean	net.myvietnam.mvncore.configuration.HierarchicalConfiguration.Node
+
+Acontece o caso do visitor mencionado pelo follew
+
+-----------------------------------------------------------------------------
+
+MS JDEODORANT IUC
+
+DMove	Gold	com.mvnforum.categorytree.CategoryTreeEvent::drawForum2(RSSImpl):String	com.mvnforum.categorytree.impl.RSSImpl
+DMove	Gold	com.mvnforum.db.CategoryBean::drawForum2(ListForums, CategoryTreeEvent):String	com.mvnforum.categorytree.impl.ListForums
+DMove	Wrong	net.myvietnam.mvncore.configuration.HierarchicalConfiguration::nodeDefined(Node):boolean	net.myvietnam.mvncore.configuration.HierarchicalConfiguration.Node
+DMove	Wrong	com.mvnforum.admin.importexport.jive.JiveThreadXML::updateAddedPost(PostXML, String, Timestamp):void	com.mvnforum.admin.ThreadXML
+DMove	Wrong	com.mvnforum.admin.importexport.jive.JiveForumXML::updateAddedPost(PostXML, String, Timestamp):void	com.mvnforum.admin.ForumXML
+DMove	Wrong	net.myvietnam.mvncore.configuration.HierarchicalConfigurationXMLReader.SAXVisitor::isAttributeNode(Node):boolean	net.myvietnam.mvncore.configuration.HierarchicalConfiguration.Node
+DMove	Gold	com.mvnforum.common.ForumIconLegend::drawForum2(CategoryTreeListenerImpl, CategoryTreeEvent):String	com.mvnforum.categorytree.impl.CategoryTreeListenerImpl
+DMove	Wrong	com.mvnsoft.mvnad.delivery.ZoneManager::getBannerInZone(Timestamp):String	com.mvnsoft.mvnad.db.ZoneBean
+DMove	Wrong	com.mvnforum.categorytree.CategoryTree::build():String	com.mvnforum.categorytree.CategoryBuilder
+DMove	Wrong	net.myvietnam.mvncore.configuration.HierarchicalConfigurationConverter::reverseIterator(ConfigurationKey):Iterator	net.myvietnam.mvncore.configuration.ConfigurationKey
+Move	Gold	com.mvnforum.admin.AttachmentXML::setAttachDownloadCount(MvnForumAttachmentXML, String):void	com.mvnforum.admin.importexport.mvnforum.MvnForumAttachmentXML
+Move	Gold	com.mvnforum.admin.CategoryXML::setCategoryOrder(MvnForumCategoryXML, String):void	com.mvnforum.admin.importexport.mvnforum.MvnForumCategoryXML
+Move	Gold	com.mvnforum.admin.ForumXML::setForumPassword(MvnForumForumXML, String):void	com.mvnforum.admin.importexport.mvnforum.MvnForumForumXML
+Move	Gold	com.mvnforum.admin.MemberXML::setMemberEmailVisible(MvnForumMemberXML, String):void	com.mvnforum.admin.importexport.mvnforum.MvnForumMemberXML
+Move	Gold	com.mvnforum.admin.ThreadXML::addJiveThreadWatch(JiveThreadXML, String, String, String):void	com.mvnforum.admin.importexport.jive.JiveThreadXML
+Move	Wrong	com.mvnforum.admin.GeneralAdminTasksWebHandler::processMailTemplate(MemberBean, String):String	com.mvnforum.db.MemberBean
+Move	Wrong	com.mvnforum.user.PostWebHandler::deletePost(GenericRequest, PostBean):void	com.mvnforum.db.PostBean
+Move	Wrong	com.mvnforum.user.ThreadWebHandler::deleteThread(GenericRequest, ThreadBean):void	com.mvnforum.db.ThreadBean
+Move	Gold	com.mvnforum.db.MemberBean::createWatchMessageBean(WatchMail, Collection):void	com.mvnforum.user.WatchMail
+Move	Gold	com.mvnsoft.mvnad.db.ZoneBean::getNextBanner(ZoneManager):BannerBean	com.mvnsoft.mvnad.delivery.ZoneManager
+DMove	Wrong	net.myvietnam.mvncore.configuration.HierarchicalConfiguration::createAddPath(net.myvietnam.mvncore.configuration.ConfigurationKey.KeyIterator, net.myvietnam.mvncore.configuration.HierarchicalConfiguration.Node):net.myvietnam.mvncore.configuration.HierarchicalConfiguration.Node	net.myvietnam.mvncore.configuration.ConfigurationKey.KeyIterator	 Error: Method createAddPath(net.myvietnam.mvncore.configuration.ConfigurationKey.KeyIterator, net.myvietnam.mvncore.configuration.HierarchicalConfiguration.Node):net.myvietnam.mvncore.configuration.HierarchicalConfiguration.Node not found!
+DMove	Wrong	net.myvietnam.mvncore.configuration.HierarchicalConfiguration::findLastPathNode(net.myvietnam.mvncore.configuration.ConfigurationKey.KeyIterator, net.myvietnam.mvncore.configuration.HierarchicalConfiguration.Node):net.myvietnam.mvncore.configuration.HierarchicalConfiguration.Node	net.myvietnam.mvncore.configuration.ConfigurationKey.KeyIterator	 Error: Method findLastPathNode(net.myvietnam.mvncore.configuration.ConfigurationKey.KeyIterator, net.myvietnam.mvncore.configuration.HierarchicalConfiguration.Node):net.myvietnam.mvncore.configuration.HierarchicalConfiguration.Node not found!
+DMove	Wrong	net.myvietnam.mvncore.configuration.HierarchicalConfiguration::findPropertyNodes(net.myvietnam.mvncore.configuration.ConfigurationKey.KeyIterator, net.myvietnam.mvncore.configuration.HierarchicalConfiguration.Node, java.util.Collection):void	net.myvietnam.mvncore.configuration.ConfigurationKey.KeyIterator	 Error: Method findPropertyNodes(net.myvietnam.mvncore.configuration.ConfigurationKey.KeyIterator, net.myvietnam.mvncore.configuration.HierarchicalConfiguration.Node, java.util.Collection):void not found!
+
+EXEMPLO 1: DMove	Wrong	com.mvnsoft.mvnad.delivery.ZoneManager::getBannerInZone(Timestamp):String	com.mvnsoft.mvnad.db.ZoneBean
+
+Conceitualmente, esta movimentação é incorreta pois tenta mover, para um simples POJO/Entity, um método que faz acesso a outro serviço e que monta tags de interface gráfica. 
+Movimentações para Entity/POJO foi um dos problemas que o Ricardo Terra apontou em seu artigo artigo!
+
+O IUC não permite esta movimentação pois o método getBannerInZone é usado somente pelo próprio ZoneManager e pelo AdGenerator, já a classe ZoneBean é usado por cinco 
+classes além das duas que chamam o método getBannerInZone, portanto se o método fosse movido, violaria o padrão de uso da classe ZoneBean.
+
+EXEMPLO 2: Move	Wrong	com.mvnforum.user.PostWebHandler::deletePost(GenericRequest, PostBean):void	com.mvnforum.db.PostBean
+EXEMPLO 3: Move	Wrong	com.mvnforum.user.ThreadWebHandler::deleteThread(GenericRequest, ThreadBean):void	com.mvnforum.db.ThreadBean
+
+Estes exemplos são interessantes para mostrar como as métricas são complementares!
+
+Estas movimentações são incorretas pois dentro dos métodos são chamdos DAOs, Serviços e é feita veririficações de usuário logado e nesta arquitetura, nitidamente, não é 
+desejável que este tipo de código vá parar em Entities/POJO.
+
+Estes métodos são métodos utilitários e somente são utilizados no Controlador ao qual eles pertencem. E como os Controladores fazem muitos usos 
+da classe PostBean ou ThreadBean o IUC não vê como uma violação no padrão de consumo.
+
+-----------------------------------------------------------------------------
+
+MS JDEODORANT CAMC
+
+DMove	Wrong	com.mvnforum.categorytree.CategoryTree::build():String	com.mvnforum.categorytree.CategoryBuilder
+DMove	Wrong	com.mvnforum.admin.importexport.jive.JiveForumXML::updateAddedPost(PostXML, String, Timestamp):void	com.mvnforum.admin.ForumXML
+DMove	Wrong	net.myvietnam.mvncore.configuration.HierarchicalConfiguration::nodeDefined(Node):boolean	net.myvietnam.mvncore.configuration.HierarchicalConfiguration.Node
+DMove	Wrong	com.mvnforum.admin.importexport.jive.JiveThreadXML::updateAddedPost(PostXML, String, Timestamp):void	com.mvnforum.admin.ThreadXML
+DMove	Wrong	net.myvietnam.mvncore.configuration.HierarchicalConfigurationConverter::reverseIterator(ConfigurationKey):Iterator	net.myvietnam.mvncore.configuration.ConfigurationKey
+DMove	Wrong	com.mvnsoft.mvnad.delivery.ZoneManager::getBannerInZone(Timestamp):String	com.mvnsoft.mvnad.db.ZoneBean
+DMove	Wrong	net.myvietnam.mvncore.configuration.HierarchicalConfigurationXMLReader.SAXVisitor::isAttributeNode(Node):boolean	net.myvietnam.mvncore.configuration.HierarchicalConfiguration.Node
+DMove	Wrong	com.mvnforum.user.PostWebHandler::deletePost(GenericRequest, PostBean):void	com.mvnforum.db.PostBean
+DMove	Wrong	com.mvnforum.user.ThreadWebHandler::deleteThread(GenericRequest, ThreadBean):void	com.mvnforum.db.ThreadBean
+Move	Gold	com.mvnsoft.mvnad.db.ZoneBean::getNextBanner(ZoneManager):BannerBean	com.mvnsoft.mvnad.delivery.ZoneManager
+Move	Gold	com.mvnforum.admin.CategoryXML::setCategoryOrder(MvnForumCategoryXML, String):void	com.mvnforum.admin.importexport.mvnforum.MvnForumCategoryXML
+Move	Gold	com.mvnforum.db.MemberBean::createWatchMessageBean(WatchMail, Collection):void	com.mvnforum.user.WatchMail
+Move	Gold	com.mvnforum.admin.ThreadXML::addJiveThreadWatch(JiveThreadXML, String, String, String):void	com.mvnforum.admin.importexport.jive.JiveThreadXML
+Move	Gold	com.mvnforum.admin.ForumXML::setForumPassword(MvnForumForumXML, String):void	com.mvnforum.admin.importexport.mvnforum.MvnForumForumXML
+Move	Gold	com.mvnforum.admin.MemberXML::setMemberEmailVisible(MvnForumMemberXML, String):void	com.mvnforum.admin.importexport.mvnforum.MvnForumMemberXML
+Move	Gold	com.mvnforum.admin.AttachmentXML::setAttachDownloadCount(MvnForumAttachmentXML, String):void	com.mvnforum.admin.importexport.mvnforum.MvnForumAttachmentXML
+Move	Gold	com.mvnforum.db.CategoryBean::drawForum2(ListForums, CategoryTreeEvent):String	com.mvnforum.categorytree.impl.ListForums
+Move	Gold	com.mvnforum.common.ForumIconLegend::drawForum2(CategoryTreeListenerImpl, CategoryTreeEvent):String	com.mvnforum.categorytree.impl.CategoryTreeListenerImpl
+Move	Wrong	com.mvnforum.admin.GeneralAdminTasksWebHandler::processMailTemplate(MemberBean, String):String	com.mvnforum.db.MemberBean
+Move	Gold	com.mvnforum.categorytree.CategoryTreeEvent::drawForum2(RSSImpl):String	com.mvnforum.categorytree.impl.RSSImpl
+DMove	Wrong	net.myvietnam.mvncore.configuration.HierarchicalConfiguration::createAddPath(net.myvietnam.mvncore.configuration.ConfigurationKey.KeyIterator, net.myvietnam.mvncore.configuration.HierarchicalConfiguration.Node):net.myvietnam.mvncore.configuration.HierarchicalConfiguration.Node	net.myvietnam.mvncore.configuration.ConfigurationKey.KeyIterator	 Error: Method createAddPath(net.myvietnam.mvncore.configuration.ConfigurationKey.KeyIterator, net.myvietnam.mvncore.configuration.HierarchicalConfiguration.Node):net.myvietnam.mvncore.configuration.HierarchicalConfiguration.Node not found!
+DMove	Wrong	net.myvietnam.mvncore.configuration.HierarchicalConfiguration::findLastPathNode(net.myvietnam.mvncore.configuration.ConfigurationKey.KeyIterator, net.myvietnam.mvncore.configuration.HierarchicalConfiguration.Node):net.myvietnam.mvncore.configuration.HierarchicalConfiguration.Node	net.myvietnam.mvncore.configuration.ConfigurationKey.KeyIterator	 Error: Method findLastPathNode(net.myvietnam.mvncore.configuration.ConfigurationKey.KeyIterator, net.myvietnam.mvncore.configuration.HierarchicalConfiguration.Node):net.myvietnam.mvncore.configuration.HierarchicalConfiguration.Node not found!
+DMove	Wrong	net.myvietnam.mvncore.configuration.HierarchicalConfiguration::findPropertyNodes(net.myvietnam.mvncore.configuration.ConfigurationKey.KeyIterator, net.myvietnam.mvncore.configuration.HierarchicalConfiguration.Node, java.util.Collection):void	net.myvietnam.mvncore.configuration.ConfigurationKey.KeyIterator	 Error: Method findPropertyNodes(net.myvietnam.mvncore.configuration.ConfigurationKey.KeyIterator, net.myvietnam.mvncore.configuration.HierarchicalConfiguration.Node, java.util.Collection):void not found!
+
+EXEMPLO 2: Move	Wrong	com.mvnforum.user.PostWebHandler::deletePost(GenericRequest, PostBean):void	com.mvnforum.db.PostBean
+EXEMPLO 3: Move	Wrong	com.mvnforum.user.ThreadWebHandler::deleteThread(GenericRequest, ThreadBean):void	com.mvnforum.db.ThreadBean
+
+Em ambos os casos CAMC não permite que os métodos sejam movidos pois eles possuem o parâmetro GenericRequest que é um parâmetro do Controlador e que
+não esta presente Entity/POJO
+
+-----------------------------------------------------------------------------
+
+MS JMOVE IUC + CAMC
+
+DMove	Wrong	com.mvnforum.admin.importexport.jive.JiveThreadXML::updateAddedPost(PostXML, String, Timestamp):void	com.mvnforum.admin.ThreadXML
+DMove	Wrong	net.myvietnam.mvncore.configuration.ConfigurationFactory.ConfigurationBuilder::createAdditionalConfiguration(Collection):Configuration	net.myvietnam.mvncore.configuration.CompositeConfiguration
+DMove	Wrong	com.mvnforum.admin.importexport.mvnforum.MvnForumMemberXML::addGlobalWatch(String, String, String, String, String, String):void	com.mvnforum.admin.MemberXML
+DMove	Wrong	com.mvnforum.admin.importexport.mvnforum.MvnForumMemberXML::addMessageFolder(String, String, String, String):void	com.mvnforum.admin.MemberXML
+DMove	Wrong	com.mvnsoft.mvnad.admin.ConfigForumWebHandler::prepare(GenericRequest):void	com.mvnforum.auth.OnlineUserManager
+DMove	Wrong	com.mvnforum.admin.CategoryWebHandler::prepareAdd(GenericRequest, GenericResponse):void	com.mvnforum.service.CategoryService
+DMove	Wrong	com.mvnforum.user.ThreadWebHandler::deleteSuccessForRender(GenericRequest, GenericResponse):void	com.mvnforum.service.CategoryService
+Move	Gold	com.mvnforum.common.ForumIconLegend::drawForum2(CategoryTreeListenerImpl, CategoryTreeEvent):String	com.mvnforum.categorytree.impl.CategoryTreeListenerImpl
+Move	Gold	com.mvnforum.db.PostBean::deletePost(GenericRequest, PostWebHandler):void	com.mvnforum.user.PostWebHandler
+Move	Gold	com.mvnforum.db.CategoryBean::drawForum2(ListForums, CategoryTreeEvent):String	com.mvnforum.categorytree.impl.ListForums
+Move	Gold	com.mvnforum.db.MemberBean::createWatchMessageBean(WatchMail, Collection):void	com.mvnforum.user.WatchMail
+Move	Gold	com.mvnforum.db.WatchBean::appendWatch2(WatchMail):void	com.mvnforum.user.WatchMail
+Move	Gold	com.mvnforum.categorytree.CategoryTreeEvent::drawForum2(RSSImpl):String	com.mvnforum.categorytree.impl.RSSImpl
+Move	Gold	net.myvietnam.mvncore.interceptor.InterceptorService::prepareAdd(PostWebHandler, GenericRequest, GenericResponse):void	com.mvnforum.user.PostWebHandler
+
+DMove	Wrong	com.mvnforum.admin.importexport.mvnforum.MvnForumMemberXML::addGlobalWatch(String, String, String, String, String, String):void	com.mvnforum.admin.MemberXML
+DMove	Wrong	com.mvnforum.admin.importexport.mvnforum.MvnForumMemberXML::addMessageFolder(String, String, String, String):void	com.mvnforum.admin.MemberXML
+
+Já tem os mesmos métodos na classe de destino
+
+-----------------------------------------------------------------------------
+
+MS JMOVE IUC 
+
+DMove	Gold	com.mvnforum.categorytree.CategoryTreeEvent::drawForum2(RSSImpl):String	com.mvnforum.categorytree.impl.RSSImpl
+DMove	Gold	com.mvnforum.db.CategoryBean::drawForum2(ListForums, CategoryTreeEvent):String	com.mvnforum.categorytree.impl.ListForums
+DMove	Gold	com.mvnforum.db.PostBean::deletePost(GenericRequest, PostWebHandler):void	com.mvnforum.user.PostWebHandler
+DMove	Wrong	com.mvnforum.admin.importexport.jive.JiveThreadXML::updateAddedPost(PostXML, String, Timestamp):void	com.mvnforum.admin.ThreadXML
+DMove	Wrong	net.myvietnam.mvncore.configuration.ConfigurationFactory.ConfigurationBuilder::createAdditionalConfiguration(Collection):Configuration	net.myvietnam.mvncore.configuration.CompositeConfiguration
+DMove	Gold	com.mvnforum.common.ForumIconLegend::drawForum2(CategoryTreeListenerImpl, CategoryTreeEvent):String	com.mvnforum.categorytree.impl.CategoryTreeListenerImpl
+DMove	Wrong	com.mvnsoft.mvnad.admin.ConfigForumWebHandler::prepare(GenericRequest):void	com.mvnforum.auth.OnlineUserManager
+DMove	Wrong	com.mvnforum.admin.CategoryWebHandler::prepareAdd(GenericRequest, GenericResponse):void	com.mvnforum.service.CategoryService
+DMove	Wrong	com.mvnforum.user.ThreadWebHandler::deleteSuccessForRender(GenericRequest, GenericResponse):void	com.mvnforum.service.CategoryService
+Move	Wrong	com.mvnforum.admin.importexport.mvnforum.MvnForumMemberXML::addGlobalWatch(String, String, String, String, String, String):void	com.mvnforum.admin.MemberXML
+Move	Wrong	com.mvnforum.admin.importexport.mvnforum.MvnForumMemberXML::addMessageFolder(String, String, String, String):void	com.mvnforum.admin.MemberXML
+Move	Gold	com.mvnforum.db.MemberBean::createWatchMessageBean(WatchMail, Collection):void	com.mvnforum.user.WatchMail
+Move	Gold	com.mvnforum.db.WatchBean::appendWatch2(WatchMail):void	com.mvnforum.user.WatchMail
+Move	Gold	net.myvietnam.mvncore.interceptor.InterceptorService::prepareAdd(PostWebHandler, GenericRequest, GenericResponse):void	com.mvnforum.user.PostWebHandler
+
+EXEMPLO 4: Este é um exemplo interessante, pois CategoryService é uma interface, ou seja, neste caso o JMove só usou os parâmetros na sua avaliação, como no meu trabalho, 
+e errou enquanto a minha abordagem acertou. 
+
+DMove	Wrong	com.mvnforum.admin.CategoryWebHandler::prepareAdd(GenericRequest, GenericResponse):void	com.mvnforum.service.CategoryService
+
+O método prepareAdd é somente usado pela classe AdminModuleProcessor que não é uma das 15 classes que usam CategoryService, o que constitui uma violação 
+do padrão de uso quanto o IUC
+
+DMove	Wrong	com.mvnforum.user.ThreadWebHandler::deleteSuccessForRender(GenericRequest, GenericResponse):void	com.mvnforum.service.CategoryService
+
+O método deleteSuccessForRender é somente usado pela classe UserModuleProcessor que não é uma das 15 classes que usam CategoryService, o que constitui uma violação 
+do padrão de uso quanto o IUC
+
+-----------------------------------------------------------------------------
+
+MS JMOVE CAMC
+
+DMove	Wrong	net.myvietnam.mvncore.configuration.ConfigurationFactory.ConfigurationBuilder::createAdditionalConfiguration(Collection):Configuration	net.myvietnam.mvncore.configuration.CompositeConfiguration
+DMove	Wrong	com.mvnforum.admin.importexport.jive.JiveThreadXML::updateAddedPost(PostXML, String, Timestamp):void	com.mvnforum.admin.ThreadXML
+DMove	Wrong	com.mvnforum.user.ThreadWebHandler::deleteSuccessForRender(GenericRequest, GenericResponse):void	com.mvnforum.service.CategoryService
+DMove	Wrong	com.mvnforum.admin.CategoryWebHandler::prepareAdd(GenericRequest, GenericResponse):void	com.mvnforum.service.CategoryService
+DMove	Wrong	com.mvnsoft.mvnad.admin.ConfigForumWebHandler::prepare(GenericRequest):void	com.mvnforum.auth.OnlineUserManager
+DMove	Wrong	com.mvnforum.admin.importexport.mvnforum.MvnForumMemberXML::addGlobalWatch(String, String, String, String, String, String):void	com.mvnforum.admin.MemberXML
+DMove	Wrong	com.mvnforum.admin.importexport.mvnforum.MvnForumMemberXML::addMessageFolder(String, String, String, String):void	com.mvnforum.admin.MemberXML
+Move	Gold	com.mvnforum.db.WatchBean::appendWatch2(WatchMail):void	com.mvnforum.user.WatchMail
+Move	Gold	com.mvnforum.db.MemberBean::createWatchMessageBean(WatchMail, Collection):void	com.mvnforum.user.WatchMail
+Move	Gold	com.mvnforum.db.CategoryBean::drawForum2(ListForums, CategoryTreeEvent):String	com.mvnforum.categorytree.impl.ListForums
+Move	Gold	com.mvnforum.db.PostBean::deletePost(GenericRequest, PostWebHandler):void	com.mvnforum.user.PostWebHandler
+Move	Gold	com.mvnforum.common.ForumIconLegend::drawForum2(CategoryTreeListenerImpl, CategoryTreeEvent):String	com.mvnforum.categorytree.impl.CategoryTreeListenerImpl
+Move	Gold	net.myvietnam.mvncore.interceptor.InterceptorService::prepareAdd(PostWebHandler, GenericRequest, GenericResponse):void	com.mvnforum.user.PostWebHandler
+Move	Gold	com.mvnforum.categorytree.CategoryTreeEvent::drawForum2(RSSImpl):String	com.mvnforum.categorytree.impl.RSSImpl
+
+EXEMPLO 4: Neste exemplo quando tanto o JMove quanto a minha abordagem só analisam parâmetros ainda sim a minha forma de avaliar parâmetros acerta e a do JMove erra
+
+DMove	Wrong	com.mvnforum.admin.CategoryWebHandler::prepareAdd(GenericRequest, GenericResponse):void	com.mvnforum.service.CategoryService
+DMove	Wrong	com.mvnforum.user.ThreadWebHandler::deleteSuccessForRender(GenericRequest, GenericResponse):void	com.mvnforum.service.CategoryService
+
+EXEMPLO 5: Mostra que a minha abordagem também faz o caminho oposto, permite que um método que deveria estar em um controlador saia de uma Entity/Pojo e vá para 
+o Controlador adequado
+
+Move	Gold	com.mvnforum.db.PostBean::deletePost(GenericRequest, PostWebHandler):void	com.mvnforum.user.PostWebHandler
+
+COMENTÁRIO FINAL
+
+Olhando somente para o sistema MvnForum pode parecer que a CAMC é mais precisa que o IUC, porém quando são analisados outros sistemas dá pra ver que a IUC e mais 
+restritiva que a CAMC e com a união das duas obtém-se uma precisão melhor. Pretendo rever e mostrar essa análise na minha dissertação.  
+

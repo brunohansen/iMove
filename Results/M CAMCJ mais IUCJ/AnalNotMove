@@ -1,0 +1,23 @@
+Deveria mover mas é prvado org.jfree.chart.axis.ModuloAxis::mapValueToFixedRange(double):double	org.jfree.data.Range
+
+Era para permitir extração com.mvnforum.admin.importexport.jive.JiveThreadXML::updateAddedPost(PostXML, String, Timestamp):void	com.mvnforum.admin.ThreadXML
+Era para permitir extração com.mvnforum.admin.importexport.jive.JiveForumXML::updateAddedPost(PostXML, String, Timestamp):void	com.mvnforum.admin.ForumXML
+
+
+Exmpelos de abstrações em niveis JTOPEN
+
+-1.522222-111	com.ibm.as400.micro.ConnectionHandler::commit(Connection):void	com.ibm.as400.micro.MicroDataOutputStream
+-1.522222-111	com.ibm.as400.micro.ConnectionHandler::rollback(Connection):void	com.ibm.as400.micro.MicroDataOutputStream
+-1.756944-111	com.ibm.as400.micro.ResultSetHandler::afterLast(ResultSet):void	com.ibm.as400.micro.MicroDataOutputStream
+-1.756944-111	com.ibm.as400.micro.ResultSetHandler::beforeFirst(ResultSet):void	com.ibm.as400.micro.MicroDataOutputStream
+-1.756944-111	com.ibm.as400.micro.ResultSetHandler::deleteRow(ResultSet):void	com.ibm.as400.micro.MicroDataOutputStream
+-1.756944-111	com.ibm.as400.micro.ResultSetHandler::isAfterLast(ResultSet):void	com.ibm.as400.micro.MicroDataOutputStream
+-1.756944-111	com.ibm.as400.micro.ResultSetHandler::isBeforeFirst(ResultSet):void	com.ibm.as400.micro.MicroDataOutputStream
+-1.756944-111	com.ibm.as400.micro.ResultSetHandler::isFirst(ResultSet):void	com.ibm.as400.micro.MicroDataOutputStream
+-1.756944-111	com.ibm.as400.micro.ResultSetHandler::isLast(ResultSet):void	com.ibm.as400.micro.MicroDataOutputStream
+-1.777778-111	com.ibm.as400.micro.ResultSetHandler::writeRow(ResultSet):void	com.ibm.as400.micro.MicroDataOutputStream
+
+-0.650377-111	com.ibm.as400.vaccess.SQLQueryFieldsPane::getCharacterFieldNames():String[]	com.ibm.as400.vaccess.SQLMetaDataTableModel
+-0.650377-111	com.ibm.as400.vaccess.SQLQueryFieldsPane::getDateFieldNames():String[]	com.ibm.as400.vaccess.SQLMetaDataTableModel
+-0.650377-111	com.ibm.as400.vaccess.SQLQueryFieldsPane::getDateTimeFieldNames():String[]	com.ibm.as400.vaccess.SQLMetaDataTableModel
+-0.650377-111	com.ibm.as400.vaccess.SQLQueryFieldsPane::getTimeFieldNames():String[]	com.ibm.as400.vaccess.SQLMetaDataTableModel
