@@ -1,9 +1,5 @@
 Deveria mover mas é prvado org.jfree.chart.axis.ModuloAxis::mapValueToFixedRange(double):double	org.jfree.data.Range
 
-Era para permitir extração com.mvnforum.admin.importexport.jive.JiveThreadXML::updateAddedPost(PostXML, String, Timestamp):void	com.mvnforum.admin.ThreadXML
-Era para permitir extração com.mvnforum.admin.importexport.jive.JiveForumXML::updateAddedPost(PostXML, String, Timestamp):void	com.mvnforum.admin.ForumXML
-
-
 Exmpelos de abstrações em niveis JTOPEN
 
 -1.522222-111	com.ibm.as400.micro.ConnectionHandler::commit(Connection):void	com.ibm.as400.micro.MicroDataOutputStream
@@ -21,3 +17,52 @@ Exmpelos de abstrações em niveis JTOPEN
 -0.650377-111	com.ibm.as400.vaccess.SQLQueryFieldsPane::getDateFieldNames():String[]	com.ibm.as400.vaccess.SQLMetaDataTableModel
 -0.650377-111	com.ibm.as400.vaccess.SQLQueryFieldsPane::getDateTimeFieldNames():String[]	com.ibm.as400.vaccess.SQLMetaDataTableModel
 -0.650377-111	com.ibm.as400.vaccess.SQLQueryFieldsPane::getTimeFieldNames():String[]	com.ibm.as400.vaccess.SQLMetaDataTableModel
+
+JMove
+Noa deve correto
+com.mvnforum.admin.importexport.jive.JiveThreadXML::updateAddedPost(PostXML, String, Timestamp):void	com.mvnforum.admin.ThreadXML
+só um layer com.mvnforum.admin.importexport.mvnforum.MvnForumMemberXML::addGlobalWatch(String, String, String, String, String, String):void	com.mvnforum.admin.MemberXML
+só um layer com.mvnforum.admin.importexport.mvnforum.MvnForumMemberXML::addMessageFolder(String, String, String, String):void	com.mvnforum.admin.MemberXML
+com.mvnforum.admin.CategoryWebHandler::prepareAdd(GenericRequest, GenericResponse):void	com.mvnforum.service.CategoryService
+com.mvnforum.user.ThreadWebHandler::deleteSuccessForRender(GenericRequest, GenericResponse):void	com.mvnforum.service.CategoryService
+
+Nao sei
+net.myvietnam.mvncore.configuration.ConfigurationFactory.ConfigurationBuilder::createAdditionalConfiguration(Collection):Configuration	net.myvietnam.mvncore.configuration.CompositeConfiguration
+com.mvnsoft.mvnad.admin.ConfigForumWebHandler::prepare(GenericRequest):void	com.mvnforum.auth.OnlineUserManager
+
+
+JDeodo
+Noa deve correto
+net.myvietnam.mvncore.configuration.HierarchicalConfiguration::nodeDefined(Node):boolean	net.myvietnam.mvncore.configuration.HierarchicalConfiguration.Node
+com.mvnforum.user.PostWebHandler::deletePost(GenericRequest, PostBean):void	com.mvnforum.db.PostBean
+com.mvnforum.user.ThreadWebHandler::deleteThread(GenericRequest, ThreadBean):void	com.mvnforum.db.ThreadBean
+Era para permitir extração com.mvnforum.admin.importexport.jive.JiveThreadXML::updateAddedPost(PostXML, String, Timestamp):void	com.mvnforum.admin.ThreadXML
+Era para permitir extração com.mvnforum.admin.importexport.jive.JiveForumXML::updateAddedPost(PostXML, String, Timestamp):void	com.mvnforum.admin.ForumXML
+com.mvnsoft.mvnad.delivery.ZoneManager::getBannerInZone(Timestamp):String	com.mvnsoft.mvnad.db.ZoneBean
+net.myvietnam.mvncore.configuration.HierarchicalConfigurationXMLReader.SAXVisitor::isAttributeNode(Node):boolean	net.myvietnam.mvncore.configuration.HierarchicalConfiguration.Node
+
+Nao deve errado
+com.mvnforum.categorytree.CategoryTree::build():String	com.mvnforum.categorytree.CategoryBuilder
+net.myvietnam.mvncore.configuration.HierarchicalConfigurationConverter::reverseIterator(ConfigurationKey):Iterator	net.myvietnam.mvncore.configuration.ConfigurationKey
+
+Permitiu e errou hashmap
+com.mvnforum.admin.GeneralAdminTasksWebHandler::processMailTemplate(MemberBean, String):String	com.mvnforum.db.MemberBean
+
+JDeodo
+Permitiu Correto 
+com.ibm.as400.access.IFSFileInputStream::rewind():void	com.ibm.as400.access.IFSFileDescriptor
+com.ibm.as400.access.IFSFileImplRemote::determineIsDirectory(IFSListAttrsRep):boolean	com.ibm.as400.access.IFSListAttrsRep
+com.ibm.as400.access.IFSFileImplRemote::determineIsFile(IFSListAttrsRep):boolean	com.ibm.as400.access.IFSListAttrsRep
+com.ibm.as400.access.ProxyServer::setConfiguration(String):void	com.ibm.as400.access.PSConfig
+com.ibm.as400.vaccess.SQLQuerySelectPane::addToClause(String):void	com.ibm.as400.vaccess.SQLQueryClause
+
+Não sei
+com.ibm.as400.access.DataQueue::create(DataQueueAttributes):void	com.ibm.as400.access.DataQueueAttributes
+com.ibm.as400.access.PSLoadBalancer::accept(int):String	com.ibm.as400.access.PSLoad
+
+Permitiu errado
+com.ibm.as400.access.AS400JDBCConnectionHandle::fireEventIfErrorFatal(SQLException):void	com.ibm.as400.access.AS400JDBCPooledConnection
+Deveria extrair com.ibm.as400.access.PSTunnelConnection::runRequest(PxReqSV, OutputStream):void	com.ibm.as400.access.PxReqSV
+com.ibm.as400.vaccess.AS400JDBCDataSourcePane::applyChangesToCurrentDataSource(AS400JDBCDataSource):void	com.ibm.as400.access.AS400JDBCDataSource
+com.ibm.as400.util.commtrace.Format::addBanner():String	com.ibm.as400.util.commtrace.Prolog
+com.ibm.as400.access.AS400JDBCConnection::debug(DBBaseRequestDS):void	com.ibm.as400.access.DBBaseRequestDS
