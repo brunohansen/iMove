@@ -19,18 +19,25 @@ public abstract class SelectionHandler extends IMoveHandler {
 
 		if(editor == null)
 			throw new Exception("There's no editor openned!");
-			
+		
+		
+		ITextSelection selection = (ITextSelection) editor.getSelectionProvider().getSelection();
+
 		IEditorInput editorInput = editor.getEditorInput();
 		IJavaElement elem = JavaUI.getEditorInputJavaElement(editorInput);
 		
 		if (elem instanceof ICompilationUnit) {
-			ICompilationUnit unit = (ICompilationUnit) elem;
-			IType[] allTypes = unit.getAllTypes();
+		    ICompilationUnit unit = (ICompilationUnit) elem;
+		    IJavaElement selected = unit.getElementAt(selection.getOffset());
 			
-			if((allTypes != null) & (allTypes.length > 0)) {
-				return allTypes[0];
-			} 
-		}
+			if (selected.getElementType() == IJavaElement.TYPE) {
+				return (IType) selected;
+			} else if (selected.getElementType() == IJavaElement.METHOD) {
+				return (IType) selected.getParent();
+			} else {
+				throw new Exception("Select a class on editor");
+			}
+		}		
 		
 		throw new Exception("Select a class on editor");
 	}
