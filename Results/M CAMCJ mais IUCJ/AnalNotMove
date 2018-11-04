@@ -19,19 +19,40 @@ Exmpelos de abstrações em niveis JTOPEN
 -0.650377-111	com.ibm.as400.vaccess.SQLQueryFieldsPane::getTimeFieldNames():String[]	com.ibm.as400.vaccess.SQLMetaDataTableModel
 
 JMove
+
+14 Sugestões
+
+7 permite mover, precisao 100%
+7 corretas pelo gold
+
+7 não permite mover 71% a 100%
+6 correta por analise
+1 errado por analise
+
 Noa deve correto
 com.mvnforum.admin.importexport.jive.JiveThreadXML::updateAddedPost(PostXML, String, Timestamp):void	com.mvnforum.admin.ThreadXML
 só um layer com.mvnforum.admin.importexport.mvnforum.MvnForumMemberXML::addGlobalWatch(String, String, String, String, String, String):void	com.mvnforum.admin.MemberXML
 só um layer com.mvnforum.admin.importexport.mvnforum.MvnForumMemberXML::addMessageFolder(String, String, String, String):void	com.mvnforum.admin.MemberXML
 com.mvnforum.admin.CategoryWebHandler::prepareAdd(GenericRequest, GenericResponse):void	com.mvnforum.service.CategoryService
 com.mvnforum.user.ThreadWebHandler::deleteSuccessForRender(GenericRequest, GenericResponse):void	com.mvnforum.service.CategoryService
-
-Nao sei
 net.myvietnam.mvncore.configuration.ConfigurationFactory.ConfigurationBuilder::createAdditionalConfiguration(Collection):Configuration	net.myvietnam.mvncore.configuration.CompositeConfiguration
+
+Nao deve errado
 com.mvnsoft.mvnad.admin.ConfigForumWebHandler::prepare(GenericRequest):void	com.mvnforum.auth.OnlineUserManager
 
 
 JDeodo
+
+23 sugestões
+
+11 permite mover, precisão 91%
+10 corretas pelo gold
+1 errada por analise
+
+12 não permite mover 92%
+11 correto por analise
+1 errado por analise
+
 Noa deve correto
 net.myvietnam.mvncore.configuration.HierarchicalConfiguration::nodeDefined(Node):boolean	net.myvietnam.mvncore.configuration.HierarchicalConfiguration.Node
 com.mvnforum.user.PostWebHandler::deletePost(GenericRequest, PostBean):void	com.mvnforum.db.PostBean
@@ -40,10 +61,15 @@ Era para permitir extração com.mvnforum.admin.importexport.jive.JiveThreadXML::u
 Era para permitir extração com.mvnforum.admin.importexport.jive.JiveForumXML::updateAddedPost(PostXML, String, Timestamp):void	com.mvnforum.admin.ForumXML
 com.mvnsoft.mvnad.delivery.ZoneManager::getBannerInZone(Timestamp):String	com.mvnsoft.mvnad.db.ZoneBean
 net.myvietnam.mvncore.configuration.HierarchicalConfigurationXMLReader.SAXVisitor::isAttributeNode(Node):boolean	net.myvietnam.mvncore.configuration.HierarchicalConfiguration.Node
+com.mvnforum.categorytree.CategoryTree::build():String	com.mvnforum.categorytree.CategoryBuilder
+
+E11	net.myvietnam.mvncore.configuration.HierarchicalConfiguration::createAddPath(net.myvietnam.mvncore.configuration.ConfigurationKey.KeyIterator, net.myvietnam.mvncore.configuration.HierarchicalConfiguration.Node):net.myvietnam.mvncore.configuration.HierarchicalConfiguration.Node	net.myvietnam.mvncore.configuration.ConfigurationKey.KeyIterator	 Error: Method createAddPath(net.myvietnam.mvncore.configuration.ConfigurationKey.KeyIterator, net.myvietnam.mvncore.configuration.HierarchicalConfiguration.Node):net.myvietnam.mvncore.configuration.HierarchicalConfiguration.Node not found!
+E11	net.myvietnam.mvncore.configuration.HierarchicalConfiguration::findLastPathNode(net.myvietnam.mvncore.configuration.ConfigurationKey.KeyIterator, net.myvietnam.mvncore.configuration.HierarchicalConfiguration.Node):net.myvietnam.mvncore.configuration.HierarchicalConfiguration.Node	net.myvietnam.mvncore.configuration.ConfigurationKey.KeyIterator	 Error: Method findLastPathNode(net.myvietnam.mvncore.configuration.ConfigurationKey.KeyIterator, net.myvietnam.mvncore.configuration.HierarchicalConfiguration.Node):net.myvietnam.mvncore.configuration.HierarchicalConfiguration.Node not found!
+E11	net.myvietnam.mvncore.configuration.HierarchicalConfiguration::findPropertyNodes(net.myvietnam.mvncore.configuration.ConfigurationKey.KeyIterator, net.myvietnam.mvncore.configuration.HierarchicalConfiguration.Node, java.util.Collection):void	net.myvietnam.mvncore.configuration.ConfigurationKey.KeyIterator	 Error: Method findPropertyNodes(net.myvietnam.mvncore.configuration.ConfigurationKey.KeyIterator, net.myvietnam.mvncore.configuration.HierarchicalConfiguration.Node, java.util.Collection):void not found!
 
 Nao deve errado
-com.mvnforum.categorytree.CategoryTree::build():String	com.mvnforum.categorytree.CategoryBuilder
-net.myvietnam.mvncore.configuration.HierarchicalConfigurationConverter::reverseIterator(ConfigurationKey):Iterator	net.myvietnam.mvncore.configuration.ConfigurationKey
+só ele usa, mas eu moveria net.myvietnam.mvncore.configuration.HierarchicalConfigurationConverter::reverseIterator(ConfigurationKey):Iterator	net.myvietnam.mvncore.configuration.ConfigurationKey
+
 
 Permitiu e errou hashmap
 com.mvnforum.admin.GeneralAdminTasksWebHandler::processMailTemplate(MemberBean, String):String	com.mvnforum.db.MemberBean
