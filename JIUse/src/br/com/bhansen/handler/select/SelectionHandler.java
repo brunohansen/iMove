@@ -56,8 +56,12 @@ public abstract class SelectionHandler extends IMoveHandler {
 		if (elem instanceof ICompilationUnit) {
 		    ICompilationUnit unit = (ICompilationUnit) elem;
 		    IJavaElement selected = unit.getElementAt(selection.getOffset());
-			
+		    
 			if (selected.getElementType() == IJavaElement.METHOD) {
+				//for (IMarker m : selected.getResource().findMarkers(null, false, IResource.DEPTH_ZERO)) {
+				//	System.out.println(m.getType());
+				//}
+				
 				return (IMethod) selected;
 			} else {
 				throw new Exception("Select a method on editor");
