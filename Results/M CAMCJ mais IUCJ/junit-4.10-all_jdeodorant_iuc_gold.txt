@@ -1,0 +1,25 @@
+Correto, se tiver um método para verificar cada anotação ferrou -0.059578-111	junit.framework.JUnit4TestAdapter::isIgnored(Description):boolean	org.junit.runner.Description
+Correto, usa polimorficamente para paralelizar -0.129167-111	org.junit.runner.Computer::getSuite(RunnerBuilder, Class<?>[]):Runner	org.junit.runners.model.RunnerBuilder
+Correto, classe especializada e é privado -0.190000-111	org.junit.runners.Parameterized::getParametersMethod(TestClass):FrameworkMethod	org.junit.runners.model.TestClass
+Correto, só um método chama -0.203704-111	org.junit.runners.ParentRunner::runLeaf(Statement, Description, RunNotifier):void	org.junit.runners.model.Statement
+Correto, só um método chama -0.396970-111	org.junit.experimental.theories.internal.Assignments::getAnnotatedSupplier(ParameterSignature):ParameterSupplier	org.junit.experimental.theories.ParameterSignature
+Correto, run nunca pra notifier -0.438034-111	org.junit.runner.JUnitCore::run(Runner):Result	org.junit.runner.notification.RunNotifier
+Correto, extrair seria melhor mas nao detecta -0.470862-111	org.junit.runner.JUnitCore::run(Runner):Result	org.junit.runner.Runner
+Correto, result é generico -0.491342-111	org.junit.internal.TextListener::printFooter(Result):void	org.junit.runner.Result
+Correto, test result é generico -0.520833-111	junit.textui.ResultPrinter::printFooter(TestResult):void	junit.framework.TestResult
+Depende, é privado -0.607026-111	org.junit.internal.runners.JUnit4ClassRunner::testAborted(RunNotifier, Description, Throwable):void	org.junit.runner.notification.RunNotifier
+Depende, é privado -0.626488-111	org.junit.experimental.categories.Categories.CategoryFilter::parentDescription(Description):Description	org.junit.runner.Description
+Correto, não faz sentido -0.700000-111	org.junit.experimental.theories.Theories.TheoryAnchor::runWithIncompleteAssignment(Assignments):void	org.junit.experimental.theories.internal.Assignments
+Correto, nunca para notifier -0.700000-111	org.junit.internal.runners.ErrorReportingRunner::runCause(Throwable, RunNotifier):void	org.junit.runner.notification.RunNotifier
+Correto, é privado -0.853621-111	org.junit.experimental.max.MaxCore::buildRunner(Description):Runner	org.junit.runner.Description
+
+Errado, mas acertaria se o dataset nao tivesse sacaneado 0.000000-011	junit.framework.JUnit4TestAdapterCache::getNotifier(TestResult, JUnit4TestAdapter):RunNotifier	junit.framework.TestResult
+Correto 0.125000-000	org.junit.runner.Result::printFailures(TextListener):void	org.junit.internal.TextListener
+Errado, mas acertaria se o dataset nao tivesse sacaneado 0.137566-011	org.junit.internal.TextListener::printFailure(Failure, String):void	org.junit.runner.notification.Failure
+Correto 0.446032-000	org.junit.runners.model.RunnerBuilder::runnerForClass2(AnnotatedBuilder, Class<?>):Runner	org.junit.internal.builders.AnnotatedBuilder
+Correto 0.500000-000	org.junit.runner.Description::apply(Statement, Timeout):Statement	org.junit.rules.Timeout
+Correto 0.709172-000	org.junit.runner.notification.RunNotifier::runTestMethod(MethodRoadie):void	org.junit.internal.runners.MethodRoadie
+Correto 0.764706-000	junit.framework.AssertionFailedError::addFailure2(Test, ResultPrinter):void	junit.textui.ResultPrinter
+Correto 0.784722-000	org.junit.runner.manipulation.Filter::filter3(JUnit4ClassRunner):void	org.junit.internal.runners.JUnit4ClassRunner
+Correto 1.056944-000	org.junit.experimental.theories.ParameterSignature::addFields(AllMembersSupplier, List<PotentialAssignment>):void	org.junit.experimental.theories.internal.AllMembersSupplier
+Correto 1.250000-000	org.junit.runners.model.Statement::apply(TestWatchman, FrameworkMethod, Object):Statement	org.junit.rules.TestWatchman
