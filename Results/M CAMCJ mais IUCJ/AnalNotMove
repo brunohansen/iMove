@@ -54,14 +54,14 @@ JDeodo
 1 errado por analise
 
 Noa deve correto
-net.myvietnam.mvncore.configuration.HierarchicalConfiguration::nodeDefined(Node):boolean	net.myvietnam.mvncore.configuration.HierarchicalConfiguration.Node
-com.mvnforum.user.PostWebHandler::deletePost(GenericRequest, PostBean):void	com.mvnforum.db.PostBean
-com.mvnforum.user.ThreadWebHandler::deleteThread(GenericRequest, ThreadBean):void	com.mvnforum.db.ThreadBean
+EN visitor net.myvietnam.mvncore.configuration.HierarchicalConfiguration::nodeDefined(Node):boolean	net.myvietnam.mvncore.configuration.HierarchicalConfiguration.Node
+EN com.mvnforum.user.PostWebHandler::deletePost(GenericRequest, PostBean):void	com.mvnforum.db.PostBean
+EN com.mvnforum.user.ThreadWebHandler::deleteThread(GenericRequest, ThreadBean):void	com.mvnforum.db.ThreadBean
 Era para permitir extração com.mvnforum.admin.importexport.jive.JiveThreadXML::updateAddedPost(PostXML, String, Timestamp):void	com.mvnforum.admin.ThreadXML
 Era para permitir extração com.mvnforum.admin.importexport.jive.JiveForumXML::updateAddedPost(PostXML, String, Timestamp):void	com.mvnforum.admin.ForumXML
-com.mvnsoft.mvnad.delivery.ZoneManager::getBannerInZone(Timestamp):String	com.mvnsoft.mvnad.db.ZoneBean
-net.myvietnam.mvncore.configuration.HierarchicalConfigurationXMLReader.SAXVisitor::isAttributeNode(Node):boolean	net.myvietnam.mvncore.configuration.HierarchicalConfiguration.Node
-com.mvnforum.categorytree.CategoryTree::build():String	com.mvnforum.categorytree.CategoryBuilder
+EN com.mvnsoft.mvnad.delivery.ZoneManager::getBannerInZone(Timestamp):String	com.mvnsoft.mvnad.db.ZoneBean
+EN visitor net.myvietnam.mvncore.configuration.HierarchicalConfigurationXMLReader.SAXVisitor::isAttributeNode(Node):boolean	net.myvietnam.mvncore.configuration.HierarchicalConfiguration.Node
+ES delegate com.mvnforum.categorytree.CategoryTree::build():String	com.mvnforum.categorytree.CategoryBuilder
 
 E11	net.myvietnam.mvncore.configuration.HierarchicalConfiguration::createAddPath(net.myvietnam.mvncore.configuration.ConfigurationKey.KeyIterator, net.myvietnam.mvncore.configuration.HierarchicalConfiguration.Node):net.myvietnam.mvncore.configuration.HierarchicalConfiguration.Node	net.myvietnam.mvncore.configuration.ConfigurationKey.KeyIterator	 Error: Method createAddPath(net.myvietnam.mvncore.configuration.ConfigurationKey.KeyIterator, net.myvietnam.mvncore.configuration.HierarchicalConfiguration.Node):net.myvietnam.mvncore.configuration.HierarchicalConfiguration.Node not found!
 E11	net.myvietnam.mvncore.configuration.HierarchicalConfiguration::findLastPathNode(net.myvietnam.mvncore.configuration.ConfigurationKey.KeyIterator, net.myvietnam.mvncore.configuration.HierarchicalConfiguration.Node):net.myvietnam.mvncore.configuration.HierarchicalConfiguration.Node	net.myvietnam.mvncore.configuration.ConfigurationKey.KeyIterator	 Error: Method findLastPathNode(net.myvietnam.mvncore.configuration.ConfigurationKey.KeyIterator, net.myvietnam.mvncore.configuration.HierarchicalConfiguration.Node):net.myvietnam.mvncore.configuration.HierarchicalConfiguration.Node not found!
