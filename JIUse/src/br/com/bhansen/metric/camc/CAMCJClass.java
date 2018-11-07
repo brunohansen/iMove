@@ -1,12 +1,12 @@
 package br.com.bhansen.metric.camc;
 
-import java.util.HashSet;
 import java.util.Map.Entry;
 import java.util.Set;
 
 import org.eclipse.jdt.core.IType;
 
 import br.com.bhansen.metric.DeclarationMetricClass;
+import br.com.bhansen.util.SetUtils;
 
 public class CAMCJClass extends DeclarationMetricClass {
 
@@ -32,18 +32,9 @@ public class CAMCJClass extends DeclarationMetricClass {
 			
 			for (int y = x + 1; y < mys.length; y++) {
 				Entry<String, Set<String>> my = mys[y];
+				
+				metric += SetUtils.howMuchIntersect(mx.getValue(), my.getValue());
 								
-				Set<String> intersection = new HashSet<>(mx.getValue());
-				intersection.retainAll(my.getValue());
-				
-				Set<String> union = new HashSet<>(mx.getValue());
-				union.addAll(my.getValue());
-				
-				if(union.size() == 0) {
-					metric += 0;
-				} else {
-					metric += (double) intersection.size() / (double) union.size();
-				}
 			}
 		}
 				
