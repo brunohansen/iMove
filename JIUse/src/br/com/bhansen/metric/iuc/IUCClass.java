@@ -1,13 +1,11 @@
 package br.com.bhansen.metric.iuc;
 
 import java.util.Map;
-import java.util.Set;
 import java.util.Map.Entry;
+import java.util.Set;
 
 import org.eclipse.jdt.core.IMethod;
 import org.eclipse.jdt.core.IType;
-
-import br.com.bhansen.util.SetUtils;
 
 public class IUCClass extends IUC {
 	
@@ -25,9 +23,7 @@ public class IUCClass extends IUC {
 		//	}
 
 		}
-		
-		//SetUtils.splitByMaxPairIntersection2(getMethods());
-		
+				
 	}
 		
 	public double getMetric() throws Exception {
