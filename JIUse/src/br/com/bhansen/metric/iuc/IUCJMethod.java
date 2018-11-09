@@ -1,6 +1,7 @@
 package br.com.bhansen.metric.iuc;
 
 import java.util.Map.Entry;
+import java.util.Map;
 import java.util.Set;
 
 import org.eclipse.jdt.core.IMethod;
@@ -59,18 +60,22 @@ public class IUCJMethod extends IUC {
 	
 	@Override
 	public double getMetric() throws Exception {
+		return getMetric(this.method, this.getMethods());
+	}
+	
+	public static double getMetric(Set<String> method, Map<String, Set<String>> methods) {
 		double metric = 0;
 		
-		if(getMethods().size() == 0)
+		if(methods.size() == 0)
 			return 0;
 		
-		for (Entry<String, Set<String>> entry : getMethods().entrySet()) {
+		for (Entry<String, Set<String>> entry : methods.entrySet()) {
 			
 			metric += SetUtils.howMuchIntersect(method, entry.getValue());
 						
 		}
 		
-		metric = metric / getMethods().size();
+		metric = metric / methods.size();
 
 		return metric;
 	}
