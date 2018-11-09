@@ -31,7 +31,7 @@ public class SetUtils {
 		return classes;
 	}
 
-	public static Map<String, CompositeSet> splitByMaxPairIntersection2(Map<String, Set<String>> map) {
+	public static Map<String, CompositeSet> splitByMaxPairIntersection2(Map<String, Set<String>> map, double metricValue, int mthdNumber) {
 		int CLASS_NUMBER = 2;
 		Map<String, CompositeSet> extractedClasses = new HashMap<>();
 		Map<String, CompositeSet> classes = splitByMaxPairIntersection(SingleSet.from(map));
@@ -56,7 +56,7 @@ public class SetUtils {
 
 				if (e.getValue().getSet().isEmpty()) {
 					extractedClasses.put("Class" + extractedClasses.size(), classes.remove(e.getKey()));
-				} else if (IUCClass.getMetric(e.getValue().getMap()) >= 0.3 && e.getValue().map.size() >= 4) {
+				} else if (IUCClass.getMetric(e.getValue().getMap()) >= metricValue && e.getValue().map.size() >= mthdNumber) {
 					classNumber = CLASS_NUMBER;
 					extractedClasses.put("Class" + extractedClasses.size(), classes.remove(e.getKey()));
 				}
