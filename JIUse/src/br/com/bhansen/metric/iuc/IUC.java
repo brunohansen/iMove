@@ -37,6 +37,26 @@ public abstract class IUC extends AbsMetric {
 		return callerClasses;
 	}
 	
+	public static Map<String, Set<String>> getCallerMethods(Map<String, Set<String>> methods) {
+		Map<String, Set<String>> callerMethds = new HashMap<>();
+		
+		for (Entry<String, Set<String>> method : methods.entrySet()) {
+			
+			for (String caller : method.getValue()) {
+				if(! callerMethds.containsKey(caller)) {
+					Set<String> cL = new HashSet<>();
+					cL.add(method.getKey());
+					
+					callerMethds.put(caller, cL);				
+				} else {
+					callerMethds.get(caller).add(method.getKey());
+				}
+			}
+		}
+		
+		return callerMethds;
+	}
+	
 	protected Set<String> getCallerClasses(IMethod method) {
 		Set<String> callerMethods = new HashSet<>();
 		
@@ -69,19 +89,15 @@ public abstract class IUC extends AbsMetric {
 	
 	public static String toString(String className, double metricValue, Map<String, Set<String>> methods) {
 		StringBuilder txt = new StringBuilder();
-
+		
+		txt.append("\n");
+		
 		txt.append(className);
 
 		txt.append("\n\n\tIUC: ").append(metricValue);
-		txt.append("\n\n\tNum. of methods: ").append(methods.size()).append("\n");
+		txt.append("\n\n\tNum. of methods: ").append(methods.size());
 
-		for (Entry<String, Set<String>> method : methods.entrySet()) {
-			txt.append("\n\t").append(method.getValue().size()).append(" -> ").append(method.getKey());
-
-			for (String caller : method.getValue()) {
-				txt.append("\n\t\t").append(caller);
-			}
-		}
+		printMap(methods, txt);
 
 		Map<String, Integer> callers = getCallerClasses(methods);
 
@@ -92,8 +108,28 @@ public abstract class IUC extends AbsMetric {
 		for (Entry<String, Integer> caller : callers.entrySet()) {
 			txt.append("\n\t").append(caller.getKey()).append(" -> ").append(caller.getValue());
 		}
+		
+		txt.append("\n");
+		
+		printMap(getCallerMethods(methods), txt);
+		
+		txt.append("\n");
 
 		return txt.toString();
+	}
+
+	private static void printMap(Map<String, Set<String>> map, StringBuilder txt) {
+		txt.append("\n");
+		
+		for (Entry<String, Set<String>> parent : map.entrySet()) {
+			txt.append("\n\t").append(parent.getValue().size()).append(" -> ").append(parent.getKey());
+
+			for (String child : parent.getValue()) {
+				txt.append("\n\t\t").append(child);
+			}
+		}
+		
+		txt.append("\n");
 	}	
 	
 }
