@@ -66,15 +66,15 @@ public abstract class IMoveHandler extends AbstractHandler {
 				case "class":
 					switch (metric) {
 					case "IUC":
-						return new IUCClass(type, method);
+						return new IUCClass(type);
 					case "CAMC":
 						return new CAMCClass(type, true, method, parameter);
 					case "NHDM":
 						return new NHDMClass(type, true, method, parameter);
 					case "IUC + CAMC":
-						return new CompositeMetric(new IUCClass(type, method), new CAMCClass(type, true, method, parameter));
+						return new CompositeMetric(new IUCClass(type), new CAMCClass(type, true, method, parameter));
 					case "IUC + NHDM":
-						return new CompositeMetric(new IUCClass(type, method), new NHDMClass(type, true, method, parameter));
+						return new CompositeMetric(new IUCClass(type), new NHDMClass(type, true, method, parameter));
 					default:
 						throw new Exception("Invalid metric: " + metric + "!");
 					}

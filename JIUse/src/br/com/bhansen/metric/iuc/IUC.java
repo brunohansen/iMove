@@ -21,11 +21,11 @@ public abstract class IUC extends AbsMetric {
 	public IUC(IType type) {
 		super(type);
 	}
-
-	protected Map<String, Integer> getCallerClasses() {
+	
+	protected static Map<String, Integer> getCallerClasses(Map<String, Set<String>> methods) {
 		Map<String, Integer> callerClasses = new HashMap<>();
 		
-		for (Entry<String, Set<String>> method : getMethods().entrySet()) {
+		for (Entry<String, Set<String>> method : methods.entrySet()) {
 			
 			for (String caller : method.getValue()) {
 				Integer count = callerClasses.get(caller);
@@ -60,35 +60,40 @@ public abstract class IUC extends AbsMetric {
 	
 	@Override
 	public String toString() {
-		try {
-			StringBuilder txt = new StringBuilder();
-			
-			txt.append(getName());
-			
-			txt.append("\n\n\tIUC: ").append(getMetric());		
-			txt.append("\n\n\tNum. of methods: ").append(getMethods().size()).append("\n");
-			
-			for (Entry<String, Set<String>> method : getMethods().entrySet()) {
-				txt.append("\n\t").append(method.getValue().size()).append(" -> ").append(method.getKey());
-				
-				for (String caller : method.getValue()) {
-					txt.append("\n\t\t").append(caller);
-				}			
-			}
-			
-			Map<String, Integer> callers = getCallerClasses();
-			
-			//callers.remove(getName());
-			
-			txt.append("\n\n\tNum. of callers: ").append(callers.size()).append("\n");
-			
-			for (Entry<String, Integer> caller : callers.entrySet()) {
-				txt.append("\n\t").append(caller.getKey()).append(" -> ").append(caller.getValue());
-			}
-			
-			return txt.toString();
+		try {			
+			return toString(getName(), getMetric(), getMethods());
 		} catch (Exception e) {
 			return e.getMessage();
 		}
 	}
+	
+	public static String toString(String className, double metricValue, Map<String, Set<String>> methods) {
+		StringBuilder txt = new StringBuilder();
+
+		txt.append(className);
+
+		txt.append("\n\n\tIUC: ").append(metricValue);
+		txt.append("\n\n\tNum. of methods: ").append(methods.size()).append("\n");
+
+		for (Entry<String, Set<String>> method : methods.entrySet()) {
+			txt.append("\n\t").append(method.getValue().size()).append(" -> ").append(method.getKey());
+
+			for (String caller : method.getValue()) {
+				txt.append("\n\t\t").append(caller);
+			}
+		}
+
+		Map<String, Integer> callers = getCallerClasses(methods);
+
+		// callers.remove(getName());
+
+		txt.append("\n\n\tNum. of callers: ").append(callers.size()).append("\n");
+
+		for (Entry<String, Integer> caller : callers.entrySet()) {
+			txt.append("\n\t").append(caller.getKey()).append(" -> ").append(caller.getValue());
+		}
+
+		return txt.toString();
+	}	
+	
 }

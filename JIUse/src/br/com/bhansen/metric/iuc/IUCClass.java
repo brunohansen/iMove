@@ -1,14 +1,17 @@
 package br.com.bhansen.metric.iuc;
 
 import java.util.Map;
+import java.util.Set;
 import java.util.Map.Entry;
 
 import org.eclipse.jdt.core.IMethod;
 import org.eclipse.jdt.core.IType;
 
+import br.com.bhansen.util.SetUtils;
+
 public class IUCClass extends IUC {
 	
-	public IUCClass(IType type, String method) throws Exception {
+	public IUCClass(IType type) throws Exception {
 		super(type);
 		
 		IMethod[] iMethods = type.getMethods();
@@ -23,16 +26,22 @@ public class IUCClass extends IUC {
 
 		}
 		
+		//SetUtils.splitByMaxPairIntersection2(getMethods());
+		
 	}
 		
 	public double getMetric() throws Exception {
+		return getMetric(getMethods());
+	}
+	
+	public static double getMetric(Map<String, Set<String>> methods) {
 		
-		Map<String, Integer> callers = getCallerClasses();
+		Map<String, Integer> callers = getCallerClasses(methods);
 		
 		//callers.remove(getName());
 		
 		double iuc = 0;
-		double numMethods = getMethods().size();
+		double numMethods = methods.size();
 		
 		if((numMethods == 0) || (callers.size() == 0)) {
 			return 0;
