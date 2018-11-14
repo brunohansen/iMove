@@ -26,7 +26,7 @@ public class IUCJMethod extends IUC {
 				if(isMovedMethod(iMethod, method)) {
 					movedMethod = iMethod;
 				} else {
-					if(getMethods().put(getSignature(iMethod), getCallerClasses(iMethod)) != null) {
+					if(getMethods().put(getSignature(iMethod), getCallers(iMethod)) != null) {
 						System.out.println("Method " + getSignature(iMethod) + " colision!");
 					};	
 				}
@@ -39,16 +39,16 @@ public class IUCJMethod extends IUC {
 //			if(original != null) {
 //				this.method = getMethods().remove(original);
 //			} else {
-				this.method = getCallerClasses(movedMethod);
+				this.method = getCallers(movedMethod);
 //			}
 			
 		} else {
 			for (IMethod iMethod : iMethods) {
 				
 				if(isMethod(iMethod, method)) {
-					this.method = getCallerClasses(iMethod);
+					this.method = getCallers(iMethod);
 				} else {
-					if(getMethods().put(getSignature(iMethod), getCallerClasses(iMethod)) != null) {
+					if(getMethods().put(getSignature(iMethod), getCallers(iMethod)) != null) {
 						System.out.println("Method " + getSignature(iMethod) + " colision!");
 					};
 				}

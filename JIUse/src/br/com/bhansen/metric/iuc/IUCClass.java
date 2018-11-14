@@ -17,7 +17,7 @@ public class IUCClass extends IUC {
 		for (IMethod iMethod : iMethods) {
 			
 		//	if((! Flags.isPrivate(iMethod.getFlags())) && (! isFakeDelegate(iMethod, method))) {
-				if(getMethods().put(getSignature(iMethod), getCallerClasses(iMethod)) != null) {
+				if(getMethods().put(getSignature(iMethod), getCallers(iMethod)) != null) {
 					System.out.println("Method " + getSignature(iMethod) + " colision!");
 				};
 		//	}
@@ -32,7 +32,7 @@ public class IUCClass extends IUC {
 	
 	public static double getMetric(Map<String, Set<String>> methods) {
 		
-		Map<String, Integer> callers = getCallerClasses(methods);
+		Map<String, Integer> callers = getCallerCount(methods);
 		
 		//callers.remove(getName());
 		

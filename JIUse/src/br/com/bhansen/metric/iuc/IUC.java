@@ -22,42 +22,52 @@ public abstract class IUC extends AbsMetric {
 		super(type);
 	}
 	
-	protected static Map<String, Integer> getCallerClasses(Map<String, Set<String>> methods) {
+	protected static Map<String, Integer> getCallerCount(Map<String, Set<String>> methods) {
 		Map<String, Integer> callerClasses = new HashMap<>();
+		
+		for ( String caller : getCallers(methods)) {
+			callerClasses.put(caller, 0);
+		}
 		
 		for (Entry<String, Set<String>> method : methods.entrySet()) {
 			
 			for (String caller : method.getValue()) {
-				Integer count = callerClasses.get(caller);
-				count = (count == null)? 1 : count + 1;
-				callerClasses.put(caller, count);
+				int count = callerClasses.get(caller);
+				callerClasses.put(caller, count + 1);
 			}
 		}
 		
 		return callerClasses;
 	}
 	
-	public static Map<String, Set<String>> getCallerMethods(Map<String, Set<String>> methods) {
-		Map<String, Set<String>> callerMethds = new HashMap<>();
+	public static Map<String, Map<String, Set<String>>> getMethodsByCaller(Map<String, Set<String>> methods) {
+		Map<String, Map<String, Set<String>>> methodsByCaller = new HashMap<>();
+		
+		for ( String caller : getCallers(methods)) {
+			methodsByCaller.put(caller, new HashMap<>());
+		}
 		
 		for (Entry<String, Set<String>> method : methods.entrySet()) {
 			
 			for (String caller : method.getValue()) {
-				if(! callerMethds.containsKey(caller)) {
-					Set<String> cL = new HashSet<>();
-					cL.add(method.getKey());
-					
-					callerMethds.put(caller, cL);				
-				} else {
-					callerMethds.get(caller).add(method.getKey());
-				}
+				methodsByCaller.get(caller).put(method.getKey(), method.getValue());
 			}
 		}
 		
-		return callerMethds;
+		return methodsByCaller;
 	}
 	
-	protected Set<String> getCallerClasses(IMethod method) {
+	public static Set<String> getCallers(Map<String, Set<String>> methods) {
+		Set<String> callers = new HashSet<>();
+		
+		for (Entry<String, Set<String>> method : methods.entrySet()) {
+			callers.addAll(method.getValue());
+		}
+		
+		return callers;
+	}	
+	
+	protected Set<String> getCallers(IMethod method) {
 		Set<String> callerMethods = new HashSet<>();
 		
 		CallHierarchy callHierarchy = CallHierarchy.getDefault();
@@ -97,9 +107,9 @@ public abstract class IUC extends AbsMetric {
 		txt.append("\n\n\tIUC: ").append(metricValue);
 		txt.append("\n\n\tNum. of methods: ").append(methods.size());
 
-		printMap(methods, txt);
+		txt.append(toString(methods));
 
-		Map<String, Integer> callers = getCallerClasses(methods);
+		Map<String, Integer> callers = getCallerCount(methods);
 
 		// callers.remove(getName());
 
@@ -111,14 +121,34 @@ public abstract class IUC extends AbsMetric {
 		
 		txt.append("\n");
 		
-		printMap(getCallerMethods(methods), txt);
+		txt.append(toStringMapMap(getMethodsByCaller(methods)));
+		
+		txt.append("\n");
+
+		return txt.toString();
+	}
+	
+	public static String toStringMapMap(Map<String, Map<String, Set<String>>> map) {
+		StringBuilder txt = new StringBuilder();
+		
+		txt.append("\n");
+		
+		for (Entry<String, Map<String, Set<String>>> parent : map.entrySet()) {
+			txt.append("\n\t").append(parent.getValue().size()).append(" -> ").append(parent.getKey());
+
+			for (Entry<String, Set<String>> child : parent.getValue().entrySet()) {
+				txt.append("\n\t\t").append(child.getKey());
+			}
+		}
 		
 		txt.append("\n");
 
 		return txt.toString();
 	}
 
-	private static void printMap(Map<String, Set<String>> map, StringBuilder txt) {
+	public static String toString(Map<String, Set<String>> map) {
+		StringBuilder txt = new StringBuilder();
+		
 		txt.append("\n");
 		
 		for (Entry<String, Set<String>> parent : map.entrySet()) {
@@ -130,6 +160,8 @@ public abstract class IUC extends AbsMetric {
 		}
 		
 		txt.append("\n");
+
+		return txt.toString();
 	}	
 	
 }
