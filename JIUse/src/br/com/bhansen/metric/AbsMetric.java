@@ -185,4 +185,18 @@ public abstract class AbsMetric implements Metric {
 		}
 	}
 
+	public static double howMuchIntersect(Set<String> s1, Set<String> s2) {
+		Set<String> intersection = new HashSet<>(s1);
+		intersection.retainAll(s2);
+	
+		Set<String> union = new HashSet<>(s1);
+		union.addAll(s2);
+	
+		if (union.size() == 0) {
+			return 0;
+		} else {
+			return (double) intersection.size() / (double) union.size();
+		}
+	}
+
 }

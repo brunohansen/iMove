@@ -5,8 +5,8 @@ import java.util.Set;
 
 import org.eclipse.jdt.core.IType;
 
+import br.com.bhansen.metric.AbsMetric;
 import br.com.bhansen.metric.DeclarationMetricClass;
-import br.com.bhansen.util.SetUtils;
 
 public class CAMCJClass extends DeclarationMetricClass {
 
@@ -33,7 +33,7 @@ public class CAMCJClass extends DeclarationMetricClass {
 			for (int y = x + 1; y < mys.length; y++) {
 				Entry<String, Set<String>> my = mys[y];
 				
-				metric += SetUtils.howMuchIntersect(mx.getValue(), my.getValue());
+				metric += AbsMetric.howMuchIntersect(mx.getValue(), my.getValue());
 								
 			}
 		}

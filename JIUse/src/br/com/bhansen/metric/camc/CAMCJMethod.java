@@ -6,8 +6,8 @@ import java.util.Set;
 import org.eclipse.jdt.core.IMethod;
 import org.eclipse.jdt.core.IType;
 
+import br.com.bhansen.metric.AbsMetric;
 import br.com.bhansen.metric.DeclarationMetric;
-import br.com.bhansen.util.SetUtils;
 
 public class CAMCJMethod extends DeclarationMetric {
 	
@@ -82,7 +82,7 @@ public class CAMCJMethod extends DeclarationMetric {
 		
 		for (Entry<String, Set<String>> entry : getMethods().entrySet()) {
 			
-			metric += SetUtils.howMuchIntersect(method, entry.getValue());
+			metric += AbsMetric.howMuchIntersect(method, entry.getValue());
 			
 		}
 		

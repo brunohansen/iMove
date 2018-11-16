@@ -7,7 +7,7 @@ import java.util.Set;
 import org.eclipse.jdt.core.IMethod;
 import org.eclipse.jdt.core.IType;
 
-import br.com.bhansen.util.SetUtils;
+import br.com.bhansen.metric.AbsMetric;
 
 public class IUCJMethod extends IUC {
 	
@@ -71,7 +71,7 @@ public class IUCJMethod extends IUC {
 		
 		for (Entry<String, Set<String>> entry : methods.entrySet()) {
 			
-			metric += SetUtils.howMuchIntersect(method, entry.getValue());
+			metric += AbsMetric.howMuchIntersect(method, entry.getValue());
 						
 		}
 		
