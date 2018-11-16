@@ -67,6 +67,16 @@ public abstract class IUC extends AbsMetric {
 		return callers;
 	}	
 	
+	public Map<String, Set<String>> getMethodsWithoutThis() {
+		Map<String, Set<String>> methods = new HashMap<>(getMethods());
+		
+		for (Entry<String, Set<String>> method : methods.entrySet()) {
+			method.getValue().remove(getName());
+		}
+		
+		return methods;
+	}
+	
 	protected Set<String> getCallers(IMethod method) {
 		Set<String> callerMethods = new HashSet<>();
 		
