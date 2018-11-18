@@ -23,7 +23,7 @@ public class ExtractClass {
 
 	public ExtractClass(IWorkbenchWindow window, IUCClass iucClass, String methodSignature, double metricLowerLimit, int mthdsLowerLimit) {
 
-		List<Map<String, Set<String>>> classes = createClasses(iucClass, metricLowerLimit, mthdsLowerLimit);
+		List<Map<String, Set<String>>> classes = removeDuplicates(createSuperClasses(iucClass, metricLowerLimit, mthdsLowerLimit));
 		
 		classes.forEach(e -> System.out.println(IUC.toString("Class" + classes.size(), IUCClass.getMetric(e), e)));
 		
@@ -31,6 +31,27 @@ public class ExtractClass {
 
 	private double decreseMetricValue(double metricValue, String step) {
 		return new BigDecimal(String.valueOf(metricValue)).subtract(new BigDecimal(step)).doubleValue();
+	}
+	
+	private List<Map<String, Set<String>>> removeDuplicates(List<Map<String, Set<String>>> list) {
+		List<Map<String, Set<String>>> result = new ArrayList<>();
+		
+		for (Map<String, Set<String>> l : list) {
+			boolean add = true;
+			
+			for (Map<String, Set<String>> r : result) {
+				if (r.keySet().containsAll(l.keySet())) {
+					add = false;
+					break;
+				}
+			}
+			
+			if (add) {
+				result.add(l);
+			}
+		}
+		
+		return result;
 	}
 	
 	public List<Map<String, Set<String>>> createSuperClasses(IUCClass iucClass, double metricValue, int mthdNumber) {
