@@ -1,0 +1,2 @@
+JEditTextArea::setText(java.lang.String):void	Buffer
+JEditTextArea::lineToY(int):int	TextAreaPainter
