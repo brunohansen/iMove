@@ -1,8 +1,0 @@
-GUIUtilities::getStyleString	SyntaxStyle	yes
-Mode::accept(Buffer, java.lang.String, java.lang.String):boolean	RE	yes
-VFSBrowser::handleBufferUpdate(BufferUpdate):void	BufferUpdate	yes
-BufferIORequest::writeMarkers(Buffer, java.OutputStream):void	Buffer	yes
-EditPane::initTextArea(JEditTextArea):void	JEditTextArea	yes
-BufferIORequest::readMarkers(Buffer, java.InputStream):void	Buffer	yes
-TextAreaPainter::paintCaret(java.awt.Graphics, int, int):void	JEditTextArea	no
-TextAreaPainter::paintLineHighlight(java.awt.Graphics, int, int):void	JEditTextArea	no
