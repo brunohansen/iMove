@@ -1,0 +1,16 @@
+com.mvnforum.admin.GeneralAdminTasksWebHandler::processMailTemplate(com.mvnforum.db.MemberBean, java.lang.String):java.lang.String	com.mvnforum.db.MemberBean
+com.mvnsoft.mvnad.db.ZoneBean::getNextBanner(com.mvnsoft.mvnad.delivery.ZoneManager):com.mvnsoft.mvnad.db.BannerBean	com.mvnsoft.mvnad.delivery.ZoneManager
+net.myvietnam.mvncore.configuration.HierarchicalConfiguration::nodeDefined(net.myvietnam.mvncore.configuration.HierarchicalConfiguration.Node):boolean	net.myvietnam.mvncore.configuration.HierarchicalConfiguration.Node
+net.myvietnam.mvncore.configuration.HierarchicalConfigurationConverter::reverseIterator(net.myvietnam.mvncore.configuration.ConfigurationKey):java.util.Iterator	net.myvietnam.mvncore.configuration.ConfigurationKey
+net.myvietnam.mvncore.configuration.HierarchicalConfigurationXMLReader.SAXVisitor::isAttributeNode(net.myvietnam.mvncore.configuration.HierarchicalConfiguration.Node):boolean	net.myvietnam.mvncore.configuration.HierarchicalConfiguration.Node
+com.mvnforum.db.CategoryBean::drawForum2(com.mvnforum.categorytree.impl.ListForums, com.mvnforum.categorytree.CategoryTreeEvent):java.lang.String	com.mvnforum.categorytree.impl.ListForums
+com.mvnforum.categorytree.CategoryTreeEvent::drawForum2(com.mvnforum.categorytree.impl.RSSImpl):java.lang.String	com.mvnforum.categorytree.impl.RSSImpl
+com.mvnforum.common.ForumIconLegend::drawForum2(com.mvnforum.categorytree.impl.CategoryTreeListenerImpl, com.mvnforum.categorytree.CategoryTreeEvent):java.lang.String	com.mvnforum.categorytree.impl.CategoryTreeListenerImpl
+com.mvnforum.db.MemberBean::createWatchMessageBean(com.mvnforum.user.WatchMail, java.util.Collection):void	com.mvnforum.user.WatchMail
+com.mvnforum.categorytree.CategoryTree::build():java.lang.String	com.mvnforum.categorytree.CategoryBuilder
+net.myvietnam.mvncore.configuration.HierarchicalConfiguration::findPropertyNodes(net.myvietnam.mvncore.configuration.ConfigurationKey.KeyIterator, net.myvietnam.mvncore.configuration.HierarchicalConfiguration.Node, java.util.Collection):void	net.myvietnam.mvncore.configuration.ConfigurationKey.KeyIterator
+net.myvietnam.mvncore.configuration.HierarchicalConfiguration::findLastPathNode(net.myvietnam.mvncore.configuration.ConfigurationKey.KeyIterator, net.myvietnam.mvncore.configuration.HierarchicalConfiguration.Node):net.myvietnam.mvncore.configuration.HierarchicalConfiguration.Node	net.myvietnam.mvncore.configuration.ConfigurationKey.KeyIterator
+net.myvietnam.mvncore.configuration.HierarchicalConfiguration::createAddPath(net.myvietnam.mvncore.configuration.ConfigurationKey.KeyIterator, net.myvietnam.mvncore.configuration.HierarchicalConfiguration.Node):net.myvietnam.mvncore.configuration.HierarchicalConfiguration.Node	net.myvietnam.mvncore.configuration.ConfigurationKey.KeyIterator
+com.mvnforum.user.ThreadWebHandler::deleteThread(net.myvietnam.mvncore.web.GenericRequest, com.mvnforum.db.ThreadBean):void	com.mvnforum.db.ThreadBean
+com.mvnforum.admin.importexport.jive.JiveForumXML::updateAddedPost(com.mvnforum.admin.PostXML, java.lang.String, java.sql.Timestamp):void	com.mvnforum.admin.ForumXML
+com.mvnforum.admin.importexport.jive.JiveThreadXML::updateAddedPost(com.mvnforum.admin.PostXML, java.lang.String, java.sql.Timestamp):void	com.mvnforum.admin.ThreadXML

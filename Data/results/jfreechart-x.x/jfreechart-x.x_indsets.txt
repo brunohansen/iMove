@@ -1,0 +1,2 @@
+VerticalIntervalBarRenderer::drawRangeMarker	Marker
+MinMaxCategoryRenderer::drawRangeMarker(java.awt.Graphics2D, CategoryPlot, ValueAxis, Marker, java.awt.geom.Rectangle2D, java.awt.Shape):void	Marker

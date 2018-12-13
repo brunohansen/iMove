@@ -1,0 +1,10 @@
+org.apache.derby.client.net.NetConnectionReply::getInputStream(NetAgent):InputStream	org.apache.derby.client.net.NetAgent
+org.apache.derby.impl.store.access.btree.OpenBTree::lockScanRow(B2IRowLocking1, BTree, BTreeRowPosition, FetchDescriptor, DataValueDescriptor[], RowLocation, boolean, boolean, int):boolean	org.apache.derby.impl.store.access.btree.index.B2IRowLocking1
+org.apache.derby.iapi.sql.dictionary.IndexRowGenerator::setConglomerateNumber(IndexInfoImpl, long):void	org.apache.derby.impl.sql.catalog.IndexInfoImpl
+org.apache.derby.jdbc.ClientConnectionPoolDataSource40::getParentLogger(Wrapper41DataSource):Logger	org.apache.derbyTesting.functionTests.tests.jdbc4.Wrapper41DataSource
+org.apache.derby.client.net.NetPackageReply::resetAgent_(NetAgent, LogWriter, int, String, int):void	org.apache.derby.client.net.NetAgent
+org.apache.derby.iapi.types.SQLInteger::isUpdated(ScrollInsensitiveResultSet):boolean	org.apache.derby.impl.sql.execute.ScrollInsensitiveResultSet
+org.apache.derby.vti.Restriction::getFloat(RestrictedTableVTI, int):float	org.apache.derbyTesting.functionTests.tests.lang.RestrictedTableVTI
+org.apache.derby.iapi.sql.dictionary.PermDescriptor::getUncachedGenericPermDescriptor(DataDictionaryImpl):PermDescriptor	org.apache.derby.impl.sql.catalog.DataDictionaryImpl
+org.apache.derby.iapi.sql.dictionary.GenericDescriptorList::setRefActionInfo(DMLModStatementNode, long, int[], String, boolean):void	org.apache.derby.impl.sql.compile.DMLModStatementNode
+org.apache.derby.impl.sql.compile.SubqueryList::setSharedState(FromVTI, String, Serializable):void	org.apache.derby.impl.sql.compile.FromVTI
