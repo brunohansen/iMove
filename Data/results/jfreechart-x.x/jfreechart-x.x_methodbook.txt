@@ -1,10 +1,10 @@
-AxisPropertyEditPanel::setAxisProperties	Axis	yes
-ChartPropertyEditPanel::updateChartProperties	JFreeChart	yes
-VerticalIntervalBarRenderer::drawRangeMarker	Marker	maybe
-PlotPropertyEditPanel::updatePlotProperties	Plot	yes
-LegendPropertyEditPanel::setLegendProperties	Legend	yes
-DynamicTimeSeriesCollection::getX(RegularTimePeriod):long	RegularTimePeriod	yes
-TimeSeriesCollection::getX(RegularTimePeriod):long	RegularTimePeriod	yes
-VerticalBarRenderer3D::drawRangeMarker	Marker	no
-ContourPlot::drawDomainMarker(java.awt.Graphics2D, ContourPlot, ValueAxis, Marker, java.awt.geom.Rectangle2D):void	Marker	no
-ContourPlot::drawRangeMarker(java.awt.Graphics2D, ContourPlot, ValueAxis, Marker, java.awt.geom.Rectangle2D):void	Marker	no
+AxisPropertyEditPanel::setAxisProperties(Axis):void	Axis
+ChartPropertyEditPanel::updateChartProperties(JFreeChart):void	JFreeChart
+VerticalIntervalBarRenderer::drawRangeMarker(Graphics2D, CategoryPlot, ValueAxis, Marker, Rectangle2D, Shape):void	Marker
+PlotPropertyEditPanel::updatePlotProperties(Plot):void	Plot
+LegendPropertyEditPanel::setLegendProperties(Legend):void	Legend
+DynamicTimeSeriesCollection::getX(RegularTimePeriod):long	RegularTimePeriod
+TimeSeriesCollection::getX(RegularTimePeriod):long	RegularTimePeriod
+VerticalBarRenderer3D::drawRangeMarker(Graphics2D, CategoryPlot, ValueAxis, Marker, Rectangle2D)	Marker
+ContourPlot::drawDomainMarker(java.awt.Graphics2D, ContourPlot, ValueAxis, Marker, java.awt.geom.Rectangle2D):void	Marker
+ContourPlot::drawRangeMarker(java.awt.Graphics2D, ContourPlot, ValueAxis, Marker, java.awt.geom.Rectangle2D):void	Marker
