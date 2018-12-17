@@ -30,13 +30,13 @@ public abstract class SelectionHandler extends IMoveHandler {
 		    ICompilationUnit unit = (ICompilationUnit) elem;
 		    IJavaElement selected = unit.getElementAt(selection.getOffset());
 			
-			if (selected.getElementType() == IJavaElement.TYPE) {
-				return (IType) selected;
-			} else if (selected.getElementType() == IJavaElement.METHOD) {
-				return (IType) selected.getParent();
-			} else {
-				throw new Exception("Select a class on editor");
-			}
+		    if(selected != null) {
+				if (selected.getElementType() == IJavaElement.TYPE) {
+					return (IType) selected;
+				} else if (selected.getElementType() == IJavaElement.METHOD) {
+					return (IType) selected.getParent();
+				} 
+		    }
 		}		
 		
 		throw new Exception("Select a class on editor");
@@ -56,16 +56,15 @@ public abstract class SelectionHandler extends IMoveHandler {
 		if (elem instanceof ICompilationUnit) {
 		    ICompilationUnit unit = (ICompilationUnit) elem;
 		    IJavaElement selected = unit.getElementAt(selection.getOffset());
-		    
-			if (selected.getElementType() == IJavaElement.METHOD) {
-				//for (IMarker m : selected.getResource().findMarkers(null, false, IResource.DEPTH_ZERO)) {
-				//	System.out.println(m.getType());
-				//}
-				
-				return (IMethod) selected;
-			} else {
-				throw new Exception("Select a method on editor");
-			}
+		    if(selected != null) {
+				if (selected.getElementType() == IJavaElement.METHOD) {
+					//for (IMarker m : selected.getResource().findMarkers(null, false, IResource.DEPTH_ZERO)) {
+					//	System.out.println(m.getType());
+					//}
+					
+					return (IMethod) selected;
+				}
+		    } 
 		}
 		
 		throw new Exception("Select a method on editor");
