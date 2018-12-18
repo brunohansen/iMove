@@ -1,0 +1,33 @@
+-0.823211-1	org.gjt.sp.jedit.io.BufferIORequest::writeMarkers(Buffer, OutputStream):void	org.gjt.sp.jedit.Buffer
+# Faz mas é privado, nem sei mais
+# Nem CAMC 0.167 - 0.0
+
+-0.750291-1	org.gjt.sp.jedit.io.BufferIORequest::read(Buffer, InputStream, long):String	org.gjt.sp.jedit.Buffer
+# Private Não faz tanto sentido
+# CAMC 0.14 - 0.045 = 0.95
+
+-0.802992-1	org.gjt.sp.jedit.io.BufferIORequest::readMarkers(Buffer, InputStream):void	org.gjt.sp.jedit.Buffer
+# Private não faz tanto sentido
+# CAMC 0.13 - 0.0
+
+E	org.gjt.sp.jedit.GUIUtilities::getStyleString(SyntaxStyle):String	org.gjt.sp.jedit.syntax.SyntaxStyle	 Error: Invalid target!
+# Correto Static
+
+0.110159-0	org.gjt.sp.jedit.Buffer::tokenizeLines(int, int):void	org.gjt.sp.jedit.syntax.TokenMarker 
+# OK
+
+-0.539018-1	bsh.Name::resolveThisFieldReference(NameSpace, Interpreter, String, boolean):Object	bsh.NameSpace
+# Protegido Faz sentido
+# CAMC 0.235 - 0.213 = 0.022
+
+-0.199320-1	org.gjt.sp.jedit.browser.VFSBrowser::handleBufferUpdate(BufferUpdate):void	org.gjt.sp.jedit.msg.BufferUpdate 
+# Buffer passaria a ter uma referência para a view
+
+-0.292444-1	org.gjt.sp.jedit.EditPane::initTextArea(JEditTextArea):void	org.gjt.sp.jedit.textarea.JEditTextArea
+# Private Faz um pouco de sentido
+
+-0.206483-1	org.gjt.sp.jedit.Mode::accept(Buffer, String, String):boolean	gnu.regexp.RE 
+# Não faz sentido
+
+-0.274304-1	org.gjt.sp.jedit.textarea.JEditTextArea::xToOffset(int, int):int	org.gjt.sp.jedit.textarea.TextAreaPainter 
+# Faz sentido extrair
