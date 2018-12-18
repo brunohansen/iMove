@@ -268,7 +268,7 @@
                 </parameter>
                 <parameter
                       name="iMove.metric"
-                      value="CAMC">
+                      value="IUC + CAMC"> 
                 </parameter>
 	            </command>
 	           	<command
