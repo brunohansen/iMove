@@ -31,6 +31,11 @@ public abstract class AbsMetric implements Metric {
 		this.name = getClassName(type);
 		this.methods = new HashMap<>();
 	}
+	
+	@Override
+	public double getMetric(boolean skipIUC) throws Exception {
+		return getMetric();
+	}
 
 	public static String getMoveMethodName(String methodName) {
 		return methodName + METHOD_SUFFIX;

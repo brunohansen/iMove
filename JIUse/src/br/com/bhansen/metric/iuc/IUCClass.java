@@ -54,5 +54,20 @@ public class IUCClass extends IUC {
 		
 		return iuc;
 	}
+
+	@Override
+	public boolean isPublicMethod() {
+		return true;
+	}
+
+	@Override
+	public boolean hasNoCaller() {
+		return false;
+	}
+
+	@Override
+	public boolean isCalledOnlyBy(IType type) {
+		return false;
+	}
 			
 }

@@ -40,6 +40,21 @@ public abstract class DeclarationMetric extends AbsMetric {
 		super(type);
 	}
 
+	@Override
+	public boolean isPublicMethod() {
+		return true;
+	}
+
+	@Override
+	public boolean hasNoCaller() {
+		return false;
+	}
+
+	@Override
+	public boolean isCalledOnlyBy(IType type) {
+		return false;
+	}
+
 	protected final static String getParameters(String signature) {
 		return signature.replaceAll(".*\\(", "").replaceAll("\\).*", "");
 	}

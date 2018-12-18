@@ -3,6 +3,7 @@ package br.com.bhansen.metric.camc;
 import java.util.Map.Entry;
 import java.util.Set;
 
+import org.eclipse.jdt.core.Flags;
 import org.eclipse.jdt.core.IMethod;
 import org.eclipse.jdt.core.IType;
 
@@ -12,6 +13,7 @@ import br.com.bhansen.metric.DeclarationMetric;
 public class CAMCJMethod extends DeclarationMetric {
 	
 	Set<String> method;
+	private boolean publicMethod;
 	
 	public CAMCJMethod(IType type, boolean zeroParams, String method, String parameter) throws Exception {
 		super(type);
@@ -30,6 +32,7 @@ public class CAMCJMethod extends DeclarationMetric {
 					movedMethod = iMethod;
 					//removeFakeParameter(params, parameter);
 					this.method = params;
+					this.publicMethod = Flags.isPublic(iMethod.getFlags());
 				} else {
 					if (zeroParams) {
 						getMethods().put(getSignature(iMethod), params);
@@ -56,7 +59,8 @@ public class CAMCJMethod extends DeclarationMetric {
 				Set<String> params = createParametersSet(iMethod);
 				
 				if(isMethod(iMethod, method)) {
-					this.method = params;					
+					this.method = params;	
+					this.publicMethod = Flags.isPublic(iMethod.getFlags());
 				} else {
 					if (zeroParams) {
 						getMethods().put(getSignature(iMethod), params);
@@ -70,6 +74,11 @@ public class CAMCJMethod extends DeclarationMetric {
 		
 	}
 	
+	@Override
+	public boolean isPublicMethod() {
+		return this.publicMethod;
+	}
+		
 	@Override
 	public double getMetric() throws Exception {
 		double metric = 0;
