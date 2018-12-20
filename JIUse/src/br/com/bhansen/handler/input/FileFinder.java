@@ -75,9 +75,9 @@ public class FileFinder {
 
     public static void main(String[] args) throws Exception {
     	
-    	Path startingDir = Paths.get("C:\\Users\\bruno\\runtime-EclipseApplication\\jedit-3.0\\src");
+    	Path startingDir = Paths.get("C:\\Users\\bruno\\runtime-EclipseApplication\\jfreechart-0.9.6\\src");
     	
-    	Path inFile = Paths.get("C:\\Users\\bruno\\git\\iMove\\Data\\results\\jedit-3.0\\jedit-3.0_methodbook.txt");
+    	Path inFile = Paths.get("C:\\Users\\bruno\\git\\iMove\\Data\\results\\jfreechart-0.9.6\\jfreechart-0.9.6.txt");
     	
     	Map<String, String> fullyQualifiedNames = new HashMap<>();
 
@@ -89,15 +89,16 @@ public class FileFinder {
 	        	  String fullyQualifiedName = finder.matches.get(0).toString().split("src\\\\", 2)[1].replaceAll("\\\\", ".").replaceFirst("\\.java", "");
 	        	  fullyQualifiedNames.put(name, fullyQualifiedName);
 	          } else {
-	        	  throw new Exception("Invalid number of matches!");
+	        	  throw new Exception("Invalid number of matches! " + name + ":" + finder.matches.size());
 	          }
 		}
     	
     	String content = Files.lines(inFile).collect(Collectors.joining("\n"));
     	
     	for (Entry<String, String> e : fullyQualifiedNames.entrySet()) {
-			content = content.replaceAll(e.getKey() + "::", e.getValue() + "::");
-			content = content.replaceAll("\t" + e.getKey(), "\t" + e.getValue());
+			content = content.replaceAll("^" + e.getKey() + "::", e.getValue() + "::");
+			content = content.replaceAll("\n" + e.getKey() + "::", "\n" + e.getValue() + "::");
+			content = content.replaceAll("\t" + e.getKey() + "\t", "\t" + e.getValue() + "\t");
 		}
     	
     	Files.write(inFile, content.getBytes());
