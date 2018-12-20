@@ -10,7 +10,7 @@ PiePlot::getOutlineStroke(int):java.awt.Stroke	StrokeTable	OJ	15	no
 PiePlot::getPaint(int):java.awt.Paint	PaintTable	OJ	16	no
 StandardLegend::createDrawableLegendItem(java.awt.Graphics2D, LegendItem, double, double):DrawableLegendItem	LegendItem	OJ	18	no
 StandardLegendItemLayout::doHorizontalLayout(LegendItemCollection):void	LegendItemCollection	OJ	19	no
-VerticalBarRenderer3D_drawRangeMarker	Marker	OM	21	no
+VerticalBarRenderer3D::drawRangeMarker(Graphics2D, CategoryPlot, ValueAxis, Marker, Rectangle2D):void	Marker	OM	21	no
 DynamicTimeSeriesCollection::getX(RegularTimePeriod):long	RegularTimePeriod	B	6	yes
 TimeSeriesCollection::getX(RegularTimePeriod):long	RegularTimePeriod	B	20	yes
 JFreeChart::drawTitle(AbstractTitle, java.awt.Graphics2D, java.awt.geom.Rectangle2D):void	AbstractTitle	OJ	9	yes
