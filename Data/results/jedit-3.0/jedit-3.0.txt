@@ -16,4 +16,4 @@ BufferIORequest::read(Buffer, java.InputStream, long):java.lang.String	Buffer	OJ
 JEditTextArea::xToOffset(int, int):int	TextAreaPainter	OJ	17	yes
 Name::resolveThisFieldReference(NameSpace, Interpreter, java.lang.String, boolean):java.lang.Object	NameSpace	OJ	13	yes
 Buffer::tokenizeLines(int, int):void	TokenMarker	OJ	18	yes
-GUIUtilities::getStyleString	SyntaxStyle	OM	15	yes
+GUIUtilities::getStyleString(SyntaxStyle):String	SyntaxStyle	OM	15	yes
