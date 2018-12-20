@@ -1,0 +1,19 @@
+JEditTextArea::setText(java.lang.String):void	Buffer	OJ	7	maybe
+JEditTextArea::lineToY(int):int	TextAreaPainter	OJ	16	maybe
+TextAreaPainter::paintCaret(java.awt.Graphics, int, int):void	JEditTextArea	B	11	no
+TextAreaPainter::paintLineHighlight(java.awt.Graphics, int, int):void	JEditTextArea	B	12	no
+BshMethod::invokeDeclaredMethod(java.lang.Object[], Interpreter):java.lang.Object	BSHMethodDeclaration	OJ	1	no
+BSHMethodDeclaration::invokeDeclaredMethod(java.lang.Object[], Interpreter, NameSpace):java.lang.Object	BSHFormalParameters	OJ	2	no
+JEditTextArea::doWordWrap(int, boolean):boolean	Buffer	OJ	6	no
+Name::invokeLocalMethod(Interpreter, java.lang.Object[]):java.lang.Object	Interpreter	OJ	9	no
+BufferIORequest::insert():void	VFS	OJ	19	no
+VFSBrowser::handleBufferUpdate(BufferUpdate):void	BufferUpdate	B	8	yes
+BufferIORequest::readMarkers(Buffer, java.InputStream):void	Buffer	B	4	yes
+BufferIORequest::writeMarkers(Buffer, java.OutputStream):void	Buffer	B	5	yes
+EditPane::initTextArea(JEditTextArea):void	JEditTextArea	B	10	yes
+Mode::accept(Buffer, java.lang.String, java.lang.String):boolean	RE	B	14	yes
+BufferIORequest::read(Buffer, java.InputStream, long):java.lang.String	Buffer	OJ	3	yes
+JEditTextArea::xToOffset(int, int):int	TextAreaPainter	OJ	17	yes
+Name::resolveThisFieldReference(NameSpace, Interpreter, java.lang.String, boolean):java.lang.Object	NameSpace	OJ	13	yes
+Buffer::tokenizeLines(int, int):void	TokenMarker	OJ	18	yes
+GUIUtilities::getStyleString	SyntaxStyle	OM	15	yes

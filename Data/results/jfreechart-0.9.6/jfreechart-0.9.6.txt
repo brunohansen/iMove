@@ -1,0 +1,23 @@
+VerticalIntervalBarRenderer::drawRangeMarker(Graphics2D, CategoryPlot, ValueAxis, Marker, Rectangle2D, Shape):void	Marker	B	22	maybe
+MinMaxCategoryRenderer::drawRangeMarker(java.awt.Graphics2D, CategoryPlot, ValueAxis, Marker, java.awt.geom.Rectangle2D, java.awt.Shape):void	Marker	OJ	13	maybe
+ContourPlot::drawDomainMarker(java.awt.Graphics2D, ContourPlot, ValueAxis, Marker, java.awt.geom.Rectangle2D):void	Marker	B	2	no
+ContourPlot::drawRangeMarker(java.awt.Graphics2D, ContourPlot, ValueAxis, Marker, java.awt.geom.Rectangle2D):void	Marker	B	3	no
+HorizontalIntervalBarRenderer::drawRangeMarker(java.awt.Graphics2D, CategoryPlot, ValueAxis, Marker, java.awt.geom.Rectangle2D, java.awt.Shape):void	Marker	OJ	7	no
+HorizontalShapeRenderer::drawRangeMarkerHorizontalShapeRenderer(java.awt.Graphics2D, CategoryPlot, ValueAxis, Marker, java.awt.geom.Rectangle2D, java.awt.Shape):void	Marker	OJ	8	no
+MeterLegend::updateInformation(MeterPlot, MeterDataset, int, int, LegendItem[], java.awt.Paint[]):boolean	MeterPlot	OJ	12	no
+PiePlot::getOutlinePaint(int):java.awt.Paint	PaintTable	OJ	14	no
+PiePlot::getOutlineStroke(int):java.awt.Stroke	StrokeTable	OJ	15	no
+PiePlot::getPaint(int):java.awt.Paint	PaintTable	OJ	16	no
+StandardLegend::createDrawableLegendItem(java.awt.Graphics2D, LegendItem, double, double):DrawableLegendItem	LegendItem	OJ	18	no
+StandardLegendItemLayout::doHorizontalLayout(LegendItemCollection):void	LegendItemCollection	OJ	19	no
+VerticalBarRenderer3D_drawRangeMarker	Marker	OM	21	no
+DynamicTimeSeriesCollection::getX(RegularTimePeriod):long	RegularTimePeriod	B	6	yes
+TimeSeriesCollection::getX(RegularTimePeriod):long	RegularTimePeriod	B	20	yes
+JFreeChart::drawTitle(AbstractTitle, java.awt.Graphics2D, java.awt.geom.Rectangle2D):void	AbstractTitle	OJ	9	yes
+DateAxis::nextStandardDate(java.util.Date, DateTickUnit):java.util.Date	DateTickUnit	OJ	4	yes
+DateAxis::previousStandardDate(java.util.Date, DateTickUnit):java.util.Date	DateTickUnit	OJ	5	yes
+MeterLegend::createLegendItem(java.awt.Graphics, LegendItem, double, double):DrawableLegendItem	LegendItem	OJ	11	yes
+AxisPropertyEditPanel::setAxisProperties(Axis):void	Axis	OM	1	yes
+LegendPropertyEditPanel::setLegendProperties(Legend):void	Legend	OM	10	yes
+PlotPropertyEditPanel::updatePlotProperties(Plot):void	Plot	OM	17	yes
+ChartPropertyEditPanel::updateChartProperties(JFreeChart):void	JFreeChart	OM	23	yes
