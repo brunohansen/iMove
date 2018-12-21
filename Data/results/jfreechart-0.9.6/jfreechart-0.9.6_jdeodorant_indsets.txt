@@ -1,0 +1,2 @@
+com.jrefinery.chart.renderer.VerticalIntervalBarRenderer::drawRangeMarker(Graphics2D, CategoryPlot, ValueAxis, Marker, Rectangle2D, Shape):void	com.jrefinery.chart.Marker
+com.jrefinery.chart.renderer.MinMaxCategoryRenderer::drawRangeMarker(java.awt.Graphics2D, CategoryPlot, ValueAxis, Marker, java.awt.geom.Rectangle2D, java.awt.Shape):void	com.jrefinery.chart.Marker

@@ -1,10 +1,10 @@
-AxisPropertyEditPanel::setAxisProperties(Axis):void	Axis
-ChartPropertyEditPanel::updateChartProperties(JFreeChart):void	JFreeChart
-VerticalIntervalBarRenderer::drawRangeMarker(Graphics2D, CategoryPlot, ValueAxis, Marker, Rectangle2D, Shape):void	Marker
-PlotPropertyEditPanel::updatePlotProperties(Plot):void	Plot
-LegendPropertyEditPanel::setLegendProperties(Legend):void	Legend
-DynamicTimeSeriesCollection::getX(RegularTimePeriod):long	RegularTimePeriod
-TimeSeriesCollection::getX(RegularTimePeriod):long	RegularTimePeriod
-VerticalBarRenderer3D::drawRangeMarker(Graphics2D, CategoryPlot, ValueAxis, Marker, Rectangle2D)	Marker
-ContourPlot::drawDomainMarker(java.awt.Graphics2D, ContourPlot, ValueAxis, Marker, java.awt.geom.Rectangle2D):void	Marker
-ContourPlot::drawRangeMarker(java.awt.Graphics2D, ContourPlot, ValueAxis, Marker, java.awt.geom.Rectangle2D):void	Marker
+com.jrefinery.chart.renderer.VerticalIntervalBarRenderer::drawRangeMarker(Graphics2D, CategoryPlot, ValueAxis, Marker, Rectangle2D, Shape):void	com.jrefinery.chart.Marker
+com.jrefinery.chart.plot.ContourPlot::drawDomainMarker(java.awt.Graphics2D, ContourPlot, ValueAxis, Marker, java.awt.geom.Rectangle2D):void	com.jrefinery.chart.Marker
+com.jrefinery.chart.plot.ContourPlot::drawRangeMarker(java.awt.Graphics2D, ContourPlot, ValueAxis, Marker, java.awt.geom.Rectangle2D):void	com.jrefinery.chart.Marker
+com.jrefinery.chart.renderer.VerticalBarRenderer3D::drawRangeMarker(Graphics2D, CategoryPlot, ValueAxis, Marker, Rectangle2D):void	com.jrefinery.chart.Marker
+com.jrefinery.data.DynamicTimeSeriesCollection::getX(RegularTimePeriod):long	com.jrefinery.data.RegularTimePeriod
+com.jrefinery.data.TimeSeriesCollection::getX(RegularTimePeriod):long	com.jrefinery.data.RegularTimePeriod
+com.jrefinery.chart.ui.AxisPropertyEditPanel::setAxisProperties(Axis):void	com.jrefinery.chart.axis.Axis
+com.jrefinery.chart.ui.LegendPropertyEditPanel::setLegendProperties(Legend):void	com.jrefinery.chart.Legend
+com.jrefinery.chart.ui.PlotPropertyEditPanel::updatePlotProperties(Plot):void	com.jrefinery.chart.plot.Plot
+com.jrefinery.chart.ui.ChartPropertyEditPanel::updateChartProperties(JFreeChart):void	com.jrefinery.chart.JFreeChart
