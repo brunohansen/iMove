@@ -14,10 +14,39 @@ import java.util.TreeSet;
 import java.util.function.Consumer;
 import java.util.stream.Stream;
 
-public class FileMerger {
+import org.eclipse.core.commands.AbstractHandler;
+import org.eclipse.core.commands.ExecutionEvent;
+import org.eclipse.jface.dialogs.InputDialog;
+import org.eclipse.jface.dialogs.MessageDialog;
+import org.eclipse.ui.IWorkbenchWindow;
+import org.eclipse.ui.handlers.HandlerUtil;
+
+public class FileMerger extends AbstractHandler {
 	
 	private static final String OR = "0";
 	private static final String AND = "1";
+
+	@Override
+	public Object execute(ExecutionEvent event) {
+
+		try {
+			IWorkbenchWindow window = HandlerUtil.getActiveWorkbenchWindowChecked(event);
+			
+			InputDialog inDlg = new InputDialog(window.getShell(), "iMove - Inform the batch directory", "Directory address", "", null);
+			inDlg.open();
+			
+			mergeDir(inDlg.getValue());	
+			
+			MessageDialog.openInformation(window.getShell(), "Finish", "Finish!");
+
+		} catch (Exception e) {
+			e.printStackTrace();
+
+			MessageDialog.openInformation(null, "iMove", e.getMessage());
+		}
+
+		return null;
+	}
 	
 	// cat jtopen-7.8-small/jtopen-7.8-small_jdeodorant_metric_gold.txt jtopen-7.8-large/jtopen-7.8-large_jdeodorant_metric_gold.txt | sort | uniq | wc -l
 	public static Set<String> merge(Path fileOne, Path fileTwo, String operator) throws IOException {
