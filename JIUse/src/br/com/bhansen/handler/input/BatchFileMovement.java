@@ -8,10 +8,7 @@ import java.nio.file.Paths;
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
-import java.util.TreeSet;
 import java.util.function.Consumer;
-import java.util.function.Predicate;
-import java.util.function.Supplier;
 import java.util.stream.Stream;
 
 import org.eclipse.core.commands.ExecutionEvent;
@@ -43,7 +40,8 @@ public class BatchFileMovement extends InputMovement {
 		MessageDialog.openInformation(window.getShell(), "Result", "Result will be shown on cosole!");
 		
 		Collection<String> out = metricCheck(inFile, type, metric);
-		goldCheck(getGoldPath(inFile), getMetricPath(inFile));
+		
+		GoldChecker.goldCheck(getGoldPath(inFile), getMetricPath(inFile));
 		
 		try {
 			moveMethod.update(getProject(getProjectName(inFile)), out);
@@ -126,60 +124,5 @@ public class BatchFileMovement extends InputMovement {
 	
 	public static Path getMetricPath(Path inFile) {
 		return Paths.get(inFile.toString().replace(".txt", "_metric.txt"));
-	}
-		
-	public static Set<String> goldCheck(Path goldFile, Path inFile) throws IOException {
-		Stream<String> inStream = Files.lines(inFile);
-		Stream<String> goldStream = Files.lines(goldFile);
-
-		Set<String> outSet = new TreeSet<>();
-
-		try {
-
-			Object[] goldArray = goldStream.toArray();
-			Supplier<Stream<Object>> goldLines = () -> Stream.of(goldArray);
-			
-			System.out.println("\nGold check: " + inFile + "\n");
-
-			inStream.forEach(new Consumer<String>() {
-				@Override
-				public void accept(String inLine) {
-
-					String[] reg = inLine.split("\\t", 2);
-
-					boolean exact = goldLines.get().anyMatch(new Predicate<Object>() {
-						public boolean test(Object goldLine) {
-							return reg[1].equals(goldLine);
-						}
-					});
-					
-					boolean origin = goldLines.get().anyMatch(new Predicate<Object>() {
-						public boolean test(Object goldLine) {
-							String[] in = reg[1].split("\\t", 2);
-							String[] gold = ((String) goldLine).split("\\t", 2);
-							return in[0].equals(gold[0]);
-						}
-					});
-
-					String outLine = reg[0] + ((origin) ? "0" : "1") + ((exact) ? "0\t" : "1\t") + reg[1];
-
-					outSet.add(outLine);
-
-					System.out.println(outLine);
-
-				}
-			});
-			
-			System.out.println("\nGold check finished.\n");
-
-			Files.write(Paths.get(inFile.toString().replace(".txt", "_gold.txt")), outSet);
-			
-		} finally {
-			inStream.close();
-			goldStream.close();
-		}
-
-		return outSet;
-
 	}
 }

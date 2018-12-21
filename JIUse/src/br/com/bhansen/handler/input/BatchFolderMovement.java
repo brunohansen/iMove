@@ -97,7 +97,7 @@ public class BatchFolderMovement extends BatchFileMovement {
 			public void accept(Path toolFile) {
 				try {
 					metricCheck(toolFile, type, metric);
-					outSet.addAll(goldCheck(goldFile, getMetricPath(toolFile)));
+					outSet.addAll(GoldChecker.goldCheck(goldFile, getMetricPath(toolFile)));
 				} catch (IOException e) {
 					throw new RuntimeException(e);
 				}
