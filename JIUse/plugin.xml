@@ -99,18 +99,18 @@
       </command>
       <command
             categoryId="iMove.commands.category"
+            id="iMove.commands.goldCheck"
+            name="Gold Check">
+      </command>
+      <command
+            categoryId="iMove.commands.category"
+            id="iMove.commands.mergeFiles"
+            name="Merge Files">
+      </command>
+      <command
+            categoryId="iMove.commands.category"
             id="iMove.commands.extractClass"
             name="Extract Class">
-        <commandParameter
-               id="iMove.type"
-               name="type"
-               optional="false">
-         </commandParameter>
-         <commandParameter
-               id="iMove.metric"
-               name="metric"
-               optional="false">
-         </commandParameter>
       </command>
    </extension>
    <extension point="org.eclipse.ui.handlers">
@@ -142,14 +142,14 @@
             commandId="iMove.commands.batchFolderMovement"
             class="br.com.bhansen.handler.input.BatchFolderMovement">
       </handler>
-   </extension>
-   <extension point="org.eclipse.ui.bindings">
-      <key
-            commandId="iMove.commands.selectMove"
-            contextId="org.eclipse.ui.contexts.window"
-            sequence="M1+6"
-            schemeId="org.eclipse.ui.defaultAcceleratorConfiguration">
-      </key>
+      <handler
+            commandId="iMove.commands.goldCheck"
+            class="br.com.bhansen.handler.input.GoldChecker">
+      </handler>
+      <handler
+            commandId="iMove.commands.mergeFiles"
+            class="br.com.bhansen.handler.input.FileMerger">
+      </handler>
    </extension>
    <extension point="org.eclipse.ui.menus">
       <menuContribution
@@ -286,7 +286,7 @@
                 </parameter>
 	            </command>
              </menu>
-             <menu
+   <!--          <menu
                label="Refactor"
                mnemonic="M"
                id="iMove.menus.refactor">
@@ -304,7 +304,7 @@
                       value="IUC + CAMC">
                 </parameter>
 	            </command>
-	          </menu>  
+	          </menu>  -->
 				<command
 	                  commandId="iMove.commands.goldCheck"
 	                  id="iMove.menus.goldCheck"
@@ -312,8 +312,8 @@
 	                  mnemonic="S">
 	            </command>
 	           	<command
-	                  commandId="iMove.commands.mergeResults"
-	                  id="iMove.menus.mergeResults"
+	                  commandId="iMove.commands.mergeFiles"
+	                  id="iMove.menus.mergeFiles"
 	                  label="Merge Results"
 	                  mnemonic="S">
 	            </command>
