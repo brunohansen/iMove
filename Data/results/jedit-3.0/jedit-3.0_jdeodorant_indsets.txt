@@ -1,0 +1,2 @@
+org.gjt.sp.jedit.textarea.JEditTextArea::setText(java.lang.String):void	org.gjt.sp.jedit.Buffer
+org.gjt.sp.jedit.textarea.JEditTextArea::lineToY(int):int	org.gjt.sp.jedit.textarea.TextAreaPainter

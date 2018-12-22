@@ -1,1 +1,18 @@
-BshMethod::invokeDeclaredMethod(java.lang.Object[], Interpreter):java.lang.Object	BSHMethodDeclarationBSHMethodDeclaration::invokeDeclaredMethod(java.lang.Object[], Interpreter, NameSpace):java.lang.Object	BSHFormalParametersName::resolveThisFieldReference(NameSpace, Interpreter, java.lang.String, boolean):java.lang.Object	NameSpaceVFSBrowser::handleBufferUpdate(BufferUpdate):void	BufferUpdateMode::accept(Buffer, java.lang.String, java.lang.String):boolean	REJEditTextArea::xToOffset(int, int):int	TextAreaPainterTextAreaPainter::paintLineHighlight(java.awt.Graphics, int, int):void	JEditTextAreaBufferIORequest::readMarkers(Buffer, java.InputStream):void	BufferBufferIORequest::writeMarkers(Buffer, java.OutputStream):void	BufferName::invokeLocalMethod(Interpreter, java.lang.Object[]):java.lang.Object	InterpreterJEditTextArea::lineToY(int):int	TextAreaPainterBufferIORequest::read(Buffer, java.InputStream, long):java.lang.String	BufferBufferIORequest::insert():void	VFSEditPane::initTextArea(JEditTextArea):void	JEditTextAreaJEditTextArea::doWordWrap(int, boolean):boolean	BufferTextAreaPainter::paintCaret(java.awt.Graphics, int, int):void	JEditTextAreaBuffer::tokenizeLines(int, int):void	TokenMarkerJEditTextArea::setText(java.lang.String):void	Buffer
+org.gjt.sp.jedit.textarea.JEditTextArea::setText(java.lang.String):void	org.gjt.sp.jedit.Buffer
+org.gjt.sp.jedit.textarea.JEditTextArea::lineToY(int):int	org.gjt.sp.jedit.textarea.TextAreaPainter
+org.gjt.sp.jedit.textarea.TextAreaPainter::paintCaret(java.awt.Graphics, int, int):void	org.gjt.sp.jedit.textarea.JEditTextArea
+org.gjt.sp.jedit.textarea.TextAreaPainter::paintLineHighlight(java.awt.Graphics, int, int):void	org.gjt.sp.jedit.textarea.JEditTextArea
+bsh.BshMethod::invokeDeclaredMethod(java.lang.Object[], Interpreter):java.lang.Object	bsh.BSHMethodDeclaration
+bsh.BSHMethodDeclaration::invokeDeclaredMethod(java.lang.Object[], Interpreter, NameSpace):java.lang.Object	bsh.BSHFormalParameters
+org.gjt.sp.jedit.textarea.JEditTextArea::doWordWrap(int, boolean):boolean	org.gjt.sp.jedit.Buffer
+bsh.Name::invokeLocalMethod(Interpreter, java.lang.Object[]):java.lang.Object	bsh.Interpreter
+org.gjt.sp.jedit.io.BufferIORequest::insert():void	org.gjt.sp.jedit.io.VFS
+org.gjt.sp.jedit.browser.VFSBrowser::handleBufferUpdate(BufferUpdate):void	org.gjt.sp.jedit.msg.BufferUpdate
+org.gjt.sp.jedit.io.BufferIORequest::readMarkers(Buffer, java.InputStream):void	org.gjt.sp.jedit.Buffer
+org.gjt.sp.jedit.io.BufferIORequest::writeMarkers(Buffer, java.OutputStream):void	org.gjt.sp.jedit.Buffer
+org.gjt.sp.jedit.EditPane::initTextArea(JEditTextArea):void	org.gjt.sp.jedit.textarea.JEditTextArea
+org.gjt.sp.jedit.Mode::accept(Buffer, java.lang.String, java.lang.String):boolean	gnu.regexp.RE
+org.gjt.sp.jedit.io.BufferIORequest::read(Buffer, java.InputStream, long):java.lang.String	org.gjt.sp.jedit.Buffer
+org.gjt.sp.jedit.textarea.JEditTextArea::xToOffset(int, int):int	org.gjt.sp.jedit.textarea.TextAreaPainter
+bsh.Name::resolveThisFieldReference(NameSpace, Interpreter, java.lang.String, boolean):java.lang.Object	bsh.NameSpace
+org.gjt.sp.jedit.Buffer::tokenizeLines(int, int):void	org.gjt.sp.jedit.syntax.TokenMarker

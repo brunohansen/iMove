@@ -1,8 +1,8 @@
-GUIUtilities::getStyleString(SyntaxStyle):String	SyntaxStyle
-Mode::accept(Buffer, java.lang.String, java.lang.String):boolean	RE
-VFSBrowser::handleBufferUpdate(BufferUpdate):void	BufferUpdate
-BufferIORequest::writeMarkers(Buffer, java.OutputStream):void	Buffer
-EditPane::initTextArea(JEditTextArea):void	JEditTextArea
-BufferIORequest::readMarkers(Buffer, java.InputStream):void	Buffer
-TextAreaPainter::paintCaret(java.awt.Graphics, int, int):void	JEditTextArea
-TextAreaPainter::paintLineHighlight(java.awt.Graphics, int, int):void	JEditTextArea
+org.gjt.sp.jedit.textarea.TextAreaPainter::paintCaret(java.awt.Graphics, int, int):void	org.gjt.sp.jedit.textarea.JEditTextArea
+org.gjt.sp.jedit.textarea.TextAreaPainter::paintLineHighlight(java.awt.Graphics, int, int):void	org.gjt.sp.jedit.textarea.JEditTextArea
+org.gjt.sp.jedit.browser.VFSBrowser::handleBufferUpdate(BufferUpdate):void	org.gjt.sp.jedit.msg.BufferUpdate
+org.gjt.sp.jedit.io.BufferIORequest::readMarkers(Buffer, java.InputStream):void	org.gjt.sp.jedit.Buffer
+org.gjt.sp.jedit.io.BufferIORequest::writeMarkers(Buffer, java.OutputStream):void	org.gjt.sp.jedit.Buffer
+org.gjt.sp.jedit.EditPane::initTextArea(JEditTextArea):void	org.gjt.sp.jedit.textarea.JEditTextArea
+org.gjt.sp.jedit.Mode::accept(Buffer, java.lang.String, java.lang.String):boolean	gnu.regexp.RE
+org.gjt.sp.jedit.GUIUtilities::getStyleString(SyntaxStyle):String	org.gjt.sp.jedit.syntax.SyntaxStyle

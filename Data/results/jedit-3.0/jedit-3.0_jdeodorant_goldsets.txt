@@ -7,4 +7,3 @@ org.gjt.sp.jedit.io.BufferIORequest::read(Buffer, java.InputStream, long):java.l
 org.gjt.sp.jedit.textarea.JEditTextArea::xToOffset(int, int):int	org.gjt.sp.jedit.textarea.TextAreaPainter
 bsh.Name::resolveThisFieldReference(NameSpace, Interpreter, java.lang.String, boolean):java.lang.Object	bsh.NameSpace
 org.gjt.sp.jedit.Buffer::tokenizeLines(int, int):void	org.gjt.sp.jedit.syntax.TokenMarker
-org.gjt.sp.jedit.GUIUtilities::getStyleString(SyntaxStyle):String	org.gjt.sp.jedit.syntax.SyntaxStyle

@@ -1,10 +1,10 @@
-bsh.Name::resolveThisFieldReference(NameSpace, Interpreter, String, boolean):Object	bsh.NameSpace
-org.gjt.sp.jedit.io.BufferIORequest::readMarkers(Buffer, InputStream):void	org.gjt.sp.jedit.Buffer
-org.gjt.sp.jedit.GUIUtilities::getStyleString(SyntaxStyle):String	org.gjt.sp.jedit.syntax.SyntaxStyle
-org.gjt.sp.jedit.io.BufferIORequest::writeMarkers(Buffer, OutputStream):void	org.gjt.sp.jedit.Buffer
-org.gjt.sp.jedit.Mode::accept(Buffer, String, String):boolean	gnu.regexp.RE
-org.gjt.sp.jedit.Buffer::tokenizeLines(int, int):void	org.gjt.sp.jedit.syntax.TokenMarker
-org.gjt.sp.jedit.EditPane::initTextArea(JEditTextArea):void	org.gjt.sp.jedit.textarea.JEditTextArea
-org.gjt.sp.jedit.textarea.JEditTextArea::xToOffset(int, int):int	org.gjt.sp.jedit.textarea.TextAreaPainter
 org.gjt.sp.jedit.browser.VFSBrowser::handleBufferUpdate(BufferUpdate):void	org.gjt.sp.jedit.msg.BufferUpdate
-org.gjt.sp.jedit.io.BufferIORequest::read(Buffer, InputStream, long):String	org.gjt.sp.jedit.Buffer
+org.gjt.sp.jedit.io.BufferIORequest::readMarkers(Buffer, java.InputStream):void	org.gjt.sp.jedit.Buffer
+org.gjt.sp.jedit.io.BufferIORequest::writeMarkers(Buffer, java.OutputStream):void	org.gjt.sp.jedit.Buffer
+org.gjt.sp.jedit.EditPane::initTextArea(JEditTextArea):void	org.gjt.sp.jedit.textarea.JEditTextArea
+org.gjt.sp.jedit.Mode::accept(Buffer, java.lang.String, java.lang.String):boolean	gnu.regexp.RE
+org.gjt.sp.jedit.io.BufferIORequest::read(Buffer, java.InputStream, long):java.lang.String	org.gjt.sp.jedit.Buffer
+org.gjt.sp.jedit.textarea.JEditTextArea::xToOffset(int, int):int	org.gjt.sp.jedit.textarea.TextAreaPainter
+bsh.Name::resolveThisFieldReference(NameSpace, Interpreter, java.lang.String, boolean):java.lang.Object	bsh.NameSpace
+org.gjt.sp.jedit.Buffer::tokenizeLines(int, int):void	org.gjt.sp.jedit.syntax.TokenMarker
+org.gjt.sp.jedit.GUIUtilities::getStyleString(SyntaxStyle):String	org.gjt.sp.jedit.syntax.SyntaxStyle
