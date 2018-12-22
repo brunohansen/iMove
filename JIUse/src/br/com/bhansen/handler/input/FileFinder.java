@@ -8,6 +8,7 @@ import java.nio.file.FileVisitResult;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.PathMatcher;
+import java.nio.file.Paths;
 import java.nio.file.SimpleFileVisitor;
 import java.nio.file.attribute.BasicFileAttributes;
 import java.util.ArrayList;
@@ -54,10 +55,16 @@ public class FileFinder extends SimpleFileVisitor<Path> {
 		return CONTINUE;
 	}
 
-	static List<Path> find(Path startingDir, String pattern) throws IOException {
+	static List<Path> find(String startingDir, String pattern) throws Exception {
+		Path path = Paths.get(startingDir);
+		
+		if (!Files.isDirectory(path)) {
+			throw new Exception("Directory not found!" + path);
+		}
+		
 		FileFinder finder = new FileFinder(pattern);
 		
-		Files.walkFileTree(startingDir, finder);
+		Files.walkFileTree(path, finder);
 		
 		return finder.matches;
 	}

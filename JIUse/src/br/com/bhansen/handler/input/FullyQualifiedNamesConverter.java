@@ -29,7 +29,7 @@ public class FullyQualifiedNamesConverter {
 
 	public static void main(String[] args) throws Exception {
 
-		Path startingDir = Paths.get("C:\\Users\\bruno\\runtime-EclipseApplication\\jfreechart-0.9.6\\src");
+		String startingDir = "C:\\Users\\bruno\\runtime-EclipseApplication\\jfreechart-0.9.6\\src";
 
 		Path inFile = Paths.get("C:\\Users\\bruno\\git\\iMove\\Data\\results\\jfreechart-0.9.6\\jfreechart-0.9.6.txt");
 
