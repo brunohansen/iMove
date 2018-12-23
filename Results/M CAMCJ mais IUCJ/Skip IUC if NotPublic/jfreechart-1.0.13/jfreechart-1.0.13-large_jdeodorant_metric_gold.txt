@@ -12,6 +12,7 @@
 -0.259868-111	org.jfree.chart.axis.ModuloAxis::mapValueToFixedRange(double):double	org.jfree.data.Range
 -0.281853-111	org.jfree.data.general.WaferMapDataset::getChipValue(Comparable, Comparable):Number	org.jfree.data.DefaultKeyedValues2D
 -0.318937-111	org.jfree.chart.plot.ContourPlot::drawRangeMarker(Graphics2D, ContourPlot, ValueAxis, Marker, Rectangle2D):void	org.jfree.chart.axis.ValueAxis
+-0.366500-111	org.jfree.chart.plot.ContourPlot::drawDomainMarker(Graphics2D, ContourPlot, ValueAxis, Marker, Rectangle2D):void	org.jfree.chart.axis.ValueAxis
 -0.432143-111	org.jfree.chart.block.CenterArrangement::arrangeNN(BlockContainer, Graphics2D):Size2D	org.jfree.chart.block.BlockContainer
 -0.566071-111	org.jfree.chart.block.CenterArrangement::arrangeFN(BlockContainer, Graphics2D, RectangleConstraint):Size2D	org.jfree.chart.block.BlockContainer
 -0.613333-111	org.jfree.chart.block.CenterArrangement::arrangeFN(BlockContainer, Graphics2D, RectangleConstraint):Size2D	org.jfree.chart.block.RectangleConstraint
@@ -29,4 +30,3 @@
 0.412692-000	org.jfree.chart.LegendItemCollection::drawDomainMarkers(XYPlot, Graphics2D, Rectangle2D, int, Layer):void	org.jfree.chart.plot.XYPlot
 0.445387-000	org.jfree.chart.ChartRenderingInfo::doSaveAs(ChartComposite):void	org.jfree.experimental.chart.swt.ChartComposite
 1.000000-011	org.jfree.chart.StandardChartTheme::applyToAbstractRenderer(AbstractRenderer):void	org.jfree.chart.renderer.AbstractRenderer
-E11	org.jfree.chart.plot.ContourPlot::drawDomainMarker(java.awt.Graphics2D, org.jfree.chart.plot.ContourPlot, org.jfree.chart.axis.ValueAxis, org.jfree.chart.plot.Marker, java.awt.geom.Rectangle2D):void	org.jfree.chart.axis.ValueAxis	 Error: Method drawDomainMarker(java.awt.Graphics2D, org.jfree.chart.plot.ContourPlot, org.jfree.chart.axis.ValueAxis, org.jfree.chart.plot.Marker, java.awt.geom.Rectangle2D):void not found!
