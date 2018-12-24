@@ -103,7 +103,7 @@ br.com.linkcom.sgm.service.IndicadorService::atualizaIndicadores(List<Indicador>
 br.com.linkcom.sgm.service.IndicadorService::copiaIndicador(UnidadeGerencial, ObjetivoMapaEstrategico, Indicador, boolean):void	br.com.linkcom.sgm.service.AnexoIndicadorService
 br.com.linkcom.sgm.service.IndicadorService::createReportApresentacaoResultados(ApresentacaoResultadosDTO):IReport	br.com.linkcom.sgm.beans.DTO.ApresentacaoResultadosDTO
 br.com.linkcom.sgm.service.IndicadorService::createReportPendenciaAnomalia(PendenciaAnomaliaReportFiltro):IReport	br.com.linkcom.sgm.dao.IndicadorDAO
-br.com.linkcom.sgm.service.IndicadorService::criarRelatorioIndicadoresEstrategico(ndicadoresEstrategicoReportFiltro):IReport	br.com.linkcom.sgm.dao.IndicadorDAO
+br.com.linkcom.sgm.service.IndicadorService::criarRelatorioIndicadoresEstrategico(IndicadoresEstrategicoReportFiltro):IReport	br.com.linkcom.sgm.dao.IndicadorDAO
 br.com.linkcom.sgm.service.IndicadorService::dataLimiteCriacaoNaoExpirada(Indicador):boolean	br.com.linkcom.sgm.service.PlanoGestaoService
 br.com.linkcom.sgm.service.IndicadorService::obtemSomatorioColecaoAcompanhamento(Indicador,Calendar,Calendar):Indicador	br.com.linkcom.sgm.service.AcompanhamentoIndicadorService
 br.com.linkcom.sgm.service.IniciativaService::atualizaIniciativaListaPlanoAcaoDaIniciativa(UnidadeGerencial, ObjetivoMapaEstrategico, Iniciativa):void	br.com.linkcom.sgm.service.PlanoAcaoService
