@@ -1,0 +1,18 @@
+-0.082890-111	org.gjt.sp.jedit.textarea.TextAreaPainter::paintCaret(Graphics, int, int):void	org.gjt.sp.jedit.textarea.JEditTextArea
+-0.089761-111	org.gjt.sp.jedit.textarea.TextAreaPainter::paintLineHighlight(Graphics, int, int):void	org.gjt.sp.jedit.textarea.JEditTextArea
+-0.199320-100	org.gjt.sp.jedit.browser.VFSBrowser::handleBufferUpdate(BufferUpdate):void	org.gjt.sp.jedit.msg.BufferUpdate
+-0.206483-100	org.gjt.sp.jedit.Mode::accept(Buffer, String, String):boolean	gnu.regexp.RE
+-0.225117-111	org.gjt.sp.jedit.textarea.JEditTextArea::doWordWrap(int, boolean):boolean	org.gjt.sp.jedit.Buffer
+-0.273501-111	org.gjt.sp.jedit.textarea.JEditTextArea::lineToY(int):int	org.gjt.sp.jedit.textarea.TextAreaPainter
+-0.274304-100	org.gjt.sp.jedit.textarea.JEditTextArea::xToOffset(int, int):int	org.gjt.sp.jedit.textarea.TextAreaPainter
+-0.292444-100	org.gjt.sp.jedit.EditPane::initTextArea(JEditTextArea):void	org.gjt.sp.jedit.textarea.JEditTextArea
+-0.539018-100	bsh.Name::resolveThisFieldReference(NameSpace, Interpreter, String, boolean):Object	bsh.NameSpace
+-0.750291-100	org.gjt.sp.jedit.io.BufferIORequest::read(Buffer, InputStream, long):String	org.gjt.sp.jedit.Buffer
+-0.763823-111	bsh.Name::invokeLocalMethod(Interpreter, Object[]):Object	bsh.Interpreter
+-0.802992-100	org.gjt.sp.jedit.io.BufferIORequest::readMarkers(Buffer, InputStream):void	org.gjt.sp.jedit.Buffer
+-0.823211-100	org.gjt.sp.jedit.io.BufferIORequest::writeMarkers(Buffer, OutputStream):void	org.gjt.sp.jedit.Buffer
+-1.536257-111	org.gjt.sp.jedit.io.BufferIORequest::insert():void	org.gjt.sp.jedit.io.VFS
+0.084548-011	org.gjt.sp.jedit.textarea.JEditTextArea::setText(String):void	org.gjt.sp.jedit.Buffer
+0.110159-000	org.gjt.sp.jedit.Buffer::tokenizeLines(int, int):void	org.gjt.sp.jedit.syntax.TokenMarker
+0.131694-011	bsh.BshMethod::invokeDeclaredMethod(Object[], Interpreter):Object	bsh.BSHMethodDeclaration
+E11	bsh.BSHMethodDeclaration::invokeDeclaredMethod(java.lang.Object[], Interpreter, NameSpace):java.lang.Object	bsh.BSHFormalParameters	 Error: Method invokeDeclaredMethod(java.lang.Object[], Interpreter, NameSpace):java.lang.Object not found!

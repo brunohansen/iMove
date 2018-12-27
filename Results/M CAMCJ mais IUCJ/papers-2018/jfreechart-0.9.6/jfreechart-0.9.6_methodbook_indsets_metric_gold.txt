@@ -1,0 +1,1 @@
+-0.107407-111	com.jrefinery.chart.renderer.VerticalIntervalBarRenderer::drawRangeMarker(Graphics2D, CategoryPlot, ValueAxis, Marker, Rectangle2D, Shape):void	com.jrefinery.chart.Marker
