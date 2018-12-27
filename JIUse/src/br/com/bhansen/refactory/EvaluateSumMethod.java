@@ -19,11 +19,11 @@ public class EvaluateSumMethod extends MoveMethodEvaluator  {
 		
 		Metric m = factory.create(classFrom, method);
 		
-		if((! m.isPublicMethod())) { // || (m.isCalledOnlyBy(classTo)) || (m.hasNoCaller()) || (m.isCalledOnlyBy(classFrom))) {
-			this.skipIUC = true;
-		} else {
+//		if((! m.isPublicMethod()) || (m.isCalledOnlyBy(classTo)) || (m.hasNoCaller()) || (m.isCalledOnlyBy(classFrom))) {
+//			this.skipIUC = true;
+//		} else {
 			this.skipIUC = false;
-		}
+//		}
 		
 		this.oldValue = m.getMetric(this.skipIUC);
 		
