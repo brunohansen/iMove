@@ -6,6 +6,9 @@ import br.com.bhansen.metric.iuc.IUC;
 
 public class CompositeMetric implements Metric {
 	
+	private static final double DEC_W = 0.6;
+	private static final double IUC_W = 1.0 - DEC_W;
+	
 	private Metric iuc;
 	private Metric dec;
 	
@@ -24,7 +27,7 @@ public class CompositeMetric implements Metric {
 		if(skipIUC)
 			return dec.getMetric();
 		else
-			return iuc.getMetric() + dec.getMetric();
+			return (iuc.getMetric() * IUC_W) + (dec.getMetric() * DEC_W);
 	}
 
 	@Override
