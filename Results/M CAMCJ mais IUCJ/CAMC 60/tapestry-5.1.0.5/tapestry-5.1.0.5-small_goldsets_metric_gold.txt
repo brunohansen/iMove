@@ -1,0 +1,10 @@
+-0.022500-100	org.apache.tapestry5.services.BeanBlockContribution::toBlock(BeanBlockOverrideSourceImpl):Block	org.apache.tapestry5.internal.services.BeanBlockOverrideSourceImpl
+0.000000-000	org.apache.tapestry5.corelib.components.BeanEditor::onActionFromClear(BeanEditorBeanEditContext):void	org.apache.tapestry5.integration.app1.pages.BeanEditorBeanEditContext
+0.000000-000	org.apache.tapestry5.integration.app1.data.SubscribeData::onActionFromClear(FormFragmentDemo):void	org.apache.tapestry5.integration.app1.pages.FormFragmentDemo
+0.000000-000	org.example.testapp.services.SpringStatusProvider::onSuccess(Start):void	org.example.testapp.pages.Start
+0.021429-000	org.apache.tapestry5.corelib.mixins.RenderDisabled::defaultModel(Select):SelectModel	org.apache.tapestry5.corelib.components.Select
+0.021778-000	org.apache.tapestry5.internal.services.ComponentRequestHandlerTerminator::buildComponentRequestHandler(List<ComponentRequestFilter>, TapestryModule, Logger):ComponentRequestHandler	org.apache.tapestry5.services.TapestryModule
+0.075000-000	org.apache.tapestry5.corelib.components.Checkbox::getTextFieldTranslator(PropertyEditBlocks):FieldTranslator	org.apache.tapestry5.corelib.pages.PropertyEditBlocks
+0.178571-000	org.apache.tapestry5.corelib.data.BlankOption::setBlankOption(Select, String):void	org.apache.tapestry5.corelib.components.Select
+0.211841-000	org.apache.tapestry5.ioc.services.MethodSignature::failIfNotFrozen(InternalClassTransformationImpl):void	org.apache.tapestry5.internal.services.InternalClassTransformationImpl
+0.300000-000	org.apache.tapestry5.integration.app1.data.Track::getTracks(GridSetDemo):Set<Track>	org.apache.tapestry5.integration.app1.pages.GridSetDemo
