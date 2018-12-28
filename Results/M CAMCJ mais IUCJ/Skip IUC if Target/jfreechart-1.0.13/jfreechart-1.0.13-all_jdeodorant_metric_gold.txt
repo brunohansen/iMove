@@ -1,63 +1,36 @@
--0.020602-100	org.jfree.chart.plot.Plot::setPlot(Axis):void	org.jfree.chart.axis.Axis
+-0.020879-100	org.jfree.chart.plot.Plot::setPlot(Axis):void	org.jfree.chart.axis.Axis
 -0.023970-111	org.jfree.chart.renderer.category.AbstractCategoryItemRenderer::drawRangeLine(Graphics2D, CategoryPlot, ValueAxis, Rectangle2D, double, Paint, Stroke):void	org.jfree.chart.plot.CategoryPlot
--0.027159-111	org.jfree.chart.renderer.xy.AbstractXYItemRenderer::drawDomainLine(Graphics2D, XYPlot, ValueAxis, Rectangle2D, double, Paint, Stroke):void	org.jfree.chart.plot.XYPlot
+-0.027909-111	org.jfree.chart.renderer.xy.AbstractXYItemRenderer::drawDomainLine(Graphics2D, XYPlot, ValueAxis, Rectangle2D, double, Paint, Stroke):void	org.jfree.chart.plot.XYPlot
 -0.043846-100	org.jfree.chart.ClipPath::setDomainCrosshairLockedOnData(ContourPlot, boolean):void	org.jfree.chart.plot.ContourPlot
--0.102514-111	org.jfree.chart.renderer.category.BarRenderer::calculateSeriesWidth(double, CategoryAxis, int, int):double	org.jfree.chart.axis.CategoryAxis
+-0.055097-101	org.jfree.chart.renderer.xy.XYItemRendererState::drawPrimaryLine2(XYSmoothLineAndShapeRenderer, Graphics2D, XYPlot, XYDataset, int, int, int, ValueAxis, ValueAxis, Rectangle2D):void	org.jfree.chart.plot.XYPlot
+-0.102675-111	org.jfree.chart.renderer.category.BarRenderer::calculateSeriesWidth(double, CategoryAxis, int, int):double	org.jfree.chart.axis.CategoryAxis
 -0.154916-111	org.jfree.chart.renderer.category.AbstractCategoryItemRenderer::drawRangeLine(Graphics2D, CategoryPlot, ValueAxis, Rectangle2D, double, Paint, Stroke):void	org.jfree.chart.axis.ValueAxis
 -0.170680-111	org.jfree.data.general.WaferMapDataset::getUniqueValues():Set	org.jfree.data.DefaultKeyedValues2D
--0.177988-111	org.jfree.chart.plot.PolarPlot::refreshAngleTicks():List	org.jfree.chart.axis.TickUnit
+-0.177642-111	org.jfree.chart.plot.PolarPlot::refreshAngleTicks():List	org.jfree.chart.axis.TickUnit
 -0.182652-111	org.jfree.chart.renderer.xy.AbstractXYItemRenderer::drawDomainLine(Graphics2D, XYPlot, ValueAxis, Rectangle2D, double, Paint, Stroke):void	org.jfree.chart.axis.ValueAxis
--0.199276-111	org.jfree.chart.renderer.category.CategoryStepRenderer::drawLine(Graphics2D, State, PlotOrientation, double, double, double, double):void	org.jfree.chart.renderer.category.CategoryStepRenderer.State
--0.237407-111	org.jfree.chart.renderer.xy.XYLineAndShapeRenderer::drawPrimaryLineAsPath(XYItemRendererState, Graphics2D, XYPlot, XYDataset, int, int, int, ValueAxis, ValueAxis, Rectangle2D):void	org.jfree.chart.plot.XYPlot
--0.238080-111	org.jfree.chart.StandardChartTheme::applyToSpiderWebPlot(SpiderWebPlot):void	org.jfree.chart.plot.SpiderWebPlot
+-0.199811-111	org.jfree.chart.renderer.category.CategoryStepRenderer::drawLine(Graphics2D, State, PlotOrientation, double, double, double, double):void	org.jfree.chart.renderer.category.CategoryStepRenderer.State
+-0.238127-111	org.jfree.chart.StandardChartTheme::applyToSpiderWebPlot(SpiderWebPlot):void	org.jfree.chart.plot.SpiderWebPlot
+-0.238947-111	org.jfree.chart.renderer.xy.XYLineAndShapeRenderer::drawPrimaryLineAsPath(XYItemRendererState, Graphics2D, XYPlot, XYDataset, int, int, int, ValueAxis, ValueAxis, Rectangle2D):void	org.jfree.chart.plot.XYPlot
 -0.290557-111	org.jfree.data.general.WaferMapDataset::getChipValue(Comparable, Comparable):Number	org.jfree.data.DefaultKeyedValues2D
--0.314378-111	org.jfree.chart.plot.CategoryPlot::drawRangeCrosshair(Graphics2D, Rectangle2D, PlotOrientation, double, ValueAxis, Stroke, Paint):void	org.jfree.chart.axis.ValueAxis
--0.331884-111	org.jfree.chart.plot.XYPlot::drawDomainCrosshair(Graphics2D, Rectangle2D, PlotOrientation, double, ValueAxis, Stroke, Paint):void	org.jfree.chart.axis.ValueAxis
--0.331884-111	org.jfree.chart.plot.XYPlot::drawRangeCrosshair(Graphics2D, Rectangle2D, PlotOrientation, double, ValueAxis, Stroke, Paint):void	org.jfree.chart.axis.ValueAxis
--0.348170-111	org.jfree.chart.renderer.xy.XYLineAndShapeRenderer::drawPrimaryLine(XYItemRendererState, Graphics2D, XYPlot, XYDataset, int, int, int, ValueAxis, ValueAxis, Rectangle2D):void	org.jfree.chart.plot.XYPlot
--0.372309-111	org.jfree.chart.plot.ContourPlot::drawDomainMarker(Graphics2D, ContourPlot, ValueAxis, Marker, Rectangle2D):void	org.jfree.chart.axis.ValueAxis
--0.372309-111	org.jfree.chart.plot.ContourPlot::drawRangeMarker(Graphics2D, ContourPlot, ValueAxis, Marker, Rectangle2D):void	org.jfree.chart.axis.ValueAxis
--0.397636-111	org.jfree.chart.axis.DateAxis::calculateDateForPosition(RegularTimePeriod, DateTickMarkPosition):Date	org.jfree.data.time.RegularTimePeriod
--0.523834-111	org.jfree.chart.renderer.category.LevelRenderer::calculateSeriesWidth(double, CategoryAxis, int, int):double	org.jfree.chart.axis.CategoryAxis
--0.632424-111	org.jfree.chart.axis.ModuloAxis::mapValueToFixedRange(double):double	org.jfree.data.Range
+-0.314398-111	org.jfree.chart.plot.CategoryPlot::drawRangeCrosshair(Graphics2D, Rectangle2D, PlotOrientation, double, ValueAxis, Stroke, Paint):void	org.jfree.chart.axis.ValueAxis
+-0.331903-111	org.jfree.chart.plot.XYPlot::drawDomainCrosshair(Graphics2D, Rectangle2D, PlotOrientation, double, ValueAxis, Stroke, Paint):void	org.jfree.chart.axis.ValueAxis
+-0.331903-111	org.jfree.chart.plot.XYPlot::drawRangeCrosshair(Graphics2D, Rectangle2D, PlotOrientation, double, ValueAxis, Stroke, Paint):void	org.jfree.chart.axis.ValueAxis
+-0.349629-111	org.jfree.chart.renderer.xy.XYLineAndShapeRenderer::drawPrimaryLine(XYItemRendererState, Graphics2D, XYPlot, XYDataset, int, int, int, ValueAxis, ValueAxis, Rectangle2D):void	org.jfree.chart.plot.XYPlot
+-0.372255-111	org.jfree.chart.plot.ContourPlot::drawDomainMarker(Graphics2D, ContourPlot, ValueAxis, Marker, Rectangle2D):void	org.jfree.chart.axis.ValueAxis
+-0.372255-111	org.jfree.chart.plot.ContourPlot::drawRangeMarker(Graphics2D, ContourPlot, ValueAxis, Marker, Rectangle2D):void	org.jfree.chart.axis.ValueAxis
+-0.398081-111	org.jfree.chart.axis.DateAxis::calculateDateForPosition(RegularTimePeriod, DateTickMarkPosition):Date	org.jfree.data.time.RegularTimePeriod
+-0.524139-111	org.jfree.chart.renderer.category.LevelRenderer::calculateSeriesWidth(double, CategoryAxis, int, int):double	org.jfree.chart.axis.CategoryAxis
+-0.632469-111	org.jfree.chart.axis.ModuloAxis::mapValueToFixedRange(double):double	org.jfree.data.Range
 -0.997078-111	org.jfree.chart.block.CenterArrangement::arrangeNN(BlockContainer, Graphics2D):Size2D	org.jfree.chart.block.BlockContainer
 -1.131006-111	org.jfree.chart.block.CenterArrangement::arrangeFN(BlockContainer, Graphics2D, RectangleConstraint):Size2D	org.jfree.chart.block.BlockContainer
 -1.174488-111	org.jfree.chart.block.CenterArrangement::arrangeFN(BlockContainer, Graphics2D, RectangleConstraint):Size2D	org.jfree.chart.block.RectangleConstraint
-0.070950-011	org.jfree.chart.renderer.xy.AbstractXYItemRenderer::updateCrosshairValues(CrosshairState, double, double, int, int, double, double, PlotOrientation):void	org.jfree.chart.plot.CrosshairState
-0.177767-000	org.jfree.chart.PaintMap::setIgnoreNullValues(PiePlot, boolean):void	org.jfree.chart.plot.PiePlot
-0.200012-011	org.jfree.chart.renderer.category.AbstractCategoryItemRenderer::updateCrosshairValues(CategoryCrosshairState, Comparable, Comparable, double, int, double, double, PlotOrientation):void	org.jfree.chart.plot.CategoryCrosshairState
-0.253841-000	org.jfree.chart.axis.ValueAxis::setRangeGridlinesVisible(FastScatterPlot, boolean):void	org.jfree.chart.plot.FastScatterPlot
+0.015625-000	org.jfree.chart.ChartRenderingInfo::doSaveAs(ChartComposite):void	org.jfree.experimental.chart.swt.ChartComposite
+0.033333-000	org.jfree.chart.plot.PlotState::draw2(Graphics2D, Rectangle2D, Point2D, DialPlot, PlotRenderingInfo):void	org.jfree.chart.plot.dial.DialPlot
+0.051814-000	org.jfree.chart.LegendItemCollection::drawDomainMarkers(XYPlot, Graphics2D, Rectangle2D, int, Layer):void	org.jfree.chart.plot.XYPlot
+0.052632-000	org.jfree.data.RangeType::autoAdjustRange2(NumberAxis):void	org.jfree.chart.axis.NumberAxis
+0.070285-011	org.jfree.chart.renderer.xy.AbstractXYItemRenderer::updateCrosshairValues(CrosshairState, double, double, int, int, double, double, PlotOrientation):void	org.jfree.chart.plot.CrosshairState
+0.177796-000	org.jfree.chart.PaintMap::setIgnoreNullValues(PiePlot, boolean):void	org.jfree.chart.plot.PiePlot
+0.199530-011	org.jfree.chart.renderer.category.AbstractCategoryItemRenderer::updateCrosshairValues(CategoryCrosshairState, Comparable, Comparable, double, int, double, double, PlotOrientation):void	org.jfree.chart.plot.CategoryCrosshairState
+0.253930-000	org.jfree.chart.axis.ValueAxis::setRangeGridlinesVisible(FastScatterPlot, boolean):void	org.jfree.chart.plot.FastScatterPlot
 0.388889-011	org.jfree.chart.renderer.OutlierListCollection::updateOutlierList(OutlierList, Outlier):boolean	org.jfree.chart.renderer.OutlierList
-0.761920-011	org.jfree.chart.StandardChartTheme::applyToAbstractRenderer(AbstractRenderer):void	org.jfree.chart.renderer.AbstractRenderer
-E11	org.jfree.chart.ChartRenderingInfo::doSaveAs(org.jfree.experimental.chart.swt.ChartComposite):void	org.jfree.experimental.chart.swt.ChartComposite	 Error: End position lies outside document range
-E11	org.jfree.chart.LegendItemCollection::drawDomainMarkers(org.jfree.chart.plot.XYPlot, java.awt.Graphics2D, java.awt.geom.Rectangle2D, int, org.jfree.ui.Layer):void	org.jfree.chart.plot.XYPlot	 Error: End position lies outside document range
-E11	org.jfree.chart.StandardChartTheme::applyToAbstractRenderer(org.jfree.chart.renderer.AbstractRenderer):void	org.jfree.chart.renderer.AbstractRenderer	 Error: End position lies outside document range
-E11	org.jfree.chart.StandardChartTheme::applyToSpiderWebPlot(org.jfree.chart.plot.SpiderWebPlot):void	org.jfree.chart.plot.SpiderWebPlot	 Error: End position lies outside document range
-E11	org.jfree.chart.axis.DateAxis::calculateDateForPosition(org.jfree.data.time.RegularTimePeriod, org.jfree.chart.axis.DateTickMarkPosition):java.util.Date	org.jfree.data.time.RegularTimePeriod	 Error: End position lies outside document range
-E11	org.jfree.chart.axis.ModuloAxis::mapValueToFixedRange(double):double	org.jfree.data.Range	 Error: End position lies outside document range
-E11	org.jfree.chart.block.CenterArrangement::arrangeFN(org.jfree.chart.block.BlockContainer, java.awt.Graphics2D, org.jfree.chart.block.RectangleConstraint):org.jfree.ui.Size2D	org.jfree.chart.block.BlockContainer	 Error: End position lies outside document range
-E11	org.jfree.chart.block.CenterArrangement::arrangeFN(org.jfree.chart.block.BlockContainer, java.awt.Graphics2D, org.jfree.chart.block.RectangleConstraint):org.jfree.ui.Size2D	org.jfree.chart.block.RectangleConstraint	 Error: End position lies outside document range
-E11	org.jfree.chart.block.CenterArrangement::arrangeNN(org.jfree.chart.block.BlockContainer, java.awt.Graphics2D):org.jfree.ui.Size2D	org.jfree.chart.block.BlockContainer	 Error: End position lies outside document range
-E11	org.jfree.chart.plot.CategoryPlot::drawRangeCrosshair(java.awt.Graphics2D, java.awt.geom.Rectangle2D, org.jfree.chart.plot.PlotOrientation, double, org.jfree.chart.axis.ValueAxis, java.awt.Stroke, java.awt.Paint):void	org.jfree.chart.axis.ValueAxis	 Error: End position lies outside document range
-E11	org.jfree.chart.plot.ContourPlot::drawDomainMarker(java.awt.Graphics2D, org.jfree.chart.plot.ContourPlot, org.jfree.chart.axis.ValueAxis, org.jfree.chart.plot.Marker, java.awt.geom.Rectangle2D):void	org.jfree.chart.axis.ValueAxis	 Error: End position lies outside document range
-E11	org.jfree.chart.plot.ContourPlot::drawRangeMarker(java.awt.Graphics2D, org.jfree.chart.plot.ContourPlot, org.jfree.chart.axis.ValueAxis, org.jfree.chart.plot.Marker, java.awt.geom.Rectangle2D):void	org.jfree.chart.axis.ValueAxis	 Error: End position lies outside document range
-E11	org.jfree.chart.plot.PlotState::draw2(java.awt.Graphics2D, java.awt.geom.Rectangle2D, java.awt.geom.Point2D, org.jfree.chart.plot.dial.DialPlot, org.jfree.chart.plot.PlotRenderingInfo):void	org.jfree.chart.plot.dial.DialPlot	 Error: End position lies outside document range
-E11	org.jfree.chart.plot.PolarPlot::refreshAngleTicks():java.util.List	org.jfree.chart.axis.TickUnit	 Error: End position lies outside document range
-E11	org.jfree.chart.plot.XYPlot::drawDomainCrosshair(java.awt.Graphics2D, java.awt.geom.Rectangle2D, org.jfree.chart.plot.PlotOrientation, double, org.jfree.chart.axis.ValueAxis, java.awt.Stroke, java.awt.Paint):void	org.jfree.chart.axis.ValueAxis	 Error: End position lies outside document range
-E11	org.jfree.chart.plot.XYPlot::drawRangeCrosshair(java.awt.Graphics2D, java.awt.geom.Rectangle2D, org.jfree.chart.plot.PlotOrientation, double, org.jfree.chart.axis.ValueAxis, java.awt.Stroke, java.awt.Paint):void	org.jfree.chart.axis.ValueAxis	 Error: End position lies outside document range
-E11	org.jfree.chart.renderer.OutlierListCollection::updateOutlierList(org.jfree.chart.renderer.OutlierList, org.jfree.chart.renderer.Outlier):boolean	org.jfree.chart.renderer.OutlierList	 Error: End position lies outside document range
-E11	org.jfree.chart.renderer.category.AbstractCategoryItemRenderer::drawRangeLine(java.awt.Graphics2D, org.jfree.chart.plot.CategoryPlot, org.jfree.chart.axis.ValueAxis, java.awt.geom.Rectangle2D, double, java.awt.Paint, java.awt.Stroke):void	org.jfree.chart.axis.ValueAxis	 Error: End position lies outside document range
-E11	org.jfree.chart.renderer.category.AbstractCategoryItemRenderer::drawRangeLine(java.awt.Graphics2D, org.jfree.chart.plot.CategoryPlot, org.jfree.chart.axis.ValueAxis, java.awt.geom.Rectangle2D, double, java.awt.Paint, java.awt.Stroke):void	org.jfree.chart.plot.CategoryPlot	 Error: End position lies outside document range
-E11	org.jfree.chart.renderer.category.AbstractCategoryItemRenderer::updateCrosshairValues(org.jfree.chart.plot.CategoryCrosshairState, java.lang.Comparable, java.lang.Comparable, double, int, double, double, org.jfree.chart.plot.PlotOrientation):void	org.jfree.chart.plot.CategoryCrosshairState	 Error: End position lies outside document range
-E11	org.jfree.chart.renderer.category.BarRenderer::calculateSeriesWidth(double, org.jfree.chart.axis.CategoryAxis, int, int):double	org.jfree.chart.axis.CategoryAxis	 Error: End position lies outside document range
-E11	org.jfree.chart.renderer.category.CategoryStepRenderer::drawLine(java.awt.Graphics2D, org.jfree.chart.renderer.category.CategoryStepRenderer.State, org.jfree.chart.plot.PlotOrientation, double, double, double, double):void	org.jfree.chart.renderer.category.CategoryStepRenderer.State	 Error: End position lies outside document range
-E11	org.jfree.chart.renderer.category.LevelRenderer::calculateSeriesWidth(double, org.jfree.chart.axis.CategoryAxis, int, int):double	org.jfree.chart.axis.CategoryAxis	 Error: End position lies outside document range
-E11	org.jfree.chart.renderer.xy.AbstractXYItemRenderer::drawDomainLine(java.awt.Graphics2D, org.jfree.chart.plot.XYPlot, org.jfree.chart.axis.ValueAxis, java.awt.geom.Rectangle2D, double, java.awt.Paint, java.awt.Stroke):void	org.jfree.chart.axis.ValueAxis	 Error: End position lies outside document range
-E11	org.jfree.chart.renderer.xy.AbstractXYItemRenderer::drawDomainLine(java.awt.Graphics2D, org.jfree.chart.plot.XYPlot, org.jfree.chart.axis.ValueAxis, java.awt.geom.Rectangle2D, double, java.awt.Paint, java.awt.Stroke):void	org.jfree.chart.plot.XYPlot	 Error: End position lies outside document range
-E11	org.jfree.chart.renderer.xy.AbstractXYItemRenderer::updateCrosshairValues(org.jfree.chart.plot.CrosshairState, double, double, int, int, double, double, org.jfree.chart.plot.PlotOrientation):void	org.jfree.chart.plot.CrosshairState	 Error: End position lies outside document range
-E11	org.jfree.chart.renderer.xy.XYItemRendererState::drawPrimaryLine2(org.jfree.experimental.chart.renderer.xy.XYSmoothLineAndShapeRenderer, java.awt.Graphics2D, org.jfree.chart.plot.XYPlot, org.jfree.data.xy.XYDataset, int, int, int, org.jfree.chart.axis.ValueAxis, org.jfree.chart.axis.ValueAxis, java.awt.geom.Rectangle2D):void	org.jfree.chart.plot.XYPlot	 Error: End position lies outside document range
-E11	org.jfree.chart.renderer.xy.XYLineAndShapeRenderer::drawPrimaryLine(org.jfree.chart.renderer.xy.XYItemRendererState, java.awt.Graphics2D, org.jfree.chart.plot.XYPlot, org.jfree.data.xy.XYDataset, int, int, int, org.jfree.chart.axis.ValueAxis, org.jfree.chart.axis.ValueAxis, java.awt.geom.Rectangle2D):void	org.jfree.chart.plot.XYPlot	 Error: End position lies outside document range
-E11	org.jfree.chart.renderer.xy.XYLineAndShapeRenderer::drawPrimaryLineAsPath(org.jfree.chart.renderer.xy.XYItemRendererState, java.awt.Graphics2D, org.jfree.chart.plot.XYPlot, org.jfree.data.xy.XYDataset, int, int, int, org.jfree.chart.axis.ValueAxis, org.jfree.chart.axis.ValueAxis, java.awt.geom.Rectangle2D):void	org.jfree.chart.plot.XYPlot	 Error: End position lies outside document range
-E11	org.jfree.data.RangeType::autoAdjustRange2(org.jfree.chart.axis.NumberAxis):void	org.jfree.chart.axis.NumberAxis	 Error: End position lies outside document range
-E11	org.jfree.data.general.WaferMapDataset::getChipValue(java.lang.Comparable, java.lang.Comparable):java.lang.Number	org.jfree.data.DefaultKeyedValues2D	 Error: End position lies outside document range
-E11	org.jfree.data.general.WaferMapDataset::getUniqueValues():java.util.Set	org.jfree.data.DefaultKeyedValues2D	 Error: End position lies outside document range
+0.761873-011	org.jfree.chart.StandardChartTheme::applyToAbstractRenderer(AbstractRenderer):void	org.jfree.chart.renderer.AbstractRenderer
