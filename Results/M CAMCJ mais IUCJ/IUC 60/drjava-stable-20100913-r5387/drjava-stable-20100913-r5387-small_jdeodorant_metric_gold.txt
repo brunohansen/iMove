@@ -1,0 +1,50 @@
+-0.016000-111	edu.rice.cs.util.BalancingStreamTokenizer::whitespaceRange(int, int):void	edu.rice.cs.util.BalancingStreamTokenizer.State
+-0.051103-111	edu.rice.cs.drjava.project.ProjectProfile::encodeDocFile(DocFile, String, boolean):String	edu.rice.cs.drjava.project.DocFile
+-0.060217-111	edu.rice.cs.drjava.model.AbstractGlobalModel::_docAppend(ConsoleDocument, String, String):void	edu.rice.cs.util.text.ConsoleDocument
+-0.060663-111	edu.rice.cs.drjava.model.definitions.reducedmodel.AbstractReducedModel::_insertNewGap(int):void	edu.rice.cs.drjava.model.definitions.reducedmodel.TokenList.Iterator
+-0.075642-111	edu.rice.cs.drjava.ui.ExecuteExternalDialog::runCommand(String, String, String, String, PropertyMaps):ExternalProcessPanel	edu.rice.cs.drjava.ui.MainFrame
+-0.079000-111	edu.rice.cs.util.BalancingStreamTokenizer::wordRange(int, int):void	edu.rice.cs.util.BalancingStreamTokenizer.State
+-0.100333-111	edu.rice.cs.util.BalancingStreamTokenizer::addQuotes(String, String):void	edu.rice.cs.util.BalancingStreamTokenizer.State
+-0.105853-111	edu.rice.cs.drjava.model.definitions.reducedmodel.ReducedModelComment::_getDistToStart(TokenList.Iterator):int	edu.rice.cs.drjava.model.definitions.reducedmodel.TokenList.Iterator
+-0.130000-111	edu.rice.cs.util.BalancingStreamTokenizer::whitespace(int[]):void	edu.rice.cs.util.BalancingStreamTokenizer.State
+-0.130000-111	edu.rice.cs.util.BalancingStreamTokenizer::wordChars(int[]):void	edu.rice.cs.util.BalancingStreamTokenizer.State
+-0.152795-111	edu.rice.cs.drjava.model.definitions.reducedmodel.AbstractReducedModel::_augmentCurrentGap(int):void	edu.rice.cs.drjava.model.definitions.reducedmodel.TokenList.Iterator
+-0.157598-111	edu.rice.cs.drjava.ui.MainFrame::_processDocs(Collection<OpenDefinitionsDocument>, Runnable1<OpenDefinitionsDocument>):void	edu.rice.cs.drjava.model.AbstractGlobalModel
+-0.169946-111	edu.rice.cs.drjava.ui.MainFrame::isProjectActiveAndMainClassSet():boolean	edu.rice.cs.drjava.model.AbstractGlobalModel
+-0.182422-111	edu.rice.cs.drjava.ui.FindReplacePanel::_selectFoundOrReplacedItem(int, int):void	edu.rice.cs.drjava.ui.DefinitionsPane
+-0.182490-111	edu.rice.cs.drjava.ui.MainFrame::nextRecentDoc():void	edu.rice.cs.drjava.ui.RecentDocFrame
+-0.183174-111	edu.rice.cs.drjava.ui.MainFrame::_pageSetup():void	edu.rice.cs.drjava.model.AbstractGlobalModel
+-0.200333-111	edu.rice.cs.util.BalancingStreamTokenizer::addKeyword(String):void	edu.rice.cs.util.BalancingStreamTokenizer.State
+-0.202490-111	edu.rice.cs.drjava.ui.MainFrame::prevRecentDoc():void	edu.rice.cs.drjava.ui.RecentDocFrame
+-0.203022-111	edu.rice.cs.drjava.model.definitions.indent.IndentRuleWithTrace::indentLine(AbstractDJDocument, int, Indenter.IndentReason):boolean	edu.rice.cs.drjava.model.AbstractDJDocument
+-0.295601-111	edu.rice.cs.drjava.model.debug.jpda.JPDADebugger::_getThreadFromDebugThreadData(DebugThreadData):ThreadReference	edu.rice.cs.drjava.model.debug.DebugThreadData
+-0.300270-111	edu.rice.cs.drjava.ui.ExecuteExternalDialog::colorVariables(JTextPane, PropertyMaps, DocumentListener, SimpleAttributeSet, SimpleAttributeSet, SimpleAttributeSet):void	edu.rice.cs.drjava.config.PropertyMaps
+-0.323704-111	edu.rice.cs.drjava.model.definitions.indent.IndentRuleQuestion::applyRule(AbstractDJDocument, int, Indenter.IndentReason):boolean	edu.rice.cs.drjava.model.AbstractDJDocument
+-0.341178-111	edu.rice.cs.drjava.project.XMLProjectFileParser::readCollapsed():List<String>	edu.rice.cs.util.XMLConfig
+-0.345705-111	edu.rice.cs.drjava.project.XMLProjectFileParser::readSourceFiles(String, String):List<DocFile>	edu.rice.cs.util.XMLConfig
+-0.378814-111	edu.rice.cs.drjava.project.XMLProjectFileParser::readFiles(String, String):List<AbsRelFile>	edu.rice.cs.util.XMLConfig
+-0.389129-111	edu.rice.cs.drjava.project.XMLProjectFileParser::readWatches():List<DebugWatchData>	edu.rice.cs.util.XMLConfig
+-0.392552-111	edu.rice.cs.drjava.project.XMLProjectFileParser::readBookmarks():List<FileRegion>	edu.rice.cs.util.XMLConfig
+-0.392552-111	edu.rice.cs.drjava.project.XMLProjectFileParser::readBreakpoints():List<DebugBreakpointData>	edu.rice.cs.util.XMLConfig
+-0.447204-111	edu.rice.cs.drjava.model.debug.jpda.EventHandlerThread::_handleStepEvent(StepEvent):void	edu.rice.cs.drjava.model.debug.jpda.JPDADebugger
+-0.449119-111	edu.rice.cs.drjava.model.debug.jpda.EventHandlerThread::_handleBreakpointEvent(BreakpointEvent):void	edu.rice.cs.drjava.model.debug.jpda.JPDADebugger
+-0.452310-111	edu.rice.cs.drjava.model.debug.jpda.EventHandlerThread::_handleThreadDeathEvent(ThreadDeathEvent):void	edu.rice.cs.drjava.model.debug.jpda.JPDADebugger
+-0.465668-111	edu.rice.cs.drjava.ui.GenerateCustomDrJavaJarFrame::addDirectory(File, MD5ChecksumProperties, StringBuilder, ZipOutputStream, Predicate<String>):boolean	edu.rice.cs.util.MD5ChecksumProperties
+-0.465668-111	edu.rice.cs.drjava.ui.GenerateCustomDrJavaJarFrame::addZipFile(File, MD5ChecksumProperties, StringBuilder, ZipOutputStream, Predicate<String>):boolean	edu.rice.cs.util.MD5ChecksumProperties
+-0.490044-111	edu.rice.cs.drjava.ui.MainFrame::commentLines():void	edu.rice.cs.drjava.ui.DefinitionsPane
+-0.490044-111	edu.rice.cs.drjava.ui.MainFrame::uncommentLines():void	edu.rice.cs.drjava.ui.DefinitionsPane
+-0.724395-111	edu.rice.cs.drjava.ui.MainFrame::_closeFolder():void	edu.rice.cs.drjava.model.AbstractGlobalModel
+-0.724395-111	edu.rice.cs.drjava.ui.MainFrame::_moveAllToAuxiliary():void	edu.rice.cs.drjava.model.AbstractGlobalModel
+-0.724395-111	edu.rice.cs.drjava.ui.MainFrame::_removeAllAuxiliary():void	edu.rice.cs.drjava.model.AbstractGlobalModel
+0.000000-011	edu.rice.cs.util.swing.SwingWorker::interrupt():void	edu.rice.cs.util.swing.SwingWorker.ThreadVar
+0.000680-000	edu.rice.cs.drjava.config.ConfigOptionListeners.SlaveJVMXMXListener::getSelectedCompilerErrorPanel(MainFrame):CompilerErrorPanel	edu.rice.cs.drjava.ui.MainFrame
+0.022299-011	edu.rice.cs.drjava.model.debug.jpda.JPDADebugger::setCurrentThread(ThreadReference):boolean	edu.rice.cs.drjava.model.debug.jpda.JPDADebugger.RandomAccessStack
+0.048732-011	edu.rice.cs.drjava.project.ProjectProfile::encodeWatch(DebugWatchData, String):String	edu.rice.cs.drjava.model.debug.DebugWatchData
+0.095628-001	edu.rice.cs.drjava.model.definitions.DefinitionsEditorKit::closeProject(AbstractGlobalModel, boolean):void	edu.rice.cs.drjava.model.GlobalEventNotifier
+0.104744-000	edu.rice.cs.drjava.model.junit.JUnitError::progressReset(JUnitPanel, int):void	edu.rice.cs.drjava.ui.JUnitPanel
+0.134460-000	edu.rice.cs.drjava.model.MovingDocumentRegion::disableFindAgain(FindResultsPanel):void	edu.rice.cs.drjava.ui.FindResultsPanel
+0.137603-000	edu.rice.cs.drjava.ui.InteractionsController::tempFile(GlobalModelTestCase, int):File	edu.rice.cs.drjava.model.GlobalModelTestCase
+0.408333-000	edu.rice.cs.drjava.model.repl.InteractionsScriptModel::setActionsDisabled(InteractionsScriptController):void	edu.rice.cs.drjava.ui.InteractionsScriptController
+0.430000-011	edu.rice.cs.drjava.ui.KeyBindingManager::updateMenuItem(KeyStrokeData):void	edu.rice.cs.drjava.ui.KeyBindingManager.KeyStrokeData
+E11	edu.rice.cs.drjava.ui.MainFrame::_displayGUIComponentAvailabilityFrame():void	edu.rice.cs.drjava.ui.avail.GUIAvailabilityNotifier	 Error: Invalid target!
+E11	edu.rice.cs.drjava.ui.MainFrame::_setUpGUIComponentAvailability():void	edu.rice.cs.drjava.ui.avail.GUIAvailabilityNotifier	 Error: Invalid target!
