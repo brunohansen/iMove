@@ -1,0 +1,67 @@
+-0.004167-100	org.apache.tools.ant.util.ScriptRunnerHelper::executeScript2(ScriptDef, Map, Map, ScriptDefBase):void	org.apache.tools.ant.taskdefs.optional.script.ScriptDef
+-0.018347-111	org.apache.tools.ant.taskdefs.optional.extension.LibraryDisplayer::displaySpecification(Specification):void	org.apache.tools.ant.taskdefs.optional.extension.Specification
+-0.025266-111	org.apache.tools.ant.DirectoryScanner::isDeeper(TokenizedPattern, TokenizedPath):boolean	org.apache.tools.ant.types.selectors.TokenizedPattern
+-0.032143-111	org.apache.tools.ant.taskdefs.rmic.DefaultRmicAdapter::getCompileClasspath():Path	org.apache.tools.ant.taskdefs.Rmic
+-0.061538-111	org.apache.tools.ant.taskdefs.optional.ejb.EjbJar::setBasejarname(String):void	org.apache.tools.ant.taskdefs.optional.ejb.EjbJar.Config
+-0.081410-111	org.apache.tools.ant.helper.ProjectHelper2::parse(Project, Object, RootHandler):void	org.apache.tools.ant.util.FileUtils
+-0.085947-111	org.apache.tools.ant.util.ScriptRunnerBase::loadResource(Resource):void	org.apache.tools.ant.types.Resource
+-0.091268-111	org.apache.tools.ant.taskdefs.optional.junit.JUnitTask::getOutput(FormatterElement, JUnitTest):File	org.apache.tools.ant.taskdefs.optional.junit.JUnitTest
+-0.097228-111	org.apache.tools.ant.taskdefs.AbstractCvsTask::addCommandArgument(Commandline, String):void	org.apache.tools.ant.types.Commandline
+-0.098247-111	org.apache.tools.ant.types.resources.Archives::configureArchive(ArchiveFileSet, Resource):ArchiveFileSet	org.apache.tools.ant.types.ArchiveFileSet
+-0.100084-111	org.apache.tools.ant.taskdefs.Ant::addAlmostAll(Hashtable, PropertyType):void	org.apache.tools.ant.Project
+-0.105181-111	org.apache.tools.ant.types.resources.Files::hasPatterns(PatternSet):boolean	org.apache.tools.ant.types.PatternSet
+-0.109091-111	org.apache.tools.ant.taskdefs.optional.javah.Gcjh::setupGcjhCommand(Javah):Commandline	org.apache.tools.ant.taskdefs.optional.Javah
+-0.109091-111	org.apache.tools.ant.taskdefs.optional.javah.Kaffeh::setupKaffehCommand(Javah):Commandline	org.apache.tools.ant.taskdefs.optional.Javah
+-0.109091-111	org.apache.tools.ant.taskdefs.optional.javah.SunJavah::setupJavahCommand(Javah):Commandline	org.apache.tools.ant.taskdefs.optional.Javah
+-0.117776-111	org.apache.tools.ant.taskdefs.compilers.JavacExternal::execOnVMS(Commandline, int):boolean	org.apache.tools.ant.types.Commandline
+-0.122424-111	org.apache.tools.ant.ComponentHelper::validDefinition(AntTypeDefinition):boolean	org.apache.tools.ant.AntTypeDefinition
+-0.130159-111	org.apache.tools.ant.types.Permissions::createPermission(Permissions.Permission):Permission	org.apache.tools.ant.types.Permissions.Permission
+-0.141322-111	org.apache.tools.ant.taskdefs.optional.junit.JUnitTask::getOutput(FormatterElement, JUnitTest):File	org.apache.tools.ant.taskdefs.optional.junit.FormatterElement
+-0.146221-111	org.apache.tools.zip.ZipFile::getUnicodeStringIfOriginalMatches(AbstractUnicodeExtraField, byte[]):String	org.apache.tools.zip.AbstractUnicodeExtraField
+-0.156925-111	org.apache.tools.zip.ZipFile::setNameAndCommentFromExtraFields(ZipEntry, NameAndComment):void	org.apache.tools.zip.ZipEntry
+-0.165018-111	org.apache.tools.ant.helper.ProjectHelper2.TargetHandler::getTargetPrefix(AntXMLContext):String	org.apache.tools.ant.helper.AntXMLContext
+-0.171229-111	org.apache.tools.ant.taskdefs.cvslib.CvsTagDiff::writeTagEntry(Document, PrintWriter, CvsTagEntry):void	org.apache.tools.ant.taskdefs.cvslib.CvsTagEntry
+-0.174152-111	org.apache.tools.ant.taskdefs.optional.native2ascii.DefaultNative2Ascii::setup(Commandline, Native2Ascii):void	org.apache.tools.ant.types.Commandline
+-0.175593-111	org.apache.tools.ant.taskdefs.optional.ejb.JonasDeploymentTool::getGenicClassName(Path):String	org.apache.tools.ant.types.Path
+-0.181294-111	org.apache.tools.ant.taskdefs.rmic.DefaultRmicAdapter::logAndAddFilesToCompile(Commandline):void	org.apache.tools.ant.types.Commandline
+-0.188889-111	org.apache.tools.ant.filters.util.ChainReaderHelper::expandReader(AntFilterReader, Reader, List):Reader	org.apache.tools.ant.types.AntFilterReader
+-0.202193-111	org.apache.tools.ant.taskdefs.Javadoc::doSourceAndPackageNames(Commandline, Vector, Vector, boolean, File, BufferedWriter):void	org.apache.tools.ant.types.Commandline
+-0.206614-111	org.apache.tools.ant.taskdefs.Javadoc::checkPackages(Vector, Path):void	org.apache.tools.ant.types.Path
+-0.207742-111	org.apache.tools.ant.taskdefs.Javadoc::doSourcePath(Commandline, Path):void	org.apache.tools.ant.types.Commandline
+-0.214235-111	org.apache.tools.ant.taskdefs.Javadoc::writeExternalArgs(Commandline):void	org.apache.tools.ant.types.Commandline
+-0.217512-111	org.apache.tools.ant.taskdefs.Javadoc::doSourcePath(Commandline, Path):void	org.apache.tools.ant.types.Path
+-0.224979-111	org.apache.tools.ant.taskdefs.AbstractCvsTask::executeToString(Execute):String	org.apache.tools.ant.taskdefs.Execute
+-0.229615-111	org.apache.tools.ant.taskdefs.Javadoc::doDoclet(Commandline):void	org.apache.tools.ant.taskdefs.Javadoc.DocletInfo
+-0.244768-111	org.apache.tools.ant.IntrospectionHelper::findRestrictedDefinition(ComponentHelper, String, List):AntTypeDefinition	org.apache.tools.ant.ComponentHelper
+-0.286957-111	org.apache.tools.ant.taskdefs.optional.Cab::appendFiles(Vector, DirectoryScanner):void	org.apache.tools.ant.DirectoryScanner
+-0.290580-111	org.apache.tools.ant.taskdefs.optional.native2ascii.DefaultNative2Ascii::addFiles(Commandline, ProjectComponent, File, File):void	org.apache.tools.ant.types.Commandline
+-0.298010-111	org.apache.tools.ant.taskdefs.optional.TraXLiaison::resourceToURI(Resource):String	org.apache.tools.ant.types.Resource
+-0.299360-111	org.apache.tools.ant.taskdefs.Execute.CommandLauncher::exec(Project, String[], String[]):Process	org.apache.tools.ant.Project
+-0.313273-111	org.apache.tools.ant.AntTypeDefinition::innerCreateAndSet(Class, Project):Object	org.apache.tools.ant.Project
+-0.327658-111	org.apache.tools.ant.taskdefs.Replace::getProperties(Resource):Properties	org.apache.tools.ant.types.Resource
+-0.352807-111	org.apache.tools.ant.taskdefs.optional.net.FTPTaskMirrorImpl::isUpToDate(FTPClient, File, String):boolean	org.apache.tools.ant.taskdefs.optional.net.FTPTask
+-0.362554-111	org.apache.tools.ant.taskdefs.DependSet::getXest(ResourceCollection, ResourceComparator):Resource	org.apache.tools.ant.types.resources.comparators.ResourceComparator
+-0.410965-111	org.apache.tools.ant.taskdefs.optional.net.FTPTaskMirrorImpl::makeRemoteDir(FTPClient, String):void	org.apache.tools.ant.taskdefs.optional.net.FTPTask
+-0.413452-111	org.apache.tools.ant.taskdefs.optional.jsp.compilers.DefaultJspCompilerAdapter::logAndAddFilesToCompile(JspC, Vector, CommandlineJava):void	org.apache.tools.ant.types.CommandlineJava
+-0.423077-111	org.apache.tools.ant.taskdefs.optional.ejb.EjbJar::validateConfig():void	org.apache.tools.ant.taskdefs.optional.ejb.EjbJar.Config
+-0.427173-111	org.apache.tools.ant.filters.ReplaceTokens::getProperties(Resource):Properties	org.apache.tools.ant.types.Resource
+-0.546108-111	org.apache.tools.ant.helper.ProjectHelper2.AntHandler::characters(char[], int, int, AntXMLContext):void	org.apache.tools.ant.helper.AntXMLContext
+-0.550968-111	org.apache.tools.ant.Main::addInputHandler(Project):void	org.apache.tools.ant.Project
+-0.625376-111	org.apache.tools.ant.helper.ProjectHelper2.AntHandler::onStartChild(String, String, String, Attributes, AntXMLContext):AntHandler	org.apache.tools.ant.helper.AntXMLContext
+0.000000-011	org.apache.tools.ant.filters.ReplaceTokens::addConfiguredToken(Token):void	org.apache.tools.ant.filters.ReplaceTokens.Token
+0.000000-011	org.apache.tools.ant.taskdefs.ResourceCount::setRefid(Reference):void	org.apache.tools.ant.types.Reference
+0.000000-011	org.apache.tools.ant.taskdefs.optional.ejb.EjbJar::setNaming(NamingScheme):void	org.apache.tools.ant.taskdefs.optional.ejb.EjbJar.Config
+0.002564-000	org.apache.tools.ant.util.ClasspathUtils.Delegate::getLoaderId(DefBase):String	org.apache.tools.ant.taskdefs.DefBase
+0.011282-011	org.apache.tools.ant.listener.MailLogger::sendMimeMail(Project, Values, String):void	org.apache.tools.ant.listener.MailLogger.Values
+0.017778-000	org.apache.tools.ant.types.RedirectorElement::setSpawn(ExecTask, boolean):void	org.apache.tools.ant.taskdefs.ExecTask
+0.025000-000	org.apache.tools.ant.filters.FixCrLfFilter::setDestdir(FixCRLF, File):void	org.apache.tools.ant.taskdefs.FixCRLF
+0.033333-000	org.apache.tools.ant.taskdefs.Parallel::setFailureMessage(Funtest, String):void	org.apache.tools.ant.taskdefs.optional.testing.Funtest
+0.044809-000	org.apache.tools.ant.types.Environment::setOutputproperty(Java, String):void	org.apache.tools.ant.taskdefs.Java
+0.053333-000	org.apache.tools.ant.types.ZipScanner::setUpdate(Zip, boolean):void	org.apache.tools.ant.taskdefs.Zip
+0.076385-000	org.apache.tools.ant.util.FileUtils::eval2(IsFileSelected):boolean	org.apache.tools.ant.taskdefs.condition.IsFileSelected
+0.160256-011	org.apache.tools.ant.listener.MailLogger::sendMail(Values, String):void	org.apache.tools.ant.listener.MailLogger.Values
+0.161986-011	org.apache.tools.bzip2.CBZip2OutputStream::sendMTFValues3(int, int):void	org.apache.tools.bzip2.CBZip2OutputStream.Data
+0.218706-000	org.apache.tools.ant.types.Comparison::setValue(SizeSelector, long):void	org.apache.tools.ant.types.selectors.SizeSelector
+0.254209-011	org.apache.tools.ant.ComponentHelper::createComponent(UnknownElement, String, String):Object	org.apache.tools.ant.UnknownElement
+0.400699-011	org.apache.tools.ant.taskdefs.optional.ejb.GenericDeploymentTool::getVendorDDPrefix(String, String):String	org.apache.tools.ant.taskdefs.optional.ejb.EjbJar.Config
+0.476590-011	org.apache.tools.ant.taskdefs.optional.ejb.GenericDeploymentTool::getJarBaseName(String):String	org.apache.tools.ant.taskdefs.optional.ejb.EjbJar.Config
