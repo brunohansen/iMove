@@ -1,0 +1,57 @@
+-0.001746-111	org.jgroups.stack.Configurator.ProtocolConfiguration::createLayer(ProtocolStack):Protocol	org.jgroups.stack.ProtocolStack
+-0.004762-111	org.jgroups.demos.Draw2Channels.DrawPanel::drawPoint(DrawCommand):void	org.jgroups.demos.DrawCommand
+-0.006071-111	org.jgroups.protocols.pbcast.Merger::handleDigestResponse(Address, Digest):void	org.jgroups.util.ResponseCollector
+-0.032890-111	org.jgroups.protocols.NAKACK_Delivery_Test::send(Address, long, int, boolean):void	org.jgroups.protocols.pbcast.NAKACK
+-0.036774-111	org.jgroups.protocols.VIEW_SYNC::handleView(View, Address):void	org.jgroups.View
+-0.038646-111	org.jgroups.protocols.pbcast.GmsImpl::iWouldBeCoordinator(Vector<Address>):boolean	org.jgroups.protocols.pbcast.GMS
+-0.042607-111	org.jgroups.protocols.pbcast.STABLE::handleStableMessage(Address, Digest):void	org.jgroups.util.MutableDigest
+-0.049541-111	org.jgroups.tests.DeadlockTest::cast_call(Method, boolean):void	org.jgroups.blocks.RpcDispatcher
+-0.065983-111	org.jgroups.protocols.pbcast.CoordGmsImpl::sendLeaveResponses(Collection<Address>):void	org.jgroups.protocols.pbcast.GMS
+-0.066667-111	org.jgroups.demos.Draw.DrawPanel::drawPoint(DrawCommand):void	org.jgroups.demos.DrawCommand
+-0.066789-111	org.jgroups.blocks.NotificationBus::getCacheFromMember(Address, long, int):Serializable	org.jgroups.util.Promise
+-0.067168-111	org.jgroups.protocols.pbcast.STABLE::updateLocalDigest(Digest, Address):boolean	org.jgroups.util.MutableDigest
+-0.067191-111	org.jgroups.protocols.FRAG2::handleViewChange(View):void	org.jgroups.View
+-0.069956-111	org.jgroups.protocols.FRAG::handleViewChange(View):void	org.jgroups.View
+-0.077326-100	org.jgroups.util.Queue::up(JChannel, Event):Object	org.jgroups.JChannel
+-0.091630-111	org.jgroups.tests.RpcDispatcherBlocking::sendGroupRpc():RspList	org.jgroups.blocks.RpcDispatcher
+-0.092386-111	org.jgroups.blocks.VotingAdapter::vote(Object, int, long, VoteResponseProcessor):boolean	org.jgroups.blocks.RpcDispatcher
+-0.095314-111	org.jgroups.protocols.pbcast.GMS::_startFlush(View, int, long, long):boolean	org.jgroups.protocols.pbcast.Merger
+-0.105392-111	org.jgroups.blocks.GroupRequest::sendRequest(Collection<Address>, long):void	org.jgroups.Transport
+-0.113148-111	org.jgroups.blocks.MultiRequest::sendRequest(List<Address>, long, RequestOptions):void	org.jgroups.Transport
+-0.131171-111	org.jgroups.blocks.DistributedLockManager::checkResponse(Rsp):int	org.jgroups.util.Rsp
+-0.135411-111	org.jgroups.protocols.FILE_PING::handleView(View):void	org.jgroups.View
+-0.181897-111	org.jgroups.protocols.Discovery.Responses::get(long):List<PingData>	org.jgroups.util.Promise
+-0.192661-111	org.jgroups.blocks.GridFile::delete(boolean):boolean	org.jgroups.blocks.GridFilesystem
+-0.224792-111	org.jgroups.protocols.pbcast.ParticipantGmsImpl::sendLeaveMessage(Address, Address):void	org.jgroups.protocols.pbcast.GMS
+-0.230710-111	org.jgroups.tests.VirtualSynchronyTest.GroupMemberThread::gotView(Object):void	org.jgroups.JChannel
+-0.606865-111	org.jgroups.protocols.pbcast.GMS::stopFlush():void	org.jgroups.protocols.pbcast.Merger
+-0.700000-111	org.jgroups.protocols.NAKACK_Delivery_Test::testSendingOfRandomMessages():void	org.jgroups.protocols.pbcast.NAKACK
+-0.700000-111	org.jgroups.protocols.NAKACK_SET_DIGEST_Test::testSetDigest():void	org.jgroups.protocols.pbcast.NAKACK
+-0.700000-111	org.jgroups.tests.EncryptMessageOrderTestCase::tearDown():void	org.jgroups.JChannel
+-0.700000-111	org.jgroups.tests.TransportThreadPoolTest::testThreadPoolReplacement():void	org.jgroups.JChannel
+-0.795115-111	org.jgroups.demos.ReplicatedHashMapDemo::_setTitle():void	org.jgroups.blocks.ReplicatedHashMap
+0.000000-000	org.jgroups.stack.NakReceiverWindow::testConcurrentInsertionOfSameSeqno(NakReceiverWindowTest2):void	org.jgroups.tests.NakReceiverWindowTest2
+0.000000-000	org.jgroups.stack.ProtocolStack::testDefaultAssignment(ProtocolConfigurationTest):void	org.jgroups.tests.ProtocolConfigurationTest
+0.000000-011	org.jgroups.protocols.FRAG2_Test::tearDown():void	org.jgroups.debug.Simulator
+0.000000-011	org.jgroups.tests.FCTest::tearDown():void	org.jgroups.debug.Simulator
+0.000000-011	org.jgroups.tests.UNICAST_Test::tearDown():void	org.jgroups.debug.Simulator
+0.002642-011	org.jgroups.protocols.pbcast.GMS::sendViewAck(Address):void	org.jgroups.protocols.pbcast.Merger
+0.008056-011	org.jgroups.protocols.pbcast.GmsImpl::sendMergeRejectedResponse(Address, MergeId):void	org.jgroups.protocols.pbcast.Merger
+0.009859-011	org.jgroups.protocols.pbcast.GMS::makeView(Vector<Address>):View	org.jgroups.View
+0.014406-011	org.jgroups.protocols.SCOPE::expire(short):void	org.jgroups.stack.Protocol
+0.018947-011	org.jgroups.tests.SimulatorTest::createSimulator(Simulator[], View, Address[], DELAY[], Protocol[][], int):void	org.jgroups.View
+0.021954-011	org.jgroups.blocks.ReplicatedTree::fetchState(long):void	org.jgroups.JChannel
+0.022830-011	org.jgroups.blocks.ReplicatedHashMap::sendViewChangeNotifications(View, Vector<Address>, Vector<Address>):void	org.jgroups.View
+0.023620-011	org.jgroups.protocols.pbcast.NAKACK::getDigest():Digest	org.jgroups.util.Digest
+0.031586-011	org.jgroups.protocols.Discovery::getView():String	org.jgroups.View
+0.035000-000	org.jgroups.stack.IpAddress::testStreamableAdditionalData(IpAddressTest):void	org.jgroups.tests.IpAddressTest
+0.038782-011	org.jgroups.protocols.Discovery::makeView(Vector<Address>):View	org.jgroups.View
+0.041949-011	org.jgroups.protocols.pbcast.GMS::sendJoinResponse(JoinRsp, Address):void	org.jgroups.protocols.pbcast.Merger
+0.048392-011	org.jgroups.protocols.pbcast.GMS::stopFlush(List<Address>):void	org.jgroups.protocols.pbcast.Merger
+0.049397-011	org.jgroups.blocks.MuxRpcDispatcherTest::verifyResponse(Map<Address, Rsp>, Channel, Object):void	org.jgroups.Channel
+0.050962-011	org.jgroups.tests.SharedTransportTest::createSharedChannel(String):JChannel	org.jgroups.JChannel
+0.052135-011	org.jgroups.blocks.RequestCorrelator::sendRequest(long, Message, RspCollector):void	org.jgroups.blocks.RequestHandler
+0.073123-000	org.jgroups.stack.Protocol::down(NAKACK, Event):Object	org.jgroups.protocols.pbcast.NAKACK
+0.120037-000	org.jgroups.util.AckCollector::fetchServiceStates(Multiplexer, Address, Set<String>, long):boolean	org.jgroups.mux.Multiplexer
+0.123651-011	org.jgroups.protocols.pbcast.GMS::castViewChangeWithDest(View, Digest, JoinRsp, Collection<Address>):void	org.jgroups.protocols.pbcast.Merger
+0.174885-000	org.jgroups.util.Promise::sendNotification(NotificationBus, Address, Serializable):void	org.jgroups.blocks.NotificationBus
