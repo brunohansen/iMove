@@ -1,0 +1,20 @@
+-0.077326-100	org.jgroups.util.Queue::up(JChannel, Event):Object	org.jgroups.JChannel
+0.000000-000	org.jgroups.stack.NakReceiverWindow::testConcurrentInsertionOfSameSeqno(NakReceiverWindowTest2):void	org.jgroups.tests.NakReceiverWindowTest2
+0.000000-000	org.jgroups.stack.ProtocolStack::testDefaultAssignment(ProtocolConfigurationTest):void	org.jgroups.tests.ProtocolConfigurationTest
+0.000000-000	org.jgroups.util.MutableDigest::testImmutability4(DigestTest):void	org.jgroups.tests.DigestTest
+0.001625-000	org.jgroups.Membership::fixDigests(GMS):void	org.jgroups.protocols.pbcast.GMS
+0.008376-000	org.jgroups.util.TimeScheduler::getNumberOfReceiverScopes(SCOPE):int	org.jgroups.protocols.SCOPE
+0.035000-000	org.jgroups.stack.IpAddress::testStreamableAdditionalData(IpAddressTest):void	org.jgroups.tests.IpAddressTest
+0.035805-000	org.jgroups.blocks.DistributedTree::clearTable(DistributedTreeDemo):void	org.jgroups.demos.DistributedTreeDemo
+0.048148-000	org.jgroups.blocks.DistributedQueue::entryAdd(DistributedQueueDemo, Object):void	org.jgroups.demos.DistributedQueueDemo
+0.066553-000	org.jgroups.util.UUID::stopFlush(JChannel, List<Address>):void	org.jgroups.JChannel
+0.073123-000	org.jgroups.stack.Protocol::down(NAKACK, Event):Object	org.jgroups.protocols.pbcast.NAKACK
+0.078455-000	org.jgroups.util.Digest::rebroadcastMessages(NAKACK):void	org.jgroups.protocols.pbcast.NAKACK
+0.110952-000	org.jgroups.stack.AckReceiverWindow::getList(Remover):List<Message>	org.jgroups.tests.AckReceiverWindowTest.Remover
+0.120037-000	org.jgroups.util.AckCollector::fetchServiceStates(Multiplexer, Address, Set<String>, long):boolean	org.jgroups.mux.Multiplexer
+0.121582-000	org.jgroups.JChannel::findParentNode(ReplicatedTree, String, StringHolder, boolean):Node	org.jgroups.blocks.ReplicatedTree
+0.148989-000	org.jgroups.Event::passToAllMuxChannels(Multiplexer):void	org.jgroups.mux.Multiplexer
+0.174885-000	org.jgroups.util.Promise::sendNotification(NotificationBus, Address, Serializable):void	org.jgroups.blocks.NotificationBus
+0.179846-000	org.jgroups.util.BoundedList::determinePingDest(FD_SOCK):Address	org.jgroups.protocols.FD_SOCK
+0.229203-000	org.jgroups.blocks.RpcDispatcher::setNumMessages(UnicastTestRpc):void	org.jgroups.tests.UnicastTestRpc
+0.700000-000	org.jgroups.blocks.MessageDispatcher::test2000ByteMessageToSelf(MessageDispatcherUnitTest):void	org.jgroups.tests.MessageDispatcherUnitTest
