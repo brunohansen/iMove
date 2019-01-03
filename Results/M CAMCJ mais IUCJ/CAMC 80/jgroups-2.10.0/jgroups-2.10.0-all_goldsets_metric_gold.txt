@@ -1,0 +1,20 @@
+-0.090588-100	org.jgroups.util.Queue::up(JChannel, Event):Object	org.jgroups.JChannel
+0.000000-000	org.jgroups.stack.NakReceiverWindow::testConcurrentInsertionOfSameSeqno(NakReceiverWindowTest2):void	org.jgroups.tests.NakReceiverWindowTest2
+0.000000-000	org.jgroups.stack.ProtocolStack::testDefaultAssignment(ProtocolConfigurationTest):void	org.jgroups.tests.ProtocolConfigurationTest
+0.000000-000	org.jgroups.util.MutableDigest::testImmutability4(DigestTest):void	org.jgroups.tests.DigestTest
+0.001083-000	org.jgroups.Membership::fixDigests(GMS):void	org.jgroups.protocols.pbcast.GMS
+0.009573-000	org.jgroups.util.TimeScheduler::getNumberOfReceiverScopes(SCOPE):int	org.jgroups.protocols.SCOPE
+0.025265-000	org.jgroups.blocks.DistributedQueue::entryAdd(DistributedQueueDemo, Object):void	org.jgroups.demos.DistributedQueueDemo
+0.033129-000	org.jgroups.blocks.DistributedTree::clearTable(DistributedTreeDemo):void	org.jgroups.demos.DistributedTreeDemo
+0.040000-000	org.jgroups.stack.IpAddress::testStreamableAdditionalData(IpAddressTest):void	org.jgroups.tests.IpAddressTest
+0.040826-000	org.jgroups.stack.Protocol::down(NAKACK, Event):Object	org.jgroups.protocols.pbcast.NAKACK
+0.052754-000	org.jgroups.util.UUID::stopFlush(JChannel, List<Address>):void	org.jgroups.JChannel
+0.077418-000	org.jgroups.util.Digest::rebroadcastMessages(NAKACK):void	org.jgroups.protocols.pbcast.NAKACK
+0.078333-000	org.jgroups.stack.AckReceiverWindow::getList(Remover):List<Message>	org.jgroups.tests.AckReceiverWindowTest.Remover
+0.091617-000	org.jgroups.JChannel::findParentNode(ReplicatedTree, String, StringHolder, boolean):Node	org.jgroups.blocks.ReplicatedTree
+0.098221-000	org.jgroups.util.AckCollector::fetchServiceStates(Multiplexer, Address, Set<String>, long):boolean	org.jgroups.mux.Multiplexer
+0.113499-000	org.jgroups.Event::passToAllMuxChannels(Multiplexer):void	org.jgroups.mux.Multiplexer
+0.136237-000	org.jgroups.util.BoundedList::determinePingDest(FD_SOCK):Address	org.jgroups.protocols.FD_SOCK
+0.152802-000	org.jgroups.blocks.RpcDispatcher::setNumMessages(UnicastTestRpc):void	org.jgroups.tests.UnicastTestRpc
+0.157331-000	org.jgroups.util.Promise::sendNotification(NotificationBus, Address, Serializable):void	org.jgroups.blocks.NotificationBus
+0.800000-000	org.jgroups.blocks.MessageDispatcher::test2000ByteMessageToSelf(MessageDispatcherUnitTest):void	org.jgroups.tests.MessageDispatcherUnitTest
