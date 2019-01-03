@@ -1,0 +1,10 @@
+-0.079170-100	com.ibm.as400.vaccess.SQLResultSetTableModel::readObject2(SQLResultSetTablePane, ObjectInputStream):void	com.ibm.as400.vaccess.SQLResultSetTablePane
+-0.151538-100	com.ibm.as400.access.FTPThread::readObject2(FTP, ObjectInputStream):void	com.ibm.as400.access.FTP
+0.000000-000	com.ibm.as400.util.html.HTMLVector::readObject(HTMLTree, ObjectInputStream):void	com.ibm.as400.util.html.HTMLTree
+0.031082-000	com.ibm.as400.data.ProgramCallDocument::endInternal2(RJob, int):void	com.ibm.as400.resource.RJob
+0.047026-000	com.ibm.as400.access.AS400ZonedDecimal::addToHashtable(PcmlDocument, PcmlDocNode):void	com.ibm.as400.data.PcmlDocument
+0.060171-000	com.ibm.as400.access.AS400JDBCDataSource::applyChanges(AS400JDBCDataSourcePane):boolean	com.ibm.as400.vaccess.AS400JDBCDataSourcePane
+0.080461-000	com.ibm.as400.access.SpooledFile::applyChanges2(OutputPropertiesPane):void	com.ibm.as400.vaccess.OutputPropertiesPane
+0.139394-000	com.ibm.as400.resource.IntegerValueMap::start2(NetServer, boolean):void	com.ibm.as400.access.NetServer
+0.185417-000	com.ibm.as400.vaccess.SQLMetaDataTableModel::readObject2(SQLMetaDataTablePane, ObjectInputStream):void	com.ibm.as400.vaccess.SQLMetaDataTablePane
+0.186081-000	com.ibm.as400.access.Permission::removeRow2(PermissionTableModelQSYS, int):void	com.ibm.as400.vaccess.PermissionTableModelQSYS

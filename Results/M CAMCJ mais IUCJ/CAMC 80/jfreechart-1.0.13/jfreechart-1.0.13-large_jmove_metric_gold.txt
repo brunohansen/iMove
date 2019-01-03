@@ -1,0 +1,92 @@
+-0.002392-111	org.jfree.chart.plot.XYPlot::drawRangeMarkers(Graphics2D, Rectangle2D, int, Layer):void	org.jfree.chart.LegendItemCollection
+-0.012230-111	org.jfree.chart.plot.PiePlot::initialise(Graphics2D, Rectangle2D, PiePlot, Integer, PlotRenderingInfo):PiePlotState	org.jfree.chart.plot.PlotRenderingInfo
+-0.015352-111	org.jfree.chart.axis.Axis::createAndAddEntity(double, AxisState, Rectangle2D, RectangleEdge, PlotRenderingInfo):void	org.jfree.chart.plot.PlotRenderingInfo
+-0.023413-111	org.jfree.chart.ClipPath::generateClipPath(Rectangle2D, ValueAxis, ValueAxis):GeneralPath	org.jfree.chart.axis.ValueAxis
+-0.023987-111	org.jfree.chart.plot.PiePlot::drawLabels(Graphics2D, List, double, Rectangle2D, Rectangle2D, PiePlotState):void	org.jfree.chart.labels.PieToolTipGenerator
+-0.023987-111	org.jfree.chart.plot.PiePlot::drawSimpleLabels(Graphics2D, List, double, Rectangle2D, Rectangle2D, PiePlotState):void	org.jfree.chart.labels.PieToolTipGenerator
+-0.028031-111	org.jfree.chart.renderer.category.AbstractCategoryItemRenderer::drawRangeLine(Graphics2D, CategoryPlot, ValueAxis, Rectangle2D, double, Paint, Stroke):void	org.jfree.chart.axis.ValueAxis
+-0.031734-111	org.jfree.chart.plot.CategoryPlot::calculateRangeAxisSpace(Graphics2D, Rectangle2D, AxisSpace):AxisSpace	org.jfree.chart.axis.AxisSpace
+-0.036650-111	org.jfree.chart.plot.MeterPlot::drawArcForInterval(Graphics2D, Rectangle2D, MeterInterval):void	org.jfree.chart.plot.MeterInterval
+-0.036761-111	org.jfree.chart.plot.XYPlot::drawAnnotations(Graphics2D, Rectangle2D, PlotRenderingInfo):void	org.jfree.chart.plot.PlotRenderingInfo
+-0.038235-111	org.jfree.chart.plot.ContourPlot::render(Graphics2D, Rectangle2D, PlotRenderingInfo, CrosshairState):void	org.jfree.chart.plot.PlotRenderingInfo
+-0.039920-111	org.jfree.chart.plot.CategoryPlot::drawRangeCrosshair(Graphics2D, Rectangle2D, PlotOrientation, double, ValueAxis, Stroke, Paint):void	org.jfree.chart.axis.ValueAxis
+-0.040000-111	org.jfree.data.statistics.HistogramDataset::setType(HistogramType):void	org.jfree.data.statistics.HistogramType
+-0.040854-111	org.jfree.chart.renderer.xy.XYBarRenderer::calculateLabelAnchorPoint(ItemLabelAnchor, Rectangle2D, PlotOrientation):Point2D	org.jfree.chart.plot.PlotOrientation
+-0.046673-111	org.jfree.chart.renderer.category.CategoryStepRenderer::drawLine(Graphics2D, State, PlotOrientation, double, double, double, double):void	org.jfree.chart.plot.PlotOrientation
+-0.052243-111	org.jfree.chart.renderer.category.BarRenderer::calculateLabelAnchorPoint(ItemLabelAnchor, Rectangle2D, PlotOrientation):Point2D	org.jfree.chart.plot.PlotOrientation
+-0.053511-111	org.jfree.chart.plot.XYPlot::drawDomainCrosshair(Graphics2D, Rectangle2D, PlotOrientation, double, ValueAxis, Stroke, Paint):void	org.jfree.chart.axis.ValueAxis
+-0.053511-111	org.jfree.chart.plot.XYPlot::drawRangeCrosshair(Graphics2D, Rectangle2D, PlotOrientation, double, ValueAxis, Stroke, Paint):void	org.jfree.chart.axis.ValueAxis
+-0.058029-111	org.jfree.chart.renderer.category.AbstractCategoryItemRenderer::calculateRangeMarkerTextAnchorPoint(Graphics2D, PlotOrientation, Rectangle2D, Rectangle2D, RectangleInsets, LengthAdjustmentType, RectangleAnchor):Point2D	org.jfree.chart.plot.PlotOrientation
+-0.061534-111	org.jfree.chart.renderer.xy.AbstractXYItemRenderer::calculateDomainMarkerTextAnchorPoint(Graphics2D, PlotOrientation, Rectangle2D, Rectangle2D, RectangleInsets, LengthAdjustmentType, RectangleAnchor):Point2D	org.jfree.chart.plot.PlotOrientation
+-0.061534-111	org.jfree.chart.renderer.xy.AbstractXYItemRenderer::calculateRangeMarkerTextAnchorPoint(Graphics2D, PlotOrientation, Rectangle2D, Rectangle2D, RectangleInsets, LengthAdjustmentType, RectangleAnchor):Point2D	org.jfree.chart.plot.PlotOrientation
+-0.065094-111	org.jfree.chart.renderer.category.AbstractCategoryItemRenderer::calculateDomainMarkerTextAnchorPoint(Graphics2D, PlotOrientation, Rectangle2D, Rectangle2D, RectangleInsets, LengthAdjustmentType, RectangleAnchor):Point2D	org.jfree.chart.plot.PlotOrientation
+-0.065340-111	org.jfree.experimental.chart.swt.ChartComposite::getScreenDataArea():Rectangle	org.jfree.chart.ChartRenderingInfo
+-0.072667-111	org.jfree.chart.ChartPanel::getPointInRectangle(int, int, Rectangle2D):Point2D	org.jfree.chart.ChartRenderingInfo
+-0.079855-111	org.jfree.chart.plot.PiePlot::drawItem(Graphics2D, int, Rectangle2D, PiePlotState, int):void	org.jfree.chart.labels.PieToolTipGenerator
+-0.087424-111	org.jfree.chart.plot.PiePlot::getMaximumExplodePercent():double	org.jfree.chart.labels.PieToolTipGenerator
+-0.091205-111	org.jfree.chart.ChartPanel::getScreenDataArea(int, int):Rectangle2D	org.jfree.chart.ChartRenderingInfo
+-0.097380-111	org.jfree.chart.axis.PeriodAxis::drawTickMarksVertical(Graphics2D, AxisState, Rectangle2D, RectangleEdge):void	org.jfree.chart.axis.AxisState
+-0.100422-111	org.jfree.chart.renderer.xy.XYDifferenceRenderer::createPolygon(Graphics2D, Rectangle2D, XYPlot, ValueAxis, ValueAxis, boolean, LinkedList, LinkedList):void	org.jfree.chart.plot.XYPlot
+-0.115849-111	org.jfree.chart.axis.CategoryAxis::drawCategoryLabels(Graphics2D, Rectangle2D, Rectangle2D, RectangleEdge, AxisState, PlotRenderingInfo):AxisState	org.jfree.chart.axis.CategoryLabelPositions
+-0.176740-111	org.jfree.chart.annotations.AbstractXYAnnotation::addEntity(PlotRenderingInfo, Shape, int, String, String):void	org.jfree.chart.plot.PlotRenderingInfo
+-0.788571-111	org.jfree.chart.junit.StackedBarChartTests::testDrawWithNullInfo():void	org.jfree.chart.JFreeChart
+-0.800000-111	org.jfree.chart.junit.AreaChartTests::testDrawWithNullInfo():void	org.jfree.chart.JFreeChart
+-0.800000-111	org.jfree.chart.junit.BarChart3DTests::testDrawWithNullInfo():void	org.jfree.chart.JFreeChart
+-0.800000-111	org.jfree.chart.junit.BarChartTests::testDrawWithNullInfo():void	org.jfree.chart.JFreeChart
+-0.800000-111	org.jfree.chart.junit.LineChart3DTests::testDrawWithNullInfo():void	org.jfree.chart.JFreeChart
+-0.800000-111	org.jfree.chart.junit.LineChartTests::testDrawWithNullInfo():void	org.jfree.chart.JFreeChart
+-0.800000-111	org.jfree.chart.junit.PieChart3DTests::testReplaceDatasetOnPieChart():void	org.jfree.chart.JFreeChart
+-0.800000-111	org.jfree.chart.junit.PieChartTests::testReplaceDatasetOnPieChart():void	org.jfree.chart.JFreeChart
+-0.800000-111	org.jfree.chart.junit.ScatterPlotTests::testDrawWithNullInfo():void	org.jfree.chart.JFreeChart
+-0.800000-111	org.jfree.chart.junit.StackedAreaChartTests::testDrawWithNullInfo():void	org.jfree.chart.JFreeChart
+-0.800000-111	org.jfree.chart.junit.StackedBarChart3DTests::testDrawWithNullInfo():void	org.jfree.chart.JFreeChart
+-0.800000-111	org.jfree.chart.junit.TimeSeriesChartTests::testDrawWithNullInfo():void	org.jfree.chart.JFreeChart
+-0.800000-111	org.jfree.chart.junit.WaterfallChartTests::testDrawWithNullInfo():void	org.jfree.chart.JFreeChart
+-0.800000-111	org.jfree.chart.junit.XYAreaChartTests::testDrawWithNullInfo():void	org.jfree.chart.JFreeChart
+-0.800000-111	org.jfree.chart.junit.XYBarChartTests::testDrawWithNullInfo():void	org.jfree.chart.JFreeChart
+-0.800000-111	org.jfree.chart.junit.XYLineChartTests::testDrawWithNullInfo():void	org.jfree.chart.JFreeChart
+-0.800000-111	org.jfree.chart.junit.XYStepAreaChartTests::testDrawWithNullInfo():void	org.jfree.chart.JFreeChart
+-0.800000-111	org.jfree.chart.junit.XYStepChartTests::testDrawWithNullInfo():void	org.jfree.chart.JFreeChart
+-0.823538-111	org.jfree.chart.editor.DefaultColorBarEditor::attemptPaletteSelection():void	org.jfree.chart.editor.PaletteSample
+0.013749-011	org.jfree.chart.JFreeChart::draw(Graphics2D, Rectangle2D, ChartRenderingInfo):void	org.jfree.chart.ChartRenderingInfo
+0.014970-000	org.jfree.chart.axis.AxisLocation::draw2(PaintScaleLegend, Graphics2D, Rectangle2D, Object):Object	org.jfree.chart.title.PaintScaleLegend
+0.017916-011	org.jfree.chart.ChartPanel::getScreenDataArea():Rectangle2D	org.jfree.chart.ChartRenderingInfo
+0.018195-011	org.jfree.chart.renderer.xy.AbstractXYItemRenderer::drawDomainLine(Graphics2D, XYPlot, ValueAxis, Rectangle2D, double, Paint, Stroke):void	org.jfree.chart.plot.XYPlot
+0.022827-011	org.jfree.chart.JFreeChart::draw(Graphics2D, Rectangle2D, Point2D, ChartRenderingInfo):void	org.jfree.chart.title.TextTitle
+0.026743-011	org.jfree.chart.renderer.xy.XYLineAndShapeRenderer::drawPrimaryLine(XYItemRendererState, Graphics2D, XYPlot, XYDataset, int, int, int, ValueAxis, ValueAxis, Rectangle2D):void	org.jfree.chart.renderer.xy.XYItemRendererState
+0.028355-000	org.jfree.chart.LegendItem::createLegendItemBlock(LegendTitle):Block	org.jfree.chart.title.LegendTitle
+0.030607-011	org.jfree.chart.plot.PiePlot::getSectionPaint(Comparable):Paint	org.jfree.chart.PaintMap
+0.033804-011	org.jfree.chart.plot.Plot::createAndAddEntity(Rectangle2D, PlotRenderingInfo, String, String):void	org.jfree.chart.plot.PlotRenderingInfo
+0.035026-011	org.jfree.chart.plot.PiePlot::getSectionOutlinePaint(Comparable):Paint	org.jfree.chart.PaintMap
+0.035215-011	org.jfree.chart.JFreeChart::createAlignedRectangle2D(Size2D, Rectangle2D, HorizontalAlignment, VerticalAlignment):Rectangle2D	org.jfree.chart.title.TextTitle
+0.036396-011	org.jfree.chart.renderer.xy.XYLineAndShapeRenderer::drawPrimaryLineAsPath(XYItemRendererState, Graphics2D, XYPlot, XYDataset, int, int, int, ValueAxis, ValueAxis, Rectangle2D):void	org.jfree.chart.renderer.xy.XYItemRendererState
+0.051998-011	org.jfree.chart.plot.PiePlot::drawLeftLabel(Graphics2D, PiePlotState, PieLabelRecord):void	org.jfree.chart.plot.PiePlotState
+0.051998-011	org.jfree.chart.plot.PiePlot::drawRightLabel(Graphics2D, PiePlotState, PieLabelRecord):void	org.jfree.chart.plot.PiePlotState
+0.055238-001	org.jfree.chart.plot.PlotState::draw2(Graphics2D, Rectangle2D, Point2D, DialPlot, PlotRenderingInfo):void	org.jfree.chart.plot.PlotRenderingInfo
+0.075279-011	org.jfree.chart.plot.PolarPlot::translateValueThetaRadiusToJava2D(double, double, Rectangle2D):Point	org.jfree.chart.renderer.PolarItemRenderer
+0.081097-011	org.jfree.chart.axis.NumberAxis::estimateMaximumTickLabelHeight(Graphics2D):double	org.jfree.chart.axis.MarkerAxisBand
+0.087304-011	org.jfree.chart.plot.PiePlot::getSectionOutlineStroke(Comparable):Stroke	org.jfree.chart.StrokeMap
+0.095441-000	org.jfree.data.RangeType::autoAdjustRange2(NumberAxis):void	org.jfree.chart.axis.NumberAxis
+0.095541-011	org.jfree.chart.axis.NumberAxis::setRangeType(RangeType):void	org.jfree.data.RangeType
+0.098452-000	org.jfree.chart.ChartRenderingInfo::doSaveAs(ChartComposite):void	org.jfree.experimental.chart.swt.ChartComposite
+0.101147-011	org.jfree.chart.block.AbstractBlock::toContentConstraint(RectangleConstraint):RectangleConstraint	org.jfree.chart.block.RectangleConstraint
+0.113627-000	org.jfree.chart.LegendItemCollection::drawDomainMarkers(XYPlot, Graphics2D, Rectangle2D, int, Layer):void	org.jfree.chart.plot.XYPlot
+0.114286-000	org.jfree.chart.JFreeChart::testReplaceDataset(StackedBarChartTests):void	org.jfree.chart.junit.StackedBarChartTests
+0.116451-011	org.jfree.chart.renderer.xy.AbstractXYItemRenderer::findDomainBounds(XYDataset, boolean):Range	org.jfree.chart.labels.XYItemLabelGenerator
+0.116549-011	org.jfree.chart.renderer.category.AbstractCategoryItemRenderer::findRangeBounds(CategoryDataset, boolean):Range	org.jfree.chart.labels.CategoryItemLabelGenerator
+0.141754-011	org.jfree.data.xml.PieDatasetHandler::addItem(Comparable, Number):void	org.jfree.data.general.DefaultPieDataset
+0.160000-011	org.jfree.data.xml.CategoryDatasetHandler::addItem(Comparable, Comparable, Number):void	org.jfree.data.category.DefaultCategoryDataset
+0.173730-011	org.jfree.chart.block.AbstractBlock::drawBorder(Graphics2D, Rectangle2D):void	org.jfree.chart.block.BlockFrame
+0.199287-011	org.jfree.chart.renderer.category.AbstractCategoryItemRenderer::updateCrosshairValues(CategoryCrosshairState, Comparable, Comparable, double, int, double, double, PlotOrientation):void	org.jfree.chart.plot.CategoryCrosshairState
+0.209950-011	org.jfree.chart.plot.SpiderWebPlot::getPlotValue(int, int):Number	org.jfree.chart.labels.CategoryItemLabelGenerator
+0.241379-011	org.jfree.chart.renderer.category.BarRenderer::drawItemLabel(Graphics2D, CategoryDataset, int, int, CategoryPlot, CategoryItemLabelGenerator, Rectangle2D, boolean):void	org.jfree.chart.renderer.category.BarPainter
+0.260519-011	org.jfree.chart.JFreeChart::notifyListeners(ChartProgressEvent):void	org.jfree.chart.event.ChartProgressEvent
+0.262509-011	org.jfree.chart.renderer.xy.XYBarRenderer::drawItemLabel(Graphics2D, XYDataset, int, int, XYPlot, XYItemLabelGenerator, Rectangle2D, boolean):void	org.jfree.chart.renderer.xy.XYBarPainter
+0.266667-011	org.jfree.chart.plot.Crosshair::writeObject(ObjectOutputStream):void	org.jfree.chart.labels.CrosshairLabelGenerator
+0.292487-011	org.jfree.chart.plot.PolarPlot::render(Graphics2D, Rectangle2D, PlotRenderingInfo):void	org.jfree.chart.renderer.PolarItemRenderer
+0.312988-011	org.jfree.chart.plot.PolarPlot::drawAxis(Graphics2D, Rectangle2D, Rectangle2D):AxisState	org.jfree.chart.renderer.PolarItemRenderer
+0.328390-011	org.jfree.chart.plot.PolarPlot::drawGridlines(Graphics2D, Rectangle2D, List, List):void	org.jfree.chart.renderer.PolarItemRenderer
+0.355374-000	org.jfree.chart.renderer.xy.XYItemRendererState::drawPrimaryLine2(XYSmoothLineAndShapeRenderer, Graphics2D, XYPlot, XYDataset, int, int, int, ValueAxis, ValueAxis, Rectangle2D):void	org.jfree.experimental.chart.renderer.xy.XYSmoothLineAndShapeRenderer
+0.355590-011	org.jfree.chart.plot.PolarPlot::drawCornerTextItems(Graphics2D, Rectangle2D):void	org.jfree.chart.renderer.PolarItemRenderer
+0.822712-011	org.jfree.chart.plot.Plot::notifyListeners(PlotChangeEvent):void	org.jfree.chart.event.PlotChangeEvent
+0.875569-011	org.jfree.chart.axis.Axis::notifyListeners(AxisChangeEvent):void	org.jfree.chart.event.AxisChangeEvent
