@@ -1,0 +1,9 @@
+0.083586-000	com.mvnsoft.mvnad.db.ZoneBean::getNextBanner(ZoneManager):BannerBean	com.mvnsoft.mvnad.delivery.ZoneManager
+0.103846-000	com.mvnforum.admin.GroupXML::setGroupClass(MvnForumGroupXML, String):void	com.mvnforum.admin.importexport.mvnforum.MvnForumGroupXML
+0.144444-000	com.mvnforum.db.WatchBean::appendWatch2(WatchMail):void	com.mvnforum.user.WatchMail
+0.147649-000	com.mvnforum.db.MemberBean::createWatchMessageBean(WatchMail, Collection):void	com.mvnforum.user.WatchMail
+0.305627-000	com.mvnforum.db.CategoryBean::drawForum2(ListForums, CategoryTreeEvent):String	com.mvnforum.categorytree.impl.ListForums
+0.309144-000	com.mvnforum.db.PostBean::deletePost(GenericRequest, PostWebHandler):void	com.mvnforum.user.PostWebHandler
+0.360390-000	com.mvnforum.common.ForumIconLegend::drawForum2(CategoryTreeListenerImpl, CategoryTreeEvent):String	com.mvnforum.categorytree.impl.CategoryTreeListenerImpl
+0.513958-000	com.mvnforum.categorytree.CategoryTreeEvent::drawForum2(RSSImpl):String	com.mvnforum.categorytree.impl.RSSImpl
+0.526786-000	net.myvietnam.mvncore.interceptor.InterceptorService::prepareAdd(PostWebHandler, GenericRequest, GenericResponse):void	com.mvnforum.user.PostWebHandler

@@ -1,0 +1,35 @@
+-0.012500-111	org.apache.tapestry5.internal.services.InternalModule::buildResourceCache(ResourceCacheImpl):ResourceCache	org.apache.tapestry5.internal.services.ResourceCacheImpl
+-0.012703-111	org.apache.tapestry.mojo.ComponentReportTest::generate(ComponentReport, File):StringWriter	org.apache.tapestry.mojo.ComponentReport
+-0.026136-111	org.apache.tapestry5.ioc.RegistryBuilder::build():Registry	org.apache.tapestry5.ioc.internal.util.OneShotLock
+-0.028682-111	org.apache.tapestry5.services.TapestryModule::buildPropBindingFactory(List<BindingFactory>, PropBindingFactory):BindingFactory	org.apache.tapestry5.internal.bindings.PropBindingFactory
+-0.029509-111	org.apache.tapestry5.internal.pageload.PageAssembly::addRenderCommand(RenderCommand):void	org.apache.tapestry5.ioc.util.Stack
+-0.032667-111	org.apache.tapestry5.services.TapestryModule::buildComponentRequestHandler(List<ComponentRequestFilter>, ComponentRequestHandlerTerminator, Logger):ComponentRequestHandler	org.apache.tapestry5.internal.services.ComponentRequestHandlerTerminator
+-0.033404-111	org.apache.tapestry5.services.TapestryModule::buildMarkupRenderer(Logger, MarkupRendererTerminator, List<MarkupRendererFilter>):MarkupRenderer	org.apache.tapestry5.internal.services.MarkupRendererTerminator
+-0.034454-111	org.apache.tapestry5.services.TapestryModule::contributeApplicationInitializer(OrderedConfiguration<ApplicationInitializerFilter>, TypeCoercer, ComponentClassResolver, InvalidationEventHub, RestoreDirtySessionObjects):void	org.apache.tapestry5.internal.services.RestoreDirtySessionObjects
+-0.098880-111	org.apache.tapestry5.internal.services.InternalClassTransformationImpl::match(CtMethod, TransformMethodSignature):boolean	org.apache.tapestry5.services.TransformMethodSignature
+-0.104787-111	org.apache.tapestry5.internal.pageload.PageAssembly::checkForRecursion(String, Location):void	org.apache.tapestry5.ioc.util.Stack
+-0.107143-111	org.apache.tapestry5.corelib.components.Palette::beginRender(MarkupWriter):void	org.apache.tapestry5.internal.util.SelectModelRenderer
+-0.127963-111	org.apache.tapestry.mojo.ComponentReport::readParameters(ClassDescription, Element):void	org.apache.tapestry.mojo.ClassDescription
+-0.131667-111	org.apache.tapestry.mojo.ComponentReport::readPublishedParameters(ClassDescription, Element):void	org.apache.tapestry.mojo.ClassDescription
+-0.136667-111	org.apache.tapestry5.internal.pageload.ComponentAssemblerImpl::pushNewElement(PageAssembly, ComponentPageElement):void	org.apache.tapestry5.internal.pageload.PageAssembly
+-0.278920-111	org.apache.tapestry5.internal.services.ComponentInstantiatorSourceImpl::addClassFileToChangeTracker(String):void	org.apache.tapestry5.internal.util.URLChangeTracker
+-0.484677-111	org.apache.tapestry5.internal.pageload.PageLoaderImpl::attribute(AssemblerContext):void	org.apache.tapestry5.internal.pageload.AssemblerContext
+-0.886458-111	org.apache.tapestry5.corelib.components.Form::executeStoredActions():void	org.apache.tapestry5.corelib.internal.ComponentActionSink
+0.000000-011	org.apache.tapestry5.internal.grid.CollectionGridDataSourceTest::sort(String, boolean, int[]):void	org.apache.tapestry5.internal.grid.CollectionGridDataSource
+0.000000-011	org.apache.tapestry5.internal.services.InternalModule::buildComponentClassCache(ComponentClassCacheImpl):ComponentClassCache	org.apache.tapestry5.internal.services.ComponentClassCacheImpl
+0.000000-011	org.apache.tapestry5.internal.services.InternalModule::buildStringInterner(StringInternerImpl):StringInterner	org.apache.tapestry5.internal.services.StringInternerImpl
+0.004304-001	org.apache.tapestry5.internal.parser.ExtensionPointToken::queueOverrideTokensForExtensionPoint(PageLoaderImpl, Stack<TemplateToken>, List<ComponentTemplate>):void	org.apache.tapestry5.ioc.util.Stack
+0.018417-000	org.apache.tapestry5.internal.services.ComponentResultProcessorWrapper::fireValidateFormEvent(EventContext, Form):void	org.apache.tapestry5.corelib.components.Form
+0.046282-011	org.apache.tapestry5.dom.Element::writeChildMarkup(Document, PrintWriter, Map<String, String>):void	org.apache.tapestry5.dom.Document
+0.050758-011	org.apache.tapestry5.test.TapestryTestCase::train_extendMethod(ClassTransformation, TransformMethodSignature, String[]):void	org.apache.tapestry5.services.TransformMethodSignature
+0.051700-011	org.apache.tapestry5.test.TapestryTestCase::train_addMethod(ClassTransformation, TransformMethodSignature, String[]):void	org.apache.tapestry5.services.TransformMethodSignature
+0.086097-000	org.apache.tapestry5.ioc.internal.util.IdAllocator::copyMethod2(InternalClassTransformationImpl, TransformMethodSignature, int, String):void	org.apache.tapestry5.internal.services.InternalClassTransformationImpl
+0.097900-011	org.apache.tapestry5.internal.services.InternalClassTransformationImplTest::toClass(CtClass):Class	org.apache.tapestry5.ioc.internal.services.ClassFactoryClassPool
+0.137059-011	org.apache.tapestry5.dom.Element::addMappingIfNeeded(MapHolder, String):void	org.apache.tapestry5.dom.MapHolder
+0.144372-000	org.apache.tapestry5.ioc.internal.services.RegistryShutdownHubImpl::findServiceIdsForInterface(RegistryImpl, Class):List<String>	org.apache.tapestry5.ioc.internal.RegistryImpl
+0.150000-000	org.apache.tapestry5.corelib.internal.ComponentActionSink::afterRender(FormFragment, MarkupWriter):void	org.apache.tapestry5.corelib.components.FormFragment
+0.152567-011	org.apache.tapestry5.internal.services.InternalClassTransformationImplTest::findCtClass(Class):CtClass	org.apache.tapestry5.ioc.internal.services.ClassFactoryClassPool
+0.232111-000	org.apache.tapestry5.services.PageRenderRequestParameters::createPageRenderLink2(ComponentEventLinkEncoderImpl):Link	org.apache.tapestry5.internal.services.ComponentEventLinkEncoderImpl
+0.350000-000	org.apache.tapestry5.internal.parser.AttributeToken::newAttributeElement2(ComponentResources, PageElementFactoryImpl):RenderCommand	org.apache.tapestry5.internal.services.PageElementFactoryImpl
+0.415323-011	org.apache.tapestry5.internal.pageload.PageLoaderImpl::comment(AssemblerContext):void	org.apache.tapestry5.internal.pageload.AssemblerContext
+0.450000-000	org.apache.tapestry5.services.ComponentEventRequestParameters::handle2(AjaxComponentEventRequestHandler):void	org.apache.tapestry5.internal.services.AjaxComponentEventRequestHandler
