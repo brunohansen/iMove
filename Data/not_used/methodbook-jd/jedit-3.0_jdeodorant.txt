@@ -1,14 +1,14 @@
-Move Method	bsh.Name::resolveThisFieldReference(bsh.NameSpace, bsh.Interpreter, java.lang.String, boolean):java.lang.Object	bsh.NameSpace	0/6	
-Move Method	bsh.BSHAllocationExpression::primitiveArrayAllocation(bsh.BSHPrimitiveType, bsh.BSHArrayDimensions, bsh.NameSpace, bsh.Interpreter):java.lang.Object	bsh.BSHArrayDimensions	0/2	
-Move Method	gnu.regexp.RE::getMinMax(char[], int, gnu.regexp.IntPair, gnu.regexp.RESyntax):int	gnu.regexp.IntPair	0/2	
-Move Method	org.gjt.sp.jedit.io.BufferIORequest::readMarkers(org.gjt.sp.jedit.Buffer, java.io.InputStream):void	org.gjt.sp.jedit.Buffer	0/2	
-Move Method	org.gjt.sp.jedit.io.BufferIORequest::writeMarkers(org.gjt.sp.jedit.Buffer, java.io.OutputStream):void	org.gjt.sp.jedit.Buffer	0/1	
-Move Method	org.gjt.sp.util.WorkThread::doRequest(org.gjt.sp.util.WorkThreadPool.Request):void	org.gjt.sp.util.WorkThreadPool.Request	0/1	
-Move Method	org.gjt.sp.jedit.EditPane::initTextArea(org.gjt.sp.jedit.textarea.JEditTextArea):void	org.gjt.sp.jedit.textarea.JEditTextArea	1/7	
-Move Method	org.gjt.sp.jedit.textarea.JEditTextArea::setText(java.lang.String):void	org.gjt.sp.jedit.Buffer	1/4	
-Move Method	org.gjt.sp.jedit.Registers.CaretRegisterHelper::handleBufferUpdate(org.gjt.sp.jedit.msg.BufferUpdate):void	org.gjt.sp.jedit.msg.BufferUpdate	1/2	
-Move Method	org.gjt.sp.jedit.browser.VFSBrowser::handleBufferUpdate(org.gjt.sp.jedit.msg.BufferUpdate):void	org.gjt.sp.jedit.msg.BufferUpdate	1/2	
-Move Method	org.gjt.sp.jedit.textarea.MarkerHighlight::getLineToolTip(int):java.lang.String	org.gjt.sp.jedit.textarea.JEditTextArea	1/2	
-Move Method	org.gjt.sp.jedit.EditPane::saveCaretInfo():void	org.gjt.sp.jedit.textarea.JEditTextArea	2/6	
-Move Method	org.gjt.sp.jedit.EditPane::loadCaretInfo():void	org.gjt.sp.jedit.textarea.JEditTextArea	2/5	
-Move Method	bsh.BshMethod::invokeDeclaredMethod(java.lang.Object[], bsh.Interpreter):java.lang.Object	bsh.BSHMethodDeclaration	2/4	
+bsh.Name::resolveThisFieldReference(bsh.NameSpace, bsh.Interpreter, java.lang.String, boolean):java.lang.Object	bsh.NameSpace	
+bsh.BSHAllocationExpression::primitiveArrayAllocation(bsh.BSHPrimitiveType, bsh.BSHArrayDimensions, bsh.NameSpace, bsh.Interpreter):java.lang.Object	bsh.BSHArrayDimensions	
+gnu.regexp.RE::getMinMax(char[], int, gnu.regexp.IntPair, gnu.regexp.RESyntax):int	gnu.regexp.IntPair	
+org.gjt.sp.jedit.io.BufferIORequest::readMarkers(org.gjt.sp.jedit.Buffer, java.io.InputStream):void	org.gjt.sp.jedit.Buffer	
+org.gjt.sp.jedit.io.BufferIORequest::writeMarkers(org.gjt.sp.jedit.Buffer, java.io.OutputStream):void	org.gjt.sp.jedit.Buffer	
+org.gjt.sp.util.WorkThread::doRequest(org.gjt.sp.util.WorkThreadPool.Request):void	org.gjt.sp.util.WorkThreadPool.Request	
+org.gjt.sp.jedit.EditPane::initTextArea(org.gjt.sp.jedit.textarea.JEditTextArea):void	org.gjt.sp.jedit.textarea.JEditTextArea	
+org.gjt.sp.jedit.textarea.JEditTextArea::setText(java.lang.String):void	org.gjt.sp.jedit.Buffer	
+org.gjt.sp.jedit.Registers.CaretRegisterHelper::handleBufferUpdate(org.gjt.sp.jedit.msg.BufferUpdate):void	org.gjt.sp.jedit.msg.BufferUpdate	
+org.gjt.sp.jedit.browser.VFSBrowser::handleBufferUpdate(org.gjt.sp.jedit.msg.BufferUpdate):void	org.gjt.sp.jedit.msg.BufferUpdate	
+org.gjt.sp.jedit.textarea.MarkerHighlight::getLineToolTip(int):java.lang.String	org.gjt.sp.jedit.textarea.JEditTextArea	
+org.gjt.sp.jedit.EditPane::saveCaretInfo():void	org.gjt.sp.jedit.textarea.JEditTextArea	
+org.gjt.sp.jedit.EditPane::loadCaretInfo():void	org.gjt.sp.jedit.textarea.JEditTextArea	
+bsh.BshMethod::invokeDeclaredMethod(java.lang.Object[], bsh.Interpreter):java.lang.Object	bsh.BSHMethodDeclaration	
