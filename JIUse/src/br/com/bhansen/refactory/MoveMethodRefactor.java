@@ -30,13 +30,28 @@ public class MoveMethodRefactor {
 		processor.setInlineDelegator(true);
 		processor.setRemoveDelegator(true);
 		processor.setDeprecateDelegates(false);
-
-		final IVariableBinding[] targets = processor.getCandidateTargets();
+		
+		//Em vez de getCandidateTargets()
+		final IVariableBinding[] targets = processor.getPossibleTargets();
 		IVariableBinding target = null;
 		for (int index = 0; index < targets.length; index++) {
+			
 			if (targets[index].getType().getJavaElement().equals(classTo)) {
-				target = targets[index];
-				break;
+							
+				//Pego o primeiro independente de qualquer coisa
+				if (target == null) {
+					target = targets[index];
+				}
+					
+				processor.setTarget(targets[index]);	
+				
+				//Troco pelo primeiro que não precisa de parametro, porem podem ter outros melhores
+				if(! processor.needsTargetNode()) {
+					target = targets[index];
+					break;
+				}
+				
+				
 			}
 		}
 
