@@ -6,6 +6,7 @@ import java.util.Map;
 import java.util.Set;
 
 import org.eclipse.core.runtime.NullProgressMonitor;
+import org.eclipse.jdt.core.Flags;
 import org.eclipse.jdt.core.IJavaElement;
 import org.eclipse.jdt.core.IMember;
 import org.eclipse.jdt.core.IMethod;
@@ -90,11 +91,11 @@ public abstract class AbsMetric implements Metric {
 					
 		String mSig = getSignature(iMethod);
 		
-		if(getName(mSig).equals(name)) {
-			return true;
+		if(Flags.isStatic(iMethod.getFlags())) {
+			return getName(mSig).equals(name.replaceFirst(METHOD_SUFFIX, ""));
+		} else {
+			return getName(mSig).equals(name);
 		}
-		
-		return false;
 	}
 	
 	protected boolean isMethod(IMethod iMethod, String method) throws Exception {
