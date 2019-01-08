@@ -146,6 +146,14 @@ public abstract class DeclarationMetric extends AbsMetric {
 		}
 
 	}
+	
+	protected final void removeSelfParameter(Set<String> params) throws JavaModelException {
+
+		params.remove(generateInnerSignature(getName()));
+		params.remove(generateSignature(getName()));
+		return;
+
+	}
 
 	protected final Set<String> getParams() {
 		Set<String> params = new HashSet<>();
