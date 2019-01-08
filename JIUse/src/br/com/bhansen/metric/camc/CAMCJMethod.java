@@ -27,7 +27,6 @@ public class CAMCJMethod extends DeclarationMetric {
 			for (IMethod iMethod : iMethods) {
 				
 				params = createParametersSet(iMethod);
-				removeSelfParameter(params);
 				
 				if(isMovedMethod(iMethod, method)) {
 					movedMethod = iMethod;
@@ -58,7 +57,6 @@ public class CAMCJMethod extends DeclarationMetric {
 			for (IMethod iMethod : iMethods) {
 				
 				Set<String> params = createParametersSet(iMethod);
-				removeSelfParameter(params);
 				
 				if(isMethod(iMethod, method)) {
 					this.method = params;	
