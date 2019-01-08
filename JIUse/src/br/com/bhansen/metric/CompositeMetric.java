@@ -6,7 +6,7 @@ import br.com.bhansen.metric.iuc.IUC;
 
 public class CompositeMetric implements Metric {
 	
-	private static final double DEC_W = 0.6;
+	private static final double DEC_W = 0.5;
 	private static final double IUC_W = 1.0 - DEC_W;
 	
 	private Metric iuc;
