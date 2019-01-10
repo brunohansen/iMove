@@ -4,8 +4,9 @@ import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.jdt.core.IType;
 import org.eclipse.ltk.core.refactoring.Change;
 
-import br.com.bhansen.metric.AbsMetric;
 import br.com.bhansen.metric.MetricFactory;
+import br.com.bhansen.utils.MethodHelper;
+import br.com.bhansen.utils.TypeHelper;
 
 public class EvaluateSumClass extends MoveMethodEvaluator  {
 	
@@ -29,7 +30,7 @@ public class EvaluateSumClass extends MoveMethodEvaluator  {
 		
 		try {
 			this.newFromValue = factory.create(this.classFrom).getMetric();
-			this.newToValue = factory.create(this.classTo, AbsMetric.getMoveMethodName(AbsMetric.getName(this.mSig)), AbsMetric.getClassName(this.classFrom)).getMetric();
+			this.newToValue = factory.create(this.classTo, MethodHelper.getMoveMethodName(MethodHelper.getMethodName(this.mSig)), TypeHelper.getClassName(this.classFrom)).getMetric();
 			
 			this.valueDifference = (this.newFromValue - this.oldFromValue) + (this.newToValue - this.oldToValue);
 		} finally {
@@ -42,9 +43,9 @@ public class EvaluateSumClass extends MoveMethodEvaluator  {
 	public String toString() {
 		StringBuilder txt = new StringBuilder();
 
-		txt.append(AbsMetric.getClassName(this.classFrom)).append(" ").append(this.oldFromValue).append(" -> ")
+		txt.append(TypeHelper.getClassName(this.classFrom)).append(" ").append(this.oldFromValue).append(" -> ")
 				.append(this.newFromValue).append("\n");
-		txt.append(AbsMetric.getClassName(this.classTo)).append(" ").append(this.oldToValue).append(" -> ")
+		txt.append(TypeHelper.getClassName(this.classTo)).append(" ").append(this.oldToValue).append(" -> ")
 				.append(this.newToValue).append("\n");
 		txt.append("Value difference: ").append(this.valueDifference).append("\n\n");
 

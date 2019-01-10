@@ -4,9 +4,10 @@ import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.jdt.core.IType;
 import org.eclipse.ltk.core.refactoring.Change;
 
-import br.com.bhansen.metric.AbsMetric;
 import br.com.bhansen.metric.Metric;
 import br.com.bhansen.metric.MetricFactory;
+import br.com.bhansen.utils.MethodHelper;
+import br.com.bhansen.utils.TypeHelper;
 
 public class EvaluateSumMethod extends MoveMethodEvaluator  {
 
@@ -34,7 +35,7 @@ public class EvaluateSumMethod extends MoveMethodEvaluator  {
 		Change undo = MoveMethodRefactor.move(this.classFrom, this.iMethod, this.classTo);
 		
 		try {
-			this.newValue = factory.create(this.classTo, AbsMetric.getMoveMethodName(AbsMetric.getName(this.mSig)), AbsMetric.getClassName(this.classFrom)).getMetric(this.skipIUC);
+			this.newValue = factory.create(this.classTo, MethodHelper.getMoveMethodName(MethodHelper.getMethodName(this.mSig)), TypeHelper.getClassName(this.classFrom)).getMetric(this.skipIUC);
 			
 			this.valueDifference = (this.newValue - this.oldValue);
 			
@@ -50,8 +51,8 @@ public class EvaluateSumMethod extends MoveMethodEvaluator  {
 	public String toString() {
 		StringBuilder txt = new StringBuilder();
 
-		txt.append(AbsMetric.getClassName(this.classFrom)).append(" ").append(this.oldValue).append("\n");
-		txt.append(AbsMetric.getClassName(this.classTo)).append(" ").append(this.newValue).append("\n");
+		txt.append(TypeHelper.getClassName(this.classFrom)).append(" ").append(this.oldValue).append("\n");
+		txt.append(TypeHelper.getClassName(this.classTo)).append(" ").append(this.newValue).append("\n");
 		txt.append("Skip IUC: ").append(this.skipIUC).append("\n");
 		txt.append("Value difference: ").append(this.valueDifference).append("\n\n");
 

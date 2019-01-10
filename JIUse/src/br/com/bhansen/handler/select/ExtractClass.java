@@ -7,8 +7,8 @@ import org.eclipse.jface.dialogs.InputDialog;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.ui.IWorkbenchWindow;
 
-import br.com.bhansen.metric.AbsMetric;
 import br.com.bhansen.metric.iuc.IUCClass;
+import br.com.bhansen.utils.MethodHelper;
 
 public class ExtractClass extends SelectionHandler {
 
@@ -16,7 +16,7 @@ public class ExtractClass extends SelectionHandler {
 	protected Object execute(IWorkbenchWindow window, ExecutionEvent event, String type, String metric)	throws Exception {
 		IType selection = getType();
 		
-		String method = AbsMetric.getSignature(getMethod());
+		String method = MethodHelper.getSignature(getMethod());
 		
 		InputDialog inDialog = new InputDialog(window.getShell(), "Extract Classes", "Minimum metric value:", "0.4", null);
 		inDialog.open();

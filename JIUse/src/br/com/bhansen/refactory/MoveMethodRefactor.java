@@ -11,7 +11,6 @@ import org.eclipse.jdt.core.Flags;
 import org.eclipse.jdt.core.IMember;
 import org.eclipse.jdt.core.IMethod;
 import org.eclipse.jdt.core.IType;
-import org.eclipse.jdt.core.JavaModelException;
 import org.eclipse.jdt.core.dom.IVariableBinding;
 import org.eclipse.jdt.internal.corext.refactoring.RefactoringExecutionStarter;
 import org.eclipse.jdt.internal.corext.refactoring.structure.MoveInstanceMethodProcessor;
@@ -19,12 +18,12 @@ import org.eclipse.jdt.internal.corext.refactoring.structure.MoveStaticMembersPr
 import org.eclipse.jdt.internal.ui.preferences.JavaPreferencesSettings;
 import org.eclipse.ltk.core.refactoring.Change;
 import org.eclipse.ltk.core.refactoring.Refactoring;
-import org.eclipse.ltk.core.refactoring.RefactoringStatus;
 import org.eclipse.ltk.core.refactoring.participants.MoveRefactoring;
 import org.eclipse.swt.widgets.Shell;
 
-import br.com.bhansen.metric.AbsMetric;
 import br.com.bhansen.metric.DeclarationMetric;
+import br.com.bhansen.utils.MethodHelper;
+import br.com.bhansen.utils.TypeHelper;
 
 @SuppressWarnings("restriction")
 public class MoveMethodRefactor {
@@ -44,7 +43,7 @@ public class MoveMethodRefactor {
 
 		refactoring.checkInitialConditions(new NullProgressMonitor());
 
-		processor.setMethodName(AbsMetric.getMoveMethodName(iMethod.getElementName()));
+		processor.setMethodName(MethodHelper.getMoveMethodName(iMethod.getElementName()));
 		processor.setInlineDelegator(true);
 		processor.setRemoveDelegator(true);
 		processor.setDeprecateDelegates(false);
@@ -72,7 +71,7 @@ public class MoveMethodRefactor {
 		for (IVariableBinding iVariableBinding : selectedTargets) {
 			Change undo = performRefactoring(processor, refactoring, iVariableBinding);
 			
-			Set<String> parameters = DeclarationMetric.createParametersSet(classTo, AbsMetric.getMovedMethod(classTo, processor.getMethodName()));
+			Set<String> parameters = MethodHelper.createParametersSet(TypeHelper.getMovedMethod(classTo, processor.getMethodName()));
 			
 			if(parameters.size() < numParameters) {
 				numParameters = parameters.size();

@@ -9,6 +9,7 @@ import org.eclipse.jdt.core.IType;
 
 import br.com.bhansen.metric.AbsMetric;
 import br.com.bhansen.metric.DeclarationMetric;
+import br.com.bhansen.utils.MethodHelper;
 
 public class CAMCJMethod extends DeclarationMetric {
 	
@@ -20,7 +21,7 @@ public class CAMCJMethod extends DeclarationMetric {
 		
 		IMethod[] iMethods = type.getMethods();
 		
-		if(isMovedMethod(method)) {
+		if(MethodHelper.isMovedMethod(method)) {
 			IMethod movedMethod = null;
 			Set<String> params = null;
 			
@@ -28,16 +29,16 @@ public class CAMCJMethod extends DeclarationMetric {
 				
 				params = createParametersSet(iMethod);
 				
-				if(isMovedMethod(iMethod, method)) {
+				if(MethodHelper.isMovedMethod(iMethod, method)) {
 					movedMethod = iMethod;
 					//removeFakeParameter(params, parameter);
 					this.method = params;
 					this.publicMethod = Flags.isPublic(iMethod.getFlags());
 				} else {
 					if (zeroParams) {
-						getMethods().put(getSignature(iMethod), params);
+						getMethods().put(MethodHelper.getSignature(iMethod), params);
 					} else if (params.size() > 0) {
-						getMethods().put(getSignature(iMethod), params);
+						getMethods().put(MethodHelper.getSignature(iMethod), params);
 					}
 				}
 				
@@ -58,14 +59,14 @@ public class CAMCJMethod extends DeclarationMetric {
 				
 				Set<String> params = createParametersSet(iMethod);
 				
-				if(isMethod(iMethod, method)) {
+				if(MethodHelper.isMethod(iMethod, method)) {
 					this.method = params;	
 					this.publicMethod = Flags.isPublic(iMethod.getFlags());
 				} else {
 					if (zeroParams) {
-						getMethods().put(getSignature(iMethod), params);
+						getMethods().put(MethodHelper.getSignature(iMethod), params);
 					} else if (params.size() > 0) {
-						getMethods().put(getSignature(iMethod), params);
+						getMethods().put(MethodHelper.getSignature(iMethod), params);
 					}
 				}
 

@@ -6,8 +6,10 @@ import java.math.RoundingMode;
 import org.eclipse.jdt.core.IMethod;
 import org.eclipse.jdt.core.IType;
 
-import br.com.bhansen.metric.AbsMetric;
 import br.com.bhansen.metric.MetricFactory;
+import br.com.bhansen.utils.MethodHelper;
+import br.com.bhansen.utils.Signature;
+import br.com.bhansen.utils.TypeHelper;
 
 public abstract class MoveMethodEvaluator {
 	
@@ -38,46 +40,23 @@ public abstract class MoveMethodEvaluator {
 	
 	private void setMethod(String method) throws Exception {
 		
-		this.mSig = AbsMetric.generateInnerSignature(method);
+		this.mSig = Signature.normalizeInnerSignature(method);
 
 		IMethod[] methods = this.classFrom.getMethods();
 
 		for (IMethod iMethod : methods) {
-			if (AbsMetric.getSignature(iMethod).equals(this.mSig)) {
+			if (MethodHelper.getSignature(iMethod).equals(this.mSig)) {
 				this.iMethod = iMethod;
 				return;
 			}
 		}
 		
-		this.mSig = AbsMetric.generateSignature(method);
+		this.mSig = Signature.normalizeSignature(method);
 
 		for (IMethod iMethod : methods) {
-			if (AbsMetric.getSignature(iMethod).equals(this.mSig)) {
+			if (MethodHelper.getSignature(iMethod).equals(this.mSig)) {
 				this.iMethod = iMethod;
 				return;
-			}
-		}
-
-		throw new Exception("Method " + method + " not found!");
-	}
-	
-	public static IMethod getMethod(IType classFrom, String method) throws Exception {
-		
-		String mSig = AbsMetric.generateInnerSignature(method);
-
-		IMethod[] methods = classFrom.getMethods();
-
-		for (IMethod iMethod : methods) {
-			if (AbsMetric.getSignature(iMethod).equals(mSig)) {
-				return iMethod;
-			}
-		}
-		
-		mSig = AbsMetric.generateSignature(method);
-
-		for (IMethod iMethod : methods) {
-			if (AbsMetric.getSignature(iMethod).equals(mSig)) {
-				return iMethod;
 			}
 		}
 
@@ -89,8 +68,8 @@ public abstract class MoveMethodEvaluator {
 	}
 
 	public String toLineString() {
-		return new StringBuilder().append(new BigDecimal(this.valueDifference).setScale(6, RoundingMode.HALF_EVEN) + "-").append((shouldMove()) ? "0" : "1").append("\t").append(AbsMetric.getClassName(this.classFrom)).append("::").append(this.mSig)
-				.append("\t").append(AbsMetric.getClassName(this.classTo)).toString();
+		return new StringBuilder().append(new BigDecimal(this.valueDifference).setScale(6, RoundingMode.HALF_EVEN) + "-").append((shouldMove()) ? "0" : "1").append("\t").append(TypeHelper.getClassName(this.classFrom)).append("::").append(this.mSig)
+				.append("\t").append(TypeHelper.getClassName(this.classTo)).toString();
 	}
 
 }

@@ -9,8 +9,8 @@ import org.eclipse.jdt.core.IType;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.ui.IWorkbenchWindow;
 
-import br.com.bhansen.metric.AbsMetric;
 import br.com.bhansen.metric.Metric;
+import br.com.bhansen.utils.MethodHelper;
 
 public class ShowMethodMetric extends SelectionHandler {
 
@@ -19,7 +19,7 @@ public class ShowMethodMetric extends SelectionHandler {
 		
 		IType selection = getType();
 		IMethod method = getMethod();
-		String strMethod = AbsMetric.getSignature(method);
+		String strMethod = MethodHelper.getSignature(method);
 				
 		MessageDialog.openInformation(window.getShell(), "iMove", "The " + metric + " will be calculated for the selcted method!\n\n\n The result dialog will open in a while!");
 		

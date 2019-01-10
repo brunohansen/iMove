@@ -6,6 +6,8 @@ import java.util.Set;
 import org.eclipse.jdt.core.IMethod;
 import org.eclipse.jdt.core.IType;
 
+import br.com.bhansen.utils.MethodHelper;
+
 public abstract class DeclarationMetricClass extends DeclarationMetric {
 
 	protected DeclarationMetricClass(IType type, boolean zeroParams, String method, String parameter) throws Exception {
@@ -24,9 +26,9 @@ public abstract class DeclarationMetricClass extends DeclarationMetric {
 //				removeFakeParameter(params, parameter);
 
 			if (zeroParams) {
-				getMethods().put(getSignature(iMethod), params);
+				getMethods().put(MethodHelper.getSignature(iMethod), params);
 			} else if (params.size() > 0) {
-				getMethods().put(getSignature(iMethod), params);
+				getMethods().put(MethodHelper.getSignature(iMethod), params);
 			}
 
 		}

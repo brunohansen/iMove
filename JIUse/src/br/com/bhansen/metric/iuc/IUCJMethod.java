@@ -9,6 +9,8 @@ import org.eclipse.jdt.core.IMethod;
 import org.eclipse.jdt.core.IType;
 
 import br.com.bhansen.metric.AbsMetric;
+import br.com.bhansen.utils.MethodHelper;
+import br.com.bhansen.utils.TypeHelper;
 
 public class IUCJMethod extends IUC {
 	
@@ -22,20 +24,20 @@ public class IUCJMethod extends IUC {
 
 		IMethod[] iMethods = type.getMethods();
 
-		if (isMovedMethod(method)) {
+		if (MethodHelper.isMovedMethod(method)) {
 			IMethod movedMethod = null;
 
 			for (IMethod iMethod : iMethods) {
 
-				if (isMovedMethod(iMethod, method)) {
+				if (MethodHelper.isMovedMethod(iMethod, method)) {
 					movedMethod = iMethod;
 					this.publicMethod = Flags.isPublic(iMethod.getFlags());
 				} else {
-					Set<String> callers = getCallers(iMethod);
+					Set<String> callers = MethodHelper.getCallerTypes(iMethod);
 
 					if ((ADD_NOT_CALLED) || (callers.size() > 0)) {
-						if (getMethods().put(getSignature(iMethod), callers) != null) {
-							System.out.println("Method " + getSignature(iMethod) + " colision!");
+						if (getMethods().put(MethodHelper.getSignature(iMethod), callers) != null) {
+							System.out.println("Method " + MethodHelper.getSignature(iMethod) + " colision!");
 						}
 					}
 				}
@@ -48,21 +50,21 @@ public class IUCJMethod extends IUC {
 			// if(original != null) {
 			// this.method = getMethods().remove(original);
 			// } else {
-			this.method = getCallers(movedMethod);
+			this.method = MethodHelper.getCallerTypes(movedMethod);
 			// }
 
 		} else {
 			for (IMethod iMethod : iMethods) {
 
-				if (isMethod(iMethod, method)) {
-					this.method = getCallers(iMethod);
+				if (MethodHelper.isMethod(iMethod, method)) {
+					this.method = MethodHelper.getCallerTypes(iMethod);
 					this.publicMethod = Flags.isPublic(iMethod.getFlags());
 				} else {
-					Set<String> callers = getCallers(iMethod);
+					Set<String> callers = MethodHelper.getCallerTypes(iMethod);
 
 					if ((ADD_NOT_CALLED) || (callers.size() > 0)) {
-						if (getMethods().put(getSignature(iMethod), callers) != null) {
-							System.out.println("Method " + getSignature(iMethod) + " colision!");
+						if (getMethods().put(MethodHelper.getSignature(iMethod), callers) != null) {
+							System.out.println("Method " + MethodHelper.getSignature(iMethod) + " colision!");
 						}
 					}
 				}
@@ -83,7 +85,7 @@ public class IUCJMethod extends IUC {
 
 	@Override
 	public boolean isCalledOnlyBy(IType type) {
-		return (!this.method.isEmpty()) && (this.method.size() == 1) && (this.method.contains(getClassName(type)));
+		return (!this.method.isEmpty()) && (this.method.size() == 1) && (this.method.contains(TypeHelper.getClassName(type)));
 	}
 
 	@Override

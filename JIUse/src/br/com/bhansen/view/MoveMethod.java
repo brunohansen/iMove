@@ -36,8 +36,8 @@ import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.part.ViewPart;
 
 import br.com.bhansen.handler.input.InputMovement;
-import br.com.bhansen.refactory.MoveMethodEvaluator;
 import br.com.bhansen.refactory.MoveMethodRefactor;
+import br.com.bhansen.utils.TypeHelper;
 
 /**
  * This sample class demonstrates how to plug-in a new workbench view. The view
@@ -171,7 +171,7 @@ public class MoveMethod extends ViewPart {
 				
 				try {
 					IType classFrom = InputMovement.findType(project, parts[1].split("::")[0]);								
-					IMethod method = MoveMethodEvaluator.getMethod(classFrom, parts[1].split("::")[1]);
+					IMethod method = TypeHelper.getMethod(classFrom, parts[1].split("::")[1]);
 					JavaUI.openInEditor(method);
 				} catch (Exception e) {
 					throw new RuntimeException(e);
@@ -216,7 +216,7 @@ public class MoveMethod extends ViewPart {
 				
 				try {
 					IType classFrom = InputMovement.findType(project, parts[1].split("::")[0]);								
-					IMethod method = MoveMethodEvaluator.getMethod(classFrom, parts[1].split("::")[1]);
+					IMethod method = TypeHelper.getMethod(classFrom, parts[1].split("::")[1]);
 					MoveMethodRefactor.moveWizard(method, viewer.getControl().getShell());
 				} catch (Exception e) {
 					throw new RuntimeException(e);

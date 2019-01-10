@@ -6,6 +6,7 @@ import org.eclipse.jdt.core.IMethod;
 import org.eclipse.jdt.core.IType;
 
 import br.com.bhansen.metric.DeclarationMetric;
+import br.com.bhansen.utils.MethodHelper;
 
 public class CAMCMethod extends DeclarationMetric {
 	
@@ -26,13 +27,13 @@ public class CAMCMethod extends DeclarationMetric {
 //			if (isMovedMethod(iMethod, method))
 //				removeFakeParameter(params, parameter);
 			
-			if((isMethod(iMethod, method)) || (isMovedMethod(iMethod, method)))
+			if((MethodHelper.isMethod(iMethod, method)) || (MethodHelper.isMovedMethod(iMethod, method)))
 				this.method = params;
 
 			if (zeroParams) {
-				getMethods().put(getSignature(iMethod), params);
+				getMethods().put(MethodHelper.getSignature(iMethod), params);
 			} else if (params.size() > 0) {
-				getMethods().put(getSignature(iMethod), params);
+				getMethods().put(MethodHelper.getSignature(iMethod), params);
 			}
 
 		}

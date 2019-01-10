@@ -4,19 +4,13 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
-import java.util.Set;
 import java.util.Map.Entry;
+import java.util.Set;
 
-import org.eclipse.core.runtime.NullProgressMonitor;
-import org.eclipse.jdt.core.IMember;
-import org.eclipse.jdt.core.IMethod;
 import org.eclipse.jdt.core.IType;
-import org.eclipse.jdt.internal.corext.callhierarchy.CallHierarchy;
-import org.eclipse.jdt.internal.corext.callhierarchy.MethodWrapper;
 
 import br.com.bhansen.metric.AbsMetric;
 
-@SuppressWarnings("restriction")
 public abstract class IUC extends AbsMetric {
 
 	public IUC(IType type) {
@@ -82,27 +76,6 @@ public abstract class IUC extends AbsMetric {
 		return result;
 	}
 
-	protected Set<String> getCallers(IMethod method) {
-		Set<String> callerMethods = new HashSet<>();
-
-		CallHierarchy callHierarchy = CallHierarchy.getDefault();
-
-		IMember[] members = { method };
-
-		MethodWrapper[] methodWrappers = callHierarchy.getCallerRoots(members);
-		for (MethodWrapper mw : methodWrappers) {
-			MethodWrapper[] mw2 = mw.getCalls(new NullProgressMonitor());
-			for (MethodWrapper m : mw2) {
-				IMethod im = getIMethodFromMethodWrapper(m);
-				if (im != null) {
-					callerMethods.add(getClassName(im.getDeclaringType()));
-				}
-			}
-		}
-
-		return callerMethods;
-	}
-		
 	public static Map<Set<String>, Set<String>> groupMethodsByCallers(Map<String, Set<String>> methods) {
 		Map<Set<String>, Set<String>> groupedMethods = new HashMap<>();
 
