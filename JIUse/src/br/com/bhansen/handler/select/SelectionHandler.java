@@ -58,10 +58,6 @@ public abstract class SelectionHandler extends IMoveHandler {
 		    IJavaElement selected = unit.getElementAt(selection.getOffset());
 		    if(selected != null) {
 				if (selected.getElementType() == IJavaElement.METHOD) {
-					//for (IMarker m : selected.getResource().findMarkers(null, false, IResource.DEPTH_ZERO)) {
-					//	System.out.println(m.getType());
-					//}
-					
 					return (IMethod) selected;
 				}
 		    } 
