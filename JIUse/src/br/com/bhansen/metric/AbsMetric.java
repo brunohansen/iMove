@@ -78,14 +78,14 @@ public abstract class AbsMetric implements Metric {
 		return isMovedMethod(iMethod, method) && (getOriginalMethod(iMethod) != null);
 	}
 	
-	protected boolean isMovedMethod(String name) {
+	protected static boolean isMovedMethod(String name) {
 		if(name == null)
 			return false;
 
 		return name.endsWith(METHOD_SUFFIX);
 	}
 	
-	protected boolean isMovedMethod(IMethod iMethod, String name) throws IllegalArgumentException, JavaModelException {
+	protected static boolean isMovedMethod(IMethod iMethod, String name) throws IllegalArgumentException, JavaModelException {
 		if(! isMovedMethod(name))
 			return false;
 					
@@ -137,6 +137,23 @@ public abstract class AbsMetric implements Metric {
 		}				
 		
 		return null;
+	}
+	
+	public static IMethod getMovedMethod(IType type, String name) throws Exception {
+		IMethod[] iMethods = type.getMethods();
+
+		if (isMovedMethod(name)) {
+
+			for (IMethod iMethod : iMethods) {
+
+				if (isMovedMethod(iMethod, name)) {
+					return iMethod;
+				}
+
+			}
+		}
+		
+		throw new Exception("Moved method not found!");
 	}
 	
 	protected Set<String> getCallerMethods(IMethod method) throws IllegalArgumentException, JavaModelException {
