@@ -1,0 +1,20 @@
+Privado eu não moveria
+-0.099660-100	org.gjt.sp.jedit.browser.VFSBrowser::handleBufferUpdate(BufferUpdate):void	org.gjt.sp.jedit.msg.BufferUpdate
+Publico não faz sentido mover
+-0.103242-100	org.gjt.sp.jedit.Mode::accept(Buffer, String, String):boolean	gnu.regexp.RE
+Publico complicado dizer tem como atributo o source
+-0.136267-100	org.gjt.sp.jedit.textarea.JEditTextArea::xToOffset(int, int):int	org.gjt.sp.jedit.textarea.TextAreaPainter
+Privado tem o target de varias formas, vai com removeSelfParameter
+-0.146222-100	org.gjt.sp.jedit.EditPane::initTextArea(JEditTextArea):void	org.gjt.sp.jedit.textarea.JEditTextArea
+Protegido tem duas refatorações que não aidcionam parametros mas o numero de parateros variam
+-0.269476-100	bsh.Name::resolveThisFieldReference(NameSpace, Interpreter, String, boolean):Object	bsh.NameSpace
+Private
+-0.375146-100	org.gjt.sp.jedit.io.BufferIORequest::read(Buffer, InputStream, long):String	org.gjt.sp.jedit.Buffer
+Private
+-0.401496-100	org.gjt.sp.jedit.io.BufferIORequest::readMarkers(Buffer, InputStream):void	org.gjt.sp.jedit.Buffer
+Private
+-0.411606-100	org.gjt.sp.jedit.io.BufferIORequest::writeMarkers(Buffer, OutputStream):void	org.gjt.sp.jedit.Buffer
+Esse Foi Caralho!
+0.055079-000	org.gjt.sp.jedit.Buffer::tokenizeLines(int, int):void	org.gjt.sp.jedit.syntax.TokenMarker
+Não vai
+E01	org.gjt.sp.jedit.GUIUtilities::getStyleString(SyntaxStyle):String	org.gjt.sp.jedit.syntax.SyntaxStyle	 Error: Invalid target!	 Error: Invalid target!
