@@ -59,7 +59,15 @@ public abstract class DeclarationMetric extends AbsMetric {
 		return signature.replaceAll(".*\\(", "").replaceAll("\\).*", "");
 	}
 	
+	public static final Set<String> createParametersSet(IType type, IMethod iMethod) throws IllegalArgumentException, JavaModelException {
+		return createParametersSet(getClassName(type), iMethod);
+	}
+	
 	protected final Set<String> createParametersSet(IMethod iMethod) throws IllegalArgumentException, JavaModelException {
+		return createParametersSet(getName(), iMethod);
+	}
+	
+	protected static final Set<String> createParametersSet(String className, IMethod iMethod) throws IllegalArgumentException, JavaModelException {
 		//String strParams = getParameters(iMethod);
 		String strParams = getParametersAndReturn(iMethod);
 		strParams = explodGenerics(strParams);
@@ -73,7 +81,7 @@ public abstract class DeclarationMetric extends AbsMetric {
 		}
 
 		//parameters = removePrimitives(parameters);
-		removeSelfParameter(parameters);
+		removeSelfParameter(className, parameters);
 		
 		return parameters;
 	}
@@ -148,10 +156,10 @@ public abstract class DeclarationMetric extends AbsMetric {
 
 	}
 	
-	protected final void removeSelfParameter(Set<String> params) throws JavaModelException {
+	private static final void removeSelfParameter(String className, Set<String> params) throws JavaModelException {
 
-		params.remove(generateInnerSignature(getName()));
-		params.remove(generateSignature(getName()));
+		params.remove(generateInnerSignature(className));
+		params.remove(generateSignature(className));
 		return;
 
 	}
