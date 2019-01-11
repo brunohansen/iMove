@@ -27,7 +27,7 @@ public class IUCJMethod extends IUC {
 				Set<String> callers = MethodHelper.getCallerTypes(iMethod);
 				
 				//Remove fake public
-//				MethodHelper.removeCaller(callers, type);
+				MethodHelper.removeCaller(callers, type);
 				
 				this.method = callers;
 				this.publicMethod = Flags.isPublic(iMethod.getFlags());
@@ -35,25 +35,25 @@ public class IUCJMethod extends IUC {
 			} else {
 				
 				// Dont add constructor
-//				if (iMethod.isConstructor())
-//					continue;
+				if (iMethod.isConstructor())
+					continue;
 				
 				// Dont add private
-//				if (Flags.isPrivate(iMethod.getFlags()))
-//					continue;
+				if (Flags.isPrivate(iMethod.getFlags()))
+					continue;
 				
 				Set<String> callers = MethodHelper.getCallerTypes(iMethod);
 
 				// Dont add not called
-//				if (callers.size() == 0)
-//					continue;
+				if (callers.size() == 0)
+					continue;
 				
 				// Dont add fake public
-//				if(MethodHelper.isCalledOnlyBy(callers, type))
-//					continue;
+				if(MethodHelper.isCalledOnlyBy(callers, type))
+					continue;
 				
 				//Remove fake public
-//				MethodHelper.removeCaller(callers, type);
+				MethodHelper.removeCaller(callers, type);
 				
 				if (getMethods().put(MethodHelper.getSignature(iMethod), callers) != null) {
 					System.out.println("Method " + MethodHelper.getSignature(iMethod) + " colision!");
