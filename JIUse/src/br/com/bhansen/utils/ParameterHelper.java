@@ -9,6 +9,7 @@ import org.eclipse.jdt.core.JavaModelException;
 public class ParameterHelper {
 
 	final static Set<String> primitives = new HashSet<>();
+	final static Set<String> collections = new HashSet<>();
 
 	static {
 		primitives.add("byte");
@@ -29,6 +30,18 @@ public class ParameterHelper {
 		primitives.add("Boolean");
 		primitives.add("String");
 		primitives.add("void");
+		
+		collections.add("Set");
+		collections.add("List");
+		collections.add("Map");
+		collections.add("Queue");
+		collections.add("Deque");
+		collections.add("HashSet");
+		collections.add("ArrayList");
+		collections.add("HashMap");
+		collections.add("LinkedList");
+		collections.add("ArrayDeque");
+		
 	}
 
 	protected final static String explodGenerics(String parameters) {
@@ -48,6 +61,18 @@ public class ParameterHelper {
 		
 		for (String param : parameters) {
 			if(! primitives.contains(param)) {
+				params.add(param);
+			}
+		}
+		
+		return params;
+	}
+	
+	public final static Set<String> removeCollections(Set<String> parameters) {
+		Set<String> params = new HashSet<>();
+		
+		for (String param : parameters) {
+			if(! collections.contains(param)) {
 				params.add(param);
 			}
 		}
