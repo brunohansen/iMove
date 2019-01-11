@@ -61,7 +61,8 @@ public class MethodHelper {
 			}
 		}
 	
-		//parameters = removePrimitives(parameters);
+//		ParameterHelper.removePrimitives(parameters);
+		ParameterHelper.removeCollections(parameters);
 		ParameterHelper.removeSelfParameter(parameters, className);
 		
 		return parameters;
