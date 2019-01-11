@@ -1,0 +1,10 @@
+0.000000-000	edu.rice.cs.drjava.model.GlobalEventNotifier::testCommentOutMultipleLines(CommentTest):void	edu.rice.cs.drjava.model.definitions.CommentTest
+0.000000-000	edu.rice.cs.drjava.model.TestDocGetter::testConstructOneDocWithoutLineNums(CompilerErrorModelTest):void	edu.rice.cs.drjava.model.compiler.CompilerErrorModelTest
+0.000000-000	edu.rice.cs.drjava.model.repl.InteractionsDJDocument::testHistoryRecallNextMovesToEnd(InteractionsPaneTest):void	edu.rice.cs.drjava.ui.InteractionsPaneTest
+0.000000-000	edu.rice.cs.drjava.ui.MainFrame::testNE(CommandLineTest):void	edu.rice.cs.drjava.CommandLineTest
+0.076989-000	edu.rice.cs.drjava.model.FindReplaceMachine::findPrevious(FindReplacePanel):void	edu.rice.cs.drjava.ui.FindReplacePanel
+0.176857-000	edu.rice.cs.util.swing.DelegatingAction::_installNewDocumentListener(MainFrame, OpenDefinitionsDocument):void	edu.rice.cs.drjava.ui.MainFrame
+0.205149-000	edu.rice.cs.util.swing.DirectoryChooser::_setUpLanguageLevelMenu(MainFrame, int, boolean):JMenu	edu.rice.cs.drjava.ui.MainFrame
+0.242190-000	edu.rice.cs.drjava.ui.config.VectorFileOptionComponent::reset2(ProjectPropertiesFrame, File):void	edu.rice.cs.drjava.ui.ProjectPropertiesFrame
+0.243675-000	edu.rice.cs.util.swing.FileChooser::_runCommand(ExecuteExternalDialog):void	edu.rice.cs.drjava.ui.ExecuteExternalDialog
+0.437950-000	edu.rice.cs.drjava.config.ConfigOptionListeners.RequiresInteractionsRestartListener::_setupNotificationsPanel(ConfigFrame, ConfigPanel):void	edu.rice.cs.drjava.ui.config.ConfigFrame
