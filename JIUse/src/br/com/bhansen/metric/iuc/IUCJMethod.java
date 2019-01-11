@@ -34,6 +34,10 @@ public class IUCJMethod extends IUC {
 
 			} else {
 				
+				// Dont add constructor
+//				if (iMethod.isConstructor())
+//					continue;
+				
 				// Dont add private
 //				if (Flags.isPrivate(iMethod.getFlags()))
 //					continue;

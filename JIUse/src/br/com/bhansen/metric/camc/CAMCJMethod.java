@@ -28,6 +28,10 @@ public class CAMCJMethod extends DeclarationMetric {
 				this.publicMethod = Flags.isPublic(iMethod.getFlags());
 			} else {
 				
+				// Dont add constructor
+//				if (iMethod.isConstructor())
+//					continue;
+				
 				// Dont add private
 //				if (Flags.isPrivate(iMethod.getFlags()))
 //					continue;
