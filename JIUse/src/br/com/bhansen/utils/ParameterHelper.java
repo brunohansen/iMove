@@ -56,28 +56,12 @@ public class ParameterHelper {
 		return generics;
 	}
 
-	public final static Set<String> removePrimitives(Set<String> parameters) {
-		Set<String> params = new HashSet<>();
-		
-		for (String param : parameters) {
-			if(! primitives.contains(param)) {
-				params.add(param);
-			}
-		}
-		
-		return params;
+	public final static void removePrimitives(Set<String> parameters) {
+		parameters.removeAll(primitives);
 	}
 	
-	public final static Set<String> removeCollections(Set<String> parameters) {
-		Set<String> params = new HashSet<>();
-		
-		for (String param : parameters) {
-			if(! collections.contains(param)) {
-				params.add(param);
-			}
-		}
-		
-		return params;
+	public final static void removeCollections(Set<String> parameters) {
+		parameters.removeAll(collections);
 	}
 		
 	public static final void removeSelfParameter(Set<String> parameters, String className) throws JavaModelException {
