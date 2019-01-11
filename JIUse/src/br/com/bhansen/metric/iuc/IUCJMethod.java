@@ -1,7 +1,7 @@
 package br.com.bhansen.metric.iuc;
 
-import java.util.Map.Entry;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Set;
 
 import org.eclipse.jdt.core.Flags;
@@ -10,7 +10,6 @@ import org.eclipse.jdt.core.IType;
 
 import br.com.bhansen.metric.AbsMetric;
 import br.com.bhansen.utils.MethodHelper;
-import br.com.bhansen.utils.TypeHelper;
 
 public class IUCJMethod extends IUC {
 
@@ -40,6 +39,10 @@ public class IUCJMethod extends IUC {
 //				if (callers.size() == 0)
 //					continue;
 				
+				// Dont add fake public
+//				if(MethodHelper.isCalledOnlyBy(callers, type))
+//					continue;
+				
 				if (getMethods().put(MethodHelper.getSignature(iMethod), callers) != null) {
 					System.out.println("Method " + MethodHelper.getSignature(iMethod) + " colision!");
 				}
@@ -60,8 +63,7 @@ public class IUCJMethod extends IUC {
 
 	@Override
 	public boolean isCalledOnlyBy(IType type) {
-		return (!this.method.isEmpty()) && (this.method.size() == 1)
-				&& (this.method.contains(TypeHelper.getClassName(type)));
+		return MethodHelper.isCalledOnlyBy(this.method, type);
 	}
 
 	@Override
