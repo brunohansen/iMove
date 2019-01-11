@@ -20,7 +20,7 @@ public abstract class DeclarationMetricClass extends DeclarationMetric {
 //			if ((Flags.isPrivate(iMethod.getFlags())) || (isFakeDelegate(iMethod, method)))
 //				continue;
 
-			Set<String> params = createParametersSet(iMethod);
+			Set<String> params = createParametersSet(iMethod, parameter);
 
 //			if (isMovedMethod(iMethod, method))
 //				removeFakeParameter(params, parameter);

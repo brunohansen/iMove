@@ -26,11 +26,13 @@ public class EvaluateSumClass extends MoveMethodEvaluator  {
 	}
 	
 	private void move() throws Exception {
-		Change undo = MoveMethodRefactor.move(this.classFrom, this.iMethod, this.classTo);
+		MoveMethodRefactor refactor = new MoveMethodRefactor();
+		
+		Change undo = refactor.move(this.classFrom, this.iMethod, this.classTo);
 		
 		try {
 			this.newFromValue = factory.create(this.classFrom).getMetric();
-			this.newToValue = factory.create(this.classTo, MethodHelper.getMoveMethodName(MethodHelper.getMethodName(this.mSig)), TypeHelper.getClassName(this.classFrom)).getMetric();
+			this.newToValue = factory.create(this.classTo, MethodHelper.getMoveMethodName(MethodHelper.getMethodName(this.mSig)), refactor.getTypeNotUsed()).getMetric();
 			
 			this.valueDifference = (this.newFromValue - this.oldFromValue) + (this.newToValue - this.oldToValue);
 		} finally {

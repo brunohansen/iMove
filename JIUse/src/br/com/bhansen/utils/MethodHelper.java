@@ -44,13 +44,18 @@ public class MethodHelper {
 		return false;
 	}
 	
-	public static final Set<String> createParametersSet(IMethod iMethod) throws IllegalArgumentException, JavaModelException {
-		return createParametersSet(iMethod, TypeHelper.getClassName(iMethod.getDeclaringType()));
+	public static final Set<String> createParametersSet(IMethod iMethod, String without) throws IllegalArgumentException, JavaModelException {
+		return createParametersSet(iMethod, TypeHelper.getClassName(iMethod.getDeclaringType()), without);
 	}
 
-	public static final Set<String> createParametersSet(IMethod iMethod, String className) throws IllegalArgumentException, JavaModelException {
+	public static final Set<String> createParametersSet(IMethod iMethod, String className, String without) throws IllegalArgumentException, JavaModelException {
 		//String strParams = getParameters(iMethod);
 		String strParams = getParametersAndReturn(iMethod);
+		
+		if(without != null) {
+			strParams = strParams.replaceFirst(without + "(, )*", "");
+		}
+		
 		strParams = ParameterHelper.explodGenerics(strParams);
 	
 		Set<String> parameters = new HashSet<>();

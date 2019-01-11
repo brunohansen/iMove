@@ -32,8 +32,8 @@ public abstract class DeclarationMetric extends AbsMetric {
 		return false;
 	}
 
-	protected final Set<String> createParametersSet(IMethod iMethod) throws IllegalArgumentException, JavaModelException {
-		return MethodHelper.createParametersSet(iMethod, getName());
+	protected final Set<String> createParametersSet(IMethod iMethod, String without) throws IllegalArgumentException, JavaModelException {
+		return MethodHelper.createParametersSet(iMethod, getName(), without);
 	}
 	
 	protected final void removeFakeParameter(Set<String> params, String parameter) throws JavaModelException {

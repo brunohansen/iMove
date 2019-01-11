@@ -24,7 +24,7 @@ public class CAMCJMethod extends DeclarationMetric {
 		for (IMethod iMethod : iMethods) {
 
 			if (MethodHelper.isMethod(iMethod, method) || MethodHelper.isMovedMethod(iMethod, method)) {
-				this.method = createParametersSet(iMethod);
+				this.method = createParametersSet(iMethod, parameter);
 				this.publicMethod = Flags.isPublic(iMethod.getFlags());
 			} else {
 				
@@ -36,7 +36,7 @@ public class CAMCJMethod extends DeclarationMetric {
 				if (Flags.isPrivate(iMethod.getFlags()))
 					continue;
 				
-				Set<String> params = createParametersSet(iMethod);
+				Set<String> params = createParametersSet(iMethod, parameter);
 				
 				// Dont add zero parameters
 //				if(params.size() == 0)
