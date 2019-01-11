@@ -29,12 +29,12 @@ public class CAMCJMethod extends DeclarationMetric {
 			} else {
 				
 				// Dont add constructor
-//				if (iMethod.isConstructor())
-//					continue;
+				if (iMethod.isConstructor())
+					continue;
 				
 				// Dont add private
-//				if (Flags.isPrivate(iMethod.getFlags()))
-//					continue;
+				if (Flags.isPrivate(iMethod.getFlags()))
+					continue;
 				
 				Set<String> params = createParametersSet(iMethod);
 				
