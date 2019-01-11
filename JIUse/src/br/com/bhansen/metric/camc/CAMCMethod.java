@@ -12,7 +12,7 @@ public class CAMCMethod extends DeclarationMetric {
 	
 	Set<String> method;
 		
-	public CAMCMethod(IType type, boolean zeroParams, String method, String parameter) throws Exception {
+	public CAMCMethod(IType type, String method, String parameter) throws Exception {
 		super(type);
 
 		IMethod[] iMethods = type.getMethods();
@@ -30,11 +30,11 @@ public class CAMCMethod extends DeclarationMetric {
 			if((MethodHelper.isMethod(iMethod, method)) || (MethodHelper.isMovedMethod(iMethod, method)))
 				this.method = params;
 
-			if (zeroParams) {
-				getMethods().put(MethodHelper.getSignature(iMethod), params);
-			} else if (params.size() > 0) {
-				getMethods().put(MethodHelper.getSignature(iMethod), params);
-			}
+			// Dont add zero parameters
+//			if(params.size() == 0)
+//				continue;
+
+			getMethods().put(MethodHelper.getSignature(iMethod), params);
 
 		}
 	}

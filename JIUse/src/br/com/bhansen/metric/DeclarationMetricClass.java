@@ -10,7 +10,7 @@ import br.com.bhansen.utils.MethodHelper;
 
 public abstract class DeclarationMetricClass extends DeclarationMetric {
 
-	protected DeclarationMetricClass(IType type, boolean zeroParams, String method, String parameter) throws Exception {
+	protected DeclarationMetricClass(IType type, String method, String parameter) throws Exception {
 		super(type);
 
 		IMethod[] iMethods = type.getMethods();
@@ -24,12 +24,12 @@ public abstract class DeclarationMetricClass extends DeclarationMetric {
 
 //			if (isMovedMethod(iMethod, method))
 //				removeFakeParameter(params, parameter);
+			
+			// Dont add zero parameters
+//			if(params.size() == 0)
+//				continue;
 
-			if (zeroParams) {
-				getMethods().put(MethodHelper.getSignature(iMethod), params);
-			} else if (params.size() > 0) {
-				getMethods().put(MethodHelper.getSignature(iMethod), params);
-			}
+			getMethods().put(MethodHelper.getSignature(iMethod), params);
 
 		}
 	}

@@ -10,8 +10,8 @@ import br.com.bhansen.metric.DeclarationMetricClass;
 
 public class CAMCJClass extends DeclarationMetricClass {
 
-	public CAMCJClass(IType type, boolean zeroParams, String method, String parameter) throws Exception {
-		super(type, zeroParams, method, parameter);
+	public CAMCJClass(IType type, String method, String parameter) throws Exception {
+		super(type, method, parameter);
 	}
 		
 	@Override

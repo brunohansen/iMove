@@ -9,8 +9,8 @@ import br.com.bhansen.metric.DeclarationMetricClass;
 
 public class NHDMClass extends DeclarationMetricClass {
 	
-	public NHDMClass(IType type, boolean zeroParams, String method, String parameter) throws Exception {
-		super(type, zeroParams, method, parameter);
+	public NHDMClass(IType type, String method, String parameter) throws Exception {
+		super(type, method, parameter);
 	}
 	
 	@Override
