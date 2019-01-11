@@ -24,7 +24,12 @@ public class IUCJMethod extends IUC {
 		for (IMethod iMethod : iMethods) {
 
 			if (MethodHelper.isMethod(iMethod, method) || MethodHelper.isMovedMethod(iMethod, method)) {
-				this.method = MethodHelper.getCallerTypes(iMethod);
+				Set<String> callers = MethodHelper.getCallerTypes(iMethod);
+				
+				//Remove fake public
+//				MethodHelper.removeCaller(callers, type);
+				
+				this.method = callers;
 				this.publicMethod = Flags.isPublic(iMethod.getFlags());
 
 			} else {
@@ -42,6 +47,9 @@ public class IUCJMethod extends IUC {
 				// Dont add fake public
 //				if(MethodHelper.isCalledOnlyBy(callers, type))
 //					continue;
+				
+				//Remove fake public
+//				MethodHelper.removeCaller(callers, type);
 				
 				if (getMethods().put(MethodHelper.getSignature(iMethod), callers) != null) {
 					System.out.println("Method " + MethodHelper.getSignature(iMethod) + " colision!");

@@ -197,5 +197,9 @@ public class MethodHelper {
 	public static boolean isCalledOnlyBy(Set<String> callers, IType type) {
 		return (!callers.isEmpty()) && (callers.size() == 1) && (callers.contains(TypeHelper.getClassName(type)));
 	}
+	
+	public static void removeCaller(Set<String> callers, IType type) {
+		callers.remove(TypeHelper.getClassName(type));
+	}
 
 }
