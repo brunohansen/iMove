@@ -60,7 +60,7 @@ public abstract class IMoveHandler extends AbstractHandler {
 		return new MetricFactory() {
 
 			@Override
-			public Metric create(IType type, String method, String parameter) throws Exception {
+			public Metric create(IType type, String method, String parameter, boolean skipIUC) throws Exception {
 
 				switch (eType) {
 				case "class":
@@ -85,7 +85,10 @@ public abstract class IMoveHandler extends AbstractHandler {
 					case "CAMC":
 						return new CAMCJMethod(type, method, parameter);
 					case "IUC + CAMC":
-						return new CompositeMetric(new IUCJMethod(type, method), new CAMCJMethod(type, method, parameter));
+						if(skipIUC)
+							return new CAMCJMethod(type, method, parameter);
+						else
+							return new CompositeMetric(new IUCJMethod(type, method), new CAMCJMethod(type, method, parameter));
 					default:
 						throw new Exception("Invalid metric: " + metric + "!");
 					}

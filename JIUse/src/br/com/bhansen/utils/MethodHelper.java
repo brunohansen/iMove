@@ -29,6 +29,10 @@ public class MethodHelper {
 		return signature.split("\\(", 2)[0];
 	}
 	
+	public static boolean isPublic(IType type, String signature) throws JavaModelException, Exception {
+		return Flags.isPublic(TypeHelper.getMethod(type, signature).getFlags());
+	}
+	
 	public static final boolean isMethod(IMethod iMethod, String signature) throws Exception {
 		if(signature == null)
 			return false;
@@ -202,8 +206,16 @@ public class MethodHelper {
 		}
 	}
 	
-	public static boolean isCalledOnlyBy(Set<String> callers, IType type) {
-		return (!callers.isEmpty()) && (callers.size() == 1) && (callers.contains(TypeHelper.getClassName(type)));
+	public static boolean hasNoCaller(IType type, String signature) throws Exception {
+		return getCallerTypes(TypeHelper.getMethod(type, signature)).size() == 0;
+	}
+	
+	public static boolean isCalledOnlyBy(IType type, String signature, IType caller) throws Exception {
+		return isCalledOnlyBy(getCallerTypes(TypeHelper.getMethod(type, signature)), caller);
+	}
+	
+	public static boolean isCalledOnlyBy(Set<String> callers, IType caller) {
+		return (!callers.isEmpty()) && (callers.size() == 1) && (callers.contains(TypeHelper.getClassName(caller)));
 	}
 	
 	public static void removeCaller(Set<String> callers, IType type) {

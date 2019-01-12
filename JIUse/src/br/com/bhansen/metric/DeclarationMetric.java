@@ -17,21 +17,6 @@ public abstract class DeclarationMetric extends AbsMetric {
 		super(type);
 	}
 
-	@Override
-	public boolean isPublicMethod() {
-		return true;
-	}
-
-	@Override
-	public boolean hasNoCaller() {
-		return false;
-	}
-
-	@Override
-	public boolean isCalledOnlyBy(IType type) {
-		return false;
-	}
-
 	protected final Set<String> createParametersSet(IMethod iMethod, String without) throws IllegalArgumentException, JavaModelException {
 		return MethodHelper.createParametersSet(iMethod, getName(), without);
 	}

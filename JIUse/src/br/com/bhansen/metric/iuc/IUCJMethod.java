@@ -14,7 +14,6 @@ import br.com.bhansen.utils.MethodHelper;
 public class IUCJMethod extends IUC {
 
 	private Set<String> method;
-	private boolean publicMethod;
 
 	public IUCJMethod(IType type, String method) throws Exception {
 		super(type);
@@ -30,7 +29,6 @@ public class IUCJMethod extends IUC {
 				MethodHelper.removeCaller(callers, type);
 				
 				this.method = callers;
-				this.publicMethod = Flags.isPublic(iMethod.getFlags());
 
 			} else {
 				
@@ -61,21 +59,6 @@ public class IUCJMethod extends IUC {
 			}
 
 		}
-	}
-
-	@Override
-	public boolean isPublicMethod() {
-		return this.publicMethod;
-	}
-
-	@Override
-	public boolean hasNoCaller() {
-		return this.method.isEmpty();
-	}
-
-	@Override
-	public boolean isCalledOnlyBy(IType type) {
-		return MethodHelper.isCalledOnlyBy(this.method, type);
 	}
 
 	@Override

@@ -23,11 +23,6 @@ public abstract class AbsMetric implements Metric {
 		this.methods = new HashMap<>();
 	}
 	
-	@Override
-	public double getMetric(boolean skipIUC) throws Exception {
-		return getMetric();
-	}
-
 	public String getName() {
 		return name;
 	}

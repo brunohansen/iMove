@@ -14,7 +14,6 @@ import br.com.bhansen.utils.MethodHelper;
 public class CAMCJMethod extends DeclarationMetric {
 
 	Set<String> method;
-	private boolean publicMethod;
 
 	public CAMCJMethod(IType type, String method, String parameter) throws Exception {
 		super(type);
@@ -25,7 +24,6 @@ public class CAMCJMethod extends DeclarationMetric {
 
 			if (MethodHelper.isMethod(iMethod, method) || MethodHelper.isMovedMethod(iMethod, method)) {
 				this.method = createParametersSet(iMethod, parameter);
-				this.publicMethod = Flags.isPublic(iMethod.getFlags());
 			} else {
 				
 				// Dont add constructor
@@ -46,11 +44,6 @@ public class CAMCJMethod extends DeclarationMetric {
 			}
 
 		}
-	}
-
-	@Override
-	public boolean isPublicMethod() {
-		return this.publicMethod;
 	}
 
 	@Override
