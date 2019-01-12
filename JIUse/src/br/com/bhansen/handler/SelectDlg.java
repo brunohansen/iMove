@@ -1,13 +1,16 @@
 package br.com.bhansen.handler;
 
 
+import org.eclipse.jdt.internal.ui.refactoring.RefactoringMessages;
 import org.eclipse.jface.dialogs.InputDialog;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.events.SelectionListener;
+import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.widgets.Combo;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
+import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Shell;
 
 public class SelectDlg extends InputDialog {
@@ -23,6 +26,8 @@ public class SelectDlg extends InputDialog {
 	protected Control createDialogArea(Composite parent) {
 		SelectDlg dlg = this;
 		 Composite composite = (Composite) super.createDialogArea(parent);
+		 Label optLabel= new Label(composite, SWT.SINGLE);
+			optLabel.setText("Project");
 		 Combo c = new Combo(composite, SWT.READ_ONLY);
 		    c.setBounds(composite.getBounds());
 		    c.setItems(options);
