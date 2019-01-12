@@ -32,7 +32,7 @@ public class SelectProjectDlg extends SelectDlg {
 			projNames[i] = projects[i].getName();			
 		}
 		
-		SelectProjectDlg dlg = new SelectProjectDlg(parentShell, "iMove - Choose a project!", "Method", projNames);
+		SelectProjectDlg dlg = new SelectProjectDlg(parentShell, dialogTitle, dialogMessage, projNames);
 		dlg.open();
 		
 		return dlg;
