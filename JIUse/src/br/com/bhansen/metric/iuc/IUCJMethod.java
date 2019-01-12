@@ -9,6 +9,7 @@ import org.eclipse.jdt.core.IMethod;
 import org.eclipse.jdt.core.IType;
 
 import br.com.bhansen.metric.AbsMetric;
+import br.com.bhansen.utils.CallerHelper;
 import br.com.bhansen.utils.MethodHelper;
 
 public class IUCJMethod extends IUC {
@@ -23,10 +24,10 @@ public class IUCJMethod extends IUC {
 		for (IMethod iMethod : iMethods) {
 
 			if (MethodHelper.isMethod(iMethod, method) || MethodHelper.isMovedMethod(iMethod, method)) {
-				Set<String> callers = MethodHelper.getCallerTypes(iMethod);
+				Set<String> callers = CallerHelper.getCallerTypes(iMethod);
 				
 				//Remove fake public
-				MethodHelper.removeCaller(callers, type);
+				CallerHelper.removeCaller(callers, type);
 				
 				this.method = callers;
 
@@ -40,18 +41,18 @@ public class IUCJMethod extends IUC {
 				if (Flags.isPrivate(iMethod.getFlags()))
 					continue;
 				
-				Set<String> callers = MethodHelper.getCallerTypes(iMethod);
+				Set<String> callers = CallerHelper.getCallerTypes(iMethod);
 
 				// Dont add not called
 				if (callers.size() == 0)
 					continue;
 				
 				// Dont add fake public
-				if(MethodHelper.isCalledOnlyBy(callers, type))
+				if(CallerHelper.isCalledOnlyBy(callers, type))
 					continue;
 				
 				//Remove fake public
-				MethodHelper.removeCaller(callers, type);
+				CallerHelper.removeCaller(callers, type);
 				
 				if (getMethods().put(MethodHelper.getSignature(iMethod), callers) != null) {
 					System.out.println("Method " + MethodHelper.getSignature(iMethod) + " colision!");

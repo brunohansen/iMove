@@ -7,6 +7,7 @@ import java.util.Set;
 import org.eclipse.jdt.core.IMethod;
 import org.eclipse.jdt.core.IType;
 
+import br.com.bhansen.utils.CallerHelper;
 import br.com.bhansen.utils.MethodHelper;
 
 public class IUCClass extends IUC {
@@ -19,7 +20,7 @@ public class IUCClass extends IUC {
 		for (IMethod iMethod : iMethods) {
 			
 		//	if((! Flags.isPrivate(iMethod.getFlags())) && (! isFakeDelegate(iMethod, method))) {
-				if(getMethods().put(MethodHelper.getSignature(iMethod), MethodHelper.getCallerTypes(iMethod)) != null) {
+				if(getMethods().put(MethodHelper.getSignature(iMethod), CallerHelper.getCallerTypes(iMethod)) != null) {
 					System.out.println("Method " + MethodHelper.getSignature(iMethod) + " colision!");
 				};
 		//	}

@@ -1,10 +1,14 @@
 package br.com.bhansen.refactory;
 
+import java.util.Set;
+
 import org.eclipse.core.runtime.NullProgressMonitor;
+import org.eclipse.jdt.core.IMethod;
 import org.eclipse.jdt.core.IType;
 import org.eclipse.ltk.core.refactoring.Change;
 
 import br.com.bhansen.metric.MetricFactory;
+import br.com.bhansen.utils.CallerHelper;
 import br.com.bhansen.utils.MethodHelper;
 import br.com.bhansen.utils.TypeHelper;
 
@@ -18,7 +22,10 @@ public class EvaluateSumMethod extends MoveMethodEvaluator  {
 		
 		boolean skipIUC = false;
 		
-//		if(! MethodHelper.isPublic(classFrom, method) || MethodHelper.isCalledOnlyBy(classFrom, method, classTo) || MethodHelper.hasNoCaller(classFrom, method) || MethodHelper.isCalledOnlyBy(classFrom, method, classFrom)) {
+//		IMethod iMethod = TypeHelper.getMethod(classFrom, method);
+//		Set<String> callers = CallerHelper.getCallerTypes(iMethod);
+//		
+//		if(! MethodHelper.isPublic(iMethod) || CallerHelper.isCalledOnlyBy(callers, classTo) || CallerHelper.hasNoCaller(callers) || CallerHelper.isCalledOnlyBy(callers, classFrom)) {
 //			skipIUC = true;
 //		} else {
 //			skipIUC = false;

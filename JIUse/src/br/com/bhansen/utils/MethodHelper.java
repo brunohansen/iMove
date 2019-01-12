@@ -3,17 +3,11 @@ package br.com.bhansen.utils;
 import java.util.HashSet;
 import java.util.Set;
 
-import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.jdt.core.Flags;
-import org.eclipse.jdt.core.IJavaElement;
-import org.eclipse.jdt.core.IMember;
 import org.eclipse.jdt.core.IMethod;
 import org.eclipse.jdt.core.IType;
 import org.eclipse.jdt.core.JavaModelException;
-import org.eclipse.jdt.internal.corext.callhierarchy.CallHierarchy;
-import org.eclipse.jdt.internal.corext.callhierarchy.MethodWrapper;
 
-@SuppressWarnings("restriction")
 public class MethodHelper {
 
 	private static String METHOD_SUFFIX = "Moved";
@@ -29,8 +23,8 @@ public class MethodHelper {
 		return signature.split("\\(", 2)[0];
 	}
 	
-	public static boolean isPublic(IType type, String signature) throws JavaModelException, Exception {
-		return Flags.isPublic(TypeHelper.getMethod(type, signature).getFlags());
+	public static boolean isPublic(IMethod method) throws JavaModelException, Exception {
+		return Flags.isPublic(method.getFlags());
 	}
 	
 	public static final boolean isMethod(IMethod iMethod, String signature) throws Exception {
@@ -110,7 +104,7 @@ public class MethodHelper {
 
 	private static String getOriginalMethod(IMethod method) throws IllegalArgumentException, JavaModelException {
 	
-		Set<String> callers = getCallerMethods(method);
+		Set<String> callers = CallerHelper.getCallerMethods(method);
 				
 		if(callers.size() != 1) {
 			return null;
@@ -130,58 +124,6 @@ public class MethodHelper {
 		return null;
 	}
 	
-	public static Set<String> getCallerTypes(IMethod method) {
-		Set<String> callerTypes = new HashSet<>();
-	
-		CallHierarchy callHierarchy = CallHierarchy.getDefault();
-	
-		IMember[] members = { method };
-	
-		MethodWrapper[] methodWrappers = callHierarchy.getCallerRoots(members);
-		for (MethodWrapper mw : methodWrappers) {
-			MethodWrapper[] mw2 = mw.getCalls(new NullProgressMonitor());
-			for (MethodWrapper m : mw2) {
-				IMethod im = getIMethodFromMethodWrapper(m);
-				if (im != null) {
-					callerTypes.add(TypeHelper.getClassName(im.getDeclaringType()));
-				}
-			}
-		}
-	
-		return callerTypes;
-	}
-
-	private static Set<String> getCallerMethods(IMethod method) throws IllegalArgumentException, JavaModelException {
-		Set<String> callerMethods = new HashSet<>();
-		
-		CallHierarchy callHierarchy = CallHierarchy.getDefault();
-	
-		IMember[] members = { method };
-	
-		MethodWrapper[] methodWrappers = callHierarchy.getCallerRoots(members);
-		for (MethodWrapper mw : methodWrappers) {
-			MethodWrapper[] mw2 = mw.getCalls(new NullProgressMonitor());
-			for (MethodWrapper m : mw2) {
-				IMethod im = MethodHelper.getIMethodFromMethodWrapper(m);
-				if (im != null) {
-					callerMethods.add(getSignature(im));
-				}
-			}
-		}
-		
-		return callerMethods;
-	}
-	
-	private static IMethod getIMethodFromMethodWrapper(MethodWrapper method) {
-		IMember iMember = method.getMember();
-		
-		if (iMember.getElementType() == IJavaElement.METHOD) {
-			return (IMethod) method.getMember();
-		} else {
-			return null;
-		}
-	}
-
 	public static String getMoveMethodName(String methodName) {
 		return methodName + METHOD_SUFFIX;
 	}
@@ -204,22 +146,6 @@ public class MethodHelper {
 		} else {
 			return getMethodName(mSig).equals(methodName);
 		}
-	}
-	
-	public static boolean hasNoCaller(IType type, String signature) throws Exception {
-		return getCallerTypes(TypeHelper.getMethod(type, signature)).size() == 0;
-	}
-	
-	public static boolean isCalledOnlyBy(IType type, String signature, IType caller) throws Exception {
-		return isCalledOnlyBy(getCallerTypes(TypeHelper.getMethod(type, signature)), caller);
-	}
-	
-	public static boolean isCalledOnlyBy(Set<String> callers, IType caller) {
-		return (!callers.isEmpty()) && (callers.size() == 1) && (callers.contains(TypeHelper.getClassName(caller)));
-	}
-	
-	public static void removeCaller(Set<String> callers, IType type) {
-		callers.remove(TypeHelper.getClassName(type));
 	}
 
 }
