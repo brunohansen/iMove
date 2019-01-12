@@ -52,6 +52,8 @@ public class MethodHelper {
 		//String strParams = getParameters(iMethod);
 		String strParams = getParametersAndReturn(iMethod);
 		
+		strParams = strParams.replaceAll("\\[\\]", "");// Remove arrays
+		
 		if(without != null) {
 			strParams = strParams.replaceFirst(without + "(, )*", "");
 		}
