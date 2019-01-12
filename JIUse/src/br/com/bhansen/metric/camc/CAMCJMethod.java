@@ -56,12 +56,12 @@ public class CAMCJMethod extends DeclarationMetric {
 	@Override
 	public double getMetric() throws Exception {
 		double metric = 0;
+		
+		if (method.size() == 0)
+			return 1;
 
 		if (getMethods().size() == 0)
 			return 0;
-
-		if (method.size() == 0)
-			return 1;
 
 		for (Entry<String, Set<String>> entry : getMethods().entrySet()) {
 
