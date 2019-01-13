@@ -28,7 +28,7 @@ public class IUCJMethod extends IUC {
 				MethodWithCallers mc = m.getMethodWithCallers();
 				
 				//Remove fake public
-				mc.removeCaller(type);
+//				mc.removeCaller(type);
 				
 				this.method = mc.getCallers();
 
@@ -45,15 +45,15 @@ public class IUCJMethod extends IUC {
 				MethodWithCallers mc = m.getMethodWithCallers();
 
 				// Dont add not called
-				if (! mc.hasCaller())
-					continue;
+//				if (! mc.hasCaller())
+//					continue;
 				
 				// Dont add fake public
-				if(mc.isCalledOnlyBy(type))
-					continue;
+//				if(mc.isCalledOnlyBy(type))
+//					continue;
 				
 				//Remove fake public
-				mc.removeCaller(type);
+//				mc.removeCaller(type);
 				
 				if (getMethods().put(mc.getSignature(), mc.getCallers()) != null) {
 					System.out.println("Method " + mc.getSignature() + " colision!");
