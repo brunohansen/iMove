@@ -17,13 +17,14 @@ public class EvaluateSumMethod extends MoveMethodEvaluator  {
 		
 		boolean skipIUC = false;
 		
-//		MethodWithCallers m = this.method.getMethodWithCallers();
-//		
-//		if(! m.isPublic() || m.isCalledOnlyBy(classTo) || ! m.hasCaller() || m.isCalledOnlyBy(classFrom)) {
-//			skipIUC = true;
-//		} else {
-//			skipIUC = false;
-//		}
+		MethodWithCallers m = this.method.getMethodWithCallers();
+		
+		//if(! m.isPublic() || m.isCalledOnlyBy(classTo) || ! m.hasCaller() || m.isCalledOnlyBy(classFrom)) {
+		if(m.isCalledOnlyBy(classTo) || ! m.hasCaller() || m.isCalledOnlyBy(classFrom)) {
+			skipIUC = true;
+		} else {
+			skipIUC = false;
+		}
 		
 		this.oldValue = factory.create(classFrom, method, skipIUC).getMetric();
 		
