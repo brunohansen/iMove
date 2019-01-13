@@ -24,6 +24,7 @@ public class MethodWithParameters extends Method {
 	}
 		
 	private Set<String> createParametersSet(String without) throws IllegalArgumentException, JavaModelException {
+		//String strParams = getSignature().replaceAll(".*\\(", "").replaceAll("\\).*", "");
 		String strParams = getParametersAndReturn();
 		
 		strParams = strParams.replaceAll("\\[\\]", "");// Remove arrays
@@ -42,7 +43,7 @@ public class MethodWithParameters extends Method {
 			}
 		}
 	
-//		ParameterHelper.removePrimitives(params);
+		ParameterHelper.removePrimitives(params);
 		ParameterHelper.removeCollections(params);
 		ParameterHelper.removeSelfParameter(params, Type.getName(getIMethod().getDeclaringType()));
 		

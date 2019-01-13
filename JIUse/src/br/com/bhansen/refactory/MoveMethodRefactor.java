@@ -64,7 +64,13 @@ public class MoveMethodRefactor {
 			throw new Exception("Invalid target!");
 		
 		if (selectedTargets.size() == 1) {
-			return performRefactoring(processor, refactoring, selectedTargets.get(0));
+			Change change = performRefactoring(processor, refactoring, selectedTargets.get(0));
+			
+			if(processor.needsTargetNode()) {
+				this.typeNotUsed = (processor.needsTargetNode())? getTypeIfNotUsed(classTo.getMovedMethod(processor.getMethodName()).getIMethod(), processor.getTargetName()) : null;
+			}
+			
+			return change;
 		} else {
 			IVariableBinding bestTarget = getBestTarget(classTo, processor, refactoring, selectedTargets);
 					

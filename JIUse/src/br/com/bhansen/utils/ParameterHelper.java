@@ -12,6 +12,8 @@ public class ParameterHelper {
 	final static Set<String> collections = new HashSet<>();
 
 	static {
+		
+		primitives.add("Object");
 		primitives.add("byte");
 		primitives.add("Byte"); 
 		primitives.add("short");
