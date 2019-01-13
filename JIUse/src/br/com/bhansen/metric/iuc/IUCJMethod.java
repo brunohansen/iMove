@@ -70,6 +70,9 @@ public class IUCJMethod extends IUC {
 
 	public static double getMetric(Set<String> method, Map<String, Set<String>> methods) {
 		double metric = 0;
+		
+		if (method.size() == 0)
+			return 0;
 
 		if (methods.size() == 0)
 			return 0;
