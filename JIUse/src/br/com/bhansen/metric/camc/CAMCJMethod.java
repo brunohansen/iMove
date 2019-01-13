@@ -4,27 +4,27 @@ import java.util.Map.Entry;
 import java.util.Set;
 
 import org.eclipse.jdt.core.IMethod;
-import org.eclipse.jdt.core.IType;
 
 import br.com.bhansen.metric.AbsMetric;
 import br.com.bhansen.metric.DeclarationMetric;
 import br.com.bhansen.utils.Method;
 import br.com.bhansen.utils.MethodWithParameters;
+import br.com.bhansen.utils.Type;
 
 public class CAMCJMethod extends DeclarationMetric {
 
 	Set<String> method;
 
-	public CAMCJMethod(IType type, String method, String parameter) throws Exception {
+	public CAMCJMethod(Type type, String method, String parameter) throws Exception {
 		super(type);
 
-		IMethod[] iMethods = type.getMethods();
+		IMethod[] iMethods = type.getIType().getMethods();
 
 		for (IMethod iMethod : iMethods) {
 			
 			Method m = new Method(iMethod);
 
-			if (m.isMethod(method) || m.isMovedMethod( method)) {
+			if (m.isMethod(method) || m.isMovedMethod(method)) {
 				this.method = m.getMethodWithParameters(parameter).getParameters();
 			} else {
 				

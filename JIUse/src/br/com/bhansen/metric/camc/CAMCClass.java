@@ -2,13 +2,12 @@ package br.com.bhansen.metric.camc;
 
 import java.util.Set;
 
-import org.eclipse.jdt.core.IType;
-
 import br.com.bhansen.metric.DeclarationMetricClass;
+import br.com.bhansen.utils.Type;
 
 public class CAMCClass extends DeclarationMetricClass {
 		
-	public CAMCClass(IType type, String method, String parameter) throws Exception {
+	public CAMCClass(Type type, String method, String parameter) throws Exception {
 		super(type, method, parameter);
 	}
 

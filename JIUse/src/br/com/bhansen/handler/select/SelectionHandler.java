@@ -11,10 +11,12 @@ import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.texteditor.ITextEditor;
 
 import br.com.bhansen.handler.IMoveHandler;
+import br.com.bhansen.utils.Method;
+import br.com.bhansen.utils.Type;
 
 public abstract class SelectionHandler extends IMoveHandler {
 	
-	protected IType getType() throws Exception {
+	protected Type getType() throws Exception {
 		ITextEditor editor = (ITextEditor) PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage().getActiveEditor();
 
 		if(editor == null)
@@ -32,9 +34,9 @@ public abstract class SelectionHandler extends IMoveHandler {
 			
 		    if(selected != null) {
 				if (selected.getElementType() == IJavaElement.TYPE) {
-					return (IType) selected;
+					return new Type((IType) selected);
 				} else if (selected.getElementType() == IJavaElement.METHOD) {
-					return (IType) selected.getParent();
+					return new Type((IType) selected.getParent());
 				} 
 		    }
 		}		
@@ -42,7 +44,7 @@ public abstract class SelectionHandler extends IMoveHandler {
 		throw new Exception("Select a class on editor");
 	}
 	
-	protected IMethod getMethod() throws Exception {
+	protected Method getMethod() throws Exception {
 		ITextEditor editor = (ITextEditor) PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage().getActiveEditor();
 		
 		if(editor == null)
@@ -58,7 +60,7 @@ public abstract class SelectionHandler extends IMoveHandler {
 		    IJavaElement selected = unit.getElementAt(selection.getOffset());
 		    if(selected != null) {
 				if (selected.getElementType() == IJavaElement.METHOD) {
-					return (IMethod) selected;
+					return new Method((IMethod) selected);
 				}
 		    } 
 		}

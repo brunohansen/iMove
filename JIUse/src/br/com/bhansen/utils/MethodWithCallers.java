@@ -7,7 +7,6 @@ import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.jdt.core.IJavaElement;
 import org.eclipse.jdt.core.IMember;
 import org.eclipse.jdt.core.IMethod;
-import org.eclipse.jdt.core.IType;
 import org.eclipse.jdt.core.JavaModelException;
 import org.eclipse.jdt.internal.corext.callhierarchy.CallHierarchy;
 import org.eclipse.jdt.internal.corext.callhierarchy.MethodWrapper;
@@ -26,12 +25,12 @@ public class MethodWithCallers extends Method {
 		return callers;
 	}
 	
-	public void removeCaller(IType type) {
-		callers.remove(TypeHelper.getClassName(type));
+	public void removeCaller(Type caller) {
+		callers.remove(caller.getName());
 	}
 
-	public boolean isCalledOnlyBy(IType caller) {
-		return (!callers.isEmpty()) && (callers.size() == 1) && (callers.contains(TypeHelper.getClassName(caller)));
+	public boolean isCalledOnlyBy(Type caller) {
+		return (!callers.isEmpty()) && (callers.size() == 1) && (callers.contains(caller.getName()));
 	}
 
 	public boolean hasCaller() throws Exception {
@@ -51,7 +50,7 @@ public class MethodWithCallers extends Method {
 			for (MethodWrapper m : mw2) {
 				IMethod im = getIMethodFromMethodWrapper(m);
 				if (im != null) {
-					callerTypes.add(TypeHelper.getClassName(im.getDeclaringType()));
+					callerTypes.add(Type.getName(im.getDeclaringType()));
 				}
 			}
 		}

@@ -1,19 +1,17 @@
 package br.com.bhansen.handler.select;
 
 import org.eclipse.core.commands.ExecutionEvent;
-import org.eclipse.jdt.core.IType;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.ui.IWorkbenchWindow;
 
 import br.com.bhansen.refactory.MoveMethodEvaluator;
-import br.com.bhansen.utils.Method;
-import br.com.bhansen.utils.TypeHelper;
+import br.com.bhansen.utils.Type;
 
 public class SelectMove extends SelectionHandler {
 	
-	private static IType classFrom; 
+	private static Type classFrom; 
 	private static String method; 
-	private static IType classTo;
+	private static Type classTo;
 	
 	static {
 		classFrom = null; 
@@ -28,7 +26,7 @@ public class SelectMove extends SelectionHandler {
 			
 			try {
 				classFrom = getType();
-				method = new Method(getMethod()).getSignature();
+				method = getMethod().getSignature();
 				
 				MessageDialog.openInformation(window.getShell(), "iMove - Method Selected!", method + "\n\n\n Open the 'To Class' and click on the select to move menu again!");
 				
@@ -45,7 +43,7 @@ public class SelectMove extends SelectionHandler {
 				
 				classTo = getType();
 				
-				MessageDialog.openInformation(window.getShell(), "iMove - Class To Selected!", TypeHelper.getClassName(classTo) + "\n\n\n The result dialog will open in a while!" );
+				MessageDialog.openInformation(window.getShell(), "iMove - Class To Selected!", classTo.getName() + "\n\n\n The result dialog will open in a while!" );
 								
 				MoveMethodEvaluator evaluator = createEvaluator(classFrom, method, classTo, type, metric);
 												

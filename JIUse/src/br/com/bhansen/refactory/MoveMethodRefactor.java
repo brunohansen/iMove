@@ -7,7 +7,6 @@ import java.util.Set;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.NullProgressMonitor;
-import org.eclipse.jdt.core.Flags;
 import org.eclipse.jdt.core.ILocalVariable;
 import org.eclipse.jdt.core.IMember;
 import org.eclipse.jdt.core.IMethod;
@@ -32,34 +31,34 @@ import org.eclipse.ltk.core.refactoring.participants.MoveRefactoring;
 import org.eclipse.swt.widgets.Shell;
 
 import br.com.bhansen.utils.Method;
-import br.com.bhansen.utils.TypeHelper;
+import br.com.bhansen.utils.Type;
 
 @SuppressWarnings("restriction")
 public class MoveMethodRefactor {
 	
 	private String typeNotUsed = null;
 	
-	public Change move(IType classFrom, IMethod iMethod, IType classTo) throws Exception {
-		if (Flags.isStatic(iMethod.getFlags())) {
-			return moveStatic(iMethod, classTo);
+	public Change move(Type classFrom, Method method, Type classTo) throws Exception {
+		if (method.isStatic()) {
+			return moveStatic(method.getIMethod(), classTo.getIType());
 		} else {
-			return moveInstance(iMethod, classTo);
+			return moveInstance(method, classTo);
 		}
 	}
 
-	public Change moveInstance(IMethod iMethod, IType classTo) throws Exception {
-		MoveInstanceMethodProcessor processor = new MoveInstanceMethodProcessor(iMethod,
-				JavaPreferencesSettings.getCodeGenerationSettings(iMethod.getJavaProject()));
+	public Change moveInstance(Method method, Type classTo) throws Exception {
+		MoveInstanceMethodProcessor processor = new MoveInstanceMethodProcessor(method.getIMethod(),
+				JavaPreferencesSettings.getCodeGenerationSettings(method.getIMethod().getJavaProject()));
 		Refactoring refactoring = new MoveRefactoring(processor);
 
 		refactoring.checkInitialConditions(new NullProgressMonitor());
 
-		processor.setMethodName(new Method(iMethod).getMoveName());
+		processor.setMethodName(method.getMoveName());
 		processor.setInlineDelegator(true);
 		processor.setRemoveDelegator(true);
 		processor.setDeprecateDelegates(false);
 		
-		List<IVariableBinding> selectedTargets = selectTargets(classTo, processor);
+		List<IVariableBinding> selectedTargets = selectTargets(classTo.getIType(), processor);
 
 		if (selectedTargets.size() == 0)
 			throw new Exception("Invalid target!");
@@ -74,7 +73,7 @@ public class MoveMethodRefactor {
 
 	}
 
-	private IVariableBinding getBestTarget(IType classTo, MoveInstanceMethodProcessor processor, Refactoring refactoring, List<IVariableBinding> selectedTargets)
+	private IVariableBinding getBestTarget(Type classTo, MoveInstanceMethodProcessor processor, Refactoring refactoring, List<IVariableBinding> selectedTargets)
 			throws IllegalArgumentException, Exception {
 		IVariableBinding bestTarget = null;
 		int numParameters = Integer.MAX_VALUE;
@@ -82,11 +81,11 @@ public class MoveMethodRefactor {
 		for (IVariableBinding iVariableBinding : selectedTargets) {
 			Change undo = performRefactoring(processor, refactoring, iVariableBinding);
 			
-			IMethod method = TypeHelper.getMovedMethod(classTo, processor.getMethodName());
+			Method method = classTo.getMovedMethod(processor.getMethodName());
 			
-			String type = (processor.needsTargetNode())? getTypeIfNotUsed(method, processor.getTargetName()) : null;
+			String type = (processor.needsTargetNode())? getTypeIfNotUsed(method.getIMethod(), processor.getTargetName()) : null;
 			
-			Set<String> parameters = new Method(method).getMethodWithParameters(type).getParameters();
+			Set<String> parameters = method.getMethodWithParameters(type).getParameters();
 			
 			if(parameters.size() < numParameters) {
 				numParameters = parameters.size();
@@ -99,7 +98,7 @@ public class MoveMethodRefactor {
 		return bestTarget;
 	}
 	
-	public static String getTypeIfNotUsed(IMethod method, String parameter) {
+	private static String getTypeIfNotUsed(IMethod method, String parameter) {
 		
         class GetTypeIfUsed extends ASTVisitor {
         	
@@ -220,9 +219,9 @@ public class MoveMethodRefactor {
 		return selectedTargets;
 	}
 	
-	public static Change moveStatic(IMethod iMethod, IType classTo) throws Exception {
-		IMember [] members = {iMethod};
-		MoveStaticMembersProcessor processor = new MoveStaticMembersProcessor(members, JavaPreferencesSettings.getCodeGenerationSettings(iMethod.getJavaProject()));
+	private static Change moveStatic(IMethod method, IType classTo) throws Exception {
+		IMember [] members = {method};
+		MoveStaticMembersProcessor processor = new MoveStaticMembersProcessor(members, JavaPreferencesSettings.getCodeGenerationSettings(method.getJavaProject()));
 		
 		Refactoring refactoring = new MoveRefactoring(processor);
 
@@ -242,8 +241,8 @@ public class MoveMethodRefactor {
 
 	}
 
-	public static void moveWizard(IMethod iMethod, Shell shell) throws Exception {
-		RefactoringExecutionStarter.startMoveMethodRefactoring(iMethod, shell);
+	public static void moveWizard(Method method, Shell shell) throws Exception {
+		RefactoringExecutionStarter.startMoveMethodRefactoring(method.getIMethod(), shell);
 		//RefactoringExecutionStarter.startMoveStaticMembersRefactoring(members, shell);
 	}
 

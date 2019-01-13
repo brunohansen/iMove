@@ -4,27 +4,26 @@ import java.math.BigDecimal;
 import java.math.RoundingMode;
 
 import org.eclipse.jdt.core.IMethod;
-import org.eclipse.jdt.core.IType;
 
 import br.com.bhansen.metric.MetricFactory;
 import br.com.bhansen.utils.Method;
 import br.com.bhansen.utils.Signature;
-import br.com.bhansen.utils.TypeHelper;
+import br.com.bhansen.utils.Type;
 
 public abstract class MoveMethodEvaluator {
 	
 	protected double threshold;
 	
-	protected IType classFrom;
-	protected IType classTo;
-	protected IMethod iMethod;
+	protected Type classFrom;
+	protected Type classTo;
+	protected Method method;
 	protected String mSig;
 	
 	protected double valueDifference;
 	
 	protected MetricFactory factory;
 	
-	public MoveMethodEvaluator(IType classFrom, String method, IType classTo, MetricFactory factory, double threshold) throws Exception {
+	public MoveMethodEvaluator(Type classFrom, String method, Type classTo, MetricFactory factory, double threshold) throws Exception {
 		super();
 		this.classFrom = classFrom;
 		this.classTo = classTo;
@@ -42,11 +41,11 @@ public abstract class MoveMethodEvaluator {
 		
 		this.mSig = Signature.normalizeInnerSignature(method);
 
-		IMethod[] methods = this.classFrom.getMethods();
+		IMethod[] methods = this.classFrom.getIType().getMethods();
 
 		for (IMethod iMethod : methods) {
-			if (new Method(iMethod).getSignature().equals(this.mSig)) {
-				this.iMethod = iMethod;
+			if (Method.getSignature(iMethod).equals(this.mSig)) {
+				this.method = new Method(iMethod);
 				return;
 			}
 		}
@@ -54,8 +53,8 @@ public abstract class MoveMethodEvaluator {
 		this.mSig = Signature.normalizeSignature(method);
 
 		for (IMethod iMethod : methods) {
-			if (new Method(iMethod).getSignature().equals(this.mSig)) {
-				this.iMethod = iMethod;
+			if (Method.getSignature(iMethod).equals(this.mSig)) {
+				this.method = new Method(iMethod);
 				return;
 			}
 		}
@@ -68,8 +67,8 @@ public abstract class MoveMethodEvaluator {
 	}
 
 	public String toLineString() {
-		return new StringBuilder().append(new BigDecimal(this.valueDifference).setScale(6, RoundingMode.HALF_EVEN) + "-").append((shouldMove()) ? "0" : "1").append("\t").append(TypeHelper.getClassName(this.classFrom)).append("::").append(this.mSig)
-				.append("\t").append(TypeHelper.getClassName(this.classTo)).toString();
+		return new StringBuilder().append(new BigDecimal(this.valueDifference).setScale(6, RoundingMode.HALF_EVEN) + "-").append((shouldMove()) ? "0" : "1").append("\t").append(this.classFrom.getName()).append("::").append(this.mSig)
+				.append("\t").append(this.classTo.getName()).toString();
 	}
 
 }

@@ -5,20 +5,20 @@ import java.util.Map.Entry;
 import java.util.Set;
 
 import org.eclipse.jdt.core.IMethod;
-import org.eclipse.jdt.core.IType;
 
 import br.com.bhansen.metric.AbsMetric;
 import br.com.bhansen.utils.Method;
 import br.com.bhansen.utils.MethodWithCallers;
+import br.com.bhansen.utils.Type;
 
 public class IUCJMethod extends IUC {
 
 	private Set<String> method;
 
-	public IUCJMethod(IType type, String method) throws Exception {
+	public IUCJMethod(Type type, String method) throws Exception {
 		super(type);
 
-		IMethod[] iMethods = type.getMethods();
+		IMethod[] iMethods = type.getIType().getMethods();
 
 		for (IMethod iMethod : iMethods) {
 			

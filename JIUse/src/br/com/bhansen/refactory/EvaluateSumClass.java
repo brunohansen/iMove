@@ -1,12 +1,10 @@
 package br.com.bhansen.refactory;
 
 import org.eclipse.core.runtime.NullProgressMonitor;
-import org.eclipse.jdt.core.IType;
 import org.eclipse.ltk.core.refactoring.Change;
 
 import br.com.bhansen.metric.MetricFactory;
-import br.com.bhansen.utils.Method;
-import br.com.bhansen.utils.TypeHelper;
+import br.com.bhansen.utils.Type;
 
 public class EvaluateSumClass extends MoveMethodEvaluator  {
 	
@@ -16,7 +14,7 @@ public class EvaluateSumClass extends MoveMethodEvaluator  {
 	private double newFromValue;
 	private double newToValue;
 
-	public EvaluateSumClass(IType classFrom, String method, IType classTo, MetricFactory factory, double threshold) throws Exception {
+	public EvaluateSumClass(Type classFrom, String method, Type classTo, MetricFactory factory, double threshold) throws Exception {
 		super(classFrom, method, classTo, factory, threshold);
 		
 		this.oldFromValue = factory.create(classFrom).getMetric();
@@ -28,11 +26,11 @@ public class EvaluateSumClass extends MoveMethodEvaluator  {
 	private void move() throws Exception {
 		MoveMethodRefactor refactor = new MoveMethodRefactor();
 		
-		Change undo = refactor.move(this.classFrom, this.iMethod, this.classTo);
+		Change undo = refactor.move(this.classFrom, this.method, this.classTo);
 		
 		try {
 			this.newFromValue = factory.create(this.classFrom).getMetric();
-			this.newToValue = factory.create(this.classTo, new Method(this.iMethod).getMoveName(), refactor.getTypeNotUsed()).getMetric();
+			this.newToValue = factory.create(this.classTo, this.method.getMoveName(), refactor.getTypeNotUsed()).getMetric();
 			
 			this.valueDifference = (this.newFromValue - this.oldFromValue) + (this.newToValue - this.oldToValue);
 		} finally {
@@ -45,9 +43,9 @@ public class EvaluateSumClass extends MoveMethodEvaluator  {
 	public String toString() {
 		StringBuilder txt = new StringBuilder();
 
-		txt.append(TypeHelper.getClassName(this.classFrom)).append(" ").append(this.oldFromValue).append(" -> ")
+		txt.append(this.classFrom.getName()).append(" ").append(this.oldFromValue).append(" -> ")
 				.append(this.newFromValue).append("\n");
-		txt.append(TypeHelper.getClassName(this.classTo)).append(" ").append(this.oldToValue).append(" -> ")
+		txt.append(this.classTo.getName()).append(" ").append(this.oldToValue).append(" -> ")
 				.append(this.newToValue).append("\n");
 		txt.append("Value difference: ").append(this.valueDifference).append("\n\n");
 

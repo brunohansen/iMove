@@ -5,32 +5,23 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
-import org.eclipse.jdt.core.IType;
-
-import br.com.bhansen.utils.TypeHelper;
+import br.com.bhansen.utils.Type;
 
 public abstract class AbsMetric implements Metric {
-	
-	private IType type;
 	
 	private String name;
 	private Map<String, Set<String>> methods;
 	
-	public AbsMetric(IType type) {
+	public AbsMetric(Type type) {
 		super();
-		this.type = type;
-		this.name = TypeHelper.getClassName(type);
+		this.name = type.getName();
 		this.methods = new HashMap<>();
 	}
 	
 	public String getName() {
 		return name;
 	}
-	
-	public IType getType() {
-		return type;
-	}
-	
+		
 	public Map<String, Set<String>> getMethods() {
 		return methods;
 	}

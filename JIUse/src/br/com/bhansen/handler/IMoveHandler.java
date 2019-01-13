@@ -2,7 +2,6 @@ package br.com.bhansen.handler;
 
 import org.eclipse.core.commands.AbstractHandler;
 import org.eclipse.core.commands.ExecutionEvent;
-import org.eclipse.jdt.core.IType;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.handlers.HandlerUtil;
@@ -18,6 +17,7 @@ import br.com.bhansen.metric.nhdm.NHDMClass;
 import br.com.bhansen.refactory.EvaluateSumClass;
 import br.com.bhansen.refactory.EvaluateSumMethod;
 import br.com.bhansen.refactory.MoveMethodEvaluator;
+import br.com.bhansen.utils.Type;
 
 public abstract class IMoveHandler extends AbstractHandler {
 
@@ -45,7 +45,7 @@ public abstract class IMoveHandler extends AbstractHandler {
 		return null;
 	}
 
-	public static MoveMethodEvaluator createEvaluator(IType classFrom, String method, IType classTo, String type, String metric) throws Exception {		
+	public static MoveMethodEvaluator createEvaluator(Type classFrom, String method, Type classTo, String type, String metric) throws Exception {		
 		switch (type) {
 		case "class":
 			return new EvaluateSumClass(classFrom, method, classTo, createFactory(type, metric), 0);
@@ -60,7 +60,7 @@ public abstract class IMoveHandler extends AbstractHandler {
 		return new MetricFactory() {
 
 			@Override
-			public Metric create(IType type, String method, String parameter, boolean skipIUC) throws Exception {
+			public Metric create(Type type, String method, String parameter, boolean skipIUC) throws Exception {
 
 				switch (eType) {
 				case "class":

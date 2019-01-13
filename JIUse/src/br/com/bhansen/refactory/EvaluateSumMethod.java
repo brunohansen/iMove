@@ -1,31 +1,29 @@
 package br.com.bhansen.refactory;
 
 import org.eclipse.core.runtime.NullProgressMonitor;
-import org.eclipse.jdt.core.IType;
 import org.eclipse.ltk.core.refactoring.Change;
 
 import br.com.bhansen.metric.MetricFactory;
-import br.com.bhansen.utils.Method;
 import br.com.bhansen.utils.MethodWithCallers;
-import br.com.bhansen.utils.TypeHelper;
+import br.com.bhansen.utils.Type;
 
 public class EvaluateSumMethod extends MoveMethodEvaluator  {
 
 	private double oldValue;
 	private double newValue;
 	
-	public EvaluateSumMethod(IType classFrom, String method, IType classTo, MetricFactory factory, double threshold) throws Exception {
+	public EvaluateSumMethod(Type classFrom, String method, Type classTo, MetricFactory factory, double threshold) throws Exception {
 		super(classFrom, method, classTo, factory, threshold);
 		
 		boolean skipIUC = false;
 		
-		MethodWithCallers m = new Method(TypeHelper.getMethod(classFrom, method)).getMethodWithCallers();
-		
-		if(! m.isPublic() || m.isCalledOnlyBy(classTo) || ! m.hasCaller() || m.isCalledOnlyBy(classFrom)) {
-			skipIUC = true;
-		} else {
-			skipIUC = false;
-		}
+//		MethodWithCallers m = this.method.getMethodWithCallers();
+//		
+//		if(! m.isPublic() || m.isCalledOnlyBy(classTo) || ! m.hasCaller() || m.isCalledOnlyBy(classFrom)) {
+//			skipIUC = true;
+//		} else {
+//			skipIUC = false;
+//		}
 		
 		this.oldValue = factory.create(classFrom, method, skipIUC).getMetric();
 		
@@ -35,10 +33,10 @@ public class EvaluateSumMethod extends MoveMethodEvaluator  {
 	private void move() throws Exception {
 		MoveMethodRefactor refactor = new MoveMethodRefactor();
 		
-		Change undo = refactor.move(this.classFrom, this.iMethod, this.classTo);
+		Change undo = refactor.move(this.classFrom, this.method, this.classTo);
 		
 		try {
-			this.newValue = factory.create(this.classTo, Method.getMoveName(this.mSig), refactor.getTypeNotUsed()).getMetric();
+			this.newValue = factory.create(this.classTo, this.method.getMoveName(), refactor.getTypeNotUsed()).getMetric();
 			
 			this.valueDifference = (this.newValue - this.oldValue);
 			
@@ -55,8 +53,8 @@ public class EvaluateSumMethod extends MoveMethodEvaluator  {
 	public String toString() {
 		StringBuilder txt = new StringBuilder();
 
-		txt.append(TypeHelper.getClassName(this.classFrom)).append(" ").append(this.oldValue).append("\n");
-		txt.append(TypeHelper.getClassName(this.classTo)).append(" ").append(this.newValue).append("\n");
+		txt.append(this.classFrom.getName()).append(" ").append(this.oldValue).append("\n");
+		txt.append(this.classTo.getName()).append(" ").append(this.newValue).append("\n");
 		txt.append("Skip IUC: ").append(this.factory.skipIUC()).append("\n");
 		txt.append("Value difference: ").append(this.valueDifference).append("\n\n");
 

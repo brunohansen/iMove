@@ -3,13 +3,12 @@ package br.com.bhansen.metric.nhdm;
 import java.util.Map.Entry;
 import java.util.Set;
 
-import org.eclipse.jdt.core.IType;
-
 import br.com.bhansen.metric.DeclarationMetricClass;
+import br.com.bhansen.utils.Type;
 
 public class NHDMNClass extends DeclarationMetricClass {
 		
-	public NHDMNClass(IType type, String method, String parameter) throws Exception {
+	public NHDMNClass(Type type, String method, String parameter) throws Exception {
 		super(type, method, parameter);
 	}
 	

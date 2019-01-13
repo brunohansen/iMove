@@ -5,6 +5,7 @@ import org.eclipse.jdt.core.IType;
 
 import br.com.bhansen.handler.IMoveHandler;
 import br.com.bhansen.refactory.MoveMethodEvaluator;
+import br.com.bhansen.utils.Type;
 
 public abstract class InputMovement extends IMoveHandler {
 		
@@ -27,9 +28,7 @@ public abstract class InputMovement extends IMoveHandler {
 		
 		IType classTo = findType(javaProject, parts[1]);
 		
-		return createEvaluator(classFrom, parts[0], classTo, type, metric);
-						
-		//return new MMEvaluatorBuilder(classFrom, parts[0], classTo, evaluator);
+		return createEvaluator(new Type(classFrom), parts[0], new Type(classTo), type, metric);
 	}
 	
 }

@@ -3,14 +3,13 @@ package br.com.bhansen.metric.camc;
 import java.util.Map.Entry;
 import java.util.Set;
 
-import org.eclipse.jdt.core.IType;
-
 import br.com.bhansen.metric.AbsMetric;
 import br.com.bhansen.metric.DeclarationMetricClass;
+import br.com.bhansen.utils.Type;
 
 public class CAMCJClass extends DeclarationMetricClass {
 
-	public CAMCJClass(IType type, String method, String parameter) throws Exception {
+	public CAMCJClass(Type type, String method, String parameter) throws Exception {
 		super(type, method, parameter);
 	}
 		

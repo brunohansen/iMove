@@ -1,6 +1,6 @@
 package br.com.bhansen.metric;
 
-import org.eclipse.jdt.core.IType;
+import br.com.bhansen.utils.Type;
 
 public abstract class MetricFactory {
 	
@@ -10,23 +10,23 @@ public abstract class MetricFactory {
 		return skipIUC;
 	}
 
-	public Metric create(IType type) throws Exception {
+	public Metric create(Type type) throws Exception {
 		return create(type, null);
 	}
 		
-	public Metric create(IType type, String method) throws Exception {
+	public Metric create(Type type, String method) throws Exception {
 		return create(type, method, this.skipIUC);
 	}
 	
-	public Metric create(IType type, String method, boolean skipIUC) throws Exception {
+	public Metric create(Type type, String method, boolean skipIUC) throws Exception {
 		this.skipIUC = skipIUC;
 		return create(type, method, null, skipIUC);
 	}
 	
-	public Metric create(IType type, String method, String parameter) throws Exception {
+	public Metric create(Type type, String method, String parameter) throws Exception {
 		return create(type, method, parameter, this.skipIUC);
 	}
 	
-	public abstract Metric create(IType type, String method, String parameter, boolean skipIUC) throws Exception;
+	public abstract Metric create(Type type, String method, String parameter, boolean skipIUC) throws Exception;
 
 }

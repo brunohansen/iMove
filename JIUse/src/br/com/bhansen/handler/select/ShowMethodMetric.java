@@ -4,19 +4,19 @@ import java.math.BigDecimal;
 import java.math.RoundingMode;
 
 import org.eclipse.core.commands.ExecutionEvent;
-import org.eclipse.jdt.core.IType;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.ui.IWorkbenchWindow;
 
 import br.com.bhansen.metric.Metric;
 import br.com.bhansen.utils.Method;
+import br.com.bhansen.utils.Type;
 
 public class ShowMethodMetric extends SelectionHandler {
 
 	@Override
 	protected Object execute(IWorkbenchWindow window, ExecutionEvent event, String type, String metric) throws Exception {
 		
-		IType selection = getType();
+		Type selection = getType();
 		String strMethod = new Method(getMethod()).getSignature();
 				
 		MessageDialog.openInformation(window.getShell(), "iMove", "The " + metric + " will be calculated for the selcted method!\n\n\n The result dialog will open in a while!");

@@ -3,17 +3,17 @@ package br.com.bhansen.metric;
 import java.math.BigInteger;
 
 import org.eclipse.jdt.core.IMethod;
-import org.eclipse.jdt.core.IType;
 
 import br.com.bhansen.utils.Method;
 import br.com.bhansen.utils.MethodWithParameters;
+import br.com.bhansen.utils.Type;
 
 public abstract class DeclarationMetricClass extends DeclarationMetric {
 
-	protected DeclarationMetricClass(IType type, String method, String parameter) throws Exception {
+	protected DeclarationMetricClass(Type type, String method, String parameter) throws Exception {
 		super(type);
 
-		IMethod[] iMethods = type.getMethods();
+		IMethod[] iMethods = type.getIType().getMethods();
 
 		for (IMethod iMethod : iMethods) {
 			

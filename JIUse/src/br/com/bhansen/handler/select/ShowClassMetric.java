@@ -1,11 +1,11 @@
 package br.com.bhansen.handler.select;
 
 import org.eclipse.core.commands.ExecutionEvent;
-import org.eclipse.jdt.core.IType;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.ui.IWorkbenchWindow;
 
 import br.com.bhansen.metric.Metric;
+import br.com.bhansen.utils.Type;
 
 /**
  * Our sample handler extends AbstractHandler, an IHandler base class.
@@ -17,7 +17,7 @@ public class ShowClassMetric extends SelectionHandler {
 	@Override
 	protected Object execute(IWorkbenchWindow window, ExecutionEvent event, String type, String metric) throws Exception {
 		
-		IType selection = getType();
+		Type selection = getType();
 				
 		MessageDialog.openInformation(window.getShell(), "iMove", "The " + metric + " will be calculated for the openned class!\n\n\n The result dialog will open in a while!");
 		

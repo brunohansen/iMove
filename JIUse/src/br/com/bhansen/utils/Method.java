@@ -37,7 +37,7 @@ public class Method {
 		return new MethodWithParameters(this, without);
 	}
 	
-	protected static String getSignature(IMethod iMethod) throws IllegalArgumentException, JavaModelException {
+	public static String getSignature(IMethod iMethod) throws IllegalArgumentException, JavaModelException {
 		String [] sigParts = org.eclipse.jdt.core.Signature.toString(iMethod.getSignature()).split(" ", 2);
 		String signature = iMethod.getElementName() + sigParts[1] + ":" + sigParts[0];
 		
@@ -47,11 +47,7 @@ public class Method {
 	public String getMoveName() {
 		return getName() + METHOD_SUFFIX;
 	}
-	
-	public static String getMoveName(String signature) {
-		return getName(signature) + METHOD_SUFFIX;
-	}
-	
+		
 	public String getName() {
 		return getName(signature);
 	}
@@ -75,6 +71,17 @@ public class Method {
 			return getName().equals(methodName.replaceFirst(METHOD_SUFFIX, ""));
 		} else {
 			return getName().equals(methodName);
+		}
+	}
+	
+	public static boolean isMovedMethod(IMethod iMethod, String methodName) throws IllegalArgumentException, JavaModelException {
+		if(! isMovedMethodName(methodName))
+			return false;
+					
+		if(Flags.isStatic(iMethod.getFlags())) {
+			return getName(getSignature(iMethod)).equals(methodName.replaceFirst(METHOD_SUFFIX, ""));
+		} else {
+			return getName(getSignature(iMethod)).equals(methodName);
 		}
 	}
 	
@@ -103,6 +110,10 @@ public class Method {
 	
 	public boolean isConstructor() throws JavaModelException {
 		return iMethod.isConstructor();
+	}
+	
+	public boolean isStatic() throws JavaModelException {
+		return Flags.isStatic(iMethod.getFlags());
 	}
 	
 }

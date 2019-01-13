@@ -7,13 +7,12 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 
-import org.eclipse.jdt.core.IType;
-
 import br.com.bhansen.metric.AbsMetric;
+import br.com.bhansen.utils.Type;
 
 public abstract class IUC extends AbsMetric {
 
-	public IUC(IType type) {
+	public IUC(Type type) {
 		super(type);
 	}
 

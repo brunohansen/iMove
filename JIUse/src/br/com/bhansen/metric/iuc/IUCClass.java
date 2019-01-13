@@ -5,17 +5,17 @@ import java.util.Map.Entry;
 import java.util.Set;
 
 import org.eclipse.jdt.core.IMethod;
-import org.eclipse.jdt.core.IType;
 
 import br.com.bhansen.utils.Method;
 import br.com.bhansen.utils.MethodWithCallers;
+import br.com.bhansen.utils.Type;
 
 public class IUCClass extends IUC {
 	
-	public IUCClass(IType type) throws Exception {
+	public IUCClass(Type type) throws Exception {
 		super(type);
 		
-		IMethod[] iMethods = type.getMethods();
+		IMethod[] iMethods = type.getIType().getMethods();
 				
 		for (IMethod iMethod : iMethods) {
 			
