@@ -5,7 +5,7 @@ import org.eclipse.jdt.core.IType;
 import org.eclipse.ltk.core.refactoring.Change;
 
 import br.com.bhansen.metric.MetricFactory;
-import br.com.bhansen.utils.MethodHelper;
+import br.com.bhansen.utils.Method;
 import br.com.bhansen.utils.TypeHelper;
 
 public class EvaluateSumClass extends MoveMethodEvaluator  {
@@ -32,7 +32,7 @@ public class EvaluateSumClass extends MoveMethodEvaluator  {
 		
 		try {
 			this.newFromValue = factory.create(this.classFrom).getMetric();
-			this.newToValue = factory.create(this.classTo, MethodHelper.getMoveMethodName(MethodHelper.getMethodName(this.mSig)), refactor.getTypeNotUsed()).getMetric();
+			this.newToValue = factory.create(this.classTo, new Method(this.iMethod).getMoveName(), refactor.getTypeNotUsed()).getMetric();
 			
 			this.valueDifference = (this.newFromValue - this.oldFromValue) + (this.newToValue - this.oldToValue);
 		} finally {

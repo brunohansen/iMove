@@ -1,14 +1,13 @@
 package br.com.bhansen.handler.select;
 
 import org.eclipse.core.commands.ExecutionEvent;
-import org.eclipse.jdt.core.IMethod;
 import org.eclipse.jdt.core.IType;
 import org.eclipse.jface.dialogs.InputDialog;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.ui.IWorkbenchWindow;
 
 import br.com.bhansen.metric.iuc.IUCClass;
-import br.com.bhansen.utils.MethodHelper;
+import br.com.bhansen.utils.Method;
 
 public class ExtractClass extends SelectionHandler {
 
@@ -16,7 +15,7 @@ public class ExtractClass extends SelectionHandler {
 	protected Object execute(IWorkbenchWindow window, ExecutionEvent event, String type, String metric)	throws Exception {
 		IType selection = getType();
 		
-		String method = MethodHelper.getSignature(getMethod());
+		String method = new Method(getMethod()).getSignature();
 		
 		InputDialog inDialog = new InputDialog(window.getShell(), "Extract Classes", "Minimum metric value:", "0.4", null);
 		inDialog.open();

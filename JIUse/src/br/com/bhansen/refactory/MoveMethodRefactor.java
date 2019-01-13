@@ -31,7 +31,7 @@ import org.eclipse.ltk.core.refactoring.Refactoring;
 import org.eclipse.ltk.core.refactoring.participants.MoveRefactoring;
 import org.eclipse.swt.widgets.Shell;
 
-import br.com.bhansen.utils.MethodHelper;
+import br.com.bhansen.utils.Method;
 import br.com.bhansen.utils.TypeHelper;
 
 @SuppressWarnings("restriction")
@@ -54,7 +54,7 @@ public class MoveMethodRefactor {
 
 		refactoring.checkInitialConditions(new NullProgressMonitor());
 
-		processor.setMethodName(MethodHelper.getMoveMethodName(iMethod.getElementName()));
+		processor.setMethodName(new Method(iMethod).getMoveName());
 		processor.setInlineDelegator(true);
 		processor.setRemoveDelegator(true);
 		processor.setDeprecateDelegates(false);
@@ -86,7 +86,7 @@ public class MoveMethodRefactor {
 			
 			String type = (processor.needsTargetNode())? getTypeIfNotUsed(method, processor.getTargetName()) : null;
 			
-			Set<String> parameters = MethodHelper.createParametersSet(method, type);
+			Set<String> parameters = new Method(method).getMethodWithParameters(type).getParameters();
 			
 			if(parameters.size() < numParameters) {
 				numParameters = parameters.size();

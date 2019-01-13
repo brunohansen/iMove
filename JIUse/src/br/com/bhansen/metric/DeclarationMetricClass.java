@@ -1,12 +1,12 @@
 package br.com.bhansen.metric;
 
 import java.math.BigInteger;
-import java.util.Set;
 
 import org.eclipse.jdt.core.IMethod;
 import org.eclipse.jdt.core.IType;
 
-import br.com.bhansen.utils.MethodHelper;
+import br.com.bhansen.utils.Method;
+import br.com.bhansen.utils.MethodWithParameters;
 
 public abstract class DeclarationMetricClass extends DeclarationMetric {
 
@@ -16,20 +16,22 @@ public abstract class DeclarationMetricClass extends DeclarationMetric {
 		IMethod[] iMethods = type.getMethods();
 
 		for (IMethod iMethod : iMethods) {
+			
+			Method m = new Method(iMethod);
 
-//			if ((Flags.isPrivate(iMethod.getFlags())) || (isFakeDelegate(iMethod, method)))
+//			if ((m.isPrivate() || (m.isFakeDelegate(method)))
 //				continue;
 
-			Set<String> params = createParametersSet(iMethod, parameter);
+			MethodWithParameters mp = m.getMethodWithParameters(parameter);
 
-//			if (isMovedMethod(iMethod, method))
-//				removeFakeParameter(params, parameter);
+//			if (mp.isMovedMethod(method))
+//				removeFakeParameter(mp.getParameters(), parameter);
 			
 			// Dont add zero parameters
-//			if(params.size() == 0)
+//			if(! mp.hasParameter())
 //				continue;
 
-			getMethods().put(MethodHelper.getSignature(iMethod), params);
+			getMethods().put(mp.getSignature(), mp.getParameters());
 
 		}
 	}

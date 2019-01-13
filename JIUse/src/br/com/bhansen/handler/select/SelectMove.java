@@ -5,9 +5,8 @@ import org.eclipse.jdt.core.IType;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.ui.IWorkbenchWindow;
 
-import br.com.bhansen.metric.AbsMetric;
 import br.com.bhansen.refactory.MoveMethodEvaluator;
-import br.com.bhansen.utils.MethodHelper;
+import br.com.bhansen.utils.Method;
 import br.com.bhansen.utils.TypeHelper;
 
 public class SelectMove extends SelectionHandler {
@@ -29,7 +28,7 @@ public class SelectMove extends SelectionHandler {
 			
 			try {
 				classFrom = getType();
-				method = MethodHelper.getSignature(getMethod());
+				method = new Method(getMethod()).getSignature();
 				
 				MessageDialog.openInformation(window.getShell(), "iMove - Method Selected!", method + "\n\n\n Open the 'To Class' and click on the select to move menu again!");
 				

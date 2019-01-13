@@ -1,15 +1,12 @@
 package br.com.bhansen.refactory;
 
-import java.util.Set;
-
 import org.eclipse.core.runtime.NullProgressMonitor;
-import org.eclipse.jdt.core.IMethod;
 import org.eclipse.jdt.core.IType;
 import org.eclipse.ltk.core.refactoring.Change;
 
 import br.com.bhansen.metric.MetricFactory;
-import br.com.bhansen.utils.CallerHelper;
-import br.com.bhansen.utils.MethodHelper;
+import br.com.bhansen.utils.Method;
+import br.com.bhansen.utils.MethodWithCallers;
 import br.com.bhansen.utils.TypeHelper;
 
 public class EvaluateSumMethod extends MoveMethodEvaluator  {
@@ -22,14 +19,13 @@ public class EvaluateSumMethod extends MoveMethodEvaluator  {
 		
 		boolean skipIUC = false;
 		
-//		IMethod iMethod = TypeHelper.getMethod(classFrom, method);
-//		Set<String> callers = CallerHelper.getCallerTypes(iMethod);
-//		
-//		if(! MethodHelper.isPublic(iMethod) || CallerHelper.isCalledOnlyBy(callers, classTo) || CallerHelper.hasNoCaller(callers) || CallerHelper.isCalledOnlyBy(callers, classFrom)) {
-//			skipIUC = true;
-//		} else {
-//			skipIUC = false;
-//		}
+		MethodWithCallers m = new Method(TypeHelper.getMethod(classFrom, method)).getMethodWithCallers();
+		
+		if(! m.isPublic() || m.isCalledOnlyBy(classTo) || ! m.hasCaller() || m.isCalledOnlyBy(classFrom)) {
+			skipIUC = true;
+		} else {
+			skipIUC = false;
+		}
 		
 		this.oldValue = factory.create(classFrom, method, skipIUC).getMetric();
 		
@@ -42,7 +38,7 @@ public class EvaluateSumMethod extends MoveMethodEvaluator  {
 		Change undo = refactor.move(this.classFrom, this.iMethod, this.classTo);
 		
 		try {
-			this.newValue = factory.create(this.classTo, MethodHelper.getMoveMethodName(MethodHelper.getMethodName(this.mSig)), refactor.getTypeNotUsed()).getMetric();
+			this.newValue = factory.create(this.classTo, Method.getMoveName(this.mSig), refactor.getTypeNotUsed()).getMetric();
 			
 			this.valueDifference = (this.newValue - this.oldValue);
 			

@@ -11,11 +11,11 @@ public abstract class MetricFactory {
 	}
 
 	public Metric create(IType type) throws Exception {
-		return create(type, this.skipIUC);
+		return create(type, null);
 	}
-	
-	public Metric create(IType type, boolean skipIUC) throws Exception {
-		return create(type, null, skipIUC);
+		
+	public Metric create(IType type, String method) throws Exception {
+		return create(type, method, this.skipIUC);
 	}
 	
 	public Metric create(IType type, String method, boolean skipIUC) throws Exception {

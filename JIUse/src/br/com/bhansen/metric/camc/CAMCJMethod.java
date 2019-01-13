@@ -3,13 +3,13 @@ package br.com.bhansen.metric.camc;
 import java.util.Map.Entry;
 import java.util.Set;
 
-import org.eclipse.jdt.core.Flags;
 import org.eclipse.jdt.core.IMethod;
 import org.eclipse.jdt.core.IType;
 
 import br.com.bhansen.metric.AbsMetric;
 import br.com.bhansen.metric.DeclarationMetric;
-import br.com.bhansen.utils.MethodHelper;
+import br.com.bhansen.utils.Method;
+import br.com.bhansen.utils.MethodWithParameters;
 
 public class CAMCJMethod extends DeclarationMetric {
 
@@ -21,26 +21,28 @@ public class CAMCJMethod extends DeclarationMetric {
 		IMethod[] iMethods = type.getMethods();
 
 		for (IMethod iMethod : iMethods) {
+			
+			Method m = new Method(iMethod);
 
-			if (MethodHelper.isMethod(iMethod, method) || MethodHelper.isMovedMethod(iMethod, method)) {
-				this.method = createParametersSet(iMethod, parameter);
+			if (m.isMethod(method) || m.isMovedMethod( method)) {
+				this.method = m.getMethodWithParameters(parameter).getParameters();
 			} else {
 				
 				// Dont add constructor
-				if (iMethod.isConstructor())
+				if (m.isConstructor())
 					continue;
 				
 				// Dont add private
-				if (Flags.isPrivate(iMethod.getFlags()))
+				if (m.isPrivate())
 					continue;
 				
-				Set<String> params = createParametersSet(iMethod, parameter);
+				MethodWithParameters mp = m.getMethodWithParameters(parameter);
 				
 				// Dont add zero parameters
-//				if(params.size() == 0)
+//				if(! mp.hasParameter())
 //					continue;
 
-				getMethods().put(MethodHelper.getSignature(iMethod), params);
+				getMethods().put(mp.getSignature(), mp.getParameters());
 			}
 
 		}

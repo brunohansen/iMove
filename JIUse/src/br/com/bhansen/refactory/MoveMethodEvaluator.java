@@ -7,7 +7,7 @@ import org.eclipse.jdt.core.IMethod;
 import org.eclipse.jdt.core.IType;
 
 import br.com.bhansen.metric.MetricFactory;
-import br.com.bhansen.utils.MethodHelper;
+import br.com.bhansen.utils.Method;
 import br.com.bhansen.utils.Signature;
 import br.com.bhansen.utils.TypeHelper;
 
@@ -45,7 +45,7 @@ public abstract class MoveMethodEvaluator {
 		IMethod[] methods = this.classFrom.getMethods();
 
 		for (IMethod iMethod : methods) {
-			if (MethodHelper.getSignature(iMethod).equals(this.mSig)) {
+			if (new Method(iMethod).getSignature().equals(this.mSig)) {
 				this.iMethod = iMethod;
 				return;
 			}
@@ -54,7 +54,7 @@ public abstract class MoveMethodEvaluator {
 		this.mSig = Signature.normalizeSignature(method);
 
 		for (IMethod iMethod : methods) {
-			if (MethodHelper.getSignature(iMethod).equals(this.mSig)) {
+			if (new Method(iMethod).getSignature().equals(this.mSig)) {
 				this.iMethod = iMethod;
 				return;
 			}

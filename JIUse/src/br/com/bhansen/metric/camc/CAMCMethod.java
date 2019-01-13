@@ -6,7 +6,8 @@ import org.eclipse.jdt.core.IMethod;
 import org.eclipse.jdt.core.IType;
 
 import br.com.bhansen.metric.DeclarationMetric;
-import br.com.bhansen.utils.MethodHelper;
+import br.com.bhansen.utils.Method;
+import br.com.bhansen.utils.MethodWithParameters;
 
 public class CAMCMethod extends DeclarationMetric {
 	
@@ -18,23 +19,23 @@ public class CAMCMethod extends DeclarationMetric {
 		IMethod[] iMethods = type.getMethods();
 
 		for (IMethod iMethod : iMethods) {
+			
+			MethodWithParameters mp = new Method(iMethod).getMethodWithParameters(parameter);
+			
+			if (mp.isMovedMethod(method))
+				removeFakeParameter(mp.getParameters(), parameter);
+			
+			if((mp.isMethod(method)) || (mp.isMovedMethod(method)))
+				this.method = mp.getParameters();
 
-//			if ((Flags.isPrivate(iMethod.getFlags())) || (isFakeDelegate(iMethod, method)))
+//			if (mp.isPrivate() || mp.isFakeDelegate(method))
 //				continue;
-
-			Set<String> params = createParametersSet(iMethod, parameter);
 			
-//			if (isMovedMethod(iMethod, method))
-//				removeFakeParameter(params, parameter);
-			
-			if((MethodHelper.isMethod(iMethod, method)) || (MethodHelper.isMovedMethod(iMethod, method)))
-				this.method = params;
-
 			// Dont add zero parameters
-//			if(params.size() == 0)
+//			if(! mp.hasParameter())
 //				continue;
 
-			getMethods().put(MethodHelper.getSignature(iMethod), params);
+			getMethods().put(mp.getSignature(), mp.getParameters());
 
 		}
 	}

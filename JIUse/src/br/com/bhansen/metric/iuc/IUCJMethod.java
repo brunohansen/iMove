@@ -4,13 +4,12 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 
-import org.eclipse.jdt.core.Flags;
 import org.eclipse.jdt.core.IMethod;
 import org.eclipse.jdt.core.IType;
 
 import br.com.bhansen.metric.AbsMetric;
-import br.com.bhansen.utils.CallerHelper;
-import br.com.bhansen.utils.MethodHelper;
+import br.com.bhansen.utils.Method;
+import br.com.bhansen.utils.MethodWithCallers;
 
 public class IUCJMethod extends IUC {
 
@@ -22,40 +21,42 @@ public class IUCJMethod extends IUC {
 		IMethod[] iMethods = type.getMethods();
 
 		for (IMethod iMethod : iMethods) {
+			
+			Method m = new Method(iMethod);
 
-			if (MethodHelper.isMethod(iMethod, method) || MethodHelper.isMovedMethod(iMethod, method)) {
-				Set<String> callers = CallerHelper.getCallerTypes(iMethod);
+			if (m.isMethod(method) || m.isMovedMethod(method)) {
+				MethodWithCallers mc = m.getMethodWithCallers();
 				
 				//Remove fake public
-				CallerHelper.removeCaller(callers, type);
+				mc.removeCaller(type);
 				
-				this.method = callers;
+				this.method = mc.getCallers();
 
 			} else {
 				
 				// Dont add constructor
-				if (iMethod.isConstructor())
+				if (m.isConstructor())
 					continue;
 				
 				// Dont add private
-				if (Flags.isPrivate(iMethod.getFlags()))
+				if (m.isPrivate())
 					continue;
 				
-				Set<String> callers = CallerHelper.getCallerTypes(iMethod);
+				MethodWithCallers mc = m.getMethodWithCallers();
 
 				// Dont add not called
-				if (callers.size() == 0)
+				if (! mc.hasCaller())
 					continue;
 				
 				// Dont add fake public
-				if(CallerHelper.isCalledOnlyBy(callers, type))
+				if(mc.isCalledOnlyBy(type))
 					continue;
 				
 				//Remove fake public
-				CallerHelper.removeCaller(callers, type);
+				mc.removeCaller(type);
 				
-				if (getMethods().put(MethodHelper.getSignature(iMethod), callers) != null) {
-					System.out.println("Method " + MethodHelper.getSignature(iMethod) + " colision!");
+				if (getMethods().put(mc.getSignature(), mc.getCallers()) != null) {
+					System.out.println("Method " + mc.getSignature() + " colision!");
 				}
 			}
 

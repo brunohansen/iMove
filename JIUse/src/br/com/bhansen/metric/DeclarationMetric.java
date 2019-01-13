@@ -4,21 +4,15 @@ import java.util.HashSet;
 import java.util.Set;
 
 import org.eclipse.jdt.core.IField;
-import org.eclipse.jdt.core.IMethod;
 import org.eclipse.jdt.core.IType;
 import org.eclipse.jdt.core.JavaModelException;
 
-import br.com.bhansen.utils.MethodHelper;
 import br.com.bhansen.utils.Signature;
 
 public abstract class DeclarationMetric extends AbsMetric {
 
 	public DeclarationMetric(IType type) {
 		super(type);
-	}
-
-	protected final Set<String> createParametersSet(IMethod iMethod, String without) throws IllegalArgumentException, JavaModelException {
-		return MethodHelper.createParametersSet(iMethod, getName(), without);
 	}
 	
 	protected final void removeFakeParameter(Set<String> params, String parameter) throws JavaModelException {

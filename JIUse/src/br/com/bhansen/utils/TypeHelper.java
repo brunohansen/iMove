@@ -13,11 +13,11 @@ public class TypeHelper {
 	public static IMethod getMovedMethod(IType type, String methodName) throws Exception {
 		IMethod[] iMethods = type.getMethods();
 	
-		if (MethodHelper.isMovedMethod(methodName)) {
+		if (Method.isMovedMethodName(methodName)) {
 	
 			for (IMethod iMethod : iMethods) {
 	
-				if (MethodHelper.isMovedMethod(iMethod, methodName)) {
+				if (new Method(iMethod).isMovedMethod(methodName)) {
 					return iMethod;
 				}
 	
@@ -34,7 +34,7 @@ public class TypeHelper {
 		IMethod[] methods = type.getMethods();
 	
 		for (IMethod iMethod : methods) {
-			if (MethodHelper.getSignature(iMethod).equals(mSig)) {
+			if (new Method(iMethod).getSignature().equals(mSig)) {
 				return iMethod;
 			}
 		}
@@ -42,7 +42,7 @@ public class TypeHelper {
 		mSig = Signature.normalizeSignature(signature);
 	
 		for (IMethod iMethod : methods) {
-			if (MethodHelper.getSignature(iMethod).equals(mSig)) {
+			if (new Method(iMethod).getSignature().equals(mSig)) {
 				return iMethod;
 			}
 		}
