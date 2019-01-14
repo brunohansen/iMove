@@ -19,7 +19,7 @@ public class EvaluateSumMethod extends MoveMethodEvaluator  {
 		
 		MethodWithCallers m = this.method.getMethodWithCallers();
 		
-		if(! m.hasCaller()) { // || m.isCalledOnlyBy(classFrom) || m.isCalledOnlyBy(classTo)) {
+		if(! m.hasCaller()) { // || m.isCalledOnlyBy(classTo) || m.isCalledOnlyBy(classFrom)) {
 			skipIUC = true;
 		} else {
 			skipIUC = false;
