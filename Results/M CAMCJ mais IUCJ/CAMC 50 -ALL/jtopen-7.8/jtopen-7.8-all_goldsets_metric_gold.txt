@@ -1,0 +1,20 @@
+-0.020000-100	com.ibm.as400.access.SpooledFile::applyChanges2(OutputPropertiesPane):void	com.ibm.as400.vaccess.OutputPropertiesPane
+-0.021120-100	com.ibm.as400.data.ProgramCallDocument::endInternal2(RJob, int):void	com.ibm.as400.resource.RJob
+-0.034314-100	com.ibm.as400.access.SystemPool::removeErrorListener(VSystemPool, ErrorListener):void	com.ibm.as400.vaccess.VSystemPool
+-0.102941-100	com.ibm.as400.access.SystemValueList::removeWorkingListener(VSystemValueList, WorkingListener):void	com.ibm.as400.vaccess.VSystemValueList
+-0.250000-100	com.ibm.as400.vaccess.SQLMetaDataTablePane::readObject(SQLQueryFieldsPane, ObjectInputStream):void	com.ibm.as400.vaccess.SQLQueryFieldsPane
+-0.374138-100	com.ibm.as400.access.FTPThread::readObject2(FTP, ObjectInputStream):void	com.ibm.as400.access.FTP
+-0.377716-100	com.ibm.as400.vaccess.SQLResultSetTableModel::readObject2(SQLResultSetTablePane, ObjectInputStream):void	com.ibm.as400.vaccess.SQLResultSetTablePane
+0.000000-000	com.ibm.as400.access.NPCPAttributeIDList::readObject(PrintObjectList, ObjectInputStream):void	com.ibm.as400.access.PrintObjectList
+0.000000-000	com.ibm.as400.resource.ProgramMap::end(NetServerSession):void	com.ibm.as400.access.NetServerSession
+0.000000-000	com.ibm.as400.util.html.HTMLVector::readObject(HTMLTree, ObjectInputStream):void	com.ibm.as400.util.html.HTMLTree
+0.031250-000	com.ibm.as400.vaccess.SQLMetaDataTableModel::readObject2(SQLMetaDataTablePane, ObjectInputStream):void	com.ibm.as400.vaccess.SQLMetaDataTablePane
+0.041268-000	com.ibm.as400.access.AS400JDBCDataSource::applyChanges(AS400JDBCDataSourcePane):boolean	com.ibm.as400.vaccess.AS400JDBCDataSourcePane
+0.043513-000	com.ibm.as400.access.AS400ZonedDecimal::addToHashtable(PcmlDocument, PcmlDocNode):void	com.ibm.as400.data.PcmlDocument
+0.058333-000	com.ibm.as400.resource.IntegerValueMap::start2(NetServer, boolean):void	com.ibm.as400.access.NetServer
+0.065812-000	com.ibm.as400.access.RecordFormat::setColumnLabel(RecordFormatMetaData, int, String):void	com.ibm.as400.util.servlet.RecordFormatMetaData
+0.066320-000	com.ibm.as400.access.Permission::removeRow2(PermissionTableModelQSYS, int):void	com.ibm.as400.vaccess.PermissionTableModelQSYS
+0.400000-000	com.ibm.as400.access.DataQueueEvent::cleared(DataQueueEventSupport):void	com.ibm.as400.vaccess.DataQueueEventSupport
+0.500000-000	com.ibm.as400.access.ActionCompletedEvent::actionCompleted(ActionCompletedEventSupport):void	com.ibm.as400.vaccess.ActionCompletedEventSupport
+0.500000-000	com.ibm.as400.access.FileEvent::fileOpened(FileEventSupport):void	com.ibm.as400.vaccess.FileEventSupport
+0.500606-000	com.ibm.as400.access.SequentialFile::getFileName(RecordListData):String	com.ibm.as400.vaccess.RecordListData
