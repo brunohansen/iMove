@@ -64,13 +64,19 @@ public class MoveMethodRefactor {
 			throw new Exception("Invalid target!");
 		
 		if (selectedTargets.size() == 1) {
-			Change change = performRefactoring(processor, refactoring, selectedTargets.get(0));
+			Change undo = performRefactoring(processor, refactoring, selectedTargets.get(0));
 			
-			if(processor.needsTargetNode()) {
-				this.typeNotUsed = (processor.needsTargetNode())? getTypeIfNotUsed(classTo.getMovedMethod(processor.getMethodName()).getIMethod(), processor.getTargetName()) : null;
+			try {
+				if(processor.needsTargetNode()) {
+					this.typeNotUsed = getTypeIfNotUsed(classTo.getMovedMethod(processor.getMethodName()).getIMethod(), processor.getTargetName());
+				}
+				
+				return undo;
+			} catch(Exception e) {
+				undo.perform(new NullProgressMonitor());
+				
+				throw e;
 			}
-			
-			return change;
 		} else {
 			IVariableBinding bestTarget = getBestTarget(classTo, processor, refactoring, selectedTargets);
 					
@@ -87,20 +93,23 @@ public class MoveMethodRefactor {
 		for (IVariableBinding iVariableBinding : selectedTargets) {
 			Change undo = performRefactoring(processor, refactoring, iVariableBinding);
 			
-			Method method = classTo.getMovedMethod(processor.getMethodName());
-			
-			String type = (processor.needsTargetNode())? getTypeIfNotUsed(method.getIMethod(), processor.getTargetName()) : null;
-			
-			Set<String> parameters = method.getMethodWithParameters(type).getParameters();
-			
-			if(parameters.size() < numParameters) {
-				numParameters = parameters.size();
-				bestTarget = iVariableBinding;
-				this.typeNotUsed = type;
+			try {
+				Method method = classTo.getMovedMethod(processor.getMethodName());
+				
+				String type = (processor.needsTargetNode())? getTypeIfNotUsed(method.getIMethod(), processor.getTargetName()) : null;
+				
+				Set<String> parameters = method.getMethodWithParameters(type).getParameters();
+				
+				if(parameters.size() < numParameters) {
+					numParameters = parameters.size();
+					bestTarget = iVariableBinding;
+					this.typeNotUsed = type;
+				}
+			} finally {
+				undo.perform(new NullProgressMonitor());
 			}
-			
-			undo.perform(new NullProgressMonitor());
 		}
+		
 		return bestTarget;
 	}
 	
