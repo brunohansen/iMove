@@ -6,14 +6,17 @@ import org.eclipse.jdt.core.JavaModelException;
 
 public class Method {
 	
-	protected static String METHOD_SUFFIX = "Moved";
+	protected static final String METHOD_SUFFIX = "Moved";
+	private static final String STATIC_SUFFIX = "Static" + METHOD_SUFFIX;
 	
 	private IMethod iMethod;
 	private String signature;
+	private boolean isStatic;
 
 	public Method(IMethod iMethod) throws IllegalArgumentException, JavaModelException {
 		this.iMethod = iMethod;
 		this.signature = getSignature(iMethod);
+		this.isStatic = Flags.isStatic(iMethod.getFlags());
 	}
 	
 	public Method(Method method) throws IllegalArgumentException, JavaModelException {
@@ -44,8 +47,25 @@ public class Method {
 		return Signature.normalizeInnerSignature(signature);
 	}
 	
-	public String getMoveName() {
-		return getName() + METHOD_SUFFIX;
+	protected static boolean isMovedMethodName(String methodName) {
+		if((methodName != null) && (methodName.endsWith(METHOD_SUFFIX)))
+			return true;
+		else
+			return false;
+	}
+	
+	protected static boolean isStaticMovedMethodName(String methodName) {
+		if((methodName != null) && (methodName.endsWith(STATIC_SUFFIX)))
+			return true;
+		else
+			return false;
+	}
+	
+	public String getMoveName() throws JavaModelException {
+		if(isStatic())
+			return getName() + STATIC_SUFFIX;
+		else
+			return getName() + METHOD_SUFFIX;
 	}
 		
 	public String getName() {
@@ -56,32 +76,43 @@ public class Method {
 		return signature.split("\\(", 2)[0];
 	}
 	
-	public static boolean isMovedMethodName(String methodName) {
-		if((methodName != null) && (methodName.endsWith(METHOD_SUFFIX)))
-			return true;
-		else
-			return true;
-	}
+
 		
 	public boolean isMovedMethod(String methodName) throws IllegalArgumentException, JavaModelException {
 		if(! isMovedMethodName(methodName))
 			return false;
-					
-		if(Flags.isStatic(iMethod.getFlags())) {
-			return getName().equals(methodName.replaceFirst(METHOD_SUFFIX, ""));
+		
+		if(isStaticMovedMethodName(methodName)) {
+			if(isStatic()) {
+				return getName().equals(methodName.replaceFirst(STATIC_SUFFIX, ""));
+			} else {
+				return false;
+			}
 		} else {
-			return getName().equals(methodName);
+			if(! isStatic()) {
+				return getName().equals(methodName);
+			} else {
+				return false;
+			}
 		}
 	}
 	
 	public static boolean isMovedMethod(IMethod iMethod, String methodName) throws IllegalArgumentException, JavaModelException {
 		if(! isMovedMethodName(methodName))
 			return false;
-					
-		if(Flags.isStatic(iMethod.getFlags())) {
-			return getName(getSignature(iMethod)).equals(methodName.replaceFirst(METHOD_SUFFIX, ""));
+		
+		if(isStaticMovedMethodName(methodName)) {
+			if(Flags.isStatic(iMethod.getFlags())) {
+				return getName(getSignature(iMethod)).equals(methodName.replaceFirst(STATIC_SUFFIX, ""));
+			} else {
+				return false;
+			}
 		} else {
-			return getName(getSignature(iMethod)).equals(methodName);
+			if(! Flags.isStatic(iMethod.getFlags())) {
+				return getName(getSignature(iMethod)).equals(methodName);
+			} else {
+				return false;
+			}
 		}
 	}
 	
@@ -113,7 +144,7 @@ public class Method {
 	}
 	
 	public boolean isStatic() throws JavaModelException {
-		return Flags.isStatic(iMethod.getFlags());
+		return isStatic;
 	}
 	
 }
