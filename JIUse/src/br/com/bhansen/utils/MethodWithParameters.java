@@ -44,7 +44,8 @@ public class MethodWithParameters extends Method {
 		}
 	
 		ParameterHelper.removePrimitives(params);
-		ParameterHelper.removeCollections(params);
+		//Some methods needs collections to be moved
+//		ParameterHelper.removeCollections(params);
 		ParameterHelper.removeSelfParameter(params, Type.getName(getIMethod().getDeclaringType()));
 		
 		return params;
