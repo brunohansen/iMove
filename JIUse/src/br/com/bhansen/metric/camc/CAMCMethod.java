@@ -25,7 +25,7 @@ public class CAMCMethod extends DeclarationMetric {
 //			if (mp.isMovedMethod(method))
 //				removeFakeParameter(mp.getParameters(), parameter);
 			
-			if((mp.isMethod(method)) || (mp.isMovedMethod(method)))
+			if(mp.isMethod(method))
 				this.method = mp.getParameters();
 
 //			if (mp.isPrivate() || mp.isFakeDelegate(method))

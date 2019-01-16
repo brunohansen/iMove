@@ -26,15 +26,26 @@ public class Type {
 		return iType.getFullyQualifiedName().replaceAll("\\$", ".").replaceFirst("(\\.[0-9])*$", "");
 	}
 	
-	public Method getMovedMethod(String methodName) throws Exception {
+	public Method getMethod(String method) throws Exception {
+		if(Method.isMovedMethodName(method)) {
+			return getMovedMethod(method);
+		} else {
+			return getMethodBySignature(method);
+		}
+		
+	}
+	
+	private Method getMovedMethod(String methodName) throws Exception {
 		IMethod[] iMethods = iType.getMethods();
 	
 		if (Method.isMovedMethodName(methodName)) {
 	
 			for (IMethod iMethod : iMethods) {
+				
+				Method m = new Method(iMethod);
 	
-				if (Method.isMovedMethod(iMethod, methodName)) {
-					return new Method(iMethod);
+				if (m.isMovedMethod(methodName)) {
+					return m;
 				}
 	
 			}
@@ -43,7 +54,7 @@ public class Type {
 		throw new Exception("Moved method not found!");
 	}
 	
-	public Method getMethod(String signature) throws Exception {
+	private Method getMethodBySignature(String signature) throws Exception {
 		
 		String mSig = Signature.normalizeInnerSignature(signature);
 	

@@ -68,7 +68,7 @@ public class MoveMethodRefactor {
 			
 			try {
 				if(processor.needsTargetNode()) {
-					this.typeNotUsed = getTypeIfNotUsed(classTo.getMovedMethod(processor.getMethodName()).getIMethod(), processor.getTargetName());
+					this.typeNotUsed = getTypeIfNotUsed(classTo.getMethod(processor.getMethodName()).getIMethod(), processor.getTargetName());
 				}
 				
 				return undo;
@@ -94,7 +94,7 @@ public class MoveMethodRefactor {
 			Change undo = performRefactoring(processor, refactoring, iVariableBinding);
 			
 			try {
-				Method method = classTo.getMovedMethod(processor.getMethodName());
+				Method method = classTo.getMethod(processor.getMethodName());
 				
 				String type = (processor.needsTargetNode())? getTypeIfNotUsed(method.getIMethod(), processor.getTargetName()) : null;
 				

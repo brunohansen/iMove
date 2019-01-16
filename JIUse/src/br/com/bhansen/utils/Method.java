@@ -76,9 +76,15 @@ public class Method {
 		return signature.split("\\(", 2)[0];
 	}
 	
-
-		
-	public boolean isMovedMethod(String methodName) throws IllegalArgumentException, JavaModelException {
+	public boolean isMethod(String method) throws Exception {
+		if(isMovedMethodName(method)) {
+			return isMovedMethod(method);
+		} else {
+			return isMethodSignature(method);
+		}
+	}
+			
+	protected boolean isMovedMethod(String methodName) throws IllegalArgumentException, JavaModelException {
 		if(! isMovedMethodName(methodName))
 			return false;
 		
@@ -97,26 +103,7 @@ public class Method {
 		}
 	}
 	
-	public static boolean isMovedMethod(IMethod iMethod, String methodName) throws IllegalArgumentException, JavaModelException {
-		if(! isMovedMethodName(methodName))
-			return false;
-		
-		if(isStaticMovedMethodName(methodName)) {
-			if(Flags.isStatic(iMethod.getFlags())) {
-				return getName(getSignature(iMethod)).equals(methodName.replaceFirst(STATIC_SUFFIX, ""));
-			} else {
-				return false;
-			}
-		} else {
-			if(! Flags.isStatic(iMethod.getFlags())) {
-				return getName(getSignature(iMethod)).equals(methodName);
-			} else {
-				return false;
-			}
-		}
-	}
-	
-	public final boolean isMethod(String signature) throws Exception {
+	protected final boolean isMethodSignature(String signature) throws Exception {
 		if(signature == null)
 			return false;
 

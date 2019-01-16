@@ -24,7 +24,7 @@ public class IUCJMethod extends IUC {
 			
 			Method m = new Method(iMethod);
 
-			if (m.isMethod(method) || m.isMovedMethod(method)) {
+			if (m.isMethod(method)) {
 				MethodWithCallers mc = m.getMethodWithCallers();
 				
 				//Remove fake public
