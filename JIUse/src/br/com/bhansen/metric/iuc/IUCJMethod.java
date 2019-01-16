@@ -39,12 +39,12 @@ public class IUCJMethod extends IUC {
 					continue;
 				
 				// Dont add private
-				if (m.isPrivate())
-					continue;
+//				if (m.isPrivate())
+//					continue;
 				
 				// Add only public
-//				if(! m.isPublic())
-//					continue;
+				if(! m.isPublic())
+					continue;
 				
 				MethodWithCallers mc = m.getMethodWithCallers();
 
