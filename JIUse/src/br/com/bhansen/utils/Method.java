@@ -126,12 +126,32 @@ public class Method {
 		return Flags.isPrivate(iMethod.getFlags());
 	}
 	
+	public boolean isProtected() throws JavaModelException {
+		return Flags.isProtected(iMethod.getFlags());
+	}
+	
 	public boolean isConstructor() throws JavaModelException {
 		return iMethod.isConstructor();
 	}
 	
 	public boolean isStatic() throws JavaModelException {
 		return isStatic;
+	}
+	
+	public boolean hasSameVisibility(Method method) throws JavaModelException {
+		return (isPublic() && method.isPublic()) || (isProtected() && method.isProtected()) || (isPrivate() && method.isProtected());
+	}
+	
+	public boolean hasVisibility(Method method) throws JavaModelException {
+		if(isPublic() && method.isPublic()) {
+			return true;
+		} else if (isProtected() && ! method.isPrivate()) {
+			return true;
+		} else if (isPrivate()) {
+			return true;
+		} else {
+			return false;
+		}
 	}
 	
 }

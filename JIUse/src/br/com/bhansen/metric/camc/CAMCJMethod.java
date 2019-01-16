@@ -39,14 +39,14 @@ public class CAMCJMethod extends DeclarationMetric {
 				// Dont add constructor
 				if (m.isConstructor())
 					continue;
-				
-				// Dont add private
-//				if (m.isPrivate())
-//					continue;
-				
-				// Add only public
-				if(! m.isPublic())
+								
+				// Add only same visibility
+				if(! tMethod.hasSameVisibility(m))
 					continue;
+				
+				// Add only same o higher visibility
+//				if(! tMethod.hasVisibility(m))
+//					continue;
 				
 				MethodWithParameters mp = m.getMethodWithParameters(parameter);
 				
