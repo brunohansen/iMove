@@ -1,0 +1,18 @@
+0.000000-000	org.apache.tools.ant.filters.StripLineBreaks::addStripLineBreaks(FilterChain):void	org.apache.tools.ant.types.FilterChain
+0.000000-000	org.apache.tools.ant.taskdefs.optional.ejb.EjbJar.Config::checkAndAddDependants(GenericDeploymentTool, Hashtable):void	org.apache.tools.ant.taskdefs.optional.ejb.GenericDeploymentTool
+0.000000-000	org.apache.tools.ant.types.CommandlineJava::execute2(JJDoc):void	org.apache.tools.ant.taskdefs.optional.javacc.JJDoc
+0.000000-000	org.apache.tools.ant.types.FileSet::XsetIgnore(MatchingTask, String):void	org.apache.tools.ant.taskdefs.MatchingTask
+0.000000-000	org.apache.tools.ant.types.Reference::loadProperties(Property, Properties, InputStream, boolean):void	org.apache.tools.ant.taskdefs.Property
+0.000000-000	org.apache.tools.ant.types.RegularExpression::addRegexp(Matches):void	org.apache.tools.ant.taskdefs.condition.Matches
+0.000000-000	org.apache.tools.ant.types.selectors.TokenizedPath::isIncluded2(DirectoryScanner):boolean	org.apache.tools.ant.DirectoryScanner
+0.000000-000	org.apache.tools.ant.util.FileUtils::eval2(IsFileSelected):boolean	org.apache.tools.ant.taskdefs.condition.IsFileSelected
+0.000000-000	org.apache.tools.ant.util.LineTokenizer::chain(HeadFilter, Reader):Reader	org.apache.tools.ant.filters.HeadFilter
+0.000000-000	org.apache.tools.ant.util.SymbolicLinkUtils::loadLinks2(Symlink, Vector):Properties	org.apache.tools.ant.taskdefs.optional.unix.Symlink
+0.142857-000	org.apache.tools.ant.filters.FixCrLfFilter::setDestdir(FixCRLF, File):void	org.apache.tools.ant.taskdefs.FixCRLF
+0.166667-000	org.apache.tools.ant.util.ScriptRunnerHelper::executeScript2(ScriptDef, Map, Map, ScriptDefBase):void	org.apache.tools.ant.taskdefs.optional.script.ScriptDef
+0.661111-000	org.apache.tools.ant.types.Comparison::setValue(SizeSelector, long):void	org.apache.tools.ant.types.selectors.SizeSelector
+1.000000-000	org.apache.tools.ant.taskdefs.Parallel::setFailureMessage(Funtest, String):void	org.apache.tools.ant.taskdefs.optional.testing.Funtest
+1.000000-000	org.apache.tools.ant.types.Environment::setOutputproperty(Java, String):void	org.apache.tools.ant.taskdefs.Java
+1.000000-000	org.apache.tools.ant.types.RedirectorElement::setSpawn(ExecTask, boolean):void	org.apache.tools.ant.taskdefs.ExecTask
+1.000000-000	org.apache.tools.ant.types.ZipScanner::setUpdate(Zip, boolean):void	org.apache.tools.ant.taskdefs.Zip
+1.000000-000	org.apache.tools.ant.util.ClasspathUtils.Delegate::getLoaderId(DefBase):String	org.apache.tools.ant.taskdefs.DefBase
