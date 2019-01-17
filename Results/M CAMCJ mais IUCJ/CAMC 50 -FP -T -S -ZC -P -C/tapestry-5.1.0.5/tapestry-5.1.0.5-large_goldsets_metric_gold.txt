@@ -1,0 +1,10 @@
+0.031250-000	org.apache.tapestry5.internal.services.ComponentResultProcessorWrapper::fireValidateFormEvent(EventContext, Form):void	org.apache.tapestry5.corelib.components.Form
+0.071429-000	org.apache.tapestry5.FieldFocusPriority::autofocus2(RenderSupportImpl, String):void	org.apache.tapestry5.internal.services.RenderSupportImpl
+0.150000-000	org.apache.tapestry5.internal.parser.ExtensionPointToken::queueOverrideTokensForExtensionPoint(PageLoaderImpl, Stack<TemplateToken>, List<ComponentTemplate>):void	org.apache.tapestry5.internal.pageload.PageLoaderImpl
+0.153030-000	org.apache.tapestry5.ioc.internal.services.RegistryShutdownHubImpl::findServiceIdsForInterface(RegistryImpl, Class):List<String>	org.apache.tapestry5.ioc.internal.RegistryImpl
+0.166667-000	org.apache.tapestry5.corelib.internal.ComponentActionSink::afterRender(FormFragment, MarkupWriter):void	org.apache.tapestry5.corelib.components.FormFragment
+0.214286-000	org.apache.tapestry5.corelib.data.InsertPosition::addFormInjector2(String, Link, ClientBehaviorSupportImpl, String):void	org.apache.tapestry5.internal.services.ClientBehaviorSupportImpl
+0.226415-000	org.apache.tapestry5.ioc.internal.util.IdAllocator::copyMethod2(InternalClassTransformationImpl, TransformMethodSignature, int, String):void	org.apache.tapestry5.internal.services.InternalClassTransformationImpl
+0.238095-000	org.apache.tapestry5.services.PageRenderRequestParameters::createPageRenderLink2(ComponentEventLinkEncoderImpl):Link	org.apache.tapestry5.internal.services.ComponentEventLinkEncoderImpl
+0.475000-000	org.apache.tapestry5.internal.parser.AttributeToken::newAttributeElement2(ComponentResources, PageElementFactoryImpl):RenderCommand	org.apache.tapestry5.internal.services.PageElementFactoryImpl
+1.000000-000	org.apache.tapestry5.services.ComponentEventRequestParameters::handle2(AjaxComponentEventRequestHandler):void	org.apache.tapestry5.internal.services.AjaxComponentEventRequestHandler
