@@ -22,6 +22,41 @@ public class CAMCJMethod extends DeclarationMetric {
 		dontUseVisibilityLevels(type, method, parameter);
 	}
 	
+	private void dontUseVisibilityLevels(Type type, String method, String parameter) throws JavaModelException, Exception {
+		IMethod[] iMethods = type.getIType().getMethods();
+
+		for (IMethod iMethod : iMethods) {
+			
+			Method m = new Method(iMethod);
+
+			if (m.isMethod(method)) {
+				this.method = m.getMethodWithParameters(parameter).getParameters();
+			} else {
+				
+				// Dont add constructor
+				if (m.isConstructor())
+					continue;
+				
+				// Dont add private
+				if (m.isPrivate())
+					continue;
+				
+				// Add only public
+//				if(! m.isPublic())
+//					continue;
+				
+				MethodWithParameters mp = m.getMethodWithParameters(parameter);
+				
+				// Dont add zero parameters
+//				if(! mp.hasParameter())
+//					continue;
+
+				getMethods().put(mp.getSignature(), mp.getParameters());
+			}
+
+		}
+	}
+	
 	private void useVisibilityLevels(Type type, String method, String parameter) throws JavaModelException, Exception {
 		
 		Method tMethod = type.getMethod(method);
@@ -47,41 +82,6 @@ public class CAMCJMethod extends DeclarationMetric {
 				// Add only same o higher visibility
 //				if(! tMethod.hasVisibility(m))
 //					continue;
-				
-				MethodWithParameters mp = m.getMethodWithParameters(parameter);
-				
-				// Dont add zero parameters
-//				if(! mp.hasParameter())
-//					continue;
-
-				getMethods().put(mp.getSignature(), mp.getParameters());
-			}
-
-		}
-	}
-
-	private void dontUseVisibilityLevels(Type type, String method, String parameter) throws JavaModelException, Exception {
-		IMethod[] iMethods = type.getIType().getMethods();
-
-		for (IMethod iMethod : iMethods) {
-			
-			Method m = new Method(iMethod);
-
-			if (m.isMethod(method)) {
-				this.method = m.getMethodWithParameters(parameter).getParameters();
-			} else {
-				
-				// Dont add constructor
-				if (m.isConstructor())
-					continue;
-				
-				// Dont add private
-//				if (m.isPrivate())
-//					continue;
-				
-				// Add only public
-				if(! m.isPublic())
-					continue;
 				
 				MethodWithParameters mp = m.getMethodWithParameters(parameter);
 				
