@@ -1,0 +1,8 @@
+0.051724-000	com.mvnforum.auth.OnlineUserAction::convertGMTDate(OnlineUserImpl, Date):Date	com.mvnforum.auth.OnlineUserImpl
+1.000000-000	com.mvnforum.admin.AttachmentXML::setAttachDownloadCount(MvnForumAttachmentXML, String):void	com.mvnforum.admin.importexport.mvnforum.MvnForumAttachmentXML
+1.000000-000	com.mvnforum.admin.CategoryXML::setCategoryOrder(MvnForumCategoryXML, String):void	com.mvnforum.admin.importexport.mvnforum.MvnForumCategoryXML
+1.000000-000	com.mvnforum.admin.ForumXML::setForumPassword(MvnForumForumXML, String):void	com.mvnforum.admin.importexport.mvnforum.MvnForumForumXML
+1.000000-000	com.mvnforum.admin.MemberXML::setMemberEmailVisible(MvnForumMemberXML, String):void	com.mvnforum.admin.importexport.mvnforum.MvnForumMemberXML
+1.000000-000	com.mvnforum.admin.ThreadXML::addJiveThreadWatch(JiveThreadXML, String, String, String):void	com.mvnforum.admin.importexport.jive.JiveThreadXML
+1.000000-000	net.myvietnam.mvncore.service.BinaryStorageHandle::loadData(String, String, BinaryStorageServiceImplBase):byte[]	net.myvietnam.mvncore.service.impl.BinaryStorageServiceImplBase
+1.000000-000	net.myvietnam.mvncore.thirdparty.commonj.util.ThreadPool::isSuspending(FooTimerManager):boolean	net.myvietnam.mvncore.thirdparty.commonj.timers.FooTimerManager
