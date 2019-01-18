@@ -5,6 +5,7 @@
 0.000000-000	org.jgroups.stack.NakReceiverWindow::testConcurrentInsertionOfSameSeqno(NakReceiverWindowTest2):void	org.jgroups.tests.NakReceiverWindowTest2
 0.000000-000	org.jgroups.stack.ProtocolStack::testDefaultAssignment(ProtocolConfigurationTest):void	org.jgroups.tests.ProtocolConfigurationTest
 0.000000-000	org.jgroups.util.MutableDigest::testImmutability4(DigestTest):void	org.jgroups.tests.DigestTest
+0.032366-000	org.jgroups.util.Queue::up(JChannel, Event):Object	org.jgroups.JChannel
 0.038462-000	org.jgroups.JChannel::findParentNode(ReplicatedTree, String, StringHolder, boolean):Node	org.jgroups.blocks.ReplicatedTree
 0.060606-000	org.jgroups.Event::passToAllMuxChannels(Multiplexer):void	org.jgroups.mux.Multiplexer
 0.089286-000	org.jgroups.util.BoundedList::determinePingDest(FD_SOCK):Address	org.jgroups.protocols.FD_SOCK
@@ -17,4 +18,3 @@
 1.000000-000	org.jgroups.blocks.MessageDispatcher::test2000ByteMessageToSelf(MessageDispatcherUnitTest):void	org.jgroups.tests.MessageDispatcherUnitTest
 1.000000-000	org.jgroups.blocks.RpcDispatcher::setNumMessages(UnicastTestRpc):void	org.jgroups.tests.UnicastTestRpc
 1.000000-000	org.jgroups.util.TimeScheduler::getNumberOfReceiverScopes(SCOPE):int	org.jgroups.protocols.SCOPE
-E01	org.jgroups.util.Queue::up(JChannel, Event):Object	org.jgroups.JChannel	 Error: Method up(JChannel, Event):Object not found!

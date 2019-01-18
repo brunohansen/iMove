@@ -19,6 +19,7 @@
 0.000000-011	org.jgroups.tests.RspListTest::testKeySet2():void	org.jgroups.util.RspList
 0.000000-011	org.jgroups.tests.UnicastLoopbackTest::testUnicastMsgsWithLoopback():void	org.jgroups.JChannel
 0.000000-011	org.jgroups.tests.perf.IPerf::sendResult(Object, Entry):void	org.jgroups.tests.perf.IPerf.Entry
+0.032366-000	org.jgroups.util.Queue::up(JChannel, Event):Object	org.jgroups.JChannel
 0.088889-011	org.jgroups.blocks.MuxRpcDispatcherTest::verifyResponse(Map<Address, Rsp>, Channel, Object):void	org.jgroups.Channel
 0.175000-011	org.jgroups.tests.UnicastTest::getReceiver():Address	org.jgroups.JChannel
 0.175000-011	org.jgroups.tests.UnicastTestRpc::getReceiver():Address	org.jgroups.JChannel
@@ -37,4 +38,3 @@ E11	org.jgroups.tests.ConnectionTableUnitTest::testSendNullData():void	org.jgrou
 E11	org.jgroups.tests.ConnectionTableUnitTest::testSendToOther():void	org.jgroups.blocks.BasicConnectionTable	 Error: Invalid target!
 E11	org.jgroups.tests.ConnectionTableUnitTest::testSendToOtherGetResponse():void	org.jgroups.blocks.BasicConnectionTable	 Error: Invalid target!
 E11	org.jgroups.tests.ConnectionTableUnitTest::testSendToSelf():void	org.jgroups.blocks.BasicConnectionTable	 Error: Invalid target!
-E11	org.jgroups.util.Queue::up(org.jgroups.JChannel, org.jgroups.Event):java.lang.Object	org.jgroups.JChannel	 Error: Method up(org.jgroups.JChannel, org.jgroups.Event):java.lang.Object not found!
