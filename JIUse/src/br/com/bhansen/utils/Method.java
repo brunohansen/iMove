@@ -103,6 +103,10 @@ public class Method {
 		}
 	}
 	
+	public static String getSignature(String movement) {
+		return movement.split("::")[1].split("\t")[0];
+	}
+	
 	protected final boolean isMethodSignature(String signature) throws Exception {
 		if(signature == null)
 			return false;
