@@ -1,0 +1,2 @@
+-0.562076-111	org.gjt.sp.jedit.textarea.JEditTextArea::lineToY(int):int	org.gjt.sp.jedit.textarea.TextAreaPainter
+0.000000-011	org.gjt.sp.jedit.textarea.JEditTextArea::setText(String):void	org.gjt.sp.jedit.Buffer
