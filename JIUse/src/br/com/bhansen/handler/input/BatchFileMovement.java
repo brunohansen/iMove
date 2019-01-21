@@ -1,6 +1,5 @@
 package br.com.bhansen.handler.input;
 
-import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -12,17 +11,12 @@ import java.util.function.Consumer;
 import java.util.stream.Stream;
 
 import org.eclipse.core.commands.ExecutionEvent;
-import org.eclipse.core.resources.IProject;
-import org.eclipse.core.resources.IWorkspace;
-import org.eclipse.core.resources.IWorkspaceRoot;
-import org.eclipse.core.resources.ResourcesPlugin;
-import org.eclipse.jdt.core.IJavaProject;
-import org.eclipse.jdt.core.JavaCore;
 import org.eclipse.jface.dialogs.InputDialog;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.ui.IWorkbenchWindow;
 
 import br.com.bhansen.refactory.MoveMethodEvaluator;
+import br.com.bhansen.utils.Project;
 import br.com.bhansen.view.MoveMethod;
 
 public class BatchFileMovement extends InputMovement {
@@ -44,52 +38,26 @@ public class BatchFileMovement extends InputMovement {
 		GoldChecker.goldCheck(getGoldPath(inFile), getMetricPath(inFile));
 		
 		try {
-			moveMethod.update(getProject(getProjectName(inFile)), out);
+			moveMethod.update(new Project(inFile), out);
 		} catch (Exception e) {
 			// TODO: handle exception
 		}
-		
 		
 		MessageDialog.openInformation(window.getShell(), "Finish", "Finish!");
 		
 		return null;
 	}
 	
-	public static String getProjectName(Path path) {
-		String projName = path.toString(); 
-		projName = projName.substring(projName.lastIndexOf(File.separator) + 1);
-		projName = projName.substring(0, projName.indexOf("_"));
-		
-		return projName;
-	}
-		
 	public static Path getGoldPath(Path path) {
 		String goldPath = path.toString();
-		return Paths.get(goldPath.substring(0, goldPath.indexOf("results")), "gold_sets", getProjectName(path) + ".txt");
+		return Paths.get(goldPath.substring(0, goldPath.indexOf("results")), "gold_sets", Project.getProjectName(path) + ".txt");
 	}
-	
-	protected IWorkspaceRoot getRoot() {
-		// Get the root of the workspace
-		IWorkspace workspace = ResourcesPlugin.getWorkspace();
-		IWorkspaceRoot root = workspace.getRoot();
-		return root;
-	}
-	
-	public IJavaProject getProject(String projectName) {
-		IProject project = getRoot().getProject(projectName);
-		
-		if(! project.exists() || ! project.isOpen()) {
-			throw new RuntimeException("Project " + projectName + " not exists or closed!");
-		}
-			
-		return JavaCore.create(project);
-	}	
 	
 	public Set<String> metricCheck(Path inFile, String type, String metric) throws IOException {
 		Stream<String> lines = Files.lines(inFile);
 		
 		try {
-			IJavaProject project = getProject(getProjectName(inFile));
+			Project project = new Project(inFile);
 			
 			Set<String> outSet = new HashSet<>();
 			

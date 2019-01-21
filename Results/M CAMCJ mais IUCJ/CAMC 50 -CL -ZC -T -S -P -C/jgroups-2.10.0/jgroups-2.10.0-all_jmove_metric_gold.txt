@@ -41,6 +41,7 @@
 0.018056-011	org.jgroups.protocols.pbcast.GmsImpl::sendMergeRejectedResponse(Address, MergeId):void	org.jgroups.protocols.pbcast.Merger
 0.024433-011	org.jgroups.tests.RpcDispatcherBlocking::sendGroupRpc():RspList	org.jgroups.blocks.RpcDispatcher
 0.027012-011	org.jgroups.blocks.ReplicatedHashMap::sendViewChangeNotifications(View, Vector<Address>, Vector<Address>):void	org.jgroups.View
+0.032366-000	org.jgroups.util.Queue::up(JChannel, Event):Object	org.jgroups.JChannel
 0.036842-011	org.jgroups.tests.SimulatorTest::createSimulator(Simulator[], View, Address[], DELAY[], Protocol[][], int):void	org.jgroups.View
 0.057790-011	org.jgroups.protocols.pbcast.GMS::sendViewAck(Address):void	org.jgroups.protocols.pbcast.Merger
 0.070175-011	org.jgroups.protocols.VIEW_SYNC::handleView(View, Address):void	org.jgroups.View
@@ -57,4 +58,3 @@
 0.255952-011	org.jgroups.protocols.pbcast.STABLE::handleStableMessage(Address, Digest):void	org.jgroups.util.MutableDigest
 0.255952-011	org.jgroups.protocols.pbcast.STABLE::updateLocalDigest(Digest, Address):boolean	org.jgroups.util.MutableDigest
 1.000000-000	org.jgroups.blocks.RpcDispatcher::setNumMessages(UnicastTestRpc):void	org.jgroups.tests.UnicastTestRpc
-E01	org.jgroups.util.Queue::up(JChannel, Event):Object	org.jgroups.JChannel	 Error: Method up(JChannel, Event):Object not found!

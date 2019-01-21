@@ -5,9 +5,6 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Collection;
 
-import org.eclipse.jdt.core.IJavaProject;
-import org.eclipse.jdt.core.IMethod;
-import org.eclipse.jdt.core.IType;
 import org.eclipse.jdt.ui.JavaUI;
 import org.eclipse.jface.action.Action;
 import org.eclipse.jface.action.IMenuListener;
@@ -35,10 +32,8 @@ import org.eclipse.ui.ISharedImages;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.part.ViewPart;
 
-import br.com.bhansen.handler.input.InputMovement;
 import br.com.bhansen.refactory.MoveMethodRefactor;
-import br.com.bhansen.utils.Method;
-import br.com.bhansen.utils.Type;
+import br.com.bhansen.utils.Project;
 
 /**
  * This sample class demonstrates how to plug-in a new workbench view. The view
@@ -65,7 +60,8 @@ public class MoveMethod extends ViewPart {
 	private TableViewer viewer;
 	private Action saveResultsAction;
 	private Action doubleClickAction;
-	IJavaProject project;
+
+	private Project project;
 
 	/**
 	 * The constructor.
@@ -94,10 +90,11 @@ public class MoveMethod extends ViewPart {
 		shouldMove.getColumn().setWidth(200);
 		shouldMove.getColumn().setText("Should Move?");
 		shouldMove.setLabelProvider(new ColumnLabelProvider() {
-			
+
 			@Override
 			public String getText(Object element) {
-				return (element.toString().split("\t", 2)[0].replaceFirst("(\\d|\\.|-)+-", "").startsWith("0"))? "Yes" : "No";
+				return (element.toString().split("\t", 2)[0].replaceFirst("(\\d|\\.|-)+-", "").startsWith("0")) ? "Yes"
+						: "No";
 			}
 		});
 
@@ -127,8 +124,8 @@ public class MoveMethod extends ViewPart {
 		hookDoubleClickAction();
 		contributeToActionBars();
 	}
-	
-	public void update(IJavaProject project, Collection<String> input) {
+
+	public void update(Project project, Collection<String> input) {
 		this.project = project;
 		viewer.setInput(input);
 
@@ -138,7 +135,7 @@ public class MoveMethod extends ViewPart {
 		IActionBars bars = getViewSite().getActionBars();
 		fillLocalToolBar(bars.getToolBarManager());
 	}
-	
+
 	private void hookContextMenu() {
 		MenuManager menuMgr = new MenuManager("#PopupMenu");
 		menuMgr.setRemoveAllWhenShown(true);
@@ -155,70 +152,59 @@ public class MoveMethod extends ViewPart {
 	private void fillLocalToolBar(IToolBarManager manager) {
 		manager.add(saveResultsAction);
 	}
-	
+
 	private void fillContextMenu(IMenuManager manager) {
 		manager.add(new Action() {
 			@Override
 			public String getText() {
 				return "View Source Method";
 			}
-			
+
 			@Override
 			public void run() {
 				ISelection selection = viewer.getSelection();
 				Object obj = ((IStructuredSelection) selection).getFirstElement();
-				
-				String [] parts = obj.toString().split("\t");
-				
+
 				try {
-					IType classFrom = InputMovement.findType(project, parts[1].split("::")[0]);								
-					IMethod method = new Type(classFrom).getMethod(parts[1].split("::")[1]).getIMethod();
-					JavaUI.openInEditor(method);
+					JavaUI.openInEditor(project.findMethod(obj.toString()).getIMethod());
 				} catch (Exception e) {
 					throw new RuntimeException(e);
 				}
 			}
 		});
-		
+
 		manager.add(new Action() {
 			@Override
 			public String getText() {
 				return "View Target Class";
 			}
-			
+
 			@Override
 			public void run() {
 				ISelection selection = viewer.getSelection();
 				Object obj = ((IStructuredSelection) selection).getFirstElement();
-				
-				String [] parts = obj.toString().split("\t");
-				
+
 				try {
-					IType classFrom = InputMovement.findType(project, parts[2]);								
-					JavaUI.openInEditor(classFrom);
+					JavaUI.openInEditor(project.findClassTo(obj.toString()).getIType());
 				} catch (Exception e) {
 					throw new RuntimeException(e);
 				}
 			}
 		});
-		
+
 		manager.add(new Action() {
 			@Override
 			public String getText() {
 				return "Open Move Method Assitant";
 			}
-			
+
 			@Override
 			public void run() {
 				ISelection selection = viewer.getSelection();
 				Object obj = ((IStructuredSelection) selection).getFirstElement();
-				
-				String [] parts = obj.toString().split("\t");
-				
+
 				try {
-					IType classFrom = InputMovement.findType(project, parts[1].split("::")[0]);								
-					Method method = new Type(classFrom).getMethod(parts[1].split("::")[1]);
-					MoveMethodRefactor.moveWizard(method, viewer.getControl().getShell());
+					MoveMethodRefactor.moveWizard(project.findMethod(obj.toString()), viewer.getControl().getShell());
 				} catch (Exception e) {
 					throw new RuntimeException(e);
 				}
