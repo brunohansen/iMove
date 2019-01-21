@@ -35,6 +35,8 @@ public class FileMerger extends AbstractHandler {
 					"Directory address", "", null);
 			inDlg.open();
 
+			//RemoveTest.remTest(inDlg.getValue());
+			
 			mergeDir(inDlg.getValue());
 
 			MessageDialog.openInformation(window.getShell(), "Finish", "Finish!");
