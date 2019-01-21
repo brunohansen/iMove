@@ -1,0 +1,15 @@
+-0.015791-101	org.jgroups.stack.Protocol::down(NAKACK, Event):Object	org.jgroups.Event
+-0.054622-111	org.jgroups.protocols.pbcast.GMS::makeView(Vector<Address>):View	org.jgroups.ViewId
+-0.237404-111	org.jgroups.protocols.pbcast.Merger::sendMergeView(Collection<Address>, MergeData, MergeId):void	org.jgroups.protocols.pbcast.GMS
+0.022902-000	org.jgroups.util.Queue::up(JChannel, Event):Object	org.jgroups.JChannel
+0.248501-001	org.jgroups.JChannel::findParentNode(ReplicatedTree, String, StringHolder, boolean):Node	org.jgroups.blocks.ReplicatedTree.StringHolder
+0.254261-011	org.jgroups.protocols.pbcast.GMS::determineCoordinator():Address	org.jgroups.Membership
+0.363480-011	org.jgroups.protocols.pbcast.GMS::wouldBeNewCoordinator(Address):boolean	org.jgroups.Membership
+1.000000-000	org.jgroups.blocks.DistributedTree::clearTable(DistributedTreeDemo):void	org.jgroups.demos.DistributedTreeDemo
+1.000000-000	org.jgroups.blocks.RpcDispatcher::setNumMessages(UnicastTestRpc):void	org.jgroups.tests.UnicastTestRpc
+1.000000-000	org.jgroups.util.TimeScheduler::getNumberOfReceiverScopes(SCOPE):int	org.jgroups.protocols.SCOPE
+1.000000-011	org.jgroups.blocks.ConnectionTableNIO.ReadHandler::readBody(Connection):int	org.jgroups.blocks.ConnectionTableNIO.Connection
+1.000000-011	org.jgroups.blocks.ConnectionTableNIO.ReadHandler::readHeader(Connection):int	org.jgroups.blocks.ConnectionTableNIO.Connection
+E11	org.jgroups.protocols.pbcast.Merger::fixDigests():void	org.jgroups.stack.Protocol	 Error: Invalid target!
+E11	org.jgroups.protocols.pbcast.Merger::sendMergeCancelledMessage(java.util.Collection<org.jgroups.Address>, org.jgroups.util.MergeId):void	org.jgroups.stack.Protocol	 Error: Invalid target!
+E11	org.jgroups.protocols.pbcast.Merger::sendMergeResponse(org.jgroups.Address, org.jgroups.View, org.jgroups.util.Digest, org.jgroups.util.MergeId):void	org.jgroups.stack.Protocol	 Error: Invalid target!
