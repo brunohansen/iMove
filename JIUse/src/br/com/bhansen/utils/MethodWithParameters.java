@@ -27,7 +27,7 @@ public class MethodWithParameters extends Method {
 		//String strParams = getSignature().replaceAll(".*\\(", "").replaceAll("\\).*", "");
 		String strParams = getParametersAndReturn();
 		
-		strParams = strParams.replaceAll("\\[\\]", "");// Remove arrays
+		//strParams = strParams.replaceAll("\\[\\]", "");// Remove arrays
 		
 		if(without != null) {
 			strParams = strParams.replaceFirst(without + "(, )*", "");
@@ -45,7 +45,7 @@ public class MethodWithParameters extends Method {
 	
 		ParameterHelper.removePrimitives(params);
 		//Some methods needs collections to be moved
-//		ParameterHelper.removeCollections(params);
+		//ParameterHelper.removeCollections(params);
 		ParameterHelper.removeSelfParameter(params, Type.getName(getIMethod().getDeclaringType()));
 		
 		return params;
