@@ -49,8 +49,8 @@ public class IUCJMethod extends IUC {
 				MethodWithCallers mc = m.getMethodWithCallers();
 
 				// Dont add not called
-//				if (! mc.hasCaller())
-//					continue;
+				if (! mc.hasCaller())
+					continue;
 				
 				// Dont add fake public
 //				if(mc.isCalledOnlyBy(type))
