@@ -54,7 +54,7 @@ public class Type {
 		throw new Exception("Moved method not found!");
 	}
 	
-	private Method getMethodBySignature(String signature) throws Exception {
+	public Method getMethodBySignature(String signature) throws Exception {
 		
 		String mSig = Signature.normalizeInnerSignature(signature);
 	

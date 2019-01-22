@@ -34,10 +34,10 @@ public class FileMerger extends AbstractHandler {
 			InputDialog inDlg = new InputDialog(window.getShell(), "iMove - Inform the batch directory",
 					"Directory address", "", null);
 			inDlg.open();
-
-			//RemoveTest.remTest(inDlg.getValue());
 			
-			mergeDir(inDlg.getValue());
+			//mergeDir(inDlg.getValue());
+			
+			RemoveTest.remTest(inDlg.getValue());
 
 			MessageDialog.openInformation(window.getShell(), "Finish", "Finish!");
 

@@ -11,6 +11,7 @@ import java.util.TreeSet;
 import java.util.function.Consumer;
 import java.util.stream.Stream;
 
+import br.com.bhansen.utils.Method;
 import br.com.bhansen.utils.Project;
 import br.com.bhansen.utils.Type;
 
@@ -130,20 +131,35 @@ public class RemoveTest {
 					try {
 						
 						Type classFrom = null;
+						Method method = null;
+						String movement = inLine.split("\t", 2)[1];
 						
 						if(project != null) {
-							classFrom = project.findClassFrom(inLine.split("\t", 2)[1]);
+							classFrom = project.findClassFrom(movement);
+							method = classFrom.getMethodBySignature(Method.getSignature(movement));
 						} else {
 							try {
-								classFrom = projLarge.findClassFrom(inLine.split("\t", 2)[1]);
+								classFrom = projLarge.findClassFrom(movement);
+								method = classFrom.getMethodBySignature(Method.getSignature(movement));
 							} catch (Exception e) {
-								classFrom = projSmall.findClassFrom(inLine.split("\t", 2)[1]);
+								classFrom = projSmall.findClassFrom(movement);
+								method = classFrom.getMethodBySignature(Method.getSignature(movement));
 							}
 						}
+						
+						String visibility = "";
 
-						if (isSrcType(classFrom)) {
-							outSet.add(inLine);
+						if (! isSrcType(classFrom)) {
+							visibility = "?";
+						} else if (method.isPublic()) {
+							visibility = "+";
+						} else if (method.isPrivate()) {
+							visibility = "-";
+						} else if (method.isProtected()) {
+							visibility = "#";
 						}
+						
+						outSet.add(inLine.replaceFirst("\t", "\t" + visibility));
 
 					} catch (Exception e) {
 						System.out.println(e);
