@@ -81,7 +81,7 @@
 -0.354545-111	br.com.linkcom.sgm.controller.crud.AuditoriaInternaCrud::doSalvarEEncerrar(WebRequestContext, AuditoriaInterna):ModelAndView	br.com.linkcom.sgm.beans.AuditoriaInterna
 -0.354545-111	br.com.linkcom.sgm.controller.crud.AuditoriaInternaCrud::doSalvarESolicitarEncerramento(WebRequestContext, AuditoriaInterna):ModelAndView	br.com.linkcom.sgm.beans.AuditoriaInterna
 -0.365972-111	br.com.linkcom.sgm.dao.PlanoAcaoDAO::findByIniciativas(IniciativaPlanoAcaoFiltro):List<PlanoAcao>	br.com.linkcom.sgm.controller.filtro.IniciativaPlanoAcaoFiltro
--0.383931-111	br.com.linkcom.sgm.dao.IndicadorDAO::atualizaStatusIndicador(Indicador, StatusIndicadorEnum):void	br.com.linkcom.sgm.beans.Indicador
+-0.376037-111	br.com.linkcom.sgm.dao.IndicadorDAO::atualizaStatusIndicador(Indicador, StatusIndicadorEnum):void	br.com.linkcom.sgm.beans.Indicador
 -0.384375-111	br.com.linkcom.sgm.controller.process.MatrizFCSProcess::salvar(WebRequestContext, MatrizFCSFiltro):ModelAndView	br.com.linkcom.sgm.service.MatrizFCSService
 -0.385417-111	br.com.linkcom.sgm.service.AnexoAnomaliaService::excluiAnexoAnomaliaDetalhe(Anomalia):void	br.com.linkcom.sgm.dao.AnexoAnomaliaDAO
 -0.391667-111	br.com.linkcom.sgm.service.AnomaliaService::loadParent(Anomalia):Anomalia	br.com.linkcom.sgm.service.PlanoAcaoService

@@ -22,7 +22,7 @@
 -0.482143-111	br.com.linkcom.sgm.dao.AnomaliaDAO::findForAnomaliaSinteticoPorStatusReport(AnomaliaSinteticoPorStatusReportFiltro, StatusAnomaliaEnum):Integer	br.com.linkcom.sgm.dao.UnidadeGerencialDAO
 -0.485119-111	br.com.linkcom.sgm.dao.AnomaliaDAO::existeAnomaliaVinculada(ItemAuditoriaInterna):Boolean	br.com.linkcom.sgm.dao.UnidadeGerencialDAO
 -0.485119-111	br.com.linkcom.sgm.dao.AnomaliaDAO::fazParteAnomalia(Ocorrencia):Boolean	br.com.linkcom.sgm.dao.UnidadeGerencialDAO
--0.548640-111	br.com.linkcom.sgm.beans.UnidadeGerencial::getSigla():String	br.com.linkcom.sgm.beans.NivelHierarquico
+-0.548680-111	br.com.linkcom.sgm.beans.UnidadeGerencial::getSigla():String	br.com.linkcom.sgm.beans.NivelHierarquico
 -0.575298-111	br.com.linkcom.sgm.dao.AnomaliaDAO::findForReportListagemAnomalia(AnomaliaListagemReportFiltro):List<Anomalia>	br.com.linkcom.sgm.dao.UnidadeGerencialDAO
 -0.812500-111	br.com.linkcom.sgm.beans.ItemAuditoriaInterna::getDescricao():String	br.com.linkcom.sgm.beans.RequisitoNorma
 -0.941176-111	br.com.linkcom.sgm.beans.EmailHistoricoUsuario::getUsuarioEmail():String	br.com.linkcom.sgm.beans.EmailHistorico
@@ -63,9 +63,9 @@
 0.303922-011	br.com.linkcom.sgm.controller.filtro.SolicitacaoRepactuacaoIndicadorFiltro::getPlanoGestao():PlanoGestao	br.com.linkcom.sgm.beans.PlanoGestao
 0.313333-011	br.com.linkcom.sgm.filtro.AnomaliaFiltro::getPlanoGestao():PlanoGestao	br.com.linkcom.sgm.beans.PlanoGestao
 0.340103-011	br.com.linkcom.sgm.controller.filtro.IniciativaPlanoAcaoFiltro::getPlanoGestao():PlanoGestao	br.com.linkcom.sgm.beans.PlanoGestao
-0.458510-011	br.com.linkcom.sgm.beans.UnidadeGerencial::getMapaEstrategico():MapaEstrategico	br.com.linkcom.sgm.beans.MapaEstrategico
-0.459871-011	br.com.linkcom.sgm.beans.UnidadeGerencial::getMapaCompetencia():MapaCompetencia	br.com.linkcom.sgm.beans.MapaCompetencia
-0.469116-011	br.com.linkcom.sgm.beans.UnidadeGerencial::getPlanoGestao():PlanoGestao	br.com.linkcom.sgm.beans.PlanoGestao
+0.458466-011	br.com.linkcom.sgm.beans.UnidadeGerencial::getMapaEstrategico():MapaEstrategico	br.com.linkcom.sgm.beans.MapaEstrategico
+0.459827-011	br.com.linkcom.sgm.beans.UnidadeGerencial::getMapaCompetencia():MapaCompetencia	br.com.linkcom.sgm.beans.MapaCompetencia
+0.469042-011	br.com.linkcom.sgm.beans.UnidadeGerencial::getPlanoGestao():PlanoGestao	br.com.linkcom.sgm.beans.PlanoGestao
 0.478538-011	br.com.linkcom.sgm.beans.UnidadeGerencial::getMapaNegocio():MapaNegocio	br.com.linkcom.sgm.beans.MapaNegocio
 0.857143-011	br.com.linkcom.sgm.controller.report.filtro.MatrizFCSReportFiltro::getPlanoGestao():PlanoGestao	br.com.linkcom.sgm.beans.PlanoGestao
 0.909091-011	br.com.linkcom.sgm.beans.MatrizFCSIniciativa::getMatrizFCS():MatrizFCS	br.com.linkcom.sgm.beans.MatrizFCS
