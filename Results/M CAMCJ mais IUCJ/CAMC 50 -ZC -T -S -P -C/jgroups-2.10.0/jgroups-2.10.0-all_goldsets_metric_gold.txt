@@ -7,7 +7,7 @@
 0.012649-000	org.jgroups.util.AckCollector::fetchServiceStates(Multiplexer, Address, Set<String>, long):boolean	org.jgroups.mux.Multiplexer
 0.022902-000	org.jgroups.util.Queue::up(JChannel, Event):Object	org.jgroups.JChannel
 0.038462-000	org.jgroups.JChannel::findParentNode(ReplicatedTree, String, StringHolder, boolean):Node	org.jgroups.blocks.ReplicatedTree
-0.052651-000	org.jgroups.util.UUID::stopFlush(JChannel, List<Address>):void	org.jgroups.JChannel
+0.048431-000	org.jgroups.util.UUID::stopFlush(JChannel, List<Address>):void	org.jgroups.JChannel
 0.060606-000	org.jgroups.Event::passToAllMuxChannels(Multiplexer):void	org.jgroups.mux.Multiplexer
 0.089286-000	org.jgroups.util.BoundedList::determinePingDest(FD_SOCK):Address	org.jgroups.protocols.FD_SOCK
 0.158122-000	org.jgroups.util.Digest::rebroadcastMessages(NAKACK):void	org.jgroups.protocols.pbcast.NAKACK
