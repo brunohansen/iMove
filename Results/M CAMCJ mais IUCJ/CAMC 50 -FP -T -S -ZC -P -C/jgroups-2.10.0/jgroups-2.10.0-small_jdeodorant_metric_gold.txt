@@ -1,5 +1,5 @@
 -0.054622-111	org.jgroups.protocols.pbcast.GMS::makeView(Vector<Address>):View	org.jgroups.ViewId
--0.141227-111	org.jgroups.protocols.pbcast.Merger::sendMergeView(Collection<Address>, MergeData, MergeId):void	org.jgroups.protocols.pbcast.GMS
+-0.237000-111	org.jgroups.protocols.pbcast.Merger::sendMergeView(Collection<Address>, MergeData, MergeId):void	org.jgroups.protocols.pbcast.GMS
 -0.928571-111	org.jgroups.tests.DigestTest::testMutableCopy():void	org.jgroups.util.MutableDigest
 -0.928571-111	org.jgroups.tests.DigestTest::testResetAt():void	org.jgroups.util.MutableDigest
 -1.000000-111	org.jgroups.blocks.GroupRequestTest.MyTransport::sendResponses():void	org.jgroups.blocks.GroupRequest
@@ -18,12 +18,12 @@
 0.000000-011	org.jgroups.tests.UnicastLoopbackTest::testUnicastMsgsWithLoopback():void	org.jgroups.JChannel
 0.000000-011	org.jgroups.tests.perf.IPerf::sendResult(Object, Entry):void	org.jgroups.tests.perf.IPerf.Entry
 0.027292-011	org.jgroups.tests.MessageDispatcherUnitTest::sendMessage(int):void	org.jgroups.blocks.MessageDispatcher
-0.068056-011	org.jgroups.blocks.MuxRpcDispatcherTest::verifyResponse(Map<Address, Rsp>, Channel, Object):void	org.jgroups.Channel
-0.164557-011	org.jgroups.tests.UnicastTest::getReceiver():Address	org.jgroups.JChannel
-0.164557-011	org.jgroups.tests.UnicastTestRpc::getReceiver():Address	org.jgroups.JChannel
-0.164557-011	org.jgroups.tests.UnicastTestSimple::getReceiver():Address	org.jgroups.JChannel
-0.264932-011	org.jgroups.protocols.pbcast.GMS::determineCoordinator():Address	org.jgroups.Membership
-0.363480-011	org.jgroups.protocols.pbcast.GMS::wouldBeNewCoordinator(Address):boolean	org.jgroups.Membership
+0.065278-011	org.jgroups.blocks.MuxRpcDispatcherTest::verifyResponse(Map<Address, Rsp>, Channel, Object):void	org.jgroups.Channel
+0.151899-011	org.jgroups.tests.UnicastTest::getReceiver():Address	org.jgroups.JChannel
+0.151899-011	org.jgroups.tests.UnicastTestRpc::getReceiver():Address	org.jgroups.JChannel
+0.151899-011	org.jgroups.tests.UnicastTestSimple::getReceiver():Address	org.jgroups.JChannel
+0.237184-011	org.jgroups.protocols.pbcast.GMS::determineCoordinator():Address	org.jgroups.Membership
+0.307925-011	org.jgroups.protocols.pbcast.GMS::wouldBeNewCoordinator(Address):boolean	org.jgroups.Membership
 1.000000-000	org.jgroups.blocks.DistributedTree::clearTable(DistributedTreeDemo):void	org.jgroups.demos.DistributedTreeDemo
 1.000000-000	org.jgroups.blocks.RpcDispatcher::setNumMessages(UnicastTestRpc):void	org.jgroups.tests.UnicastTestRpc
 1.000000-000	org.jgroups.util.TimeScheduler::getNumberOfReceiverScopes(SCOPE):int	org.jgroups.protocols.SCOPE

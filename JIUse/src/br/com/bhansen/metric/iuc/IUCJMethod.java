@@ -53,8 +53,8 @@ public class IUCJMethod extends IUC {
 					continue;
 				
 				// Dont add fake public
-//				if(mc.isCalledOnlyBy(type))
-//					continue;
+				if(mc.isCalledOnlyBy(type))
+					continue;
 				
 				//Remove fake public
 				mc.removeCaller(type);

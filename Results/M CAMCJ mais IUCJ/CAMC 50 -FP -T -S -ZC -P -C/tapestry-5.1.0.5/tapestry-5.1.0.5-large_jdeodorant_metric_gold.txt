@@ -1,12 +1,12 @@
--0.033333-111	org.apache.tapestry5.ioc.internal.services.ChainBuilderImpl::addVoidMethod(ClassFab, Class, MethodSignature):void	org.apache.tapestry5.ioc.services.MethodSignature
 -0.066667-111	org.apache.tapestry.mojo.ComponentReport::readEvents(ClassDescription, Element):void	org.apache.tapestry.mojo.ClassDescription
 -0.066667-111	org.apache.tapestry.mojo.ComponentReport::readParameters(ClassDescription, Element):void	org.apache.tapestry.mojo.ClassDescription
 -0.066667-111	org.apache.tapestry.mojo.ComponentReport::readPublishedParameters(ClassDescription, Element):void	org.apache.tapestry.mojo.ClassDescription
 -0.125000-111	org.apache.tapestry5.internal.transform.RenderPhaseMethodWorker::addMethodCallToBody(BodyBuilder, TransformMethodSignature, ClassTransformation):void	org.apache.tapestry5.ioc.util.BodyBuilder
 -0.133648-111	org.apache.tapestry5.internal.services.InternalClassTransformationImpl::match(CtMethod, TransformMethodSignature):boolean	org.apache.tapestry5.services.TransformMethodSignature
 -0.142857-111	org.apache.tapestry5.internal.services.ClientBehaviorSupportImpl::addElementInit(String, String, JSONObject):void	org.apache.tapestry5.json.JSONObject
+-0.144444-111	org.apache.tapestry5.ioc.internal.services.ChainBuilderImpl::addVoidMethod(ClassFab, Class, MethodSignature):void	org.apache.tapestry5.ioc.services.MethodSignature
 -0.226415-111	org.apache.tapestry5.internal.services.InternalClassTransformationImpl::addMethodToDescription(String, TransformMethodSignature, String):void	org.apache.tapestry5.services.TransformMethodSignature
--0.318180-111	org.apache.tapestry5.internal.util.MethodInvocationBuilder::buildMethodInvocation(TransformMethodSignature, ClassTransformation):String	org.apache.tapestry5.services.TransformMethodSignature
+-0.318013-111	org.apache.tapestry5.internal.util.MethodInvocationBuilder::buildMethodInvocation(TransformMethodSignature, ClassTransformation):String	org.apache.tapestry5.services.TransformMethodSignature
 0.000000-011	org.apache.tapestry5.corelib.mixins.NotEmpty::afterRender():void	org.apache.tapestry5.dom.Element
 0.000000-011	org.apache.tapestry5.dom.Element::addMappingIfNeeded(MapHolder, String):void	org.apache.tapestry5.dom.MapHolder
 0.000000-011	org.apache.tapestry5.internal.pageload.PageLoaderImpl::attribute(AssemblerContext):void	org.apache.tapestry5.internal.pageload.AssemblerContext
