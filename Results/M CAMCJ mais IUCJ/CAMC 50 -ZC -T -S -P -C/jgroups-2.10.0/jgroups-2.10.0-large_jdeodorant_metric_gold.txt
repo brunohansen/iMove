@@ -20,13 +20,13 @@
 0.000000-011	org.jgroups.tests.UnicastLoopbackTest::testUnicastMsgsWithLoopback():void	org.jgroups.JChannel
 0.000000-011	org.jgroups.tests.perf.IPerf::sendResult(Object, Entry):void	org.jgroups.tests.perf.IPerf.Entry
 0.022902-000	org.jgroups.util.Queue::up(JChannel, Event):Object	org.jgroups.JChannel
-0.068056-011	org.jgroups.blocks.MuxRpcDispatcherTest::verifyResponse(Map<Address, Rsp>, Channel, Object):void	org.jgroups.Channel
-0.164557-011	org.jgroups.tests.UnicastTest::getReceiver():Address	org.jgroups.JChannel
-0.164557-011	org.jgroups.tests.UnicastTestRpc::getReceiver():Address	org.jgroups.JChannel
-0.164557-011	org.jgroups.tests.UnicastTestSimple::getReceiver():Address	org.jgroups.JChannel
+0.065278-011	org.jgroups.blocks.MuxRpcDispatcherTest::verifyResponse(Map<Address, Rsp>, Channel, Object):void	org.jgroups.Channel
+0.151899-011	org.jgroups.tests.UnicastTest::getReceiver():Address	org.jgroups.JChannel
+0.151899-011	org.jgroups.tests.UnicastTestRpc::getReceiver():Address	org.jgroups.JChannel
+0.151899-011	org.jgroups.tests.UnicastTestSimple::getReceiver():Address	org.jgroups.JChannel
+0.224849-011	org.jgroups.protocols.pbcast.GMS::determineCoordinator():Address	org.jgroups.Membership
 0.248501-001	org.jgroups.JChannel::findParentNode(ReplicatedTree, String, StringHolder, boolean):Node	org.jgroups.blocks.ReplicatedTree.StringHolder
-0.254261-011	org.jgroups.protocols.pbcast.GMS::determineCoordinator():Address	org.jgroups.Membership
-0.388761-011	org.jgroups.protocols.pbcast.GMS::wouldBeNewCoordinator(Address):boolean	org.jgroups.Membership
+0.329937-011	org.jgroups.protocols.pbcast.GMS::wouldBeNewCoordinator(Address):boolean	org.jgroups.Membership
 1.000000-011	org.jgroups.blocks.ConnectionTableNIO.ReadHandler::readBody(Connection):int	org.jgroups.blocks.ConnectionTableNIO.Connection
 1.000000-011	org.jgroups.blocks.ConnectionTableNIO.ReadHandler::readHeader(Connection):int	org.jgroups.blocks.ConnectionTableNIO.Connection
 1.000000-011	org.jgroups.tests.TimeSchedulerTest::printExecutionTimes(RepeatingTask):String	org.jgroups.tests.TimeSchedulerTest.RepeatingTask

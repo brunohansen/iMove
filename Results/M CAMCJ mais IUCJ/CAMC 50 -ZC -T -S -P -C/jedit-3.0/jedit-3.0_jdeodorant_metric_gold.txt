@@ -1,7 +1,7 @@
 -0.023481-111	org.gjt.sp.jedit.textarea.TextAreaPainter::paintCaret(Graphics, int, int):void	org.gjt.sp.jedit.textarea.JEditTextArea
 -0.023481-111	org.gjt.sp.jedit.textarea.TextAreaPainter::paintLineHighlight(Graphics, int, int):void	org.gjt.sp.jedit.textarea.JEditTextArea
 -0.043056-100	org.gjt.sp.jedit.Mode::accept(Buffer, String, String):boolean	gnu.regexp.RE
--0.112915-111	bsh.Name::invokeLocalMethod(Interpreter, Object[]):Object	bsh.Interpreter
+-0.080864-111	bsh.Name::invokeLocalMethod(Interpreter, Object[]):Object	bsh.Interpreter
 -0.483896-100	org.gjt.sp.jedit.textarea.JEditTextArea::xToOffset(int, int):int	org.gjt.sp.jedit.textarea.TextAreaPainter
 -0.562076-111	org.gjt.sp.jedit.textarea.JEditTextArea::lineToY(int):int	org.gjt.sp.jedit.textarea.TextAreaPainter
 -0.950000-100	org.gjt.sp.jedit.Buffer::tokenizeLines(int, int):void	org.gjt.sp.jedit.syntax.TokenMarker
@@ -12,7 +12,7 @@
 0.000000-000	org.gjt.sp.jedit.io.BufferIORequest::readMarkers(Buffer, InputStream):void	org.gjt.sp.jedit.Buffer
 0.000000-000	org.gjt.sp.jedit.io.BufferIORequest::writeMarkers(Buffer, OutputStream):void	org.gjt.sp.jedit.Buffer
 0.000000-011	org.gjt.sp.jedit.textarea.JEditTextArea::setText(String):void	org.gjt.sp.jedit.Buffer
-0.008654-000	bsh.Name::resolveThisFieldReference(NameSpace, Interpreter, String, boolean):Object	bsh.NameSpace
-0.082176-011	bsh.BshMethod::invokeDeclaredMethod(Object[], Interpreter):Object	bsh.BSHMethodDeclaration
+0.013141-000	bsh.Name::resolveThisFieldReference(NameSpace, Interpreter, String, boolean):Object	bsh.NameSpace
+0.061343-011	bsh.BshMethod::invokeDeclaredMethod(Object[], Interpreter):Object	bsh.BSHMethodDeclaration
 0.923077-000	org.gjt.sp.jedit.EditPane::initTextArea(JEditTextArea):void	org.gjt.sp.jedit.textarea.JEditTextArea
 E11	bsh.BSHMethodDeclaration::invokeDeclaredMethod(java.lang.Object[], Interpreter, NameSpace):java.lang.Object	bsh.BSHFormalParameters	 Error: Method invokeDeclaredMethod(java.lang.Object[], Interpreter, NameSpace):java.lang.Object not found!

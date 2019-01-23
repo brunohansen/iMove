@@ -76,9 +76,9 @@
 -0.344083-111	br.com.linkcom.sgm.dao.AcaoPreventivaDAO::deleteByUnidadeGerencial(UnidadeGerencial):void	br.com.linkcom.sgm.beans.UnidadeGerencial
 -0.354545-111	br.com.linkcom.sgm.controller.crud.AuditoriaInternaCrud::doSalvarEEncerrar(WebRequestContext, AuditoriaInterna):ModelAndView	br.com.linkcom.sgm.beans.AuditoriaInterna
 -0.354545-111	br.com.linkcom.sgm.controller.crud.AuditoriaInternaCrud::doSalvarESolicitarEncerramento(WebRequestContext, AuditoriaInterna):ModelAndView	br.com.linkcom.sgm.beans.AuditoriaInterna
+-0.379745-111	br.com.linkcom.sgm.dao.IndicadorDAO::atualizaStatusIndicador(Indicador, StatusIndicadorEnum):void	br.com.linkcom.sgm.beans.Indicador
 -0.384375-111	br.com.linkcom.sgm.controller.process.MatrizFCSProcess::salvar(WebRequestContext, MatrizFCSFiltro):ModelAndView	br.com.linkcom.sgm.service.MatrizFCSService
 -0.385417-111	br.com.linkcom.sgm.service.AnexoAnomaliaService::excluiAnexoAnomaliaDetalhe(Anomalia):void	br.com.linkcom.sgm.dao.AnexoAnomaliaDAO
--0.387640-111	br.com.linkcom.sgm.dao.IndicadorDAO::atualizaStatusIndicador(Indicador, StatusIndicadorEnum):void	br.com.linkcom.sgm.beans.Indicador
 -0.393000-111	br.com.linkcom.sgm.dao.AnomaliaDAO::atualizaStatusAnomalia(Anomalia, StatusAnomaliaEnum):void	br.com.linkcom.sgm.beans.Anomalia
 -0.409722-111	br.com.linkcom.sgm.controller.crud.OcorrenciaCrud::salvarAndEncaminhar(WebRequestContext, Ocorrencia):ModelAndView	br.com.linkcom.sgm.beans.Ocorrencia
 -0.439075-111	br.com.linkcom.sgm.service.SolicitacaoRepactuacaoIndicadorService::findSolicitacoes(SolicitacaoRepactuacaoIndicadorFiltro):List<SolicitacaoRepactuacaoIndicador>	br.com.linkcom.sgm.service.UsuarioService
