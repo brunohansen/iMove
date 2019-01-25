@@ -1,0 +1,4 @@
+-0.221899-111	net.myvietnam.mvncore.configuration.ConfigurationFactory.ConfigurationBuilder::createAdditionalConfiguration(Collection):Configuration	net.myvietnam.mvncore.configuration.CompositeConfiguration
+-0.310986-111	com.mvnforum.admin.importexport.mvnforum.MvnForumMemberXML::addGlobalWatch(String, String, String, String, String, String):void	com.mvnforum.admin.MemberXML
+-0.310986-111	com.mvnforum.admin.importexport.mvnforum.MvnForumMemberXML::addMessageFolder(String, String, String, String):void	com.mvnforum.admin.MemberXML
+-0.454808-111	com.mvnsoft.mvnad.admin.ConfigForumWebHandler::prepare(GenericRequest):void	com.mvnforum.auth.OnlineUserManager

@@ -1,0 +1,18 @@
+-0.008750-100	com.jrefinery.chart.JFreeChart::drawTitle(AbstractTitle, Graphics2D, Rectangle2D):void	com.jrefinery.chart.AbstractTitle
+-0.018153-100	com.jrefinery.data.DynamicTimeSeriesCollection::getX(RegularTimePeriod):long	com.jrefinery.data.RegularTimePeriod
+-0.023099-111	com.jrefinery.chart.renderer.MinMaxCategoryRenderer::drawRangeMarker(Graphics2D, CategoryPlot, ValueAxis, Marker, Rectangle2D, Shape):void	com.jrefinery.chart.Marker
+-0.053704-111	com.jrefinery.chart.renderer.VerticalIntervalBarRenderer::drawRangeMarker(Graphics2D, CategoryPlot, ValueAxis, Marker, Rectangle2D, Shape):void	com.jrefinery.chart.Marker
+-0.058333-100	com.jrefinery.chart.MeterLegend::createLegendItem(Graphics, LegendItem, double, double):DrawableLegendItem	com.jrefinery.chart.LegendItem
+-0.095238-111	com.jrefinery.chart.renderer.HorizontalIntervalBarRenderer::drawRangeMarker(Graphics2D, CategoryPlot, ValueAxis, Marker, Rectangle2D, Shape):void	com.jrefinery.chart.Marker
+-0.097515-111	com.jrefinery.chart.MeterLegend::updateInformation(MeterPlot, MeterDataset, int, int, LegendItem[], Paint[]):boolean	com.jrefinery.chart.plot.MeterPlot
+-0.155952-100	com.jrefinery.chart.axis.DateAxis::nextStandardDate(Date, DateTickUnit):Date	com.jrefinery.chart.axis.DateTickUnit
+-0.172619-100	com.jrefinery.chart.axis.DateAxis::previousStandardDate(Date, DateTickUnit):Date	com.jrefinery.chart.axis.DateTickUnit
+-0.243802-111	com.jrefinery.chart.plot.ContourPlot::drawDomainMarker(Graphics2D, ContourPlot, ValueAxis, Marker, Rectangle2D):void	com.jrefinery.chart.Marker
+-0.243802-111	com.jrefinery.chart.plot.ContourPlot::drawRangeMarker(Graphics2D, ContourPlot, ValueAxis, Marker, Rectangle2D):void	com.jrefinery.chart.Marker
+-0.458333-111	com.jrefinery.chart.StandardLegendItemLayout::doHorizontalLayout(LegendItemCollection):void	com.jrefinery.chart.LegendItemCollection
+0.085735-000	com.jrefinery.data.TimeSeriesCollection::getX(RegularTimePeriod):long	com.jrefinery.data.RegularTimePeriod
+0.116346-011	com.jrefinery.chart.plot.PiePlot::getOutlinePaint(int):Paint	com.jrefinery.chart.renderer.PaintTable
+0.117308-011	com.jrefinery.chart.StandardLegend::createDrawableLegendItem(Graphics2D, LegendItem, double, double):DrawableLegendItem	com.jrefinery.chart.LegendItem
+0.132265-011	com.jrefinery.chart.plot.PiePlot::getOutlineStroke(int):Stroke	com.jrefinery.chart.renderer.StrokeTable
+0.149679-011	com.jrefinery.chart.plot.PiePlot::getPaint(int):Paint	com.jrefinery.chart.renderer.PaintTable
+E11	com.jrefinery.chart.renderer.HorizontalShapeRenderer::drawRangeMarkerHorizontalShapeRenderer(java.awt.Graphics2D, CategoryPlot, ValueAxis, Marker, java.awt.geom.Rectangle2D, java.awt.Shape):void	com.jrefinery.chart.Marker	 Error: Method drawRangeMarkerHorizontalShapeRenderer(java.awt.Graphics2D, CategoryPlot, ValueAxis, Marker, java.awt.geom.Rectangle2D, java.awt.Shape):void not found!
