@@ -13,7 +13,7 @@ public class ParameterHelper {
 
 	static {
 		
-		//primitives.add("Object");
+		primitives.add("Object");
 		primitives.add("byte");
 		primitives.add("Byte"); 
 		primitives.add("short");
