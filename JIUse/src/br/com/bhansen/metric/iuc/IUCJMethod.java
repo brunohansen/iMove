@@ -34,18 +34,18 @@ public class IUCJMethod extends IUC {
 
 			} else {
 				
-				// Dont add constructor
-				if (m.isConstructor())
-					continue;
+				// Add only public
+//				if(! m.isPublic())
+//					continue;
 				
 				// Dont add private
 				if (m.isPrivate())
 					continue;
 				
-				// Add only public
-//				if(! m.isPublic())
-//					continue;
-				
+				// Dont add constructor
+				if (m.isConstructor())
+					continue;
+								
 				MethodWithCallers mc = m.getMethodWithCallers();
 
 				// Dont add not called
