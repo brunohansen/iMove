@@ -110,16 +110,11 @@ public class Method {
 	protected final boolean isMethodSignature(String signature) throws Exception {
 		if(signature == null)
 			return false;
-
-		if (getSignature().equals(Signature.normalizeInnerSignature(signature))) {
-			return true;
-		}
-
-		if (getSignature().equals(Signature.normalizeSignature(signature))) {
-			return true;
-		}
-
-		return false;
+		
+		String innerSig = Signature.normalizeInnerSignature(signature);
+		String sig = Signature.normalizeSignature(signature);
+	
+		return getSignature().equals(innerSig) || getSignature().equals(sig);
 	}
 	
 	public boolean isPublic() throws JavaModelException {

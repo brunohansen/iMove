@@ -11,31 +11,6 @@ public abstract class DeclarationMetric extends AbsMetric {
 		super(type);
 	}
 	
-//	protected final void removeFakeParameter(Set<String> params, String parameter) throws JavaModelException {
-//
-//		if (parameter == null)
-//			return;
-//
-//		String fType = Signature.normalizeInnerSignature(parameter);
-//
-//		for (IField iField : getType().getFields()) {
-//			if (iField.toString().split(" ", 2)[0].equals(fType)) {
-//				params.remove(fType);
-//				return;
-//			}
-//		}
-//
-//		fType = Signature.normalizeSignature(parameter);
-//
-//		for (IField iField : getType().getFields()) {
-//			if (iField.toString().split(" ", 2)[0].equals(fType)) {
-//				params.remove(fType);
-//				return;
-//			}
-//		}
-//
-//	}
-	
 	protected final Set<String> getParams() {
 		Set<String> params = new HashSet<>();
 
