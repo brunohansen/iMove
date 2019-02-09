@@ -1,7 +1,9 @@
 package br.com.bhansen.utils;
 
+import org.eclipse.jdt.core.IField;
 import org.eclipse.jdt.core.IMethod;
 import org.eclipse.jdt.core.IType;
+import org.eclipse.jdt.core.JavaModelException;
 
 public class Type {
 	
@@ -75,6 +77,25 @@ public class Type {
 		}
 	
 		throw new Exception("Method " + signature + " not found!");
+	}
+	
+	public final boolean hasField(Type type) throws JavaModelException {
+
+		if (type == null)
+			return false;
+
+		String fInnerType = Signature.normalizeInnerSignature(type.getName());
+		String fType = Signature.normalizeSignature(type.getName());
+
+		for (IField iField : getIType().getFields()) {
+			String iType = iField.toString().split(" ", 2)[0];
+			
+			if (iType.equals(fInnerType) || iType.equals(fType)) {
+				return true;
+			}
+		}
+		
+		return false;
 	}
 
 }

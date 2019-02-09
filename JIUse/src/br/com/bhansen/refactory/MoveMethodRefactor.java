@@ -11,6 +11,7 @@ import org.eclipse.jdt.core.ILocalVariable;
 import org.eclipse.jdt.core.IMember;
 import org.eclipse.jdt.core.IMethod;
 import org.eclipse.jdt.core.IType;
+import org.eclipse.jdt.core.JavaModelException;
 import org.eclipse.jdt.core.Signature;
 import org.eclipse.jdt.core.dom.AST;
 import org.eclipse.jdt.core.dom.ASTParser;
@@ -42,11 +43,11 @@ public class MoveMethodRefactor {
 		if (method.isStatic()) {
 			return moveStatic(method.getIMethod(), classTo.getIType());
 		} else {
-			return moveInstance(method, classTo);
+			return moveInstance(classFrom, method, classTo);
 		}
 	}
 
-	public Change moveInstance(Method method, Type classTo) throws Exception {
+	public Change moveInstance(Type classFrom, Method method, Type classTo) throws Exception {
 		MoveInstanceMethodProcessor processor = new MoveInstanceMethodProcessor(method.getIMethod(),
 				JavaPreferencesSettings.getCodeGenerationSettings(method.getIMethod().getJavaProject()));
 		Refactoring refactoring = new MoveRefactoring(processor);
@@ -69,6 +70,8 @@ public class MoveMethodRefactor {
 			try {
 				if(processor.needsTargetNode()) {
 					this.typeNotUsed = getTypeIfNotUsed(classTo.getMethod(processor.getMethodName()).getIMethod(), processor.getTargetName());
+					
+					//checkFakeParameter(classFrom, classTo, processor);
 				}
 				
 				return undo;
@@ -79,10 +82,19 @@ public class MoveMethodRefactor {
 			}
 		} else {
 			IVariableBinding bestTarget = getBestTarget(classTo, processor, refactoring, selectedTargets);
+			Change undo = performRefactoring(processor, refactoring, bestTarget);
+			
+			//checkFakeParameter(classFrom, classTo, processor);
 					
-			return performRefactoring(processor, refactoring, bestTarget);
+			return undo;
 		}
 
+	}
+	
+	private void checkFakeParameter(Type classFrom, Type classTo, MoveInstanceMethodProcessor processor) throws JavaModelException {
+		if((processor.needsTargetNode()) && (this.typeNotUsed == null) && (classTo.hasField(classFrom))) {
+			this.typeNotUsed = br.com.bhansen.utils.Signature.normalizeInnerSignature(classFrom.getName());
+		}
 	}
 
 	private IVariableBinding getBestTarget(Type classTo, MoveInstanceMethodProcessor processor, Refactoring refactoring, List<IVariableBinding> selectedTargets)

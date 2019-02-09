@@ -3,7 +3,6 @@ package br.com.bhansen.utils;
 import java.util.HashSet;
 import java.util.Set;
 
-import org.eclipse.jdt.core.IField;
 import org.eclipse.jdt.core.JavaModelException;
 
 public class MethodWithParameters extends Method {
@@ -51,26 +50,7 @@ public class MethodWithParameters extends Method {
 		
 		return params;
 	}
-	
-	public final boolean isFakeParameter(String parameter) throws JavaModelException {
-
-		if (parameter == null)
-			return false;
-
-		String fInnerType = Signature.normalizeInnerSignature(parameter);
-		String fType = Signature.normalizeSignature(parameter);
-
-		for (IField iField : getIMethod().getDeclaringType().getFields()) {
-			String iType = iField.toString().split(" ", 2)[0];
-			
-			if (iType.equals(fInnerType) || iType.equals(fType)) {
-				return true;
-			}
-		}
 		
-		return false;
-	}
-	
 	private String getParametersAndReturn() throws IllegalArgumentException, JavaModelException {
 		String strParams = getSignature().replaceAll(".*\\(", "").replaceAll("\\).*", "");
 	
