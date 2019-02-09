@@ -45,7 +45,7 @@ public class CAMCJMethod extends DeclarationMetric {
 				if (m.isConstructor())
 					continue;				
 				
-				MethodWithParameters mp = m.getMethodWithParameters(parameter);
+				MethodWithParameters mp = m.getMethodWithParameters();
 				
 				// Dont add zero parameters
 //				if(! mp.hasParameter())
@@ -83,7 +83,7 @@ public class CAMCJMethod extends DeclarationMetric {
 //				if(! tMethod.hasVisibility(m))
 //					continue;
 				
-				MethodWithParameters mp = m.getMethodWithParameters(parameter);
+				MethodWithParameters mp = m.getMethodWithParameters();
 				
 				// Dont add zero parameters
 //				if(! mp.hasParameter())

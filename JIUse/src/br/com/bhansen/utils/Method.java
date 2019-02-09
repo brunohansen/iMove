@@ -40,6 +40,10 @@ public class Method {
 		return new MethodWithParameters(this, without);
 	}
 	
+	public MethodWithParameters getMethodWithParameters() throws IllegalArgumentException, JavaModelException {
+		return new MethodWithParameters(this);
+	}
+	
 	public static String getSignature(IMethod iMethod) throws IllegalArgumentException, JavaModelException {
 		String [] sigParts = org.eclipse.jdt.core.Signature.toString(iMethod.getSignature()).split(" ", 2);
 		String signature = iMethod.getElementName() + sigParts[1] + ":" + sigParts[0];

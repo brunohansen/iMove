@@ -9,6 +9,10 @@ public class MethodWithParameters extends Method {
 	
 	private Set<String> parameters;
 	
+	public MethodWithParameters(Method method) throws IllegalArgumentException, JavaModelException {
+		this(method, null);
+	}
+	
 	public MethodWithParameters(Method method, String without) throws IllegalArgumentException, JavaModelException {
 		super(method);
 		

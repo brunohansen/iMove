@@ -18,14 +18,17 @@ public abstract class DeclarationMetricClass extends DeclarationMetric {
 		for (IMethod iMethod : iMethods) {
 			
 			Method m = new Method(iMethod);
+			
+			MethodWithParameters mp = null;
+					
+			if (m.isMethod(method)) {
+				mp = m.getMethodWithParameters(parameter);
+			} else {
+				mp = m.getMethodWithParameters();
+			}
 
 //			if ((m.isPrivate() || (m.isFakeDelegate(method)))
 //				continue;
-
-			MethodWithParameters mp = m.getMethodWithParameters(parameter);
-
-//			if (mp.isMovedMethod(method))
-//				removeFakeParameter(mp.getParameters(), parameter);
 			
 			// Dont add zero parameters
 //			if(! mp.hasParameter())

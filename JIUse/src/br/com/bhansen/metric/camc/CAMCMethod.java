@@ -20,13 +20,20 @@ public class CAMCMethod extends DeclarationMetric {
 
 		for (IMethod iMethod : iMethods) {
 			
-			MethodWithParameters mp = new Method(iMethod).getMethodWithParameters(parameter);
+			Method m = new Method(iMethod);
 			
-//			if (mp.isMovedMethod(method))
-//				removeFakeParameter(mp.getParameters(), parameter);
+			MethodWithParameters mp = null;
+					
+			if (m.isMethod(method)) {
+				mp = m.getMethodWithParameters(parameter);
+			} else {
+				mp = m.getMethodWithParameters();
+			}
 			
-			if(mp.isMethod(method))
+			if(mp.isMethod(method)) {
 				this.method = mp.getParameters();
+				continue;
+			}
 
 //			if (mp.isPrivate() || mp.isFakeDelegate(method))
 //				continue;
