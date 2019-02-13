@@ -5,7 +5,7 @@ E especializada privado -0.090385-111	org.junit.runners.Parameterized::getParame
 E especializada protegido -0.094907-111	org.junit.runners.ParentRunner::runLeaf(Statement, Description, RunNotifier):void	org.junit.runner.Description
 E especializada public -0.198485-111	org.junit.experimental.theories.internal.Assignments::getAnnotatedSupplier(ParameterSignature):ParameterSupplier	org.junit.experimental.theories.ParameterSignature
 C protegido FP -0.204657-111	org.junit.internal.runners.JUnit4ClassRunner::classAnnotations():Annotation[]	org.junit.internal.runners.TestClass
-C privado public -0.303513-111	org.junit.internal.runners.JUnit4ClassRunner::testAborted(RunNotifier, Description, Throwable):void	org.junit.runner.notification.RunNotifier
+C privado -0.303513-111	org.junit.internal.runners.JUnit4ClassRunner::testAborted(RunNotifier, Description, Throwable):void	org.junit.runner.notification.RunNotifier
 E privado -0.307857-111	org.junit.experimental.theories.internal.AllMembersSupplier::addSinglePointMethods(ParameterSignature, List<PotentialAssignment>):void	org.junit.runners.model.TestClass
 E protegido design -0.350000-111	org.junit.experimental.theories.Theories.TheoryAnchor::runWithIncompleteAssignment(Assignments):void	org.junit.experimental.theories.internal.Assignments
 E privado anterior é correto -0.370752-111	org.junit.internal.runners.JUnit4ClassRunner::testAborted(RunNotifier, Description, Throwable):void	org.junit.runner.Description
