@@ -49,11 +49,18 @@ public class ParameterHelper {
 	protected final static String explodGenerics(String parameters) {
 		String generics = parameters;
 		
-		generics = generics.replaceAll("\\w+ super ", "");
-		generics = generics.replaceAll("\\w+ extends ", "");
+		generics = generics.replaceAll("\\s", " ");// Change whitespace character: [\t\n\x0B\f\r]
+		generics = generics.replaceAll(",", ", ");// Add space after comma
+		generics = generics.replaceAll(" {2,}", " ");// Remove more than one
+		
+		generics = generics.replaceAll("[\\?|\\w+] super ", "");
+		generics = generics.replaceAll("[\\?|\\w+] extends ", "");
 		generics = generics.replaceAll("<", ", ");
 		generics = generics.replaceAll(">", "");
 		generics = generics.replaceAll(", \\?", "");
+		
+		generics = generics.replaceAll(" {2,}", " ");// Remove more than one
+		generics = generics.replaceAll(" {1,},", ",");// Remove before comma
 		
 		return generics;
 	}
@@ -75,7 +82,7 @@ public class ParameterHelper {
 	}
 	
 	public static final void main(String[] args) throws Exception {
-		String generics = "AbstractChain0_<Input, Output>, AbstractDelegate<Chain<Input, Output>>, EntityFactory<Ent extends Entity<?>>, Id<T extends Id<T>>, CRUDer<Id, Ent extends Entity<Id>>, ServiceProvider<Service super Retriever<?, ?>>";
+		String generics = "Class<?, ? extends Annotation>, AbstractChain0_<Input, Output>, AbstractDelegate<Chain<Input, Output>>, EntityFactory<Ent extends Entity<?>>, Id<T extends Id<T>>, CRUDer<Id, Ent extends Entity<Id>>, ServiceProvider   <    Service    super Retriever<?, ?>>";
 		generics = ParameterHelper.explodGenerics(generics);
 		
 		String [] str = generics.split(", ");
