@@ -101,7 +101,7 @@ public class RemoveTest {
 			try {
 				remTest(p);
 			} catch (Exception e) {
-				System.out.println("Error: " + e + "File " + p);
+				System.out.println("Error: " + e + " File " + p);
 			}
 		});
 
@@ -131,25 +131,29 @@ public class RemoveTest {
 					try {
 						
 						Type classFrom = null;
+						Type classTo = null;
 						Method method = null;
 						String movement = inLine.split("\t", 2)[1];
 						
 						if(project != null) {
 							classFrom = project.findClassFrom(movement);
+							classTo = project.findClassTo(movement);
 							method = classFrom.getMethodBySignature(Method.getSignature(movement));
 						} else {
 							try {
 								classFrom = projLarge.findClassFrom(movement);
+								classTo = projLarge.findClassTo(movement);
 								method = classFrom.getMethodBySignature(Method.getSignature(movement));
 							} catch (Exception e) {
 								classFrom = projSmall.findClassFrom(movement);
+								classTo = projSmall.findClassTo(movement);
 								method = classFrom.getMethodBySignature(Method.getSignature(movement));
 							}
 						}
 						
 						String visibility = "";
 
-						if (! isSrcType(classFrom)) {
+						if (! isSrcType(classFrom) || ! isSrcType(classTo)) {
 							visibility = "?";
 						} else if (method.isPublic()) {
 							visibility = "+";
