@@ -101,7 +101,7 @@ public class RemoveTest {
 			try {
 				remTest(p);
 			} catch (Exception e) {
-				throw new RuntimeException(e);
+				System.out.println("Error: " + e + "File " + p);
 			}
 		});
 
@@ -162,7 +162,7 @@ public class RemoveTest {
 						outSet.add(inLine.replaceFirst("\t", "\t" + visibility));
 
 					} catch (Exception e) {
-						System.out.println(e);
+						System.out.println("Error: " + e + " Line " + inLine);
 
 						outSet.add(inLine);
 					}
