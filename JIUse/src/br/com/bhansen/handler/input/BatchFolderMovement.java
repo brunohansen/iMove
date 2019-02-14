@@ -24,7 +24,7 @@ public class BatchFolderMovement extends BatchFileMovement {
 		List<Path> paths = FileFinder.find(inDlg.getValue(), "*.txt");
 
 		paths.forEach(path -> {
-			Path goldFile = getGoldPath(path);
+			Path goldFile = GoldChecker.getGoldPath(path);
 			goldCheck(goldFile, path, type, metric);
 		});
 

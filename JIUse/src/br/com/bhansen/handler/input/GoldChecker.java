@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
 import java.util.function.Consumer;
@@ -17,6 +18,8 @@ import org.eclipse.jface.dialogs.InputDialog;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.handlers.HandlerUtil;
+
+import br.com.bhansen.utils.Project;
 
 public class GoldChecker extends AbstractHandler {
 
@@ -50,10 +53,38 @@ public class GoldChecker extends AbstractHandler {
 
 		return null;
 	}
+	
+	public static Path getGoldPath(Path path) {
+		String dataPath = path.toString();	
+		
+		dataPath = dataPath.substring(0, dataPath.indexOf("results"));
+		
+		String goldDir = Paths.get(dataPath, "gold_sets").toString();
+		
+		return getGoldPath(goldDir, path);
+	}
+	
+	public static Path getGoldPath(String goldDir, Path path) {
+		return Paths.get(goldDir, Project.getProjectName(path) + ".txt");
+	}
+
+	public static void goldCheck(String goldDir, String startingDir) throws Exception {
+		List<Path> paths = FileFinder.find(startingDir, "*.txt");
+
+		paths.forEach(path -> {
+			try {
+				Path goldFile = getGoldPath(goldDir, path);
+				goldCheck(goldFile, path);
+			} catch (Exception e) {
+				System.out.println("Invalid File: " + path + " Error: " + e);
+			}
+		});
+		
+	}
 
 	public static Set<String> goldCheck(Path goldFile, Path inFile) throws IOException {
-		Stream<String> inStream = Files.lines(inFile);
 		Stream<String> goldStream = Files.lines(goldFile);
+		Stream<String> inStream = Files.lines(inFile);
 
 		Set<String> outSet = new TreeSet<>();
 
@@ -104,6 +135,10 @@ public class GoldChecker extends AbstractHandler {
 
 		return outSet;
 
+	}
+	
+	public static void main(String[] args) throws Exception {
+		goldCheck("C:\\Users\\bruno\\git\\iMove\\Data\\gold_sets", "C:\\Users\\bruno\\git\\iMove\\Results\\M CAMCJ mais IUCJ\\CAMC 50 2");
 	}
 
 }

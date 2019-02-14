@@ -35,7 +35,7 @@ public class BatchFileMovement extends InputMovement {
 		
 		Collection<String> out = metricCheck(inFile, type, metric);
 		
-		GoldChecker.goldCheck(getGoldPath(inFile), getMetricPath(inFile));
+		GoldChecker.goldCheck(GoldChecker.getGoldPath(inFile), getMetricPath(inFile));
 		
 		try {
 			moveMethod.update(new Project(inFile), out);
@@ -46,11 +46,6 @@ public class BatchFileMovement extends InputMovement {
 		MessageDialog.openInformation(window.getShell(), "Finish", "Finish!");
 		
 		return null;
-	}
-	
-	public static Path getGoldPath(Path path) {
-		String goldPath = path.toString();
-		return Paths.get(goldPath.substring(0, goldPath.indexOf("results")), "gold_sets", Project.getProjectName(path) + ".txt");
 	}
 	
 	public Set<String> metricCheck(Path inFile, String type, String metric) throws IOException {
