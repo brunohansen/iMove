@@ -17,7 +17,10 @@ public class CompositeMetric implements Metric {
 	
 	@Override
 	public double getMetric() throws Exception {
-		return (iuc.getMetric() * IUC_W) + (dec.getMetric() * DEC_W);
+		double iucM = iuc.getMetric();
+		double decM = dec.getMetric();
+		
+		return (iucM * IUC_W) + (decM * DEC_W);
 	}
 
 	@Override

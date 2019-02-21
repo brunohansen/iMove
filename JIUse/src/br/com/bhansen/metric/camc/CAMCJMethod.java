@@ -38,12 +38,12 @@ public class CAMCJMethod extends DeclarationMetric {
 //					continue;
 				
 				// Dont add private
-				if (m.isPrivate())
-					continue;
+//				if (m.isPrivate())
+//					continue;
 				
 				// Dont add constructor
-				if (m.isConstructor())
-					continue;				
+//				if (m.isConstructor())
+//					continue;				
 				
 				MethodWithParameters mp = m.getMethodWithParameters();
 				
