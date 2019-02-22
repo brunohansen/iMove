@@ -1,6 +1,5 @@
 package br.com.bhansen.utils;
 
-import java.io.File;
 import java.nio.file.Path;
 
 import org.eclipse.core.resources.IProject;
@@ -41,11 +40,14 @@ public class Project {
 	}
 	
 	public static String getProjectName(Path path) {
-		String projName = path.toString(); 
-		projName = projName.substring(projName.lastIndexOf(File.separator) + 1);
-		projName = projName.substring(0, projName.indexOf("_"));
-		
-		return projName;
+		try {
+			String projName = path.getFileName().toString();
+			projName = projName.substring(0, projName.indexOf("_"));
+			
+			return projName;
+		} catch (Exception e) {
+			throw new RuntimeException("Invalid file project name syntax");
+		}
 	}
 	
 	public static String[] getProjectsNames() {
