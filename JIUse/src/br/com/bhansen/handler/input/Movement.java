@@ -1,9 +1,9 @@
 package br.com.bhansen.handler.input;
 
 import org.eclipse.core.commands.ExecutionEvent;
-import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.ui.IWorkbenchWindow;
 
+import br.com.bhansen.dialog.MessageDialog;
 import br.com.bhansen.dialog.ProgressDialog;
 import br.com.bhansen.dialog.SelectProjectDlg;
 import br.com.bhansen.handler.IMoveHandler;
@@ -24,7 +24,7 @@ public class Movement extends IMoveHandler {
 		
 		MoveMethod.show(window, inDlg.getProject(), evaluator.toLineString());
 		
-		MessageDialog.openInformation(window.getShell(), evaluator.shouldMove()? "Move!!!" : "Don't Move!!!", evaluator.toString());			
+		MessageDialog.open(evaluator.toString());			
 		
 		return null;
 	}

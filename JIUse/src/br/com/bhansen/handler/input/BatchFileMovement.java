@@ -14,10 +14,10 @@ import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.core.runtime.SubMonitor;
-import org.eclipse.jface.dialogs.InputDialog;
-import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.ui.IWorkbenchWindow;
 
+import br.com.bhansen.dialog.InputDialog;
+import br.com.bhansen.dialog.MessageDialog;
 import br.com.bhansen.dialog.ProgressDialog;
 import br.com.bhansen.dialog.ProjectDialog;
 import br.com.bhansen.handler.IMoveHandler;
@@ -35,12 +35,9 @@ public class BatchFileMovement extends IMoveHandler {
 	@Override
 	protected Object execute(IWorkbenchWindow window, ExecutionEvent event, String type, String metric) throws Exception {
 
-		InputDialog inDlg = new InputDialog(window.getShell(), "iMove - Inform the batch file", "File address", "", null);
-		inDlg.open();
+		Path inFile = Paths.get(InputDialog.open("Inform the batch file", "File address"));
 
-		Path inFile = Paths.get(inDlg.getValue());
-
-		MessageDialog.openInformation(window.getShell(), "Result", "Result will be shown on cosole!");
+		MessageDialog.openResultOnConsole();
 		
 		try {
 			project = new Project(inFile);
@@ -58,7 +55,7 @@ public class BatchFileMovement extends IMoveHandler {
 			Console.printStackTrace(e);
 		}
 		
-		MessageDialog.openInformation(window.getShell(), "Finish", "Finish!");
+		MessageDialog.openFinish();
 		
 		return null;
 	}

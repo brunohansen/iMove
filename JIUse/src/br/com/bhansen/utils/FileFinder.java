@@ -59,7 +59,7 @@ public class FileFinder extends SimpleFileVisitor<Path> {
 		Path path = Paths.get(startingDir);
 		
 		if (!Files.isDirectory(path)) {
-			throw new Exception("Directory not found!" + path);
+			throw new Exception("Directory not found! " + path);
 		}
 		
 		FileFinder finder = new FileFinder(pattern);

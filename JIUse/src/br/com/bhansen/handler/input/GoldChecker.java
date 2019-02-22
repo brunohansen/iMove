@@ -16,10 +16,10 @@ import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.core.runtime.SubMonitor;
-import org.eclipse.jface.dialogs.InputDialog;
-import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.ui.IWorkbenchWindow;
 
+import br.com.bhansen.dialog.InputDialog;
+import br.com.bhansen.dialog.MessageDialog;
 import br.com.bhansen.dialog.ProgressDialog;
 import br.com.bhansen.handler.IMoveHandler;
 import br.com.bhansen.utils.FileFinder;
@@ -31,21 +31,15 @@ public class GoldChecker extends IMoveHandler {
 	@Override
 	protected Object execute(IWorkbenchWindow window, ExecutionEvent event, String type, String metric) throws Exception {
 
-		InputDialog inDlg = new InputDialog(window.getShell(), "iMove - Inform the batch file", "File address", "", null);
-		inDlg.open();
+		Path inFile = Paths.get(InputDialog.open("Inform the batch file", "File address"));
 
-		Path inFile = Paths.get(inDlg.getValue());
+		Path goldFile = Paths.get(InputDialog.open("Inform the gold file", "File address"));
 
-		inDlg = new InputDialog(window.getShell(), "iMove - Inform the gold file", "File address", "", null);
-		inDlg.open();
-
-		Path goldFile = Paths.get(inDlg.getValue());
-
-		MessageDialog.openInformation(window.getShell(), "Result", "Result will be shown on cosole!");
+		MessageDialog.openResultOnConsole();
 
 		ProgressDialog.open(window, monitor -> goldCheck(goldFile, inFile, monitor));
 
-		MessageDialog.openInformation(window.getShell(), "Finish", "Finish!");
+		MessageDialog.openFinish();
 
 		return null;
 	}

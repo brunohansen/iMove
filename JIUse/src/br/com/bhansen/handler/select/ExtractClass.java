@@ -2,10 +2,10 @@ package br.com.bhansen.handler.select;
 
 import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.core.runtime.NullProgressMonitor;
-import org.eclipse.jface.dialogs.InputDialog;
-import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.ui.IWorkbenchWindow;
 
+import br.com.bhansen.dialog.InputDialog;
+import br.com.bhansen.dialog.MessageDialog;
 import br.com.bhansen.metric.iuc.IUCClass;
 import br.com.bhansen.utils.Method;
 import br.com.bhansen.utils.Type;
@@ -18,16 +18,12 @@ public class ExtractClass extends SelectionHandler {
 		Type selection = getType();
 		
 		String method = new Method(getMethod()).getSignature();
+
+		double metricValue = new Double(InputDialog.open("Extract Classes", "Minimum metric value:", "0.4"));
 		
-		InputDialog inDialog = new InputDialog(window.getShell(), "Extract Classes", "Minimum metric value:", "0.4", null);
-		inDialog.open();
-		double metricValue = new Double(inDialog.getValue());
+		int mthdNumber = new Integer(InputDialog.open("Extract Classes", "Minimum methods number:", "3"));
 		
-		inDialog = new InputDialog(window.getShell(), "Extract Classes", "Minimum methods number:", "3", null);
-		inDialog.open();
-		int mthdNumber = new Integer(inDialog.getValue());
-		
-		MessageDialog.openInformation(window.getShell(), "iMove", "The result dialog will open in a while!");
+		MessageDialog.openResultOnConsole();
 		
 		IUCClass iucClass = new IUCClass(selection, new NullProgressMonitor());
 		
@@ -37,7 +33,7 @@ public class ExtractClass extends SelectionHandler {
 		
 		Console.println(result);
 		
-		MessageDialog.openInformation(window.getShell(), "iMove - " + iucClass.getName(), result);
+		MessageDialog.openResultOnConsole();
 		
 		return null;
 	}

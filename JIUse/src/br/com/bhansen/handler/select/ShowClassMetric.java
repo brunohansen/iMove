@@ -1,9 +1,9 @@
 package br.com.bhansen.handler.select;
 
 import org.eclipse.core.commands.ExecutionEvent;
-import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.ui.IWorkbenchWindow;
 
+import br.com.bhansen.dialog.MessageDialog;
 import br.com.bhansen.dialog.ProgressDialog;
 import br.com.bhansen.metric.Metric;
 import br.com.bhansen.refactory.EvaluatorFactory;
@@ -24,7 +24,7 @@ public class ShowClassMetric extends SelectionHandler {
 		
 		Type selection = getType();
 				
-		MessageDialog.openInformation(window.getShell(), "iMove", "The " + metric + " will be calculated for the openned class!\n\n\n The result dialog will open in a while!");
+		MessageDialog.open("The " + metric + " will be calculated for the openned class!\n\n\n The result dialog will open in a while!");
 		
 		ProgressDialog.open(window, monitor -> m = EvaluatorFactory.createMetricFactory("class", metric).create(selection, monitor));
 		
@@ -32,7 +32,7 @@ public class ShowClassMetric extends SelectionHandler {
 		
 		Console.println(result);
 				
-		MessageDialog.openInformation(window.getShell(), "iMove " + metric + " - " + m.getName(), result);
+		MessageDialog.open(metric + " - " + m.getName(), result);
 		
 		return null;
 	}

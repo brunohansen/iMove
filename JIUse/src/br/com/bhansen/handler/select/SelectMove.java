@@ -1,9 +1,9 @@
 package br.com.bhansen.handler.select;
 
 import org.eclipse.core.commands.ExecutionEvent;
-import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.ui.IWorkbenchWindow;
 
+import br.com.bhansen.dialog.MessageDialog;
 import br.com.bhansen.dialog.ProgressDialog;
 import br.com.bhansen.refactory.EvaluatorFactory;
 import br.com.bhansen.refactory.MoveMethodEvaluator;
@@ -33,7 +33,7 @@ public class SelectMove extends SelectionHandler {
 				classFrom = getType();
 				method = getMethod().getSignature();
 				
-				MessageDialog.openInformation(window.getShell(), "iMove - Method Selected!", method + "\n\n\n Open the 'To Class' and click on the select to move menu again!");
+				MessageDialog.open("Method Selected!", method + "\n\n\n Open the 'To Class' and click on the select to move menu again!");
 				
 				return null;
 			} catch (Exception e) {
@@ -48,13 +48,13 @@ public class SelectMove extends SelectionHandler {
 				
 				classTo = getType();
 				
-				MessageDialog.openInformation(window.getShell(), "iMove - Class To Selected!", classTo.getName() + "\n\n\n The result dialog will open in a while!" );
+				MessageDialog.open("Class To Selected!", classTo.getName() + "\n\n\n The result dialog will open in a while!" );
 				
 				ProgressDialog.open(window, monitor -> evaluator = EvaluatorFactory.create(classFrom, method, classTo, type, metric, monitor));
 				
 				MoveMethod.show(window, classTo.getProject(), evaluator.toLineString());
 				
-				MessageDialog.openInformation(window.getShell(), evaluator.shouldMove()? "Move!!!" : "Don't Move!!!", evaluator.toString());
+				MessageDialog.open(evaluator.toString());
 				
 			} finally {
 				classFrom = null;

@@ -57,7 +57,9 @@ public class EvaluateSumMethod extends MoveMethodEvaluator  {
 	@Override
 	public String toString() {
 		StringBuilder txt = new StringBuilder();
-
+		
+		txt.append(shouldMove()? " Move!" : "Don't Move!");
+		txt.append("\n");
 		txt.append(this.classFrom.getName()).append(" ").append(this.oldValue).append("\n");
 		txt.append(this.classTo.getName()).append(" ").append(this.newValue).append("\n");
 		txt.append("Skip IUC: ").append(this.factory.skipIUC()).append("\n");

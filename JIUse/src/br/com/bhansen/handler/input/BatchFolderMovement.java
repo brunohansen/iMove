@@ -7,10 +7,10 @@ import java.util.List;
 import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.SubMonitor;
-import org.eclipse.jface.dialogs.InputDialog;
-import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.ui.IWorkbenchWindow;
 
+import br.com.bhansen.dialog.InputDialog;
+import br.com.bhansen.dialog.MessageDialog;
 import br.com.bhansen.dialog.ProgressDialog;
 import br.com.bhansen.utils.FileFinder;
 import br.com.bhansen.utils.Project;
@@ -19,15 +19,11 @@ import br.com.bhansen.view.Console;
 public class BatchFolderMovement extends BatchFileMovement {
 
 	@Override
-	protected Object execute(IWorkbenchWindow window, ExecutionEvent event, String type, String metric)
-			throws Exception {
+	protected Object execute(IWorkbenchWindow window, ExecutionEvent event, String type, String metric) throws Exception {
 
-		InputDialog inDlg = new InputDialog(window.getShell(), "iMove - Inform the batch directory", "Directory address", "", null);
-		inDlg.open();
-
-		MessageDialog.openInformation(window.getShell(), "Result", "Result will be saved in file and shown on cosole!");
-
-		List<Path> paths = FileFinder.find(inDlg.getValue(), "*.txt");
+		List<Path> paths = FileFinder.find(InputDialog.open("Inform the batch folder", "Folder address"), "*.txt");
+		
+		MessageDialog.open("Result will be saved in file and shown on cosole!");
 		
 		ProgressDialog.open(window, monitor -> {
 			
@@ -39,7 +35,7 @@ public class BatchFolderMovement extends BatchFileMovement {
 			});
 		});
 		
-		MessageDialog.openInformation(window.getShell(), "Finish", "Finish!");
+		MessageDialog.openFinish();
 
 		return null;
 	}
