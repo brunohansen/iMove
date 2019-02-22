@@ -19,11 +19,13 @@ import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.ui.IWorkbenchWindow;
 
 import br.com.bhansen.dialog.ProgressDialog;
+import br.com.bhansen.handler.IMoveHandler;
+import br.com.bhansen.refactory.EvaluatorFactory;
 import br.com.bhansen.refactory.MoveMethodEvaluator;
 import br.com.bhansen.utils.Project;
 import br.com.bhansen.view.MoveMethod;
 
-public class BatchFileMovement extends InputMovement {
+public class BatchFileMovement extends IMoveHandler {
 	
 	private Collection<String> out;
 
@@ -69,7 +71,7 @@ public class BatchFileMovement extends InputMovement {
 			public void accept(String movement) {
 				SubMonitor loopMonitor = subMonitor.split(1);
 				try {
-					MoveMethodEvaluator evaluator = create(project, movement, type, metric, loopMonitor);
+					MoveMethodEvaluator evaluator = EvaluatorFactory.create(project, movement, type, metric, loopMonitor);
 					String str = evaluator.toLineString();
 					outSet.add(str);
 					System.out.println(str);

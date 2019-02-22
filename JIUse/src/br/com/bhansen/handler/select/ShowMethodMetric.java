@@ -9,6 +9,7 @@ import org.eclipse.ui.IWorkbenchWindow;
 
 import br.com.bhansen.dialog.ProgressDialog;
 import br.com.bhansen.metric.Metric;
+import br.com.bhansen.refactory.EvaluatorFactory;
 import br.com.bhansen.utils.Method;
 import br.com.bhansen.utils.Type;
 
@@ -24,7 +25,7 @@ public class ShowMethodMetric extends SelectionHandler {
 				
 		MessageDialog.openInformation(window.getShell(), "iMove", "The " + metric + " will be calculated for the selcted method!\n\n\n The result dialog will open in a while!");
 		
-		ProgressDialog.open(window, monitor -> m = createFactory("method", metric).create(selection, strMethod, monitor));
+		ProgressDialog.open(window, monitor -> m = EvaluatorFactory.createMetricFactory("method", metric).create(selection, strMethod, monitor));
 						
 		MessageDialog.openInformation(window.getShell(), "iMove " + metric + " - " + m.getName(), strMethod + ": " + new BigDecimal(m.getMetric()).setScale(6, RoundingMode.HALF_EVEN));
 		
