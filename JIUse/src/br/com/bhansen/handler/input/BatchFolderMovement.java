@@ -1,6 +1,5 @@
 package br.com.bhansen.handler.input;
 
-import java.io.IOException;
 import java.nio.file.Path;
 import java.util.List;
 
@@ -12,6 +11,8 @@ import org.eclipse.ui.IWorkbenchWindow;
 import br.com.bhansen.dialog.DirectoryDialog;
 import br.com.bhansen.dialog.MessageDialog;
 import br.com.bhansen.dialog.ProgressDialog;
+import br.com.bhansen.dialog.ProjectDialog;
+import br.com.bhansen.dialog.SyncDialog;
 import br.com.bhansen.utils.FileFinder;
 import br.com.bhansen.utils.Project;
 import br.com.bhansen.view.Console;
@@ -30,8 +31,15 @@ public class BatchFolderMovement extends BatchFileMovement {
 			SubMonitor subMonitor = SubMonitor.convert(monitor, paths.size());
 
 			paths.forEach(path -> {
-				Path goldFile = GoldChecker.getGoldPath(path);
-				goldCheck(goldFile, path, type, metric, subMonitor.split(1));
+				Project project;
+				
+				try {
+					project = new Project(path);
+				} catch (Exception e) {
+					project = SyncDialog.open(() -> ProjectDialog.open());
+				}
+				
+				goldCheck(project, path, type, metric, subMonitor.split(1));
 			});
 		});
 		
@@ -40,18 +48,19 @@ public class BatchFolderMovement extends BatchFileMovement {
 		return null;
 	}
 
-	public void goldCheck(Path goldFile, Path sysFile, String type, String metric, IProgressMonitor monitor) {
+	public void goldCheck(Project project, Path sysFile, String type, String metric, IProgressMonitor monitor) {
 		try {
 			SubMonitor subMonitor = SubMonitor.convert(monitor, 100);
 			
-			metricCheck(new Project(sysFile), sysFile, type, metric, subMonitor.split(90));
+			metricCheck(project, sysFile, type, metric, subMonitor.split(90));
 			
 			try {
+				Path goldFile = GoldChecker.getGoldPath(sysFile);
 				GoldChecker.goldCheck(goldFile, getMetricPath(sysFile), subMonitor.split(10));
-			} catch (IOException e) {
+			} catch (Exception e) {
 				Console.printStackTrace(e);
 			}
-		} catch (IOException e) {
+		} catch (Exception e) {
 			throw new RuntimeException(e);
 		}
 	}
