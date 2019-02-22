@@ -60,17 +60,18 @@ public class Project {
 	}
 	
 	public Method findMethod(String movement) throws Exception {
-		Type classFrom = findClassFrom(movement);
+		String [] mvt = Movement.getMovement(movement);
+		Type classFrom = findType(mvt[Movement.SOURCE_CLASS]);
 		
-		return classFrom.getMethod(Method.getSignature(movement));
+		return classFrom.getMethod(mvt[Movement.METHOD]);
 	}
 	
 	public Type findClassFrom(String movement) throws Exception {
-		return findType(movement.split("::")[0]);
+		return findType(Movement.getSourceClass(movement));
 	}
 	
 	public Type findClassTo(String movement) throws Exception {
-		return findType(movement.split("\t")[1]);
+		return findType(Movement.getTargetClass(movement));
 	}
 	
 	private Type findType(String fullyQualifiedName) throws Exception {

@@ -136,16 +136,16 @@ public class RemoveTest {
 						if(project != null) {
 							classFrom = project.findClassFrom(movement);
 							classTo = project.findClassTo(movement);
-							method = classFrom.getMethodBySignature(Method.getSignature(movement));
+							method = classFrom.getMethod(Movement.getMethod(movement));
 						} else {
 							try {
 								classFrom = projLarge.findClassFrom(movement);
 								classTo = projLarge.findClassTo(movement);
-								method = classFrom.getMethodBySignature(Method.getSignature(movement));
+								method = classFrom.getMethod(Movement.getMethod(movement));
 							} catch (Exception e) {
 								classFrom = projSmall.findClassFrom(movement);
 								classTo = projSmall.findClassTo(movement);
-								method = classFrom.getMethodBySignature(Method.getSignature(movement));
+								method = classFrom.getMethod(Movement.getMethod(movement));
 							}
 						}
 						

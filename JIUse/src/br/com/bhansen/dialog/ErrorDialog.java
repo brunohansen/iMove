@@ -6,7 +6,11 @@ import org.eclipse.ui.PlatformUI;
 public class ErrorDialog {
 	
 	public static void open(Throwable e) {
-		MessageDialog.openError(PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell(), "iMove Error!", e.getMessage());
+		open(e.getMessage());
+	}
+	
+	public static void open(String e) {
+		MessageDialog.openError(PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell(), "iMove Error!", e);
 	}
 
 }

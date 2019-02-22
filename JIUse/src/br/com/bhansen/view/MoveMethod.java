@@ -11,7 +11,6 @@ import org.eclipse.jface.action.IMenuListener;
 import org.eclipse.jface.action.IMenuManager;
 import org.eclipse.jface.action.IToolBarManager;
 import org.eclipse.jface.action.MenuManager;
-import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.viewers.ArrayContentProvider;
 import org.eclipse.jface.viewers.ColumnLabelProvider;
 import org.eclipse.jface.viewers.ColumnViewerToolTipSupport;
@@ -36,7 +35,9 @@ import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.part.ViewPart;
 
 import br.com.bhansen.dialog.ErrorDialog;
+import br.com.bhansen.dialog.MessageDialog;
 import br.com.bhansen.refactory.MoveMethodRefactor;
+import br.com.bhansen.utils.Movement;
 import br.com.bhansen.utils.Project;
 
 /**
@@ -102,8 +103,11 @@ public class MoveMethod extends ViewPart {
 
 			@Override
 			public String getText(Object element) {
-				return (element.toString().split("\t", 2)[0].replaceFirst("(\\d|\\.|-)+-", "").startsWith("0")) ? "Yes"
-						: "No";
+				if(Movement.hasError(element.toString())) {
+					return "Error";
+				} else {
+					return Movement.shouldMove(element.toString()) ? "Yes" : "No";
+				}
 			}
 		});
 
@@ -113,7 +117,12 @@ public class MoveMethod extends ViewPart {
 		sourceMethod.setLabelProvider(new ColumnLabelProvider() {
 			@Override
 			public String getText(Object element) {
-				return element.toString().split("\t", 3)[1];
+				try {
+					String [] movement = Movement.getMovement(element.toString());
+					return movement[Movement.SOURCE_CLASS] + "::" + movement[Movement.METHOD];
+				} catch (Exception e) {
+					return "Not identified";
+				}
 			}
 		});
 
@@ -123,7 +132,25 @@ public class MoveMethod extends ViewPart {
 		targetClass.setLabelProvider(new ColumnLabelProvider() {
 			@Override
 			public String getText(Object element) {
-				return element.toString().split("\t", 4)[2];
+				try {
+					return Movement.getTargetClass(element.toString());
+				} catch (Exception e) {
+					return "Not identified";
+				}
+			}
+		});
+		
+		TableViewerColumn error = new TableViewerColumn(viewer, SWT.NONE);
+		error.getColumn().setWidth(400);
+		error.getColumn().setText("Error");
+		error.setLabelProvider(new ColumnLabelProvider() {
+			@Override
+			public String getText(Object element) {
+				if(Movement.hasError(element.toString())) {
+					return Movement.getError(element.toString());
+				} else {
+					return "";
+				}
 			}
 		});
 
@@ -177,7 +204,7 @@ public class MoveMethod extends ViewPart {
 				Object obj = ((IStructuredSelection) selection).getFirstElement();
 
 				try {
-					JavaUI.openInEditor(project.findMethod(obj.toString().split("\t", 2)[1]).getIMethod());
+					JavaUI.openInEditor(project.findMethod(obj.toString()).getIMethod());
 				} catch (Exception e) {
 					ErrorDialog.open(e);
 					throw new RuntimeException(e);
@@ -197,7 +224,7 @@ public class MoveMethod extends ViewPart {
 				Object obj = ((IStructuredSelection) selection).getFirstElement();
 
 				try {
-					JavaUI.openInEditor(project.findClassFrom(obj.toString().split("\t", 2)[1]).getIType());
+					JavaUI.openInEditor(project.findClassFrom(obj.toString()).getIType());
 				} catch (Exception e) {
 					ErrorDialog.open(e);
 					throw new RuntimeException(e);
@@ -217,7 +244,7 @@ public class MoveMethod extends ViewPart {
 				Object obj = ((IStructuredSelection) selection).getFirstElement();
 
 				try {
-					JavaUI.openInEditor(project.findClassTo(obj.toString().split("\t", 2)[1]).getIType());
+					JavaUI.openInEditor(project.findClassTo(obj.toString()).getIType());
 				} catch (Exception e) {
 					ErrorDialog.open(e);
 					throw new RuntimeException(e);
@@ -237,7 +264,31 @@ public class MoveMethod extends ViewPart {
 				Object obj = ((IStructuredSelection) selection).getFirstElement();
 
 				try {
-					MoveMethodRefactor.moveWizard(project.findMethod(obj.toString().split("\t", 2)[1]), viewer.getControl().getShell());
+					MoveMethodRefactor.moveWizard(project.findMethod(obj.toString()), viewer.getControl().getShell());
+				} catch (Exception e) {
+					ErrorDialog.open(e);
+					throw new RuntimeException(e);
+				}
+			}
+		});
+		
+		manager.add(new Action() {
+			@Override
+			public String getText() {
+				return "View Error";
+			}
+
+			@Override
+			public void run() {
+				ISelection selection = viewer.getSelection();
+				Object obj = ((IStructuredSelection) selection).getFirstElement();
+
+				try {
+					if(Movement.hasError(obj.toString())) {
+						ErrorDialog.open(Movement.getError(obj.toString()));
+					} else {
+						MessageDialog.open("There's no error!");
+					}
 				} catch (Exception e) {
 					ErrorDialog.open(e);
 					throw new RuntimeException(e);

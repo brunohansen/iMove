@@ -11,14 +11,14 @@ import br.com.bhansen.metric.camc.CAMCJMethod;
 import br.com.bhansen.metric.iuc.IUCClass;
 import br.com.bhansen.metric.iuc.IUCJMethod;
 import br.com.bhansen.metric.nhdm.NHDMClass;
-import br.com.bhansen.utils.Method;
+import br.com.bhansen.utils.Movement;
 import br.com.bhansen.utils.Project;
 import br.com.bhansen.utils.Type;
 
 public class EvaluatorFactory {
 	
 	public static MoveMethodEvaluator create(Project project, String movement, String type, String metric, IProgressMonitor monitor) throws Exception {
-		return create(project.findClassFrom(movement), Method.getSignature(movement), project.findClassTo(movement), type, metric, monitor);
+		return create(project.findClassFrom(movement), Movement.getMethod(movement), project.findClassTo(movement), type, metric, monitor);
 	}
 	
 	public static MoveMethodEvaluator create(Type classFrom, String method, Type classTo, String type, String metric, IProgressMonitor monitor) throws Exception {	
