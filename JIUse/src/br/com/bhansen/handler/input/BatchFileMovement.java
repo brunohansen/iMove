@@ -12,6 +12,7 @@ import java.util.function.Consumer;
 
 import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.core.runtime.IProgressMonitor;
+import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.core.runtime.SubMonitor;
 import org.eclipse.jface.dialogs.InputDialog;
 import org.eclipse.jface.dialogs.MessageDialog;
@@ -38,20 +39,18 @@ public class BatchFileMovement extends InputMovement {
 
 		MessageDialog.openInformation(window.getShell(), "Result", "Result will be shown on cosole!");
 		
-		openProgressDialog(window, monitor -> {
-
-			SubMonitor subMonitor = SubMonitor.convert(monitor, 100);
-	
-			out = metricCheck(inFile, type, metric, subMonitor.split(90));
-	
-			GoldChecker.goldCheck(GoldChecker.getGoldPath(inFile), getMetricPath(inFile), subMonitor.split(10));
+		openProgressDialog(window, monitor -> out = metricCheck(inFile, type, metric, monitor));
 		
-		});
-
 		moveMethod.update(new Project(inFile), out);
-
+		
+		try {
+			GoldChecker.goldCheck(GoldChecker.getGoldPath(inFile), getMetricPath(inFile), new NullProgressMonitor());
+		} catch (Exception e ) {
+			e.printStackTrace();
+		}
+		
 		MessageDialog.openInformation(window.getShell(), "Finish", "Finish!");
-
+		
 		return null;
 	}
 

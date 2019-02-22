@@ -44,7 +44,12 @@ public class BatchFolderMovement extends BatchFileMovement {
 			SubMonitor subMonitor = SubMonitor.convert(monitor, 100);
 			
 			metricCheck(sysFile, type, metric, subMonitor.split(90));
-			GoldChecker.goldCheck(goldFile, getMetricPath(sysFile), subMonitor.split(10));
+			
+			try {
+				GoldChecker.goldCheck(goldFile, getMetricPath(sysFile), subMonitor.split(10));
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
 		} catch (IOException e) {
 			throw new RuntimeException(e);
 		}
