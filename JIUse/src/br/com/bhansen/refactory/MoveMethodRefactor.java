@@ -39,11 +39,15 @@ public class MoveMethodRefactor {
 	
 	private String typeNotUsed = null;
 	
-	public Change move(Type classFrom, Method method, Type classTo) throws Exception {
-		if (method.isStatic()) {
-			return moveStatic(method.getIMethod(), classTo.getIType());
-		} else {
-			return moveInstance(classFrom, method, classTo);
+	public Change move(Type classFrom, Method method, Type classTo, IProgressMonitor monitor) throws Exception {
+		try{
+			if (method.isStatic()) {
+				return moveStatic(method.getIMethod(), classTo.getIType());
+			} else {
+				return moveInstance(classFrom, method, classTo);
+			}
+		} finally {
+			monitor.done();
 		}
 	}
 

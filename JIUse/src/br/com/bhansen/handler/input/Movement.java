@@ -9,14 +9,16 @@ import br.com.bhansen.refactory.MoveMethodEvaluator;
 
 public class Movement extends InputMovement {
 	
+	private MoveMethodEvaluator evaluator;
+	
 	@Override
 	protected Object execute(IWorkbenchWindow window, ExecutionEvent event, String type, String metric) throws Exception {
-		
+				
 		SelectProjectDlg inDlg = SelectProjectDlg.askProject(window.getShell(), "iMove - Inform the movement", "Movement");
 		
-		MoveMethodEvaluator evaluator = create(inDlg.getProject(), inDlg.getValue(), type, metric);
-												
-		MessageDialog.openInformation(window.getShell(), evaluator.shouldMove()? "Move!!!" : "Don't Move!!!", evaluator.toString());
+		openProgressDialog(window, monitor ->  evaluator = create(inDlg.getProject(), inDlg.getValue(), type, metric, monitor));
+		
+		MessageDialog.openInformation(window.getShell(), evaluator.shouldMove()? "Move!!!" : "Don't Move!!!", evaluator.toString());			
 		
 		return null;
 	}

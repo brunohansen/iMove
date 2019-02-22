@@ -1,6 +1,9 @@
 package br.com.bhansen.metric.nhdm;
 
 import java.util.Map.Entry;
+
+import org.eclipse.core.runtime.IProgressMonitor;
+
 import java.util.Set;
 
 import br.com.bhansen.metric.DeclarationMetricClass;
@@ -8,8 +11,8 @@ import br.com.bhansen.utils.Type;
 
 public class NHDMNClass extends DeclarationMetricClass {
 		
-	public NHDMNClass(Type type, String method, String parameter) throws Exception {
-		super(type, method, parameter);
+	public NHDMNClass(Type type, String method, String parameter, IProgressMonitor monitor) throws Exception {
+		super(type, method, parameter, monitor);
 	}
 	
 	@Override

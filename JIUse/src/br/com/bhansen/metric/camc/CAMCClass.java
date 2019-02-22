@@ -2,13 +2,15 @@ package br.com.bhansen.metric.camc;
 
 import java.util.Set;
 
+import org.eclipse.core.runtime.IProgressMonitor;
+
 import br.com.bhansen.metric.DeclarationMetricClass;
 import br.com.bhansen.utils.Type;
 
 public class CAMCClass extends DeclarationMetricClass {
 		
-	public CAMCClass(Type type, String method, String parameter) throws Exception {
-		super(type, method, parameter);
+	public CAMCClass(Type type, String method, String parameter, IProgressMonitor monitor) throws Exception {
+		super(type, method, parameter, monitor);
 	}
 
 	@Override

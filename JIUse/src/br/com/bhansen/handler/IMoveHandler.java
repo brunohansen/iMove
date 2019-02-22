@@ -2,7 +2,11 @@ package br.com.bhansen.handler;
 
 import org.eclipse.core.commands.AbstractHandler;
 import org.eclipse.core.commands.ExecutionEvent;
+import org.eclipse.core.runtime.IProgressMonitor;
+import org.eclipse.core.runtime.SubMonitor;
 import org.eclipse.jface.dialogs.MessageDialog;
+import org.eclipse.jface.dialogs.ProgressMonitorDialog;
+import org.eclipse.jface.operation.IRunnableWithProgress;
 import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.handlers.HandlerUtil;
 
@@ -20,7 +24,25 @@ import br.com.bhansen.refactory.MoveMethodEvaluator;
 import br.com.bhansen.utils.Type;
 
 public abstract class IMoveHandler extends AbstractHandler {
-
+	
+	protected interface Runnable {
+		public void run(IProgressMonitor monitor) throws Exception;
+	}
+	
+	protected void openProgressDialog(IWorkbenchWindow window, Runnable runnable) throws Exception {
+		new ProgressMonitorDialog(window.getShell()).run(true, false, new IRunnableWithProgress() {
+			
+			@Override
+			public void run(IProgressMonitor monitor) {
+				try {
+					runnable.run(monitor);
+				} catch (Exception e) {
+					throw new RuntimeException(e);
+				}
+			}
+		});
+	}
+	
 	@Override
 	public Object execute(ExecutionEvent event) {
 
@@ -30,11 +52,10 @@ public abstract class IMoveHandler extends AbstractHandler {
 			try {
 
 				return execute(window, event, event.getParameter("iMove.type"), event.getParameter("iMove.metric"));
-
+				
 			} catch (Exception e) {
 				e.printStackTrace();
-
-				MessageDialog.openInformation(window.getShell(), "iMove", e.getMessage());
+				MessageDialog.openInformation(window.getShell(), "iMove Error", e.getMessage());
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -45,12 +66,12 @@ public abstract class IMoveHandler extends AbstractHandler {
 		return null;
 	}
 
-	public static MoveMethodEvaluator createEvaluator(Type classFrom, String method, Type classTo, String type, String metric) throws Exception {		
+	public static MoveMethodEvaluator createEvaluator(Type classFrom, String method, Type classTo, String type, String metric, IProgressMonitor monitor) throws Exception {	
 		switch (type) {
 		case "class":
-			return new EvaluateSumClass(classFrom, method, classTo, createFactory(type, metric), 0);
+			return new EvaluateSumClass(classFrom, method, classTo, createFactory(type, metric), 0, monitor);
 		case "method":
-			return new EvaluateSumMethod(classFrom, method, classTo, createFactory(type, metric), 0);
+			return new EvaluateSumMethod(classFrom, method, classTo, createFactory(type, metric), 0, monitor);
 		default:
 			throw new Exception("Invalid type: " + type + "!");
 		}		
@@ -60,35 +81,43 @@ public abstract class IMoveHandler extends AbstractHandler {
 		return new MetricFactory() {
 
 			@Override
-			public Metric create(Type type, String method, String parameter, boolean skipIUC) throws Exception {
+			public Metric create(Type type, String method, String parameter, boolean skipIUC, IProgressMonitor monitor) throws Exception {
 
 				switch (eType) {
 				case "class":
 					switch (metric) {
 					case "IUC":
-						return new IUCClass(type);
+						return new IUCClass(type, monitor);
 					case "CAMC":
-						return new CAMCClass(type, method, parameter);
+						return new CAMCClass(type, method, parameter, monitor);
 					case "NHDM":
-						return new NHDMClass(type, method, parameter);
-					case "IUC + CAMC":
-						return new CompositeMetric(new IUCClass(type), new CAMCClass(type, method, parameter));
+						return new NHDMClass(type, method, parameter, monitor);
+					case "IUC + CAMC": 
+					{
+						SubMonitor subMonitor = SubMonitor.convert(monitor, 100);
+						return new CompositeMetric(new IUCClass(type, subMonitor.split(50)), new CAMCClass(type, method, parameter, subMonitor.split(50)));
+					}
 					case "IUC + NHDM":
-						return new CompositeMetric(new IUCClass(type), new NHDMClass(type, method, parameter));
+					{
+						SubMonitor subMonitor = SubMonitor.convert(monitor, 100);
+						return new CompositeMetric(new IUCClass(type, subMonitor.split(50)), new NHDMClass(type, method, parameter, subMonitor.split(50)));
+					}
 					default:
 						throw new Exception("Invalid metric: " + metric + "!");
 					}
 				case "method":
 					switch (metric) {
 					case "IUC":
-						return new IUCJMethod(type, method);
+						return new IUCJMethod(type, method, monitor);
 					case "CAMC":
-						return new CAMCJMethod(type, method, parameter);
+						return new CAMCJMethod(type, method, parameter, monitor);
 					case "IUC + CAMC":
 						if(skipIUC)
-							return new CAMCJMethod(type, method, parameter);
-						else
-							return new CompositeMetric(new IUCJMethod(type, method), new CAMCJMethod(type, method, parameter));
+							return new CAMCJMethod(type, method, parameter, monitor);
+						else {
+							SubMonitor subMonitor = SubMonitor.convert(monitor, 100);
+							return new CompositeMetric(new IUCJMethod(type, method, subMonitor.split(50)), new CAMCJMethod(type, method, parameter, subMonitor.split(50)));
+						}
 					default:
 						throw new Exception("Invalid metric: " + metric + "!");
 					}

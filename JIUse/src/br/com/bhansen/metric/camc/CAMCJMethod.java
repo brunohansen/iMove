@@ -3,6 +3,8 @@ package br.com.bhansen.metric.camc;
 import java.util.Map.Entry;
 import java.util.Set;
 
+import org.eclipse.core.runtime.IProgressMonitor;
+import org.eclipse.core.runtime.SubMonitor;
 import org.eclipse.jdt.core.IMethod;
 import org.eclipse.jdt.core.JavaModelException;
 
@@ -16,16 +18,19 @@ public class CAMCJMethod extends DeclarationMetric {
 
 	private Set<String> method;
 
-	public CAMCJMethod(Type type, String method, String parameter) throws Exception {
+	public CAMCJMethod(Type type, String method, String parameter, IProgressMonitor monitor) throws Exception {
 		super(type);
 
-		dontUseVisibilityLevels(type, method, parameter);
+		dontUseVisibilityLevels(type, method, parameter, monitor);
 	}
 	
-	private void dontUseVisibilityLevels(Type type, String method, String parameter) throws JavaModelException, Exception {
+	private void dontUseVisibilityLevels(Type type, String method, String parameter, IProgressMonitor monitor) throws JavaModelException, Exception {
 		IMethod[] iMethods = type.getIType().getMethods();
+		
+		SubMonitor subMonitor = SubMonitor.convert(monitor, iMethods.length);
 
 		for (IMethod iMethod : iMethods) {
+			subMonitor.split(1).done();
 			
 			Method m = new Method(iMethod);
 

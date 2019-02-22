@@ -2,6 +2,8 @@ package br.com.bhansen.metric;
 
 import java.math.BigInteger;
 
+import org.eclipse.core.runtime.IProgressMonitor;
+import org.eclipse.core.runtime.SubMonitor;
 import org.eclipse.jdt.core.IMethod;
 
 import br.com.bhansen.utils.Method;
@@ -10,12 +12,15 @@ import br.com.bhansen.utils.Type;
 
 public abstract class DeclarationMetricClass extends DeclarationMetric {
 
-	protected DeclarationMetricClass(Type type, String method, String parameter) throws Exception {
+	protected DeclarationMetricClass(Type type, String method, String parameter, IProgressMonitor monitor) throws Exception {
 		super(type);
 
 		IMethod[] iMethods = type.getIType().getMethods();
+		
+		SubMonitor subMonitor = SubMonitor.convert(monitor, iMethods.length);
 
 		for (IMethod iMethod : iMethods) {
+			subMonitor.split(1).done();
 			
 			Method m = new Method(iMethod);
 			

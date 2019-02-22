@@ -1,6 +1,7 @@
 package br.com.bhansen.handler.select;
 
 import org.eclipse.core.commands.ExecutionEvent;
+import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.jface.dialogs.InputDialog;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.ui.IWorkbenchWindow;
@@ -27,7 +28,7 @@ public class ExtractClass extends SelectionHandler {
 		
 		MessageDialog.openInformation(window.getShell(), "iMove", "The result dialog will open in a while!");
 		
-		IUCClass iucClass = new IUCClass(selection);
+		IUCClass iucClass = new IUCClass(selection, new NullProgressMonitor());
 		
 		new br.com.bhansen.refactory.ExtractClass(window, iucClass, method, metricValue, mthdNumber);
 		

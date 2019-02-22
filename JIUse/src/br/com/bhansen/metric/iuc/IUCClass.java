@@ -4,6 +4,8 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 
+import org.eclipse.core.runtime.IProgressMonitor;
+import org.eclipse.core.runtime.SubMonitor;
 import org.eclipse.jdt.core.IMethod;
 
 import br.com.bhansen.utils.Method;
@@ -12,12 +14,15 @@ import br.com.bhansen.utils.Type;
 
 public class IUCClass extends IUC {
 	
-	public IUCClass(Type type) throws Exception {
+	public IUCClass(Type type, IProgressMonitor monitor) throws Exception {
 		super(type);
 		
 		IMethod[] iMethods = type.getIType().getMethods();
+		
+		SubMonitor subMonitor = SubMonitor.convert(monitor, iMethods.length);
 				
 		for (IMethod iMethod : iMethods) {
+			subMonitor.split(1).done();
 			
 			MethodWithCallers method = new Method(iMethod).getMethodWithCallers();
 			

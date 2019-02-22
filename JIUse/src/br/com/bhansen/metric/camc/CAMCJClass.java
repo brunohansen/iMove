@@ -1,6 +1,9 @@
 package br.com.bhansen.metric.camc;
 
 import java.util.Map.Entry;
+
+import org.eclipse.core.runtime.IProgressMonitor;
+
 import java.util.Set;
 
 import br.com.bhansen.metric.AbsMetric;
@@ -9,8 +12,8 @@ import br.com.bhansen.utils.Type;
 
 public class CAMCJClass extends DeclarationMetricClass {
 
-	public CAMCJClass(Type type, String method, String parameter) throws Exception {
-		super(type, method, parameter);
+	public CAMCJClass(Type type, String method, String parameter, IProgressMonitor monitor) throws Exception {
+		super(type, method, parameter, monitor);
 	}
 		
 	@Override

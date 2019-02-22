@@ -1,10 +1,11 @@
 package br.com.bhansen.refactory;
 
+import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.NullProgressMonitor;
+import org.eclipse.core.runtime.SubMonitor;
 import org.eclipse.ltk.core.refactoring.Change;
 
 import br.com.bhansen.metric.MetricFactory;
-import br.com.bhansen.utils.MethodWithCallers;
 import br.com.bhansen.utils.Type;
 
 public class EvaluateSumMethod extends MoveMethodEvaluator  {
@@ -12,10 +13,10 @@ public class EvaluateSumMethod extends MoveMethodEvaluator  {
 	private double oldValue;
 	private double newValue;
 	
-	public EvaluateSumMethod(Type classFrom, String method, Type classTo, MetricFactory factory, double threshold) throws Exception {
+	public EvaluateSumMethod(Type classFrom, String method, Type classTo, MetricFactory factory, double threshold, IProgressMonitor monitor) throws Exception {
 		super(classFrom, method, classTo, factory, threshold);
 		
-		boolean skipIUC = false;
+		boolean skipIUC = true;
 		
 //		MethodWithCallers m = this.method.getMethodWithCallers();
 //		
@@ -25,18 +26,22 @@ public class EvaluateSumMethod extends MoveMethodEvaluator  {
 //			skipIUC = false;
 //		}
 		
-		this.oldValue = factory.create(classFrom, method, skipIUC).getMetric();
+		SubMonitor subMonitor = SubMonitor.convert(monitor, 100);
 		
-		this.move();
+		this.oldValue = factory.create(classFrom, method, skipIUC, subMonitor.split(30)).getMetric();
+		
+		this.move(subMonitor.split(70));
 	}
 	
-	private void move() throws Exception {
+	private void move(IProgressMonitor monitor) throws Exception {
 		MoveMethodRefactor refactor = new MoveMethodRefactor();
 		
-		Change undo = refactor.move(this.classFrom, this.method, this.classTo);
+		SubMonitor subMonitor = SubMonitor.convert(monitor, 100);
+		
+		Change undo = refactor.move(this.classFrom, this.method, this.classTo, subMonitor.split(50));
 		
 		try {
-			this.newValue = factory.create(this.classTo, this.method.getMoveName(), refactor.getTypeNotUsed()).getMetric();
+			this.newValue = factory.create(this.classTo, this.method.getMoveName(), refactor.getTypeNotUsed(), subMonitor.split(50)).getMetric();
 			
 			this.valueDifference = (this.newValue - this.oldValue);
 			

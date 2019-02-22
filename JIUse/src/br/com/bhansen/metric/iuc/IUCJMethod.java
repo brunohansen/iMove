@@ -4,6 +4,8 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 
+import org.eclipse.core.runtime.IProgressMonitor;
+import org.eclipse.core.runtime.SubMonitor;
 import org.eclipse.jdt.core.IMethod;
 
 import br.com.bhansen.metric.AbsMetric;
@@ -15,12 +17,15 @@ public class IUCJMethod extends IUC {
 
 	private Set<String> method;
 
-	public IUCJMethod(Type type, String method) throws Exception {
+	public IUCJMethod(Type type, String method, IProgressMonitor monitor) throws Exception {
 		super(type);
 
 		IMethod[] iMethods = type.getIType().getMethods();
+		
+		SubMonitor subMonitor = SubMonitor.convert(monitor, iMethods.length);
 
 		for (IMethod iMethod : iMethods) {
+			subMonitor.split(1).done();
 			
 			Method m = new Method(iMethod);
 

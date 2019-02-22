@@ -1,5 +1,8 @@
 package br.com.bhansen.refactory;
 
+import org.eclipse.core.runtime.IProgressMonitor;
+import org.eclipse.core.runtime.SubMonitor;
+
 import br.com.bhansen.metric.MetricFactory;
 import br.com.bhansen.utils.Type;
 
@@ -7,13 +10,15 @@ public class EvaluateOr extends MoveMethodEvaluator {
 	
 	private MoveMethodEvaluator evaluator;
 		
-	public EvaluateOr(Type classFrom, String method, Type classTo, MetricFactory fac1, MetricFactory fac2) throws Exception {
+	public EvaluateOr(Type classFrom, String method, Type classTo, MetricFactory fac1, MetricFactory fac2, IProgressMonitor monitor) throws Exception {
 		super(classFrom, method, classTo, fac2, 0);
 		
-		this.evaluator = new EvaluateSumMethod(classFrom, method, classTo, fac1, 0);
+		SubMonitor subMonitor = SubMonitor.convert(monitor, 100);
+		
+		this.evaluator = new EvaluateSumMethod(classFrom, method, classTo, fac1, 0, subMonitor.split(50));
 		
 		if(! this.evaluator.shouldMove()) {
-			this.evaluator = new EvaluateSumMethod(classFrom, method, classTo, fac2, 0);
+			this.evaluator = new EvaluateSumMethod(classFrom, method, classTo, fac2, 0, subMonitor.split(50));
 		}
 		
 	}
