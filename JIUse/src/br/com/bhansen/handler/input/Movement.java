@@ -4,8 +4,10 @@ import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.ui.IWorkbenchWindow;
 
-import br.com.bhansen.handler.SelectProjectDlg;
+import br.com.bhansen.dialog.ProgressDialog;
+import br.com.bhansen.dialog.SelectProjectDlg;
 import br.com.bhansen.refactory.MoveMethodEvaluator;
+import br.com.bhansen.view.MoveMethod;
 
 public class Movement extends InputMovement {
 	
@@ -16,9 +18,9 @@ public class Movement extends InputMovement {
 				
 		SelectProjectDlg inDlg = SelectProjectDlg.askProject(window.getShell(), "iMove - Inform the movement", "Movement");
 		
-		openProgressDialog(window, monitor ->  evaluator = create(inDlg.getProject(), inDlg.getValue(), type, metric, monitor));
+		ProgressDialog.open(window, monitor ->  evaluator = create(inDlg.getProject(), inDlg.getValue(), type, metric, monitor));
 		
-		showMovements(window, inDlg.getProject(), evaluator.toLineString());
+		MoveMethod.show(window, inDlg.getProject(), evaluator.toLineString());
 		
 		MessageDialog.openInformation(window.getShell(), evaluator.shouldMove()? "Move!!!" : "Don't Move!!!", evaluator.toString());			
 		

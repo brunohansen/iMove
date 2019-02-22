@@ -1,4 +1,4 @@
-package br.com.bhansen.handler.input;
+package br.com.bhansen.utils;
 
 import static java.nio.file.FileVisitResult.CONTINUE;
 
@@ -26,7 +26,7 @@ public class FileFinder extends SimpleFileVisitor<Path> {
 
 	// Compares the glob pattern against
 	// the file or directory name.
-	void find(Path file) {
+	public void find(Path file) {
 		Path name = file.getFileName();
 		if (name != null && matcher.matches(name)) {
 			matches.add(file);
@@ -55,7 +55,7 @@ public class FileFinder extends SimpleFileVisitor<Path> {
 		return CONTINUE;
 	}
 
-	static List<Path> find(String startingDir, String pattern) throws Exception {
+	public static List<Path> find(String startingDir, String pattern) throws Exception {
 		Path path = Paths.get(startingDir);
 		
 		if (!Files.isDirectory(path)) {

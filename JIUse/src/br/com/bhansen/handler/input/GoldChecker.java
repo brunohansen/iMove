@@ -20,7 +20,9 @@ import org.eclipse.jface.dialogs.InputDialog;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.ui.IWorkbenchWindow;
 
+import br.com.bhansen.dialog.ProgressDialog;
 import br.com.bhansen.handler.IMoveHandler;
+import br.com.bhansen.utils.FileFinder;
 import br.com.bhansen.utils.Project;
 
 public class GoldChecker extends IMoveHandler {
@@ -40,7 +42,7 @@ public class GoldChecker extends IMoveHandler {
 
 		MessageDialog.openInformation(window.getShell(), "Result", "Result will be shown on cosole!");
 
-		openProgressDialog(window, monitor -> goldCheck(goldFile, inFile, monitor));
+		ProgressDialog.open(window, monitor -> goldCheck(goldFile, inFile, monitor));
 
 		MessageDialog.openInformation(window.getShell(), "Finish", "Finish!");
 

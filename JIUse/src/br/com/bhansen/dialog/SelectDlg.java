@@ -1,4 +1,4 @@
-package br.com.bhansen.handler;
+package br.com.bhansen.dialog;
 
 import org.eclipse.jface.dialogs.InputDialog;
 import org.eclipse.swt.SWT;

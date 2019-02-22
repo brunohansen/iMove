@@ -4,8 +4,10 @@ import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.ui.IWorkbenchWindow;
 
+import br.com.bhansen.dialog.ProgressDialog;
 import br.com.bhansen.refactory.MoveMethodEvaluator;
 import br.com.bhansen.utils.Type;
+import br.com.bhansen.view.MoveMethod;
 
 public class SelectMove extends SelectionHandler {
 	
@@ -47,9 +49,9 @@ public class SelectMove extends SelectionHandler {
 				
 				MessageDialog.openInformation(window.getShell(), "iMove - Class To Selected!", classTo.getName() + "\n\n\n The result dialog will open in a while!" );
 				
-				openProgressDialog(window, monitor -> evaluator = createEvaluator(classFrom, method, classTo, type, metric, monitor));
+				ProgressDialog.open(window, monitor -> evaluator = createEvaluator(classFrom, method, classTo, type, metric, monitor));
 				
-				showMovements(window, classTo.getProject(), evaluator.toLineString());
+				MoveMethod.show(window, classTo.getProject(), evaluator.toLineString());
 				
 				MessageDialog.openInformation(window.getShell(), evaluator.shouldMove()? "Move!!!" : "Don't Move!!!", evaluator.toString());
 				

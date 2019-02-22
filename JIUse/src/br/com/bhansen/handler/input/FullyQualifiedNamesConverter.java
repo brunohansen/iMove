@@ -12,7 +12,7 @@ import java.util.Set;
 import java.util.Map.Entry;
 import java.util.stream.Collectors;
 
-import br.com.bhansen.handler.input.FileFinder;
+import br.com.bhansen.utils.FileFinder;
 
 public class FullyQualifiedNamesConverter {
 

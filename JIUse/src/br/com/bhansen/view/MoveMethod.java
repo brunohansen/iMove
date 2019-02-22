@@ -30,6 +30,8 @@ import org.eclipse.swt.widgets.TableColumn;
 import org.eclipse.swt.widgets.TableItem;
 import org.eclipse.ui.IActionBars;
 import org.eclipse.ui.ISharedImages;
+import org.eclipse.ui.IWorkbenchWindow;
+import org.eclipse.ui.PartInitException;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.part.ViewPart;
 
@@ -63,6 +65,11 @@ public class MoveMethod extends ViewPart {
 	private Action doubleClickAction;
 
 	private Project project;
+	
+	public static void show(IWorkbenchWindow window, Project project, Object movements) throws PartInitException {
+		MoveMethod moveMethod = (MoveMethod) window.getActivePage().showView("iMove.view.movemethod");
+		moveMethod.update(project, movements);
+	}
 
 	/**
 	 * The constructor.

@@ -1,4 +1,4 @@
-package br.com.bhansen.handler.input;
+package br.com.bhansen.utils;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -10,10 +10,6 @@ import java.util.Set;
 import java.util.TreeSet;
 import java.util.function.Consumer;
 import java.util.stream.Stream;
-
-import br.com.bhansen.utils.Method;
-import br.com.bhansen.utils.Project;
-import br.com.bhansen.utils.Type;
 
 public class RemoveTest {
 	

@@ -20,6 +20,8 @@ import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.handlers.HandlerUtil;
 
+import br.com.bhansen.utils.FileFinder;
+
 public class FileMerger extends AbstractHandler {
 
 	private static final String OR = "0";

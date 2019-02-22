@@ -4,6 +4,7 @@ import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.ui.IWorkbenchWindow;
 
+import br.com.bhansen.dialog.ProgressDialog;
 import br.com.bhansen.metric.Metric;
 import br.com.bhansen.utils.Type;
 
@@ -23,7 +24,7 @@ public class ShowClassMetric extends SelectionHandler {
 				
 		MessageDialog.openInformation(window.getShell(), "iMove", "The " + metric + " will be calculated for the openned class!\n\n\n The result dialog will open in a while!");
 		
-		openProgressDialog(window, monitor -> m = createFactory("class", metric).create(selection, monitor));
+		ProgressDialog.open(window, monitor -> m = createFactory("class", metric).create(selection, monitor));
 		
 		String result = m.toString();
 		

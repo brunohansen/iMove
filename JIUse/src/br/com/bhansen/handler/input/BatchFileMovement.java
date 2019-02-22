@@ -18,8 +18,10 @@ import org.eclipse.jface.dialogs.InputDialog;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.ui.IWorkbenchWindow;
 
+import br.com.bhansen.dialog.ProgressDialog;
 import br.com.bhansen.refactory.MoveMethodEvaluator;
 import br.com.bhansen.utils.Project;
+import br.com.bhansen.view.MoveMethod;
 
 public class BatchFileMovement extends InputMovement {
 	
@@ -35,9 +37,9 @@ public class BatchFileMovement extends InputMovement {
 
 		MessageDialog.openInformation(window.getShell(), "Result", "Result will be shown on cosole!");
 		
-		openProgressDialog(window, monitor -> out = metricCheck(inFile, type, metric, monitor));
+		ProgressDialog.open(window, monitor -> out = metricCheck(inFile, type, metric, monitor));
 		
-		showMovements(window, new Project(inFile), out);
+		MoveMethod.show(window, new Project(inFile), out);
 		
 		try {
 			GoldChecker.goldCheck(GoldChecker.getGoldPath(inFile), getMetricPath(inFile), new NullProgressMonitor());

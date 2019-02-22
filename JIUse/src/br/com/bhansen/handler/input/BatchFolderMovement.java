@@ -11,6 +11,9 @@ import org.eclipse.jface.dialogs.InputDialog;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.ui.IWorkbenchWindow;
 
+import br.com.bhansen.dialog.ProgressDialog;
+import br.com.bhansen.utils.FileFinder;
+
 public class BatchFolderMovement extends BatchFileMovement {
 
 	@Override
@@ -24,7 +27,7 @@ public class BatchFolderMovement extends BatchFileMovement {
 
 		List<Path> paths = FileFinder.find(inDlg.getValue(), "*.txt");
 		
-		openProgressDialog(window, monitor -> {
+		ProgressDialog.open(window, monitor -> {
 			
 			SubMonitor subMonitor = SubMonitor.convert(monitor, paths.size());
 
