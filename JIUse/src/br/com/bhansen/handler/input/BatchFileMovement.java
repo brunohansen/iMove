@@ -19,6 +19,7 @@ import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.ui.IWorkbenchWindow;
 
 import br.com.bhansen.dialog.ProgressDialog;
+import br.com.bhansen.dialog.ProjectDialog;
 import br.com.bhansen.handler.IMoveHandler;
 import br.com.bhansen.refactory.EvaluatorFactory;
 import br.com.bhansen.refactory.MoveMethodEvaluator;
@@ -29,6 +30,7 @@ import br.com.bhansen.view.MoveMethod;
 public class BatchFileMovement extends IMoveHandler {
 	
 	private Collection<String> out;
+	private Project project;
 
 	@Override
 	protected Object execute(IWorkbenchWindow window, ExecutionEvent event, String type, String metric) throws Exception {
@@ -40,7 +42,13 @@ public class BatchFileMovement extends IMoveHandler {
 
 		MessageDialog.openInformation(window.getShell(), "Result", "Result will be shown on cosole!");
 		
-		ProgressDialog.open(window, monitor -> out = metricCheck(inFile, type, metric, monitor));
+		try {
+			project = new Project(inFile);
+		} catch (Exception e) {
+			project = ProjectDialog.open();
+		}
+		
+		ProgressDialog.open(window, monitor -> out = metricCheck(project, inFile, type, metric, monitor));
 		
 		MoveMethod.show(window, new Project(inFile), out);
 		
@@ -55,13 +63,11 @@ public class BatchFileMovement extends IMoveHandler {
 		return null;
 	}
 
-	public Set<String> metricCheck(Path inFile, String type, String metric, IProgressMonitor monitor)
+	public Set<String> metricCheck(Project project, Path inFile, String type, String metric, IProgressMonitor monitor)
 			throws IOException {
 		List<String> lines = Files.readAllLines(inFile);
 
 		SubMonitor subMonitor = SubMonitor.convert(monitor, lines.size());
-
-		Project project = new Project(inFile);
 
 		Set<String> outSet = new HashSet<>();
 

@@ -13,6 +13,7 @@ import org.eclipse.ui.IWorkbenchWindow;
 
 import br.com.bhansen.dialog.ProgressDialog;
 import br.com.bhansen.utils.FileFinder;
+import br.com.bhansen.utils.Project;
 import br.com.bhansen.view.Console;
 
 public class BatchFolderMovement extends BatchFileMovement {
@@ -47,7 +48,7 @@ public class BatchFolderMovement extends BatchFileMovement {
 		try {
 			SubMonitor subMonitor = SubMonitor.convert(monitor, 100);
 			
-			metricCheck(sysFile, type, metric, subMonitor.split(90));
+			metricCheck(new Project(sysFile), sysFile, type, metric, subMonitor.split(90));
 			
 			try {
 				GoldChecker.goldCheck(goldFile, getMetricPath(sysFile), subMonitor.split(10));
