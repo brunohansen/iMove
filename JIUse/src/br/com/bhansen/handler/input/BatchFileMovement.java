@@ -50,7 +50,7 @@ public class BatchFileMovement extends IMoveHandler {
 		
 		ProgressDialog.open(window, monitor -> out = metricCheck(project, inFile, type, metric, monitor));
 		
-		MoveMethod.show(window, new Project(inFile), out);
+		MoveMethod.show(window, project, out);
 		
 		try {
 			GoldChecker.goldCheck(GoldChecker.getGoldPath(inFile), getMetricPath(inFile), new NullProgressMonitor());
