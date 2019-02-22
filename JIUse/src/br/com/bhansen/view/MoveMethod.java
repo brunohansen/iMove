@@ -283,7 +283,7 @@ public class MoveMethod extends ViewPart {
 				out.close();
 			} catch (IOException e) {
 				MessageDialog.openInformation(PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell(), "Error!", e.getMessage());
-				e.printStackTrace();
+				Console.printStackTrace(e);
 			}
 		}
 	}

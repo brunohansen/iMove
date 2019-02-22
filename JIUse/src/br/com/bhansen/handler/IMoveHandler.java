@@ -6,6 +6,8 @@ import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.handlers.HandlerUtil;
 
+import br.com.bhansen.view.Console;
+
 public abstract class IMoveHandler extends AbstractHandler {
 		
 	@Override
@@ -13,13 +15,14 @@ public abstract class IMoveHandler extends AbstractHandler {
 
 		try {
 			IWorkbenchWindow window = HandlerUtil.getActiveWorkbenchWindowChecked(event);
+			Console.create(window);
 
 			try {
 
 				return execute(window, event, event.getParameter("iMove.type"), event.getParameter("iMove.metric"));
 				
 			} catch (Exception e) {
-				e.printStackTrace();
+				Console.printStackTrace(e);
 				if(e.getCause() != null)
 					MessageDialog.openInformation(window.getShell(), "iMove Error", e.getCause().getMessage());
 				else

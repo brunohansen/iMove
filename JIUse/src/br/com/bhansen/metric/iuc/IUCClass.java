@@ -11,6 +11,7 @@ import org.eclipse.jdt.core.IMethod;
 import br.com.bhansen.utils.Method;
 import br.com.bhansen.utils.MethodWithCallers;
 import br.com.bhansen.utils.Type;
+import br.com.bhansen.view.Console;
 
 public class IUCClass extends IUC {
 	
@@ -28,7 +29,7 @@ public class IUCClass extends IUC {
 			
 		//	if((! Flags.isPrivate(iMethod.getFlags())) && (! isFakeDelegate(iMethod, method))) {
 				if(getMethods().put(method.getSignature(), method.getCallers()) != null) {
-					System.out.println("Method " + method.getSignature() + " colision!");
+					Console.println("Method " + method.getSignature() + " colision!");
 				};
 		//	}
 

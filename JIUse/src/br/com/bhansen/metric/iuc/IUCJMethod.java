@@ -12,6 +12,7 @@ import br.com.bhansen.metric.AbsMetric;
 import br.com.bhansen.utils.Method;
 import br.com.bhansen.utils.MethodWithCallers;
 import br.com.bhansen.utils.Type;
+import br.com.bhansen.view.Console;
 
 public class IUCJMethod extends IUC {
 
@@ -65,7 +66,7 @@ public class IUCJMethod extends IUC {
 //				mc.removeCaller(type);
 				
 				if (getMethods().put(mc.getSignature(), mc.getCallers()) != null) {
-					System.out.println("Method " + mc.getSignature() + " colision!");
+					Console.println("Method " + mc.getSignature() + " colision!");
 				}
 			}
 

@@ -13,6 +13,7 @@ import org.eclipse.ui.IWorkbenchWindow;
 
 import br.com.bhansen.dialog.ProgressDialog;
 import br.com.bhansen.utils.FileFinder;
+import br.com.bhansen.view.Console;
 
 public class BatchFolderMovement extends BatchFileMovement {
 
@@ -51,7 +52,7 @@ public class BatchFolderMovement extends BatchFileMovement {
 			try {
 				GoldChecker.goldCheck(goldFile, getMetricPath(sysFile), subMonitor.split(10));
 			} catch (IOException e) {
-				e.printStackTrace();
+				Console.printStackTrace(e);
 			}
 		} catch (IOException e) {
 			throw new RuntimeException(e);

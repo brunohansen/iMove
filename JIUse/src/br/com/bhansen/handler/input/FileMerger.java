@@ -21,6 +21,7 @@ import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.handlers.HandlerUtil;
 
 import br.com.bhansen.utils.FileFinder;
+import br.com.bhansen.view.Console;
 
 public class FileMerger extends AbstractHandler {
 
@@ -44,7 +45,7 @@ public class FileMerger extends AbstractHandler {
 			MessageDialog.openInformation(window.getShell(), "Finish", "Finish!");
 
 		} catch (Exception e) {
-			e.printStackTrace();
+			Console.printStackTrace(e);
 
 			MessageDialog.openInformation(null, "iMove", e.getMessage());
 		}
@@ -62,7 +63,7 @@ public class FileMerger extends AbstractHandler {
 		Set<String> set = new TreeSet<>();
 
 		try {
-			System.out.println("\nMerge: " + fileOne + " + " + fileTwo);
+			Console.println("\nMerge: " + fileOne + " + " + fileTwo);
 
 			Object[] arrayOne = streamOne.toArray();
 			set.addAll(Arrays.asList(Arrays.copyOf(arrayOne, arrayOne.length, String[].class)));
@@ -70,8 +71,8 @@ public class FileMerger extends AbstractHandler {
 			Object[] arrayTwo = streamTwo.toArray();
 			set.addAll(Arrays.asList(Arrays.copyOf(arrayTwo, arrayTwo.length, String[].class)));
 
-			System.out.println("Original: " + (arrayOne.length + arrayTwo.length));
-			System.out.println("Sem duplicatas exatas: " + set.size());
+			Console.println("Original: " + (arrayOne.length + arrayTwo.length));
+			Console.println("Sem duplicatas exatas: " + set.size());
 
 			List<String> list = new ArrayList<>(set);
 			list.sort(new Comparator<String>() {
@@ -95,8 +96,8 @@ public class FileMerger extends AbstractHandler {
 					String nextStr = next.replaceFirst("(\\d|\\.|-)+\\t", "");
 
 					if (actualStr.equals(nextStr)) {
-						System.out.println(actual);
-						System.out.println(next);
+						Console.println(actual);
+						Console.println(next);
 
 						if (actual.replaceFirst("(\\d|\\.|-)+-", "").startsWith(operator)) {
 							set.add(actual);
@@ -124,11 +125,11 @@ public class FileMerger extends AbstractHandler {
 				}
 			}
 
-			System.out.println("Sem movimentacoes duplicadas: " + set.size());
+			Console.println("Sem movimentacoes duplicadas: " + set.size());
 
 			Path out = Paths.get(fileOne.toString().replace("small", "all"));
 
-			System.out.println("\nMerge finished.\n");
+			Console.println("\nMerge finished.\n");
 
 			Files.write(out, set);
 

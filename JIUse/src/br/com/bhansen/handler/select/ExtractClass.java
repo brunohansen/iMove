@@ -9,6 +9,7 @@ import org.eclipse.ui.IWorkbenchWindow;
 import br.com.bhansen.metric.iuc.IUCClass;
 import br.com.bhansen.utils.Method;
 import br.com.bhansen.utils.Type;
+import br.com.bhansen.view.Console;
 
 public class ExtractClass extends SelectionHandler {
 
@@ -34,7 +35,7 @@ public class ExtractClass extends SelectionHandler {
 		
 		String result = iucClass.toString();
 		
-		System.out.println(result);
+		Console.println(result);
 		
 		MessageDialog.openInformation(window.getShell(), "iMove - " + iucClass.getName(), result);
 		

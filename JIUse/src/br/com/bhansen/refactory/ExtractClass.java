@@ -18,6 +18,7 @@ import com.google.common.collect.Sets;
 
 import br.com.bhansen.metric.iuc.IUC;
 import br.com.bhansen.metric.iuc.IUCClass;
+import br.com.bhansen.view.Console;
 
 public class ExtractClass {
 
@@ -25,7 +26,7 @@ public class ExtractClass {
 
 		List<Map<String, Set<String>>> classes = removeDuplicates(createSuperClasses(iucClass, metricLowerLimit, mthdsLowerLimit));
 
-		classes.forEach(e -> System.out.println(IUC.toString("Class" + classes.size(), IUCClass.getMetric(e), e)));
+		classes.forEach(e -> Console.println(IUC.toString("Class" + classes.size(), IUCClass.getMetric(e), e)));
 
 	}
 

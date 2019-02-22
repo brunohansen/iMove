@@ -8,6 +8,7 @@ import br.com.bhansen.dialog.ProgressDialog;
 import br.com.bhansen.metric.Metric;
 import br.com.bhansen.refactory.EvaluatorFactory;
 import br.com.bhansen.utils.Type;
+import br.com.bhansen.view.Console;
 
 /**
  * Our sample handler extends AbstractHandler, an IHandler base class.
@@ -29,7 +30,7 @@ public class ShowClassMetric extends SelectionHandler {
 		
 		String result = m.toString();
 		
-		System.out.println(result);
+		Console.println(result);
 				
 		MessageDialog.openInformation(window.getShell(), "iMove " + metric + " - " + m.getName(), result);
 		

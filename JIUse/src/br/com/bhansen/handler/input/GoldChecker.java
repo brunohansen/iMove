@@ -24,6 +24,7 @@ import br.com.bhansen.dialog.ProgressDialog;
 import br.com.bhansen.handler.IMoveHandler;
 import br.com.bhansen.utils.FileFinder;
 import br.com.bhansen.utils.Project;
+import br.com.bhansen.view.Console;
 
 public class GoldChecker extends IMoveHandler {
 
@@ -73,7 +74,7 @@ public class GoldChecker extends IMoveHandler {
 				Path goldFile = getGoldPath(goldDir, path);
 				goldCheck(goldFile, path, subMonitor.split(1));
 			} catch (Exception e) {
-				System.out.println("Invalid File: " + path + " Error: " + e);
+				Console.println("Invalid File: " + path + " Error: " + e);
 			}
 		});
 
@@ -88,7 +89,7 @@ public class GoldChecker extends IMoveHandler {
 		Object[] goldArray = goldStream.toArray();
 		Supplier<Stream<Object>> goldLines = () -> Stream.of(goldArray);
 
-		System.out.println("\nGold check: " + inFile + "\n");
+		Console.println("\nGold check: " + inFile + "\n");
 
 		inStream.forEach(new Consumer<String>() {
 			@Override
@@ -114,12 +115,12 @@ public class GoldChecker extends IMoveHandler {
 
 				outSet.add(outLine);
 
-				System.out.println(outLine);
+				Console.println(outLine);
 
 			}
 		});
 
-		System.out.println("\nGold check finished.\n\n" + inFile.toString().replace(".txt", "_gold.txt"));
+		Console.println("\nGold check finished.\n\n" + inFile.toString().replace(".txt", "_gold.txt"));
 
 		Files.write(Paths.get(inFile.toString().replace(".txt", "_gold.txt")), outSet);
 		

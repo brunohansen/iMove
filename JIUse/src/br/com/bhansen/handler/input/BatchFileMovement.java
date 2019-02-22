@@ -23,6 +23,7 @@ import br.com.bhansen.handler.IMoveHandler;
 import br.com.bhansen.refactory.EvaluatorFactory;
 import br.com.bhansen.refactory.MoveMethodEvaluator;
 import br.com.bhansen.utils.Project;
+import br.com.bhansen.view.Console;
 import br.com.bhansen.view.MoveMethod;
 
 public class BatchFileMovement extends IMoveHandler {
@@ -46,7 +47,7 @@ public class BatchFileMovement extends IMoveHandler {
 		try {
 			GoldChecker.goldCheck(GoldChecker.getGoldPath(inFile), getMetricPath(inFile), new NullProgressMonitor());
 		} catch (Exception e ) {
-			e.printStackTrace();
+			Console.printStackTrace(e);
 		}
 		
 		MessageDialog.openInformation(window.getShell(), "Finish", "Finish!");
@@ -64,7 +65,7 @@ public class BatchFileMovement extends IMoveHandler {
 
 		Set<String> outSet = new HashSet<>();
 
-		System.out.println("\nMetric check: " + inFile + "\n");
+		Console.println("\nMetric check: " + inFile + "\n");
 
 		lines.forEach(new Consumer<String>() {
 
@@ -74,16 +75,16 @@ public class BatchFileMovement extends IMoveHandler {
 					MoveMethodEvaluator evaluator = EvaluatorFactory.create(project, movement, type, metric, loopMonitor);
 					String str = evaluator.toLineString();
 					outSet.add(str);
-					System.out.println(str);
+					Console.println(str);
 				} catch (Exception e) {
 					String str = "E\t" + movement + "\t Error: " + e.getMessage();
 					outSet.add(str);
-					System.out.println(str);
+					Console.println(str);
 				}
 			}
 		});
 
-		System.out.println("\nMetric check finished.\n");
+		Console.println("\nMetric check finished.\n");
 
 		Files.write(getMetricPath(inFile), outSet);
 

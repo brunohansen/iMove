@@ -11,6 +11,8 @@ import java.util.TreeSet;
 import java.util.function.Consumer;
 import java.util.stream.Stream;
 
+import br.com.bhansen.view.Console;
+
 public class RemoveTest {
 	
 	private static Project project = null;
@@ -97,7 +99,7 @@ public class RemoveTest {
 			try {
 				remTest(p);
 			} catch (Exception e) {
-				System.out.println("Error: " + e + " File " + p);
+				Console.println("Error: " + e + " File " + p);
 			}
 		});
 
@@ -117,7 +119,7 @@ public class RemoveTest {
 		Stream<String> inStream = Files.lines(inFile);
 
 		try {
-			System.out.println("\nRemove test: " + inFile + "\n");
+			Console.println("\nRemove test: " + inFile + "\n");
 
 			Set<String> outSet = new TreeSet<>();
 			
@@ -162,14 +164,14 @@ public class RemoveTest {
 						outSet.add(inLine.replaceFirst("\t", "\t" + visibility));
 
 					} catch (Exception e) {
-						System.out.println("Error: " + e + " Line " + inLine);
+						Console.println("Error: " + e + " Line " + inLine);
 
 						outSet.add(inLine);
 					}
 				}
 			});
 
-			System.out.println("Result -> " + outSet.size());
+			Console.println("Result -> " + outSet.size());
 
 			Files.write(Paths.get(inFile.toString().replace("-all_", "-all-src_")), outSet);
 
