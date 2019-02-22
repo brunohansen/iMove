@@ -16,7 +16,7 @@ public class EvaluateSumMethod extends MoveMethodEvaluator  {
 	public EvaluateSumMethod(Type classFrom, String method, Type classTo, MetricFactory factory, double threshold, IProgressMonitor monitor) throws Exception {
 		super(classFrom, method, classTo, factory, threshold);
 		
-		boolean skipIUC = true;
+		boolean skipIUC = false;
 		
 //		MethodWithCallers m = this.method.getMethodWithCallers();
 //		
