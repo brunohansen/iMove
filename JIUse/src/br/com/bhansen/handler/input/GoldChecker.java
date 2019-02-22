@@ -18,7 +18,7 @@ import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.core.runtime.SubMonitor;
 import org.eclipse.ui.IWorkbenchWindow;
 
-import br.com.bhansen.dialog.InputDialog;
+import br.com.bhansen.dialog.FileDialog;
 import br.com.bhansen.dialog.MessageDialog;
 import br.com.bhansen.dialog.ProgressDialog;
 import br.com.bhansen.handler.IMoveHandler;
@@ -31,9 +31,9 @@ public class GoldChecker extends IMoveHandler {
 	@Override
 	protected Object execute(IWorkbenchWindow window, ExecutionEvent event, String type, String metric) throws Exception {
 
-		Path inFile = Paths.get(InputDialog.open("Inform the batch file", "File address"));
+		Path inFile = FileDialog.open("Inform the batch file");
 
-		Path goldFile = Paths.get(InputDialog.open("Inform the gold file", "File address"));
+		Path goldFile = FileDialog.open("Inform the gold file");
 
 		MessageDialog.openResultOnConsole();
 
