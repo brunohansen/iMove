@@ -13,7 +13,7 @@ import br.com.bhansen.utils.Type;
 
 public class ShowMethodMetric extends SelectionHandler {
 	
-	private Metric m;;
+	private Metric m;
 
 	@Override
 	protected Object execute(IWorkbenchWindow window, ExecutionEvent event, String type, String metric) throws Exception {
@@ -23,7 +23,7 @@ public class ShowMethodMetric extends SelectionHandler {
 				
 		MessageDialog.openInformation(window.getShell(), "iMove", "The " + metric + " will be calculated for the selcted method!\n\n\n The result dialog will open in a while!");
 		
-		openProgressDialog(window, monitor -> createFactory("method", metric).create(selection, strMethod, monitor));
+		openProgressDialog(window, monitor -> m = createFactory("method", metric).create(selection, strMethod, monitor));
 						
 		MessageDialog.openInformation(window.getShell(), "iMove " + metric + " - " + m.getName(), strMethod + ": " + new BigDecimal(m.getMetric()).setScale(6, RoundingMode.HALF_EVEN));
 		

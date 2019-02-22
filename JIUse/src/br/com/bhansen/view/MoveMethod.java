@@ -11,6 +11,7 @@ import org.eclipse.jface.action.IMenuListener;
 import org.eclipse.jface.action.IMenuManager;
 import org.eclipse.jface.action.IToolBarManager;
 import org.eclipse.jface.action.MenuManager;
+import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.viewers.ArrayContentProvider;
 import org.eclipse.jface.viewers.ColumnLabelProvider;
 import org.eclipse.jface.viewers.ColumnViewerToolTipSupport;
@@ -128,7 +129,6 @@ public class MoveMethod extends ViewPart {
 	public void update(Project project, Collection<String> input) {
 		this.project = project;
 		viewer.setInput(input);
-
 	}
 
 	private void contributeToActionBars() {
@@ -157,7 +157,7 @@ public class MoveMethod extends ViewPart {
 		manager.add(new Action() {
 			@Override
 			public String getText() {
-				return "View Source Method";
+				return "View Method";
 			}
 
 			@Override
@@ -166,8 +166,9 @@ public class MoveMethod extends ViewPart {
 				Object obj = ((IStructuredSelection) selection).getFirstElement();
 
 				try {
-					JavaUI.openInEditor(project.findMethod(obj.toString()).getIMethod());
+					JavaUI.openInEditor(project.findMethod(obj.toString().split("\t", 2)[1]).getIMethod());
 				} catch (Exception e) {
+					MessageDialog.openInformation(PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell(), "Error!", e.getMessage());
 					throw new RuntimeException(e);
 				}
 			}
@@ -185,8 +186,9 @@ public class MoveMethod extends ViewPart {
 				Object obj = ((IStructuredSelection) selection).getFirstElement();
 
 				try {
-					JavaUI.openInEditor(project.findClassTo(obj.toString()).getIType());
+					JavaUI.openInEditor(project.findClassTo(obj.toString().split("\t", 2)[1]).getIType());
 				} catch (Exception e) {
+					MessageDialog.openInformation(PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell(), "Error!", e.getMessage());
 					throw new RuntimeException(e);
 				}
 			}
@@ -204,8 +206,9 @@ public class MoveMethod extends ViewPart {
 				Object obj = ((IStructuredSelection) selection).getFirstElement();
 
 				try {
-					MoveMethodRefactor.moveWizard(project.findMethod(obj.toString()), viewer.getControl().getShell());
+					MoveMethodRefactor.moveWizard(project.findMethod(obj.toString().split("\t", 2)[1]), viewer.getControl().getShell());
 				} catch (Exception e) {
+					MessageDialog.openInformation(PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell(), "Error!", e.getMessage());
 					throw new RuntimeException(e);
 				}
 			}
@@ -269,6 +272,7 @@ public class MoveMethod extends ViewPart {
 				}
 				out.close();
 			} catch (IOException e) {
+				MessageDialog.openInformation(PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell(), "Error!", e.getMessage());
 				e.printStackTrace();
 			}
 		}
