@@ -108,7 +108,7 @@ public class MoveMethod extends ViewPart {
 
 		TableViewerColumn sourceMethod = new TableViewerColumn(viewer, SWT.NONE);
 		sourceMethod.getColumn().setWidth(600);
-		sourceMethod.getColumn().setText("Source Method");
+		sourceMethod.getColumn().setText("Method");
 		sourceMethod.setLabelProvider(new ColumnLabelProvider() {
 			@Override
 			public String getText(Object element) {
@@ -177,6 +177,26 @@ public class MoveMethod extends ViewPart {
 
 				try {
 					JavaUI.openInEditor(project.findMethod(obj.toString().split("\t", 2)[1]).getIMethod());
+				} catch (Exception e) {
+					MessageDialog.openInformation(PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell(), "Error!", e.getMessage());
+					throw new RuntimeException(e);
+				}
+			}
+		});
+		
+		manager.add(new Action() {
+			@Override
+			public String getText() {
+				return "View Source Class";
+			}
+
+			@Override
+			public void run() {
+				ISelection selection = viewer.getSelection();
+				Object obj = ((IStructuredSelection) selection).getFirstElement();
+
+				try {
+					JavaUI.openInEditor(project.findClassFrom(obj.toString().split("\t", 2)[1]).getIType());
 				} catch (Exception e) {
 					MessageDialog.openInformation(PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell(), "Error!", e.getMessage());
 					throw new RuntimeException(e);
