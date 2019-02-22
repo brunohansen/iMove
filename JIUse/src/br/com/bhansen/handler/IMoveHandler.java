@@ -2,10 +2,10 @@ package br.com.bhansen.handler;
 
 import org.eclipse.core.commands.AbstractHandler;
 import org.eclipse.core.commands.ExecutionEvent;
-import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.handlers.HandlerUtil;
 
+import br.com.bhansen.dialog.ErrorDialog;
 import br.com.bhansen.view.Console;
 
 public abstract class IMoveHandler extends AbstractHandler {
@@ -16,22 +16,20 @@ public abstract class IMoveHandler extends AbstractHandler {
 		try {
 			IWorkbenchWindow window = HandlerUtil.getActiveWorkbenchWindowChecked(event);
 			Console.create(window);
-
+			
 			try {
-
 				return execute(window, event, event.getParameter("iMove.type"), event.getParameter("iMove.metric"));
 				
 			} catch (Exception e) {
 				Console.printStackTrace(e);
 				if(e.getCause() != null)
-					MessageDialog.openInformation(window.getShell(), "iMove Error", e.getCause().getMessage());
+					ErrorDialog.open(e.getCause());
 				else
-					MessageDialog.openInformation(window.getShell(), "iMove Error", e.getMessage());
+					ErrorDialog.open(e);
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
-
-			MessageDialog.openInformation(null, "iMove", e.getMessage());
+			ErrorDialog.open(e);
 		}
 
 		return null;

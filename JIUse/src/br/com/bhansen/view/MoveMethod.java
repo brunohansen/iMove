@@ -35,6 +35,7 @@ import org.eclipse.ui.PartInitException;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.part.ViewPart;
 
+import br.com.bhansen.dialog.ErrorDialog;
 import br.com.bhansen.refactory.MoveMethodRefactor;
 import br.com.bhansen.utils.Project;
 
@@ -178,7 +179,7 @@ public class MoveMethod extends ViewPart {
 				try {
 					JavaUI.openInEditor(project.findMethod(obj.toString().split("\t", 2)[1]).getIMethod());
 				} catch (Exception e) {
-					MessageDialog.openInformation(PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell(), "Error!", e.getMessage());
+					ErrorDialog.open(e);
 					throw new RuntimeException(e);
 				}
 			}
@@ -198,7 +199,7 @@ public class MoveMethod extends ViewPart {
 				try {
 					JavaUI.openInEditor(project.findClassFrom(obj.toString().split("\t", 2)[1]).getIType());
 				} catch (Exception e) {
-					MessageDialog.openInformation(PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell(), "Error!", e.getMessage());
+					ErrorDialog.open(e);
 					throw new RuntimeException(e);
 				}
 			}
@@ -218,7 +219,7 @@ public class MoveMethod extends ViewPart {
 				try {
 					JavaUI.openInEditor(project.findClassTo(obj.toString().split("\t", 2)[1]).getIType());
 				} catch (Exception e) {
-					MessageDialog.openInformation(PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell(), "Error!", e.getMessage());
+					ErrorDialog.open(e);
 					throw new RuntimeException(e);
 				}
 			}
@@ -238,7 +239,7 @@ public class MoveMethod extends ViewPart {
 				try {
 					MoveMethodRefactor.moveWizard(project.findMethod(obj.toString().split("\t", 2)[1]), viewer.getControl().getShell());
 				} catch (Exception e) {
-					MessageDialog.openInformation(PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell(), "Error!", e.getMessage());
+					ErrorDialog.open(e);
 					throw new RuntimeException(e);
 				}
 			}
@@ -302,7 +303,7 @@ public class MoveMethod extends ViewPart {
 				}
 				out.close();
 			} catch (IOException e) {
-				MessageDialog.openInformation(PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell(), "Error!", e.getMessage());
+				ErrorDialog.open(e);
 				Console.printStackTrace(e);
 			}
 		}
