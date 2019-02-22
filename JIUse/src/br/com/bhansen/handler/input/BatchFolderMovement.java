@@ -9,7 +9,7 @@ import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.SubMonitor;
 import org.eclipse.ui.IWorkbenchWindow;
 
-import br.com.bhansen.dialog.InputDialog;
+import br.com.bhansen.dialog.DirectoryDialog;
 import br.com.bhansen.dialog.MessageDialog;
 import br.com.bhansen.dialog.ProgressDialog;
 import br.com.bhansen.utils.FileFinder;
@@ -21,7 +21,7 @@ public class BatchFolderMovement extends BatchFileMovement {
 	@Override
 	protected Object execute(IWorkbenchWindow window, ExecutionEvent event, String type, String metric) throws Exception {
 
-		List<Path> paths = FileFinder.find(InputDialog.open("Inform the batch folder", "Folder address"), "*.txt");
+		List<Path> paths = FileFinder.find(DirectoryDialog.open("Inform the batch folder", "Folder address"), "*.txt");
 		
 		MessageDialog.open("Result will be saved in file and shown on cosole!");
 		

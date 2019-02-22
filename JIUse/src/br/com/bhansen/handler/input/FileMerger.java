@@ -13,12 +13,10 @@ import java.util.Set;
 import java.util.TreeSet;
 import java.util.stream.Stream;
 
-import org.eclipse.core.commands.AbstractHandler;
 import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.ui.IWorkbenchWindow;
-import org.eclipse.ui.handlers.HandlerUtil;
 
-import br.com.bhansen.dialog.InputDialog;
+import br.com.bhansen.dialog.DirectoryDialog;
 import br.com.bhansen.dialog.MessageDialog;
 import br.com.bhansen.handler.IMoveHandler;
 import br.com.bhansen.utils.FileFinder;
@@ -32,7 +30,7 @@ public class FileMerger extends IMoveHandler {
 	@Override
 	protected Object execute(IWorkbenchWindow window, ExecutionEvent event, String type, String metric)	throws Exception {
 		
-		mergeDir(InputDialog.open("Inform the batch directory", "Directory address"));
+		mergeDir(DirectoryDialog.open("Inform the batch folder", "Folder address"));
 		
 		//RemoveTest.remTest(inDlg.getValue());
 
@@ -130,7 +128,7 @@ public class FileMerger extends IMoveHandler {
 
 	}
 
-	public static void mergeDir(String dir) throws Exception {
+	public static void mergeDir(Path dir) throws Exception {
 
 		List<Path> files = FileFinder.find(dir, "*.txt");
 
@@ -144,19 +142,6 @@ public class FileMerger extends IMoveHandler {
 			}
 		});
 
-	}
-
-	// cat ant-1.8.2-all_jdeodorant_metric_gold.txt | cut -f2,3 | sort | uniq -d
-	// org.apache.tools.ant.taskdefs.optional.ejb.GenericDeploymentTool::getJarBaseName(String):String
-	// org.apache.tools.ant.taskdefs.optional.ejb.EjbJar.Config
-	// org.apache.tools.ant.taskdefs.optional.ejb.GenericDeploymentTool::getVendorDDPrefix(String,
-	// String):String org.apache.tools.ant.taskdefs.optional.ejb.EjbJar.Config
-	public static void main(String[] args) throws Exception {
-		// merge(Paths.get("/home/hansen/git/jiuse/Results/M CAMCJ mais
-		// IUCJ/ant-1.8.2/ant-1.8.2-small_jmove_metric_gold.txt"),
-		// Paths.get("/home/hansen/git/jiuse/Results/M CAMCJ mais
-		// IUCJ/ant-1.8.2/ant-1.8.2-large_jmove_metric_gold.txt"));
-		mergeDir("C:\\Users\\bruno\\git\\jiuse\\Results\\M IUCJ");
 	}
 
 }

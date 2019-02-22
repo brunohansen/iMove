@@ -56,15 +56,18 @@ public class FileFinder extends SimpleFileVisitor<Path> {
 	}
 
 	public static List<Path> find(String startingDir, String pattern) throws Exception {
-		Path path = Paths.get(startingDir);
-		
-		if (!Files.isDirectory(path)) {
-			throw new Exception("Directory not found! " + path);
+		return find(Paths.get(startingDir), pattern);
+	}
+	
+	public static List<Path> find(Path startingDir, String pattern) throws Exception {
+
+		if (!Files.isDirectory(startingDir)) {
+			throw new Exception("Directory not found! " + startingDir);
 		}
 		
 		FileFinder finder = new FileFinder(pattern);
 		
-		Files.walkFileTree(path, finder);
+		Files.walkFileTree(startingDir, finder);
 		
 		return finder.matches;
 	}

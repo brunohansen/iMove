@@ -1,4 +1,4 @@
-package br.com.bhansen.handler.input;
+package br.com.bhansen.utils;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -11,8 +11,6 @@ import java.util.Map;
 import java.util.Set;
 import java.util.Map.Entry;
 import java.util.stream.Collectors;
-
-import br.com.bhansen.utils.FileFinder;
 
 public class FullyQualifiedNamesConverter {
 
