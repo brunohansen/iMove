@@ -18,6 +18,8 @@ public class Movement extends InputMovement {
 		
 		openProgressDialog(window, monitor ->  evaluator = create(inDlg.getProject(), inDlg.getValue(), type, metric, monitor));
 		
+		showMovements(window, inDlg.getProject(), evaluator.toLineString());
+		
 		MessageDialog.openInformation(window.getShell(), evaluator.shouldMove()? "Move!!!" : "Don't Move!!!", evaluator.toString());			
 		
 		return null;

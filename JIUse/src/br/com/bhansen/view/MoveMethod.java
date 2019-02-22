@@ -126,9 +126,12 @@ public class MoveMethod extends ViewPart {
 		contributeToActionBars();
 	}
 
-	public void update(Project project, Collection<String> input) {
+	public void update(Project project, Object movements) {
 		this.project = project;
-		viewer.setInput(input);
+		if(movements instanceof Collection)
+			viewer.setInput(movements);
+		else
+			viewer.setInput(new Object[]{movements});
 	}
 
 	private void contributeToActionBars() {

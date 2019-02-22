@@ -22,6 +22,10 @@ public class Type {
 	public IType getIType() {
 		return iType;
 	}
+	
+	public Project getProject() {
+		return new Project(iType.getJavaProject());
+	}
 		
 	public static String getName(IType iType) {
 		// \\$ replace the inner class separator for . and (\\.[0-9])*$ removes the anonymous class representation  

@@ -20,17 +20,13 @@ import org.eclipse.ui.IWorkbenchWindow;
 
 import br.com.bhansen.refactory.MoveMethodEvaluator;
 import br.com.bhansen.utils.Project;
-import br.com.bhansen.view.MoveMethod;
 
 public class BatchFileMovement extends InputMovement {
 	
 	private Collection<String> out;
 
 	@Override
-	protected Object execute(IWorkbenchWindow window, ExecutionEvent event, String type, String metric)
-			throws Exception {
-
-		MoveMethod moveMethod = (MoveMethod) window.getActivePage().showView("iMove.view.movemethod");
+	protected Object execute(IWorkbenchWindow window, ExecutionEvent event, String type, String metric) throws Exception {
 
 		InputDialog inDlg = new InputDialog(window.getShell(), "iMove - Inform the batch file", "File address", "", null);
 		inDlg.open();
@@ -41,7 +37,7 @@ public class BatchFileMovement extends InputMovement {
 		
 		openProgressDialog(window, monitor -> out = metricCheck(inFile, type, metric, monitor));
 		
-		moveMethod.update(new Project(inFile), out);
+		showMovements(window, new Project(inFile), out);
 		
 		try {
 			GoldChecker.goldCheck(GoldChecker.getGoldPath(inFile), getMetricPath(inFile), new NullProgressMonitor());

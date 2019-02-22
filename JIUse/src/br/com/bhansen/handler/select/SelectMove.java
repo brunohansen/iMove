@@ -48,7 +48,9 @@ public class SelectMove extends SelectionHandler {
 				MessageDialog.openInformation(window.getShell(), "iMove - Class To Selected!", classTo.getName() + "\n\n\n The result dialog will open in a while!" );
 				
 				openProgressDialog(window, monitor -> evaluator = createEvaluator(classFrom, method, classTo, type, metric, monitor));
-																				
+				
+				showMovements(window, classTo.getProject(), evaluator.toLineString());
+				
 				MessageDialog.openInformation(window.getShell(), evaluator.shouldMove()? "Move!!!" : "Don't Move!!!", evaluator.toString());
 				
 			} finally {

@@ -8,6 +8,7 @@ import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.dialogs.ProgressMonitorDialog;
 import org.eclipse.jface.operation.IRunnableWithProgress;
 import org.eclipse.ui.IWorkbenchWindow;
+import org.eclipse.ui.PartInitException;
 import org.eclipse.ui.handlers.HandlerUtil;
 
 import br.com.bhansen.metric.CompositeMetric;
@@ -21,7 +22,9 @@ import br.com.bhansen.metric.nhdm.NHDMClass;
 import br.com.bhansen.refactory.EvaluateSumClass;
 import br.com.bhansen.refactory.EvaluateSumMethod;
 import br.com.bhansen.refactory.MoveMethodEvaluator;
+import br.com.bhansen.utils.Project;
 import br.com.bhansen.utils.Type;
+import br.com.bhansen.view.MoveMethod;
 
 public abstract class IMoveHandler extends AbstractHandler {
 	
@@ -29,7 +32,7 @@ public abstract class IMoveHandler extends AbstractHandler {
 		public void run(IProgressMonitor monitor) throws Exception;
 	}
 	
-	protected void openProgressDialog(IWorkbenchWindow window, Runnable runnable) throws Exception {
+	protected static void openProgressDialog(IWorkbenchWindow window, Runnable runnable) throws Exception {
 		new ProgressMonitorDialog(window.getShell()).run(true, false, new IRunnableWithProgress() {
 			
 			@Override
@@ -37,10 +40,15 @@ public abstract class IMoveHandler extends AbstractHandler {
 				try {
 					runnable.run(monitor);
 				} catch (Exception e) {
-					throw new RuntimeException(e);
+					throw new RuntimeException(e.getMessage(), e);
 				}
 			}
 		});
+	}
+	
+	protected void showMovements(IWorkbenchWindow window, Project project, Object movements) throws PartInitException {
+		MoveMethod moveMethod = (MoveMethod) window.getActivePage().showView("iMove.view.movemethod");
+		moveMethod.update(project, movements);
 	}
 	
 	@Override
@@ -55,7 +63,10 @@ public abstract class IMoveHandler extends AbstractHandler {
 				
 			} catch (Exception e) {
 				e.printStackTrace();
-				MessageDialog.openInformation(window.getShell(), "iMove Error", e.getMessage());
+				if(e.getCause() != null)
+					MessageDialog.openInformation(window.getShell(), "iMove Error", e.getCause().getMessage());
+				else
+					MessageDialog.openInformation(window.getShell(), "iMove Error", e.getMessage());
 			}
 		} catch (Exception e) {
 			e.printStackTrace();

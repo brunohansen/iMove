@@ -15,6 +15,10 @@ public class Project {
 	
 	private IJavaProject javaProject;
 	
+	public Project(IJavaProject project) {
+		javaProject = project;
+	}
+	
 	public Project(Path path) {
 		this(getProjectName(path));
 	}
