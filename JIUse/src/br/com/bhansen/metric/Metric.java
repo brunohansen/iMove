@@ -4,5 +4,6 @@ public interface Metric {
 	
 	public String getName();
 	public double getMetric() throws Exception;
+	public String toDetailedString();
 
 }

@@ -62,7 +62,7 @@ public class EvaluateSumMethod extends MoveMethodEvaluator  {
 		txt.append("\n");
 		txt.append(this.classFrom.getName()).append(" ").append(this.oldValue).append("\n");
 		txt.append(this.classTo.getName()).append(" ").append(this.newValue).append("\n");
-		txt.append("Skip IUC: ").append(this.factory.skipIUC()).append("\n");
+		txt.append("Skip MUC: ").append(this.factory.skipIUC()).append("\n");
 		txt.append("Value difference: ").append(this.valueDifference).append("\n\n");
 
 		return txt.toString();

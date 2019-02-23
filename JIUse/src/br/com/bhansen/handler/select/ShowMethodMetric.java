@@ -22,12 +22,12 @@ public class ShowMethodMetric extends SelectionHandler {
 		
 		Type selection = getType();
 		String strMethod = new Method(getMethod()).getSignature();
-				
-		MessageDialog.open("The " + metric + " will be calculated for the selcted method!\n\n\n The result dialog will open in a while!");
+		
+		MessageDialog.open("The " + (metric.equals("IUC")? "MUC" : "MDC") + " will be calculated for the selcted method!\n\n\n The result dialog will open in a while!");
 		
 		ProgressDialog.open(window, monitor -> m = EvaluatorFactory.createMetricFactory("method", metric).create(selection, strMethod, monitor));
 						
-		MessageDialog.open(metric + " - " + m.getName(), strMethod + ": " + new BigDecimal(m.getMetric()).setScale(6, RoundingMode.HALF_EVEN));
+		MessageDialog.open((metric.equals("IUC")? "MUC" : "MDC") + " - " + m.getName(), strMethod + ": " + new BigDecimal(m.getMetric()).setScale(6, RoundingMode.HALF_EVEN));
 		
 		return null;
 	}

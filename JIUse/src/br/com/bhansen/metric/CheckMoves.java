@@ -11,5 +11,10 @@ public class CheckMoves implements Metric{
 	public String getName() {
 		return "Just check";
 	}
+
+	@Override
+	public String toDetailedString() {
+		return "Just check";
+	}
 	
 }

@@ -26,6 +26,10 @@ public abstract class AbsMetric implements Metric {
 		return methods;
 	}
 	
+	public String toDetailedString() { 
+		return toString();
+	}
+	
 	@Override
 	public String toString() {
 		try {

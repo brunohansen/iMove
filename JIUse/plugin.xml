@@ -202,7 +202,7 @@
 	            <command
 	                  commandId="iMove.commands.showMethodMetric"
 	                  id="iMove.menus.showIUCMethod"
-	                  label="Show IUC"
+	                  label="Show MUC"
 	                  mnemonic="S">
                 <parameter
                       name="iMove.metric"
@@ -212,7 +212,7 @@
 	            <command
 	                  commandId="iMove.commands.showMethodMetric"
 	                  id="iMove.menus.showCAMCMethod"
-	                  label="Show CAMC"
+	                  label="Show MDC"
 	                  mnemonic="S">
 	            <parameter
                       name="iMove.type"

@@ -27,5 +27,15 @@ public class CompositeMetric implements Metric {
 	public String getName() {
 		return iuc.getName();
 	}
+	
+	@Override
+	public String toString() {
+		return "Usage Metric: \n\n" + iuc.toString() + "\n\n Data Metric: \n\n" + dec.toString();
+	}
+
+	@Override
+	public String toDetailedString() {
+		return toString();
+	}
 
 }

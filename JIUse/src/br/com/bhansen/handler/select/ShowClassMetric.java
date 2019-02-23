@@ -28,11 +28,9 @@ public class ShowClassMetric extends SelectionHandler {
 		
 		ProgressDialog.open(window, monitor -> m = EvaluatorFactory.createMetricFactory("class", metric).create(selection, monitor));
 		
-		String result = m.toString();
-		
-		Console.println(result);
+		Console.println(m.toDetailedString());
 				
-		MessageDialog.open(metric + " - " + m.getName(), result);
+		MessageDialog.open(metric + " - " + m.getName(), m.toString());
 		
 		return null;
 	}

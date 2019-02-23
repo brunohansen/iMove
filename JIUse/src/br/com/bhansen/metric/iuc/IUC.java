@@ -95,7 +95,7 @@ public abstract class IUC extends AbsMetric {
 	}
 
 	@Override
-	public String toString() {
+	public String toDetailedString() {
 		try {
 			return toString(getName(), getMetric(), getMethods());
 		} catch (Exception e) {
