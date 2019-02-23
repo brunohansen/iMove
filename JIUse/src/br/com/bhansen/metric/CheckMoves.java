@@ -1,5 +1,8 @@
 package br.com.bhansen.metric;
 
+import java.util.Map;
+import java.util.Set;
+
 public class CheckMoves implements Metric{
 
 	@Override
@@ -15,6 +18,11 @@ public class CheckMoves implements Metric{
 	@Override
 	public String toDetailedString() {
 		return "Just check";
+	}
+
+	@Override
+	public Map<String, Set<String>> getMethods() {
+		return null;
 	}
 	
 }

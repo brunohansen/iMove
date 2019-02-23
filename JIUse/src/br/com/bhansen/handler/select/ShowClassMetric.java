@@ -7,6 +7,7 @@ import br.com.bhansen.dialog.MessageDialog;
 import br.com.bhansen.dialog.ProgressDialog;
 import br.com.bhansen.metric.Metric;
 import br.com.bhansen.refactory.EvaluatorFactory;
+import br.com.bhansen.utils.DependencyMatrix;
 import br.com.bhansen.utils.Type;
 import br.com.bhansen.view.Console;
 
@@ -31,6 +32,8 @@ public class ShowClassMetric extends SelectionHandler {
 		Console.println(m.toDetailedString());
 				
 		MessageDialog.open(metric + " - " + m.getName(), m.toString());
+		
+		System.out.println(new DependencyMatrix(m.getMethods()));
 		
 		return null;
 	}

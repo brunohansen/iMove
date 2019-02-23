@@ -1,5 +1,8 @@
 package br.com.bhansen.metric;
 
+import java.util.Map;
+import java.util.Set;
+
 import br.com.bhansen.metric.iuc.IUC;
 
 public class CompositeMetric implements Metric {
@@ -36,6 +39,11 @@ public class CompositeMetric implements Metric {
 	@Override
 	public String toDetailedString() {
 		return toString();
+	}
+
+	@Override
+	public Map<String, Set<String>> getMethods() {
+		throw new UnsupportedOperationException();
 	}
 
 }
