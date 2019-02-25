@@ -3,7 +3,10 @@ package br.com.bhansen.view;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
+import java.util.List;
 
 import org.eclipse.jdt.ui.JavaUI;
 import org.eclipse.jface.action.Action;
@@ -163,10 +166,14 @@ public class MoveMethod extends ViewPart {
 
 	public void update(Project project, Object movements) {
 		this.project = project;
-		if(movements instanceof Collection)
-			viewer.setInput(movements);
-		else
+		
+		if(movements instanceof Collection) {
+			List<Object> c = new ArrayList<>((Collection<Object>) movements);
+			Collections.sort(c, Collections.reverseOrder());
+			viewer.setInput(c);
+		} else {
 			viewer.setInput(new Object[]{movements});
+		}
 	}
 
 	private void contributeToActionBars() {
