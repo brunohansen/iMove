@@ -64,6 +64,10 @@ public class ParameterHelper {
 		
 		return generics;
 	}
+	
+	public final static boolean isPrimitive(String type) {
+		return primitives.contains(type);
+	}
 
 	public final static void removePrimitives(Set<String> parameters) {
 		parameters.removeAll(primitives);

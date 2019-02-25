@@ -24,5 +24,10 @@ public class CheckMoves implements Metric{
 	public Map<String, Set<String>> getMethods() {
 		return null;
 	}
+
+	@Override
+	public Map<String, String> getMethodVisibilities() {
+		return null;
+	}
 	
 }

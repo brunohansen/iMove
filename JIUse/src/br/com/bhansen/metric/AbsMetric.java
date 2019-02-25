@@ -11,11 +11,13 @@ public abstract class AbsMetric implements Metric {
 	
 	private String name;
 	private Map<String, Set<String>> methods;
+	private Map<String, String> methodVisibilities;
 	
 	public AbsMetric(Type type) {
 		super();
 		this.name = type.getName();
 		this.methods = new HashMap<>();
+		this.methodVisibilities = new HashMap<>(); 
 	}
 	
 	public String getName() {
@@ -24,6 +26,10 @@ public abstract class AbsMetric implements Metric {
 		
 	public Map<String, Set<String>> getMethods() {
 		return methods;
+	}
+	
+	public Map<String, String> getMethodVisibilities() {
+		return methodVisibilities;
 	}
 	
 	public String toDetailedString() { 

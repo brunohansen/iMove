@@ -28,6 +28,7 @@ public class IUCClass extends IUC {
 			MethodWithCallers method = new Method(iMethod).getMethodWithCallers();
 			
 		//	if((! Flags.isPrivate(iMethod.getFlags())) && (! isFakeDelegate(iMethod, method))) {
+			getMethodVisibilities().put(method.getSignature(), method.getVisibility());
 				if(getMethods().put(method.getSignature(), method.getCallers()) != null) {
 					Console.println("Method " + method.getSignature() + " colision!");
 				};

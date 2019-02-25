@@ -137,6 +137,18 @@ public class Method {
 		return isStatic;
 	}
 	
+	public String getVisibility() throws JavaModelException {
+		if (isPublic()) {
+			return "+";
+		} else if (isProtected()) {
+			return "#";
+		} else if (isPrivate()) {
+			return "-";
+		} else {
+			return "";
+		}
+	}
+	
 	public boolean hasSameVisibility(Method method) throws JavaModelException {
 		return (isPublic() && method.isPublic()) || (isProtected() && method.isProtected()) || (isPrivate() && method.isProtected());
 	}
