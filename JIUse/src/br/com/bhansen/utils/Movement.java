@@ -19,7 +19,7 @@ public class Movement {
 	
 			return new String[]{method[0], method[1], matcher.group(4)};
 		} else {
-			throw new Exception("Invalid movement: " + movement);
+			throw new Exception("Invalid syntax: " + movement);
 		}
 	}
 
