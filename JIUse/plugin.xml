@@ -24,6 +24,21 @@
       </command>
       <command
             categoryId="iMove.commands.category"
+            id="iMove.commands.showCMatrix"
+            name="Show Correlation Matrix">
+         <commandParameter
+               id="iMove.type"
+               name="type"
+               optional="false">
+         </commandParameter>
+         <commandParameter
+               id="iMove.metric"
+               name="metric"
+               optional="false">
+         </commandParameter>
+      </command>
+      <command
+            categoryId="iMove.commands.category"
             id="iMove.commands.showClassMetric"
             name="Show Class Metric">
          <commandParameter
@@ -37,7 +52,7 @@
                optional="false">
          </commandParameter>
       </command>
-            <command
+      <command
             categoryId="iMove.commands.category"
             id="iMove.commands.showMethodMetric"
             name="Show Method Metric">
@@ -82,7 +97,7 @@
                optional="false">
          </commandParameter>
       </command>
-            <command
+      <command
             categoryId="iMove.commands.category"
             id="iMove.commands.batchFolderMovement"
             name="Batch Folder Movement">
@@ -121,6 +136,10 @@
       <handler
             class="br.com.bhansen.handler.select.ShowClassMetric"
             commandId="iMove.commands.showClassMetric">
+      </handler>
+      <handler
+            class="br.com.bhansen.handler.select.ShowCorrelationMatrix"
+            commandId="iMove.commands.showCMatrix">
       </handler>
       <handler
             class="br.com.bhansen.handler.select.ShowMethodMetric"
@@ -224,6 +243,35 @@
                 </parameter>
 	            </command>
              </menu>
+             </menu>
+             <menu
+               label="Correlation Matrix"
+               mnemonic="M"
+               id="iMove.menus.CMatrix">
+	            <command
+	                  commandId="iMove.commands.showCMatrix"
+	                  id="iMove.menus.showUCM"
+	                  label="Show UCM"
+	                  mnemonic="S">
+                <parameter
+                      name="iMove.metric"
+                      value="IUC">
+                </parameter>
+	            </command>
+	            <command
+	                  commandId="iMove.commands.showCMatrix"
+	                  id="iMove.menus.showDCM"
+	                  label="Show DCM"
+	                  mnemonic="S">
+	            <parameter
+                      name="iMove.type"
+                      value="method">
+                </parameter>
+                <parameter
+                      name="iMove.metric"
+                      value="CAMC">
+                </parameter>
+	            </command>
              </menu>
              <menu
                label="Move Method"
@@ -332,6 +380,21 @@
             class="br.com.bhansen.view.MoveMethod"
             id="iMove.view.movemethod"
             name="iMove - Move Methods"
+            restorable="true">
+      </view>
+   </extension>
+      <extension
+         point="org.eclipse.ui.views">
+      <category
+            id="iMove.views.category"
+            name="iMove">
+      </category>
+      <view
+            allowMultiple="false"
+            category="iMove.views.category"
+            class="br.com.bhansen.view.CorrelationMatrix"
+            id="iMove.view.correlationmatrix"
+            name="iMove - Correlation Matrix"
             restorable="true">
       </view>
    </extension>

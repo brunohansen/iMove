@@ -1,6 +1,7 @@
 package br.com.bhansen.utils;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
@@ -9,8 +10,10 @@ import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
 
-import org.eclipse.core.runtime.NullProgressMonitor;
+import org.eclipse.core.runtime.IProgressMonitor;
+import org.eclipse.core.runtime.SubMonitor;
 
+import br.com.bhansen.metric.Metric;
 import br.com.bhansen.metric.MetricFactory;
 import br.com.bhansen.refactory.EvaluatorFactory;
 
@@ -18,25 +21,43 @@ public class DependencyMatrix {
 	
 	private List<String> columns;
 	private List<String> rows;
+	private Map<String, String> methods;
+	private Type type;
 
 	private boolean[][] matrix;
 
-	public DependencyMatrix(Type _type, String _metric, Map<String, Set<String>> _methods, Map<String, String> _methodVisibilities) throws Exception {
+	public DependencyMatrix(Type _type, String _metric, IProgressMonitor monitor) throws Exception {
 		MetricFactory factoryL = EvaluatorFactory.createMetricFactory("method", _metric);
 		Map<String, List<String>> methodsL = new TreeMap<String, List<String>>();
 		
 		Set<String> columnsL = new HashSet<>();
 		
-		for (Entry<String, Set<String>> method : _methods.entrySet()) {
+		methods = new HashMap<>();
+		
+		type = _type;
+		
+		SubMonitor subMonitor = SubMonitor.convert(monitor, 100);
+		
+		Map<String, Set<String>> ms = factoryL.create(type, subMonitor.split(5)).getMethods();
+		
+		subMonitor = SubMonitor.convert(subMonitor.split(95), ms.size());
+
+		for (Entry<String, Set<String>> m : ms.entrySet()) {
 			
-			columnsL.addAll(method.getValue());
+			Metric metric = factoryL.create(type, m.getKey(), subMonitor.split(1));
+			double correlation = metric.getMetric();
 			
-			double correlation = factoryL.create(_type, method.getKey(), new NullProgressMonitor()).getMetric();
-			String values = convertValues(method.getValue());
-			String visibility = _methodVisibilities.get(method.getKey());
-			String methodName = method.getKey().split("\\(", 2)[0];
+			Set<String> values = m.getValue();
+			columnsL.addAll(values);			
+			String strValues = convertValues(values);
 			
-			methodsL.put(( 1 - correlation + values) + " " + visibility + methodName, sort(method.getValue()));
+			Method mtd = type.getMethod(m.getKey());
+			
+			String key = ( 1 - correlation + strValues) + " " + mtd.getVisibility() + mtd.getName();
+			
+			methods.put(key, m.getKey());
+			
+			methodsL.put(key, sort(values));
 		}
 		
 		columns = sort(columnsL);
@@ -65,6 +86,14 @@ public class DependencyMatrix {
 			x++;
 		}
 
+	}
+
+	public List<String> getRows() {
+		return rows;
+	}
+
+	public Method getMethod(String row) throws Exception {
+		return type.getMethod(methods.get(row));
 	}
 	
 	private String convertValues(Set<String> _values) {
@@ -100,7 +129,16 @@ public class DependencyMatrix {
 		
 		return sorted;
 	}
-
+	
+	public interface Visitor {
+		
+		public void visit(List<String> columns, List<String> rows, Map<String, String> methods, Type type, boolean[][] matrix);
+	}
+	
+	public void visit(Visitor visitor) {
+		visitor.visit(columns, rows, methods, type, matrix);
+	}
+	
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
@@ -113,7 +151,7 @@ public class DependencyMatrix {
 				builder.append("\n\t\t&");
 				
 				for (String column : columns) {
-					builder.append("\t & \\rot{" + column + "}");
+					builder.append("\t & \\rot{" + Type.getAbbreviatedName(column) + "}");
 				}
 								
 				builder.append("\\\\");
@@ -122,7 +160,7 @@ public class DependencyMatrix {
 				
 				int x = 0;
 				for (String method : rows) {
-					builder.append("\n\t\t & " + method.substring(method.lastIndexOf(" ") + 1));
+					builder.append("\n\t\t & " + Method.getAbbreviatedName(method.substring(method.lastIndexOf(" ") + 1)));
 					
 					for (int y = 0; y < columns.size(); y++) {
 						if(matrix[x][y]) {

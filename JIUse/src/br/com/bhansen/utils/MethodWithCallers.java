@@ -1,13 +1,18 @@
 package br.com.bhansen.utils;
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.jdt.core.IJavaElement;
+import org.eclipse.jdt.core.IJavaProject;
 import org.eclipse.jdt.core.IMember;
 import org.eclipse.jdt.core.IMethod;
+import org.eclipse.jdt.core.IPackageFragmentRoot;
 import org.eclipse.jdt.core.JavaModelException;
+import org.eclipse.jdt.core.search.SearchEngine;
 import org.eclipse.jdt.internal.corext.callhierarchy.CallHierarchy;
 import org.eclipse.jdt.internal.corext.callhierarchy.MethodWrapper;
 
@@ -37,12 +42,15 @@ public class MethodWithCallers extends Method {
 		return callers.size() > 0;
 	}
 	
-	private Set<String> getCallerTypes() {
+	private Set<String> getCallerTypes() throws JavaModelException {
 		Set<String> callerTypes = new HashSet<>();
 	
 		CallHierarchy callHierarchy = CallHierarchy.getDefault();
 	
 		IMember[] members = { getIMethod() };
+		
+		//IJavaElement[] elems = { getIMethod().getJavaProject() };
+		//callHierarchy.setSearchScope(SearchEngine.createJavaSearchScope(getScope(), false));
 	
 		MethodWrapper[] methodWrappers = callHierarchy.getCallerRoots(members);
 		for (MethodWrapper mw : methodWrappers) {
@@ -64,7 +72,10 @@ public class MethodWithCallers extends Method {
 		CallHierarchy callHierarchy = CallHierarchy.getDefault();
 	
 		IMember[] members = { getIMethod() };
-	
+		
+//		IJavaElement[] elems = { getIMethod().getJavaProject() };
+//		callHierarchy.setSearchScope(SearchEngine.createJavaSearchScope(elems, false));
+		
 		MethodWrapper[] methodWrappers = callHierarchy.getCallerRoots(members);
 		for (MethodWrapper mw : methodWrappers) {
 			MethodWrapper[] mw2 = mw.getCalls(new NullProgressMonitor());
@@ -78,6 +89,19 @@ public class MethodWithCallers extends Method {
 		
 		return callerMethods;
 	}
+	
+	private IJavaElement[] getScope() throws JavaModelException {
+		IJavaProject project = getIMethod().getJavaProject();
+		List<IJavaElement> elems = new ArrayList<IJavaElement>();
+		
+		for (IPackageFragmentRoot pack : project.getAllPackageFragmentRoots()) {
+			if(pack.getKind() == IPackageFragmentRoot.K_SOURCE) {
+				elems.add(pack);
+			}
+		}
+		
+		return elems.toArray(new IJavaElement[elems.size()]);
+	} 
 	
 	private static IMethod getIMethodFromMethodWrapper(MethodWrapper method) {
 		IMember iMember = method.getMember();
