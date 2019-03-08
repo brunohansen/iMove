@@ -30,10 +30,6 @@ public class ShowClassMetric extends SelectionHandler {
 				
 		MessageDialog.open(metric + " - " + m.getName(), m.toString());
 		
-		//CorrelationMatrix.show(window, new DependencyMatrix(selection, metric, m.getMethods(), m.getMethodVisibilities()));
-		
-		//Console.println(new DependencyMatrix(selection, metric, m.getMethods(), m.getMethodVisibilities()));
-		
 		return null;
 	}
 
