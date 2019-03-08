@@ -7,7 +7,6 @@ import br.com.bhansen.dialog.MessageDialog;
 import br.com.bhansen.dialog.ProgressDialog;
 import br.com.bhansen.metric.Metric;
 import br.com.bhansen.refactory.EvaluatorFactory;
-import br.com.bhansen.utils.DependencyMatrix;
 import br.com.bhansen.utils.Type;
 import br.com.bhansen.view.Console;
 
@@ -18,8 +17,6 @@ import br.com.bhansen.view.Console;
  */
 public class ShowClassMetric extends SelectionHandler {
 
-	private Metric m;
-	
 	@Override
 	protected Object execute(IWorkbenchWindow window, ExecutionEvent event, String type, String metric) throws Exception {
 		
@@ -27,13 +24,15 @@ public class ShowClassMetric extends SelectionHandler {
 				
 		MessageDialog.open("The " + metric + " will be calculated for the openned class!\n\n\n The result dialog will open in a while!");
 		
-		ProgressDialog.open(window, monitor -> m = EvaluatorFactory.createMetricFactory("class", metric).create(selection, monitor));
+		Metric m = ProgressDialog.open(window, monitor -> EvaluatorFactory.createMetricFactory("class", metric).create(selection, monitor));
 		
 		Console.println(m.toDetailedString());
 				
 		MessageDialog.open(metric + " - " + m.getName(), m.toString());
 		
-		//System.out.println(new DependencyMatrix(selection, metric, m.getMethods(), m.getMethodVisibilities()));
+		//CorrelationMatrix.show(window, new DependencyMatrix(selection, metric, m.getMethods(), m.getMethodVisibilities()));
+		
+		//Console.println(new DependencyMatrix(selection, metric, m.getMethods(), m.getMethodVisibilities()));
 		
 		return null;
 	}

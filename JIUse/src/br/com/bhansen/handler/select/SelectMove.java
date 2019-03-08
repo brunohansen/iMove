@@ -16,8 +16,6 @@ public class SelectMove extends SelectionHandler {
 	private static String method; 
 	private static Type classTo;
 	
-	private MoveMethodEvaluator evaluator;
-	
 	static {
 		classFrom = null; 
 		method = null; 
@@ -50,7 +48,7 @@ public class SelectMove extends SelectionHandler {
 				
 				MessageDialog.open("Class To Selected!", classTo.getName() + "\n\n\n The result dialog will open in a while!" );
 				
-				ProgressDialog.open(window, monitor -> evaluator = EvaluatorFactory.create(classFrom, method, classTo, type, metric, monitor));
+				MoveMethodEvaluator evaluator = ProgressDialog.open(window, monitor -> EvaluatorFactory.create(classFrom, method, classTo, type, metric, monitor));
 				
 				MoveMethod.show(window, classTo.getProject(), evaluator.toLineString());
 				

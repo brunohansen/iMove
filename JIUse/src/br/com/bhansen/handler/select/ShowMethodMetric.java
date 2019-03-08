@@ -15,8 +15,6 @@ import br.com.bhansen.utils.Type;
 
 public class ShowMethodMetric extends SelectionHandler {
 	
-	private Metric m;
-
 	@Override
 	protected Object execute(IWorkbenchWindow window, ExecutionEvent event, String type, String metric) throws Exception {
 		
@@ -25,7 +23,7 @@ public class ShowMethodMetric extends SelectionHandler {
 		
 		MessageDialog.open("The " + (metric.equals("IUC")? "MUC" : "MDC") + " will be calculated for the selcted method!\n\n\n The result dialog will open in a while!");
 		
-		ProgressDialog.open(window, monitor -> m = EvaluatorFactory.createMetricFactory("method", metric).create(selection, strMethod, monitor));
+		Metric m = ProgressDialog.open(window, monitor -> EvaluatorFactory.createMetricFactory("method", metric).create(selection, strMethod, monitor));
 						
 		MessageDialog.open((metric.equals("IUC")? "MUC" : "MDC") + " - " + m.getName(), strMethod + ": " + new BigDecimal(m.getMetric()).setScale(6, RoundingMode.HALF_EVEN));
 		

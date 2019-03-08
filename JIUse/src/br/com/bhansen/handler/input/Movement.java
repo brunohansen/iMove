@@ -13,14 +13,12 @@ import br.com.bhansen.view.MoveMethod;
 
 public class Movement extends IMoveHandler {
 	
-	private MoveMethodEvaluator evaluator;
-	
 	@Override
 	protected Object execute(IWorkbenchWindow window, ExecutionEvent event, String type, String metric) throws Exception {
 				
 		SelectProjectDlg inDlg = SelectProjectDlg.askProject(window.getShell(), "iMove - Inform the movement", "Movement");
 		
-		ProgressDialog.open(window, monitor ->  evaluator = EvaluatorFactory.create(inDlg.getProject(), inDlg.getValue(), type, metric, monitor));
+		MoveMethodEvaluator evaluator = ProgressDialog.open(window, monitor ->  EvaluatorFactory.create(inDlg.getProject(), inDlg.getValue(), type, metric, monitor));
 		
 		MoveMethod.show(window, inDlg.getProject(), evaluator.toLineString());
 		

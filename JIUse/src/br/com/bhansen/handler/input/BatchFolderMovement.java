@@ -41,6 +41,8 @@ public class BatchFolderMovement extends BatchFileMovement {
 				
 				goldCheck(project, path, type, metric, subMonitor.split(1));
 			});
+			
+			return null;
 		});
 		
 		MessageDialog.openFinish();

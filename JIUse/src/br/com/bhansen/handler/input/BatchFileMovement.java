@@ -29,7 +29,6 @@ import br.com.bhansen.view.MoveMethod;
 
 public class BatchFileMovement extends IMoveHandler {
 	
-	private Collection<String> out;
 	private Project project;
 
 	@Override
@@ -45,7 +44,7 @@ public class BatchFileMovement extends IMoveHandler {
 			project = ProjectDialog.open();
 		}
 		
-		ProgressDialog.open(window, monitor -> out = metricCheck(project, inFile, type, metric, monitor));
+		Collection<String> out = ProgressDialog.open(window, monitor -> metricCheck(project, inFile, type, metric, monitor));
 		
 		MoveMethod.show(window, project, out);
 		
