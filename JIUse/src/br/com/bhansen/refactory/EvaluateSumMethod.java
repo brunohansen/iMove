@@ -13,8 +13,8 @@ public class EvaluateSumMethod extends MoveMethodEvaluator  {
 	private double oldValue;
 	private double newValue;
 	
-	public EvaluateSumMethod(Type classFrom, String method, Type classTo, MetricFactory factory, double threshold, IProgressMonitor monitor) throws Exception {
-		super(classFrom, method, classTo, factory, threshold);
+	public EvaluateSumMethod(Type classFrom, String method, Type classTo, MetricFactory factory, IProgressMonitor monitor) throws Exception {
+		super(classFrom, method, classTo, factory);
 		
 		boolean skipIUC = false;
 		

@@ -16,8 +16,8 @@ public class EvaluateSumClass extends MoveMethodEvaluator  {
 	private double newFromValue;
 	private double newToValue;
 
-	public EvaluateSumClass(Type classFrom, String method, Type classTo, MetricFactory factory, double threshold, IProgressMonitor monitor) throws Exception {
-		super(classFrom, method, classTo, factory, threshold);
+	public EvaluateSumClass(Type classFrom, String method, Type classTo, MetricFactory factory, IProgressMonitor monitor) throws Exception {
+		super(classFrom, method, classTo, factory);
 		
 		SubMonitor subMonitor = SubMonitor.convert(monitor, 100);
 		

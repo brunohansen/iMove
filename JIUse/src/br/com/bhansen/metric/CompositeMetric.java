@@ -3,13 +3,11 @@ package br.com.bhansen.metric;
 import java.util.Map;
 import java.util.Set;
 
+import br.com.bhansen.config.Config;
 import br.com.bhansen.metric.iuc.IUC;
 
 public class CompositeMetric implements Metric {
-	
-	private static final double DEC_W = 0.5;
-	private static final double IUC_W = 1.0 - DEC_W;
-	
+		
 	private Metric iuc;
 	private Metric dec;
 	
@@ -23,7 +21,7 @@ public class CompositeMetric implements Metric {
 		double iucM = iuc.getMetric();
 		double decM = dec.getMetric();
 		
-		return (iucM * IUC_W) + (decM * DEC_W);
+		return (iucM * Config.getMucWeight()) + (decM * Config.getMdcWeight());
 	}
 
 	@Override

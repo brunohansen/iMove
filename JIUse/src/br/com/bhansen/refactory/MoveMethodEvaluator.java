@@ -5,14 +5,13 @@ import java.math.RoundingMode;
 
 import org.eclipse.jdt.core.IMethod;
 
+import br.com.bhansen.config.Config;
 import br.com.bhansen.metric.MetricFactory;
 import br.com.bhansen.utils.Method;
 import br.com.bhansen.utils.Signature;
 import br.com.bhansen.utils.Type;
 
 public abstract class MoveMethodEvaluator {
-	
-	protected double threshold;
 	
 	protected Type classFrom;
 	protected Type classTo;
@@ -23,13 +22,11 @@ public abstract class MoveMethodEvaluator {
 	
 	protected MetricFactory factory;
 	
-	public MoveMethodEvaluator(Type classFrom, String method, Type classTo, MetricFactory factory, double threshold) throws Exception {
+	public MoveMethodEvaluator(Type classFrom, String method, Type classTo, MetricFactory factory) throws Exception {
 		super();
 		this.classFrom = classFrom;
 		this.classTo = classTo;
 				
-		this.threshold = threshold;
-		
 		this.factory = factory;
 		
 		this.valueDifference = 0;
@@ -63,7 +60,7 @@ public abstract class MoveMethodEvaluator {
 	}
 	
 	public boolean shouldMove() {
-		return this.valueDifference >= threshold;
+		return this.valueDifference >= Config.getThreshold();
 	}
 
 	public String toLineString() {

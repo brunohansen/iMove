@@ -124,6 +124,11 @@
       </command>
       <command
             categoryId="iMove.commands.category"
+            id="iMove.commands.prefs"
+            name="Preferences">
+      </command>
+      <command
+            categoryId="iMove.commands.category"
             id="iMove.commands.extractClass"
             name="Extract Class">
       </command>
@@ -168,6 +173,10 @@
       <handler
             commandId="iMove.commands.mergeFiles"
             class="br.com.bhansen.handler.input.FileMerger">
+      </handler>
+      <handler
+            commandId="iMove.commands.prefs"
+            class="br.com.bhansen.handler.select.Preferences">
       </handler>
    </extension>
    <extension point="org.eclipse.ui.menus">
@@ -363,6 +372,12 @@
 	                  commandId="iMove.commands.mergeFiles"
 	                  id="iMove.menus.mergeFiles"
 	                  label="Merge Results"
+	                  mnemonic="S">
+	            </command>
+	            <command
+	                  commandId="iMove.commands.prefs"
+	                  id="iMove.menus.prefs"
+	                  label="Preferences"
 	                  mnemonic="S">
 	            </command>
          </menu>

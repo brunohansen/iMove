@@ -24,9 +24,9 @@ public class EvaluatorFactory {
 	public static MoveMethodEvaluator create(Type classFrom, String method, Type classTo, String type, String metric, IProgressMonitor monitor) throws Exception {	
 		switch (type) {
 		case "class":
-			return new EvaluateSumClass(classFrom, method, classTo, createMetricFactory(type, metric), 0, monitor);
+			return new EvaluateSumClass(classFrom, method, classTo, createMetricFactory(type, metric), monitor);
 		case "method":
-			return new EvaluateSumMethod(classFrom, method, classTo, createMetricFactory(type, metric), 0, monitor);
+			return new EvaluateSumMethod(classFrom, method, classTo, createMetricFactory(type, metric), monitor);
 		default:
 			throw new Exception("Invalid type: " + type + "!");
 		}		
