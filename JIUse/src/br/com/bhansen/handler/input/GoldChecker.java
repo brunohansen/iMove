@@ -45,23 +45,23 @@ public class GoldChecker extends IMoveHandler {
 	}
 
 	public static Path getGoldPath(Path path) {
-		Path goldPath = Paths.get(path.toString().replace(".txt", "_goldsets.txt"));
-				
-		if(Files.exists(goldPath)) {
-			return goldPath;
-		} else {
-			Console.println("Gold file not found! " + goldPath);
+		try {
+			String dataPath = path.toString();
+
+			dataPath = dataPath.substring(0, dataPath.indexOf("results"));
+
+			String goldDir = Paths.get(dataPath, "gold_sets").toString();
+
+			return getGoldPath(goldDir, path);
+		} catch (Exception e) {
+			Console.println("Can't generate gold path based on directory and file name!");
 			
-			try {
-				String dataPath = path.toString();
-
-				dataPath = dataPath.substring(0, dataPath.indexOf("results"));
-
-				String goldDir = Paths.get(dataPath, "gold_sets").toString();
-
-				return getGoldPath(goldDir, path);
-			} catch (Exception e) {
-				throw new RuntimeException("Can't generate gold path based on directory and file name!");
+			Path goldPath = Paths.get(path.toString().replace(".txt", "_goldsets.txt"));
+			
+			if(Files.exists(goldPath)) {
+				return goldPath;
+			} else {
+				throw new RuntimeException("Gold file not found! " + goldPath);
 			}
 		}
 	}
