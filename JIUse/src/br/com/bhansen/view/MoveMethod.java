@@ -67,7 +67,6 @@ public class MoveMethod extends ViewPart {
 
 	private TableViewer viewer;
 	private Action saveResultsAction;
-	private Action doubleClickAction;
 
 	private Project project;
 	
@@ -319,7 +318,15 @@ public class MoveMethod extends ViewPart {
 	private void hookDoubleClickAction() {
 		viewer.addDoubleClickListener(new IDoubleClickListener() {
 			public void doubleClick(DoubleClickEvent event) {
-				doubleClickAction.run();
+				ISelection selection = viewer.getSelection();
+				Object obj = ((IStructuredSelection) selection).getFirstElement();
+
+				try {
+					JavaUI.openInEditor(project.findMethod(obj.toString()).getIMethod());
+				} catch (Exception e) {
+					ErrorDialog.open(e);
+					throw new RuntimeException(e);
+				}
 			}
 		});
 	}
