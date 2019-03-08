@@ -55,6 +55,10 @@ public class Console {
 		getStream().println(message);
 	}
 	
+	public static void println(Object o) {
+		println(o.toString());
+	}
+	
 	public static void printStackTrace(Exception e) {
 		e.printStackTrace(getStream());
 	}
