@@ -8,7 +8,7 @@ JMove - Permitindo Movimento
 	com...PostBean::deletePost(GenericRequest, PostWebHandler):void -> com...PostWebHandler
 
 public class PostWebHandler {
-	private void deletePost(GenericRequest request, PostBean postBean) {
+	private void deletePost(GenericRequest, PostBean) {
 		...
 		OnlineUser onlineUser = onlineUserManager.getOnlineUser(request);
 		MVNForumPermission permission = onlineUser.getPermission();
@@ -37,7 +37,7 @@ public class PostBean {
 }
 
 public class ThreadWebHandler {
-	public void deleteThread(GenericRequest request, ThreadBean threadBean) {
+	public void deleteThread(GenericRequest, ThreadBean) {
 	    ...
 	    OnlineUser onlineUser = onlineUserManager.getOnlineUser(request);
 	    MVNForumPermission permission = onlineUser.getPermission();
@@ -64,6 +64,42 @@ public class ThreadBean {
 	public void setThreadBody(String threadBody)
 	...
 }
+
+public class PostBean {
+	...
+	public int getPostID()
+	public void setPostID(int postID)
+	public int getForumID()
+	public void setForumID(int forumID)
+	public int getPostStatus()
+	public void setPostStatus(int postStatus)	
+	public void deletePost(GenericRequest, PostWebHandler) {
+		...
+	    OnlineUser onlineUser = postWebHandler.getOnlineUser(request);
+	    MVNForumPermission permission = onlineUser.getPermission();
+	    permission.ensureIsAuthenticated();
+		
+	    DAOFactory.getPostDAO().delete(postID);
+	    
+	    PostIndexer.scheduleDeletePostTask(postID, ...);
+	    ...
+	}
+	...
+}
+
+public class PostWebHandler {
+	...
+    public void processAdd(GenericRequest, GenericResponse)
+    public void preparePrintPost(GenericRequest, String)
+    public void prepareEdit(GenericRequest, GenericResponse)
+    public void processUpdate(GenericRequest)
+    public void prepareDelete(GenericRequest, GenericResponse)
+    public void processDelete(GenericRequest)
+    public void processModeratePendingPosts(GenericRequest)
+    public void processSearch(GenericRequest, GenericResponse)
+    ...
+}
+
 
 
 
