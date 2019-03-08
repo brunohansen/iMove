@@ -9,7 +9,6 @@ public interface Metric {
 	public double getMetric() throws Exception;
 	
 	public Map<String, Set<String>> getMethods();
-	public Map<String, String> getMethodVisibilities();
 	
 	public String toDetailedString();
 

@@ -47,7 +47,6 @@ public class CAMCMethod extends DeclarationMetric {
 //			if(! mp.hasParameter())
 //				continue;
 
-			getMethodVisibilities().put(mp.getSignature(), mp.getVisibility());
 			getMethods().put(mp.getSignature(), mp.getParameters());
 
 		}

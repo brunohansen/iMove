@@ -65,7 +65,6 @@ public class IUCJMethod extends IUC {
 				//Remove fake public
 //				mc.removeCaller(type);
 				
-				getMethodVisibilities().put(mc.getSignature(), mc.getVisibility());
 				if (getMethods().put(mc.getSignature(), mc.getCallers()) != null) {
 					Console.println("Method " + mc.getSignature() + " colision!");
 				}

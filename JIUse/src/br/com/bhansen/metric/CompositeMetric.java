@@ -46,9 +46,4 @@ public class CompositeMetric implements Metric {
 		throw new UnsupportedOperationException();
 	}
 
-	@Override
-	public Map<String, String> getMethodVisibilities() {
-		return iuc.getMethodVisibilities();
-	}
-
 }
