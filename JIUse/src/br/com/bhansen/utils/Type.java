@@ -1,5 +1,8 @@
 package br.com.bhansen.utils;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.eclipse.jdt.core.IField;
 import org.eclipse.jdt.core.IMethod;
 import org.eclipse.jdt.core.IType;
@@ -100,6 +103,32 @@ public class Type {
 		}
 		
 		return false;
+	}
+	
+	public static String getAbbreviatedName(String name) {
+		final int MIN_LENGTH = 4;
+		
+		if(name.length() <= MIN_LENGTH) {
+			return name;
+		}
+		
+		String abbr = name.replaceAll("[a-z_\\-]", "");
+		
+		if (abbr.isEmpty()) {
+			abbr = name.substring(0, MIN_LENGTH - abbr.length());
+		} else if (abbr.length() < MIN_LENGTH) {
+			int index = name.lastIndexOf(abbr.charAt(abbr.length() - 1)) + 1;
+			
+			String suffix = name.substring(index);
+			
+			if(suffix.length() > MIN_LENGTH - abbr.length()) {
+				abbr = abbr + suffix.substring(0, MIN_LENGTH - abbr.length());
+			} else {
+				abbr = abbr + suffix;
+			}
+		}
+		
+		return abbr;
 	}
 
 }

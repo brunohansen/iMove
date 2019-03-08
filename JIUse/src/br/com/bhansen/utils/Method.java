@@ -165,4 +165,14 @@ public class Method {
 		}
 	}
 	
+	public static String getAbbreviatedName(String name) {
+		final int MIN_LENGTH = 4;
+		
+		if(name.length() <= MIN_LENGTH) {
+			return name;
+		}
+		
+		return name.substring(0, MIN_LENGTH) + name.substring(MIN_LENGTH).replaceAll("[a-z_\\-]", "");
+	}
+	
 }
