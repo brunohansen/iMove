@@ -1,0 +1,24 @@
+-0.027027-111	org.gjt.sp.jedit.textarea.TextAreaPainter::paintCaret(Graphics, int, int):void	org.gjt.sp.jedit.textarea.JEditTextArea
+-0.027027-111	org.gjt.sp.jedit.textarea.TextAreaPainter::paintLineHighlight(Graphics, int, int):void	org.gjt.sp.jedit.textarea.JEditTextArea
+
+Não faz sentido mover, é um if null e duas delegaçãoes
+-0.038889-100	org.gjt.sp.jedit.Mode::accept(Buffer, String, String):boolean	gnu.regexp.RE
+
+Não sei
+-0.054990-100	org.gjt.sp.jedit.textarea.JEditTextArea::xToOffset(int, int):int	org.gjt.sp.jedit.textarea.TextAreaPainter
+-0.073919-111	org.gjt.sp.jedit.textarea.JEditTextArea::lineToY(int):int	org.gjt.sp.jedit.textarea.TextAreaPainter
+-0.152778-111	bsh.Name::invokeLocalMethod(Interpreter, Object[]):Object	bsh.Interpreter
+
+Não vai, mas deveria? destino tem métodos com buffer
+-0.950000-100	org.gjt.sp.jedit.Buffer::tokenizeLines(int, int):void	org.gjt.sp.jedit.syntax.TokenMarker
+-1.000000-111	org.gjt.sp.jedit.io.BufferIORequest::insert():void	org.gjt.sp.jedit.io.VFS
+-1.000000-111	org.gjt.sp.jedit.textarea.JEditTextArea::doWordWrap(int, boolean):boolean	org.gjt.sp.jedit.Buffer
+0.000000-000	org.gjt.sp.jedit.browser.VFSBrowser::handleBufferUpdate(BufferUpdate):void	org.gjt.sp.jedit.msg.BufferUpdate
+0.000000-000	org.gjt.sp.jedit.io.BufferIORequest::read(Buffer, InputStream, long):String	org.gjt.sp.jedit.Buffer
+0.000000-000	org.gjt.sp.jedit.io.BufferIORequest::readMarkers(Buffer, InputStream):void	org.gjt.sp.jedit.Buffer
+0.000000-000	org.gjt.sp.jedit.io.BufferIORequest::writeMarkers(Buffer, OutputStream):void	org.gjt.sp.jedit.Buffer
+0.000000-011	org.gjt.sp.jedit.textarea.JEditTextArea::setText(String):void	org.gjt.sp.jedit.Buffer
+0.041667-011	bsh.BshMethod::invokeDeclaredMethod(Object[], Interpreter):Object	bsh.BSHMethodDeclaration
+0.923077-000	org.gjt.sp.jedit.EditPane::initTextArea(JEditTextArea):void	org.gjt.sp.jedit.textarea.JEditTextArea
+E11	bsh.BSHMethodDeclaration::invokeDeclaredMethod(java.lang.Object[], Interpreter, NameSpace):java.lang.Object	bsh.BSHFormalParameters	 Error: Method invokeDeclaredMethod(java.lang.Object[], Interpreter, NameSpace):java.lang.Object not found!
+E11	bsh.Name::resolveThisFieldReference(NameSpace, Interpreter, java.lang.String, boolean):java.lang.Object	bsh.NameSpace	 Error: Method resolveThisFieldReference(NameSpace, Interpreter, java.lang.String, boolean):java.lang.Object not found!
