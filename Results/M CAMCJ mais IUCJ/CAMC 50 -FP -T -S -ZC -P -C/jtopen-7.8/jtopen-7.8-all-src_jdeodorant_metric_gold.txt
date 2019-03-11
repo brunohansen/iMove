@@ -1,0 +1,44 @@
+-0.011111-111	+com.ibm.as400.access.PSTunnelConnection::sendTunneling(PxRepSV, OutputStream):void	com.ibm.as400.access.PxRepSV
+-0.027778-111	+com.ibm.as400.vaccess.VJob::getJob():Job	com.ibm.as400.resource.RJob
+-0.033333-111	com.ibm.as400.access.PrintObjectListImplRemote::newNPCPAttribute(NPDataStream):NPCPAttribute	com.ibm.as400.access.NPDataStream
+-0.060525-111	com.ibm.as400.access.AS400JDBCConnectionPool::closePooledConnection(AS400JDBCPooledConnection):void	com.ibm.as400.access.AS400JDBCPooledConnection
+-0.283561-111	#com.ibm.as400.vaccess.SQLQueryFieldsPane::getNumericFieldNames():String[]	com.ibm.as400.vaccess.SQLMetaDataTableModel
+-0.333333-111	+com.ibm.as400.vaccess.AS400JDBCDataSourcePane::applyChangesToCurrentDataSource(AS400JDBCDataSource):void	com.ibm.as400.vaccess.AS400JDBCDataSourcePaneDataBean
+-0.350703-111	#com.ibm.as400.vaccess.SQLQueryFieldsPane::getFieldNames():String[]	com.ibm.as400.vaccess.SQLMetaDataTableModel
+-0.374585-111	+com.ibm.as400.util.commtrace.Format::addBanner():String	com.ibm.as400.util.commtrace.Prolog
+-0.395238-111	+com.ibm.as400.vaccess.AS400JDBCDataSourcePane::applyChangesToCurrentDataSource(AS400JDBCDataSource):void	com.ibm.as400.access.AS400JDBCDataSource
+-0.441061-111	#com.ibm.as400.vaccess.SQLQueryFieldsPane::getCharacterFieldNames():String[]	com.ibm.as400.vaccess.SQLMetaDataTableModel
+-0.441061-111	#com.ibm.as400.vaccess.SQLQueryFieldsPane::getDateFieldNames():String[]	com.ibm.as400.vaccess.SQLMetaDataTableModel
+-0.441061-111	#com.ibm.as400.vaccess.SQLQueryFieldsPane::getDateTimeFieldNames():String[]	com.ibm.as400.vaccess.SQLMetaDataTableModel
+-0.441061-111	#com.ibm.as400.vaccess.SQLQueryFieldsPane::getFieldNamesOfType(int):String[]	com.ibm.as400.vaccess.SQLMetaDataTableModel
+-0.441061-111	#com.ibm.as400.vaccess.SQLQueryFieldsPane::getTimeFieldNames():String[]	com.ibm.as400.vaccess.SQLMetaDataTableModel
+-0.500000-111	+com.ibm.as400.access.PSLoadBalancer::accept(int):String	com.ibm.as400.access.PSLoad
+-1.000000-111	#com.ibm.as400.micro.ResultSetHandler::writeRow(ResultSet):void	com.ibm.as400.micro.MicroDataOutputStream
+-1.000000-111	+com.ibm.as400.access.User::setUserExpirationInterval(int):void	com.ibm.as400.access.AS400
+-1.000000-111	+com.ibm.as400.micro.ConnectionHandler::commit(Connection):void	com.ibm.as400.micro.MicroDataOutputStream
+-1.000000-111	+com.ibm.as400.micro.ConnectionHandler::rollback(Connection):void	com.ibm.as400.micro.MicroDataOutputStream
+-1.000000-111	+com.ibm.as400.micro.ResultSetHandler::afterLast(ResultSet):void	com.ibm.as400.micro.MicroDataOutputStream
+-1.000000-111	+com.ibm.as400.micro.ResultSetHandler::beforeFirst(ResultSet):void	com.ibm.as400.micro.MicroDataOutputStream
+-1.000000-111	+com.ibm.as400.micro.ResultSetHandler::deleteRow(ResultSet):void	com.ibm.as400.micro.MicroDataOutputStream
+-1.000000-111	+com.ibm.as400.micro.ResultSetHandler::isAfterLast(ResultSet):void	com.ibm.as400.micro.MicroDataOutputStream
+-1.000000-111	+com.ibm.as400.micro.ResultSetHandler::isBeforeFirst(ResultSet):void	com.ibm.as400.micro.MicroDataOutputStream
+-1.000000-111	+com.ibm.as400.micro.ResultSetHandler::isFirst(ResultSet):void	com.ibm.as400.micro.MicroDataOutputStream
+-1.000000-111	+com.ibm.as400.micro.ResultSetHandler::isLast(ResultSet):void	com.ibm.as400.micro.MicroDataOutputStream
+-1.000000-111	com.ibm.as400.vaccess.SQLQueryTablePane::update():void	com.ibm.as400.vaccess.SQLQueryBuilderPane
+0.000000-000	+com.ibm.as400.access.Permission::removeRow2(PermissionTableModelQSYS, int):void	com.ibm.as400.vaccess.PermissionTableModelQSYS
+0.000000-000	com.ibm.as400.access.FTPThread::readObject2(FTP, ObjectInputStream):void	com.ibm.as400.access.FTP
+0.000000-000	com.ibm.as400.access.NPCPAttributeIDList::readObject(PrintObjectList, ObjectInputStream):void	com.ibm.as400.access.PrintObjectList
+0.000000-000	com.ibm.as400.util.html.HTMLVector::readObject(HTMLTree, ObjectInputStream):void	com.ibm.as400.util.html.HTMLTree
+0.000000-011	+com.ibm.as400.access.DataQueue::create(DataQueueAttributes):void	com.ibm.as400.access.DataQueueAttributes
+0.000000-011	+com.ibm.as400.access.IFSFileInputStream::rewind():void	com.ibm.as400.access.IFSFileDescriptor
+0.000000-011	+com.ibm.as400.access.ProxyServer::setConfiguration(String):void	com.ibm.as400.access.PSConfig
+0.000000-011	+com.ibm.as400.micro.JdbcMeService::handleServiceException(String):void	com.ibm.as400.micro.MicroDataOutputStream
+0.000000-011	com.ibm.as400.access.JDLibraryList::addOnServer(AS400JDBCConnection, int):void	com.ibm.as400.access.AS400JDBCConnection
+0.044505-000	+com.ibm.as400.access.AS400ZonedDecimal::addToHashtable(PcmlDocument, PcmlDocNode):void	com.ibm.as400.data.PcmlDocument
+0.066667-011	+com.ibm.as400.micro.JdbcMeService::handleException(SQLException):void	com.ibm.as400.micro.MicroDataOutputStream
+0.069444-011	+com.ibm.as400.access.PSTunnelConnection::runRequest(PxReqSV, OutputStream):void	com.ibm.as400.access.PxReqSV
+0.977273-000	+com.ibm.as400.access.SequentialFile::getFileName(RecordListData):String	com.ibm.as400.vaccess.RecordListData
+1.000000-000	+com.ibm.as400.data.ProgramCallDocument::endInternal2(RJob, int):void	com.ibm.as400.resource.RJob
+1.000000-000	+com.ibm.as400.resource.IntegerValueMap::start2(NetServer, boolean):void	com.ibm.as400.access.NetServer
+1.000000-000	+com.ibm.as400.resource.ProgramMap::end(NetServerSession):void	com.ibm.as400.access.NetServerSession
+E11	com.ibm.as400.access.PrintObject::getIDCodePoint():com.ibm.as400.access.NPCPID	com.ibm.as400.access.NPCPAttributeValue	 Error: Invalid target!

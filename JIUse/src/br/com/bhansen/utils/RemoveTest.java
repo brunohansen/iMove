@@ -153,12 +153,15 @@ public class RemoveTest {
 
 						if (! isSrcType(classFrom) || ! isSrcType(classTo)) {
 							visibility = "?";
-						} else if (method.isPublic()) {
-							visibility = "+";
+						} 
+						
+						if (method.isPublic()) {
+							visibility += "+";
 						} else if (method.isPrivate()) {
-							visibility = "-";
+							visibility += "-";
+							//return;
 						} else if (method.isProtected()) {
-							visibility = "#";
+							visibility += "#";
 						}
 						
 						outSet.add(inLine.replaceFirst("\t", "\t" + visibility));
