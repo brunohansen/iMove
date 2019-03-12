@@ -12,3 +12,11 @@ MVN Forum
 C Protected FP -0.431944-111	net.myvietnam.mvncore.configuration.HierarchicalConfigurationConverter::reverseIterator(ConfigurationKey):Iterator	net.myvietnam.mvncore.configuration.ConfigurationKey
 
 C 0.279328-011	com.mvnforum.admin.GeneralAdminTasksWebHandler::processMailTemplate(MemberBean, String):String	com.mvnforum.db.MemberBean
+
+Duvida JDeodo
+
+EN visitor net.myvietnam.mvncore.configuration.HierarchicalConfiguration::nodeDefined(Node):boolean	net.myvietnam.mvncore.configuration.HierarchicalConfiguration.Node
+EN visitor net.myvietnam.mvncore.configuration.HierarchicalConfigurationXMLReader.SAXVisitor::isAttributeNode(Node):boolean	net.myvietnam.mvncore.configuration.HierarchicalConfiguration.Node
+
+Permite extração com.mvnforum.admin.importexport.jive.JiveThreadXML::updateAddedPost(PostXML, String, Timestamp):void	com.mvnforum.admin.ThreadXML
+Permite permitir extração com.mvnforum.admin.importexport.jive.JiveForumXML::updateAddedPost(PostXML, String, Timestamp):void	com.mvnforum.admin.ForumXML
