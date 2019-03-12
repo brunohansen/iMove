@@ -15,9 +15,12 @@ import org.eclipse.ui.PlatformUI;
 
 import br.com.bhansen.config.Config;
 import br.com.bhansen.config.Config.MUCScope;
+import br.com.bhansen.config.Config.MetricType;
 
 public class ConfigDialog extends TitleAreaDialog {
-
+	
+	private Combo metricType;
+	
     private Text threshold;
     
     private Text mucWeight;
@@ -52,13 +55,9 @@ public class ConfigDialog extends TitleAreaDialog {
         mucWeight = createTextField(container, "MUC Weight", Config.getMucWeight().toString());
         mdcWeight = createTextField(container, "MDC Weight", Config.getMdcWeight().toString());
         
-        String [] scopes = new String[MUCScope.values().length]; 
+        metricType = createComboField(container, "Metric Type", MetricType.values(), Config.getMetricType().ordinal());
         
-        for (MUCScope scope : MUCScope.values()) {
-			scopes[scope.ordinal()] = scope.toString();
-		}
-        
-        mucScope = createComboField(container, "MUC Scope", scopes, Config.getMucScope().ordinal());
+        mucScope = createComboField(container, "MUC Scope", MUCScope.values(), Config.getMucScope().ordinal());
 
         return area;
     }
@@ -78,7 +77,13 @@ public class ConfigDialog extends TitleAreaDialog {
         return txt;
     }
     
-    private Combo createComboField(Composite container, String label, String [] items, int index) {
+    private Combo createComboField(Composite container, String label, Enum<?> [] values, int index) {
+        String [] items = new String[values.length]; 
+        
+        for (Enum<?> value : values) {
+        	items[value.ordinal()] = value.toString();
+		}
+    	
         Label lbl = new Label(container, SWT.NONE);
         lbl.setText(label);
 
@@ -103,7 +108,7 @@ public class ConfigDialog extends TitleAreaDialog {
     // as soon as the Dialog closes
     private void saveInput() {
     	try {
-    		Config.set(Double.parseDouble(threshold.getText()), Double.parseDouble(mucWeight.getText()), Double.parseDouble(mdcWeight.getText()), MUCScope.values()[mucScope.getSelectionIndex()]);
+    		Config.set(Double.parseDouble(threshold.getText()), Double.parseDouble(mucWeight.getText()), Double.parseDouble(mdcWeight.getText()), MUCScope.values()[mucScope.getSelectionIndex()], MetricType.values()[metricType.getSelectionIndex()]);
 		} catch (Exception e) {
 			ErrorDialog.open(e);
 		}

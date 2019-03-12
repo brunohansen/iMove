@@ -8,6 +8,7 @@ import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.SubMonitor;
 import org.eclipse.jdt.core.IMethod;
 
+import br.com.bhansen.config.Config;
 import br.com.bhansen.metric.AbsMetric;
 import br.com.bhansen.utils.Method;
 import br.com.bhansen.utils.MethodWithCallers;
@@ -45,22 +46,22 @@ public class IUCJMethod extends IUC {
 //					continue;
 				
 				// Dont add private
-//				if (m.isPrivate())
-//					continue;
+				if (Config.isMetricTight() && m.isPrivate())
+					continue;
 				
 				// Dont add constructor
-//				if (m.isConstructor())
-//					continue;
+				if (Config.isMetricTight() && m.isConstructor())
+					continue;
 								
 				MethodWithCallers mc = m.getMethodWithCallers();
 
 				// Dont add not called
-//				if (! mc.hasCaller())
-//					continue;
+				if (Config.isMetricTight() && ! mc.hasCaller())
+					continue;
 				
 				// Dont add fake public
-//				if(mc.isCalledOnlyBy(type))
-//					continue;
+				if(Config.isMetricTight() && mc.isCalledOnlyBy(type))
+					continue;
 				
 				//Remove fake public
 //				mc.removeCaller(type);

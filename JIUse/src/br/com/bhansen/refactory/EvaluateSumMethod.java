@@ -5,7 +5,9 @@ import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.core.runtime.SubMonitor;
 import org.eclipse.ltk.core.refactoring.Change;
 
+import br.com.bhansen.config.Config;
 import br.com.bhansen.metric.MetricFactory;
+import br.com.bhansen.utils.MethodWithCallers;
 import br.com.bhansen.utils.Type;
 
 public class EvaluateSumMethod extends MoveMethodEvaluator  {
@@ -18,13 +20,15 @@ public class EvaluateSumMethod extends MoveMethodEvaluator  {
 		
 		boolean skipIUC = false;
 		
-//		MethodWithCallers m = this.method.getMethodWithCallers();
-//		
-//		if(! m.hasCaller() || m.isPrivate() || m.isCalledOnlyBy(classTo) || m.isCalledOnlyBy(classFrom)) {
-//			skipIUC = true;
-//		} else {
-//			skipIUC = false;
-//		}
+		if(Config.isMetricTight()) {
+			MethodWithCallers m = this.method.getMethodWithCallers();
+			
+			if(! m.hasCaller() || m.isPrivate() || m.isCalledOnlyBy(classTo) || m.isCalledOnlyBy(classFrom)) {
+				skipIUC = true;
+			} else {
+				skipIUC = false;
+			}
+		}
 		
 		SubMonitor subMonitor = SubMonitor.convert(monitor, 100);
 		

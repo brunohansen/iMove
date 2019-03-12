@@ -7,6 +7,10 @@ import org.osgi.service.prefs.BackingStoreException;
 public class Config {
 
 	private static IEclipsePreferences prefs;
+	
+	public enum MetricType {
+		REGULAR, TIGHT;
+	}
 
 	public enum MUCScope {
 		WORK_SPACE, PROJECT, SOURCE_CODE;
@@ -15,6 +19,9 @@ public class Config {
 			return name().replaceAll("_", " ");
 		}
 	}
+	
+	private static final String METRIC_TYPE = "metricType";
+	private static final MetricType METRIC_TYPE_DEF = MetricType.REGULAR;
 
 	private static final String THRESHOLD = "threshold";
 	private static final double THRESHOLD_DEF = 0;
@@ -33,6 +40,18 @@ public class Config {
 
 		return prefs;
 	}
+	
+	public static MetricType getMetricType() {
+		return MetricType.valueOf(getPrefs().get(METRIC_TYPE, METRIC_TYPE_DEF.name()));
+	}
+	
+	public static boolean isMetricRegular() {
+		return getMetricType() == MetricType.REGULAR;
+	}
+	
+	public static boolean isMetricTight() {
+		return getMetricType() == MetricType.TIGHT;
+	}
 
 	public static Double getThreshold() {
 		return getPrefs().getDouble(THRESHOLD, THRESHOLD_DEF);
@@ -50,7 +69,7 @@ public class Config {
 		return MUCScope.valueOf(getPrefs().get(MUC_SCOPE, MUC_SCOPE_DEF.name()));
 	}
 
-	public static void set(double threshold, double mucWeight, double mdcWeight, MUCScope mucScope) throws BackingStoreException {
+	public static void set(double threshold, double mucWeight, double mdcWeight, MUCScope mucScope, MetricType metricType) throws BackingStoreException {
 		IEclipsePreferences prefs = getPrefs();
 
 		prefs.putDouble(THRESHOLD, threshold);
@@ -59,6 +78,8 @@ public class Config {
 		prefs.putDouble(MDC_WEIGHT, mdcWeight);
 		
 		prefs.put(MUC_SCOPE, mucScope.name());
+		
+		prefs.put(METRIC_TYPE, metricType.name());
 		
 		prefs.flush();
 	}

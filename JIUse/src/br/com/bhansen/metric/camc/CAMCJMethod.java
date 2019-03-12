@@ -8,6 +8,7 @@ import org.eclipse.core.runtime.SubMonitor;
 import org.eclipse.jdt.core.IMethod;
 import org.eclipse.jdt.core.JavaModelException;
 
+import br.com.bhansen.config.Config;
 import br.com.bhansen.metric.AbsMetric;
 import br.com.bhansen.metric.DeclarationMetric;
 import br.com.bhansen.utils.Method;
@@ -43,12 +44,12 @@ public class CAMCJMethod extends DeclarationMetric {
 //					continue;
 				
 				// Dont add private
-//				if (m.isPrivate())
-//					continue;
+				if (Config.isMetricTight() && m.isPrivate())
+					continue;
 				
 				// Dont add constructor
-//				if (m.isConstructor())
-//					continue;				
+				if (Config.isMetricTight() && m.isConstructor())
+					continue;				
 				
 				MethodWithParameters mp = m.getMethodWithParameters();
 				

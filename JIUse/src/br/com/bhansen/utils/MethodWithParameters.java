@@ -5,6 +5,8 @@ import java.util.Set;
 
 import org.eclipse.jdt.core.JavaModelException;
 
+import br.com.bhansen.config.Config;
+
 public class MethodWithParameters extends Method {
 	
 	private Set<String> parameters;
@@ -47,8 +49,11 @@ public class MethodWithParameters extends Method {
 				params.add(param);
 			}
 		}
-	
-//		ParameterHelper.removePrimitives(params);
+		
+		if(Config.isMetricTight()) {
+			ParameterHelper.removePrimitives(params);
+		}
+		
 		//ParameterHelper.removeCollections(params);		
 		ParameterHelper.removeSelfParameter(params, Type.getName(getIMethod().getDeclaringType()));
 		
