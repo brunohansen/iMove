@@ -1,10 +1,10 @@
-E visitor -0.082292-111	net.myvietnam.mvncore.configuration.HierarchicalConfiguration::nodeDefined(Node):boolean	net.myvietnam.mvncore.configuration.HierarchicalConfiguration.Node
+C? protected factory de um visitor -0.082292-111	net.myvietnam.mvncore.configuration.HierarchicalConfiguration::nodeDefined(Node):boolean	net.myvietnam.mvncore.configuration.HierarchicalConfiguration.Node
 E -0.139087-111	com.mvnforum.user.PostWebHandler::deletePost(GenericRequest, PostBean):void	com.mvnforum.db.PostBean
 E -0.160347-111	com.mvnforum.user.ThreadWebHandler::deleteThread(GenericRequest, ThreadBean):void	com.mvnforum.db.ThreadBean
-E -0.177193-111	com.mvnforum.admin.importexport.jive.JiveThreadXML::updateAddedPost(PostXML, String, Timestamp):void	com.mvnforum.admin.ThreadXML
-E -0.183608-111	com.mvnforum.admin.importexport.jive.JiveForumXML::updateAddedPost(PostXML, String, Timestamp):void	com.mvnforum.admin.ForumXML
+E extract -0.177193-111	com.mvnforum.admin.importexport.jive.JiveThreadXML::updateAddedPost(PostXML, String, Timestamp):void	com.mvnforum.admin.ThreadXML
+E extract -0.183608-111	com.mvnforum.admin.importexport.jive.JiveForumXML::updateAddedPost(PostXML, String, Timestamp):void	com.mvnforum.admin.ForumXML
 E extract -0.284615-111	com.mvnforum.categorytree.CategoryTree::build():String	com.mvnforum.categorytree.CategoryBuilder
-E visitor -0.305208-111	net.myvietnam.mvncore.configuration.HierarchicalConfigurationXMLReader.SAXVisitor::isAttributeNode(Node):boolean	net.myvietnam.mvncore.configuration.HierarchicalConfiguration.Node
+C? private utilitario visitor -0.305208-111	net.myvietnam.mvncore.configuration.HierarchicalConfigurationXMLReader.SAXVisitor::isAttributeNode(Node):boolean	net.myvietnam.mvncore.configuration.HierarchicalConfiguration.Node
 E -0.315657-111	com.mvnsoft.mvnad.delivery.ZoneManager::getBannerInZone(Timestamp):String	com.mvnsoft.mvnad.db.ZoneBean
 C Protected FP -0.431944-111	net.myvietnam.mvncore.configuration.HierarchicalConfigurationConverter::reverseIterator(ConfigurationKey):Iterator	net.myvietnam.mvncore.configuration.ConfigurationKey
 

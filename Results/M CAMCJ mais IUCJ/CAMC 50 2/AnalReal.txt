@@ -15,8 +15,8 @@ C 0.279328-011	com.mvnforum.admin.GeneralAdminTasksWebHandler::processMailTempla
 
 Duvida JDeodo
 
-EN visitor net.myvietnam.mvncore.configuration.HierarchicalConfiguration::nodeDefined(Node):boolean	net.myvietnam.mvncore.configuration.HierarchicalConfiguration.Node
-EN visitor net.myvietnam.mvncore.configuration.HierarchicalConfigurationXMLReader.SAXVisitor::isAttributeNode(Node):boolean	net.myvietnam.mvncore.configuration.HierarchicalConfiguration.Node
+C? protected factory de um visitor net.myvietnam.mvncore.configuration.HierarchicalConfiguration::nodeDefined(Node):boolean	net.myvietnam.mvncore.configuration.HierarchicalConfiguration.Node
+C? private utilitario visitor net.myvietnam.mvncore.configuration.HierarchicalConfigurationXMLReader.SAXVisitor::isAttributeNode(Node):boolean	net.myvietnam.mvncore.configuration.HierarchicalConfiguration.Node
 
 Permite extração com.mvnforum.admin.importexport.jive.JiveThreadXML::updateAddedPost(PostXML, String, Timestamp):void	com.mvnforum.admin.ThreadXML
-Permite permitir extração com.mvnforum.admin.importexport.jive.JiveForumXML::updateAddedPost(PostXML, String, Timestamp):void	com.mvnforum.admin.ForumXML
+Já permite Permite permitir extração com.mvnforum.admin.importexport.jive.JiveForumXML::updateAddedPost(PostXML, String, Timestamp):void	com.mvnforum.admin.ForumXML
