@@ -37,6 +37,33 @@ import br.com.bhansen.utils.Type;
 @SuppressWarnings("restriction")
 public class MoveMethodRefactor {
 	
+	private class WaitUndo {
+		
+		private Type classFrom;
+		private String signature;
+		
+		public WaitUndo(Type classFrom, String signature) {
+			super();
+			this.classFrom = classFrom;
+			this.signature = signature;
+		}
+		
+		public void waitUndo() {
+			while (true) {
+				try {
+					classFrom.getMethod(signature);
+					return;					
+				} catch (Exception e) {
+					try {
+						Thread.sleep(1000);
+					} catch (InterruptedException e1) {
+						throw new RuntimeException(e1);
+					}
+				}				
+			}
+		}
+	}
+	
 	private String typeNotUsed = null;
 	
 	public Change move(Type classFrom, Method method, Type classTo, IProgressMonitor monitor) throws Exception {
@@ -63,6 +90,8 @@ public class MoveMethodRefactor {
 		processor.setRemoveDelegator(true);
 		processor.setDeprecateDelegates(false);
 		
+		WaitUndo waitUndo = new WaitUndo(classFrom, method.getSignature());
+		
 		List<IVariableBinding> selectedTargets = selectTargets(classTo.getIType(), processor);
 
 		if (selectedTargets.size() == 0)
@@ -85,7 +114,7 @@ public class MoveMethodRefactor {
 				throw e;
 			}
 		} else {
-			IVariableBinding bestTarget = getBestTarget(classTo, processor, refactoring, selectedTargets);
+			IVariableBinding bestTarget = getBestTarget(classTo, processor, refactoring, selectedTargets, waitUndo);
 			Change undo = performRefactoring(processor, refactoring, bestTarget);
 			
 			//checkFakeParameter(classFrom, classTo, processor);
@@ -101,7 +130,7 @@ public class MoveMethodRefactor {
 		}
 	}
 
-	private IVariableBinding getBestTarget(Type classTo, MoveInstanceMethodProcessor processor, Refactoring refactoring, List<IVariableBinding> selectedTargets)
+	private IVariableBinding getBestTarget(Type classTo, MoveInstanceMethodProcessor processor, Refactoring refactoring, List<IVariableBinding> selectedTargets, WaitUndo waitUndo)
 			throws IllegalArgumentException, Exception {
 		IVariableBinding bestTarget = null;
 		int numParameters = Integer.MAX_VALUE;
@@ -123,6 +152,7 @@ public class MoveMethodRefactor {
 				}
 			} finally {
 				undo.perform(new NullProgressMonitor());
+				waitUndo.waitUndo();
 			}
 		}
 		
