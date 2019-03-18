@@ -1,0 +1,23 @@
+ANT 0
+
+DR JAVA 
+
+	NOVA -0.125000-100	edu.rice.cs.drjava.ui.config.VectorFileOptionComponent::reset2(ProjectPropertiesFrame, File):void	edu.rice.cs.drjava.ui.ProjectPropertiesFrame
+	
+JFRECHART
+
+	PERMANECE -0.018137-100	org.jfree.chart.plot.Plot::setPlot(Axis):void	org.jfree.chart.axis.Axis
+	PERMANECE -0.440595-100	org.jfree.chart.event.TitleChangeEvent::notifyListeners(Title):void	org.jfree.chart.title.Title
+	
+JGROUPS 
+
+	NOVA -0.005863-100	org.jgroups.stack.Protocol::down(NAKACK, Event):Object	org.jgroups.protocols.pbcast.NAKACK
+	NOVA -0.233333-100	org.jgroups.stack.AckReceiverWindow::getList(Remover):List<Message>	org.jgroups.tests.AckReceiverWindowTest.Remover
+	
+JTOPEN 0
+
+JUNIT 0
+
+MVNFORUM 0
+
+TAPESTRY 0
