@@ -1,0 +1,24 @@
+-0.093750-111	org.junit.experimental.max.MaxCore::buildRunner(Description):Runner	org.junit.runner.Description
+-0.130952-111	org.junit.runner.Computer::getSuite(RunnerBuilder, Class<?>[]):Runner	org.junit.runners.model.RunnerBuilder
+-0.166667-111	org.junit.experimental.theories.internal.Assignments::getAnnotatedSupplier(ParameterSignature):ParameterSupplier	org.junit.experimental.theories.ParameterSignature
+-0.171429-111	org.junit.internal.TextListener::printFailure(Failure, String):void	org.junit.runner.notification.Failure
+-0.200000-111	junit.textui.ResultPrinter::printFooter(TestResult):void	junit.framework.TestResult
+-0.210185-111	org.junit.runners.ParentRunner::runLeaf(Statement, Description, RunNotifier):void	org.junit.runners.model.Statement
+-0.218750-111	org.junit.runner.JUnitCore::run(Runner):Result	org.junit.runner.notification.RunNotifier
+-0.240972-111	org.junit.runner.JUnitCore::run(Runner):Result	org.junit.runner.Runner
+-0.250000-111	org.junit.internal.TextListener::printFooter(Result):void	org.junit.runner.Result
+-0.250000-111	org.junit.internal.runners.ErrorReportingRunner::runCause(Throwable, RunNotifier):void	org.junit.runner.notification.RunNotifier
+-0.333333-111	org.junit.experimental.theories.Theories.TheoryAnchor::runWithIncompleteAssignment(Assignments):void	org.junit.experimental.theories.internal.Assignments
+0.000000-000	org.junit.runner.Result::printFailures(TextListener):void	org.junit.internal.TextListener
+0.000000-011	junit.framework.JUnit4TestAdapterCache::getNotifier(TestResult, JUnit4TestAdapter):RunNotifier	junit.framework.TestResult
+0.033333-011	org.junit.runners.Parameterized::getParametersMethod(TestClass):FrameworkMethod	org.junit.runners.model.TestClass
+0.062500-000	org.junit.runner.manipulation.Filter::filter3(JUnit4ClassRunner):void	org.junit.internal.runners.JUnit4ClassRunner
+C 0.072917-011	org.junit.internal.runners.JUnit4ClassRunner::testAborted(RunNotifier, Description, Throwable):void	org.junit.runner.notification.RunNotifier
+0.187500-000	junit.framework.AssertionFailedError::addFailure2(Test, ResultPrinter):void	junit.textui.ResultPrinter
+0.350000-000	org.junit.runners.model.RunnerBuilder::runnerForClass2(AnnotatedBuilder, Class<?>):Runner	org.junit.internal.builders.AnnotatedBuilder
+0.500000-000	org.junit.experimental.theories.ParameterSignature::addFields(AllMembersSupplier, List<PotentialAssignment>):void	org.junit.experimental.theories.internal.AllMembersSupplier
+0.566667-000	org.junit.runners.model.Statement::apply(TestWatchman, FrameworkMethod, Object):Statement	org.junit.rules.TestWatchman
+C 0.666667-011	org.junit.experimental.categories.Categories.CategoryFilter::parentDescription(Description):Description	org.junit.runner.Description
+C 0.875000-011	junit.framework.JUnit4TestAdapter::isIgnored(Description):boolean	org.junit.runner.Description
+1.000000-000	org.junit.runner.Description::apply(Statement, Timeout):Statement	org.junit.rules.Timeout
+1.000000-000	org.junit.runner.notification.RunNotifier::runTestMethod(MethodRoadie):void	org.junit.internal.runners.MethodRoadie
