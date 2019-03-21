@@ -41,6 +41,10 @@ public class Jaccard {
 	public static double biSimilarity(Set<String> s1, Map<String, Set<String>> s2s) {
 		
 		double mm = Jaccard.similarity(s1, s2s.values());
+
+		if (mm == 0) {
+			return 0;
+		}
 		
 		double mp = 0;		
 		
@@ -49,8 +53,11 @@ public class Jaccard {
 		for (String k : s1) {
 			Map<String, Set<String>> mPC = new HashMap<>(mP);
 			Set<String> p = mPC.remove(k);
-			
-			mp += Jaccard.similarity(p, mPC.values());
+
+			if (p != null) {
+				mp += Jaccard.similarity(p, mPC.values());
+			}
+
 		}
 		
 		mp = mp / s1.size();

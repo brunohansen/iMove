@@ -87,6 +87,8 @@ public class IUCJMethod extends IUC {
 			return 0;
 		
 		return Jaccard.similarity(method, methods.values());
+//		return Jaccard.biSimilarity(method, methods);
+
 	}
 
 }

@@ -113,6 +113,8 @@ public class CAMCJMethod extends DeclarationMetric {
 			return 0;
 		
 		return Jaccard.similarity(getMethod(), getMethods().values());
+//		return Jaccard.biSimilarity(getMethod(), getMethods());
+
 	}
 
 }
