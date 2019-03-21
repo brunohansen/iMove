@@ -19,7 +19,7 @@ public abstract class IUC extends AbsMetric {
 	protected static Map<String, Integer> getCallerCount(Map<String, Set<String>> methods) {
 		Map<String, Integer> callerClasses = new HashMap<>();
 
-		for (String caller : getCallers(methods)) {
+		for (String caller : uniqueValues(methods)) {
 			callerClasses.put(caller, 0);
 		}
 
@@ -37,7 +37,7 @@ public abstract class IUC extends AbsMetric {
 	public static Map<String, Map<String, Set<String>>> getMethodsByCaller(Map<String, Set<String>> methods) {
 		Map<String, Map<String, Set<String>>> methodsByCaller = new HashMap<>();
 
-		for (String caller : getCallers(methods)) {
+		for (String caller : uniqueValues(methods)) {
 			methodsByCaller.put(caller, new HashMap<>());
 		}
 
@@ -50,17 +50,7 @@ public abstract class IUC extends AbsMetric {
 
 		return methodsByCaller;
 	}
-
-	public static Set<String> getCallers(Map<String, Set<String>> methods) {
-		Set<String> callers = new HashSet<>();
-
-		for (Entry<String, Set<String>> method : methods.entrySet()) {
-			callers.addAll(method.getValue());
-		}
-
-		return callers;
-	}
-
+	
 	public Map<String, Set<String>> getMethodsWithoutThis() {
 		return removeCaller(getMethods(), getName());
 	}
@@ -127,23 +117,23 @@ public abstract class IUC extends AbsMetric {
 
 		txt.append("\n");
 
-		txt.append(toStringMapMap(getMethodsByCaller(methods)));
+		txt.append(toStringMap(invert(methods)));
 
 		txt.append("\n");
 
 		return txt.toString();
 	}
 
-	public static String toStringMapMap(Map<String, Map<String, Set<String>>> map) {
+	public static String toStringMap(Map<String, Set<String>> map) {
 		StringBuilder txt = new StringBuilder();
 
 		txt.append("\n");
 
-		for (Entry<String, Map<String, Set<String>>> parent : map.entrySet()) {
+		for (Entry<String, Set<String>> parent : map.entrySet()) {
 			txt.append("\n\t").append(parent.getValue().size()).append(" -> ").append(parent.getKey());
 
-			for (Entry<String, Set<String>> child : parent.getValue().entrySet()) {
-				txt.append("\n\t\t").append(child.getKey());
+			for (String child : parent.getValue()) {
+				txt.append("\n\t\t").append(child);
 			}
 		}
 

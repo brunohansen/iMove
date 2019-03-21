@@ -1,6 +1,5 @@
 package br.com.bhansen.metric.camc;
 
-import java.util.Map.Entry;
 import java.util.Set;
 
 import org.eclipse.core.runtime.IProgressMonitor;
@@ -9,8 +8,8 @@ import org.eclipse.jdt.core.IMethod;
 import org.eclipse.jdt.core.JavaModelException;
 
 import br.com.bhansen.config.Config;
-import br.com.bhansen.metric.AbsMetric;
 import br.com.bhansen.metric.DeclarationMetric;
+import br.com.bhansen.utils.Jaccard;
 import br.com.bhansen.utils.Method;
 import br.com.bhansen.utils.MethodWithParameters;
 import br.com.bhansen.utils.Type;
@@ -23,6 +22,10 @@ public class CAMCJMethod extends DeclarationMetric {
 		super(type);
 
 		dontUseVisibilityLevels(type, method, parameter, monitor);
+	}
+	
+	public Set<String> getMethod() {
+		return method;
 	}
 	
 	private void dontUseVisibilityLevels(Type type, String method, String parameter, IProgressMonitor monitor) throws JavaModelException, Exception {
@@ -103,23 +106,13 @@ public class CAMCJMethod extends DeclarationMetric {
 
 	@Override
 	public double getMetric() throws Exception {
-		double metric = 0;
-		
-		if (method.size() == 0)
+		if (getMethod().size() == 0)
 			return 1;
 
 		if (getMethods().size() == 0)
 			return 0;
-
-		for (Entry<String, Set<String>> entry : getMethods().entrySet()) {
-
-			metric += AbsMetric.howMuchIntersect(method, entry.getValue());
-
-		}
-
-		metric = metric / getMethods().size();
-
-		return metric;
+		
+		return Jaccard.similarity(getMethod(), getMethods().values());
 	}
 
 }

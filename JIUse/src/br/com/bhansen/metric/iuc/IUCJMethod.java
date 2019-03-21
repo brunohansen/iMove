@@ -1,7 +1,6 @@
 package br.com.bhansen.metric.iuc;
 
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import org.eclipse.core.runtime.IProgressMonitor;
@@ -9,7 +8,7 @@ import org.eclipse.core.runtime.SubMonitor;
 import org.eclipse.jdt.core.IMethod;
 
 import br.com.bhansen.config.Config;
-import br.com.bhansen.metric.AbsMetric;
+import br.com.bhansen.utils.Jaccard;
 import br.com.bhansen.utils.Method;
 import br.com.bhansen.utils.MethodWithCallers;
 import br.com.bhansen.utils.Type;
@@ -80,23 +79,14 @@ public class IUCJMethod extends IUC {
 	}
 
 	public static double getMetric(Set<String> method, Map<String, Set<String>> methods) {
-		double metric = 0;
 		
 		if (method.size() == 0)
 			return 0;
 
 		if (methods.size() == 0)
 			return 0;
-
-		for (Entry<String, Set<String>> entry : methods.entrySet()) {
-
-			metric += AbsMetric.howMuchIntersect(method, entry.getValue());
-
-		}
-
-		metric = metric / methods.size();
-
-		return metric;
+		
+		return Jaccard.similarity(method, methods.values());
 	}
 
 }

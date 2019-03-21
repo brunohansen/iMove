@@ -6,8 +6,8 @@ import org.eclipse.core.runtime.IProgressMonitor;
 
 import java.util.Set;
 
-import br.com.bhansen.metric.AbsMetric;
 import br.com.bhansen.metric.DeclarationMetricClass;
+import br.com.bhansen.utils.Jaccard;
 import br.com.bhansen.utils.Type;
 
 public class CAMCJClass extends DeclarationMetricClass {
@@ -35,7 +35,7 @@ public class CAMCJClass extends DeclarationMetricClass {
 			for (int y = x + 1; y < mys.length; y++) {
 				Entry<String, Set<String>> my = mys[y];
 				
-				metric += AbsMetric.howMuchIntersect(mx.getValue(), my.getValue());
+				metric += Jaccard.similarity(mx.getValue(), my.getValue());
 								
 			}
 		}
