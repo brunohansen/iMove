@@ -1,0 +1,17 @@
+-0.001089-111	org.junit.runners.ParentRunner::validatePublicVoidNoArgMethods(Class<? extends Annotation>, boolean, List<Throwable>):void	org.junit.runners.model.TestClass
+-0.023810-111	org.junit.runner.Computer::getSuite(RunnerBuilder, Class<?>[]):Runner	org.junit.runners.model.RunnerBuilder
+-0.093590-111	org.junit.runners.Parameterized::getParametersMethod(TestClass):FrameworkMethod	org.junit.runners.model.TestClass
+-0.094907-111	org.junit.runners.ParentRunner::runLeaf(Statement, Description, RunNotifier):void	org.junit.runner.Description
+-0.180769-111	org.junit.experimental.theories.internal.Assignments::getAnnotatedSupplier(ParameterSignature):ParameterSupplier	org.junit.experimental.theories.ParameterSignature
+-0.189951-111	org.junit.internal.runners.JUnit4ClassRunner::classAnnotations():Annotation[]	org.junit.internal.runners.TestClass
+-0.250000-111	junit.framework.JUnit4TestAdapterCache::getNotifier(TestResult, JUnit4TestAdapter):RunNotifier	junit.framework.TestResult
+-0.310421-111	org.junit.experimental.theories.internal.AllMembersSupplier::addSinglePointMethods(ParameterSignature, List<PotentialAssignment>):void	org.junit.runners.model.TestClass
+-0.338474-111	org.junit.experimental.theories.Theories.TheoryAnchor::runWithIncompleteAssignment(Assignments):void	org.junit.experimental.theories.internal.Assignments
+-0.370752-111	org.junit.internal.runners.JUnit4ClassRunner::testAborted(RunNotifier, Description, Throwable):void	org.junit.runner.Description
+0.106061-000	org.junit.runners.model.Statement::evaluate2(ExpectException):void	org.junit.internal.runners.statements.ExpectException
+0.107143-011	org.junit.runner.Computer::getRunner(RunnerBuilder, Class<?>):Runner	org.junit.runners.model.RunnerBuilder
+0.336039-000	org.junit.runner.manipulation.Filter::filter2(JUnit38ClassRunner):void	org.junit.internal.runners.JUnit38ClassRunner
+0.392361-000	org.junit.runner.manipulation.Filter::filter3(JUnit4ClassRunner):void	org.junit.internal.runners.JUnit4ClassRunner
+0.526389-000	org.junit.experimental.theories.ParameterSignature::addFields(AllMembersSupplier, List<PotentialAssignment>):void	org.junit.experimental.theories.internal.AllMembersSupplier
+0.800000-000	org.junit.runner.Description::runBefores(ClassRoadie):void	org.junit.internal.runners.ClassRoadie
+0.838961-000	org.junit.runner.notification.RunNotifier::runTestMethod(MethodRoadie):void	org.junit.internal.runners.MethodRoadie
