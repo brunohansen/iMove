@@ -65,7 +65,7 @@ public abstract class AbsMetric implements Metric {
 			}
 		}
 
-		return m;
+		return m2;
 	}
 
 }
