@@ -61,25 +61,4 @@ public class NHDMNClass extends DeclarationMetricClass {
 		return 1 - (metric / (comb * params.length));
 	}
 	
-	private static int comb(int n) {
-		if (n == 0)
-			return 0;
-
-		if (n <= 2)
-			return 1;
-
-		return fat(n).divide(fat(2).multiply(fat(n - 2))).intValue();
-	}
-	
-	private static BigInteger fat(int n) {
-		BigInteger f = BigInteger.valueOf(n);
-
-		while (n > 1) {
-			f = f.multiply(BigInteger.valueOf(n - 1));
-			n--;
-		}
-
-		return f;
-	}
-
 }
