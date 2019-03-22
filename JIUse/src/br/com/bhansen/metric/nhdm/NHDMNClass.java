@@ -4,6 +4,7 @@ import java.util.Map.Entry;
 
 import org.eclipse.core.runtime.IProgressMonitor;
 
+import java.math.BigInteger;
 import java.util.Set;
 
 import br.com.bhansen.metric.DeclarationMetricClass;
@@ -25,17 +26,7 @@ public class NHDMNClass extends DeclarationMetricClass {
 		if((mxs.length < 2) || (params.length == 0))
 			return 0f;
 		
-		boolean pMtrx[][] = new boolean[mxs.length][params.length];
-		
-		for (int x = 0; x < mxs.length; x++) {
-			Entry<String, Set<String>> method = mxs[x];
-			
-			for (int i = 0; i < params.length; i++) {
-				String param = params[i];
-				
-				pMtrx[x][i] = method.getValue().contains(param);
-			}
-		}
+		boolean pMtrx[][] = NHDMClass.createOccMtrx(mxs, params);
 		
 		int comb = comb(mxs.length);
 		int result [][] = new int[comb][params.length];
@@ -68,6 +59,27 @@ public class NHDMNClass extends DeclarationMetricClass {
 		}
 
 		return 1 - (metric / (comb * params.length));
+	}
+	
+	private static int comb(int n) {
+		if (n == 0)
+			return 0;
+
+		if (n <= 2)
+			return 1;
+
+		return fat(n).divide(fat(2).multiply(fat(n - 2))).intValue();
+	}
+	
+	private static BigInteger fat(int n) {
+		BigInteger f = BigInteger.valueOf(n);
+
+		while (n > 1) {
+			f = f.multiply(BigInteger.valueOf(n - 1));
+			n--;
+		}
+
+		return f;
 	}
 
 }

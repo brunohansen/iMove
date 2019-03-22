@@ -1,17 +1,16 @@
 package br.com.bhansen.metric.nhdm;
 
+import java.util.Set;
 import java.util.Map.Entry;
 
 import org.eclipse.core.runtime.IProgressMonitor;
 
-import java.util.Set;
-
-import br.com.bhansen.metric.DeclarationMetricClass;
+import br.com.bhansen.metric.DeclarationMetricMethod;
 import br.com.bhansen.utils.Type;
 
-public class NHDMClass extends DeclarationMetricClass {
-	
-	public NHDMClass(Type type, String method, String parameter, IProgressMonitor monitor) throws Exception {
+public class NHDMMethod extends DeclarationMetricMethod {
+
+	public NHDMMethod(Type type, String method, String parameter, IProgressMonitor monitor) throws Exception {
 		super(type, method, parameter, monitor);
 	}
 	
@@ -25,7 +24,7 @@ public class NHDMClass extends DeclarationMetricClass {
 		if((methods.length == 1) || (params.length == 0))
 			return 0f;
 		
-		boolean[][] poMtrx = createOccMtrx(methods, params);
+		boolean[][] poMtrx = NHDMClass.createOccMtrx(methods, params);
 						
 		double metric = 0;
 		
@@ -47,20 +46,4 @@ public class NHDMClass extends DeclarationMetricClass {
 		double y1 = (2f / (params.length * methods.length * (methods.length - 1)));
 		return 1 - y1 * metric;
 	}
-
-	protected static boolean[][] createOccMtrx(Entry<String, Set<String>>[] methods, String[] params) {
-		boolean poMtrx[][] = new boolean[methods.length][params.length];
-		
-		for (int m = 0; m < methods.length; m++) {
-			Entry<String, Set<String>> method = methods[m];
-			
-			for (int p = 0; p < params.length; p++) {
-				String param = params[p];
-				
-				poMtrx[m][p] = method.getValue().contains(param);
-			}
-		}
-		return poMtrx;
-	}
-
 }
