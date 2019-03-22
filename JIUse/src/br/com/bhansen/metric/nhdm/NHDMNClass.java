@@ -1,11 +1,9 @@
 package br.com.bhansen.metric.nhdm;
 
 import java.util.Map.Entry;
+import java.util.Set;
 
 import org.eclipse.core.runtime.IProgressMonitor;
-
-import java.math.BigInteger;
-import java.util.Set;
 
 import br.com.bhansen.metric.DeclarationMetricClass;
 import br.com.bhansen.utils.Type;
