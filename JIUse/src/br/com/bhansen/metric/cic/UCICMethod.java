@@ -1,4 +1,4 @@
-package br.com.bhansen.metric.iuc;
+package br.com.bhansen.metric.cic;
 
 import java.util.Map;
 import java.util.Set;
@@ -9,9 +9,9 @@ import br.com.bhansen.metric.UsageMetricMethod;
 import br.com.bhansen.utils.Jaccard;
 import br.com.bhansen.utils.Type;
 
-public class IUCJMethod extends UsageMetricMethod {
+public class UCICMethod extends UsageMetricMethod {
 
-	public IUCJMethod(Type type, String method, IProgressMonitor monitor) throws Exception {
+	public UCICMethod(Type type, String method, IProgressMonitor monitor) throws Exception {
 		super(type, method, monitor);
 	}
 

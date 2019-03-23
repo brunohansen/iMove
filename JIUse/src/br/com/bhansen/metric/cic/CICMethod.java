@@ -1,4 +1,4 @@
-package br.com.bhansen.metric.camc;
+package br.com.bhansen.metric.cic;
 
 import java.util.Map;
 import java.util.Set;
@@ -9,9 +9,9 @@ import br.com.bhansen.metric.DeclarationMetricMethod;
 import br.com.bhansen.utils.Jaccard;
 import br.com.bhansen.utils.Type;
 
-public class CAMCJMethod extends DeclarationMetricMethod {
+public class CICMethod extends DeclarationMetricMethod {
 
-	public CAMCJMethod(Type type, String method, String parameter, IProgressMonitor monitor) throws Exception {
+	public CICMethod(Type type, String method, String parameter, IProgressMonitor monitor) throws Exception {
 		super(type, method, parameter, monitor);
 	}
 	
