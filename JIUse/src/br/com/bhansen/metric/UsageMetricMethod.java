@@ -1,5 +1,6 @@
 package br.com.bhansen.metric;
 
+import java.util.Map;
 import java.util.Set;
 
 import org.eclipse.core.runtime.IProgressMonitor;
@@ -12,7 +13,7 @@ import br.com.bhansen.utils.MethodWithCallers;
 import br.com.bhansen.utils.Type;
 import br.com.bhansen.view.Console;
 
-public abstract class UsageMetricMethod extends AbsMetric {
+public abstract class UsageMetricMethod extends UsageMetric {
 	
 	private Set<String> method;
 
@@ -78,4 +79,21 @@ public abstract class UsageMetricMethod extends AbsMetric {
 	public Set<String> getMethod() {
 		return method;
 	}
+	
+	@Override
+	public final double getMetric() throws Exception {
+		
+		if (this.getMethod().size() == 0)
+			return 0;
+
+		if (this.getMethods().size() == 0)
+			return 0;
+		
+		if (this.getClients().size() == 0)
+			return 0;
+		
+		return getMetric(this.getMethod(), this.getMethods());
+	}
+	
+	public abstract double getMetric(Set<String> method, Map<String, Set<String>> methods);
 }

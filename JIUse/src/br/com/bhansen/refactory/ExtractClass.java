@@ -16,7 +16,6 @@ import org.eclipse.ui.IWorkbenchWindow;
 
 import com.google.common.collect.Sets;
 
-import br.com.bhansen.metric.iuc.IUC;
 import br.com.bhansen.metric.iuc.IUCClass;
 import br.com.bhansen.view.Console;
 
@@ -26,7 +25,7 @@ public class ExtractClass {
 
 		List<Map<String, Set<String>>> classes = removeDuplicates(createSuperClasses(iucClass, metricLowerLimit, mthdsLowerLimit));
 
-		classes.forEach(e -> Console.println(IUC.toString("Class" + classes.size(), IUCClass.getMetric(e), e)));
+		classes.forEach(e -> Console.println(IUCClass.toString("Class" + classes.size(), IUCClass.getMetric(e), e)));
 
 	}
 
@@ -72,7 +71,7 @@ public class ExtractClass {
 	}
 	
 	private Set<Map<String, Set<String>>> createClassesForMethod(Map<String, Set<String>> methods, String methodSignature, double metricLowerLimit, int mthdsLowerLimit) {
-		Map<Set<String>, Set<String>> groupedMethods = IUC.groupMethodsByCallers(methods);
+		Map<Set<String>, Set<String>> groupedMethods = IUCClass.groupMethodsByCallers(methods);
 		Set<String> callersGroup = methods.get(methodSignature);
 		Set<String> methodsGroup = groupedMethods.remove(callersGroup);
 
@@ -108,7 +107,7 @@ public class ExtractClass {
 	
 	public List<Map<String, Set<String>>> createClassesForCallers(IUCClass iucClass, double metricLowerLimit, int mthdsLowerLimit) {
 		Map<String, Set<String>> methods = iucClass.getMethodsWithoutThis();
-		Map<String, Map<String, Set<String>>> callersMethods = IUC.getMethodsByCaller(methods);
+		Map<String, Map<String, Set<String>>> callersMethods = IUCClass.getMethodsByCaller(methods);
 
 		Set<Map<String, Set<String>>> classes = new HashSet<>();
 
@@ -130,7 +129,7 @@ public class ExtractClass {
 	}
 	
 	private Set<Map<String, Set<String>>> createClasses(Map<String, Set<String>> methods, double metricLowerLimit, int mthdsLowerLimit) {
-		Map<Set<String>, Set<String>> groupedMethods = IUC.groupMethodsByCallers(methods);
+		Map<Set<String>, Set<String>> groupedMethods = IUCClass.groupMethodsByCallers(methods);
 		Set<Map<String, Set<String>>> classes = new HashSet<>();
 
 		// Generate Powerset using Guava
@@ -166,7 +165,7 @@ public class ExtractClass {
 			if (IUCClass.getMetric(methods) >= metricLowerLimit) {
 				classes.add(methods);				
 			} else {
-				Map<String, Map<String, Set<String>>> callersMethods = IUC.getMethodsByCaller(methods);
+				Map<String, Map<String, Set<String>>> callersMethods = IUCClass.getMethodsByCaller(methods);
 
 				for (Entry<String, Map<String, Set<String>>> caller : callersMethods.entrySet()) {
 					if (!caller.getValue().equals(methods)) {

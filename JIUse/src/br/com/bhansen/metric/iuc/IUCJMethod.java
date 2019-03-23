@@ -15,21 +15,10 @@ public class IUCJMethod extends UsageMetricMethod {
 		super(type, method, monitor);
 	}
 
-	@Override
-	public double getMetric() throws Exception {
-		return getMetric(this.getMethod(), this.getMethods());
-	}
-
-	public static double getMetric(Set<String> method, Map<String, Set<String>> methods) {
+	public double getMetric(Set<String> method, Map<String, Set<String>> methods) {
 		
-		if (method.size() == 0)
-			return 0;
-
-		if (methods.size() == 0)
-			return 0;
-		
-		return Jaccard.similarity(method, methods.values());
-//		return Jaccard.biSimilarity(method, methods);
+//		return Jaccard.similarity(method, methods.values());
+		return Jaccard.biSimilarity(method, methods);
 
 	}
 

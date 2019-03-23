@@ -1,5 +1,6 @@
 package br.com.bhansen.metric;
 
+import java.util.Map;
 import java.util.Set;
 
 import org.eclipse.core.runtime.IProgressMonitor;
@@ -101,5 +102,22 @@ public abstract class DeclarationMetricMethod extends DeclarationMetric {
 
 		}
 	}
+	
+	@Override
+	public final double getMetric() throws Exception {
+		
+		if (this.getMethod().size() == 0)
+			return 1;
+
+		if (this.getMethods().size() == 0)
+			return 0;
+		
+		if(this.getParams().size() == 0)
+			return 0;
+		
+		return getMetric(this.getMethod(), this.getMethods());
+	}
+	
+	public abstract double getMetric(Set<String> method, Map<String, Set<String>> methods);
 	
 }

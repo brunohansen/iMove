@@ -47,7 +47,7 @@ public class NHDMClass extends DeclarationMetricClass {
 		double y1 = (2f / (params.length * methods.length * (methods.length - 1)));
 		return 1 - y1 * metric;
 	}
-
+	
 	protected static boolean[][] createOccMtrx(Entry<String, Set<String>>[] methods, String[] params) {
 		boolean poMtrx[][] = new boolean[methods.length][params.length];
 		

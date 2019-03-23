@@ -1,5 +1,8 @@
 package br.com.bhansen.metric.camc;
 
+import java.util.Map;
+import java.util.Set;
+
 import org.eclipse.core.runtime.IProgressMonitor;
 
 import br.com.bhansen.metric.DeclarationMetricMethod;
@@ -13,16 +16,9 @@ public class CAMCJMethod extends DeclarationMetricMethod {
 	}
 	
 	@Override
-	public double getMetric() throws Exception {
-		if (getMethod().size() == 0)
-			return 1;
-
-		if (getMethods().size() == 0)
-			return 0;
-		
-		return Jaccard.similarity(getMethod(), getMethods().values());
-//		return Jaccard.biSimilarity(getMethod(), getMethods());
-
+	public double getMetric(Set<String> method, Map<String, Set<String>> methods) {
+//		return Jaccard.similarity(getMethod(), getMethods().values());
+		return Jaccard.biSimilarity(getMethod(), getMethods());
 	}
 
 }

@@ -1,5 +1,6 @@
 package br.com.bhansen.metric.nhdm;
 
+import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 
@@ -15,25 +16,18 @@ public class UNHDMMethod extends UsageMetricMethod {
 	}
 
 	@Override
-	public double getMetric() throws Exception {
-
-		if (getMethods().size() == 0)
-			return 0;
-
-		if (getMethods().size() == 0)
-			return 0;
-
+	public double getMetric(Set<String> method, Map<String, Set<String>> methods) {
 		@SuppressWarnings("unchecked")
-		Entry<String, Set<String>>[] methods = getMethods().entrySet().toArray(new Entry[0]);
+		Entry<String, Set<String>>[] ms = methods.entrySet().toArray(new Entry[0]);
 		String clients[] = getClients().toArray(new String[0]);
-		boolean method[] = new boolean[clients.length];
+		boolean m[] = new boolean[clients.length];
 
 		for (int i = 0; i < clients.length; i++) {
-			method[i] = getMethod().contains(clients[i]);
+			m[i] = getMethod().contains(clients[i]);
 		}
 
-		boolean[][] poMtrx = NHDMClass.createOccMtrx(methods, clients);
+		boolean[][] poMtrx = NHDMClass.createOccMtrx(ms, clients);
 
-		return NHDMMethod.nhdmMethod(method, poMtrx);
+		return NHDMMethod.nhdmMethod(m, poMtrx);
 	}
 }
