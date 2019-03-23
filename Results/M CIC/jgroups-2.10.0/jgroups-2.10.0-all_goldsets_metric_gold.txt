@@ -1,0 +1,20 @@
+-0.001706-100	org.jgroups.util.Queue::up(JChannel, Event):Object	org.jgroups.JChannel
+-0.021453-100	org.jgroups.util.AckCollector::fetchServiceStates(Multiplexer, Address, Set<String>, long):boolean	org.jgroups.mux.Multiplexer
+-0.167317-100	org.jgroups.stack.AckReceiverWindow::getList(Remover):List<Message>	org.jgroups.tests.AckReceiverWindowTest.Remover
+0.000000-000	org.jgroups.stack.IpAddress::testStreamableAdditionalData(IpAddressTest):void	org.jgroups.tests.IpAddressTest
+0.000000-000	org.jgroups.stack.NakReceiverWindow::testConcurrentInsertionOfSameSeqno(NakReceiverWindowTest2):void	org.jgroups.tests.NakReceiverWindowTest2
+0.000000-000	org.jgroups.stack.ProtocolStack::testDefaultAssignment(ProtocolConfigurationTest):void	org.jgroups.tests.ProtocolConfigurationTest
+0.000000-000	org.jgroups.util.MutableDigest::testImmutability4(DigestTest):void	org.jgroups.tests.DigestTest
+0.007485-000	org.jgroups.stack.Protocol::down(NAKACK, Event):Object	org.jgroups.protocols.pbcast.NAKACK
+0.019231-000	org.jgroups.JChannel::findParentNode(ReplicatedTree, String, StringHolder, boolean):Node	org.jgroups.blocks.ReplicatedTree
+0.021111-000	org.jgroups.util.UUID::stopFlush(JChannel, List<Address>):void	org.jgroups.JChannel
+0.025204-000	org.jgroups.util.Digest::rebroadcastMessages(NAKACK):void	org.jgroups.protocols.pbcast.NAKACK
+0.030303-000	org.jgroups.Event::passToAllMuxChannels(Multiplexer):void	org.jgroups.mux.Multiplexer
+0.086310-000	org.jgroups.util.BoundedList::determinePingDest(FD_SOCK):Address	org.jgroups.protocols.FD_SOCK
+0.132937-000	org.jgroups.util.Promise::sendNotification(NotificationBus, Address, Serializable):void	org.jgroups.blocks.NotificationBus
+1.000000-000	org.jgroups.Membership::fixDigests(GMS):void	org.jgroups.protocols.pbcast.GMS
+1.000000-000	org.jgroups.blocks.DistributedQueue::entryAdd(DistributedQueueDemo, Object):void	org.jgroups.demos.DistributedQueueDemo
+1.000000-000	org.jgroups.blocks.DistributedTree::clearTable(DistributedTreeDemo):void	org.jgroups.demos.DistributedTreeDemo
+1.000000-000	org.jgroups.blocks.MessageDispatcher::test2000ByteMessageToSelf(MessageDispatcherUnitTest):void	org.jgroups.tests.MessageDispatcherUnitTest
+1.000000-000	org.jgroups.blocks.RpcDispatcher::setNumMessages(UnicastTestRpc):void	org.jgroups.tests.UnicastTestRpc
+1.000000-000	org.jgroups.util.TimeScheduler::getNumberOfReceiverScopes(SCOPE):int	org.jgroups.protocols.SCOPE
