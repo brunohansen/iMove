@@ -11,8 +11,6 @@ import br.com.bhansen.metric.cic.CICMethod;
 import br.com.bhansen.metric.cic.UCICMethod;
 import br.com.bhansen.metric.iuc.IUCClass;
 import br.com.bhansen.metric.nhdm.NHDMClass;
-import br.com.bhansen.metric.nhdm.NHDMMethod;
-import br.com.bhansen.metric.nhdm.UNHDMMethod;
 import br.com.bhansen.utils.Movement;
 import br.com.bhansen.utils.Project;
 import br.com.bhansen.utils.Type;
@@ -71,10 +69,12 @@ public class EvaluatorFactory {
 					case "IUC + CAMC":
 						if(skipIUC)
 							return new CICMethod(type, method, parameter, monitor);
+//							return new CCMethod(type, method, parameter, monitor);
 //							return new NHDMMethod(type, method, parameter, monitor);
 						else {
 							SubMonitor subMonitor = SubMonitor.convert(monitor, 100);
 							return new CompositeMetric(new UCICMethod(type, method, subMonitor.split(50)), new CICMethod(type, method, parameter, subMonitor.split(50)));
+//							return new CompositeMetric(new UCCMethod(type, method, subMonitor.split(50)), new CCMethod(type, method, parameter, subMonitor.split(50)));
 //							return new CompositeMetric(new UNHDMMethod(type, method, subMonitor.split(50)), new NHDMMethod(type, method, parameter, subMonitor.split(50)));
 						}
 					default:

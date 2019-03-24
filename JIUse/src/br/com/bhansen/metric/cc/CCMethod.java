@@ -1,4 +1,4 @@
-package br.com.bhansen.metric.cic;
+package br.com.bhansen.metric.cc;
 
 import java.util.Map;
 import java.util.Set;
@@ -9,15 +9,15 @@ import br.com.bhansen.metric.DeclarationMetricMethod;
 import br.com.bhansen.utils.Jaccard;
 import br.com.bhansen.utils.Type;
 
-public class CICMethod extends DeclarationMetricMethod {
+public class CCMethod extends DeclarationMetricMethod {
 
-	public CICMethod(Type type, String method, String parameter, IProgressMonitor monitor) throws Exception {
+	public CCMethod(Type type, String method, String parameter, IProgressMonitor monitor) throws Exception {
 		super(type, method, parameter, monitor);
 	}
 	
 	@Override
 	public double getMetric(Set<String> method, Map<String, Set<String>> methods) {
-		return Jaccard.biSimilarity(getMethod(), getMethods());
+		return Jaccard.similarity(getMethod(), getMethods().values());
 	}
 
 }
