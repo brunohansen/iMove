@@ -159,7 +159,7 @@ public class RemoveTest {
 							visibility += "+";
 						} else if (method.isPrivate()) {
 							visibility += "-";
-							//return;
+							return;
 						} else if (method.isProtected()) {
 							visibility += "#";
 						}
