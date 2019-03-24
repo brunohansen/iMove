@@ -1,0 +1,34 @@
+-0.071429-111	org.apache.tapestry5.internal.services.ClientBehaviorSupportImpl::addElementInit(String, String, JSONObject):void	org.apache.tapestry5.json.JSONObject
+-0.074402-111	org.apache.tapestry5.internal.services.InternalClassTransformationImpl::match(CtMethod, TransformMethodSignature):boolean	org.apache.tapestry5.services.TransformMethodSignature
+-0.075000-111	org.apache.tapestry.mojo.ComponentReport::readEvents(ClassDescription, Element):void	org.apache.tapestry.mojo.ClassDescription
+-0.075000-111	org.apache.tapestry.mojo.ComponentReport::readParameters(ClassDescription, Element):void	org.apache.tapestry.mojo.ClassDescription
+-0.075000-111	org.apache.tapestry.mojo.ComponentReport::readPublishedParameters(ClassDescription, Element):void	org.apache.tapestry.mojo.ClassDescription
+-0.126668-111	org.apache.tapestry5.internal.services.InternalClassTransformationImpl::addMethodToDescription(String, TransformMethodSignature, String):void	org.apache.tapestry5.services.TransformMethodSignature
+-0.229167-111	org.apache.tapestry5.internal.transform.RenderPhaseMethodWorker::addMethodCallToBody(BodyBuilder, TransformMethodSignature, ClassTransformation):void	org.apache.tapestry5.ioc.util.BodyBuilder
+-0.238889-111	org.apache.tapestry5.ioc.internal.services.ChainBuilderImpl::addVoidMethod(ClassFab, Class, MethodSignature):void	org.apache.tapestry5.ioc.services.MethodSignature
+-0.303617-111	org.apache.tapestry5.internal.util.MethodInvocationBuilder::buildMethodInvocation(TransformMethodSignature, ClassTransformation):String	org.apache.tapestry5.services.TransformMethodSignature
+0.000000-011	org.apache.tapestry5.corelib.mixins.NotEmpty::afterRender():void	org.apache.tapestry5.dom.Element
+0.000000-011	org.apache.tapestry5.dom.Element::addMappingIfNeeded(MapHolder, String):void	org.apache.tapestry5.dom.MapHolder
+0.000000-011	org.apache.tapestry5.internal.pageload.PageLoaderImpl::attribute(AssemblerContext):void	org.apache.tapestry5.internal.pageload.AssemblerContext
+0.000000-011	org.apache.tapestry5.internal.pageload.PageLoaderImpl::consumeToEndElementAndPopBodyElement(AssemblerContext):void	org.apache.tapestry5.internal.pageload.AssemblerContext
+0.000000-011	org.apache.tapestry5.internal.pageload.PageLoaderImpl::expansion(AssemblerContext):void	org.apache.tapestry5.internal.pageload.AssemblerContext
+0.000000-011	org.apache.tapestry5.internal.services.RenderSupportImpl::addInitFunctionInvocation(String, Object):void	org.apache.tapestry5.json.JSONObject
+0.000000-011	org.apache.tapestry5.internal.transform.OnEventWorker::extractComponentId(TransformMethodSignature, OnEvent):String	org.apache.tapestry5.services.TransformMethodSignature
+0.000000-011	org.apache.tapestry5.internal.transform.OnEventWorker::extractEventType(TransformMethodSignature, OnEvent):String	org.apache.tapestry5.services.TransformMethodSignature
+0.000000-011	org.apache.tapestry5.ioc.internal.services.BridgeBuilder::addBridgeMethod(int, MethodSignature, MethodSignature):void	org.apache.tapestry5.ioc.services.MethodSignature
+0.000000-011	org.apache.tapestry5.json.JSONArray::parse(JSONTokener):void	org.apache.tapestry5.json.JSONTokener
+0.021505-011	org.apache.tapestry5.ioc.internal.services.FilterMethodAnalyzer::findServiceInterfacePosition(MethodSignature, MethodSignature):int	org.apache.tapestry5.ioc.services.MethodSignature
+0.083333-000	org.apache.tapestry5.corelib.internal.ComponentActionSink::afterRender(FormFragment, MarkupWriter):void	org.apache.tapestry5.corelib.components.FormFragment
+0.125652-000	org.apache.tapestry5.ioc.internal.services.RegistryShutdownHubImpl::findServiceIdsForInterface(RegistryImpl, Class):List<String>	org.apache.tapestry5.ioc.internal.RegistryImpl
+0.126668-000	org.apache.tapestry5.ioc.internal.util.IdAllocator::copyMethod2(InternalClassTransformationImpl, TransformMethodSignature, int, String):void	org.apache.tapestry5.internal.services.InternalClassTransformationImpl
+0.185714-000	org.apache.tapestry5.services.PageRenderRequestParameters::createPageRenderLink2(ComponentEventLinkEncoderImpl):Link	org.apache.tapestry5.internal.services.ComponentEventLinkEncoderImpl
+0.565050-011	org.apache.tapestry5.internal.services.ClientBehaviorSupportImpl::addFunction(JSONObject, String, String):void	org.apache.tapestry5.json.JSONObject
+0.666667-011	org.apache.tapestry5.internal.services.StaxTemplateParser::ensureParameterWithinComponent(TemplateParserState):void	org.apache.tapestry5.internal.services.TemplateParserState
+0.833995-011	org.apache.tapestry5.test.PageTester::assertIsSubmit(Element):void	org.apache.tapestry5.dom.Element
+0.833995-011	org.apache.tapestry5.test.PageTester::extractNonBlank(Element, String):String	org.apache.tapestry5.dom.Element
+0.833995-011	org.apache.tapestry5.test.PageTester::validateElementName(Element, String):void	org.apache.tapestry5.dom.Element
+1.000000-011	org.apache.tapestry5.internal.pageload.PageLoaderImpl::cdata(AssemblerContext):void	org.apache.tapestry5.internal.pageload.AssemblerContext
+1.000000-011	org.apache.tapestry5.internal.pageload.PageLoaderImpl::comment(AssemblerContext):void	org.apache.tapestry5.internal.pageload.AssemblerContext
+1.000000-011	org.apache.tapestry5.internal.pageload.PageLoaderImpl::defineNamespacePrefix(AssemblerContext):void	org.apache.tapestry5.internal.pageload.AssemblerContext
+1.000000-011	org.apache.tapestry5.internal.pageload.PageLoaderImpl::dtd(AssemblerContext):void	org.apache.tapestry5.internal.pageload.AssemblerContext
+1.000000-011	org.apache.tapestry5.internal.pageload.PageLoaderImpl::text(AssemblerContext):void	org.apache.tapestry5.internal.pageload.AssemblerContext

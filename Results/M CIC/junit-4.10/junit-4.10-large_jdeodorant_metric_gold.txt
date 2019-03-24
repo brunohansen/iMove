@@ -1,0 +1,19 @@
+-0.069940-111	org.junit.experimental.max.MaxCore::buildRunner(Description):Runner	org.junit.runner.Description
+-0.109848-111	org.junit.experimental.theories.internal.Assignments::getAnnotatedSupplier(ParameterSignature):ParameterSupplier	org.junit.experimental.theories.ParameterSignature
+-0.112240-111	org.junit.runners.ParentRunner::runLeaf(Statement, Description, RunNotifier):void	org.junit.runners.model.Statement
+-0.123214-111	org.junit.internal.TextListener::printFailure(Failure, String):void	org.junit.runner.notification.Failure
+-0.125000-111	org.junit.internal.runners.ErrorReportingRunner::runCause(Throwable, RunNotifier):void	org.junit.runner.notification.RunNotifier
+-0.149068-111	org.junit.runner.JUnitCore::run(Runner):Result	org.junit.runner.Runner
+-0.166667-111	org.junit.experimental.theories.Theories.TheoryAnchor::runWithIncompleteAssignment(Assignments):void	org.junit.experimental.theories.internal.Assignments
+-0.218750-111	org.junit.runner.Computer::getSuite(RunnerBuilder, Class<?>[]):Runner	org.junit.runners.model.RunnerBuilder
+-0.219259-111	org.junit.runner.JUnitCore::run(Runner):Result	org.junit.runner.notification.RunNotifier
+-0.250000-111	junit.framework.JUnit4TestAdapterCache::getNotifier(TestResult, JUnit4TestAdapter):RunNotifier	junit.framework.TestResult
+0.000000-000	org.junit.runner.Result::printFailures(TextListener):void	org.junit.internal.TextListener
+0.030878-011	org.junit.internal.runners.JUnit4ClassRunner::testAborted(RunNotifier, Description, Throwable):void	org.junit.runner.notification.RunNotifier
+0.031250-000	org.junit.runner.manipulation.Filter::filter3(JUnit4ClassRunner):void	org.junit.internal.runners.JUnit4ClassRunner
+0.081101-011	org.junit.runners.Parameterized::getParametersMethod(TestClass):FrameworkMethod	org.junit.runners.model.TestClass
+0.358333-000	org.junit.runners.model.Statement::apply(TestWatchman, FrameworkMethod, Object):Statement	org.junit.rules.TestWatchman
+0.449074-000	org.junit.experimental.theories.ParameterSignature::addFields(AllMembersSupplier, List<PotentialAssignment>):void	org.junit.experimental.theories.internal.AllMembersSupplier
+0.833333-011	org.junit.experimental.categories.Categories.CategoryFilter::parentDescription(Description):Description	org.junit.runner.Description
+0.937500-011	junit.framework.JUnit4TestAdapter::isIgnored(Description):boolean	org.junit.runner.Description
+1.000000-000	org.junit.runner.notification.RunNotifier::runTestMethod(MethodRoadie):void	org.junit.internal.runners.MethodRoadie
