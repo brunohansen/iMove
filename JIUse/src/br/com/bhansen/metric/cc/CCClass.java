@@ -1,4 +1,4 @@
-package br.com.bhansen.metric.camc;
+package br.com.bhansen.metric.cc;
 
 import java.util.Map.Entry;
 
@@ -10,9 +10,9 @@ import br.com.bhansen.metric.DeclarationMetricClass;
 import br.com.bhansen.utils.Jaccard;
 import br.com.bhansen.utils.Type;
 
-public class CAMCJClass extends DeclarationMetricClass {
+public class CCClass extends DeclarationMetricClass {
 
-	public CAMCJClass(Type type, String method, String parameter, IProgressMonitor monitor) throws Exception {
+	public CCClass(Type type, String method, String parameter, IProgressMonitor monitor) throws Exception {
 		super(type, method, parameter, monitor);
 	}
 		
