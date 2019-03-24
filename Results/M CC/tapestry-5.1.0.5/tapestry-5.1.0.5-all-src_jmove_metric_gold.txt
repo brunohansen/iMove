@@ -1,0 +1,28 @@
+-0.014706-111	+org.apache.tapestry5.internal.services.InternalModule::buildResourceCache(ResourceCacheImpl):ResourceCache	org.apache.tapestry5.internal.services.ResourceCacheImpl
+-0.036204-111	+org.apache.tapestry5.services.TapestryModule::buildPropBindingFactory(List<BindingFactory>, PropBindingFactory):BindingFactory	org.apache.tapestry5.internal.bindings.PropBindingFactory
+-0.039494-111	+org.apache.tapestry5.services.TapestryModule::buildPartialMarkupRenderer(Logger, List<PartialMarkupRendererFilter>, PartialMarkupRendererTerminator):PartialMarkupRenderer	org.apache.tapestry5.internal.services.PartialMarkupRendererTerminator
+-0.040663-111	+org.apache.tapestry5.services.TapestryModule::buildComponentRequestHandler(List<ComponentRequestFilter>, ComponentRequestHandlerTerminator, Logger):ComponentRequestHandler	org.apache.tapestry5.internal.services.ComponentRequestHandlerTerminator
+-0.041157-111	+org.apache.tapestry5.services.TapestryModule::contributeApplicationInitializer(OrderedConfiguration<ApplicationInitializerFilter>, TypeCoercer, ComponentClassResolver, InvalidationEventHub, RestoreDirtySessionObjects):void	org.apache.tapestry5.internal.services.RestoreDirtySessionObjects
+-0.041732-111	+org.apache.tapestry5.services.TapestryModule::buildMarkupRenderer(Logger, MarkupRendererTerminator, List<MarkupRendererFilter>):MarkupRenderer	org.apache.tapestry5.internal.services.MarkupRendererTerminator
+-0.125000-111	org.apache.tapestry5.corelib.components.Palette::beginRender(MarkupWriter):void	org.apache.tapestry5.internal.util.SelectModelRenderer
+-0.152778-111	+org.apache.tapestry5.ioc.RegistryBuilder::build():Registry	org.apache.tapestry5.ioc.internal.util.OneShotLock
+-0.223710-111	org.apache.tapestry5.internal.pageload.PageAssembly::addRenderCommand(RenderCommand):void	org.apache.tapestry5.ioc.util.Stack
+-0.333333-111	org.apache.tapestry5.corelib.components.FormFragment::afterRender(MarkupWriter):void	org.apache.tapestry5.corelib.internal.HiddenFieldPositioner
+-0.345407-111	org.apache.tapestry5.internal.pageload.PageAssembly::checkForRecursion(String, Location):void	org.apache.tapestry5.ioc.util.Stack
+0.000000-011	+org.apache.tapestry5.internal.services.InternalModule::buildComponentClassCache(ComponentClassCacheImpl):ComponentClassCache	org.apache.tapestry5.internal.services.ComponentClassCacheImpl
+0.000000-011	+org.apache.tapestry5.internal.services.InternalModule::buildStringInterner(StringInternerImpl):StringInterner	org.apache.tapestry5.internal.services.StringInternerImpl
+0.006050-011	#org.apache.tapestry5.test.TapestryTestCase::train_extendMethod(ClassTransformation, TransformMethodSignature, String[]):void	org.apache.tapestry5.services.TransformMethodSignature
+0.023452-011	#org.apache.tapestry5.test.TapestryTestCase::train_addMethod(ClassTransformation, TransformMethodSignature, String[]):void	org.apache.tapestry5.services.TransformMethodSignature
+0.029593-001	+org.apache.tapestry5.internal.parser.ExtensionPointToken::queueOverrideTokensForExtensionPoint(PageLoaderImpl, Stack<TemplateToken>, List<ComponentTemplate>):void	org.apache.tapestry5.ioc.util.Stack
+0.031250-000	+org.apache.tapestry5.internal.services.ComponentResultProcessorWrapper::fireValidateFormEvent(EventContext, Form):void	org.apache.tapestry5.corelib.components.Form
+0.040663-000	+org.apache.tapestry5.internal.services.ComponentRequestHandlerTerminator::buildComponentRequestHandler(List<ComponentRequestFilter>, TapestryModule, Logger):ComponentRequestHandler	org.apache.tapestry5.services.TapestryModule
+0.083333-000	org.apache.tapestry5.corelib.mixins.RenderDisabled::defaultModel(Select):SelectModel	org.apache.tapestry5.corelib.components.Select
+0.112613-011	org.apache.tapestry5.dom.Element::writeChildMarkup(Document, PrintWriter, Map<String, String>):void	org.apache.tapestry5.dom.Document
+0.156818-000	+org.apache.tapestry5.ioc.internal.services.RegistryShutdownHubImpl::findServiceIdsForInterface(RegistryImpl, Class):List<String>	org.apache.tapestry5.ioc.internal.RegistryImpl
+0.166667-000	+org.apache.tapestry5.corelib.internal.ComponentActionSink::afterRender(FormFragment, MarkupWriter):void	org.apache.tapestry5.corelib.components.FormFragment
+0.224843-000	+org.apache.tapestry5.ioc.internal.util.IdAllocator::copyMethod2(InternalClassTransformationImpl, TransformMethodSignature, int, String):void	org.apache.tapestry5.internal.services.InternalClassTransformationImpl
+0.234848-011	org.apache.tapestry5.corelib.components.Select::beginRender(MarkupWriter):void	org.apache.tapestry5.corelib.mixins.RenderDisabled
+0.238095-000	+org.apache.tapestry5.services.PageRenderRequestParameters::createPageRenderLink2(ComponentEventLinkEncoderImpl):Link	org.apache.tapestry5.internal.services.ComponentEventLinkEncoderImpl
+0.333333-000	+org.apache.tapestry5.services.BeanBlockContribution::toBlock(BeanBlockOverrideSourceImpl):Block	org.apache.tapestry5.internal.services.BeanBlockOverrideSourceImpl
+0.475000-000	+org.apache.tapestry5.internal.parser.AttributeToken::newAttributeElement2(ComponentResources, PageElementFactoryImpl):RenderCommand	org.apache.tapestry5.internal.services.PageElementFactoryImpl
+1.000000-000	+org.apache.tapestry5.services.ComponentEventRequestParameters::handle2(AjaxComponentEventRequestHandler):void	org.apache.tapestry5.internal.services.AjaxComponentEventRequestHandler
