@@ -127,14 +127,14 @@ meu1 = [[1, 1, 1, 0], [0, 1, 1, 1], [0, 1, 1, 0]]
 
 def cresce():
 	m1 = [[1, 0, 1], [1, 1, 0], [0, 1, 1], [1, 0, 0]]
-	print(nhdm(m1))
+	print(ic(m1))
 	for i in range(1, 10):
 		m1.append([1, 0, 0])
-		print(nhdm(m1))
+		print(ic(m1))
 
 def cresce2():
 	m1 = [[1, 1, 1, 0], [0, 1, 1, 1], [0, 1, 1, 0]]
-	print(nhdm(m1))
+	print(ic(m1))
 	for i in range(1, 10):
 		m1.append([0, 1, 1, 0])
-		print(nhdm(m1))
+		print(ic(m1))
