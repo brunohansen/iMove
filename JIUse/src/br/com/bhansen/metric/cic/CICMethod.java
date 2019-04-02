@@ -20,9 +20,44 @@ public class CICMethod extends DeclarationMetricMethod {
 		return Jaccard.biSimilarity(getMethod(), getMethods());
 	}
 
+//	public static double ic(boolean[][] m) {
+//		double r = ((cci(m) + pp(m)) / 2) * 0.5;
+//		double i = ((im(m) + ip(m)) / 2) * 0.5;
+//		return r + i;
+//	}
+	
 	public static double ic(boolean[][] m) {
-		double r = ((cci(m) + pp(m)) / 2) * 0.5;
-		double i = ((im(m) + ip(m)) / 2) * 0.5;
+		double ic = 0;
+		
+		for (int i = 0; i < m.length; i++) {
+			ic = ic + ic(m, i);
+		}
+		
+		return ic / m.length;
+	}
+	
+	public static double ic(boolean[][] m, int i2) {
+		double cci = cci(m, i2);
+		double im = im(m, i2);
+		
+		double pp = 0;
+		double ip = 0;
+		
+		int p = 0;
+		
+		for (int j = 0; j < m[i2].length; j++) {
+			if(m[i2][j]) {
+				p = p + 1;
+				pp = pp + pp(m, j);
+				ip = ip + ip(m, j);
+			}
+		}
+		
+		pp = pp / p;
+		ip = ip / p;
+		
+		double r = ((cci + pp) / 2) * 0.5;
+		double i = ((im + ip) / 2) * 0.5;
 		return r + i;
 	}
 
@@ -215,17 +250,17 @@ public class CICMethod extends DeclarationMetricMethod {
 	}
 
 	public static void main(String[] args) {
-//		 boolean[][] poMtrx = {
-//				 {true, true, true, false},
-//				 {false, true, true, true},
-//				 {true, true, true, false}};
+		 boolean[][] poMtrx = {
+				 {true, true, true, false},
+				 {false, true, true, true},
+				 {true, true, true, false}};
 		
-		boolean[][] poMtrx = { 
-				{ true, false, true }, 
-				{ true, true, false }, 
-				{ false, true, true },
-				{ true, false, false }, 
-				{ true, false, false } };
+//		boolean[][] poMtrx = { 
+//				{ true, false, true }, 
+//				{ true, true, false }, 
+//				{ false, true, true },
+//				{ true, false, false }, 
+//				{ true, false, false } };
 
 		System.out.println(ic(poMtrx));
 
