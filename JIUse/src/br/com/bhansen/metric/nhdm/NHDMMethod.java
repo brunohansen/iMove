@@ -4,12 +4,12 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import org.eclipse.core.runtime.IProgressMonitor;
 
 import br.com.bhansen.metric.DeclarationMetricMethod;
+import br.com.bhansen.utils.OccMtrx;
 import br.com.bhansen.utils.Type;
 
 public class NHDMMethod extends DeclarationMetricMethod {
@@ -20,16 +20,15 @@ public class NHDMMethod extends DeclarationMetricMethod {
 	
 	@Override
 	public double getMetric(Set<String> method, Map<String, Set<String>> methods) {
-		@SuppressWarnings("unchecked")
-		Entry<String, Set<String>>[] ms = methods.entrySet().toArray(new Entry[0]);
 		String params[] = getParams().toArray(new String[0]);
+
+		boolean[][] poMtrx = OccMtrx.createOccMtrx(methods, params);
+		
 		boolean m[] = new boolean[params.length];
 
 		for (int i = 0; i < params.length; i++) {
 			m[i] = getMethod().contains(params[i]);
 		}
-
-		boolean[][] poMtrx = NHDMClass.createOccMtrx(ms, params);
 
 		return nhdmMethod(m, poMtrx);
 	}

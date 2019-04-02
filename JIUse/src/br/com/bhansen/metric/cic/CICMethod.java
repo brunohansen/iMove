@@ -19,5 +19,51 @@ public class CICMethod extends DeclarationMetricMethod {
 	public double getMetric(Set<String> method, Map<String, Set<String>> methods) {
 		return Jaccard.biSimilarity(getMethod(), getMethods());
 	}
+	
+	public static double cicMM(boolean[] method, boolean[][] occMtrx) {
+		double metric = 0;
+		
+		for (int i = 0; i < occMtrx.length; i++) {
+			double agree = 0;
+			double disagree = 0;
+
+			for (int j = 0; j < method.length; j++) {
+				if ((occMtrx[i][j] && method[j])) { 
+					agree++;
+				}
+				
+				if ((occMtrx[i][j] ^ method[j])) { 
+					disagree++;
+				}
+			}
+
+			metric += agree / (agree + disagree);
+		}
+		
+		return metric / occMtrx.length;
+	}
+	
+	public static double cicPP(boolean[] method, boolean[][] occMtrx) {
+		double metric = 0;
+		
+		for (int i = 0; i < occMtrx.length; i++) {
+			double agree = 0;
+			double disagree = 0;
+
+			for (int j = 0; j < method.length; j++) {
+				if ((occMtrx[i][j] && method[j])) { 
+					agree++;
+				}
+				
+				if ((occMtrx[i][j] ^ method[j])) { 
+					disagree++;
+				}
+			}
+
+			metric += agree / (agree + disagree);
+		}
+		
+		return metric / occMtrx.length;
+	}
 
 }
