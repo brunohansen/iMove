@@ -43,67 +43,67 @@ def camc(m):
     return n / (k * l)
 
 def cci(m):
-	k = Decimal(len(m))
-	l = Decimal(len(m[0]))
-	n = Decimal(0)
-	for i in range(int(k) - 1):
-		for i2 in range(i + 1, int(k)):
-			a = d = Decimal(0)
-			for j in range(int(l)):
-				c = m[i][j] + m[i2][j]
-				if c == 2:
-					a = a + 1
-				if c == 1:
-					d = d + 1
-			n = n + (a / (a + d))
-	return n / ((k * (k - 1)) / 2)
+    k = Decimal(len(m))
+    l = Decimal(len(m[0]))
+    n = Decimal(0)
+    for i in range(int(k) - 1):
+        for i2 in range(i + 1, int(k)):
+            a = d = Decimal(0)
+            for j in range(int(l)):
+                c = m[i][j] + m[i2][j]
+                if c == 2:
+                    a = a + 1
+                if c == 1:
+                    d = d + 1
+            n = n + (a / (a + d))
+    return n / ((k * (k - 1)) / 2)
 
 def pp(m):
-	k = Decimal(len(m))
-	l = Decimal(len(m[0]))
-	n = Decimal(0)
-	for j in range(int(l) - 1):
-		for j2 in range(j + 1, int(l)):
-			a = d = Decimal(0)
-			for i in range(int(k)):
-				c = m[i][j] + m[i][j2]
-				if c == 2:
-					a = a + 1
-				if c == 1:
-					d = d + 1
-			n = n + (a / (a + d))
-	return n / ((l * (l - 1)) / 2)
+    k = Decimal(len(m))
+    l = Decimal(len(m[0]))
+    n = Decimal(0)
+    for j in range(int(l) - 1):
+        for j2 in range(j + 1, int(l)):
+            a = d = Decimal(0)
+            for i in range(int(k)):
+                c = m[i][j] + m[i][j2]
+                if c == 2:
+                    a = a + 1
+                if c == 1:
+                    d = d + 1
+            n = n + (a / (a + d))
+    return n / ((l * (l - 1)) / 2)
 
 def im(m):
-	k = Decimal(len(m))
-	l = Decimal(len(m[0]))
-	n = Decimal(0)
-	for i in range(int(k) - 1):
-		for i2 in range(i + 1, int(k)):
-			for j in range(int(l)):
-				c = m[i][j] + m[i2][j]
-				if c == 2:
-					n = n + 1
-					break
-	return n / ((k * (k - 1)) / 2)
+    k = Decimal(len(m))
+    l = Decimal(len(m[0]))
+    n = Decimal(0)
+    for i in range(int(k) - 1):
+        for i2 in range(i + 1, int(k)):
+            for j in range(int(l)):
+                c = m[i][j] + m[i2][j]
+                if c == 2:
+                    n = n + 1
+                    break
+    return n / ((k * (k - 1)) / 2)
 
 def ip(m):
-	k = Decimal(len(m))
-	l = Decimal(len(m[0]))
-	n = Decimal(0)
-	for j in range(int(l) - 1):
-		for j2 in range(j + 1, int(l)):
-			for i in range(int(k)):
-				c = m[i][j] + m[i][j2]
-				if c == 2:
-					n = n + 1
-					break
-	return n / ((l * (l - 1)) / 2)
+    k = Decimal(len(m))
+    l = Decimal(len(m[0]))
+    n = Decimal(0)
+    for j in range(int(l) - 1):
+        for j2 in range(j + 1, int(l)):
+            for i in range(int(k)):
+                c = m[i][j] + m[i][j2]
+                if c == 2:
+                    n = n + 1
+                    break
+    return n / ((l * (l - 1)) / 2)
 
 def ic(m):
-	r = ((cci(m) + pp(m)) / 2) * Decimal('0.5')
-	i = ((im(m) + ip(m)) / 2) * Decimal('0.5')
-	return r + i
+    r = ((cci(m) + pp(m)) / 2) * Decimal('0.5')
+    i = ((im(m) + ip(m)) / 2) * Decimal('0.5')
+    return r + i
 
 a11 = [[1, 0], [0, 1]]
 a12 = [[1, 0, 0], [0, 1, 0], [0, 0, 1]]
