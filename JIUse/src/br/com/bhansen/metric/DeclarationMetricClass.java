@@ -1,7 +1,5 @@
 package br.com.bhansen.metric;
 
-import java.math.BigInteger;
-
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.SubMonitor;
 import org.eclipse.jdt.core.IMethod;
@@ -42,27 +40,6 @@ public abstract class DeclarationMetricClass extends DeclarationMetric {
 			getMethods().put(mp.getSignature(), mp.getParameters());
 
 		}
-	}
-	
-	protected static int comb(int n) {
-		if (n == 0)
-			return 0;
-
-		if (n <= 2)
-			return 1;
-
-		return fat(n).divide(fat(2).multiply(fat(n - 2))).intValue();
-	}
-	
-	private static BigInteger fat(int n) {
-		BigInteger f = BigInteger.valueOf(n);
-
-		while (n > 1) {
-			f = f.multiply(BigInteger.valueOf(n - 1));
-			n--;
-		}
-
-		return f;
 	}
 
 }
