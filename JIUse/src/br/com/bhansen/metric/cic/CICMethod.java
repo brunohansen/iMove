@@ -25,41 +25,6 @@ public class CICMethod extends DeclarationMetricMethod {
 		double i = ((im(m) + ip(m)) / 2) * 0.5;
 		return r + i;
 	}
-	
-	public static double ic2(boolean[][] m) {
-		double ic = 0;
-		
-		for (int i = 0; i < m.length; i++) {
-			ic = ic + ic(m, i);
-		}
-		
-		return ic / m.length;
-	}
-	
-	public static double ic(boolean[][] m, int i2) {
-		double cci = cci(m, i2);
-		double im = im(m, i2);
-		
-		double pp = 0;
-		double ip = 0;
-		
-		int p = 0;
-		
-		for (int j = 0; j < m[i2].length; j++) {
-			if(m[i2][j]) {
-				p = p + 1;
-				pp = pp + pp(m, j);
-				ip = ip + ip(m, j);
-			}
-		}
-		
-		pp = pp / p;
-		ip = ip / p;
-		
-		double r = ((cci + pp) / 2) * 0.5;
-		double i = ((im + ip) / 2) * 0.5;
-		return r + i;
-	}
 
 	public static double cci(boolean[][] m) {
 		if (m.length == 0)
