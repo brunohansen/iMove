@@ -74,36 +74,61 @@ def pp(m):
             n = n + (a / (a + d))
     return n / ((l * (l - 1)) / 2)
 
-def im(m):
+def ic(m):
+    return (cci(m) + pp(m)) / 2
+
+def iscom(m):
     k = Decimal(len(m))
     l = Decimal(len(m[0]))
     n = Decimal(0)
     for i in range(int(k) - 1):
         for i2 in range(i + 1, int(k)):
+            ni = ni2 = a = d = Decimal(0)
+            for j in range(int(l)):
+                ni = ni + m[i][j]
+                ni2 = ni2 + m[i2][j]
+                c = m[i][j] + m[i2][j]
+                if c == 2:
+                    a = a + 1
+                if c == 1:
+                    d = d + 1
+            n = n + (((2 * a) / (ni + ni2)) * ((a + d) / l))
+    return n / ((k * (k - 1)) / 2)
+
+def wcci(m):
+    k = Decimal(len(m))
+    l = Decimal(len(m[0]))
+    n = Decimal(0)
+    for i in range(int(k) - 1):
+        for i2 in range(i + 1, int(k)):
+            a = d = Decimal(0)
             for j in range(int(l)):
                 c = m[i][j] + m[i2][j]
                 if c == 2:
-                    n = n + 1
-                    break
+                    a = a + 1
+                if c == 1:
+                    d = d + 1
+            n = n + ((a / (a + d)) * ((a + d) / l))
     return n / ((k * (k - 1)) / 2)
 
-def ip(m):
+def wpp(m):
     k = Decimal(len(m))
     l = Decimal(len(m[0]))
     n = Decimal(0)
     for j in range(int(l) - 1):
         for j2 in range(j + 1, int(l)):
+            a = d = Decimal(0)
             for i in range(int(k)):
                 c = m[i][j] + m[i][j2]
                 if c == 2:
-                    n = n + 1
-                    break
+                    a = a + 1
+                if c == 1:
+                    d = d + 1
+            n = n + ((a / (a + d)) * ((a + d) / k))
     return n / ((l * (l - 1)) / 2)
 
-def ic(m):
-    r = ((cci(m) + pp(m)) / 2) * Decimal('0.5')
-    i = ((im(m) + ip(m)) / 2) * Decimal('0.5')
-    return r + i
+def wic(m):
+    return (wcci(m) + wpp(m)) / 2
 
 a11 = [[1, 0], [0, 1]]
 a12 = [[1, 0, 0], [0, 1, 0], [0, 0, 1]]
@@ -117,8 +142,10 @@ a32 = [[1, 0, 0], [0, 1, 0], [0, 0, 1]]
 a41 = [[1, 1, 1, 1], [1, 0, 0, 0], [1, 1, 1, 1], [0, 1, 1, 1]]
 a42 = [[0, 0, 1, 0], [1, 0, 0, 0], [0, 0, 0, 1], [0, 1, 0, 0]]
 
-vm1 = [[1, 0, 0, 0], [1, 0, 0, 0], [1, 0, 0, 0], [0, 1, 1, 1]]
-vm2 = [[1, 0, 0, 0], [1, 0, 0, 0], [1, 1, 0, 0], [0, 1, 1, 1]]
+vma1 = [[1, 0, 0, 0], [1, 0, 0, 0], [1, 0, 0, 0], [0, 1, 1, 1]]
+vma2 = [[1, 0, 0, 0], [1, 0, 0, 0], [1, 1, 0, 0], [0, 1, 1, 1]]
+vmb1 = [[1, 0, 0, 0], [1, 0, 0, 0], [1, 0, 0, 0], [1, 1, 1, 1]]
+vmb2 = [[1, 0, 0, 0], [1, 0, 0, 0], [1, 1, 0, 0], [1, 1, 1, 1]]
 
 a5a1 = [[1, 0, 1], [1, 1, 0], [0, 1, 1], [1, 0, 0]]
 a5a2 = [[1, 0, 1], [1, 1, 0], [0, 1, 1], [1, 0, 0], [1, 0, 0]]
@@ -129,15 +156,15 @@ a5b2 = [[1, 0, 1], [1, 1, 0], [0, 1, 1], [1, 0, 0], [1, 0, 0], [1, 0, 0], [1, 0,
 meu1 = [[1, 1, 1, 0], [0, 1, 1, 1], [0, 1, 1, 0]]
 
 def cresce():
-	m1 = [[1, 0, 1], [1, 1, 0], [0, 1, 1], [1, 0, 0]]
-	print(ic(m1))
-	for i in range(1, 100):
-		m1.append([1, 0, 0])
-		print(ic(m1))
+    m1 = [[1, 0, 1], [1, 1, 0], [0, 1, 1], [1, 0, 0]]
+    print(ic(m1))
+    for i in range(1, 100):
+        m1.append([1, 0, 0])
+        print(ic(m1))
 
 def cresce2():
-	m1 = [[1, 1, 1, 0], [0, 1, 1, 1], [0, 1, 1, 0]]
-	print(ic(m1))
-	for i in range(1, 10):
-		m1.append([0, 1, 1, 0])
-		print(ic(m1))
+    m1 = [[1, 1, 1, 0], [0, 1, 1, 1], [0, 1, 1, 0]]
+    print(ic(m1))
+    for i in range(1, 10):
+        m1.append([0, 1, 1, 0])
+        print(ic(m1))
