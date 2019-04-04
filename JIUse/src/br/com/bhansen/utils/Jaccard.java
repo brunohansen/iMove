@@ -31,8 +31,13 @@ public class Jaccard {
 			return 0;
 		}
 		
+		int a = uniqueValues(s2s).size();
+		
 		for (Set<String> s2 : s2s) {
-			similarity += similarity(s1, s2);
+			Set<String> union = new HashSet<>(s1);
+			union.addAll(s2);
+			
+			similarity += (similarity(s1, s2) * (union.size() / a));
 		}
 		
 		return similarity / s2s.size();
@@ -63,6 +68,16 @@ public class Jaccard {
 		mp = mp / s1.size();
 		
 		return (mm + mp) / 2;
+	}
+	
+	protected static <T> Set<T> uniqueValues(Collection<Set<T>> m) {
+		Set<T> values = new HashSet<>();
+		
+		for (Collection<T> mValues : m) {
+			values.addAll(mValues);
+		}
+		
+		return values;
 	}
 	
 	
