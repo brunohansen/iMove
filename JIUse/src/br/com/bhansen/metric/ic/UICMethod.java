@@ -1,4 +1,4 @@
-package br.com.bhansen.metric.cc;
+package br.com.bhansen.metric.ic;
 
 import java.util.Map;
 import java.util.Set;
@@ -9,14 +9,14 @@ import br.com.bhansen.metric.UsageMetricMethod;
 import br.com.bhansen.utils.Jaccard;
 import br.com.bhansen.utils.Type;
 
-public class UCCMethod extends UsageMetricMethod {
+public class UICMethod extends UsageMetricMethod {
 
-	public UCCMethod(Type type, String method, IProgressMonitor monitor) throws Exception {
+	public UICMethod(Type type, String method, IProgressMonitor monitor) throws Exception {
 		super(type, method, monitor);
 	}
 
 	public double getMetric(Set<String> method, Map<String, Set<String>> methods) {
-		return Jaccard.similarity(method, methods.values());
+		return Jaccard.biSimilarity(method, methods);
 	}
 
 }

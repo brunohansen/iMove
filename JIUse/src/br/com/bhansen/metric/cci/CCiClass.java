@@ -1,4 +1,4 @@
-package br.com.bhansen.metric.cc;
+package br.com.bhansen.metric.cci;
 
 import java.util.Arrays;
 import java.util.HashMap;
@@ -13,9 +13,9 @@ import br.com.bhansen.metric.DeclarationMetricClass;
 import br.com.bhansen.utils.Jaccard;
 import br.com.bhansen.utils.Type;
 
-public class CCClass extends DeclarationMetricClass {
+public class CCiClass extends DeclarationMetricClass {
 
-	public CCClass(Type type, String method, String parameter, IProgressMonitor monitor) throws Exception {
+	public CCiClass(Type type, String method, String parameter, IProgressMonitor monitor) throws Exception {
 		super(type, method, parameter, monitor);
 	}
 

@@ -1,4 +1,4 @@
-package br.com.bhansen.metric.cc;
+package br.com.bhansen.metric.cci;
 
 import java.util.Map;
 import java.util.Set;
@@ -9,9 +9,9 @@ import br.com.bhansen.metric.DeclarationMetricMethod;
 import br.com.bhansen.utils.Jaccard;
 import br.com.bhansen.utils.Type;
 
-public class CCMethod extends DeclarationMetricMethod {
+public class CCiMethod extends DeclarationMetricMethod {
 
-	public CCMethod(Type type, String method, String parameter, IProgressMonitor monitor) throws Exception {
+	public CCiMethod(Type type, String method, String parameter, IProgressMonitor monitor) throws Exception {
 		super(type, method, parameter, monitor);
 	}
 	
