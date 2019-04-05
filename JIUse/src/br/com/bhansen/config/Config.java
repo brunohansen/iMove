@@ -8,6 +8,14 @@ public class Config {
 
 	private static IEclipsePreferences prefs;
 	
+	public enum Metric {
+		CAMC_IUC, CCi, IC, ISCOMi, NHD, NHDM, WIC;
+		
+		public String toString() {
+			return name().replaceAll("_", "/");
+		}
+	}
+	
 	public enum MetricType {
 		REGULAR, TIGHT;
 	}
@@ -19,6 +27,9 @@ public class Config {
 			return name().replaceAll("_", " ");
 		}
 	}
+	
+	private static final String METRIC = "metric";
+	private static final Metric METRIC_DEF = Metric.IC;
 	
 	private static final String METRIC_TYPE = "metricType";
 	private static final MetricType METRIC_TYPE_DEF = MetricType.REGULAR;
@@ -39,6 +50,10 @@ public class Config {
 		}
 
 		return prefs;
+	}
+	
+	public static Metric getMetric() {
+		return Metric.valueOf(getPrefs().get(METRIC, METRIC_DEF.name()));
 	}
 	
 	public static MetricType getMetricType() {
@@ -69,7 +84,7 @@ public class Config {
 		return MUCScope.valueOf(getPrefs().get(MUC_SCOPE, MUC_SCOPE_DEF.name()));
 	}
 
-	public static void set(double threshold, double mucWeight, double mdcWeight, MUCScope mucScope, MetricType metricType) throws BackingStoreException {
+	public static void set(double threshold, double mucWeight, double mdcWeight, MUCScope mucScope, MetricType metricType, Metric metric) throws BackingStoreException {
 		IEclipsePreferences prefs = getPrefs();
 
 		prefs.putDouble(THRESHOLD, threshold);
@@ -80,6 +95,8 @@ public class Config {
 		prefs.put(MUC_SCOPE, mucScope.name());
 		
 		prefs.put(METRIC_TYPE, metricType.name());
+		
+		prefs.put(METRIC, metric.name());
 		
 		prefs.flush();
 	}
