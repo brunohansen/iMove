@@ -16,7 +16,7 @@ public class UISCOMMethod extends UsageMetricMethod {
 
 	@Override
 	public double getMetric(Set<String> mi, Map<String, Set<String>> methods) {
-		return ISCOMMethod.getMetric(mi, methods, getClients().size());
+		return ISCOMMethod.getMetric(mi, methods, getValues().size());
 	}
 
 }

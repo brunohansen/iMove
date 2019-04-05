@@ -32,7 +32,7 @@ public class ISCOMMethod extends DeclarationMetricMethod {
 
 	@Override
 	public double getMetric(Set<String> mi, Map<String, Set<String>> methods) {
-		return getMetric(mi, methods, getParams().size());
+		return getMetric(mi, methods, getValues().size());
 	}
 	
 	public static double getMetric(Set<String> mi, Map<String, Set<String>> methods, int a) {

@@ -4,13 +4,13 @@ import java.util.function.BiPredicate;
 
 import org.eclipse.core.runtime.IProgressMonitor;
 
-import br.com.bhansen.metric.nhd.NHDMethod;
+import br.com.bhansen.metric.nhd.UNHDClass;
 import br.com.bhansen.utils.Type;
 
-public class NHDMMethod extends NHDMethod {
+public class UNHDMClass extends UNHDClass {
 	
-	public NHDMMethod(Type type, String method, String parameter, IProgressMonitor monitor) throws Exception {
-		super(type, method, parameter, monitor);
+	public UNHDMClass(Type type, IProgressMonitor monitor) throws Exception {
+		super(type, monitor);
 	}
 	
 	@Override

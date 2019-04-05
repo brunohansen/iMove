@@ -5,17 +5,31 @@ import java.util.Map;
 import java.util.Set;
 
 public class OccMtrx {
+	
+	public static boolean[] createOccArray(Set<String> method, Set<String> values) {
+		String vls[] = values.toArray(new String[0]);
+		
+		boolean occArray[] = new boolean[vls.length];
 
-	public static boolean[][] createOccMtrx(Map<String, Set<String>> methods, String[] values) {
+		for (int i = 0; i < vls.length; i++) {
+			occArray[i] = method.contains(vls[i]);
+		}
+		
+		return occArray;
+	}
+
+	public static boolean[][] createOccMtrx(Map<String, Set<String>> methods, Set<String> values) {
+		String vls[] = values.toArray(new String[0]);
+		
 		@SuppressWarnings("unchecked")
 		Entry<String, Set<String>>[] mtds = methods.entrySet().toArray(new Entry[0]);
-		boolean occMtrx[][] = new boolean[mtds.length][values.length];
+		boolean occMtrx[][] = new boolean[mtds.length][vls.length];
 		
 		for (int m = 0; m < mtds.length; m++) {
 			Entry<String, Set<String>> method = mtds[m];
 			
-			for (int v = 0; v < values.length; v++) {
-				String value = values[v];
+			for (int v = 0; v < vls.length; v++) {
+				String value = vls[v];
 				
 				occMtrx[m][v] = method.getValue().contains(value);
 			}

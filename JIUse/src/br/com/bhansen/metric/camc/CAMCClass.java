@@ -16,7 +16,7 @@ public class CAMCClass extends DeclarationMetricClass {
 
 	@Override
 	public double getMetric() throws Exception {
-		return getMetric(getMethods(), getParams().size());
+		return getMetric(getMethods(), getValues().size());
 	}
 	
 	public static double getMetric(Map<String, Set<String>> methods, int numValues) {

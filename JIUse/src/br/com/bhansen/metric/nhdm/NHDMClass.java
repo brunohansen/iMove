@@ -1,46 +1,37 @@
 package br.com.bhansen.metric.nhdm;
 
+import java.util.function.BiPredicate;
+
 import org.eclipse.core.runtime.IProgressMonitor;
 
-import br.com.bhansen.metric.DeclarationMetricClass;
-import br.com.bhansen.utils.OccMtrx;
+import br.com.bhansen.metric.nhd.NHDClass;
 import br.com.bhansen.utils.Type;
 
-public class NHDMClass extends DeclarationMetricClass {
+public class NHDMClass extends NHDClass {
+	
+	protected static final BiPredicate<Boolean, Boolean> NHDM = new BiPredicate<Boolean, Boolean>() {
+		
+		@Override
+		public boolean test(Boolean v1, Boolean v2) {
+			return v1 && v2;
+		}
+	};
 	
 	public NHDMClass(Type type, IProgressMonitor monitor) throws Exception {
 		super(type, monitor);
 	}
 	
 	@Override
-	public double getMetric() throws Exception {
+	protected BiPredicate<Boolean, Boolean> getPredicate() {
+		return NHDM;
+	}
+	
+	public static void main(String[] args) {
+		//boolean[][] poMtrx = {{true, true, true, false},{false, true, true, true},{true, true, true, false}};
+		boolean[][] poMtrx = {{true, false, true}, {true, true, false}, {false, true, true}, {true, false, false}, {true, false, false}};
 		
-		String params [] = getParams().toArray(new String[0]);
+		System.out.println(NHDClass.nhdClass(poMtrx, NHDM));
 		
-		if((getMethods().size() == 1) || (params.length == 0))
-			return 0f;
-		
-		boolean[][] poMtrx = OccMtrx.createOccMtrx(getMethods(), params);
-						
-		double metric = 0;
-		
-		for (int p = 0; p < params.length; p++) {
-			double ones = 0;
-			double zeros = 0;
-			
-			for (int m = 0; m < getMethods().size(); m++) {
-				if(poMtrx[m][p]) {
-					ones++;
-				} else {
-					zeros++;
-				}
-			}
-			
-			metric += ones * (getMethods().size() - ones) + 0.5 * zeros * (zeros - 1);
-		}
-		
-		double y1 = (2f / (params.length * getMethods().size() * (getMethods().size() - 1)));
-		return 1 - y1 * metric;
 	}
 
 }

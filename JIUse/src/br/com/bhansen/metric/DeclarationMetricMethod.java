@@ -69,7 +69,7 @@ public abstract class DeclarationMetricMethod extends DeclarationMetric {
 		if (this.getMethods().size() == 0)
 			return 0;
 		
-		if(this.getParams().size() == 0)
+		if(this.getValues().size() == 0)
 			return 0;
 		
 		return getMetric(this.getMethod(), this.getMethods());
