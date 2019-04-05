@@ -21,15 +21,14 @@ public class CCiClass extends DeclarationMetricClass {
 
 	@Override
 	public double getMetric() throws Exception {
-
-		if (getMethods().size() < 2)
-			return 0;
-
 		return cci(getMethods());
 	}
 
 	public static double cci(Map<String, Set<String>> mtds) {
 		double r = 0;
+		
+		if (mtds.size() < 2)
+			return 0;
 
 		for (Entry<String, Set<String>> s1 : mtds.entrySet()) {
 			Map<String, Set<String>> mtdsCopy = new HashMap<>(mtds);
