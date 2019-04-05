@@ -1,4 +1,4 @@
-package br.com.bhansen.metric.iscom;
+package br.com.bhansen.metric.iscomi;
 
 import java.util.HashMap;
 import java.util.HashSet;
@@ -11,9 +11,9 @@ import org.eclipse.core.runtime.IProgressMonitor;
 import br.com.bhansen.jdt.Type;
 import br.com.bhansen.metric.DeclarationMetricClass;
 
-public class ISCOMClass extends DeclarationMetricClass {
+public class ISCOMiClass extends DeclarationMetricClass {
 	
-	protected ISCOMClass(Type type, IProgressMonitor monitor) throws Exception {
+	protected ISCOMiClass(Type type, IProgressMonitor monitor) throws Exception {
 		super(type, monitor);
 	}
 	
