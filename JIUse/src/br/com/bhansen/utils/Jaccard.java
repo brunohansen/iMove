@@ -1,16 +1,25 @@
 package br.com.bhansen.utils;
 
 import java.util.Collection;
-import java.util.HashMap;
 import java.util.HashSet;
-import java.util.Map;
 import java.util.Set;
-
-import br.com.bhansen.metric.AbsMetric;
+import java.util.function.BiFunction;
 
 public class Jaccard {
-
+	
+	public static final BiFunction<Set<String>, Set<String>, Double> NO_WEIGHT = new BiFunction<Set<String>, Set<String>, Double>() {
+		
+		@Override
+		public Double apply(Set<String> t, Set<String> u) {
+			return 1.0;
+		}
+	};
+	
 	public static double similarity(Set<String> s1, Set<String> s2) {
+		return similarity(s1, s2, NO_WEIGHT);
+	}
+
+	public static double similarity(Set<String> s1, Set<String> s2, BiFunction<Set<String>, Set<String>, Double> weight) {
 		Set<String> intersection = new HashSet<>(s1);
 		intersection.retainAll(s2);
 	
@@ -20,65 +29,29 @@ public class Jaccard {
 		if (union.size() == 0) {
 			return 1;
 		} else {
-			return (double) intersection.size() / (double) union.size();
+			return ((double) intersection.size() / (double) union.size()) * weight.apply(s1, s2);
 		}
 	}
 	
 	public static double similarity(Set<String> s1, Collection<Set<String>> s2s) {
+		return similarity(s1, s2s, NO_WEIGHT);
+	}
+	
+	public static double similarity(Set<String> s1, Collection<Set<String>> s2s, BiFunction<Set<String>, Set<String>, Double> weight) {
 		double similarity = 0;
 		
 		if(s2s.size() == 0) {
 			return 0;
 		}
 		
-		int a = uniqueValues(s2s).size();
-		
 		for (Set<String> s2 : s2s) {
 			Set<String> union = new HashSet<>(s1);
 			union.addAll(s2);
 			
-			similarity += (similarity(s1, s2) * (union.size() / a));
+			similarity += similarity(s1, s2, weight);
 		}
 		
 		return similarity / s2s.size();
 	}
 
-	public static double biSimilarity(Set<String> s1, Map<String, Set<String>> s2s) {
-		
-		double mm = Jaccard.similarity(s1, s2s.values());
-
-		if (mm == 0) {
-			return 0;
-		}
-		
-		double mp = 0;		
-		
-		Map<String, Set<String>> mP = AbsMetric.invert(s2s);
-		
-		for (String k : s1) {
-			Map<String, Set<String>> mPC = new HashMap<>(mP);
-			Set<String> p = mPC.remove(k);
-
-			if (p != null) {
-				mp += Jaccard.similarity(p, mPC.values());
-			}
-
-		}
-		
-		mp = mp / s1.size();
-		
-		return (mm + mp) / 2;
-	}
-	
-	protected static <T> Set<T> uniqueValues(Collection<Set<T>> m) {
-		Set<T> values = new HashSet<>();
-		
-		for (Collection<T> mValues : m) {
-			values.addAll(mValues);
-		}
-		
-		return values;
-	}
-	
-	
 }

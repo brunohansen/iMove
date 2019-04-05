@@ -15,8 +15,9 @@ public class UICMethod extends UsageMetricMethod {
 		super(type, method, monitor);
 	}
 
+	@Override
 	public double getMetric(Set<String> method, Map<String, Set<String>> methods) {
-		return Jaccard.biSimilarity(method, methods);
+		return ICClass.icMethod(getMethod(), getMethods(), Jaccard.NO_WEIGHT);
 	}
 
 }
