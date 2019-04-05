@@ -77,7 +77,7 @@ def pp(m):
 def ic(m):
     return (cci(m) + pp(m)) / 2
 
-def iscom(m):
+def iscomi(m):
     k = Decimal(len(m))
     l = Decimal(len(m[0]))
     n = Decimal(0)
