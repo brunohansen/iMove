@@ -13,7 +13,7 @@ import br.com.bhansen.metric.DeclarationMetricClass;
 
 public class ISCOMiClass extends DeclarationMetricClass {
 	
-	protected ISCOMiClass(Type type, IProgressMonitor monitor) throws Exception {
+	public ISCOMiClass(Type type, IProgressMonitor monitor) throws Exception {
 		super(type, monitor);
 	}
 	

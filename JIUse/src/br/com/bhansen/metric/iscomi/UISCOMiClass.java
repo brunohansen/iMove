@@ -7,7 +7,7 @@ import br.com.bhansen.metric.UsageMetricClass;
 
 public class UISCOMiClass extends UsageMetricClass {
 	
-	protected UISCOMiClass(Type type, IProgressMonitor monitor) throws Exception {
+	public UISCOMiClass(Type type, IProgressMonitor monitor) throws Exception {
 		super(type, monitor);
 	}
 	

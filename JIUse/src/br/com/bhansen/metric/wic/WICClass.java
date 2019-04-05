@@ -11,7 +11,7 @@ import br.com.bhansen.metric.ic.ICClass;
 
 public class WICClass extends ICClass {
 	
-	protected WICClass(Type type, IProgressMonitor monitor) throws Exception {
+	public WICClass(Type type, IProgressMonitor monitor) throws Exception {
 		super(type, monitor);
 	}
 	

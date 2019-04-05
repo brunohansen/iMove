@@ -15,7 +15,7 @@ import br.com.bhansen.utils.Jaccard;
 
 public class ICClass extends DeclarationMetricClass {
 	
-	protected ICClass(Type type, IProgressMonitor monitor) throws Exception {
+	public ICClass(Type type, IProgressMonitor monitor) throws Exception {
 		super(type, monitor);
 	}
 	
