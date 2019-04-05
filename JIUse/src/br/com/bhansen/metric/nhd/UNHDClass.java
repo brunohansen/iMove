@@ -4,8 +4,8 @@ import java.util.function.BiPredicate;
 
 import org.eclipse.core.runtime.IProgressMonitor;
 
+import br.com.bhansen.jdt.Type;
 import br.com.bhansen.metric.UsageMetricClass;
-import br.com.bhansen.utils.Type;
 
 public class UNHDClass extends UsageMetricClass {
 

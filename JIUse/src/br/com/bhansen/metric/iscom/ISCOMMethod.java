@@ -7,8 +7,8 @@ import java.util.Set;
 
 import org.eclipse.core.runtime.IProgressMonitor;
 
+import br.com.bhansen.jdt.Type;
 import br.com.bhansen.metric.DeclarationMetricMethod;
-import br.com.bhansen.utils.Type;
 
 public class ISCOMMethod extends DeclarationMetricMethod {
 

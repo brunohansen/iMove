@@ -1,4 +1,4 @@
-package br.com.bhansen.utils;
+package br.com.bhansen.jdt;
 
 import java.util.HashSet;
 import java.util.Set;

@@ -6,9 +6,9 @@ import org.eclipse.core.runtime.SubMonitor;
 import org.eclipse.ltk.core.refactoring.Change;
 
 import br.com.bhansen.config.Config;
+import br.com.bhansen.jdt.MethodWithCallers;
+import br.com.bhansen.jdt.Type;
 import br.com.bhansen.metric.MetricFactory;
-import br.com.bhansen.utils.MethodWithCallers;
-import br.com.bhansen.utils.Type;
 
 public class EvaluateSumMethod extends MoveMethodEvaluator  {
 

@@ -13,6 +13,9 @@ import java.util.TreeSet;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.SubMonitor;
 
+import br.com.bhansen.jdt.Method;
+import br.com.bhansen.jdt.ParameterHelper;
+import br.com.bhansen.jdt.Type;
 import br.com.bhansen.metric.Metric;
 import br.com.bhansen.metric.MetricFactory;
 import br.com.bhansen.refactory.EvaluatorFactory;

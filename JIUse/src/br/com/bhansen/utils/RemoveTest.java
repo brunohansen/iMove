@@ -11,6 +11,9 @@ import java.util.TreeSet;
 import java.util.function.Consumer;
 import java.util.stream.Stream;
 
+import br.com.bhansen.jdt.Method;
+import br.com.bhansen.jdt.Project;
+import br.com.bhansen.jdt.Type;
 import br.com.bhansen.view.Console;
 
 public class RemoveTest {

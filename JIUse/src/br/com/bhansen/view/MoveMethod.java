@@ -39,9 +39,9 @@ import org.eclipse.ui.part.ViewPart;
 
 import br.com.bhansen.dialog.ErrorDialog;
 import br.com.bhansen.dialog.MessageDialog;
+import br.com.bhansen.jdt.Project;
 import br.com.bhansen.refactory.MoveMethodRefactor;
 import br.com.bhansen.utils.Movement;
-import br.com.bhansen.utils.Project;
 
 /**
  * This sample class demonstrates how to plug-in a new workbench view. The view

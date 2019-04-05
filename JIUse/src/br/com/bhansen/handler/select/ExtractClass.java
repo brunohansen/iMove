@@ -6,9 +6,9 @@ import org.eclipse.ui.IWorkbenchWindow;
 
 import br.com.bhansen.dialog.InputDialog;
 import br.com.bhansen.dialog.MessageDialog;
+import br.com.bhansen.jdt.Method;
+import br.com.bhansen.jdt.Type;
 import br.com.bhansen.metric.iuc.IUCClass;
-import br.com.bhansen.utils.Method;
-import br.com.bhansen.utils.Type;
 import br.com.bhansen.view.Console;
 
 public class ExtractClass extends SelectionHandler {

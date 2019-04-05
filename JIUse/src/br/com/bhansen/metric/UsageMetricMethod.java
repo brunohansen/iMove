@@ -8,9 +8,9 @@ import org.eclipse.core.runtime.SubMonitor;
 import org.eclipse.jdt.core.IMethod;
 
 import br.com.bhansen.config.Config;
-import br.com.bhansen.utils.Method;
-import br.com.bhansen.utils.MethodWithCallers;
-import br.com.bhansen.utils.Type;
+import br.com.bhansen.jdt.Method;
+import br.com.bhansen.jdt.MethodWithCallers;
+import br.com.bhansen.jdt.Type;
 import br.com.bhansen.view.Console;
 
 public abstract class UsageMetricMethod extends UsageMetric {

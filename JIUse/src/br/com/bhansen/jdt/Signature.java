@@ -1,4 +1,4 @@
-package br.com.bhansen.utils;
+package br.com.bhansen.jdt;
 
 public class Signature {
 

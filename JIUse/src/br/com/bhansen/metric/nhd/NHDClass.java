@@ -9,9 +9,9 @@ import java.util.function.BiPredicate;
 
 import org.eclipse.core.runtime.IProgressMonitor;
 
+import br.com.bhansen.jdt.Type;
 import br.com.bhansen.metric.DeclarationMetricClass;
 import br.com.bhansen.utils.OccMtrx;
-import br.com.bhansen.utils.Type;
 
 public class NHDClass extends DeclarationMetricClass {
 	

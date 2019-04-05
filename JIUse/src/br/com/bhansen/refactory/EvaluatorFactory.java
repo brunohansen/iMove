@@ -3,6 +3,8 @@ package br.com.bhansen.refactory;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.SubMonitor;
 
+import br.com.bhansen.jdt.Project;
+import br.com.bhansen.jdt.Type;
 import br.com.bhansen.metric.CompositeMetric;
 import br.com.bhansen.metric.Metric;
 import br.com.bhansen.metric.MetricFactory;
@@ -12,8 +14,6 @@ import br.com.bhansen.metric.ic.UICMethod;
 import br.com.bhansen.metric.iuc.IUCClass;
 import br.com.bhansen.metric.nhdm.NHDMClass;
 import br.com.bhansen.utils.Movement;
-import br.com.bhansen.utils.Project;
-import br.com.bhansen.utils.Type;
 
 public class EvaluatorFactory {
 	

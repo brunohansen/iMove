@@ -37,9 +37,9 @@ import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.part.ViewPart;
 
 import br.com.bhansen.dialog.ErrorDialog;
+import br.com.bhansen.jdt.Method;
+import br.com.bhansen.jdt.Type;
 import br.com.bhansen.utils.DependencyMatrix;
-import br.com.bhansen.utils.Method;
-import br.com.bhansen.utils.Type;
 
 public class CorrelationMatrix extends ViewPart {
 	

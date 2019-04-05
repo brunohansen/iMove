@@ -3,8 +3,8 @@ package br.com.bhansen.refactory;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.SubMonitor;
 
+import br.com.bhansen.jdt.Type;
 import br.com.bhansen.metric.MetricFactory;
-import br.com.bhansen.utils.Type;
 
 public class EvaluateOr extends MoveMethodEvaluator {
 	

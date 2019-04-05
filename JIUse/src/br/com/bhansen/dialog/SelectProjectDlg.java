@@ -2,7 +2,7 @@ package br.com.bhansen.dialog;
 
 import org.eclipse.swt.widgets.Shell;
 
-import br.com.bhansen.utils.Project;
+import br.com.bhansen.jdt.Project;
 
 public class SelectProjectDlg extends SelectDlg {
 

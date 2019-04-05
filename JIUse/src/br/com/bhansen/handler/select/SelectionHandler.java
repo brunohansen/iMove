@@ -11,8 +11,8 @@ import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.texteditor.ITextEditor;
 
 import br.com.bhansen.handler.IMoveHandler;
-import br.com.bhansen.utils.Method;
-import br.com.bhansen.utils.Type;
+import br.com.bhansen.jdt.Method;
+import br.com.bhansen.jdt.Type;
 
 public abstract class SelectionHandler extends IMoveHandler {
 	

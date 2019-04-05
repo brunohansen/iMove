@@ -1,4 +1,4 @@
-package br.com.bhansen.utils;
+package br.com.bhansen.jdt;
 
 import java.nio.file.Path;
 
@@ -9,6 +9,8 @@ import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.jdt.core.IJavaProject;
 import org.eclipse.jdt.core.IType;
 import org.eclipse.jdt.core.JavaCore;
+
+import br.com.bhansen.utils.Movement;
 
 public class Project {
 	

@@ -21,9 +21,9 @@ import br.com.bhansen.dialog.MessageDialog;
 import br.com.bhansen.dialog.ProgressDialog;
 import br.com.bhansen.dialog.ProjectDialog;
 import br.com.bhansen.handler.IMoveHandler;
+import br.com.bhansen.jdt.Project;
 import br.com.bhansen.refactory.EvaluatorFactory;
 import br.com.bhansen.refactory.MoveMethodEvaluator;
-import br.com.bhansen.utils.Project;
 import br.com.bhansen.view.Console;
 import br.com.bhansen.view.MoveMethod;
 

@@ -7,7 +7,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.Map.Entry;
 
-import br.com.bhansen.utils.Type;
+import br.com.bhansen.jdt.Type;
 
 public abstract class AbsMetric implements Metric {
 	

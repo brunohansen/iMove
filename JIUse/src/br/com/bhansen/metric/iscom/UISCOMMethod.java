@@ -5,8 +5,8 @@ import java.util.Set;
 
 import org.eclipse.core.runtime.IProgressMonitor;
 
+import br.com.bhansen.jdt.Type;
 import br.com.bhansen.metric.UsageMetricMethod;
-import br.com.bhansen.utils.Type;
 
 public class UISCOMMethod extends UsageMetricMethod {
 

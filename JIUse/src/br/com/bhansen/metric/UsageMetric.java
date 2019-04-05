@@ -1,6 +1,6 @@
 package br.com.bhansen.metric;
 
-import br.com.bhansen.utils.Type;
+import br.com.bhansen.jdt.Type;
 
 public abstract class UsageMetric extends AbsMetric {
 

@@ -2,7 +2,7 @@ package br.com.bhansen.metric;
 
 import org.eclipse.core.runtime.IProgressMonitor;
 
-import br.com.bhansen.utils.Type;
+import br.com.bhansen.jdt.Type;
 
 public abstract class MetricFactory {
 	

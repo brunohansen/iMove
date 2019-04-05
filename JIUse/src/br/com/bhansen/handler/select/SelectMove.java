@@ -5,9 +5,9 @@ import org.eclipse.ui.IWorkbenchWindow;
 
 import br.com.bhansen.dialog.MessageDialog;
 import br.com.bhansen.dialog.ProgressDialog;
+import br.com.bhansen.jdt.Type;
 import br.com.bhansen.refactory.EvaluatorFactory;
 import br.com.bhansen.refactory.MoveMethodEvaluator;
-import br.com.bhansen.utils.Type;
 import br.com.bhansen.view.MoveMethod;
 
 public class SelectMove extends SelectionHandler {

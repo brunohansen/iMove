@@ -1,7 +1,4 @@
-package br.com.bhansen.utils;
-
-import java.util.ArrayList;
-import java.util.List;
+package br.com.bhansen.jdt;
 
 import org.eclipse.jdt.core.IField;
 import org.eclipse.jdt.core.IMethod;

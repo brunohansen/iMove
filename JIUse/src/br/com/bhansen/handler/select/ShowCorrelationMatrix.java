@@ -5,8 +5,8 @@ import org.eclipse.ui.IWorkbenchWindow;
 
 import br.com.bhansen.dialog.MessageDialog;
 import br.com.bhansen.dialog.ProgressDialog;
+import br.com.bhansen.jdt.Type;
 import br.com.bhansen.utils.DependencyMatrix;
-import br.com.bhansen.utils.Type;
 import br.com.bhansen.view.CorrelationMatrix;
 
 public class ShowCorrelationMatrix extends SelectionHandler {

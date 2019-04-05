@@ -22,8 +22,8 @@ import br.com.bhansen.dialog.FileDialog;
 import br.com.bhansen.dialog.MessageDialog;
 import br.com.bhansen.dialog.ProgressDialog;
 import br.com.bhansen.handler.IMoveHandler;
+import br.com.bhansen.jdt.Project;
 import br.com.bhansen.utils.FileFinder;
-import br.com.bhansen.utils.Project;
 import br.com.bhansen.view.Console;
 
 public class GoldChecker extends IMoveHandler {

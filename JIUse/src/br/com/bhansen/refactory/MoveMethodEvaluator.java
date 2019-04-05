@@ -6,10 +6,10 @@ import java.math.RoundingMode;
 import org.eclipse.jdt.core.IMethod;
 
 import br.com.bhansen.config.Config;
+import br.com.bhansen.jdt.Method;
+import br.com.bhansen.jdt.Signature;
+import br.com.bhansen.jdt.Type;
 import br.com.bhansen.metric.MetricFactory;
-import br.com.bhansen.utils.Method;
-import br.com.bhansen.utils.Signature;
-import br.com.bhansen.utils.Type;
 
 public abstract class MoveMethodEvaluator {
 	

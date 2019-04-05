@@ -4,7 +4,7 @@ import org.eclipse.jface.viewers.LabelProvider;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.dialogs.ElementListSelectionDialog;
 
-import br.com.bhansen.utils.Project;
+import br.com.bhansen.jdt.Project;
 
 public class ProjectDialog {
 	

@@ -31,8 +31,8 @@ import org.eclipse.ltk.core.refactoring.Refactoring;
 import org.eclipse.ltk.core.refactoring.participants.MoveRefactoring;
 import org.eclipse.swt.widgets.Shell;
 
-import br.com.bhansen.utils.Method;
-import br.com.bhansen.utils.Type;
+import br.com.bhansen.jdt.Method;
+import br.com.bhansen.jdt.Type;
 
 @SuppressWarnings("restriction")
 public class MoveMethodRefactor {
@@ -126,7 +126,7 @@ public class MoveMethodRefactor {
 	
 	private void checkFakeParameter(Type classFrom, Type classTo, MoveInstanceMethodProcessor processor) throws JavaModelException {
 		if((processor.needsTargetNode()) && (this.typeNotUsed == null) && (classTo.hasField(classFrom))) {
-			this.typeNotUsed = br.com.bhansen.utils.Signature.normalizeInnerSignature(classFrom.getName());
+			this.typeNotUsed = br.com.bhansen.jdt.Signature.normalizeInnerSignature(classFrom.getName());
 		}
 	}
 
@@ -217,7 +217,7 @@ public class MoveMethodRefactor {
         
         cu.accept(visitor);
         
-        return (! visitor.used)? br.com.bhansen.utils.Signature.normalizeInnerSignature(Signature.toString(((ILocalVariable) visitor.binding.getJavaElement()).getTypeSignature()).replaceAll("/", ".")) : null;
+        return (! visitor.used)? br.com.bhansen.jdt.Signature.normalizeInnerSignature(Signature.toString(((ILocalVariable) visitor.binding.getJavaElement()).getTypeSignature()).replaceAll("/", ".")) : null;
 	}
 
 	private static Change performRefactoring(MoveInstanceMethodProcessor processor, Refactoring refactoring, IVariableBinding target) throws CoreException {
