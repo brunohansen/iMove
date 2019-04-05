@@ -1,10 +1,9 @@
 package br.com.bhansen.metric.ic;
 
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.Map;
-import java.util.Set;
 import java.util.Map.Entry;
+import java.util.Set;
 import java.util.function.BiFunction;
 
 import org.eclipse.core.runtime.IProgressMonitor;
@@ -21,8 +20,12 @@ public class ICClass extends DeclarationMetricClass {
 	}
 	
 	@Override
-	public double getMetric() throws Exception {
-		return icClass(getMethods(), Jaccard.NO_WEIGHT);
+	final public double getMetric() throws Exception {
+		return icClass(getMethods(), createWeight());
+	}
+	
+	protected BiFunction<Set<String>, Set<String>, Double> createWeight() {
+		return Jaccard.NO_WEIGHT;
 	}
 	
 	public static double icClass(Map<String, Set<String>> methods, BiFunction<Set<String>, Set<String>, Double> weight) {
@@ -66,18 +69,5 @@ public class ICClass extends DeclarationMetricClass {
 		
 		return (mm + mp) / 2;
 	}
-
-	protected static BiFunction<Set<String>, Set<String>, Double> getWeight(double values) {
-		return new BiFunction<Set<String>, Set<String>, Double>() {
-			
-			@Override
-			public Double apply(Set<String> m1, Set<String> m2) {
-				Set<String> union = new HashSet<>(m1);
-				union.addAll(m2);
-				
-				return union.size() / values;
-			}
-		};
-	}	
 
 }

@@ -2,6 +2,7 @@ package br.com.bhansen.metric.ic;
 
 import java.util.Map;
 import java.util.Set;
+import java.util.function.BiFunction;
 
 import org.eclipse.core.runtime.IProgressMonitor;
 
@@ -16,10 +17,12 @@ public class ICMethod extends DeclarationMetricMethod {
 	}
 
 	@Override
-	public double getMetric(Set<String> method, Map<String, Set<String>> methods) {
-		return ICClass.icMethod(getMethod(), getMethods(), Jaccard.NO_WEIGHT);
+	final public double getMetric(Set<String> method, Map<String, Set<String>> methods) {
+		return ICClass.icMethod(getMethod(), getMethods(), createWeight());
 	}
 
-
+	protected BiFunction<Set<String>, Set<String>, Double> createWeight() {
+		return Jaccard.NO_WEIGHT;
+	}
 
 }

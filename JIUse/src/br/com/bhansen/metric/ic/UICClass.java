@@ -1,5 +1,8 @@
 package br.com.bhansen.metric.ic;
 
+import java.util.Set;
+import java.util.function.BiFunction;
+
 import org.eclipse.core.runtime.IProgressMonitor;
 
 import br.com.bhansen.jdt.Type;
@@ -13,10 +16,12 @@ public class UICClass extends UsageMetricClass {
 	}
 
 	@Override
-	public double getMetric() throws Exception {
-		return ICClass.icClass(getMethods(), Jaccard.NO_WEIGHT);
+	final public double getMetric() throws Exception {
+		return ICClass.icClass(getMethods(), createWeight());
 	}
 	
-	
+	protected BiFunction<Set<String>, Set<String>, Double> createWeight() {
+		return Jaccard.NO_WEIGHT;
+	}
 
 }
