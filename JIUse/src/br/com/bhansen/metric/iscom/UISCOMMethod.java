@@ -10,13 +10,14 @@ import br.com.bhansen.metric.UsageMetricMethod;
 
 public class UISCOMMethod extends UsageMetricMethod {
 
+
 	public UISCOMMethod(Type type, String method, IProgressMonitor monitor) throws Exception {
 		super(type, method, monitor);
 	}
 
 	@Override
-	public double getMetric(Set<String> mi, Map<String, Set<String>> methods) {
-		return ISCOMMethod.getMetric(mi, methods, getValues().size());
+	public double getMetric(Set<String> method, Map<String, Set<String>> methods) {
+		return ISCOMClass.iscomMethod(method, methods, getValues().size());
 	}
 
 }
