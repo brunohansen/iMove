@@ -9,8 +9,6 @@ import br.com.bhansen.metric.MetricFactory;
 import br.com.bhansen.metric.camc.CAMCClass;
 import br.com.bhansen.metric.ic.ICMethod;
 import br.com.bhansen.metric.ic.UICMethod;
-import br.com.bhansen.metric.iscom.ISCOMMethod;
-import br.com.bhansen.metric.iscom.UISCOMMethod;
 import br.com.bhansen.metric.iuc.IUCClass;
 import br.com.bhansen.metric.nhdm.NHDMClass;
 import br.com.bhansen.utils.Movement;
@@ -44,7 +42,7 @@ public class EvaluatorFactory {
 				case "class":
 					switch (metric) {
 					case "IUC":
-						return new IUCClass(type, monitor);
+						return new IUCClass(type, method, monitor);
 					case "CAMC":
 						return new CAMCClass(type, method, parameter, monitor);
 					case "NHDM":
@@ -52,12 +50,12 @@ public class EvaluatorFactory {
 					case "IUC + CAMC": 
 					{
 						SubMonitor subMonitor = SubMonitor.convert(monitor, 100);
-						return new CompositeMetric(new IUCClass(type, subMonitor.split(50)), new CAMCClass(type, method, parameter, subMonitor.split(50)));
+						return new CompositeMetric(new IUCClass(type, method, subMonitor.split(50)), new CAMCClass(type, method, parameter, subMonitor.split(50)));
 					}
 					case "IUC + NHDM":
 					{
 						SubMonitor subMonitor = SubMonitor.convert(monitor, 100);
-						return new CompositeMetric(new IUCClass(type, subMonitor.split(50)), new NHDMClass(type, method, parameter, subMonitor.split(50)));
+						return new CompositeMetric(new IUCClass(type, method, subMonitor.split(50)), new NHDMClass(type, method, parameter, subMonitor.split(50)));
 					}
 					default:
 						throw new Exception("Invalid metric: " + metric + "!");

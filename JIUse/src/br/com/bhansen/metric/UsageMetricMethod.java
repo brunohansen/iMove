@@ -72,10 +72,6 @@ public abstract class UsageMetricMethod extends UsageMetric {
 		}
 	}
 	
-	protected final Set<String> getClients() {
-		return uniqueValues(getMethods());
-	}
-	
 	public Set<String> getMethod() {
 		return method;
 	}

@@ -1,5 +1,6 @@
 package br.com.bhansen.metric.camc;
 
+import java.util.Map;
 import java.util.Set;
 
 import org.eclipse.core.runtime.IProgressMonitor;
@@ -15,16 +16,19 @@ public class CAMCClass extends DeclarationMetricClass {
 
 	@Override
 	public double getMetric() throws Exception {
+		return getMetric(getMethods(), getParams().size());
+	}
+	
+	public static double getMetric(Map<String, Set<String>> methods, int numValues) {
 		double camc = 0;
-		double numParams = getParams().size();
-		double numMethods = getMethods().size();
+		double numMethods = methods.size();
 		
-		if((numMethods == 0) || (numParams == 0)) {
+		if((numMethods == 0) || (numValues == 0)) {
 			return 0.0f;
 		}
 		
-		for (Set<String> ps : getMethods().values()) {
-			camc += ps.size() / numParams;
+		for (Set<String> ps : methods.values()) {
+			camc += ps.size() / numValues;
 		}
 		
 		camc = camc / numMethods;

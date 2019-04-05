@@ -8,37 +8,15 @@ import java.util.Map.Entry;
 import java.util.Set;
 
 import org.eclipse.core.runtime.IProgressMonitor;
-import org.eclipse.core.runtime.SubMonitor;
-import org.eclipse.jdt.core.IMethod;
 
-import br.com.bhansen.metric.UsageMetric;
-import br.com.bhansen.utils.Method;
-import br.com.bhansen.utils.MethodWithCallers;
+import br.com.bhansen.metric.UsageMetricClass;
+import br.com.bhansen.metric.camc.CAMCClass;
 import br.com.bhansen.utils.Type;
-import br.com.bhansen.view.Console;
 
-public class IUCClass extends UsageMetric {
+public class IUCClass extends UsageMetricClass {
 	
-	public IUCClass(Type type, IProgressMonitor monitor) throws Exception {
-		super(type);
-		
-		IMethod[] iMethods = type.getIType().getMethods();
-		
-		SubMonitor subMonitor = SubMonitor.convert(monitor, iMethods.length);
-				
-		for (IMethod iMethod : iMethods) {
-			subMonitor.split(1).done();
-			
-			MethodWithCallers method = new Method(iMethod).getMethodWithCallers();
-			
-		//	if((! Flags.isPrivate(iMethod.getFlags())) && (! isFakeDelegate(iMethod, method))) {
-				if(getMethods().put(method.getSignature(), method.getCallers()) != null) {
-					Console.println("Method " + method.getSignature() + " colision!");
-				};
-		//	}
-
-		}
-				
+	public IUCClass(Type type, String method, IProgressMonitor monitor) throws Exception {
+		super(type, method, monitor);				
 	}
 		
 	public double getMetric() throws Exception {
@@ -46,28 +24,7 @@ public class IUCClass extends UsageMetric {
 	}
 	
 	public static double getMetric(Map<String, Set<String>> methods) {
-		
-		Map<String, Integer> callers = IUCClass.getCallerCount(methods);
-		
-		//callers.remove(getName());
-		
-		double iuc = 0;
-		double numMethods = methods.size();
-		
-		if((numMethods == 0) || (callers.size() == 0)) {
-			return 0;
-		}
-		
-		//SIUC ainda na duvida
-		double deduct = 0;//(numMethods > 1)? 1: 0;
-				
-		for (Entry<String, Integer> caller : callers.entrySet()) {
-			iuc += (caller.getValue() - deduct) / numMethods;			
-		}
-		
-		iuc = iuc / callers.size();
-		
-		return iuc;
+		return CAMCClass.getMetric(methods, uniqueValues(methods).size());
 	}
 	
 	public Map<String, Set<String>> getMethodsWithoutThis() {
