@@ -12,7 +12,7 @@ import br.com.bhansen.view.Console;
 
 public abstract class UsageMetricClass extends UsageMetric {
 	
-	public UsageMetricClass(Type type, String method, IProgressMonitor monitor) throws Exception {
+	public UsageMetricClass(Type type, IProgressMonitor monitor) throws Exception {
 		super(type);
 		
 		IMethod[] iMethods = type.getIType().getMethods();
@@ -23,13 +23,6 @@ public abstract class UsageMetricClass extends UsageMetric {
 			subMonitor.split(1).done();
 			
 			Method m = new Method(iMethod);
-
-//			if (m.isMethod(method)) {
-//				MethodWithCallers mc = m.getMethodWithCallers();
-//				
-//				//Remove fake public
-//				mc.removeCaller(type);
-//			}
 				
 			// Add only public
 //			if(! m.isPublic())

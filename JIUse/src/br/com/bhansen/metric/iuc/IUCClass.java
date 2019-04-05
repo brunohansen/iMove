@@ -15,8 +15,8 @@ import br.com.bhansen.utils.Type;
 
 public class IUCClass extends UsageMetricClass {
 	
-	public IUCClass(Type type, String method, IProgressMonitor monitor) throws Exception {
-		super(type, method, monitor);				
+	public IUCClass(Type type, IProgressMonitor monitor) throws Exception {
+		super(type, monitor);				
 	}
 		
 	public double getMetric() throws Exception {

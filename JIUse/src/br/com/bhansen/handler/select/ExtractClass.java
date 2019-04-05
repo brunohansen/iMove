@@ -25,7 +25,7 @@ public class ExtractClass extends SelectionHandler {
 		
 		MessageDialog.openResultOnConsole();
 		
-		IUCClass iucClass = new IUCClass(selection, null, new NullProgressMonitor());
+		IUCClass iucClass = new IUCClass(selection, new NullProgressMonitor());
 		
 		new br.com.bhansen.refactory.ExtractClass(window, iucClass, method, metricValue, mthdNumber);
 		

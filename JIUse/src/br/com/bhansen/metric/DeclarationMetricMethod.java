@@ -6,7 +6,6 @@ import java.util.Set;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.SubMonitor;
 import org.eclipse.jdt.core.IMethod;
-import org.eclipse.jdt.core.JavaModelException;
 
 import br.com.bhansen.config.Config;
 import br.com.bhansen.utils.Method;

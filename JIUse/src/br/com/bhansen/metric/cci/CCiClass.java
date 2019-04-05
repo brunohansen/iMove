@@ -15,8 +15,8 @@ import br.com.bhansen.utils.Type;
 
 public class CCiClass extends DeclarationMetricClass {
 
-	public CCiClass(Type type, String method, String parameter, IProgressMonitor monitor) throws Exception {
-		super(type, method, parameter, monitor);
+	public CCiClass(Type type, String parameter, IProgressMonitor monitor) throws Exception {
+		super(type, parameter, monitor);
 	}
 
 	@Override

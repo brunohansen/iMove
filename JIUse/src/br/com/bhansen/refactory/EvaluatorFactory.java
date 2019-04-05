@@ -42,20 +42,20 @@ public class EvaluatorFactory {
 				case "class":
 					switch (metric) {
 					case "IUC":
-						return new IUCClass(type, method, monitor);
+						return new IUCClass(type, monitor);
 					case "CAMC":
-						return new CAMCClass(type, method, parameter, monitor);
+						return new CAMCClass(type, parameter, monitor);
 					case "NHDM":
-						return new NHDMClass(type, method, parameter, monitor);
+						return new NHDMClass(type, parameter, monitor);
 					case "IUC + CAMC": 
 					{
 						SubMonitor subMonitor = SubMonitor.convert(monitor, 100);
-						return new CompositeMetric(new IUCClass(type, method, subMonitor.split(50)), new CAMCClass(type, method, parameter, subMonitor.split(50)));
+						return new CompositeMetric(new IUCClass(type, subMonitor.split(50)), new CAMCClass(type, parameter, subMonitor.split(50)));
 					}
 					case "IUC + NHDM":
 					{
 						SubMonitor subMonitor = SubMonitor.convert(monitor, 100);
-						return new CompositeMetric(new IUCClass(type, method, subMonitor.split(50)), new NHDMClass(type, method, parameter, subMonitor.split(50)));
+						return new CompositeMetric(new IUCClass(type, subMonitor.split(50)), new NHDMClass(type, parameter, subMonitor.split(50)));
 					}
 					default:
 						throw new Exception("Invalid metric: " + metric + "!");
