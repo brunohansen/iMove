@@ -8,8 +8,8 @@ import br.com.bhansen.utils.Type;
 
 public class NHDMClass extends DeclarationMetricClass {
 	
-	public NHDMClass(Type type, String parameter, IProgressMonitor monitor) throws Exception {
-		super(type, parameter, monitor);
+	public NHDMClass(Type type, IProgressMonitor monitor) throws Exception {
+		super(type, monitor);
 	}
 	
 	@Override

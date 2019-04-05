@@ -44,18 +44,18 @@ public class EvaluatorFactory {
 					case "IUC":
 						return new IUCClass(type, monitor);
 					case "CAMC":
-						return new CAMCClass(type, parameter, monitor);
+						return new CAMCClass(type, monitor);
 					case "NHDM":
-						return new NHDMClass(type, parameter, monitor);
+						return new NHDMClass(type, monitor);
 					case "IUC + CAMC": 
 					{
 						SubMonitor subMonitor = SubMonitor.convert(monitor, 100);
-						return new CompositeMetric(new IUCClass(type, subMonitor.split(50)), new CAMCClass(type, parameter, subMonitor.split(50)));
+						return new CompositeMetric(new IUCClass(type, subMonitor.split(50)), new CAMCClass(type, subMonitor.split(50)));
 					}
 					case "IUC + NHDM":
 					{
 						SubMonitor subMonitor = SubMonitor.convert(monitor, 100);
-						return new CompositeMetric(new IUCClass(type, subMonitor.split(50)), new NHDMClass(type, parameter, subMonitor.split(50)));
+						return new CompositeMetric(new IUCClass(type, subMonitor.split(50)), new NHDMClass(type, subMonitor.split(50)));
 					}
 					default:
 						throw new Exception("Invalid metric: " + metric + "!");

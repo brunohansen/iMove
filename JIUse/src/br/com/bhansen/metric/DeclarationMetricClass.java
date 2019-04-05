@@ -11,7 +11,7 @@ import br.com.bhansen.utils.Type;
 
 public abstract class DeclarationMetricClass extends DeclarationMetric {
 
-	protected DeclarationMetricClass(Type type, String parameter, IProgressMonitor monitor) throws Exception {
+	protected DeclarationMetricClass(Type type, IProgressMonitor monitor) throws Exception {
 		super(type);
 
 		IMethod[] iMethods = type.getIType().getMethods();
@@ -35,7 +35,7 @@ public abstract class DeclarationMetricClass extends DeclarationMetric {
 			if (Config.isMetricTight() && m.isConstructor())
 				continue;
 
-			MethodWithParameters mp = m.getMethodWithParameters(parameter);
+			MethodWithParameters mp = m.getMethodWithParameters();
 
 			// Dont add zero parameters
 			// if(! mp.hasParameter())

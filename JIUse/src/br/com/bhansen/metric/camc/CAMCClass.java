@@ -10,8 +10,8 @@ import br.com.bhansen.utils.Type;
 
 public class CAMCClass extends DeclarationMetricClass {
 		
-	public CAMCClass(Type type, String parameter, IProgressMonitor monitor) throws Exception {
-		super(type, parameter, monitor);
+	public CAMCClass(Type type, IProgressMonitor monitor) throws Exception {
+		super(type, monitor);
 	}
 
 	@Override
