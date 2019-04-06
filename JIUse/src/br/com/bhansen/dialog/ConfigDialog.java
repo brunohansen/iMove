@@ -63,7 +63,7 @@ public class ConfigDialog extends TitleAreaDialog {
         group1.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true));
         group1.setLayout(new GridLayout(2, false));
 
-        metricType = createComboField(group1, "Type", MetricType.values(), Config.getMetricType().ordinal());
+        metricType = createComboField(group1, "Metric Type", MetricType.values(), Config.getMetricType().ordinal());
         usageScope = createComboField(group1, "Usage Scope", UsageScope.values(), Config.getUsageScope().ordinal());
         
         Group group2 = new Group(container, SWT.SHADOW_ETCHED_IN);
