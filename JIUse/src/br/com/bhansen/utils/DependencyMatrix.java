@@ -29,8 +29,7 @@ public class DependencyMatrix {
 
 	private boolean[][] matrix;
 
-	public DependencyMatrix(Config.Metric _metric, Type _type, IProgressMonitor monitor) throws Exception {
-		MetricFactory factoryL = MetricFactory.createCompositeMethodMetricFactory(_metric);
+	public DependencyMatrix(Config.MetricContext context, Type _type, IProgressMonitor monitor) throws Exception {
 		Map<String, List<String>> methodsL = new TreeMap<String, List<String>>();
 		
 		Set<String> columnsL = new HashSet<>();
@@ -41,7 +40,9 @@ public class DependencyMatrix {
 		
 		SubMonitor subMonitor = SubMonitor.convert(monitor, 100);
 		
-		Map<String, Set<String>> ms = factoryL.create(type, subMonitor.split(5)).getMethods();
+		Map<String, Set<String>> ms = MetricFactory.createClassMetricFactory(Config.getMetric(), context).create(type, subMonitor.split(5)).getMethods();
+		
+		MetricFactory factoryL = MetricFactory.createMethodMetricFactory(Config.getMetric(), context);
 		
 		subMonitor = SubMonitor.convert(subMonitor.split(95), ms.size());
 
