@@ -45,6 +45,9 @@ public class ICClass extends DeclarationMetricClass {
 
 	public static double icMethod(Set<String> method, Map<String, Set<String>> methods, BiFunction<Set<String>, Set<String>, Double> weight) {
 		
+		if(method.size() == 0)
+			return 0;
+		
 		double mm = Jaccard.similarity(method, methods.values());
 
 		if (mm == 0) {
