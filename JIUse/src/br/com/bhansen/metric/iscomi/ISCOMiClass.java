@@ -51,6 +51,9 @@ public class ISCOMiClass extends DeclarationMetricClass {
 		Set<String> intersection = new HashSet<>(i);
 		intersection.retainAll(j);
 		
+		if(i.size() + j.size() == 0)
+			return 0;
+		
 		return (2 * intersection.size()) / (i.size() + j.size());
 	}
 	
