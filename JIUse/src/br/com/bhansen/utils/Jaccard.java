@@ -39,8 +39,8 @@ public class Jaccard {
 	
 	public static double similarity(Set<String> s1, Collection<Set<String>> s2s, BiFunction<Set<String>, Set<String>, Double> weight) {
 		double similarity = 0;
-		
-		if(s2s.size() == 0) {
+				
+		if((s1.size() == 0) || (s2s.size() == 0)) {
 			return 0;
 		}
 		

@@ -37,24 +37,67 @@ public class ICClass extends DeclarationMetricClass {
 		for (Entry<String, Set<String>> method : methods.entrySet()) {
 			Map<String, Set<String>> mtdsCopy = new HashMap<>(methods);
 			mtdsCopy.remove(method.getKey());
+			
 			r = r + icMethod(method.getValue(), mtdsCopy, weight);
 		}
 
 		return r / methods.size();
 	}
-
+	
 	public static double icMethod(Set<String> method, Map<String, Set<String>> methods, BiFunction<Set<String>, Set<String>, Double> weight) {
+		double mm = mm(method, methods, weight);
+		
+		if(mm == 0) {
+			return 0;
+		}
+		
+		double pp = pp(method, methods, weight);
+		
+		return ((mm + pp) / 2);
+	}
+	
+	public static double mm(Map<String, Set<String>> methods, BiFunction<Set<String>, Set<String>, Double> weight) {
+		double r = 0;
+		
+		if (methods.size() < 2)
+			return 0;
+
+		for (Entry<String, Set<String>> method : methods.entrySet()) {
+			Map<String, Set<String>> mtdsCopy = new HashMap<>(methods);
+			mtdsCopy.remove(method.getKey());
+			
+			r = r + mm(method.getValue(), mtdsCopy, weight);
+		}
+
+		return r / methods.size();
+	}
+	
+	public static double mm(Set<String> method, Map<String, Set<String>> methods, BiFunction<Set<String>, Set<String>, Double> weight) {
+		return Jaccard.similarity(method, methods.values(), weight);
+	}
+	
+	public static double pp(Map<String, Set<String>> methods, BiFunction<Set<String>, Set<String>, Double> weight) {
+		double r = 0;
+		
+		if (methods.size() < 2)
+			return 0;
+
+		for (Entry<String, Set<String>> method : methods.entrySet()) {
+			Map<String, Set<String>> mtdsCopy = new HashMap<>(methods);
+			mtdsCopy.remove(method.getKey());
+			
+			r = r + pp(method.getValue(), mtdsCopy, weight);
+		}
+
+		return r / methods.size();
+	}
+
+	public static double pp(Set<String> method, Map<String, Set<String>> methods, BiFunction<Set<String>, Set<String>, Double> weight) {
 		
 		if(method.size() == 0)
 			return 0;
 		
-		double mm = Jaccard.similarity(method, methods.values());
-
-		if (mm == 0) {
-			return 0;
-		}
-		
-		double mp = 0;		
+		double pp = 0;		
 		
 		Map<String, Set<String>> mP = AbsMetric.invert(methods);
 		
@@ -63,14 +106,12 @@ public class ICClass extends DeclarationMetricClass {
 			Set<String> p = mPC.remove(k);
 
 			if (p != null) {
-				mp += Jaccard.similarity(p, mPC.values(), weight);
+				pp += Jaccard.similarity(p, mPC.values(), weight);
 			}
 
 		}
 		
-		mp = mp / method.size();
-		
-		return (mm + mp) / 2;
+		return pp / method.size();
 	}
 
 }

@@ -9,7 +9,7 @@ import br.com.bhansen.metric.nhd.NHDClass;
 
 public class NHDMClass extends NHDClass {
 	
-	protected static final BiPredicate<Boolean, Boolean> NHDM = new BiPredicate<Boolean, Boolean>() {
+	public static final BiPredicate<Boolean, Boolean> NHDM = new BiPredicate<Boolean, Boolean>() {
 		
 		@Override
 		public boolean test(Boolean v1, Boolean v2) {

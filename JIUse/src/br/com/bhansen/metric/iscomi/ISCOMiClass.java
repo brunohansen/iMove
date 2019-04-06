@@ -22,7 +22,7 @@ public class ISCOMiClass extends DeclarationMetricClass {
 		return iscomClass(getMethods(), getValues().size());
 	}
 	
-	public static double iscomClass(Map<String, Set<String>> methods, double weight) {
+	public static double iscomClass(Map<String, Set<String>> methods, double numValues) {
 		double r = 0;
 		
 		if (methods.size() < 2)
@@ -31,7 +31,7 @@ public class ISCOMiClass extends DeclarationMetricClass {
 		for (Entry<String, Set<String>> method : methods.entrySet()) {
 			Map<String, Set<String>> mtdsCopy = new HashMap<>(methods);
 			mtdsCopy.remove(method.getKey());
-			r = r + iscomMethod(method.getValue(), mtdsCopy, weight);
+			r = r + iscomMethod(method.getValue(), mtdsCopy, numValues);
 		}
 
 		return r / methods.size();

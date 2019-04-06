@@ -15,7 +15,7 @@ import br.com.bhansen.utils.OccMtrx;
 
 public class NHDClass extends DeclarationMetricClass {
 	
-	protected static final BiPredicate<Boolean, Boolean> NHD = new BiPredicate<Boolean, Boolean>() {
+	public static final BiPredicate<Boolean, Boolean> NHD = new BiPredicate<Boolean, Boolean>() {
 		
 		@Override
 		public boolean test(Boolean v1, Boolean v2) {
@@ -36,7 +36,7 @@ public class NHDClass extends DeclarationMetricClass {
 		return NHD;
 	}
 	
-	protected static double nhdClass(Map<String, Set<String>> methods, Set<String> values, BiPredicate<Boolean, Boolean> predicate) {
+	public static double nhdClass(Map<String, Set<String>> methods, Set<String> values, BiPredicate<Boolean, Boolean> predicate) {
 		return nhdClass(OccMtrx.createOccMtrx(methods, values), predicate);
 	}
 	

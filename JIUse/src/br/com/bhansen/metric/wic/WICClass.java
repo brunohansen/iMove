@@ -20,7 +20,7 @@ public class WICClass extends ICClass {
 		return createWeight(getValues().size());
 	}
 	
-	protected static BiFunction<Set<String>, Set<String>, Double> createWeight(double values) {
+	public static BiFunction<Set<String>, Set<String>, Double> createWeight(double values) {
 		return new BiFunction<Set<String>, Set<String>, Double>() {
 			
 			@Override
