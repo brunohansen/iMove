@@ -1,8 +1,6 @@
 package br.com.bhansen.metric.cci;
 
-import java.util.Arrays;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
@@ -37,17 +35,6 @@ public class CCiClass extends DeclarationMetricClass {
 		}
 
 		return r / mtds.size();
-	}
-
-	public static void main(String[] args) {
-		Map<String, Set<String>> mtds = new HashMap<>();
-
-		mtds.put("m1", new HashSet<>(Arrays.asList("p1")));
-		mtds.put("m2", new HashSet<>(Arrays.asList("p1")));
-		mtds.put("m3", new HashSet<>(Arrays.asList("p1")));
-		mtds.put("m4", new HashSet<>(Arrays.asList("p2", "p3", "p4")));
-
-		System.out.println(cci(mtds));
 	}
 
 }
