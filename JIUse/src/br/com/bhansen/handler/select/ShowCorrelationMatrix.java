@@ -19,7 +19,7 @@ public class ShowCorrelationMatrix extends SelectionHandler {
 				
 		MessageDialog.open("The " + metric + " correlation matrix will be generated for the openned class!\n\n\n The result dialog will open in a while!");
 				
-		DependencyMatrix dm = ProgressDialog.open(window, monitor -> new DependencyMatrix(metric, selection, monitor));
+		DependencyMatrix dm = ProgressDialog.open(window, monitor -> new DependencyMatrix(context, selection, monitor));
 		
 		CorrelationMatrix.show(window, dm);
 		
