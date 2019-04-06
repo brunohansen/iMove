@@ -8,6 +8,7 @@ import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.SubMonitor;
 import org.eclipse.ui.IWorkbenchWindow;
 
+import br.com.bhansen.config.Config;
 import br.com.bhansen.dialog.DirectoryDialog;
 import br.com.bhansen.dialog.MessageDialog;
 import br.com.bhansen.dialog.ProgressDialog;
@@ -20,7 +21,7 @@ import br.com.bhansen.view.Console;
 public class BatchFolderMovement extends BatchFileMovement {
 
 	@Override
-	protected Object execute(IWorkbenchWindow window, ExecutionEvent event, String type, String metric) throws Exception {
+	protected Object execute(IWorkbenchWindow window, ExecutionEvent event, Config.Metric metric, Config.MetricContext context) throws Exception {
 
 		List<Path> paths = FileFinder.find(DirectoryDialog.open("Inform the batch folder", "Folder address"), "*.txt");
 		
@@ -39,7 +40,7 @@ public class BatchFolderMovement extends BatchFileMovement {
 					project = SyncDialog.open(() -> ProjectDialog.open());
 				}
 				
-				goldCheck(project, path, type, metric, subMonitor.split(1));
+				goldCheck(project, path, subMonitor.split(1));
 			});
 			
 			return null;
@@ -50,11 +51,11 @@ public class BatchFolderMovement extends BatchFileMovement {
 		return null;
 	}
 
-	public void goldCheck(Project project, Path sysFile, String type, String metric, IProgressMonitor monitor) {
+	public void goldCheck(Project project, Path sysFile, IProgressMonitor monitor) {
 		try {
 			SubMonitor subMonitor = SubMonitor.convert(monitor, 100);
 			
-			metricCheck(project, sysFile, type, metric, subMonitor.split(90));
+			metricCheck(project, sysFile, subMonitor.split(90));
 			
 			try {
 				Path goldFile = GoldChecker.getGoldPath(sysFile);

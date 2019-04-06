@@ -18,21 +18,21 @@ public class EvaluateSumMethod extends MoveMethodEvaluator  {
 	public EvaluateSumMethod(Type classFrom, String method, Type classTo, MetricFactory factory, IProgressMonitor monitor) throws Exception {
 		super(classFrom, method, classTo, factory);
 		
-		boolean skipIUC = false;
+		boolean skipUsage = false;
 		
 		if(Config.isMetricTight()) {
 			MethodWithCallers m = this.method.getMethodWithCallers();
 			
 			if(! m.hasCaller() || m.isPrivate() || m.isCalledOnlyBy(classTo) || m.isCalledOnlyBy(classFrom)) {
-				skipIUC = true;
+				skipUsage = true;
 			} else {
-				skipIUC = false;
+				skipUsage = false;
 			}
 		}
 		
 		SubMonitor subMonitor = SubMonitor.convert(monitor, 100);
 		
-		this.oldValue = factory.create(classFrom, method, skipIUC, subMonitor.split(30)).getMetric();
+		this.oldValue = factory.create(classFrom, method, skipUsage, subMonitor.split(30)).getMetric();
 		
 		this.move(subMonitor.split(70));
 	}
@@ -49,7 +49,7 @@ public class EvaluateSumMethod extends MoveMethodEvaluator  {
 			
 			this.valueDifference = (this.newValue - this.oldValue);
 			
-//			if(this.factory.skipIUC())
+//			if(this.factory.skipUsage())
 //				this.valueDifference += 0.1;
 			
 		} finally {
@@ -66,7 +66,7 @@ public class EvaluateSumMethod extends MoveMethodEvaluator  {
 		txt.append("\n");
 		txt.append(this.classFrom.getName()).append(" ").append(this.oldValue).append("\n");
 		txt.append(this.classTo.getName()).append(" ").append(this.newValue).append("\n");
-		txt.append("Skip MUC: ").append(this.factory.skipIUC()).append("\n");
+		txt.append("Skip Usage: ").append(this.factory.skipUsage()).append("\n");
 		txt.append("Value difference: ").append(this.valueDifference).append("\n\n");
 
 		return txt.toString();

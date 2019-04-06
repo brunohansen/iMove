@@ -13,12 +13,12 @@ import java.util.TreeSet;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.SubMonitor;
 
+import br.com.bhansen.config.Config;
 import br.com.bhansen.jdt.Method;
 import br.com.bhansen.jdt.ParameterHelper;
 import br.com.bhansen.jdt.Type;
 import br.com.bhansen.metric.Metric;
 import br.com.bhansen.metric.MetricFactory;
-import br.com.bhansen.refactory.EvaluatorFactory;
 
 public class DependencyMatrix {
 	
@@ -29,8 +29,8 @@ public class DependencyMatrix {
 
 	private boolean[][] matrix;
 
-	public DependencyMatrix(Type _type, String _metric, IProgressMonitor monitor) throws Exception {
-		MetricFactory factoryL = EvaluatorFactory.createMetricFactory("method", _metric);
+	public DependencyMatrix(Config.Metric _metric, Type _type, IProgressMonitor monitor) throws Exception {
+		MetricFactory factoryL = MetricFactory.createCompositeMethodMetricFactory(_metric);
 		Map<String, List<String>> methodsL = new TreeMap<String, List<String>>();
 		
 		Set<String> columnsL = new HashSet<>();

@@ -16,6 +16,7 @@ import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.core.runtime.SubMonitor;
 import org.eclipse.ui.IWorkbenchWindow;
 
+import br.com.bhansen.config.Config;
 import br.com.bhansen.dialog.FileDialog;
 import br.com.bhansen.dialog.MessageDialog;
 import br.com.bhansen.dialog.ProgressDialog;
@@ -32,7 +33,7 @@ public class BatchFileMovement extends IMoveHandler {
 	private Project project;
 
 	@Override
-	protected Object execute(IWorkbenchWindow window, ExecutionEvent event, String type, String metric) throws Exception {
+	protected Object execute(IWorkbenchWindow window, ExecutionEvent event, Config.Metric metric, Config.MetricContext context) throws Exception {
 
 		Path inFile = FileDialog.open("Inform the batch file");
 
@@ -44,7 +45,7 @@ public class BatchFileMovement extends IMoveHandler {
 			project = ProjectDialog.open();
 		}
 		
-		Collection<String> out = ProgressDialog.open(window, monitor -> metricCheck(project, inFile, type, metric, monitor));
+		Collection<String> out = ProgressDialog.open(window, monitor -> metricCheck(project, inFile, monitor));
 		
 		MoveMethod.show(window, project, out);
 		
@@ -59,7 +60,7 @@ public class BatchFileMovement extends IMoveHandler {
 		return null;
 	}
 
-	public Set<String> metricCheck(Project project, Path inFile, String type, String metric, IProgressMonitor monitor)
+	public Set<String> metricCheck(Project project, Path inFile, IProgressMonitor monitor)
 			throws IOException {
 		List<String> lines = Files.readAllLines(inFile);
 
@@ -74,7 +75,7 @@ public class BatchFileMovement extends IMoveHandler {
 			public void accept(String movement) {
 				SubMonitor loopMonitor = subMonitor.split(1);
 				try {
-					MoveMethodEvaluator evaluator = EvaluatorFactory.create(project, movement, type, metric, loopMonitor);
+					MoveMethodEvaluator evaluator = EvaluatorFactory.create(project, movement, loopMonitor);
 					String str = evaluator.toLineString();
 					outSet.add(str);
 					Console.println(str);

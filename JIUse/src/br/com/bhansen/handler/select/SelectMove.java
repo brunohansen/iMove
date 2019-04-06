@@ -3,6 +3,7 @@ package br.com.bhansen.handler.select;
 import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.ui.IWorkbenchWindow;
 
+import br.com.bhansen.config.Config;
 import br.com.bhansen.dialog.MessageDialog;
 import br.com.bhansen.dialog.ProgressDialog;
 import br.com.bhansen.jdt.Type;
@@ -23,7 +24,7 @@ public class SelectMove extends SelectionHandler {
 	}
 
 	@Override
-	protected Object execute(IWorkbenchWindow window, ExecutionEvent event, String type, String metric) throws Exception {
+	protected Object execute(IWorkbenchWindow window, ExecutionEvent event, Config.Metric metric, Config.MetricContext context) throws Exception {
 				
 		if(classFrom == null) {
 			
@@ -48,7 +49,7 @@ public class SelectMove extends SelectionHandler {
 				
 				MessageDialog.open("Class To Selected!", classTo.getName() + "\n\n\n The result dialog will open in a while!" );
 				
-				MoveMethodEvaluator evaluator = ProgressDialog.open(window, monitor -> EvaluatorFactory.create(classFrom, method, classTo, type, metric, monitor));
+				MoveMethodEvaluator evaluator = ProgressDialog.open(window, monitor -> EvaluatorFactory.create(classFrom, method, classTo, monitor));
 				
 				MoveMethod.show(window, classTo.getProject(), evaluator.toLineString());
 				

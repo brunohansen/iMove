@@ -5,6 +5,7 @@ import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.handlers.HandlerUtil;
 
+import br.com.bhansen.config.Config;
 import br.com.bhansen.dialog.ErrorDialog;
 import br.com.bhansen.view.Console;
 
@@ -17,8 +18,11 @@ public abstract class IMoveHandler extends AbstractHandler {
 			IWorkbenchWindow window = HandlerUtil.getActiveWorkbenchWindowChecked(event);
 			Console.create(window);
 			
+			Config.Metric metric = (event.getParameter("iMove.metric") != null)? Config.Metric.valueOf(event.getParameter("iMove.metric")) : null;
+			Config.MetricContext context = (event.getParameter("iMove.context") != null)? Config.MetricContext.valueOf(event.getParameter("iMove.context")) : null;
+			
 			try {
-				return execute(window, event, event.getParameter("iMove.type"), event.getParameter("iMove.metric"));
+				return execute(window, event, metric, context);
 				
 			} catch (Exception e) {
 				Console.printStackTrace(e);
@@ -35,7 +39,7 @@ public abstract class IMoveHandler extends AbstractHandler {
 		return null;
 	}
 
-	protected abstract Object execute(IWorkbenchWindow window, ExecutionEvent event, String type, String metric)
+	protected abstract Object execute(IWorkbenchWindow window, ExecutionEvent event, Config.Metric metric, Config.MetricContext context)
 			throws Exception;
 
 }

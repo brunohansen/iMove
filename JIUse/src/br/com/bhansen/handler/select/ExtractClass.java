@@ -4,6 +4,7 @@ import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.ui.IWorkbenchWindow;
 
+import br.com.bhansen.config.Config;
 import br.com.bhansen.dialog.InputDialog;
 import br.com.bhansen.dialog.MessageDialog;
 import br.com.bhansen.jdt.Method;
@@ -14,7 +15,7 @@ import br.com.bhansen.view.Console;
 public class ExtractClass extends SelectionHandler {
 
 	@Override
-	protected Object execute(IWorkbenchWindow window, ExecutionEvent event, String type, String metric)	throws Exception {
+	protected Object execute(IWorkbenchWindow window, ExecutionEvent event, Config.Metric metric, Config.MetricContext context)	throws Exception {
 		Type selection = getType();
 		
 		String method = new Method(getMethod()).getSignature();

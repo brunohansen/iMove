@@ -92,7 +92,7 @@ public class MethodWithCallers extends Method {
 
 	private IJavaSearchScope getScope() throws JavaModelException {
 
-		switch (Config.getMucScope()) {
+		switch (Config.getUsageScope()) {
 
 		case PROJECT:
 
