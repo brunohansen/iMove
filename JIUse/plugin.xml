@@ -11,29 +11,14 @@
             name="Select to Move"
             categoryId="iMove.commands.category"
             id="iMove.commands.selectMove">
-         <commandParameter
-               id="iMove.type"
-               name="type"
-               optional="false">
-         </commandParameter>
-         <commandParameter
-               id="iMove.metric"
-               name="metric"
-               optional="false">
-         </commandParameter>
       </command>
       <command
             categoryId="iMove.commands.category"
             id="iMove.commands.showCMatrix"
             name="Show Correlation Matrix">
-         <commandParameter
-               id="iMove.type"
-               name="type"
-               optional="false">
-         </commandParameter>
-         <commandParameter
-               id="iMove.metric"
-               name="metric"
+		<commandParameter
+               id="iMove.context"
+               name="context"
                optional="false">
          </commandParameter>
       </command>
@@ -42,8 +27,8 @@
             id="iMove.commands.showClassMetric"
             name="Show Class Metric">
          <commandParameter
-               id="iMove.type"
-               name="type"
+               id="iMove.context"
+               name="context"
                optional="false">
          </commandParameter>
          <commandParameter
@@ -57,8 +42,8 @@
             id="iMove.commands.showMethodMetric"
             name="Show Method Metric">
          <commandParameter
-               id="iMove.type"
-               name="type"
+               id="iMove.context"
+               name="context"
                optional="false">
          </commandParameter>
          <commandParameter
@@ -71,46 +56,16 @@
             categoryId="iMove.commands.category"
             id="iMove.commands.movement"
             name="Input Movement">
-         <commandParameter
-               id="iMove.type"
-               name="type"
-               optional="false">
-         </commandParameter>
-         <commandParameter
-               id="iMove.metric"
-               name="metric"
-               optional="false">
-         </commandParameter>
       </command>
       <command
             categoryId="iMove.commands.category"
             id="iMove.commands.batchFileMovement"
             name="Batch File Movement">
-         <commandParameter
-               id="iMove.type"
-               name="type"
-               optional="false">
-         </commandParameter>
-         <commandParameter
-               id="iMove.metric"
-               name="metric"
-               optional="false">
-         </commandParameter>
       </command>
       <command
             categoryId="iMove.commands.category"
             id="iMove.commands.batchFolderMovement"
             name="Batch Folder Movement">
-        <commandParameter
-               id="iMove.type"
-               name="type"
-               optional="false">
-         </commandParameter>
-         <commandParameter
-               id="iMove.metric"
-               name="metric"
-               optional="false">
-         </commandParameter>
       </command>
       <command
             categoryId="iMove.commands.category"
@@ -180,205 +135,409 @@
       </handler>
    </extension>
    <extension point="org.eclipse.ui.menus">
-      <menuContribution
-            locationURI="menu:org.eclipse.ui.main.menu?after=additions">
-         <menu
-               label="iMove"
-               mnemonic="M"
-               id="iMove.menus.jiuse">
-			<menu
-               label="Metrics"
-               mnemonic="M"
-               id="iMove.menus.metrics">
-			<menu
-               label="Class"
-               mnemonic="M"
-               id="iMove.menus.ClassMetric">
-	            <command
-	                  commandId="iMove.commands.showClassMetric"
-	                  id="iMove.menus.showIUCClass"
-	                  label="Show IUC"
-	                  mnemonic="S">
-	            <parameter
-                      name="iMove.type"
-                      value="class">
-                </parameter>
-                <parameter
-                      name="iMove.metric"
-                      value="IUC">
-                </parameter>
-	            </command>
-	            <command
-	                  commandId="iMove.commands.showClassMetric"
-	                  id="iMove.menus.showCAMCClass"
-	                  label="Show CAMC"
-	                  mnemonic="S">
-				<parameter
-                      name="iMove.type"
-                      value="class">
-                </parameter>
-                <parameter
-                      name="iMove.metric"
-                      value="CAMC">
-                </parameter>
-	            </command>
-             </menu>
-             <menu
-               label="Method"
-               mnemonic="M"
-               id="iMove.menus.MethodMetric">
-	            <command
-	                  commandId="iMove.commands.showMethodMetric"
-	                  id="iMove.menus.showIUCMethod"
-	                  label="Show MUC"
-	                  mnemonic="S">
-                <parameter
-                      name="iMove.metric"
-                      value="IUC">
-                </parameter>
-	            </command>
-	            <command
-	                  commandId="iMove.commands.showMethodMetric"
-	                  id="iMove.menus.showCAMCMethod"
-	                  label="Show MDC"
-	                  mnemonic="S">
-	            <parameter
-                      name="iMove.type"
-                      value="method">
-                </parameter>
-                <parameter
-                      name="iMove.metric"
-                      value="CAMC">
-                </parameter>
-	            </command>
-             </menu>
-             </menu>
-             <menu
-               label="Correlation Matrix"
-               mnemonic="M"
-               id="iMove.menus.CMatrix">
+      <menuContribution locationURI="menu:org.eclipse.ui.main.menu?after=additions">
+         <menu label="iMove">
+			<menu label="Class Metrics">
+				<menu label="Data">               		
+					<command
+					      commandId="iMove.commands.showClassMetric"
+					      label="Show CAMC">
+					    <parameter
+					          name="iMove.context"
+					          value="DATA">
+					    </parameter>
+					    <parameter
+					          name="iMove.metric"
+					          value="CAMC_IUC">
+					    </parameter>
+					</command>
+					<command
+					      commandId="iMove.commands.showClassMetric"
+					      label="Show CCi">
+					    <parameter
+					          name="iMove.context"
+					          value="DATA">
+					    </parameter>
+					    <parameter
+					          name="iMove.metric"
+					          value="CCi">
+					    </parameter>
+					</command>
+					<command
+					      commandId="iMove.commands.showClassMetric"
+					      label="Show IC">
+					    <parameter
+					          name="iMove.context"
+					          value="DATA">
+					    </parameter>
+					    <parameter
+					          name="iMove.metric"
+					          value="IC">
+					    </parameter>
+					</command>
+					<command
+					      commandId="iMove.commands.showClassMetric"
+					      label="Show ISCOMi">
+					    <parameter
+					          name="iMove.context"
+					          value="DATA">
+					    </parameter>
+					    <parameter
+					          name="iMove.metric"
+					          value="ISCOMi">
+					    </parameter>
+					</command>
+						<command
+					      commandId="iMove.commands.showClassMetric"
+					      label="Show NHD">
+					    <parameter
+					          name="iMove.context"
+					          value="DATA">
+					    </parameter>
+					    <parameter
+					          name="iMove.metric"
+					          value="NHD">
+					    </parameter>
+					</command>
+					<command
+					      commandId="iMove.commands.showClassMetric"
+					      label="Show NHDM">
+					    <parameter
+					          name="iMove.context"
+					          value="DATA">
+					    </parameter>
+					    <parameter
+					          name="iMove.metric"
+					          value="NHDM">
+					    </parameter>
+					</command>
+					<command
+					      commandId="iMove.commands.showClassMetric"
+					      label="Show WIC">
+					    <parameter
+					          name="iMove.context"
+					          value="DATA">
+					    </parameter>
+					    <parameter
+					          name="iMove.metric"
+					          value="WIC">
+					    </parameter>
+					</command>
+               	</menu>
+				<menu label="Usage">               		
+					<command
+					      commandId="iMove.commands.showClassMetric"
+					      label="Show IUC">
+					    <parameter
+					          name="iMove.context"
+					          value="USAGE">
+					    </parameter>
+					    <parameter
+					          name="iMove.metric"
+					          value="CAMC_IUC">
+					    </parameter>
+					</command>
+					<command
+					      commandId="iMove.commands.showClassMetric"
+					      label="Show CCi">
+					    <parameter
+					          name="iMove.context"
+					          value="USAGE">
+					    </parameter>
+					    <parameter
+					          name="iMove.metric"
+					          value="CCi">
+					    </parameter>
+					</command>
+					<command
+					      commandId="iMove.commands.showClassMetric"
+					      label="Show IC">
+					    <parameter
+					          name="iMove.context"
+					          value="USAGE">
+					    </parameter>
+					    <parameter
+					          name="iMove.metric"
+					          value="IC">
+					    </parameter>
+					</command>
+					<command
+					      commandId="iMove.commands.showClassMetric"
+					      label="Show ISCOMi">
+					    <parameter
+					          name="iMove.context"
+					          value="USAGE">
+					    </parameter>
+					    <parameter
+					          name="iMove.metric"
+					          value="ISCOMi">
+					    </parameter>
+					</command>
+						<command
+					      commandId="iMove.commands.showClassMetric"
+					      label="Show NHD">
+					    <parameter
+					          name="iMove.context"
+					          value="USAGE">
+					    </parameter>
+					    <parameter
+					          name="iMove.metric"
+					          value="NHD">
+					    </parameter>
+					</command>
+					<command
+					      commandId="iMove.commands.showClassMetric"
+					      label="Show NHDM">
+					    <parameter
+					          name="iMove.context"
+					          value="USAGE">
+					    </parameter>
+					    <parameter
+					          name="iMove.metric"
+					          value="NHDM">
+					    </parameter>
+					</command>
+					<command
+					      commandId="iMove.commands.showClassMetric"
+					      label="Show WIC">
+					    <parameter
+					          name="iMove.context"
+					          value="USAGE">
+					    </parameter>
+					    <parameter
+					          name="iMove.metric"
+					          value="WIC">
+					    </parameter>
+					</command>
+               	</menu>
+             </menu> 
+             <menu label="Method Metrics">
+				<menu label="Data">               		
+					<command
+					      commandId="iMove.commands.showMethodMetric"
+					      label="Show CAMC">
+					    <parameter
+					          name="iMove.context"
+					          value="DATA">
+					    </parameter>
+					    <parameter
+					          name="iMove.metric"
+					          value="CAMC_IUC">
+					    </parameter>
+					</command>
+					<command
+					      commandId="iMove.commands.showMethodMetric"
+					      label="Show CCi">
+					    <parameter
+					          name="iMove.context"
+					          value="DATA">
+					    </parameter>
+					    <parameter
+					          name="iMove.metric"
+					          value="CCi">
+					    </parameter>
+					</command>
+					<command
+					      commandId="iMove.commands.showMethodMetric"
+					      label="Show IC">
+					    <parameter
+					          name="iMove.context"
+					          value="DATA">
+					    </parameter>
+					    <parameter
+					          name="iMove.metric"
+					          value="IC">
+					    </parameter>
+					</command>
+					<command
+					      commandId="iMove.commands.showMethodMetric"
+					      label="Show ISCOMi">
+					    <parameter
+					          name="iMove.context"
+					          value="DATA">
+					    </parameter>
+					    <parameter
+					          name="iMove.metric"
+					          value="ISCOMi">
+					    </parameter>
+					</command>
+						<command
+					      commandId="iMove.commands.showMethodMetric"
+					      label="Show NHD">
+					    <parameter
+					          name="iMove.context"
+					          value="DATA">
+					    </parameter>
+					    <parameter
+					          name="iMove.metric"
+					          value="NHD">
+					    </parameter>
+					</command>
+					<command
+					      commandId="iMove.commands.showMethodMetric"
+					      label="Show NHDM">
+					    <parameter
+					          name="iMove.context"
+					          value="DATA">
+					    </parameter>
+					    <parameter
+					          name="iMove.metric"
+					          value="NHDM">
+					    </parameter>
+					</command>
+					<command
+					      commandId="iMove.commands.showMethodMetric"
+					      label="Show WIC">
+					    <parameter
+					          name="iMove.context"
+					          value="DATA">
+					    </parameter>
+					    <parameter
+					          name="iMove.metric"
+					          value="WIC">
+					    </parameter>
+					</command>
+               	</menu>
+				<menu label="Usage">               		
+					<command
+					      commandId="iMove.commands.showMethodMetric"
+					      label="Show IUC">
+					    <parameter
+					          name="iMove.context"
+					          value="USAGE">
+					    </parameter>
+					    <parameter
+					          name="iMove.metric"
+					          value="CAMC_IUC">
+					    </parameter>
+					</command>
+					<command
+					      commandId="iMove.commands.showMethodMetric"
+					      label="Show CCi">
+					    <parameter
+					          name="iMove.context"
+					          value="USAGE">
+					    </parameter>
+					    <parameter
+					          name="iMove.metric"
+					          value="CCi">
+					    </parameter>
+					</command>
+					<command
+					      commandId="iMove.commands.showMethodMetric"
+					      label="Show IC">
+					    <parameter
+					          name="iMove.context"
+					          value="USAGE">
+					    </parameter>
+					    <parameter
+					          name="iMove.metric"
+					          value="IC">
+					    </parameter>
+					</command>
+					<command
+					      commandId="iMove.commands.showMethodMetric"
+					      label="Show ISCOMi">
+					    <parameter
+					          name="iMove.context"
+					          value="USAGE">
+					    </parameter>
+					    <parameter
+					          name="iMove.metric"
+					          value="ISCOMi">
+					    </parameter>
+					</command>
+						<command
+					      commandId="iMove.commands.showMethodMetric"
+					      label="Show NHD">
+					    <parameter
+					          name="iMove.context"
+					          value="USAGE">
+					    </parameter>
+					    <parameter
+					          name="iMove.metric"
+					          value="NHD">
+					    </parameter>
+					</command>
+					<command
+					      commandId="iMove.commands.showMethodMetric"
+					      label="Show NHDM">
+					    <parameter
+					          name="iMove.context"
+					          value="USAGE">
+					    </parameter>
+					    <parameter
+					          name="iMove.metric"
+					          value="NHDM">
+					    </parameter>
+					</command>
+					<command
+					      commandId="iMove.commands.showMethodMetric"
+					      label="Show WIC">
+					    <parameter
+					          name="iMove.context"
+					          value="USAGE">
+					    </parameter>
+					    <parameter
+					          name="iMove.metric"
+					          value="WIC">
+					    </parameter>
+					</command>
+               	</menu>
+             </menu> 
+             <menu label="Correlation Matrix">
 	            <command
 	                  commandId="iMove.commands.showCMatrix"
-	                  id="iMove.menus.showUCM"
-	                  label="Show UCM"
-	                  mnemonic="S">
-                <parameter
-                      name="iMove.metric"
-                      value="IUC">
-                </parameter>
+	                  label="Show UCM">
+		            <parameter
+	                      name="iMove.context"
+	                      value="USAGE">
+	                </parameter>
 	            </command>
 	            <command
 	                  commandId="iMove.commands.showCMatrix"
-	                  id="iMove.menus.showDCM"
-	                  label="Show DCM"
-	                  mnemonic="S">
-	            <parameter
-                      name="iMove.type"
-                      value="method">
-                </parameter>
-                <parameter
-                      name="iMove.metric"
-                      value="CAMC">
-                </parameter>
+	                  label="Show DCM">
+		            <parameter
+	                      name="iMove.context"
+	                      value="DATA">
+	                </parameter>
 	            </command>
              </menu>
-             <menu
-               label="Move Method"
-               mnemonic="M"
-               id="iMove.menus.movemethod">
+             <menu label="Move Method">
 	            <command
 	                  commandId="iMove.commands.selectMove"
-	                  id="iMove.menus.selectMove"
-	                  label="Select to Move"
-	                  mnemonic="S">
-	            <parameter
-                      name="iMove.type"
-                      value="method">
-                </parameter>
-                <parameter
-                      name="iMove.metric"
-                      value="IUC + CAMC">
-                </parameter>
+	                  label="Select to Move">
 	            </command>
 	            <command
 	                  commandId="iMove.commands.movement"
-	                  id="iMove.menus.movement"
-	                  label="Input Movement"
-	                  mnemonic="S">
-	            <parameter
-                      name="iMove.type"
-                      value="method">
-                </parameter>
-                <parameter
-                      name="iMove.metric"
-                      value="IUC + CAMC">
-                </parameter>
+	                  label="Input Movement">
 	            </command>
 	            <command
 	                  commandId="iMove.commands.batchFileMovement"
-	                  id="iMove.menus.batchFileMovement"
-	                  label="Movements Batch File"
-	                  mnemonic="S">
-	            <parameter
-                      name="iMove.type"
-                      value="method">
-                </parameter>
-                <parameter
-                      name="iMove.metric"
-                      value="IUC + CAMC"> 
-                </parameter>
+	                  label="Movements Batch File">
 	            </command>
 	           	<command
 	                  commandId="iMove.commands.batchFolderMovement"
-	                  id="iMove.menus.batchFolderMovement"
-	                  label="Movements Batch Folder"
-	                  mnemonic="S">
-	            <parameter
-                      name="iMove.type"
-                      value="method">
-                </parameter>
-                <parameter
-                      name="iMove.metric"
-                      value="IUC + CAMC">
-                </parameter>
+	                  label="Movements Batch Folder">
 	            </command>
              </menu>
-   <!--          <menu
-               label="Refactor"
-               mnemonic="M"
-               id="iMove.menus.refactor">
+   <!--          <menu label="Refactor">
 	            <command
 	                  commandId="iMove.commands.extractClass"
-	                  id="iMove.menus.extractClass"
-	                  label="Extract Class"
-	                  mnemonic="S">
-	            <parameter
-                      name="iMove.type"
-                      value="method">
-                </parameter>
-                <parameter
-                      name="iMove.metric"
-                      value="IUC + CAMC">
-                </parameter>
+	                  label="Extract Class">
 	            </command>
 	          </menu>  -->
 				<command
 	                  commandId="iMove.commands.goldCheck"
-	                  id="iMove.menus.goldCheck"
-	                  label="Gold Check"
-	                  mnemonic="S">
+	                  label="Gold Check">
 	            </command>
 	           	<command
 	                  commandId="iMove.commands.mergeFiles"
-	                  id="iMove.menus.mergeFiles"
-	                  label="Merge Results"
-	                  mnemonic="S">
+	                  label="Merge Results">
 	            </command>
 	            <command
 	                  commandId="iMove.commands.prefs"
-	                  id="iMove.menus.prefs"
-	                  label="Preferences"
-	                  mnemonic="S">
+	                  label="Preferences">
 	            </command>
          </menu>
       </menuContribution>
