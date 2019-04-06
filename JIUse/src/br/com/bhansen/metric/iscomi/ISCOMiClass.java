@@ -22,7 +22,7 @@ public class ISCOMiClass extends DeclarationMetricClass {
 		return iscomClass(getMethods(), getValues().size());
 	}
 	
-	public static double iscomClass(Map<String, Set<String>> methods, int weight) {
+	public static double iscomClass(Map<String, Set<String>> methods, double weight) {
 		double r = 0;
 		
 		if (methods.size() < 2)
@@ -37,7 +37,7 @@ public class ISCOMiClass extends DeclarationMetricClass {
 		return r / methods.size();
 	}
 
-	public static double iscomMethod(Set<String> mi, Map<String, Set<String>> methods, int a) {
+	public static double iscomMethod(Set<String> mi, Map<String, Set<String>> methods, double a) {
 		double r = 0;
 				
 		for (Entry<String, Set<String>> mj : methods.entrySet()) {
@@ -54,7 +54,7 @@ public class ISCOMiClass extends DeclarationMetricClass {
 		return (2 * intersection.size()) / (i.size() + j.size());
 	}
 	
-	public static double w(Set<String> i, Set<String> j, int a) {
+	public static double w(Set<String> i, Set<String> j, double a) {
 		Set<String> union = new HashSet<>(i);
 		union.addAll(j);
 		

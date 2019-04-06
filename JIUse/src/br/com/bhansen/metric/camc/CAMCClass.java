@@ -19,7 +19,7 @@ public class CAMCClass extends DeclarationMetricClass {
 		return getMetric(getMethods(), getValues().size());
 	}
 	
-	public static double getMetric(Map<String, Set<String>> methods, int numValues) {
+	public static double getMetric(Map<String, Set<String>> methods, double numValues) {
 		double camc = 0;
 		double numMethods = methods.size();
 		
