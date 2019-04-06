@@ -15,7 +15,7 @@ import org.eclipse.swt.widgets.Text;
 import org.eclipse.ui.PlatformUI;
 
 import br.com.bhansen.config.Config;
-import br.com.bhansen.config.Config.MUCScope;
+import br.com.bhansen.config.Config.UsageScope;
 import br.com.bhansen.config.Config.Metric;
 import br.com.bhansen.config.Config.MetricType;
 
@@ -29,7 +29,7 @@ public class ConfigDialog extends TitleAreaDialog {
     private Text mucWeight;
     private Text mdcWeight;
     
-    private Combo mucScope;
+    private Combo usageScope;
     
     public static void openDlg() {
     	new ConfigDialog(PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell()).open();
@@ -59,11 +59,12 @@ public class ConfigDialog extends TitleAreaDialog {
         container.setLayout(new GridLayout(1, false));
         
         Group group1 = new Group(container, SWT.SHADOW_ETCHED_IN);
-        group1.setText("Metric Configuration");
+        group1.setText("Common Configuration");
         group1.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true));
         group1.setLayout(new GridLayout(2, false));
 
         metricType = createComboField(group1, "Type", MetricType.values(), Config.getMetricType().ordinal());
+        usageScope = createComboField(group1, "Usage Scope", UsageScope.values(), Config.getUsageScope().ordinal());
         
         Group group2 = new Group(container, SWT.SHADOW_ETCHED_IN);
         group2.setText("Move Method Configuration");
@@ -74,8 +75,6 @@ public class ConfigDialog extends TitleAreaDialog {
         threshold = createTextField(group2, "Threshold", Config.getThreshold().toString());
         mucWeight = createTextField(group2, "MUC Weight", Config.getMucWeight().toString());
         mdcWeight = createTextField(group2, "MDC Weight", Config.getMdcWeight().toString());
-        
-        mucScope = createComboField(group2, "MUC Scope", MUCScope.values(), Config.getMucScope().ordinal());
         
         return area;
     }
@@ -126,7 +125,7 @@ public class ConfigDialog extends TitleAreaDialog {
     // as soon as the Dialog closes
     private void saveInput() {
     	try {
-    		Config.set(Double.parseDouble(threshold.getText()), Double.parseDouble(mucWeight.getText()), Double.parseDouble(mdcWeight.getText()), MUCScope.values()[mucScope.getSelectionIndex()], MetricType.values()[metricType.getSelectionIndex()], Metric.values()[metric.getSelectionIndex()]);
+    		Config.set(Double.parseDouble(threshold.getText()), Double.parseDouble(mucWeight.getText()), Double.parseDouble(mdcWeight.getText()), UsageScope.values()[usageScope.getSelectionIndex()], MetricType.values()[metricType.getSelectionIndex()], Metric.values()[metric.getSelectionIndex()]);
 		} catch (Exception e) {
 			ErrorDialog.open(e);
 		}

@@ -19,8 +19,12 @@ public class Config {
 	public enum MetricType {
 		REGULAR, TIGHT;
 	}
+	
+	public enum MetricContext {
+		DATA, USAGE;
+	}
 
-	public enum MUCScope {
+	public enum UsageScope {
 		WORK_SPACE, PROJECT, SOURCE_CODE;
 		
 		public String toString() {
@@ -41,8 +45,8 @@ public class Config {
 	private static final String MDC_WEIGHT = "mdcWeight";
 	private static final double WEIGHT_DEF = 0.5;
 
-	private static final String MUC_SCOPE = "mucScope";
-	private static final MUCScope MUC_SCOPE_DEF = MUCScope.WORK_SPACE;
+	private static final String USAGE_SCOPE = "usageScope";
+	private static final UsageScope USAGE_SCOPE_DEF = UsageScope.WORK_SPACE;
 
 	private static IEclipsePreferences getPrefs() {
 		if (prefs == null) {
@@ -80,11 +84,11 @@ public class Config {
 		return getPrefs().getDouble(MDC_WEIGHT, WEIGHT_DEF);
 	}
 
-	public static MUCScope getMucScope() {
-		return MUCScope.valueOf(getPrefs().get(MUC_SCOPE, MUC_SCOPE_DEF.name()));
+	public static UsageScope getUsageScope() {
+		return UsageScope.valueOf(getPrefs().get(USAGE_SCOPE, USAGE_SCOPE_DEF.name()));
 	}
 
-	public static void set(double threshold, double mucWeight, double mdcWeight, MUCScope mucScope, MetricType metricType, Metric metric) throws BackingStoreException {
+	public static void set(double threshold, double mucWeight, double mdcWeight, UsageScope usageScope, MetricType metricType, Metric metric) throws BackingStoreException {
 		IEclipsePreferences prefs = getPrefs();
 
 		prefs.putDouble(THRESHOLD, threshold);
@@ -92,7 +96,7 @@ public class Config {
 		prefs.putDouble(MUC_WEIGHT, mucWeight);
 		prefs.putDouble(MDC_WEIGHT, mdcWeight);
 		
-		prefs.put(MUC_SCOPE, mucScope.name());
+		prefs.put(USAGE_SCOPE, usageScope.name());
 		
 		prefs.put(METRIC_TYPE, metricType.name());
 		
