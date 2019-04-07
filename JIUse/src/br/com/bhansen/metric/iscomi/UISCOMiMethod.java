@@ -1,5 +1,6 @@
 package br.com.bhansen.metric.iscomi;
 
+import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
@@ -17,7 +18,10 @@ public class UISCOMiMethod extends UsageMetricMethod {
 
 	@Override
 	public double getMetric(Set<String> method, Map<String, Set<String>> methods) {
-		return ISCOMiClass.iscomMethod(method, methods, getValues().size());
+		Set<String> valuesCopy = new HashSet<>(getValues());
+		valuesCopy.addAll(method);
+		
+		return ISCOMiClass.iscomMethod(method, methods, valuesCopy.size());
 	}
 
 }
