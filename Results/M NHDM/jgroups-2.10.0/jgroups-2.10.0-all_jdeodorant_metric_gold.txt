@@ -1,6 +1,6 @@
--0.001393-101	org.jgroups.stack.Protocol::down(NAKACK, Event):Object	org.jgroups.Event
--0.004342-111	org.jgroups.protocols.pbcast.GMS::makeView(Vector<Address>):View	org.jgroups.ViewId
--0.167143-111	org.jgroups.protocols.pbcast.Merger::sendMergeView(Collection<Address>, MergeData, MergeId):void	org.jgroups.protocols.pbcast.GMS
+-0.001093-101	org.jgroups.stack.Protocol::down(NAKACK, Event):Object	org.jgroups.Event
+-0.008423-111	org.jgroups.protocols.pbcast.GMS::makeView(Vector<Address>):View	org.jgroups.ViewId
+-0.168487-111	org.jgroups.protocols.pbcast.Merger::sendMergeView(Collection<Address>, MergeData, MergeId):void	org.jgroups.protocols.pbcast.GMS
 -1.000000-111	org.jgroups.blocks.GroupRequestTest.MyTransport::sendResponses():void	org.jgroups.blocks.GroupRequest
 -1.000000-111	org.jgroups.blocks.RpcDispatcherSerializationTest::testMarshaller():void	org.jgroups.blocks.RpcDispatcher
 -1.000000-111	org.jgroups.tests.DigestTest::testMutableCopy():void	org.jgroups.util.MutableDigest
@@ -19,11 +19,11 @@
 0.000000-011	org.jgroups.tests.RspListTest::testKeySet2():void	org.jgroups.util.RspList
 0.000000-011	org.jgroups.tests.UnicastLoopbackTest::testUnicastMsgsWithLoopback():void	org.jgroups.JChannel
 0.000000-011	org.jgroups.tests.perf.IPerf::sendResult(Object, Entry):void	org.jgroups.tests.perf.IPerf.Entry
-0.001560-000	org.jgroups.util.Queue::up(JChannel, Event):Object	org.jgroups.JChannel
+0.001550-000	org.jgroups.util.Queue::up(JChannel, Event):Object	org.jgroups.JChannel
 0.011867-011	org.jgroups.tests.UnicastTest::getReceiver():Address	org.jgroups.JChannel
 0.011867-011	org.jgroups.tests.UnicastTestRpc::getReceiver():Address	org.jgroups.JChannel
 0.011867-011	org.jgroups.tests.UnicastTestSimple::getReceiver():Address	org.jgroups.JChannel
-0.014444-011	org.jgroups.blocks.MuxRpcDispatcherTest::verifyResponse(Map<Address, Rsp>, Channel, Object):void	org.jgroups.Channel
+0.013542-011	org.jgroups.blocks.MuxRpcDispatcherTest::verifyResponse(Map<Address, Rsp>, Channel, Object):void	org.jgroups.Channel
 0.053251-011	org.jgroups.protocols.pbcast.GMS::determineCoordinator():Address	org.jgroups.Membership
 0.092157-011	org.jgroups.protocols.pbcast.GMS::wouldBeNewCoordinator(Address):boolean	org.jgroups.Membership
 0.499666-001	org.jgroups.JChannel::findParentNode(ReplicatedTree, String, StringHolder, boolean):Node	org.jgroups.blocks.ReplicatedTree.StringHolder

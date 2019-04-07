@@ -4,12 +4,12 @@
 0.000000-000	com.ibm.as400.access.SpooledFile::applyChanges2(OutputPropertiesPane):void	com.ibm.as400.vaccess.OutputPropertiesPane
 0.000000-000	com.ibm.as400.util.html.HTMLVector::readObject(HTMLTree, ObjectInputStream):void	com.ibm.as400.util.html.HTMLTree
 0.000000-000	com.ibm.as400.vaccess.SQLMetaDataTablePane::readObject(SQLQueryFieldsPane, ObjectInputStream):void	com.ibm.as400.vaccess.SQLQueryFieldsPane
-0.002024-000	com.ibm.as400.vaccess.SQLResultSetTableModel::readObject2(SQLResultSetTablePane, ObjectInputStream):void	com.ibm.as400.vaccess.SQLResultSetTablePane
+0.001880-000	com.ibm.as400.vaccess.SQLResultSetTableModel::readObject2(SQLResultSetTablePane, ObjectInputStream):void	com.ibm.as400.vaccess.SQLResultSetTablePane
 0.003460-000	com.ibm.as400.access.SystemValueList::removeWorkingListener(VSystemValueList, WorkingListener):void	com.ibm.as400.vaccess.VSystemValueList
 0.006944-000	com.ibm.as400.access.SystemPool::removeErrorListener(VSystemPool, ErrorListener):void	com.ibm.as400.vaccess.VSystemPool
 0.020902-000	com.ibm.as400.access.AS400ZonedDecimal::addToHashtable(PcmlDocument, PcmlDocNode):void	com.ibm.as400.data.PcmlDocument
+0.125000-000	com.ibm.as400.vaccess.SQLMetaDataTableModel::readObject2(SQLMetaDataTablePane, ObjectInputStream):void	com.ibm.as400.vaccess.SQLMetaDataTablePane
 0.250000-000	com.ibm.as400.access.AS400JDBCDataSource::applyChanges(AS400JDBCDataSourcePane):boolean	com.ibm.as400.vaccess.AS400JDBCDataSourcePane
-0.250000-000	com.ibm.as400.vaccess.SQLMetaDataTableModel::readObject2(SQLMetaDataTablePane, ObjectInputStream):void	com.ibm.as400.vaccess.SQLMetaDataTablePane
 0.400000-000	com.ibm.as400.access.DataQueueEvent::cleared(DataQueueEventSupport):void	com.ibm.as400.vaccess.DataQueueEventSupport
 0.818182-000	com.ibm.as400.access.SequentialFile::getFileName(RecordListData):String	com.ibm.as400.vaccess.RecordListData
 1.000000-000	com.ibm.as400.access.ActionCompletedEvent::actionCompleted(ActionCompletedEventSupport):void	com.ibm.as400.vaccess.ActionCompletedEventSupport

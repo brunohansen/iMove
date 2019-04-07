@@ -1,5 +1,5 @@
--0.004342-111	org.jgroups.protocols.pbcast.GMS::makeView(Vector<Address>):View	org.jgroups.ViewId
--0.166977-111	org.jgroups.protocols.pbcast.Merger::sendMergeView(Collection<Address>, MergeData, MergeId):void	org.jgroups.protocols.pbcast.GMS
+-0.008423-111	org.jgroups.protocols.pbcast.GMS::makeView(Vector<Address>):View	org.jgroups.ViewId
+-0.168341-111	org.jgroups.protocols.pbcast.Merger::sendMergeView(Collection<Address>, MergeData, MergeId):void	org.jgroups.protocols.pbcast.GMS
 -0.985714-111	org.jgroups.tests.DigestTest::testMutableCopy():void	org.jgroups.util.MutableDigest
 -0.985714-111	org.jgroups.tests.DigestTest::testResetAt():void	org.jgroups.util.MutableDigest
 -1.000000-111	org.jgroups.blocks.GroupRequestTest.MyTransport::sendResponses():void	org.jgroups.blocks.GroupRequest
@@ -17,8 +17,8 @@
 0.000000-011	org.jgroups.tests.RspListTest::testKeySet2():void	org.jgroups.util.RspList
 0.000000-011	org.jgroups.tests.UnicastLoopbackTest::testUnicastMsgsWithLoopback():void	org.jgroups.JChannel
 0.000000-011	org.jgroups.tests.perf.IPerf::sendResult(Object, Entry):void	org.jgroups.tests.perf.IPerf.Entry
+0.013542-011	org.jgroups.blocks.MuxRpcDispatcherTest::verifyResponse(Map<Address, Rsp>, Channel, Object):void	org.jgroups.Channel
 0.014009-011	org.jgroups.tests.MessageDispatcherUnitTest::sendMessage(int):void	org.jgroups.blocks.MessageDispatcher
-0.014444-011	org.jgroups.blocks.MuxRpcDispatcherTest::verifyResponse(Map<Address, Rsp>, Channel, Object):void	org.jgroups.Channel
 0.014606-011	org.jgroups.tests.UnicastTest::getReceiver():Address	org.jgroups.JChannel
 0.014606-011	org.jgroups.tests.UnicastTestRpc::getReceiver():Address	org.jgroups.JChannel
 0.014606-011	org.jgroups.tests.UnicastTestSimple::getReceiver():Address	org.jgroups.JChannel

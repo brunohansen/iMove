@@ -1,17 +1,17 @@
--0.001587-100	+org.jfree.chart.block.RectangleConstraint::arrange2(Graphics2D, LegendGraphic):Size2D	org.jfree.chart.title.LegendGraphic
 -0.002053-100	+org.jfree.chart.plot.Plot::setPlot(Axis):void	org.jfree.chart.axis.Axis
--0.010763-100	+org.jfree.chart.title.Title::drawTitle(JFreeChart, Graphics2D, Rectangle2D, boolean):EntityCollection	org.jfree.chart.JFreeChart
--0.058333-100	+org.jfree.chart.renderer.xy.XYItemRendererState::drawPrimaryLine2(XYSmoothLineAndShapeRenderer, Graphics2D, XYPlot, XYDataset, int, int, int, ValueAxis, ValueAxis, Rectangle2D):void	org.jfree.experimental.chart.renderer.xy.XYSmoothLineAndShapeRenderer
--0.091425-100	+org.jfree.data.general.DatasetGroup::setDatasetGroup(Plot):void	org.jfree.chart.plot.Plot
--0.474026-100	+org.jfree.chart.event.TitleChangeEvent::notifyListeners(Title):void	org.jfree.chart.title.Title
+-0.007236-100	+org.jfree.chart.title.Title::drawTitle(JFreeChart, Graphics2D, Rectangle2D, boolean):EntityCollection	org.jfree.chart.JFreeChart
+-0.033092-100	+org.jfree.data.general.DatasetGroup::setDatasetGroup(Plot):void	org.jfree.chart.plot.Plot
+-0.475155-100	+org.jfree.chart.event.TitleChangeEvent::notifyListeners(Title):void	org.jfree.chart.title.Title
 0.000000-000	+org.jfree.chart.LegendItem::createLegendItemBlock(LegendTitle):Block	org.jfree.chart.title.LegendTitle
 0.000000-000	?+org.jfree.chart.JFreeChart::testReplaceDataset(StackedBarChartTests):void	org.jfree.chart.junit.StackedBarChartTests
 0.000484-000	+org.jfree.data.DefaultKeyedValues2D::removeRow(DefaultCategoryDataset, int):void	org.jfree.data.category.DefaultCategoryDataset
 0.003106-000	+org.jfree.chart.event.PlotChangeEvent::plotChanged(CombinedDomainXYPlot):void	org.jfree.chart.plot.CombinedDomainXYPlot
 0.004274-000	+org.jfree.data.RangeType::autoAdjustRange2(NumberAxis):void	org.jfree.chart.axis.NumberAxis
+0.007937-000	+org.jfree.chart.block.RectangleConstraint::arrange2(Graphics2D, LegendGraphic):Size2D	org.jfree.chart.title.LegendGraphic
 0.008879-000	+org.jfree.chart.LegendItemCollection::drawDomainMarkers(XYPlot, Graphics2D, Rectangle2D, int, Layer):void	org.jfree.chart.plot.XYPlot
 0.014742-000	+org.jfree.chart.plot.PlotState::draw2(Graphics2D, Rectangle2D, Point2D, DialPlot, PlotRenderingInfo):void	org.jfree.chart.plot.dial.DialPlot
 0.027972-000	+org.jfree.chart.axis.AxisLocation::draw2(PaintScaleLegend, Graphics2D, Rectangle2D, Object):Object	org.jfree.chart.title.PaintScaleLegend
+0.219444-000	+org.jfree.chart.renderer.xy.XYItemRendererState::drawPrimaryLine2(XYSmoothLineAndShapeRenderer, Graphics2D, XYPlot, XYDataset, int, int, int, ValueAxis, ValueAxis, Rectangle2D):void	org.jfree.experimental.chart.renderer.xy.XYSmoothLineAndShapeRenderer
 0.506270-000	+org.jfree.chart.axis.ValueAxis::setRangeGridlinesVisible(FastScatterPlot, boolean):void	org.jfree.chart.plot.FastScatterPlot
 0.508583-000	+org.jfree.chart.PaintMap::setIgnoreNullValues(PiePlot, boolean):void	org.jfree.chart.plot.PiePlot
 1.000000-000	+org.jfree.chart.ChartPanel::setFollowDataInSubranges(JThermometer, boolean):void	org.jfree.chart.plot.JThermometer
