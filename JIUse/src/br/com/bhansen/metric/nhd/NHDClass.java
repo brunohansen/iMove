@@ -2,6 +2,7 @@ package br.com.bhansen.metric.nhd;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -55,7 +56,10 @@ public class NHDClass extends DeclarationMetricClass {
 	}
 	
 	protected static double nhdMethod(Set<String> method, Map<String, Set<String>> methods, Set<String> values, BiPredicate<Boolean, Boolean> predicate) {
-		return nhdMethod(OccMtrx.createOccArray(method, values), OccMtrx.createOccMtrx(methods, values), predicate);
+		Set<String> valuesCopy = new HashSet<>(values);
+		valuesCopy.addAll(method);
+		
+		return nhdMethod(OccMtrx.createOccArray(method, valuesCopy), OccMtrx.createOccMtrx(methods, valuesCopy), predicate);
 	}
 	
 	protected static double nhdMethod(boolean[] method, boolean[][] poMtrx, BiPredicate<Boolean, Boolean> predicate) {
