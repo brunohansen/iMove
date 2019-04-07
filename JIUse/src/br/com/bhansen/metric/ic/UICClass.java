@@ -1,13 +1,11 @@
 package br.com.bhansen.metric.ic;
 
-import java.util.Set;
-import java.util.function.BiFunction;
-
 import org.eclipse.core.runtime.IProgressMonitor;
 
 import br.com.bhansen.jdt.Type;
 import br.com.bhansen.metric.UsageMetricClass;
-import br.com.bhansen.utils.Jaccard;
+import br.com.bhansen.metric.ic.ICClass.MMWeight;
+import br.com.bhansen.metric.ic.ICClass.PPWeight;
 
 public class UICClass extends UsageMetricClass {
 
@@ -17,11 +15,15 @@ public class UICClass extends UsageMetricClass {
 
 	@Override
 	final public double getMetric() throws Exception {
-		return ICClass.icClass(getMethods(), createWeight());
+		return ICClass.icClass(getMethods(), createMMWeight(), createPPWeight());
 	}
 	
-	protected BiFunction<Set<String>, Set<String>, Double> createWeight() {
-		return Jaccard.NO_WEIGHT;
+	protected MMWeight createMMWeight() {
+		return new MMWeight(){};
+	}
+	
+	protected PPWeight createPPWeight() {
+		return new PPWeight(){};
 	}
 
 }

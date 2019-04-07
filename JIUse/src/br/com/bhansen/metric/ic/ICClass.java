@@ -15,20 +15,42 @@ import br.com.bhansen.utils.Jaccard;
 
 public class ICClass extends DeclarationMetricClass {
 	
+	public interface MMWeight extends BiFunction<Set<String>, Set<String>, Double> {
+		
+		@Override
+		default Double apply(Set<String> t, Set<String> u) {
+			return 1.0;
+		}
+		
+	}
+	
+	public interface PPWeight extends BiFunction<Set<String>, Set<String>, Double> {
+		
+		@Override
+		default Double apply(Set<String> t, Set<String> u) {
+			return 1.0;
+		}
+		
+	}
+	
 	public ICClass(Type type, IProgressMonitor monitor) throws Exception {
 		super(type, monitor);
 	}
 	
 	@Override
 	final public double getMetric() throws Exception {
-		return icClass(getMethods(), createWeight());
+		return icClass(getMethods(), createMMWeight(), createPPWeight());
 	}
 	
-	protected BiFunction<Set<String>, Set<String>, Double> createWeight() {
-		return Jaccard.NO_WEIGHT;
+	protected MMWeight createMMWeight() {
+		return new MMWeight(){};
 	}
 	
-	public static double icClass(Map<String, Set<String>> methods, BiFunction<Set<String>, Set<String>, Double> weight) {
+	protected PPWeight createPPWeight() {
+		return new PPWeight(){};
+	}
+	
+	public static double icClass(Map<String, Set<String>> methods, MMWeight mmWeight, PPWeight ppWeight) {
 		double r = 0;
 		
 		if (methods.size() < 2)
@@ -38,25 +60,25 @@ public class ICClass extends DeclarationMetricClass {
 			Map<String, Set<String>> mtdsCopy = new HashMap<>(methods);
 			mtdsCopy.remove(method.getKey());
 			
-			r = r + icMethod(method.getValue(), mtdsCopy, weight);
+			r = r + icMethod(method.getValue(), mtdsCopy, mmWeight, ppWeight);
 		}
 
 		return r / methods.size();
 	}
 	
-	public static double icMethod(Set<String> method, Map<String, Set<String>> methods, BiFunction<Set<String>, Set<String>, Double> weight) {
-		double mm = mm(method, methods, weight);
+	public static double icMethod(Set<String> method, Map<String, Set<String>> methods, MMWeight mmWeight, PPWeight ppWeight) {
+		double mm = mm(method, methods, mmWeight);
 		
 		if(mm == 0) {
 			return 0;
 		}
 		
-		double pp = pp(method, methods, weight);
+		double pp = pp(method, methods, ppWeight);
 		
 		return ((mm + pp) / 2);
 	}
 	
-	public static double mm(Map<String, Set<String>> methods, BiFunction<Set<String>, Set<String>, Double> weight) {
+	public static double mm(Map<String, Set<String>> methods, MMWeight mmWeight) {
 		double r = 0;
 		
 		if (methods.size() < 2)
@@ -66,17 +88,17 @@ public class ICClass extends DeclarationMetricClass {
 			Map<String, Set<String>> mtdsCopy = new HashMap<>(methods);
 			mtdsCopy.remove(method.getKey());
 			
-			r = r + mm(method.getValue(), mtdsCopy, weight);
+			r = r + mm(method.getValue(), mtdsCopy, mmWeight);
 		}
 
 		return r / methods.size();
 	}
 	
-	public static double mm(Set<String> method, Map<String, Set<String>> methods, BiFunction<Set<String>, Set<String>, Double> weight) {
-		return Jaccard.similarity(method, methods.values(), weight);
+	public static double mm(Set<String> method, Map<String, Set<String>> methods, MMWeight mmWeight) {
+		return Jaccard.similarity(method, methods.values(), mmWeight);
 	}
 	
-	public static double pp(Map<String, Set<String>> methods, BiFunction<Set<String>, Set<String>, Double> weight) {
+	public static double pp(Map<String, Set<String>> methods, PPWeight ppWeight) {
 		double r = 0;
 		
 		if (methods.size() < 2)
@@ -86,13 +108,13 @@ public class ICClass extends DeclarationMetricClass {
 			Map<String, Set<String>> mtdsCopy = new HashMap<>(methods);
 			mtdsCopy.remove(method.getKey());
 			
-			r = r + pp(method.getValue(), mtdsCopy, weight);
+			r = r + pp(method.getValue(), mtdsCopy, ppWeight);
 		}
 
 		return r / methods.size();
 	}
 
-	public static double pp(Set<String> method, Map<String, Set<String>> methods, BiFunction<Set<String>, Set<String>, Double> weight) {
+	public static double pp(Set<String> method, Map<String, Set<String>> methods, PPWeight ppWeight) {
 		
 		if(method.size() == 0)
 			return 0;
@@ -106,7 +128,7 @@ public class ICClass extends DeclarationMetricClass {
 			Set<String> p = mPC.remove(k);
 
 			if (p != null) {
-				pp += Jaccard.similarity(p, mPC.values(), weight);
+				pp += Jaccard.similarity(p, mPC.values(), ppWeight);
 			}
 
 		}

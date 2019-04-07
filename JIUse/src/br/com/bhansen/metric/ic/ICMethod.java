@@ -2,13 +2,13 @@ package br.com.bhansen.metric.ic;
 
 import java.util.Map;
 import java.util.Set;
-import java.util.function.BiFunction;
 
 import org.eclipse.core.runtime.IProgressMonitor;
 
 import br.com.bhansen.jdt.Type;
 import br.com.bhansen.metric.DeclarationMetricMethod;
-import br.com.bhansen.utils.Jaccard;
+import br.com.bhansen.metric.ic.ICClass.MMWeight;
+import br.com.bhansen.metric.ic.ICClass.PPWeight;
 
 public class ICMethod extends DeclarationMetricMethod {
 
@@ -18,11 +18,15 @@ public class ICMethod extends DeclarationMetricMethod {
 
 	@Override
 	final public double getMetric(Set<String> method, Map<String, Set<String>> methods) {
-		return ICClass.icMethod(getMethod(), getMethods(), createWeight());
+		return ICClass.icMethod(getMethod(), getMethods(), createMMWeight(), createPPWeight());
 	}
 
-	protected BiFunction<Set<String>, Set<String>, Double> createWeight() {
-		return Jaccard.NO_WEIGHT;
+	protected MMWeight createMMWeight() {
+		return new MMWeight(){};
+	}
+	
+	protected PPWeight createPPWeight() {
+		return new PPWeight(){};
 	}
 
 }

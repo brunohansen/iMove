@@ -9,11 +9,12 @@ import java.util.Set;
 import br.com.bhansen.metric.camc.CAMCClass;
 import br.com.bhansen.metric.cci.CCiClass;
 import br.com.bhansen.metric.ic.ICClass;
+import br.com.bhansen.metric.ic.ICClass.MMWeight;
+import br.com.bhansen.metric.ic.ICClass.PPWeight;
 import br.com.bhansen.metric.iscomi.ISCOMiClass;
 import br.com.bhansen.metric.nhd.NHDClass;
 import br.com.bhansen.metric.nhdm.NHDMClass;
 import br.com.bhansen.metric.wic.WICClass;
-import br.com.bhansen.utils.Jaccard;
 
 public class MetricTest {
 
@@ -28,16 +29,13 @@ public class MetricTest {
 		testClassMetric(mtds, AbsMetric.uniqueValues(mtds));
 	}
 	
-	public static void testClassMetric(Map<String, Set<String>> methods, Set<String> values) {
-		System.out.println("IC -> " + ICClass.pp(methods, Jaccard.NO_WEIGHT));
-		
-		System.out.println("CAMC -> " + CAMCClass.getMetric(methods, values.size()));
+	public static void testClassMetric(Map<String, Set<String>> methods, Set<String> values) {System.out.println("CAMC -> " + CAMCClass.getMetric(methods, values.size()));
 		System.out.println("CCi -> " + CCiClass.cci(methods));
-		System.out.println("IC -> " + ICClass.icClass(methods, Jaccard.NO_WEIGHT));
+		System.out.println("IC -> " + ICClass.icClass(methods, new MMWeight(){}, new PPWeight(){}));
 		System.out.println("ISCOMi -> " + ISCOMiClass.iscomClass(methods, values.size()));
 		System.out.println("NHD -> " + NHDClass.nhdClass(methods, values, NHDClass.NHD));
 		System.out.println("NHDM -> " + NHDMClass.nhdClass(methods, values, NHDMClass.NHDM));
-		System.out.println("WIC -> " + WICClass.icClass(methods, WICClass.createWeight(values.size())));
+		System.out.println("WIC -> " + WICClass.icClass(methods, WICClass.createMMWeight(values.size()), WICClass.createPPWeight(methods.size())));
 	}
 
 }

@@ -2,7 +2,6 @@ package br.com.bhansen.metric.wic;
 
 import java.util.HashSet;
 import java.util.Set;
-import java.util.function.BiFunction;
 
 import org.eclipse.core.runtime.IProgressMonitor;
 
@@ -16,12 +15,24 @@ public class WICClass extends ICClass {
 	}
 	
 	@Override
-	protected BiFunction<Set<String>, Set<String>, Double> createWeight() {
-		return createWeight(getValues().size());
+	protected MMWeight createMMWeight() {
+		return createMMWeight(getValues().size());
 	}
 	
-	public static BiFunction<Set<String>, Set<String>, Double> createWeight(double values) {
-		return new BiFunction<Set<String>, Set<String>, Double>() {
+	@Override
+	protected PPWeight createPPWeight() {
+		return createPPWeight(getMethods().size());
+	}
+	
+	public static MMWeight createMMWeight(Set<String> value, Set<String> values) {
+		Set<String> vls = new HashSet<>(values);
+		vls.addAll(value);
+		
+		return createMMWeight(vls.size());
+	}
+	
+	public static MMWeight createMMWeight(double values) {
+		return new MMWeight() {
 			
 			@Override
 			public Double apply(Set<String> m1, Set<String> m2) {
@@ -32,5 +43,18 @@ public class WICClass extends ICClass {
 			}
 		};
 	}	
+		
+	public static PPWeight createPPWeight(double values) {
+		return new PPWeight() {
+			
+			@Override
+			public Double apply(Set<String> m1, Set<String> m2) {
+				Set<String> union = new HashSet<>(m1);
+				union.addAll(m2);
+				
+				return union.size() / values;
+			}
+		};
+	}
 
 }
