@@ -1,12 +1,12 @@
--0.077273-111	com.mvnsoft.mvnad.delivery.ZoneManager::getBannerInZone(Timestamp):String	com.mvnsoft.mvnad.db.ZoneBean
--0.083333-111	net.myvietnam.mvncore.configuration.HierarchicalConfigurationConverter::reverseIterator(ConfigurationKey):Iterator	net.myvietnam.mvncore.configuration.ConfigurationKey
--0.125000-111	com.mvnforum.categorytree.CategoryTree::build():String	com.mvnforum.categorytree.CategoryBuilder
--0.241228-111	com.mvnforum.admin.importexport.jive.JiveThreadXML::updateAddedPost(PostXML, String, Timestamp):void	com.mvnforum.admin.ThreadXML
--0.247024-111	com.mvnforum.admin.importexport.jive.JiveForumXML::updateAddedPost(PostXML, String, Timestamp):void	com.mvnforum.admin.ForumXML
--1.375000-111	com.mvnforum.user.PostWebHandler::deletePost(GenericRequest, PostBean):void	com.mvnforum.db.PostBean
--1.625000-111	com.mvnforum.user.ThreadWebHandler::deleteThread(GenericRequest, ThreadBean):void	com.mvnforum.db.ThreadBean
-0.625000-011	net.myvietnam.mvncore.configuration.HierarchicalConfigurationXMLReader.SAXVisitor::isAttributeNode(Node):boolean	net.myvietnam.mvncore.configuration.HierarchicalConfiguration.Node
-0.882353-011	net.myvietnam.mvncore.configuration.HierarchicalConfiguration::nodeDefined(Node):boolean	net.myvietnam.mvncore.configuration.HierarchicalConfiguration.Node
+-0.055556-111	net.myvietnam.mvncore.configuration.HierarchicalConfigurationConverter::reverseIterator(ConfigurationKey):Iterator	net.myvietnam.mvncore.configuration.ConfigurationKey
+-0.078636-111	com.mvnsoft.mvnad.delivery.ZoneManager::getBannerInZone(Timestamp):String	com.mvnsoft.mvnad.db.ZoneBean
+-0.162500-111	com.mvnforum.categorytree.CategoryTree::build():String	com.mvnforum.categorytree.CategoryBuilder
+-0.168421-111	com.mvnforum.admin.importexport.jive.JiveThreadXML::updateAddedPost(PostXML, String, Timestamp):void	com.mvnforum.admin.ThreadXML
+-0.173016-111	com.mvnforum.admin.importexport.jive.JiveForumXML::updateAddedPost(PostXML, String, Timestamp):void	com.mvnforum.admin.ForumXML
+-0.276667-111	com.mvnforum.user.ThreadWebHandler::deleteThread(GenericRequest, ThreadBean):void	com.mvnforum.db.ThreadBean
+-0.316667-111	com.mvnforum.user.PostWebHandler::deletePost(GenericRequest, PostBean):void	com.mvnforum.db.PostBean
+0.725000-011	net.myvietnam.mvncore.configuration.HierarchicalConfigurationXMLReader.SAXVisitor::isAttributeNode(Node):boolean	net.myvietnam.mvncore.configuration.HierarchicalConfiguration.Node
+0.937908-011	net.myvietnam.mvncore.configuration.HierarchicalConfiguration::nodeDefined(Node):boolean	net.myvietnam.mvncore.configuration.HierarchicalConfiguration.Node
 1.000000-000	com.mvnforum.admin.AttachmentXML::setAttachDownloadCount(MvnForumAttachmentXML, String):void	com.mvnforum.admin.importexport.mvnforum.MvnForumAttachmentXML
 1.000000-000	com.mvnforum.admin.CategoryXML::setCategoryOrder(MvnForumCategoryXML, String):void	com.mvnforum.admin.importexport.mvnforum.MvnForumCategoryXML
 1.000000-000	com.mvnforum.admin.ForumXML::setForumPassword(MvnForumForumXML, String):void	com.mvnforum.admin.importexport.mvnforum.MvnForumForumXML
