@@ -60,19 +60,35 @@ def cci(m):
 
 def pp(m):
     k = Decimal(len(m))
-    l = Decimal(len(m[0]))
     n = Decimal(0)
-    for j in range(int(l) - 1):
-        for j2 in range(j + 1, int(l)):
-            a = d = Decimal(0)
-            for i in range(int(k)):
-                c = m[i][j] + m[i][j2]
-                if c == 2:
-                    a = a + 1
-                if c == 1:
-                    d = d + 1
-            n = n + (a / (a + d))
-    return n / ((l * (l - 1)) / 2)
+    for i in range(int(k)):
+        mCopy = m.copy()
+        mi = mCopy.pop(i)
+        n = n + ppx(mCopy, mi)
+    return n / k
+
+def ppx(m, mx):
+    k = Decimal(len(m))
+    l = Decimal(len(m[0]))
+    r = Decimal(0)
+    lx = 0
+    for mxj in range(int(l)):    
+        if mx[mxj] == 1:
+            lx = lx + 1
+            n = Decimal(0)
+            for j in range(int(l)):
+                if j != mxj:
+                    a = d = Decimal(0)
+                    for i in range(int(k)):
+                        c = m[i][j] + m[i][mxj]
+                        if c == 2:
+                            a = a + 1
+                        if c == 1:
+                            d = d + 1
+                    if a + d > 0:
+                        n = n + (a / (a + d))
+            r = r + (n / (l - 1))
+    return r / lx
 
 def ic(m):
     return (cci(m) + pp(m)) / 2
@@ -110,22 +126,38 @@ def wcci(m):
                     d = d + 1
             n = n + ((a / (a + d)) * ((a + d) / l))
     return n / ((k * (k - 1)) / 2)
-
+    
 def wpp(m):
     k = Decimal(len(m))
-    l = Decimal(len(m[0]))
     n = Decimal(0)
-    for j in range(int(l) - 1):
-        for j2 in range(j + 1, int(l)):
-            a = d = Decimal(0)
-            for i in range(int(k)):
-                c = m[i][j] + m[i][j2]
-                if c == 2:
-                    a = a + 1
-                if c == 1:
-                    d = d + 1
-            n = n + ((a / (a + d)) * ((a + d) / k))
-    return n / ((l * (l - 1)) / 2)
+    for i in range(int(k)):
+        mCopy = m.copy()
+        mi = mCopy.pop(i)
+        n = n + wppx(mCopy, mi)
+    return n / k
+
+def wppx(m, mx):
+    k = Decimal(len(m))
+    l = Decimal(len(m[0]))
+    r = Decimal(0)
+    lx = 0
+    for mxj in range(int(l)):	
+        if mx[mxj] == 1:
+            lx = lx + 1
+            n = Decimal(0)
+            for j in range(int(l)):
+                if j != mxj:
+                    a = d = Decimal(0)
+                    for i in range(int(k)):
+                        c = m[i][j] + m[i][mxj]
+                        if c == 2:
+                            a = a + 1
+                        if c == 1:
+                            d = d + 1
+                    if a + d > 0:
+                        n = n + ((a / (a + d)) * ((a + d) / l))
+            r = r + (n / (l - 1))
+    return r / lx
 
 def wic(m):
     return (wcci(m) + wpp(m)) / 2
@@ -155,7 +187,8 @@ a5b2 = [[1, 0, 1], [1, 1, 0], [0, 1, 1], [1, 0, 0], [1, 0, 0], [1, 0, 0], [1, 0,
 
 meu1 = [[1, 1, 1, 0], [0, 1, 1, 1], [0, 1, 1, 0]]
 
-m = [[1, 0, 0, 0], [0, 1, 1, 1]]
+app1 = [[1, 0, 0, 0], [1, 0, 0, 0], [1, 0, 0, 0], [0, 1, 1, 1]]
+app2 = [[1, 0, 0, 0], [0, 1, 1, 1]]
 
 def cresce():
     m1 = [[1, 0, 1], [1, 1, 0], [0, 1, 1], [1, 0, 0]]
@@ -170,3 +203,5 @@ def cresce2():
     for i in range(1, 10):
         m1.append([0, 1, 1, 0])
         print(ic(m1))
+        
+wic(app1)
