@@ -1,8 +1,0 @@
-0.000000-000	org.gjt.sp.jedit.Mode::accept(Buffer, String, String):boolean	gnu.regexp.RE
-0.000000-000	org.gjt.sp.jedit.browser.VFSBrowser::handleBufferUpdate(BufferUpdate):void	org.gjt.sp.jedit.msg.BufferUpdate
-0.000000-000	org.gjt.sp.jedit.io.BufferIORequest::readMarkers(Buffer, InputStream):void	org.gjt.sp.jedit.Buffer
-0.000000-000	org.gjt.sp.jedit.io.BufferIORequest::writeMarkers(Buffer, OutputStream):void	org.gjt.sp.jedit.Buffer
-0.000000-011	org.gjt.sp.jedit.textarea.TextAreaPainter::paintCaret(Graphics, int, int):void	org.gjt.sp.jedit.textarea.JEditTextArea
-0.000000-011	org.gjt.sp.jedit.textarea.TextAreaPainter::paintLineHighlight(Graphics, int, int):void	org.gjt.sp.jedit.textarea.JEditTextArea
-0.500000-000	org.gjt.sp.jedit.GUIUtilities::getStyleString(SyntaxStyle):String	org.gjt.sp.jedit.syntax.SyntaxStyle
-1.000000-000	org.gjt.sp.jedit.EditPane::initTextArea(JEditTextArea):void	org.gjt.sp.jedit.textarea.JEditTextArea
