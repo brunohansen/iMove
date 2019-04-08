@@ -203,5 +203,5 @@ def cresce2():
     for i in range(1, 10):
         m1.append([0, 1, 1, 0])
         print(ic(m1))
-        
+
 wic(app1)
