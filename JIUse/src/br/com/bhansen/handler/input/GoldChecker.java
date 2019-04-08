@@ -14,7 +14,6 @@ import java.util.stream.Stream;
 
 import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.core.runtime.IProgressMonitor;
-import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.core.runtime.SubMonitor;
 import org.eclipse.ui.IWorkbenchWindow;
 
@@ -136,10 +135,4 @@ public class GoldChecker extends IMoveHandler {
 		return outSet;
 
 	}
-
-	public static void main(String[] args) throws Exception {
-		goldCheck("C:\\Users\\bruno\\git\\iMove\\Data\\gold_sets",
-				"C:\\Users\\bruno\\git\\iMove\\Results\\M CAMCJ mais IUCJ\\CAMC 50 2", new NullProgressMonitor());
-	}
-
 }

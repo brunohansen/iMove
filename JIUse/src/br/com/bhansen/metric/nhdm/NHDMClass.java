@@ -25,13 +25,4 @@ public class NHDMClass extends NHDClass {
 	protected BiPredicate<Boolean, Boolean> getPredicate() {
 		return NHDM;
 	}
-	
-	public static void main(String[] args) {
-		//boolean[][] poMtrx = {{true, true, true, false},{false, true, true, true},{true, true, true, false}};
-		boolean[][] poMtrx = {{true, false, true}, {true, true, false}, {false, true, true}, {true, false, false}, {true, false, false}};
-		
-		System.out.println(NHDClass.nhdClass(poMtrx, NHDM));
-		
-	}
-
 }

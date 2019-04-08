@@ -186,9 +186,4 @@ public class RemoveTest {
 		}
 
 	}
-
-	public static void main(String[] args) throws Exception {
-		remTest("C:\\Users\\bruno\\git\\iMove\\Results\\M CAMCJ mais IUCJ\\CAMC 50 -S -P -C\\ant-1.8.2");
-	}
-
 }

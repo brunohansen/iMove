@@ -5,7 +5,7 @@ import java.util.regex.Pattern;
 
 public class Movement {
 	
-	final static Pattern linePattern = Pattern.compile("(([a-z|A-Z|0-9|_|$]*\\.){1,}[a-z|A-Z|0-9|_|$]{1,}::[a-z|A-Z|0-9|_|$]{1,}\\(.*?\\):([a-z|A-Z|0-9|_|$]*\\.)*[a-z|A-Z|0-9|_|$]{1,}(.+[\\]+>+]){0,1}).+?(([a-z|A-Z|0-9|_|$]*\\.){1,}[a-z|A-Z|0-9|_|$]{1,})");
+	final protected static Pattern linePattern = Pattern.compile("(([a-z|A-Z|0-9|_|$]*\\.){1,}[a-z|A-Z|0-9|_|$]{1,}::[a-z|A-Z|0-9|_|$]{1,}\\(.*?\\):([a-z|A-Z|0-9|_|$]*\\.)*[a-z|A-Z|0-9|_|$]{1,}(.+[\\]+>+]){0,1}).+?(([a-z|A-Z|0-9|_|$]*\\.){1,}[a-z|A-Z|0-9|_|$]{1,})");
 	
 	public final static int SOURCE_CLASS = 0;
 	public final static int METHOD = 1;
@@ -46,17 +46,4 @@ public class Movement {
 	public static String getError(String movement) {
 		return movement.substring(movement.lastIndexOf("Error: ") + "Error: ".length());
 	}
-	
-	public static void main(String[] args) {
-		String text = "com.mvnforum.admin.GeneralAdminTasksWebHandler::processMailTemplate(com.mvnforum.db.MemberBean, java.lang.String):java.lang.String	com.mvnforum.db.MemberBean";
-		//String text = "org.junit.runners.model.TestClass::getAllArguments(Assignments, boolean):Object[]	org.junit.experimental.theories.internal.Assignments";
-		//String text = "org.apache.tapestry5.integration.app1.data.Track::getTracks(GridSetDemo):Set<Track>	org.apache.tapestry5.integration.app1.pages.GridSetDemo";
-		
-		Matcher mSC = linePattern.matcher(text);
-		mSC.find();
-		
-		System.out.println(mSC.group(1) + "|\t|" + mSC.group(5));
-				
-	}
-
 }
