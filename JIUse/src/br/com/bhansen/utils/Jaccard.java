@@ -45,9 +45,6 @@ public class Jaccard {
 		}
 		
 		for (Set<String> s2 : s2s) {
-			Set<String> union = new HashSet<>(s1);
-			union.addAll(s2);
-			
 			similarity += similarity(s1, s2, weight);
 		}
 		
