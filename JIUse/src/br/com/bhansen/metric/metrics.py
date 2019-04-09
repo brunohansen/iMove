@@ -140,11 +140,11 @@ def wppx(m, mx):
     k = Decimal(len(m))
     l = Decimal(len(m[0]))
     r = Decimal(0)
-    lx = 0
+    lx = Decimal(0)
     for mxj in range(int(l)):	
         if mx[mxj] == 1:
             lx = lx + 1
-            n = Decimal(0)
+            pp = Decimal(0)
             for j in range(int(l)):
                 if j != mxj:
                     a = d = Decimal(0)
@@ -155,8 +155,8 @@ def wppx(m, mx):
                         if c == 1:
                             d = d + 1
                     if a + d > 0:
-                        n = n + ((a / (a + d)) * ((a + d) / (l - 1)))
-            r = r + (n / (l - 1))
+                        pp = pp + ((a / (a + d)) * ((a + d) / k))
+            r = r + (pp / (l - 1))
     return r / lx
 
 def wic(m):
