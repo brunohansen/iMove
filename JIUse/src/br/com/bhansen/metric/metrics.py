@@ -156,6 +156,7 @@ def wppx(m, mx):
                             d = d + 1
                     if a + d > 0:
                         pp = pp + ((a / (a + d)) * ((a + d) / k))
+            print("Error when just one have a parameter")
             r = r + (pp / (l - 1))
     return r / lx
 
