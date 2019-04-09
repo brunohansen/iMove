@@ -55,7 +55,7 @@ public abstract class AbsMetric implements Metric {
 		return values;
 	}
 	
-	public static <T> Map<T, Set<T>> invert(Map<T, Set<T>> m) {
+	public static <T> Map<T, Set<T>> transpose(Map<T, Set<T>> m) {
 		Map<T, Set<T>> m2 = new HashMap<>();
 
 		for (T v : uniqueValues(m)) {

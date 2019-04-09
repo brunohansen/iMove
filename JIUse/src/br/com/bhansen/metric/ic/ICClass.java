@@ -121,7 +121,7 @@ public class ICClass extends DeclarationMetricClass {
 		
 		double pp = 0;		
 		
-		Map<String, Set<String>> mP = AbsMetric.invert(methods);
+		Map<String, Set<String>> mP = AbsMetric.transpose(methods);
 		
 		for (String k : method) {
 			Map<String, Set<String>> mPC = new HashMap<>(mP);

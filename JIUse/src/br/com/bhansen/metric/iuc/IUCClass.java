@@ -172,7 +172,7 @@ public class IUCClass extends UsageMetricClass {
 	
 		txt.append("\n");
 	
-		txt.append(IUCClass.toStringMap(invert(methods)));
+		txt.append(IUCClass.toStringMap(transpose(methods)));
 	
 		txt.append("\n");
 	
