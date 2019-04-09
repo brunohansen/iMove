@@ -162,6 +162,9 @@ def wppx(m, mx):
 def wic(m):
     return (wcci(m) + wpp(m)) / 2
 
+a01 = [[1, 1], [1, 1]]
+a02 = [[1, 1, 1], [1, 1, 1], [1, 1, 1]]
+
 a11 = [[1, 0], [0, 1]]
 a12 = [[1, 0, 0], [0, 1, 0], [0, 0, 1]]
 
@@ -189,6 +192,15 @@ meu1 = [[1, 1, 1, 0], [0, 1, 1, 1], [0, 1, 1, 0]]
 
 app1 = [[1, 0, 0, 0], [1, 0, 0, 0], [1, 0, 0, 0], [0, 1, 1, 1]]
 app2 = [[1, 0, 0, 0], [0, 1, 1, 1]]
+
+def test(m):    
+    print("CAMC -> ", camc(m))
+    print("CCi -> ", cci(m))
+    print("IC -> ", ic(m))
+    print("ISCOMi -> ", iscomi(m))
+    print("NHD -> ", nhd(m))
+    print("NHDM -> ", nhdm(m))
+    print("WIC -> ", wic(m))
 
 def cresce():
     m1 = [[1, 0, 1], [1, 1, 0], [0, 1, 1], [1, 0, 0]]
