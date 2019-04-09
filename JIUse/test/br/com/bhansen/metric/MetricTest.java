@@ -80,13 +80,45 @@ public class MetricTest extends TestCase {
 		mtds2.put("m3", new HashSet<>(Arrays.asList("p2", "p3")));
 		mtds2.put("m4", new HashSet<>(Arrays.asList("p1", "p4")));
 		mtds2.put("m5", new HashSet<>(Arrays.asList("p2", "p3", "p4")));
+//		
+//		System.out.println("MM " +	
+//		WICClass.mm(mtds1, WICClass.createMMWeight(AbsMetric.uniqueValues(mtds1).size())) +
+//		" -> " +
+//		WICClass.mm(mtds2, WICClass.createMMWeight(AbsMetric.uniqueValues(mtds2).size()))); 
+//		
+//		System.out.println("PP " +	
+//		WICClass.pp(mtds1, WICClass.createPPWeight(mtds1.size())) +
+//		" -> " +
+//		WICClass.pp(mtds2, WICClass.createPPWeight(mtds2.size())));
+//		
+		
+		test(mtds1, AbsMetric.uniqueValues(mtds1), mtds2, AbsMetric.uniqueValues(mtds2), notEqualTo());
+	}
+	
+//	@Test
+	public void testManyToZero() {
+		System.out.println("\nA4 - Test Many To Zero\n");
+		
+		Map<String, Set<String>> mtds1 = new HashMap<>();
+
+		mtds1.put("m1", new HashSet<>(Arrays.asList("p1", "p2", "p3", "p4")));
+		mtds1.put("m2", new HashSet<>(Arrays.asList("p1")));
+		mtds1.put("m3", new HashSet<>(Arrays.asList("p1", "p2", "p3", "p4")));
+		mtds1.put("m4", new HashSet<>(Arrays.asList("p2", "p3", "p4")));
+		
+		Map<String, Set<String>> mtds2 = new HashMap<>();
+
+		mtds2.put("m1", new HashSet<>(Arrays.asList("p3")));
+		mtds2.put("m2", new HashSet<>(Arrays.asList("p1")));
+		mtds2.put("m3", new HashSet<>(Arrays.asList("p4")));
+		mtds2.put("m4", new HashSet<>(Arrays.asList("p2")));
 		
 		test(mtds1, AbsMetric.uniqueValues(mtds1), mtds2, AbsMetric.uniqueValues(mtds2), notEqualTo());
 	}
 	
 //	@Test
 	public void testMonotonocity1() {
-		System.out.println("\nVMA e VMB - Test Monotonocity\n");
+		System.out.println("\nVMA - Test Monotonocity\n");
 		
 		Map<String, Set<String>> mtds1 = new HashMap<>();
 
@@ -101,6 +133,24 @@ public class MetricTest extends TestCase {
 		mtds2.put("m2", new HashSet<>(Arrays.asList("p1")));
 		mtds2.put("m3", new HashSet<>(Arrays.asList("p1", "p2")));
 		mtds2.put("m4", new HashSet<>(Arrays.asList("p2", "p3", "p4")));
+		
+		test(mtds1, AbsMetric.uniqueValues(mtds1), mtds2, AbsMetric.uniqueValues(mtds2), lessThanOrEqualTo());
+		
+		System.out.println("\nVMB - Test Monotonocity\n");
+		
+		mtds1 = new HashMap<>();
+
+		mtds1.put("m1", new HashSet<>(Arrays.asList("p1")));
+		mtds1.put("m2", new HashSet<>(Arrays.asList("p1")));
+		mtds1.put("m3", new HashSet<>(Arrays.asList("p1")));
+		mtds1.put("m4", new HashSet<>(Arrays.asList("p1", "p2", "p3", "p4")));
+		
+		mtds2 = new HashMap<>();
+
+		mtds2.put("m1", new HashSet<>(Arrays.asList("p1")));
+		mtds2.put("m2", new HashSet<>(Arrays.asList("p1")));
+		mtds2.put("m3", new HashSet<>(Arrays.asList("p1", "p2")));
+		mtds2.put("m4", new HashSet<>(Arrays.asList("p1", "p2", "p3", "p4")));
 		
 		test(mtds1, AbsMetric.uniqueValues(mtds1), mtds2, AbsMetric.uniqueValues(mtds2), lessThanOrEqualTo());
 	}
