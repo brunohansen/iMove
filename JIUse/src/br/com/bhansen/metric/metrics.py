@@ -155,7 +155,7 @@ def wppx(m, mx):
                         if c == 1:
                             d = d + 1
                     if a + d > 0:
-                        n = n + ((a / (a + d)) * ((a + d) / l))
+                        n = n + ((a / (a + d)) * ((a + d) / (l - 1)))
             r = r + (n / (l - 1))
     return r / lx
 

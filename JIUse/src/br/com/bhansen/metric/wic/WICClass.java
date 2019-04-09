@@ -52,7 +52,7 @@ public class WICClass extends ICClass {
 				Set<String> union = new HashSet<>(m1);
 				union.addAll(m2);
 				
-				return union.size() / values;
+				return union.size() / (values - 1);
 			}
 		};
 	}

@@ -19,6 +19,29 @@ import br.com.bhansen.metric.wic.WICClass;
 public class MetricTest {
 
 	public static void main(String[] args) {
+		test100();
+	}
+
+	public static void test100() {
+		Map<String, Set<String>> mtds = new HashMap<>();
+		
+		mtds.put("m1", new HashSet<>(Arrays.asList("p1", "p2")));
+		mtds.put("m2", new HashSet<>(Arrays.asList("p1", "p2")));
+		
+		testClassMetric(mtds, AbsMetric.uniqueValues(mtds));
+		
+		System.out.println();
+		
+		mtds = new HashMap<>();
+
+		mtds.put("m1", new HashSet<>(Arrays.asList("p1", "p2", "p3")));
+		mtds.put("m2", new HashSet<>(Arrays.asList("p1", "p2", "p3")));
+		mtds.put("m3", new HashSet<>(Arrays.asList("p1", "p2", "p3")));
+		
+		testClassMetric(mtds, AbsMetric.uniqueValues(mtds));
+	}	
+	
+	public static void testMonotonocity() {
 		Map<String, Set<String>> mtds = new HashMap<>();
 
 		mtds.put("m1", new HashSet<>(Arrays.asList("p1")));
@@ -27,9 +50,21 @@ public class MetricTest {
 		mtds.put("m4", new HashSet<>(Arrays.asList("p2", "p3", "p4")));
 
 		testClassMetric(mtds, AbsMetric.uniqueValues(mtds));
+		
+		System.out.println();
+		
+		mtds = new HashMap<>();
+
+		mtds.put("m1", new HashSet<>(Arrays.asList("p1")));
+		mtds.put("m2", new HashSet<>(Arrays.asList("p1")));
+		mtds.put("m3", new HashSet<>(Arrays.asList("p1", "p2")));
+		mtds.put("m4", new HashSet<>(Arrays.asList("p2", "p3", "p4")));
+
+		testClassMetric(mtds, AbsMetric.uniqueValues(mtds));
 	}
 	
-	public static void testClassMetric(Map<String, Set<String>> methods, Set<String> values) {System.out.println("CAMC -> " + CAMCClass.getMetric(methods, values.size()));
+	public static void testClassMetric(Map<String, Set<String>> methods, Set<String> values) {
+		System.out.println("CAMC -> " + CAMCClass.getMetric(methods, values.size()));
 		System.out.println("CCi -> " + CCiClass.cci(methods));
 		System.out.println("IC -> " + ICClass.icClass(methods, new MMWeight(){}, new PPWeight(){}));
 		System.out.println("ISCOMi -> " + ISCOMiClass.iscomClass(methods, values.size()));
