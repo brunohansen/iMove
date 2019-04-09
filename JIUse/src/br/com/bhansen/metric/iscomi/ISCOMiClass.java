@@ -44,7 +44,7 @@ public class ISCOMiClass extends DeclarationMetricClass {
 			r = r + (c(mi, mj.getValue()) * w(mi, mj.getValue(), a));
 		}
 		
-		return r / methods.size();
+		return r / (double) methods.size();
 	}
 	
 	public static double c(Set<String> i, Set<String> j) {
@@ -54,14 +54,14 @@ public class ISCOMiClass extends DeclarationMetricClass {
 		if(i.size() + j.size() == 0)
 			return 0;
 		
-		return (2 * intersection.size()) / (i.size() + j.size());
+		return (2.0 * (double) intersection.size()) / ((double) i.size() + (double) j.size());
 	}
 	
 	public static double w(Set<String> i, Set<String> j, double a) {
 		Set<String> union = new HashSet<>(i);
 		union.addAll(j);
 		
-		return union.size() / a;
+		return (double) union.size() / a;
 	}
 
 }
