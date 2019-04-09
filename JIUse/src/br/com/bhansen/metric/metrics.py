@@ -126,7 +126,7 @@ def wcci(m):
                     d = d + 1
             n = n + ((a / (a + d)) * ((a + d) / l))
     return n / ((k * (k - 1)) / 2)
-    
+
 def wpp(m):
     k = Decimal(len(m))
     n = Decimal(0)
