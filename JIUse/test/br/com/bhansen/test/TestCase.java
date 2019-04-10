@@ -94,5 +94,28 @@ public class TestCase {
 			
 		}; 
 	}
+	
+	public <T extends Number> TestPredicateFactory<T> greaterThanOrEqualTo() {
+		return new TestPredicateFactory<T>() {
+
+			@Override
+			public TestPredicate<T> create(T result) {
+				return new TestPredicate<T>(){
+
+					@Override
+					public boolean test(T expected) {
+						return expected.doubleValue() >= result.doubleValue();
+					}
+
+					@Override
+					public String getText(T expected) {
+						return expected + " >= " + result;
+					}
+					
+				};
+			}
+			
+		}; 
+	}
 
 }
