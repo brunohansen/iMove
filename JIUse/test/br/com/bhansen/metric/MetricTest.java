@@ -42,7 +42,7 @@ public class MetricTest extends TestCase {
 		test(mtds, AbsMetric.uniqueValues(mtds), 1.0, equalTo());
 	}
 	
-	@Test
+//	@Test
 	public void testZero() {
 		System.out.println("\nA1 e A3 - Test Zero\n");
 		
@@ -71,6 +71,7 @@ public class MetricTest extends TestCase {
 		System.out.println("MMAC " + D3C2iClass.mmac(mtds3));
 		System.out.println("AAC " + D3C2iClass.aac(mtds3));
 		System.out.println("AMC " + D3C2iClass.amc(mtds3));
+		System.out.println("WPPC " + WICClass.pp(mtds2, WICClass.createPPWeight(mtds3.size())));
 		
 //		test(mtds3, AbsMetric.uniqueValues(mtds3), 0.0, equalTo());
 	}
@@ -197,7 +198,7 @@ public class MetricTest extends TestCase {
 		test(mtds1, AbsMetric.uniqueValues(mtds1), mtds2, AbsMetric.uniqueValues(mtds2), greaterThanOrEqualTo());
 	}
 	
-//	@Test
+	@Test
 	public void testNHDMinMax() {
 		System.out.println("\nA5b - Test NHD min\n");
 		
@@ -213,7 +214,21 @@ public class MetricTest extends TestCase {
 		
 		print(min, AbsMetric.uniqueValues(min));
 		
-		System.out.println("\nA5b - Test NHD max1\n");
+		System.out.println("\nA5b - Test NHD min 2\n");
+		
+		HashMap<String, Set<String>> min2 = new HashMap<>();
+		
+		min2.put("m1", new HashSet<>(Arrays.asList("p1")));
+		min2.put("m2", new HashSet<>(Arrays.asList("p2")));
+		min2.put("m3", new HashSet<>(Arrays.asList("p3")));
+		min2.put("m4", new HashSet<>(Arrays.asList("p4")));
+		min2.put("m5", new HashSet<>(Arrays.asList("p5")));
+		min2.put("m6", new HashSet<>(Arrays.asList("p6")));
+		min2.put("m7", new HashSet<>(Arrays.asList("p1", "p2")));
+		
+		print(min2, AbsMetric.uniqueValues(min2));
+		
+		System.out.println("\nA5b - Test NHD max 1\n");
 		
 		HashMap<String, Set<String>> max1 = new HashMap<>();
 	
@@ -227,7 +242,7 @@ public class MetricTest extends TestCase {
 		
 		print(max1, AbsMetric.uniqueValues(max1));
 		
-		System.out.println("\nA5b - Test NHD max2\n");
+		System.out.println("\nA5b - Test NHD max 2\n");
 		
 		HashMap<String, Set<String>> max2 = new HashMap<>();
 		
