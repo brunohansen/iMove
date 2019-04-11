@@ -68,12 +68,12 @@ public class MetricTest extends TestCase {
 		mtds3.put("m1", new HashSet<>(Arrays.asList("p1")));
 		mtds3.put("m2", new HashSet<>(Arrays.asList("p2", "p3")));
 		
-		System.out.println("MMAC " + D3C2iClass.mmac(mtds3));
-		System.out.println("AAC " + D3C2iClass.aac(mtds3));
-		System.out.println("AMC " + D3C2iClass.amc(mtds3));
-		System.out.println("WPPC " + WICClass.pp(mtds2, WICClass.createPPWeight(mtds3.size())));
+//		System.out.println("MMAC " + D3C2iClass.mmac(mtds3));
+//		System.out.println("AAC " + D3C2iClass.aac(mtds3));
+//		System.out.println("AMC " + D3C2iClass.amc(mtds3));
+//		System.out.println("WPPC " + WICClass.pp(mtds2, WICClass.createPPWeight(mtds3.size())));
 		
-//		test(mtds3, AbsMetric.uniqueValues(mtds3), 0.0, equalTo());
+		test(mtds3, AbsMetric.uniqueValues(mtds3), 0.0, equalTo());
 	}
 	
 //	@Test
@@ -95,7 +95,6 @@ public class MetricTest extends TestCase {
 		mtds2.put("m3", new HashSet<>(Arrays.asList("p2", "p3")));
 		mtds2.put("m4", new HashSet<>(Arrays.asList("p1", "p4")));
 		mtds2.put("m5", new HashSet<>(Arrays.asList("p2", "p3", "p4")));
-
 		
 		test(mtds1, AbsMetric.uniqueValues(mtds1), mtds2, AbsMetric.uniqueValues(mtds2), notEqualTo());
 	}
@@ -138,17 +137,6 @@ public class MetricTest extends TestCase {
 		mtds2.put("m2", new HashSet<>(Arrays.asList("p1", "p4")));
 		mtds2.put("m3", new HashSet<>(Arrays.asList("p1", "p2")));
 		mtds2.put("m4", new HashSet<>(Arrays.asList("p1", "p2", "p3", "p4")));
-		
-		
-//		System.out.println("MM " +	
-//		WICClass.mm(mtds1, WICClass.createMMWeight(AbsMetric.uniqueValues(mtds1).size())) +
-//		" -> " +
-//		WICClass.mm(mtds2, WICClass.createMMWeight(AbsMetric.uniqueValues(mtds2).size()))); 
-//		
-//		System.out.println("PP " +	
-//		WICClass.pp(mtds1, WICClass.createPPWeight(mtds1.size())) +
-//		" -> " +
-//		WICClass.pp(mtds2, WICClass.createPPWeight(mtds2.size())));
 		
 		test(mtds1, AbsMetric.uniqueValues(mtds1), mtds2, AbsMetric.uniqueValues(mtds2), lessThanOrEqualTo());
 	}
@@ -212,6 +200,16 @@ public class MetricTest extends TestCase {
 		min.put("m6", new HashSet<>());
 		min.put("m7", new HashSet<>());
 		
+//		System.out.println("MM " +	
+//		WICClass.mm(min, WICClass.createMMWeight(AbsMetric.uniqueValues(min).size())) +
+//		" -> " +
+//		WICClass.mm(min, WICClass.createMMWeight(AbsMetric.uniqueValues(min).size()))); 
+//		
+//		System.out.println("PP " +	
+//		WICClass.pp(min, WICClass.createPPWeight(min.size())) +
+//		" -> " +
+//		WICClass.pp(min, WICClass.createPPWeight(min.size())));
+		
 		print(min, AbsMetric.uniqueValues(min));
 		
 		System.out.println("\nA5b - Test NHD min 2\n");
@@ -225,6 +223,16 @@ public class MetricTest extends TestCase {
 		min2.put("m5", new HashSet<>(Arrays.asList("p5")));
 		min2.put("m6", new HashSet<>(Arrays.asList("p6")));
 		min2.put("m7", new HashSet<>(Arrays.asList("p1", "p2")));
+		
+//		System.out.println("MM " +	
+//		WICClass.mm(min2, WICClass.createMMWeight(AbsMetric.uniqueValues(min2).size())) +
+//		" -> " +
+//		WICClass.mm(min2, WICClass.createMMWeight(AbsMetric.uniqueValues(min2).size()))); 
+//		
+//		System.out.println("PP " +	
+//		WICClass.pp(min2, WICClass.createPPWeight(min2.size())) +
+//		" -> " +
+//		WICClass.pp(min2, WICClass.createPPWeight(min2.size())));
 		
 		print(min2, AbsMetric.uniqueValues(min2));
 		
