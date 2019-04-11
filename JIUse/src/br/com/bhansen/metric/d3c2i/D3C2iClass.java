@@ -22,7 +22,7 @@ public class D3C2iClass extends DeclarationMetricClass {
 		return getMetric(getMethods());
 	}
 	
-	public static double getMetric(Map<String, Set<String>> methods) throws Exception {
+	public static double getMetric(Map<String, Set<String>> methods) {
 		double k = methods.size();
 		double l = AbsMetric.uniqueValues(methods).size();
 				
@@ -40,13 +40,15 @@ public class D3C2iClass extends DeclarationMetricClass {
 	}
 	
 	public static double amc(Map<String, Set<String>> methods) {
+		double k = methods.size();
+		double l = AbsMetric.uniqueValues(methods).size();
 		double p = 0;
 		
 		for (Entry<String, Set<String>> method : methods.entrySet()) {
 			p = p + method.getValue().size();
 		}
 		
-		return p / (double) (methods.size() * methods.size());
+		return p / (k * l);
 	}
 
 }

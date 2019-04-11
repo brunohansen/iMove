@@ -10,6 +10,7 @@ import org.junit.Test;
 
 import br.com.bhansen.metric.camc.CAMCClass;
 import br.com.bhansen.metric.cci.CCiClass;
+import br.com.bhansen.metric.d3c2i.D3C2iClass;
 import br.com.bhansen.metric.ic.ICClass;
 import br.com.bhansen.metric.ic.ICClass.MMWeight;
 import br.com.bhansen.metric.ic.ICClass.PPWeight;
@@ -41,7 +42,7 @@ public class MetricTest extends TestCase {
 		test(mtds, AbsMetric.uniqueValues(mtds), 1.0, equalTo());
 	}
 	
-//	@Test
+	@Test
 	public void testZero() {
 		System.out.println("\nA1 e A3 - Test Zero\n");
 		
@@ -52,6 +53,8 @@ public class MetricTest extends TestCase {
 		
 		test(mtds1, AbsMetric.uniqueValues(mtds1), 0.0, equalTo());
 		
+		System.out.println("\nA1 e A3 - Test Zero\n");
+		
 		Map<String, Set<String>> mtds2 = new HashMap<>();
 
 		mtds2.put("m1", new HashSet<>(Arrays.asList("p1")));
@@ -59,6 +62,17 @@ public class MetricTest extends TestCase {
 		mtds2.put("m3", new HashSet<>(Arrays.asList("p3")));
 		
 		test(mtds2, AbsMetric.uniqueValues(mtds2), 0.0, equalTo());
+		
+		Map<String, Set<String>> mtds3 = new HashMap<>();
+
+		mtds3.put("m1", new HashSet<>(Arrays.asList("p1")));
+		mtds3.put("m2", new HashSet<>(Arrays.asList("p2", "p3")));
+		
+		System.out.println("MMAC " + D3C2iClass.mmac(mtds3));
+		System.out.println("AAC " + D3C2iClass.aac(mtds3));
+		System.out.println("AMC " + D3C2iClass.amc(mtds3));
+		
+//		test(mtds3, AbsMetric.uniqueValues(mtds3), 0.0, equalTo());
 	}
 	
 //	@Test
@@ -229,7 +243,7 @@ public class MetricTest extends TestCase {
 		
 	}
 	
-	@Test
+//	@Test
 	public void testLatices() {
 		Map<String, Set<String>> partition = new HashMap<>();
 
@@ -356,20 +370,18 @@ public class MetricTest extends TestCase {
 	public void testGoSparser2() {
 		HashMap<String, Set<String>> mtds1 = new HashMap<>();
 
-		mtds1.put("m1", new HashSet<>(Arrays.asList("p1", "p2", "p3")));
-		mtds1.put("m2", new HashSet<>(Arrays.asList("p1", "p2", "p3")));
-		mtds1.put("m3", new HashSet<>(Arrays.asList("p1", "p2", "p3")));
+		mtds1.put("m1", new HashSet<>(Arrays.asList("p1", "p2")));
+		mtds1.put("m2", new HashSet<>(Arrays.asList("p1", "p2")));
 		
 		HashMap<String, Set<String>> mtds2 = new HashMap<>();
 		
-		mtds2.put("m1", new HashSet<>(Arrays.asList("p1", "p2", "p3")));
-		mtds2.put("m2", new HashSet<>(Arrays.asList("p1", "p2", "p3")));
-		mtds2.put("m3", new HashSet<>(Arrays.asList("p1", "p2", "p3")));
-		mtds2.put("m4", new HashSet<>(Arrays.asList("p1", "p2")));
+		mtds2.put("m1", new HashSet<>(Arrays.asList("p1", "p2")));
+		mtds2.put("m2", new HashSet<>(Arrays.asList("p1", "p2")));
+		mtds2.put("m3", new HashSet<>(Arrays.asList("p1")));
 		
 		for (int i = 0; i < 500; i++) {
-			mtds1.put("m" + (i + 4), new HashSet<>(Arrays.asList("p1", "p2")));
-			mtds2.put("m" + (i + 5), new HashSet<>(Arrays.asList("p1", "p2")));
+			mtds1.put("m" + (i + 3), new HashSet<>(Arrays.asList("p1")));
+			mtds2.put("m" + (i + 4), new HashSet<>(Arrays.asList("p1")));
 			System.out.println("\nA5+ - Test Go Sparser\n");
 			test(mtds1, AbsMetric.uniqueValues(mtds1), mtds2, AbsMetric.uniqueValues(mtds2), greaterThanOrEqualTo());
 		}
@@ -378,6 +390,7 @@ public class MetricTest extends TestCase {
 	public void test(Map<String, Set<String>> methods, Set<String> values, Double expected, TestPredicateFactory<Double> factory) {
 		checkThat("CAMC", expected, CAMCClass.getMetric(methods, values.size()), factory);
 		checkThat("CCi", expected, CCiClass.cci(methods), factory);
+		checkThat("D3C2i", expected, D3C2iClass.getMetric(methods), factory);
 		checkThat("IC", expected, ICClass.icClass(methods, new MMWeight(){}, new PPWeight(){}), factory);
 		checkThat("ISCOMi", expected, ISCOMiClass.iscomClass(methods, values.size()), factory);
 		checkThat("NHD", expected, NHDClass.nhdClass(methods, values, NHDClass.NHD), factory);
@@ -388,6 +401,7 @@ public class MetricTest extends TestCase {
 	public void test(Map<String, Set<String>> methods1, Set<String> values1, Map<String, Set<String>> methods2, Set<String> values2, TestPredicateFactory<Double> factory) {
 		checkThat("CAMC", CAMCClass.getMetric(methods1, values1.size()), CAMCClass.getMetric(methods2, values2.size()), factory);
 		checkThat("CCi", CCiClass.cci(methods1), CCiClass.cci(methods2), factory);
+		checkThat("D3C2i", D3C2iClass.getMetric(methods1), D3C2iClass.getMetric(methods2), factory);
 		checkThat("IC", ICClass.icClass(methods1, new MMWeight(){}, new PPWeight(){}), ICClass.icClass(methods2, new MMWeight(){}, new PPWeight(){}), factory);
 		checkThat("ISCOMi", ISCOMiClass.iscomClass(methods1, values1.size()), ISCOMiClass.iscomClass(methods2, values2.size()), factory);
 		checkThat("NHD", NHDClass.nhdClass(methods1, values1, NHDClass.NHD), NHDClass.nhdClass(methods2, values2, NHDClass.NHD), factory);
@@ -398,6 +412,7 @@ public class MetricTest extends TestCase {
 	public void print(Map<String, Set<String>> methods, Set<String> values) {
 		System.out.println("CAMC -> " + CAMCClass.getMetric(methods, values.size()));
 		System.out.println("CCi -> " + CCiClass.cci(methods));
+		System.out.println("D3C2i -> " + D3C2iClass.getMetric(methods));
 		System.out.println("IC -> " + ICClass.icClass(methods, new MMWeight(){}, new PPWeight(){}));
 		System.out.println("ISCOMi -> " + ISCOMiClass.iscomClass(methods, values.size()));
 		System.out.println("NHD -> " + NHDClass.nhdClass(methods, values, NHDClass.NHD));
