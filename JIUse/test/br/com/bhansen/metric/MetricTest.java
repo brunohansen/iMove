@@ -221,8 +221,8 @@ public class MetricTest extends TestCase {
 		min2.put("m3", new HashSet<>(Arrays.asList("p3")));
 		min2.put("m4", new HashSet<>(Arrays.asList("p4")));
 		min2.put("m5", new HashSet<>(Arrays.asList("p5")));
-		min2.put("m6", new HashSet<>(Arrays.asList("p6")));
-		min2.put("m7", new HashSet<>(Arrays.asList("p1", "p2")));
+		min2.put("m6", new HashSet<>(Arrays.asList("p1", "p6")));
+		min2.put("m7", new HashSet<>(Arrays.asList("p4")));
 		
 //		System.out.println("MM " +	
 //		WICClass.mm(min2, WICClass.createMMWeight(AbsMetric.uniqueValues(min2).size())) +
