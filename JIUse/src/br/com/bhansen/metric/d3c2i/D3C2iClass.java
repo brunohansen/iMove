@@ -25,8 +25,11 @@ public class D3C2iClass extends DeclarationMetricClass {
 	public static double getMetric(Map<String, Set<String>> methods) {
 		double k = methods.size();
 		double l = AbsMetric.uniqueValues(methods).size();
+		
+		double n = ((k * (k - 1) * mmac(methods)) + (l * (l - 1) * aac(methods)) + (2 * k * l * amc(methods)));
+		double d = ((k * (k - 1)) + (l * (l - 1)) + (2 * k * l));
 				
-		return ((k * (k - 1) * mmac(methods)) + (l * (l - 1) * aac(methods)) + (2 * k * l * amc(methods))) / ((k * (k - 1)) + (l * (l - 1)) + (2 * k * l));
+		return n / d;
 	}
 	
 	public static double mmac(Map<String, Set<String>> methods) {
