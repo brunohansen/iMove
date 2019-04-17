@@ -43,23 +43,23 @@ public class ISCOMiClass extends DeclarationMetricClass {
 		double r = 0;
 				
 		for (Entry<String, Set<String>> mj : methods.entrySet()) {
-			r = r + (c(instance, mi, mj.getValue()) * w(mi, mj.getValue(), a));
+			//Metódos sem parametros possuem 100% coesão 
+			if(Config.isMetricTight(instance) && mi.size() == 0 && mj.getValue().size() == 0) {
+				r = r + 1;
+			} else {
+				r = r + (c(mi, mj.getValue()) * w(mi, mj.getValue(), a));
+			}
 		}
 		
 		return r / (double) methods.size();
 	}
 	
-	public static double c(Metric instance, Set<String> i, Set<String> j) {
+	public static double c(Set<String> i, Set<String> j) {
 		Set<String> intersection = new HashSet<>(i);
 		intersection.retainAll(j);
 		
 		if(i.size() + j.size() == 0) {
-			//Metódos sem parametros possuem 100% coesão 
-			if(Config.isMetricTight(instance)) {
-				return 1;
-			} else {
-				return 0;
-			}
+			return 0;
 		}
 		
 		return (2.0 * (double) intersection.size()) / ((double) i.size() + (double) j.size());
