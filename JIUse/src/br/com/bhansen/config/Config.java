@@ -4,6 +4,8 @@ import org.eclipse.core.runtime.preferences.IEclipsePreferences;
 import org.eclipse.core.runtime.preferences.InstanceScope;
 import org.osgi.service.prefs.BackingStoreException;
 
+import br.com.bhansen.metric.DeclarationMetric;
+
 public class Config {
 
 	private static IEclipsePreferences prefs;
@@ -36,7 +38,7 @@ public class Config {
 	private static final Metric METRIC_DEF = Metric.IC;
 	
 	private static final String METRIC_TYPE = "metricType";
-	private static final MetricType METRIC_TYPE_DEF = MetricType.REGULAR;
+	private static final MetricType METRIC_TYPE_DEF = MetricType.TIGHT;
 
 	private static final String THRESHOLD = "threshold";
 	private static final double THRESHOLD_DEF = 0;
@@ -46,7 +48,7 @@ public class Config {
 	private static final double WEIGHT_DEF = 0.5;
 
 	private static final String USAGE_SCOPE = "usageScope";
-	private static final UsageScope USAGE_SCOPE_DEF = UsageScope.WORK_SPACE;
+	private static final UsageScope USAGE_SCOPE_DEF = UsageScope.SOURCE_CODE;
 
 	private static IEclipsePreferences getPrefs() {
 		if (prefs == null) {
@@ -70,6 +72,10 @@ public class Config {
 	
 	public static boolean isMetricTight() {
 		return getMetricType() == MetricType.TIGHT;
+	}
+	
+	public static boolean isMetricTight(br.com.bhansen.metric.Metric metric) {
+		return isMetricTight() && metric instanceof DeclarationMetric;
 	}
 
 	public static Double getThreshold() {

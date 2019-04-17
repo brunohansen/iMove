@@ -25,7 +25,7 @@ public class ExtractClass {
 
 		List<Map<String, Set<String>>> classes = removeDuplicates(createSuperClasses(iucClass, metricLowerLimit, mthdsLowerLimit));
 
-		classes.forEach(e -> Console.println(IUCClass.toString("Class" + classes.size(), IUCClass.getMetric(e), e)));
+		classes.forEach(e -> Console.println(IUCClass.toString("Class" + classes.size(), IUCClass.getMetric(null, e), e)));
 
 	}
 
@@ -50,7 +50,7 @@ public class ExtractClass {
 		
 		Map<String, Set<String>> methods = iucClass.getMethodsWithoutThis();
 		
-		//Permite extrair a super classe mais coesa possivel que atenda o número de métodos
+		//Permite extrair a super classe mais coesa possivel que atenda o nï¿½mero de mï¿½todos
 		while (classes.size() == 0 && metricValue >= metricLowerLimit) {
 			
 			classes = createClassesForMethod(methods, methodSignature, metricValue, mthdsLowerLimit);
@@ -94,7 +94,7 @@ public class ExtractClass {
 			}
 
 			if (classs.size() >= mthdsLowerLimit) {
-				double metric = IUCClass.getMetric(classs);
+				double metric = IUCClass.getMetric(null, classs);
 
 				if (metric >= metricLowerLimit) {
 					classes.add(classs);
@@ -146,7 +146,7 @@ public class ExtractClass {
 			}
 
 			if (classs.size() >= mthdsLowerLimit) {
-				double metric = IUCClass.getMetric(classs);
+				double metric = IUCClass.getMetric(null, classs);
 
 				if (metric >= metricLowerLimit) {
 					classes.add(classs);
@@ -162,7 +162,7 @@ public class ExtractClass {
 
 		if (methods.size() >= mthdsLowerLimit) {
 			
-			if (IUCClass.getMetric(methods) >= metricLowerLimit) {
+			if (IUCClass.getMetric(null, methods) >= metricLowerLimit) {
 				classes.add(methods);				
 			} else {
 				Map<String, Map<String, Set<String>>> callersMethods = IUCClass.getMethodsByCaller(methods);
@@ -232,7 +232,7 @@ public class ExtractClass {
 			if (result != 0)
 				return result;
 
-			return new Double(IUCClass.getMetric(o2)).compareTo(IUCClass.getMetric(o1));
+			return new Double(IUCClass.getMetric(null, o2)).compareTo(IUCClass.getMetric(null, o1));
 		}
 
 	}
@@ -250,7 +250,7 @@ public class ExtractClass {
 			if (result != 0)
 				return result;
 
-			return new Double(IUCClass.getMetric(o2)).compareTo(IUCClass.getMetric(o1));
+			return new Double(IUCClass.getMetric(null, o2)).compareTo(IUCClass.getMetric(null, o1));
 		}
 
 	}

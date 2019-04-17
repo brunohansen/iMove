@@ -17,7 +17,7 @@ public class UNHDMethod extends UsageMetricMethod {
 
 	@Override
 	final public double getMetric(Set<String> method, Map<String, Set<String>> methods) {
-		return NHDClass.nhdMethod(getMethod(), getMethods(), getValues(), getPredicate());
+		return NHDClass.nhdMethod(this, getMethod(), getMethods(), getValues(), getPredicate());
 	}
 	
 	protected BiPredicate<Boolean, Boolean> getPredicate() {

@@ -21,7 +21,7 @@ public class UISCOMiMethod extends UsageMetricMethod {
 		Set<String> valuesCopy = new HashSet<>(getValues());
 		valuesCopy.addAll(method);
 		
-		return ISCOMiClass.iscomMethod(method, methods, valuesCopy.size());
+		return ISCOMiClass.iscomMethod(this, method, methods, valuesCopy.size());
 	}
 
 }

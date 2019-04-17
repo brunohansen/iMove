@@ -17,7 +17,7 @@ public class CCiMethod extends DeclarationMetricMethod {
 	
 	@Override
 	public double getMetric(Set<String> method, Map<String, Set<String>> methods) {
-		return Jaccard.similarity(getMethod(), getMethods().values());
+		return Jaccard.similarity(this, getMethod(), getMethods().values());
 	}
 
 }

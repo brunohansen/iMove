@@ -9,6 +9,7 @@ import org.eclipse.core.runtime.IProgressMonitor;
 
 import br.com.bhansen.jdt.Type;
 import br.com.bhansen.metric.DeclarationMetricClass;
+import br.com.bhansen.metric.Metric;
 import br.com.bhansen.utils.Jaccard;
 
 public class CCiClass extends DeclarationMetricClass {
@@ -19,10 +20,10 @@ public class CCiClass extends DeclarationMetricClass {
 
 	@Override
 	public double getMetric() throws Exception {
-		return cci(getMethods());
+		return cci(this, getMethods());
 	}
 
-	public static double cci(Map<String, Set<String>> mtds) {
+	public static double cci(Metric instance, Map<String, Set<String>> mtds) {
 		double r = 0;
 		
 		if (mtds.size() < 2)
@@ -31,7 +32,7 @@ public class CCiClass extends DeclarationMetricClass {
 		for (Entry<String, Set<String>> s1 : mtds.entrySet()) {
 			Map<String, Set<String>> mtdsCopy = new HashMap<>(mtds);
 			mtdsCopy.remove(s1.getKey());
-			r = r + Jaccard.similarity(s1.getValue(), mtdsCopy.values());
+			r = r + Jaccard.similarity(instance, s1.getValue(), mtdsCopy.values());
 		}
 
 		return r / mtds.size();
