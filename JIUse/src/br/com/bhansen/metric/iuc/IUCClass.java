@@ -10,7 +10,6 @@ import java.util.Set;
 import org.eclipse.core.runtime.IProgressMonitor;
 
 import br.com.bhansen.jdt.Type;
-import br.com.bhansen.metric.Metric;
 import br.com.bhansen.metric.UsageMetricClass;
 import br.com.bhansen.metric.camc.CAMCClass;
 
@@ -21,11 +20,11 @@ public class IUCClass extends UsageMetricClass {
 	}
 		
 	public double getMetric() throws Exception {
-		return getMetric(this, getMethods());
+		return getMetric(getMethods());
 	}
 	
-	public static double getMetric(Metric instance, Map<String, Set<String>> methods) {
-		return CAMCClass.getMetric(instance, methods, uniqueValues(methods).size());
+	public static double getMetric(Map<String, Set<String>> methods) {
+		return CAMCClass.getMetric(methods, uniqueValues(methods).size());
 	}
 	
 	public Map<String, Set<String>> getMethodsWithoutThis() {

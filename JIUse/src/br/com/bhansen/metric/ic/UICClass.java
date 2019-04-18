@@ -15,7 +15,7 @@ public class UICClass extends UsageMetricClass {
 
 	@Override
 	final public double getMetric() throws Exception {
-		return ICClass.icClass(this, getMethods(), createMMWeight(), createPPWeight());
+		return ICClass.icClass(getMethods(), createMMWeight(), createPPWeight());
 	}
 	
 	protected MMWeight createMMWeight() {

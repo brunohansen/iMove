@@ -11,7 +11,6 @@ import org.eclipse.core.runtime.IProgressMonitor;
 import br.com.bhansen.jdt.Type;
 import br.com.bhansen.metric.AbsMetric;
 import br.com.bhansen.metric.DeclarationMetricClass;
-import br.com.bhansen.metric.Metric;
 import br.com.bhansen.utils.Jaccard;
 
 public class ICClass extends DeclarationMetricClass {
@@ -40,7 +39,7 @@ public class ICClass extends DeclarationMetricClass {
 	
 	@Override
 	final public double getMetric() throws Exception {
-		return icClass(this, getMethods(), createMMWeight(), createPPWeight());
+		return icClass(getMethods(), createMMWeight(), createPPWeight());
 	}
 	
 	protected MMWeight createMMWeight() {
@@ -51,7 +50,7 @@ public class ICClass extends DeclarationMetricClass {
 		return new PPWeight(){};
 	}
 	
-	public static double icClass(Metric instance, Map<String, Set<String>> methods, MMWeight mmWeight, PPWeight ppWeight) {
+	public static double icClass(Map<String, Set<String>> methods, MMWeight mmWeight, PPWeight ppWeight) {
 		double r = 0;
 		
 		if (methods.size() < 2)
@@ -61,25 +60,25 @@ public class ICClass extends DeclarationMetricClass {
 			Map<String, Set<String>> mtdsCopy = new HashMap<>(methods);
 			mtdsCopy.remove(method.getKey());
 			
-			r = r + icMethod(instance, method.getValue(), mtdsCopy, mmWeight, ppWeight);
+			r = r + icMethod(method.getValue(), mtdsCopy, mmWeight, ppWeight);
 		}
 
 		return r / methods.size();
 	}
 	
-	public static double icMethod(Metric instance, Set<String> method, Map<String, Set<String>> methods, MMWeight mmWeight, PPWeight ppWeight) {
-		double mm = mm(instance, method, methods, mmWeight);
+	public static double icMethod(Set<String> method, Map<String, Set<String>> methods, MMWeight mmWeight, PPWeight ppWeight) {
+		double mm = mm(method, methods, mmWeight);
 		
 		if(mm == 0) {
 			return 0;
 		}
 		
-		double pp = pp(instance, method, methods, ppWeight);
+		double pp = pp(method, methods, ppWeight);
 		
 		return ((mm + pp) / 2);
 	}
 	
-	public static double mm(Metric instance, Map<String, Set<String>> methods, MMWeight mmWeight) {
+	public static double mm(Map<String, Set<String>> methods, MMWeight mmWeight) {
 		double r = 0;
 		
 		if (methods.size() < 2)
@@ -89,17 +88,17 @@ public class ICClass extends DeclarationMetricClass {
 			Map<String, Set<String>> mtdsCopy = new HashMap<>(methods);
 			mtdsCopy.remove(method.getKey());
 			
-			r = r + mm(instance, method.getValue(), mtdsCopy, mmWeight);
+			r = r + mm(method.getValue(), mtdsCopy, mmWeight);
 		}
 
 		return r / methods.size();
 	}
 	
-	public static double mm(Metric instance, Set<String> method, Map<String, Set<String>> methods, MMWeight mmWeight) {
-		return Jaccard.similarity(instance, method, methods.values(), mmWeight);
+	public static double mm(Set<String> method, Map<String, Set<String>> methods, MMWeight mmWeight) {
+		return Jaccard.similarity(method, methods.values(), mmWeight);
 	}
 	
-	public static double pp(Metric instance, Map<String, Set<String>> methods, PPWeight ppWeight) {
+	public static double pp(Map<String, Set<String>> methods, PPWeight ppWeight) {
 		double r = 0;
 		
 		if (methods.size() < 2)
@@ -109,13 +108,13 @@ public class ICClass extends DeclarationMetricClass {
 			Map<String, Set<String>> mtdsCopy = new HashMap<>(methods);
 			mtdsCopy.remove(method.getKey());
 			
-			r = r + pp(instance, method.getValue(), mtdsCopy, ppWeight);
+			r = r + pp(method.getValue(), mtdsCopy, ppWeight);
 		}
 
 		return r / methods.size();
 	}
 
-	public static double pp(Metric instance, Set<String> method, Map<String, Set<String>> methods, PPWeight ppWeight) {
+	public static double pp(Set<String> method, Map<String, Set<String>> methods, PPWeight ppWeight) {
 		
 		if(method.size() == 0)
 			return 0;
@@ -129,7 +128,7 @@ public class ICClass extends DeclarationMetricClass {
 			Set<String> p = mPC.remove(k);
 
 			if (p != null) {
-				pp += Jaccard.similarity(instance, p, mPC.values(), ppWeight);
+				pp += Jaccard.similarity(p, mPC.values(), ppWeight);
 			}
 
 		}

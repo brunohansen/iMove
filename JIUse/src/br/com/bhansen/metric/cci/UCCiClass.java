@@ -13,7 +13,7 @@ public class UCCiClass extends UsageMetricClass {
 
 	@Override
 	public double getMetric() throws Exception {
-		return CCiClass.cci(this, getMethods());
+		return CCiClass.cci(getMethods());
 	}
 
 

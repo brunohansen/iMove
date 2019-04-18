@@ -16,7 +16,7 @@ public class UCCiMethod extends UsageMetricMethod {
 	}
 
 	public double getMetric(Set<String> method, Map<String, Set<String>> methods) {
-		return Jaccard.similarity(this, method, methods.values());
+		return Jaccard.similarity(method, methods.values());
 	}
 
 }

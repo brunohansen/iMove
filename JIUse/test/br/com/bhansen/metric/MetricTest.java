@@ -139,6 +139,30 @@ public class MetricTest extends TestCase {
 		mtds2.put("m4", new HashSet<>(Arrays.asList("p1", "p2", "p3", "p4")));
 		
 		test(mtds1, AbsMetric.uniqueValues(mtds1), mtds2, AbsMetric.uniqueValues(mtds2), lessThanOrEqualTo());
+		
+		System.out.println("\nVM - Test Monotonocity\n");
+		
+		HashMap<String, Set<String>> mtds3 = new HashMap<>();
+
+		mtds3.put("m1", new HashSet<>(Arrays.asList("p1", "p2")));
+		mtds3.put("m2", new HashSet<>(Arrays.asList("p1", "p2")));
+		mtds3.put("m3", new HashSet<>());
+		mtds3.put("m4", new HashSet<>());
+		mtds3.put("m5", new HashSet<>());
+		mtds3.put("m6", new HashSet<>());
+		mtds3.put("m7", new HashSet<>());
+		
+		HashMap<String, Set<String>> mtds4 = new HashMap<>();
+
+		mtds4.put("m1", new HashSet<>(Arrays.asList("p1", "p2")));
+		mtds4.put("m2", new HashSet<>(Arrays.asList("p1", "p2")));
+		mtds4.put("m3", new HashSet<>(Arrays.asList("p1")));
+		mtds4.put("m4", new HashSet<>());
+		mtds4.put("m5", new HashSet<>());
+		mtds4.put("m6", new HashSet<>());
+		mtds4.put("m7", new HashSet<>());
+		
+		test(mtds3, AbsMetric.uniqueValues(mtds3), mtds4, AbsMetric.uniqueValues(mtds4), lessThanOrEqualTo());
 	}
 	
 //	@Test
@@ -186,7 +210,7 @@ public class MetricTest extends TestCase {
 		test(mtds1, AbsMetric.uniqueValues(mtds1), mtds2, AbsMetric.uniqueValues(mtds2), greaterThanOrEqualTo());
 	}
 	
-	@Test
+//	@Test
 	public void testNHDMinMax() {
 		System.out.println("\nA5b - Test NHD min\n");
 		
@@ -366,7 +390,7 @@ public class MetricTest extends TestCase {
 		test(chain2, AbsMetric.uniqueValues(chain2), dot, AbsMetric.uniqueValues(dot), lessThanOrEqualTo());
 	}
 	
-//	@Test
+	@Test
 	public void testLatices2() {
 		Map<String, Set<String>> partition = new HashMap<>();
 
@@ -499,36 +523,36 @@ public class MetricTest extends TestCase {
 	}
 	
 	public void test(Map<String, Set<String>> methods, Set<String> values, Double expected, TestPredicateFactory<Double> factory) {
-		checkThat("CAMC", expected, CAMCClass.getMetric(MockMetric.i, methods, values.size()), factory);
-		checkThat("CCi", expected, CCiClass.cci(MockMetric.i, methods), factory);
-		checkThat("D3C2i", expected, D3C2iClass.getMetric(MockMetric.i, methods), factory);
-		checkThat("IC", expected, ICClass.icClass(MockMetric.i, methods, new MMWeight(){}, new PPWeight(){}), factory);
-		checkThat("ISCOMi", expected, ISCOMiClass.iscomClass(MockMetric.i, methods, values.size()), factory);
-		checkThat("NHD", expected, NHDClass.nhdClass(MockMetric.i, methods, values, NHDClass.NHD), factory);
-		checkThat("NHDM", expected, NHDMClass.nhdClass(MockMetric.i, methods, values, NHDMClass.NHDM), factory);
-		checkThat("WIC", expected, WICClass.icClass(MockMetric.i, methods, WICClass.createMMWeight(values.size()), WICClass.createPPWeight(methods.size())), factory);
+		checkThat("CAMC", expected, CAMCClass.getMetric(methods, values.size()), factory);
+		checkThat("CCi", expected, CCiClass.cci(methods), factory);
+		checkThat("D3C2i", expected, D3C2iClass.getMetric(methods), factory);
+		checkThat("IC", expected, ICClass.icClass(methods, new MMWeight(){}, new PPWeight(){}), factory);
+		checkThat("ISCOMi", expected, ISCOMiClass.iscomClass(methods, values.size()), factory);
+		checkThat("NHD", expected, NHDClass.nhdClass(methods, values, NHDClass.NHD), factory);
+		checkThat("NHDM", expected, NHDMClass.nhdClass(methods, values, NHDMClass.NHDM), factory);
+		checkThat("WIC", expected, WICClass.icClass(methods, WICClass.createMMWeight(values.size()), WICClass.createPPWeight(methods.size())), factory);
 	}
 	
 	public void test(Map<String, Set<String>> methods1, Set<String> values1, Map<String, Set<String>> methods2, Set<String> values2, TestPredicateFactory<Double> factory) {
-		checkThat("CAMC", CAMCClass.getMetric(MockMetric.i, methods1, values1.size()), CAMCClass.getMetric(MockMetric.i, methods2, values2.size()), factory);
-		checkThat("CCi", CCiClass.cci(MockMetric.i, methods1), CCiClass.cci(MockMetric.i, methods2), factory);
-		checkThat("D3C2i", D3C2iClass.getMetric(MockMetric.i, methods1), D3C2iClass.getMetric(MockMetric.i, methods2), factory);
-		checkThat("IC", ICClass.icClass(MockMetric.i, methods1, new MMWeight(){}, new PPWeight(){}), ICClass.icClass(MockMetric.i, methods2, new MMWeight(){}, new PPWeight(){}), factory);
-		checkThat("ISCOMi", ISCOMiClass.iscomClass(MockMetric.i, methods1, values1.size()), ISCOMiClass.iscomClass(MockMetric.i, methods2, values2.size()), factory);
-		checkThat("NHD", NHDClass.nhdClass(MockMetric.i, methods1, values1, NHDClass.NHD), NHDClass.nhdClass(MockMetric.i, methods2, values2, NHDClass.NHD), factory);
-		checkThat("NHDM", NHDMClass.nhdClass(MockMetric.i, methods1, values1, NHDMClass.NHDM), NHDMClass.nhdClass(MockMetric.i, methods2, values2, NHDMClass.NHDM), factory);
-		checkThat("WIC", WICClass.icClass(MockMetric.i, methods1, WICClass.createMMWeight(values1.size()), WICClass.createPPWeight(methods1.size())), WICClass.icClass(MockMetric.i, methods2, WICClass.createMMWeight(values2.size()), WICClass.createPPWeight(methods2.size())), factory);
+		checkThat("CAMC", CAMCClass.getMetric(methods1, values1.size()), CAMCClass.getMetric(methods2, values2.size()), factory);
+		checkThat("CCi", CCiClass.cci(methods1), CCiClass.cci(methods2), factory);
+		checkThat("D3C2i", D3C2iClass.getMetric(methods1), D3C2iClass.getMetric(methods2), factory);
+		checkThat("IC", ICClass.icClass(methods1, new MMWeight(){}, new PPWeight(){}), ICClass.icClass(methods2, new MMWeight(){}, new PPWeight(){}), factory);
+		checkThat("ISCOMi", ISCOMiClass.iscomClass(methods1, values1.size()), ISCOMiClass.iscomClass(methods2, values2.size()), factory);
+		checkThat("NHD", NHDClass.nhdClass(methods1, values1, NHDClass.NHD), NHDClass.nhdClass(methods2, values2, NHDClass.NHD), factory);
+		checkThat("NHDM", NHDMClass.nhdClass(methods1, values1, NHDMClass.NHDM), NHDMClass.nhdClass(methods2, values2, NHDMClass.NHDM), factory);
+		checkThat("WIC", WICClass.icClass(methods1, WICClass.createMMWeight(values1.size()), WICClass.createPPWeight(methods1.size())), WICClass.icClass(methods2, WICClass.createMMWeight(values2.size()), WICClass.createPPWeight(methods2.size())), factory);
 	}
 	
 	public void print(Map<String, Set<String>> methods, Set<String> values) {
-		System.out.println("CAMC -> " + CAMCClass.getMetric(MockMetric.i, methods, values.size()));
-		System.out.println("CCi -> " + CCiClass.cci(MockMetric.i, methods));
-		System.out.println("D3C2i -> " + D3C2iClass.getMetric(MockMetric.i, methods));
-		System.out.println("IC -> " + ICClass.icClass(MockMetric.i, methods, new MMWeight(){}, new PPWeight(){}));
-		System.out.println("ISCOMi -> " + ISCOMiClass.iscomClass(MockMetric.i, methods, values.size()));
-		System.out.println("NHD -> " + NHDClass.nhdClass(MockMetric.i, methods, values, NHDClass.NHD));
-		System.out.println("NHDM -> " + NHDMClass.nhdClass(MockMetric.i, methods, values, NHDMClass.NHDM));
-		System.out.println("WIC -> " + WICClass.icClass(MockMetric.i, methods, WICClass.createMMWeight(values.size()), WICClass.createPPWeight(methods.size())));
+		System.out.println("CAMC -> " + CAMCClass.getMetric(methods, values.size()));
+		System.out.println("CCi -> " + CCiClass.cci(methods));
+		System.out.println("D3C2i -> " + D3C2iClass.getMetric(methods));
+		System.out.println("IC -> " + ICClass.icClass(methods, new MMWeight(){}, new PPWeight(){}));
+		System.out.println("ISCOMi -> " + ISCOMiClass.iscomClass(methods, values.size()));
+		System.out.println("NHD -> " + NHDClass.nhdClass(methods, values, NHDClass.NHD));
+		System.out.println("NHDM -> " + NHDMClass.nhdClass(methods, values, NHDMClass.NHDM));
+		System.out.println("WIC -> " + WICClass.icClass(methods, WICClass.createMMWeight(values.size()), WICClass.createPPWeight(methods.size())));
 	}
 	
 }

@@ -18,7 +18,7 @@ public class UICMethod extends UsageMetricMethod {
 
 	@Override
 	final public double getMetric(Set<String> method, Map<String, Set<String>> methods) {
-		return ICClass.icMethod(this, getMethod(), getMethods(), createMMWeight(), createPPWeight());
+		return ICClass.icMethod(getMethod(), getMethods(), createMMWeight(), createPPWeight());
 	}
 	
 	protected MMWeight createMMWeight() {

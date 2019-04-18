@@ -16,7 +16,7 @@ public abstract class AbsMetric implements Metric {
 	
 	public AbsMetric(Type type) {
 		super();
-		this.name = (type == null)? "Null" : type.getName();
+		this.name = type.getName();
 		this.methods = new HashMap<>();
 	}
 	
