@@ -1,4 +1,4 @@
-0.002282-000	org.apache.tapestry5.internal.services.ComponentRequestHandlerTerminator::buildComponentRequestHandler(List<ComponentRequestFilter>, TapestryModule, Logger):ComponentRequestHandler	org.apache.tapestry5.services.TapestryModule
+0.002292-000	org.apache.tapestry5.internal.services.ComponentRequestHandlerTerminator::buildComponentRequestHandler(List<ComponentRequestFilter>, TapestryModule, Logger):ComponentRequestHandler	org.apache.tapestry5.services.TapestryModule
 0.008333-000	org.apache.tapestry5.corelib.mixins.RenderDisabled::defaultModel(Select):SelectModel	org.apache.tapestry5.corelib.components.Select
 0.025000-000	org.apache.tapestry5.corelib.components.Checkbox::getTextFieldTranslator(PropertyEditBlocks):FieldTranslator	org.apache.tapestry5.corelib.pages.PropertyEditBlocks
 0.029762-000	org.apache.tapestry5.corelib.data.BlankOption::setBlankOption(Select, String):void	org.apache.tapestry5.corelib.components.Select

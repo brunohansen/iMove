@@ -1,10 +1,10 @@
--0.239938-111	+org.apache.tapestry5.internal.util.MethodInvocationBuilder::buildMethodInvocation(TransformMethodSignature, ClassTransformation):String	org.apache.tapestry5.services.TransformMethodSignature
+-0.322535-111	+org.apache.tapestry5.internal.util.MethodInvocationBuilder::buildMethodInvocation(TransformMethodSignature, ClassTransformation):String	org.apache.tapestry5.services.TransformMethodSignature
 0.000000-011	org.apache.tapestry5.corelib.mixins.NotEmpty::afterRender():void	org.apache.tapestry5.dom.Element
-0.004311-011	+org.apache.tapestry5.ioc.internal.services.FilterMethodAnalyzer::findServiceInterfacePosition(MethodSignature, MethodSignature):int	org.apache.tapestry5.ioc.services.MethodSignature
-0.012077-000	+org.apache.tapestry5.ioc.internal.util.IdAllocator::copyMethod2(InternalClassTransformationImpl, TransformMethodSignature, int, String):void	org.apache.tapestry5.internal.services.InternalClassTransformationImpl
-0.032458-000	+org.apache.tapestry5.ioc.internal.services.RegistryShutdownHubImpl::findServiceIdsForInterface(RegistryImpl, Class):List<String>	org.apache.tapestry5.ioc.internal.RegistryImpl
-0.072619-000	+org.apache.tapestry5.services.PageRenderRequestParameters::createPageRenderLink2(ComponentEventLinkEncoderImpl):Link	org.apache.tapestry5.internal.services.ComponentEventLinkEncoderImpl
+0.004596-011	+org.apache.tapestry5.ioc.internal.services.FilterMethodAnalyzer::findServiceInterfacePosition(MethodSignature, MethodSignature):int	org.apache.tapestry5.ioc.services.MethodSignature
+0.012165-000	+org.apache.tapestry5.ioc.internal.util.IdAllocator::copyMethod2(InternalClassTransformationImpl, TransformMethodSignature, int, String):void	org.apache.tapestry5.internal.services.InternalClassTransformationImpl
+0.033227-000	+org.apache.tapestry5.ioc.internal.services.RegistryShutdownHubImpl::findServiceIdsForInterface(RegistryImpl, Class):List<String>	org.apache.tapestry5.ioc.internal.RegistryImpl
+0.076190-000	+org.apache.tapestry5.services.PageRenderRequestParameters::createPageRenderLink2(ComponentEventLinkEncoderImpl):Link	org.apache.tapestry5.internal.services.ComponentEventLinkEncoderImpl
 0.083333-000	+org.apache.tapestry5.corelib.internal.ComponentActionSink::afterRender(FormFragment, MarkupWriter):void	org.apache.tapestry5.corelib.components.FormFragment
-0.507557-011	+org.apache.tapestry5.internal.services.ClientBehaviorSupportImpl::addFunction(JSONObject, String, String):void	org.apache.tapestry5.json.JSONObject
+0.507823-011	+org.apache.tapestry5.internal.services.ClientBehaviorSupportImpl::addFunction(JSONObject, String, String):void	org.apache.tapestry5.json.JSONObject
 1.000000-000	+org.apache.tapestry5.ioc.services.MethodSignature::failIfNotFrozen(InternalClassTransformationImpl):void	org.apache.tapestry5.internal.services.InternalClassTransformationImpl
 1.000000-000	?+org.example.testapp.services.SpringStatusProvider::onSuccess(Start):void	org.example.testapp.pages.Start

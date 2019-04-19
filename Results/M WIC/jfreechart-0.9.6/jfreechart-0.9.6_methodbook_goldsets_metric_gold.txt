@@ -1,6 +1,6 @@
 -0.013889-100	com.jrefinery.data.DynamicTimeSeriesCollection::getX(RegularTimePeriod):long	com.jrefinery.data.RegularTimePeriod
--0.081498-100	com.jrefinery.chart.ui.AxisPropertyEditPanel::setAxisProperties(Axis):void	com.jrefinery.chart.axis.Axis
+-0.086161-100	com.jrefinery.chart.ui.AxisPropertyEditPanel::setAxisProperties(Axis):void	com.jrefinery.chart.axis.Axis
 0.000000-000	com.jrefinery.chart.ui.LegendPropertyEditPanel::setLegendProperties(Legend):void	com.jrefinery.chart.Legend
 0.000000-000	com.jrefinery.chart.ui.PlotPropertyEditPanel::updatePlotProperties(Plot):void	com.jrefinery.chart.plot.Plot
 0.000000-000	com.jrefinery.data.TimeSeriesCollection::getX(RegularTimePeriod):long	com.jrefinery.data.RegularTimePeriod
-0.006160-000	com.jrefinery.chart.ui.ChartPropertyEditPanel::updateChartProperties(JFreeChart):void	com.jrefinery.chart.JFreeChart
+0.006392-000	com.jrefinery.chart.ui.ChartPropertyEditPanel::updateChartProperties(JFreeChart):void	com.jrefinery.chart.JFreeChart

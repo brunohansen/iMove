@@ -1,10 +1,10 @@
--0.026515-100	bsh.Name::resolveThisFieldReference(NameSpace, Interpreter, String, boolean):Object	bsh.NameSpace
--0.497526-100	org.gjt.sp.jedit.textarea.JEditTextArea::xToOffset(int, int):int	org.gjt.sp.jedit.textarea.TextAreaPainter
--0.962018-100	org.gjt.sp.jedit.Buffer::tokenizeLines(int, int):void	org.gjt.sp.jedit.syntax.TokenMarker
+-0.027366-100	bsh.Name::resolveThisFieldReference(NameSpace, Interpreter, String, boolean):Object	bsh.NameSpace
+-0.497324-100	org.gjt.sp.jedit.textarea.JEditTextArea::xToOffset(int, int):int	org.gjt.sp.jedit.textarea.TextAreaPainter
+-0.960034-100	org.gjt.sp.jedit.Buffer::tokenizeLines(int, int):void	org.gjt.sp.jedit.syntax.TokenMarker
 0.000000-000	org.gjt.sp.jedit.browser.VFSBrowser::handleBufferUpdate(BufferUpdate):void	org.gjt.sp.jedit.msg.BufferUpdate
 0.000000-000	org.gjt.sp.jedit.io.BufferIORequest::read(Buffer, InputStream, long):String	org.gjt.sp.jedit.Buffer
 0.000000-000	org.gjt.sp.jedit.io.BufferIORequest::readMarkers(Buffer, InputStream):void	org.gjt.sp.jedit.Buffer
 0.000000-000	org.gjt.sp.jedit.io.BufferIORequest::writeMarkers(Buffer, OutputStream):void	org.gjt.sp.jedit.Buffer
-0.005186-000	org.gjt.sp.jedit.Mode::accept(Buffer, String, String):boolean	gnu.regexp.RE
-0.499235-000	org.gjt.sp.jedit.GUIUtilities::getStyleString(SyntaxStyle):String	org.gjt.sp.jedit.syntax.SyntaxStyle
+0.005742-000	org.gjt.sp.jedit.Mode::accept(Buffer, String, String):boolean	gnu.regexp.RE
+0.499227-000	org.gjt.sp.jedit.GUIUtilities::getStyleString(SyntaxStyle):String	org.gjt.sp.jedit.syntax.SyntaxStyle
 0.992308-000	org.gjt.sp.jedit.EditPane::initTextArea(JEditTextArea):void	org.gjt.sp.jedit.textarea.JEditTextArea

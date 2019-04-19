@@ -1,5 +1,5 @@
--0.008498-111	org.jgroups.protocols.pbcast.GMS::makeView(Vector<Address>):View	org.jgroups.ViewId
--0.109475-111	org.jgroups.protocols.pbcast.Merger::sendMergeView(Collection<Address>, MergeData, MergeId):void	org.jgroups.protocols.pbcast.GMS
+-0.008563-111	org.jgroups.protocols.pbcast.GMS::makeView(Vector<Address>):View	org.jgroups.ViewId
+-0.111717-111	org.jgroups.protocols.pbcast.Merger::sendMergeView(Collection<Address>, MergeData, MergeId):void	org.jgroups.protocols.pbcast.GMS
 -1.000000-111	org.jgroups.blocks.GroupRequestTest.MyTransport::sendResponses():void	org.jgroups.blocks.GroupRequest
 -1.000000-111	org.jgroups.blocks.RpcDispatcherSerializationTest::testMarshaller():void	org.jgroups.blocks.RpcDispatcher
 -1.000000-111	org.jgroups.tests.DigestTest::testMutableCopy():void	org.jgroups.util.MutableDigest
@@ -18,15 +18,15 @@
 0.000000-011	org.jgroups.tests.RspListTest::testKeySet2():void	org.jgroups.util.RspList
 0.000000-011	org.jgroups.tests.UnicastLoopbackTest::testUnicastMsgsWithLoopback():void	org.jgroups.JChannel
 0.000000-011	org.jgroups.tests.perf.IPerf::sendResult(Object, Entry):void	org.jgroups.tests.perf.IPerf.Entry
-0.004204-000	org.jgroups.util.Queue::up(JChannel, Event):Object	org.jgroups.JChannel
-0.007747-011	org.jgroups.blocks.MuxRpcDispatcherTest::verifyResponse(Map<Address, Rsp>, Channel, Object):void	org.jgroups.Channel
-0.008434-011	org.jgroups.tests.UnicastTest::getReceiver():Address	org.jgroups.JChannel
-0.008434-011	org.jgroups.tests.UnicastTestRpc::getReceiver():Address	org.jgroups.JChannel
-0.008434-011	org.jgroups.tests.UnicastTestSimple::getReceiver():Address	org.jgroups.JChannel
-0.058887-001	org.jgroups.stack.Protocol::down(NAKACK, Event):Object	org.jgroups.Event
-0.068328-011	org.jgroups.protocols.pbcast.GMS::determineCoordinator():Address	org.jgroups.Membership
-0.101465-011	org.jgroups.protocols.pbcast.GMS::wouldBeNewCoordinator(Address):boolean	org.jgroups.Membership
-0.240144-001	org.jgroups.JChannel::findParentNode(ReplicatedTree, String, StringHolder, boolean):Node	org.jgroups.blocks.ReplicatedTree.StringHolder
+0.004219-000	org.jgroups.util.Queue::up(JChannel, Event):Object	org.jgroups.JChannel
+0.007763-011	org.jgroups.blocks.MuxRpcDispatcherTest::verifyResponse(Map<Address, Rsp>, Channel, Object):void	org.jgroups.Channel
+0.008465-011	org.jgroups.tests.UnicastTest::getReceiver():Address	org.jgroups.JChannel
+0.008465-011	org.jgroups.tests.UnicastTestRpc::getReceiver():Address	org.jgroups.JChannel
+0.008465-011	org.jgroups.tests.UnicastTestSimple::getReceiver():Address	org.jgroups.JChannel
+0.070811-011	org.jgroups.protocols.pbcast.GMS::determineCoordinator():Address	org.jgroups.Membership
+0.076741-001	org.jgroups.stack.Protocol::down(NAKACK, Event):Object	org.jgroups.Event
+0.104085-011	org.jgroups.protocols.pbcast.GMS::wouldBeNewCoordinator(Address):boolean	org.jgroups.Membership
+0.239919-001	org.jgroups.JChannel::findParentNode(ReplicatedTree, String, StringHolder, boolean):Node	org.jgroups.blocks.ReplicatedTree.StringHolder
 1.000000-011	org.jgroups.blocks.ConnectionTableNIO.ReadHandler::readBody(Connection):int	org.jgroups.blocks.ConnectionTableNIO.Connection
 1.000000-011	org.jgroups.blocks.ConnectionTableNIO.ReadHandler::readHeader(Connection):int	org.jgroups.blocks.ConnectionTableNIO.Connection
 1.000000-011	org.jgroups.tests.TimeSchedulerTest::printExecutionTimes(RepeatingTask):String	org.jgroups.tests.TimeSchedulerTest.RepeatingTask

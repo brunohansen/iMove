@@ -2,13 +2,13 @@
 0.000000-000	+com.mvnsoft.mvnad.db.ZoneBean::getNextBanner(ZoneManager):BannerBean	com.mvnsoft.mvnad.delivery.ZoneManager
 0.003233-000	+com.mvnforum.auth.OnlineUserAction::convertGMTDate(OnlineUserImpl, Date):Date	com.mvnforum.auth.OnlineUserImpl
 0.035714-000	+com.mvnforum.db.WatchBean::appendWatch2(WatchMail):void	com.mvnforum.user.WatchMail
-0.060267-000	+com.mvnforum.db.MemberBean::createWatchMessageBean(WatchMail, Collection):void	com.mvnforum.user.WatchMail
+0.061748-000	+com.mvnforum.db.MemberBean::createWatchMessageBean(WatchMail, Collection):void	com.mvnforum.user.WatchMail
 0.208333-000	+com.mvnforum.common.ForumIconLegend::drawForum2(CategoryTreeListenerImpl, CategoryTreeEvent):String	com.mvnforum.categorytree.impl.CategoryTreeListenerImpl
 0.208333-000	+com.mvnforum.db.CategoryBean::drawForum2(ListForums, CategoryTreeEvent):String	com.mvnforum.categorytree.impl.ListForums
-0.309524-000	+com.mvnforum.db.PostBean::deletePost(GenericRequest, PostWebHandler):void	com.mvnforum.user.PostWebHandler
+0.320513-000	+com.mvnforum.db.PostBean::deletePost(GenericRequest, PostWebHandler):void	com.mvnforum.user.PostWebHandler
 0.416667-000	+com.mvnforum.categorytree.CategoryTreeEvent::drawForum2(RSSImpl):String	com.mvnforum.categorytree.impl.RSSImpl
-0.479853-000	+net.myvietnam.mvncore.interceptor.InterceptorService::prepareAdd(PostWebHandler, GenericRequest, GenericResponse):void	com.mvnforum.user.PostWebHandler
-0.666667-000	+net.myvietnam.mvncore.service.BinaryStorageHandle::loadData(String, String, BinaryStorageServiceImplBase):byte[]	net.myvietnam.mvncore.service.impl.BinaryStorageServiceImplBase
+0.487179-000	+net.myvietnam.mvncore.interceptor.InterceptorService::prepareAdd(PostWebHandler, GenericRequest, GenericResponse):void	com.mvnforum.user.PostWebHandler
+0.750000-000	+net.myvietnam.mvncore.service.BinaryStorageHandle::loadData(String, String, BinaryStorageServiceImplBase):byte[]	net.myvietnam.mvncore.service.impl.BinaryStorageServiceImplBase
 1.000000-000	+com.mvnforum.admin.AttachmentXML::setAttachDownloadCount(MvnForumAttachmentXML, String):void	com.mvnforum.admin.importexport.mvnforum.MvnForumAttachmentXML
 1.000000-000	+com.mvnforum.admin.CategoryXML::setCategoryOrder(MvnForumCategoryXML, String):void	com.mvnforum.admin.importexport.mvnforum.MvnForumCategoryXML
 1.000000-000	+com.mvnforum.admin.ForumXML::setForumPassword(MvnForumForumXML, String):void	com.mvnforum.admin.importexport.mvnforum.MvnForumForumXML

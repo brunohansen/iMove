@@ -1,17 +1,17 @@
--0.030077-111	br.com.linkcom.sgm.service.IndicadorService::calculaAcompanhamentosIndicador(Indicador, List<Calendar>):Indicador	br.com.linkcom.sgm.beans.Indicador
--0.045486-111	br.com.linkcom.sgm.service.AnexoIndicadorService::excluiAnexoIndicadorDetalhe(Indicador):void	br.com.linkcom.sgm.dao.AnexoIndicadorDAO
--0.083333-111	br.com.linkcom.sgm.service.AnexoAnomaliaService::excluiAnexoAnomaliaDetalhe(Anomalia):void	br.com.linkcom.sgm.dao.AnexoAnomaliaDAO
-0.006944-011	br.com.linkcom.sgm.service.UsuarioUnidadeGerencialService::findUsuariosQualidadeEnvolvidoAnomalia(PlanoGestao):List<UsuarioUnidadeGerencial>	br.com.linkcom.sgm.dao.UsuarioUnidadeGerencialDAO
-0.023907-011	br.com.linkcom.sgm.service.AcompanhamentoIndicadorService::getListaDataAcompanhamentoIndicador(List<Indicador>, Calendar, Calendar):List<Calendar>	br.com.linkcom.sgm.dao.AcompanhamentoIndicadorDAO
-0.091667-011	br.com.linkcom.sgm.service.UsuarioPapelService::getPapeis(Usuario):Set<Papel>	br.com.linkcom.sgm.dao.UsuarioPapelDAO
-0.207772-011	br.com.linkcom.sgm.service.ObjetivoMapaEstrategicoService::findByUnidadeGerencialPerspectivaThroughMapaEstrategico(UnidadeGerencial, PerspectivaMapaEstrategico, boolean, boolean, boolean, boolean, boolean, String):List<ObjetivoMapaEstrategico>	br.com.linkcom.sgm.dao.ObjetivoMapaEstrategicoDAO
-0.936432-011	br.com.linkcom.sgm.controller.crud.AuditoriaInternaCrud::usuarioPodeEditarAuditoriaInterna(AuditoriaInterna, Boolean, Boolean, Boolean):Boolean	br.com.linkcom.sgm.beans.AuditoriaInterna
-0.953279-011	br.com.linkcom.sgm.controller.crud.AnomaliaCrud::exibirBotaoNotificarCumprimentoPendente(Anomalia, Boolean):Boolean	br.com.linkcom.sgm.beans.Anomalia
-0.953279-011	br.com.linkcom.sgm.controller.crud.AnomaliaCrud::exibirBotaoSolicitarEncerramento(Anomalia, Boolean, Boolean):Boolean	br.com.linkcom.sgm.beans.Anomalia
-0.953279-011	br.com.linkcom.sgm.controller.crud.AnomaliaCrud::usuarioPodeConsultarAnomalia(Anomalia, Boolean, Boolean, Boolean, Boolean):Boolean	br.com.linkcom.sgm.beans.Anomalia
-0.953279-011	br.com.linkcom.sgm.controller.crud.AnomaliaCrud::usuarioPodeCriarPlanoAcao(Anomalia, Boolean, Boolean, Boolean):Boolean	br.com.linkcom.sgm.beans.Anomalia
-0.953279-011	br.com.linkcom.sgm.controller.crud.AnomaliaCrud::usuarioPodeDestravarAnomalia(Anomalia, Boolean, Boolean, Boolean):Boolean	br.com.linkcom.sgm.beans.Anomalia
-0.953279-011	br.com.linkcom.sgm.controller.crud.AnomaliaCrud::usuarioPodeEditarAnomalia(Anomalia, Boolean, Boolean):Boolean	br.com.linkcom.sgm.beans.Anomalia
-0.953279-011	br.com.linkcom.sgm.controller.crud.AnomaliaCrud::usuarioPodeEncerrarAnomalia(Anomalia, Boolean, Boolean):Boolean	br.com.linkcom.sgm.beans.Anomalia
-0.953279-011	br.com.linkcom.sgm.controller.crud.AnomaliaCrud::usuarioPodeTratarAnomalia(Anomalia, Boolean, Boolean, Boolean):Boolean	br.com.linkcom.sgm.beans.Anomalia
-0.954545-011	br.com.linkcom.sgm.controller.crud.AcaoPreventivaCrud::usuarioPodeEditarAcaoPreventiva(AcaoPreventiva, Boolean, Boolean):Boolean	br.com.linkcom.sgm.beans.AcaoPreventiva
+-0.030379-111	br.com.linkcom.sgm.service.IndicadorService::calculaAcompanhamentosIndicador(Indicador, List<Calendar>):Indicador	br.com.linkcom.sgm.beans.Indicador
+-0.047917-111	br.com.linkcom.sgm.service.AnexoIndicadorService::excluiAnexoIndicadorDetalhe(Indicador):void	br.com.linkcom.sgm.dao.AnexoIndicadorDAO
+-0.088542-111	br.com.linkcom.sgm.service.AnexoAnomaliaService::excluiAnexoAnomaliaDetalhe(Anomalia):void	br.com.linkcom.sgm.dao.AnexoAnomaliaDAO
+0.025675-011	br.com.linkcom.sgm.service.AcompanhamentoIndicadorService::getListaDataAcompanhamentoIndicador(List<Indicador>, Calendar, Calendar):List<Calendar>	br.com.linkcom.sgm.dao.AcompanhamentoIndicadorDAO
+0.037698-011	br.com.linkcom.sgm.service.UsuarioUnidadeGerencialService::findUsuariosQualidadeEnvolvidoAnomalia(PlanoGestao):List<UsuarioUnidadeGerencial>	br.com.linkcom.sgm.dao.UsuarioUnidadeGerencialDAO
+0.133333-011	br.com.linkcom.sgm.service.UsuarioPapelService::getPapeis(Usuario):Set<Papel>	br.com.linkcom.sgm.dao.UsuarioPapelDAO
+0.216578-011	br.com.linkcom.sgm.service.ObjetivoMapaEstrategicoService::findByUnidadeGerencialPerspectivaThroughMapaEstrategico(UnidadeGerencial, PerspectivaMapaEstrategico, boolean, boolean, boolean, boolean, boolean, String):List<ObjetivoMapaEstrategico>	br.com.linkcom.sgm.dao.ObjetivoMapaEstrategicoDAO
+0.932870-011	br.com.linkcom.sgm.controller.crud.AuditoriaInternaCrud::usuarioPodeEditarAuditoriaInterna(AuditoriaInterna, Boolean, Boolean, Boolean):Boolean	br.com.linkcom.sgm.beans.AuditoriaInterna
+0.951519-011	br.com.linkcom.sgm.controller.crud.AnomaliaCrud::exibirBotaoNotificarCumprimentoPendente(Anomalia, Boolean):Boolean	br.com.linkcom.sgm.beans.Anomalia
+0.951519-011	br.com.linkcom.sgm.controller.crud.AnomaliaCrud::exibirBotaoSolicitarEncerramento(Anomalia, Boolean, Boolean):Boolean	br.com.linkcom.sgm.beans.Anomalia
+0.951519-011	br.com.linkcom.sgm.controller.crud.AnomaliaCrud::usuarioPodeConsultarAnomalia(Anomalia, Boolean, Boolean, Boolean, Boolean):Boolean	br.com.linkcom.sgm.beans.Anomalia
+0.951519-011	br.com.linkcom.sgm.controller.crud.AnomaliaCrud::usuarioPodeCriarPlanoAcao(Anomalia, Boolean, Boolean, Boolean):Boolean	br.com.linkcom.sgm.beans.Anomalia
+0.951519-011	br.com.linkcom.sgm.controller.crud.AnomaliaCrud::usuarioPodeDestravarAnomalia(Anomalia, Boolean, Boolean, Boolean):Boolean	br.com.linkcom.sgm.beans.Anomalia
+0.951519-011	br.com.linkcom.sgm.controller.crud.AnomaliaCrud::usuarioPodeEditarAnomalia(Anomalia, Boolean, Boolean):Boolean	br.com.linkcom.sgm.beans.Anomalia
+0.951519-011	br.com.linkcom.sgm.controller.crud.AnomaliaCrud::usuarioPodeEncerrarAnomalia(Anomalia, Boolean, Boolean):Boolean	br.com.linkcom.sgm.beans.Anomalia
+0.951519-011	br.com.linkcom.sgm.controller.crud.AnomaliaCrud::usuarioPodeTratarAnomalia(Anomalia, Boolean, Boolean, Boolean):Boolean	br.com.linkcom.sgm.beans.Anomalia
+0.951818-011	br.com.linkcom.sgm.controller.crud.AcaoPreventivaCrud::usuarioPodeEditarAcaoPreventiva(AcaoPreventiva, Boolean, Boolean):Boolean	br.com.linkcom.sgm.beans.AcaoPreventiva
