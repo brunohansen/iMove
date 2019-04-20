@@ -2,7 +2,7 @@ package br.com.bhansen.test;
 
 import java.util.function.Predicate;
 
-public class TestCase {
+public abstract class TestCase {
 
 	public interface TestPredicate<T> extends Predicate<T> {
 		
