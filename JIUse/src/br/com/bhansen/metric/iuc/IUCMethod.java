@@ -17,7 +17,7 @@ public class IUCMethod extends UsageMetricMethod {
 
 	@Override
 	public double getMetric(Set<String> method, Map<String, Set<String>> methods) {
-		return CAMCMethod.getMetric(method, methods, getValues().size());
+		return CAMCMethod.camcMethod(method, methods);
 	}
 			
 }

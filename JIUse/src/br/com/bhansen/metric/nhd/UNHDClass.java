@@ -15,7 +15,7 @@ public class UNHDClass extends UsageMetricClass {
 
 	@Override
 	final public double getMetric() throws Exception {
-		return NHDClass.nhdClass(getMethods(), getValues(), getPredicate());
+		return NHDClass.nhdClass(getMethods(), getPredicate());
 	}
 	
 	protected BiPredicate<Boolean, Boolean> getPredicate() {

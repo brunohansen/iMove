@@ -1,5 +1,9 @@
 package br.com.bhansen.metric.wic;
 
+import java.util.HashSet;
+import java.util.Map;
+import java.util.Set;
+
 import org.eclipse.core.runtime.IProgressMonitor;
 
 import br.com.bhansen.jdt.Type;
@@ -15,12 +19,23 @@ public class WICMethod extends ICMethod {
 
 	@Override
 	protected MMWeight createMMWeight() {
-		return WICClass.createMMWeight(getMethod(), getValues());
+		return createMMWeight(getMethod(), getMethods());
 	}
 	
 	@Override
 	protected PPWeight createPPWeight() {
-		return WICClass.createPPWeight(getMethods().size() + 1);
+		return createPPWeight(getMethod(), getMethods());
+	}
+	
+	public static PPWeight createPPWeight(Set<String> method, Map<String, Set<String>> methods) {
+		return WICClass.createPPWeight(methods.size() + 1);
+	}
+	
+	public static MMWeight createMMWeight(Set<String> method, Map<String, Set<String>> methods) {
+		Set<String> vls = new HashSet<>(uniqueValues(methods));
+		vls.addAll(method);
+		
+		return WICClass.createMMWeight(vls.size());
 	}
 
 }

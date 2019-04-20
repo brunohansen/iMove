@@ -66,7 +66,7 @@ public class ICClass extends DeclarationMetricClass {
 		return r / methods.size();
 	}
 	
-	public static double icMethod(Set<String> method, Map<String, Set<String>> methods, MMWeight mmWeight, PPWeight ppWeight) {
+	protected static double icMethod(Set<String> method, Map<String, Set<String>> methods, MMWeight mmWeight, PPWeight ppWeight) {
 		double mm = mm(method, methods, mmWeight);
 		
 		if(mm == 0) {
@@ -94,7 +94,7 @@ public class ICClass extends DeclarationMetricClass {
 		return r / methods.size();
 	}
 	
-	public static double mm(Set<String> method, Map<String, Set<String>> methods, MMWeight mmWeight) {
+	private static double mm(Set<String> method, Map<String, Set<String>> methods, MMWeight mmWeight) {
 		return Jaccard.similarity(method, methods.values(), mmWeight);
 	}
 	
@@ -114,7 +114,7 @@ public class ICClass extends DeclarationMetricClass {
 		return r / methods.size();
 	}
 
-	public static double pp(Set<String> method, Map<String, Set<String>> methods, PPWeight ppWeight) {
+	private static double pp(Set<String> method, Map<String, Set<String>> methods, PPWeight ppWeight) {
 		
 		if(method.size() == 0)
 			return 0;

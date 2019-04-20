@@ -16,18 +16,14 @@ public class CAMCMethod extends DeclarationMetricMethod {
 
 	@Override
 	public double getMetric(Set<String> method, Map<String, Set<String>> methods) {
-		return getMetric(method, methods, getValues().size());
+		return camcMethod(method, methods);
 	}
 	
-	public static double getMetric(Set<String> method, Map<String, Set<String>> methods, double numValues) {
-		double camc = 0;
-		double numMethods = methods.size();
+	public static double camcMethod(Set<String> method, Map<String, Set<String>> methods) {		
+		Set<String> values = uniqueValues(methods);
+		values.addAll(method);
 		
-		camc += method.size() / numValues;
-		
-		camc = camc / numMethods;
-		
-		return camc;
+		return (double) method.size() / (double) values.size();
 	}
 
 }

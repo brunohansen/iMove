@@ -19,11 +19,13 @@ public class ISCOMiClass extends DeclarationMetricClass {
 	
 	@Override
 	public double getMetric() throws Exception {
-		return iscomClass(getMethods(), getValues().size());
+		return iscomClass(getMethods());
 	}
 	
-	public static double iscomClass(Map<String, Set<String>> methods, double numValues) {
+	public static double iscomClass(Map<String, Set<String>> methods) {
 		double r = 0;
+		
+		double numValues = uniqueValues(methods).size();
 		
 		if (methods.size() < 2)
 			return 0;
@@ -37,7 +39,7 @@ public class ISCOMiClass extends DeclarationMetricClass {
 		return r / methods.size();
 	}
 
-	public static double iscomMethod(Set<String> mi, Map<String, Set<String>> methods, double a) {
+	protected static double iscomMethod(Set<String> mi, Map<String, Set<String>> methods, double a) {
 		double r = 0;
 				
 		for (Entry<String, Set<String>> mj : methods.entrySet()) {
@@ -47,7 +49,7 @@ public class ISCOMiClass extends DeclarationMetricClass {
 		return r / (double) methods.size();
 	}
 	
-	public static double c(Set<String> i, Set<String> j) {
+	private static double c(Set<String> i, Set<String> j) {
 		Set<String> intersection = new HashSet<>(i);
 		intersection.retainAll(j);
 		
@@ -57,7 +59,7 @@ public class ISCOMiClass extends DeclarationMetricClass {
 		return (2.0 * (double) intersection.size()) / ((double) i.size() + (double) j.size());
 	}
 	
-	public static double w(Set<String> i, Set<String> j, double a) {
+	private static double w(Set<String> i, Set<String> j, double a) {
 		Set<String> union = new HashSet<>(i);
 		union.addAll(j);
 		

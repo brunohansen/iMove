@@ -1,6 +1,7 @@
 package br.com.bhansen.metric.wic;
 
 import java.util.HashSet;
+import java.util.Map;
 import java.util.Set;
 
 import org.eclipse.core.runtime.IProgressMonitor;
@@ -16,22 +17,19 @@ public class WICClass extends ICClass {
 	
 	@Override
 	protected MMWeight createMMWeight() {
-		return createMMWeight(getValues().size());
+		return createMMWeight(getMethods());
 	}
 	
 	@Override
 	protected PPWeight createPPWeight() {
-		return createPPWeight(getMethods().size());
+		return createPPWeight(getMethods());
 	}
 	
-	public static MMWeight createMMWeight(Set<String> value, Set<String> values) {
-		Set<String> vls = new HashSet<>(values);
-		vls.addAll(value);
-		
-		return createMMWeight(vls.size());
+	public static MMWeight createMMWeight(Map<String, Set<String>> methods) {
+		return createMMWeight(uniqueValues(methods).size());
 	}
 	
-	public static MMWeight createMMWeight(double values) {
+	protected static MMWeight createMMWeight(double values) {
 		return new MMWeight() {
 			
 			@Override
@@ -42,9 +40,13 @@ public class WICClass extends ICClass {
 				return union.size() / values;
 			}
 		};
-	}	
+	}
+	
+	public static PPWeight createPPWeight(Map<String, Set<String>> methods) {
+		return createPPWeight(methods.size());
+	}
 		
-	public static PPWeight createPPWeight(double values) {
+	protected static PPWeight createPPWeight(double values) {
 		return new PPWeight() {
 			
 			@Override

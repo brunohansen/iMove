@@ -16,12 +16,13 @@ public class CAMCClass extends DeclarationMetricClass {
 
 	@Override
 	public double getMetric() throws Exception {
-		return getMetric(getMethods(), getValues().size());
+		return camcClass(getMethods());
 	}
 	
-	public static double getMetric(Map<String, Set<String>> methods, double numValues) {
+	public static double camcClass(Map<String, Set<String>> methods) {
 		double camc = 0;
 		double numMethods = methods.size();
+		double numValues = uniqueValues(methods).size();
 		
 		if((numMethods == 0) || (numValues == 0)) {
 			return 0.0f;

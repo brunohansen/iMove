@@ -19,10 +19,10 @@ public class CCiClass extends DeclarationMetricClass {
 
 	@Override
 	public double getMetric() throws Exception {
-		return cci(getMethods());
+		return cciClass(getMethods());
 	}
 
-	public static double cci(Map<String, Set<String>> mtds) {
+	public static double cciClass(Map<String, Set<String>> mtds) {
 		double r = 0;
 		
 		if (mtds.size() < 2)

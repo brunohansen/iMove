@@ -9,15 +9,22 @@ import java.util.Set;
 import org.junit.Test;
 
 import br.com.bhansen.metric.camc.CAMCClass;
+import br.com.bhansen.metric.camc.CAMCMethod;
 import br.com.bhansen.metric.cci.CCiClass;
+import br.com.bhansen.metric.cci.CCiMethod;
 import br.com.bhansen.metric.d3c2i.D3C2iClass;
 import br.com.bhansen.metric.ic.ICClass;
 import br.com.bhansen.metric.ic.ICClass.MMWeight;
 import br.com.bhansen.metric.ic.ICClass.PPWeight;
+import br.com.bhansen.metric.ic.ICMethod;
 import br.com.bhansen.metric.iscomi.ISCOMiClass;
+import br.com.bhansen.metric.iscomi.ISCOMiMethod;
 import br.com.bhansen.metric.nhd.NHDClass;
+import br.com.bhansen.metric.nhd.NHDMethod;
 import br.com.bhansen.metric.nhdm.NHDMClass;
+import br.com.bhansen.metric.nhdm.NHDMMethod;
 import br.com.bhansen.metric.wic.WICClass;
+import br.com.bhansen.metric.wic.WICMethod;
 import br.com.bhansen.test.TestCase;
 
 public class MetricTest extends TestCase {
@@ -31,7 +38,7 @@ public class MetricTest extends TestCase {
 		mtds.put("m1", new HashSet<>(Arrays.asList("p1", "p2")));
 		mtds.put("m2", new HashSet<>(Arrays.asList("p1", "p2")));
 		
-		test(mtds, AbsMetric.uniqueValues(mtds), 1.0, equalTo());
+		test(mtds, 1.0, equalTo());
 		
 		mtds = new HashMap<>();
 
@@ -39,7 +46,7 @@ public class MetricTest extends TestCase {
 		mtds.put("m2", new HashSet<>(Arrays.asList("p1", "p2", "p3")));
 		mtds.put("m3", new HashSet<>(Arrays.asList("p1", "p2", "p3")));
 		
-		test(mtds, AbsMetric.uniqueValues(mtds), 1.0, equalTo());
+		test(mtds, 1.0, equalTo());
 	}
 	
 //	@Test
@@ -51,7 +58,7 @@ public class MetricTest extends TestCase {
 		mtds1.put("m1", new HashSet<>(Arrays.asList("p1")));
 		mtds1.put("m2", new HashSet<>(Arrays.asList("p2")));
 		
-		test(mtds1, AbsMetric.uniqueValues(mtds1), 0.0, equalTo());
+		test(mtds1, 0.0, equalTo());
 		
 		System.out.println("\nA1 e A3 - Test Zero\n");
 		
@@ -61,7 +68,7 @@ public class MetricTest extends TestCase {
 		mtds2.put("m2", new HashSet<>(Arrays.asList("p2")));
 		mtds2.put("m3", new HashSet<>(Arrays.asList("p3")));
 		
-		test(mtds2, AbsMetric.uniqueValues(mtds2), 0.0, equalTo());
+		test(mtds2, 0.0, equalTo());
 		
 //		Map<String, Set<String>> mtds3 = new HashMap<>();
 //
@@ -96,7 +103,7 @@ public class MetricTest extends TestCase {
 		mtds2.put("m4", new HashSet<>(Arrays.asList("p1", "p4")));
 		mtds2.put("m5", new HashSet<>(Arrays.asList("p2", "p3", "p4")));
 		
-		test(mtds1, AbsMetric.uniqueValues(mtds1), mtds2, AbsMetric.uniqueValues(mtds2), notEqualTo());
+		test(mtds1, mtds2, notEqualTo());
 	}
 	
 //	@Test
@@ -117,7 +124,7 @@ public class MetricTest extends TestCase {
 		mtds2.put("m3", new HashSet<>(Arrays.asList("p4")));
 		mtds2.put("m4", new HashSet<>(Arrays.asList("p2")));
 		
-		test(mtds1, AbsMetric.uniqueValues(mtds1), mtds2, AbsMetric.uniqueValues(mtds2), notEqualTo());
+		test(mtds1, mtds2, notEqualTo());
 	}
 	
 //	@Test
@@ -138,7 +145,7 @@ public class MetricTest extends TestCase {
 		mtds2.put("m3", new HashSet<>(Arrays.asList("p1", "p2")));
 		mtds2.put("m4", new HashSet<>(Arrays.asList("p1", "p2", "p3", "p4")));
 		
-		test(mtds1, AbsMetric.uniqueValues(mtds1), mtds2, AbsMetric.uniqueValues(mtds2), lessThanOrEqualTo());
+		test(mtds1, mtds2, lessThanOrEqualTo());
 		
 		System.out.println("\nVM - Test Monotonocity\n");
 		
@@ -162,7 +169,7 @@ public class MetricTest extends TestCase {
 		mtds4.put("m6", new HashSet<>());
 		mtds4.put("m7", new HashSet<>());
 		
-		test(mtds3, AbsMetric.uniqueValues(mtds3), mtds4, AbsMetric.uniqueValues(mtds4), lessThanOrEqualTo());
+		test(mtds3, mtds4, lessThanOrEqualTo());
 	}
 	
 //	@Test
@@ -184,7 +191,7 @@ public class MetricTest extends TestCase {
 		mtds2.put("m4", new HashSet<>(Arrays.asList("p1")));
 		mtds2.put("m5", new HashSet<>(Arrays.asList("p1")));
 		
-		test(mtds1, AbsMetric.uniqueValues(mtds1), mtds2, AbsMetric.uniqueValues(mtds2), greaterThanOrEqualTo());
+		test(mtds1, mtds2, greaterThanOrEqualTo());
 		
 		System.out.println("\nA5b - Test Sparse\n");
 		
@@ -207,7 +214,7 @@ public class MetricTest extends TestCase {
 		mtds2.put("m6", new HashSet<>(Arrays.asList("p1")));
 		mtds2.put("m7", new HashSet<>(Arrays.asList("p1")));
 		
-		test(mtds1, AbsMetric.uniqueValues(mtds1), mtds2, AbsMetric.uniqueValues(mtds2), greaterThanOrEqualTo());
+		test(mtds1, mtds2, greaterThanOrEqualTo());
 	}
 	
 //	@Test
@@ -234,7 +241,7 @@ public class MetricTest extends TestCase {
 //		" -> " +
 //		WICClass.pp(min, WICClass.createPPWeight(min.size())));
 		
-		print(min, AbsMetric.uniqueValues(min));
+		print(min);
 		
 		System.out.println("\nA5b - Test NHD min 2\n");
 		
@@ -258,7 +265,7 @@ public class MetricTest extends TestCase {
 //		" -> " +
 //		WICClass.pp(min2, WICClass.createPPWeight(min2.size())));
 		
-		print(min2, AbsMetric.uniqueValues(min2));
+		print(min2);
 		
 		System.out.println("\nA5b - Test NHD max 1\n");
 		
@@ -272,7 +279,7 @@ public class MetricTest extends TestCase {
 		max1.put("m6", new HashSet<>());
 		max1.put("m7", new HashSet<>());
 		
-		print(max1, AbsMetric.uniqueValues(max1));
+		print(max1);
 		
 		System.out.println("\nA5b - Test NHD max 2\n");
 		
@@ -286,7 +293,7 @@ public class MetricTest extends TestCase {
 		max2.put("m6", new HashSet<>(Arrays.asList("p2")));
 		max2.put("m7", new HashSet<>());
 		
-		print(max2, AbsMetric.uniqueValues(max2));
+		print(max2);
 		
 	}
 	
@@ -310,7 +317,7 @@ public class MetricTest extends TestCase {
 		umbrella.put("m6", new HashSet<>(Arrays.asList("p6")));
 		
 		System.out.println("\n Partition to Umbrella \n");
-		test(partition, AbsMetric.uniqueValues(partition), umbrella, AbsMetric.uniqueValues(umbrella), lessThanOrEqualTo());
+		test(partition, umbrella, lessThanOrEqualTo());
 		
 		Map<String, Set<String>> mRange1 = new HashMap<>();
 
@@ -320,7 +327,7 @@ public class MetricTest extends TestCase {
 		mRange1.put("m4", new HashSet<>(Arrays.asList("p4")));
 		
 		System.out.println("\n Umbrella to Montain Range 1 \n");
-		test(umbrella, AbsMetric.uniqueValues(umbrella), mRange1, AbsMetric.uniqueValues(mRange1), lessThanOrEqualTo());
+		test(umbrella, mRange1, lessThanOrEqualTo());
 		
 		Map<String, Set<String>> mRange2 = new HashMap<>();
 
@@ -330,7 +337,7 @@ public class MetricTest extends TestCase {
 		mRange2.put("m4", new HashSet<>(Arrays.asList("p1", "p4")));
 		
 		System.out.println("\n Montain Range 1 to Montain Range 2 \n");
-		test(mRange1, AbsMetric.uniqueValues(mRange1), mRange2, AbsMetric.uniqueValues(mRange2), lessThanOrEqualTo());
+		test(mRange1, mRange2, lessThanOrEqualTo());
 		
 		Map<String, Set<String>> mRange3 = new HashMap<>();
 
@@ -342,7 +349,7 @@ public class MetricTest extends TestCase {
 		mRange3.put("m6", new HashSet<>(Arrays.asList("p4", "p5", "p6")));
 		
 		System.out.println("\n Montain Range 2 to Montain Range 3 \n");
-		test(mRange2, AbsMetric.uniqueValues(mRange2), mRange3, AbsMetric.uniqueValues(mRange3), lessThanOrEqualTo());
+		test(mRange2, mRange3, lessThanOrEqualTo());
 		
 		Map<String, Set<String>> iUmbrella = new HashMap<>();
 
@@ -351,7 +358,7 @@ public class MetricTest extends TestCase {
 		iUmbrella.put("m3", new HashSet<>(Arrays.asList("p2", "p3")));
 		
 		System.out.println("\n Montain Range 3 to Inverted Umbrella \n");
-		test(mRange3, AbsMetric.uniqueValues(mRange3), iUmbrella, AbsMetric.uniqueValues(iUmbrella), lessThanOrEqualTo());
+		test(mRange3, iUmbrella, lessThanOrEqualTo());
 		
 		Map<String, Set<String>> diamond = new HashMap<>();
 
@@ -362,7 +369,7 @@ public class MetricTest extends TestCase {
 		diamond.put("m5", new HashSet<>(Arrays.asList("p1","p3", "p4", "p5")));
 		
 		System.out.println("\n Inverted Umbrella to Diamond \n");
-		test(iUmbrella, AbsMetric.uniqueValues(iUmbrella), diamond, AbsMetric.uniqueValues(diamond), lessThanOrEqualTo());
+		test(iUmbrella, diamond, lessThanOrEqualTo());
 		
 		Map<String, Set<String>> chain1 = new HashMap<>();
 
@@ -371,7 +378,7 @@ public class MetricTest extends TestCase {
 		chain1.put("m3", new HashSet<>(Arrays.asList("p1", "p2", "p3")));
 		
 		System.out.println("\n Diamond to Chain 1 \n");
-		test(diamond, AbsMetric.uniqueValues(diamond), chain1, AbsMetric.uniqueValues(chain1), lessThanOrEqualTo());
+		test(diamond, chain1, lessThanOrEqualTo());
 		
 		Map<String, Set<String>> chain2 = new HashMap<>();
 
@@ -379,7 +386,7 @@ public class MetricTest extends TestCase {
 		chain2.put("m2", new HashSet<>(Arrays.asList("p1", "p2")));
 		
 		System.out.println("\n Chain 1 to Chain 2 \n");
-		test(chain1, AbsMetric.uniqueValues(chain1), chain2, AbsMetric.uniqueValues(chain2), lessThanOrEqualTo());
+		test(chain1, chain2, lessThanOrEqualTo());
 		
 		Map<String, Set<String>> dot = new HashMap<>();
 
@@ -387,10 +394,10 @@ public class MetricTest extends TestCase {
 		dot.put("m2", new HashSet<>(Arrays.asList("p1", "p2", "p3")));
 		
 		System.out.println("\n Chain 2 to Dot \n");
-		test(chain2, AbsMetric.uniqueValues(chain2), dot, AbsMetric.uniqueValues(dot), lessThanOrEqualTo());
+		test(chain2, dot, lessThanOrEqualTo());
 	}
 	
-	@Test
+//	@Test
 	public void testLatices2() {
 		Map<String, Set<String>> partition = new HashMap<>();
 
@@ -414,7 +421,7 @@ public class MetricTest extends TestCase {
 		mRange1.put("m8", new HashSet<>(Arrays.asList("p3")));
 		
 		System.out.println("\n Partition to Montain Range \n");
-		test(partition, AbsMetric.uniqueValues(partition), mRange1, AbsMetric.uniqueValues(mRange1), lessThanOrEqualTo());
+		test(partition, mRange1, lessThanOrEqualTo());
 		
 		Map<String, Set<String>> umbrella = new HashMap<>();
 
@@ -428,7 +435,7 @@ public class MetricTest extends TestCase {
 		umbrella.put("m8", new HashSet<>(Arrays.asList("p9")));
 		
 		System.out.println("\n Montain Range to Umbrella \n");
-		test(mRange1, AbsMetric.uniqueValues(mRange1), umbrella, AbsMetric.uniqueValues(umbrella), lessThanOrEqualTo());
+		test(mRange1, umbrella, lessThanOrEqualTo());
 		
 		Map<String, Set<String>> iUmbrella = new HashMap<>();
 
@@ -441,7 +448,7 @@ public class MetricTest extends TestCase {
 		iUmbrella.put("m8", new HashSet<>(Arrays.asList("p1", "p9")));
 		
 		System.out.println("\n Umbrella to Inverted Umbrella \n");
-		test(umbrella, AbsMetric.uniqueValues(umbrella), iUmbrella, AbsMetric.uniqueValues(iUmbrella), lessThanOrEqualTo());
+		test(umbrella, iUmbrella, lessThanOrEqualTo());
 		
 		Map<String, Set<String>> diamond = new HashMap<>();
 
@@ -455,7 +462,7 @@ public class MetricTest extends TestCase {
 		diamond.put("m8", new HashSet<>(Arrays.asList("p1", "p9")));
 		
 		System.out.println("\n Inverted Umbrella to Diamond \n");
-		test(iUmbrella, AbsMetric.uniqueValues(iUmbrella), diamond, AbsMetric.uniqueValues(diamond), lessThanOrEqualTo());
+		test(iUmbrella, diamond, lessThanOrEqualTo());
 		
 		Map<String, Set<String>> chain1 = new HashMap<>();
 
@@ -466,7 +473,7 @@ public class MetricTest extends TestCase {
 		chain1.put("m5", new HashSet<>(Arrays.asList("p1")));
 		
 		System.out.println("\n Diamond to Chain \n");
-		test(diamond, AbsMetric.uniqueValues(diamond), chain1, AbsMetric.uniqueValues(chain1), lessThanOrEqualTo());
+		test(diamond, chain1, lessThanOrEqualTo());
 		
 		Map<String, Set<String>> dot = new HashMap<>();
 
@@ -475,7 +482,7 @@ public class MetricTest extends TestCase {
 		dot.put("m3", new HashSet<>(Arrays.asList("p1", "p2", "p3")));
 		
 		System.out.println("\n Chain to Dot \n");
-		test(chain1, AbsMetric.uniqueValues(chain1), dot, AbsMetric.uniqueValues(dot), lessThanOrEqualTo());
+		test(chain1, dot, lessThanOrEqualTo());
 	}
 		
 //	@Test
@@ -497,8 +504,148 @@ public class MetricTest extends TestCase {
 			mtds1.put("m" + (i + 4), new HashSet<>(Arrays.asList("p1")));
 			mtds2.put("m" + (i + 5), new HashSet<>(Arrays.asList("p1")));
 			System.out.println("\nA5+ - Test Go Sparser\n");
-			test(mtds1, AbsMetric.uniqueValues(mtds1), mtds2, AbsMetric.uniqueValues(mtds2), greaterThanOrEqualTo());
+			test(mtds1, mtds2, greaterThanOrEqualTo());
 		}
+	}
+	
+//	@Test
+	public void testExampleAClass() {
+		Map<String, Set<String>> classA = new HashMap<>();
+		
+		System.out.println("\n Example A - m3 na ClasseX \n");
+		
+		classA.put("m1", new HashSet<>(Arrays.asList("p1")));
+		classA.put("m2", new HashSet<>(Arrays.asList("p2")));
+		classA.put("m3", new HashSet<>(Arrays.asList("p3")));
+		
+		System.out.println("\n ClasseX \n");
+		print(classA);
+		
+		Map<String, Set<String>> classB = new HashMap<>();
+
+		classB.put("m1", new HashSet<>(Arrays.asList("p3", "p4", "p5")));
+		classB.put("m2", new HashSet<>(Arrays.asList("p3", "p4", "p5")));
+		
+		System.out.println("\n ClasseY \n");
+		print(classB);
+		
+		System.out.println("\n Example A - m3 na ClasseY \n");
+		
+		classA.clear();
+		classA.put("m1", new HashSet<>(Arrays.asList("p1")));
+		classA.put("m2", new HashSet<>(Arrays.asList("p2")));
+		
+		System.out.println("\n ClasseX \n");
+		print(classA);
+
+		classB.clear();
+		classB.put("m1", new HashSet<>(Arrays.asList("p3", "p4", "p5")));
+		classB.put("m2", new HashSet<>(Arrays.asList("p3", "p4", "p5")));
+		classB.put("m3", new HashSet<>(Arrays.asList("p3")));
+		
+		System.out.println("\n ClasseY \n");
+		print(classB);
+	}
+	
+//	@Test
+	public void testExampleBClass() {
+		Map<String, Set<String>> classA = new HashMap<>();
+		
+		System.out.println("\n Example B - m4 na ClasseX \n");
+		
+		classA.put("m1", new HashSet<>(Arrays.asList("p1", "p2", "p3")));
+		classA.put("m2", new HashSet<>(Arrays.asList("p1", "p2", "p3")));
+		classA.put("m4", new HashSet<>(Arrays.asList("p1")));
+		
+		System.out.println("\n ClasseX \n");
+		print(classA);
+		
+		Map<String, Set<String>> classB = new HashMap<>();
+
+		classB.put("m1", new HashSet<>(Arrays.asList("p4", "p5", "p6")));
+		classB.put("m2", new HashSet<>(Arrays.asList("p4", "p7")));
+		classB.put("m3", new HashSet<>(Arrays.asList("p5", "p7")));
+		
+		System.out.println("\n ClasseY \n");
+		print(classB);
+		
+		System.out.println("\n Example B - m4 na ClasseY \n");
+		
+		classA.clear();
+		classA.put("m1", new HashSet<>(Arrays.asList("p1", "p2", "p3")));
+		classA.put("m2", new HashSet<>(Arrays.asList("p1", "p2", "p3")));
+		
+		System.out.println("\n ClasseX \n");
+		print(classA);
+
+		classB.clear();
+		classB.put("m1", new HashSet<>(Arrays.asList("p4", "p5", "p6")));
+		classB.put("m2", new HashSet<>(Arrays.asList("p4", "p7")));
+		classB.put("m3", new HashSet<>(Arrays.asList("p5", "p7")));
+		classB.put("m4", new HashSet<>(Arrays.asList("p1")));
+		
+		System.out.println("\n ClasseY \n");
+		print(classB);
+	}
+	
+	@Test
+	public void testExampleAMethod() {
+		Map<String, Set<String>> classA = new HashMap<>();
+		
+		classA.put("m1", new HashSet<>(Arrays.asList("p1")));
+		classA.put("m2", new HashSet<>(Arrays.asList("p2")));
+		
+		System.out.println("\n Example A - m3 na ClasseX \n");
+		print(new HashSet<>(Arrays.asList("p3")), classA);
+		
+		Map<String, Set<String>> classB = new HashMap<>();
+
+		classB.put("m1", new HashSet<>(Arrays.asList("p3", "p4", "p5")));
+		classB.put("m2", new HashSet<>(Arrays.asList("p3", "p4", "p5")));
+		
+		System.out.println("\n Example A - m3 na ClasseY \n");
+		print(new HashSet<>(Arrays.asList("p3")), classB);
+	}
+	
+//	@Test
+	public void testExampleBMethod() {
+		Map<String, Set<String>> classA = new HashMap<>();
+		
+		System.out.println("\n Example B - m4 na ClasseX \n");
+		
+		classA.put("m1", new HashSet<>(Arrays.asList("p1", "p2", "p3")));
+		classA.put("m2", new HashSet<>(Arrays.asList("p1", "p2", "p3")));
+		classA.put("m4", new HashSet<>(Arrays.asList("p1")));
+		
+		System.out.println("\n ClasseX \n");
+		print(classA);
+		
+		Map<String, Set<String>> classB = new HashMap<>();
+
+		classB.put("m1", new HashSet<>(Arrays.asList("p4", "p5", "p6")));
+		classB.put("m2", new HashSet<>(Arrays.asList("p4", "p7")));
+		classB.put("m3", new HashSet<>(Arrays.asList("p5", "p7")));
+		
+		System.out.println("\n ClasseY \n");
+		print(classB);
+		
+		System.out.println("\n Example B - m4 na ClasseY \n");
+		
+		classA.clear();
+		classA.put("m1", new HashSet<>(Arrays.asList("p1", "p2", "p3")));
+		classA.put("m2", new HashSet<>(Arrays.asList("p1", "p2", "p3")));
+		
+		System.out.println("\n ClasseX \n");
+		print(classA);
+
+		classB.clear();
+		classB.put("m1", new HashSet<>(Arrays.asList("p4", "p5", "p6")));
+		classB.put("m2", new HashSet<>(Arrays.asList("p4", "p7")));
+		classB.put("m3", new HashSet<>(Arrays.asList("p5", "p7")));
+		classB.put("m4", new HashSet<>(Arrays.asList("p1")));
+		
+		System.out.println("\n ClasseY \n");
+		print(classB);
 	}
 	
 //	@Test
@@ -518,41 +665,52 @@ public class MetricTest extends TestCase {
 			mtds1.put("m" + (i + 3), new HashSet<>(Arrays.asList("p1")));
 			mtds2.put("m" + (i + 4), new HashSet<>(Arrays.asList("p1")));
 			System.out.println("\nA5+ - Test Go Sparser\n");
-			test(mtds1, AbsMetric.uniqueValues(mtds1), mtds2, AbsMetric.uniqueValues(mtds2), greaterThanOrEqualTo());
+			test(mtds1, mtds2, greaterThanOrEqualTo());
 		}
 	}
 	
-	public void test(Map<String, Set<String>> methods, Set<String> values, Double expected, TestPredicateFactory<Double> factory) {
-		checkThat("CAMC", expected, CAMCClass.getMetric(methods, values.size()), factory);
-		checkThat("CCi", expected, CCiClass.cci(methods), factory);
-		checkThat("D3C2i", expected, D3C2iClass.getMetric(methods), factory);
+	public void test(Map<String, Set<String>> methods, Double expected, TestPredicateFactory<Double> factory) {
+		checkThat("CAMC", expected, CAMCClass.camcClass(methods), factory);
+		checkThat("CCi", expected, CCiClass.cciClass(methods), factory);
+		checkThat("D3C2i", expected, D3C2iClass.d3c2iClass(methods), factory);
 		checkThat("IC", expected, ICClass.icClass(methods, new MMWeight(){}, new PPWeight(){}), factory);
-		checkThat("ISCOMi", expected, ISCOMiClass.iscomClass(methods, values.size()), factory);
-		checkThat("NHD", expected, NHDClass.nhdClass(methods, values, NHDClass.NHD), factory);
-		checkThat("NHDM", expected, NHDMClass.nhdClass(methods, values, NHDMClass.NHDM), factory);
-		checkThat("WIC", expected, WICClass.icClass(methods, WICClass.createMMWeight(values.size()), WICClass.createPPWeight(methods.size())), factory);
+		checkThat("ISCOMi", expected, ISCOMiClass.iscomClass(methods), factory);
+		checkThat("NHD", expected, NHDClass.nhdClass(methods, NHDClass.NHD), factory);
+		checkThat("NHDM", expected, NHDMClass.nhdClass(methods, NHDMClass.NHDM), factory);
+		checkThat("WIC", expected, WICClass.icClass(methods, WICClass.createMMWeight(methods), WICClass.createPPWeight(methods)), factory);
 	}
 	
-	public void test(Map<String, Set<String>> methods1, Set<String> values1, Map<String, Set<String>> methods2, Set<String> values2, TestPredicateFactory<Double> factory) {
-		checkThat("CAMC", CAMCClass.getMetric(methods1, values1.size()), CAMCClass.getMetric(methods2, values2.size()), factory);
-		checkThat("CCi", CCiClass.cci(methods1), CCiClass.cci(methods2), factory);
-		checkThat("D3C2i", D3C2iClass.getMetric(methods1), D3C2iClass.getMetric(methods2), factory);
+	public void test(Map<String, Set<String>> methods1, Map<String, Set<String>> methods2, TestPredicateFactory<Double> factory) {
+		checkThat("CAMC", CAMCClass.camcClass(methods1), CAMCClass.camcClass(methods2), factory);
+		checkThat("CCi", CCiClass.cciClass(methods1), CCiClass.cciClass(methods2), factory);
+		checkThat("D3C2i", D3C2iClass.d3c2iClass(methods1), D3C2iClass.d3c2iClass(methods2), factory);
 		checkThat("IC", ICClass.icClass(methods1, new MMWeight(){}, new PPWeight(){}), ICClass.icClass(methods2, new MMWeight(){}, new PPWeight(){}), factory);
-		checkThat("ISCOMi", ISCOMiClass.iscomClass(methods1, values1.size()), ISCOMiClass.iscomClass(methods2, values2.size()), factory);
-		checkThat("NHD", NHDClass.nhdClass(methods1, values1, NHDClass.NHD), NHDClass.nhdClass(methods2, values2, NHDClass.NHD), factory);
-		checkThat("NHDM", NHDMClass.nhdClass(methods1, values1, NHDMClass.NHDM), NHDMClass.nhdClass(methods2, values2, NHDMClass.NHDM), factory);
-		checkThat("WIC", WICClass.icClass(methods1, WICClass.createMMWeight(values1.size()), WICClass.createPPWeight(methods1.size())), WICClass.icClass(methods2, WICClass.createMMWeight(values2.size()), WICClass.createPPWeight(methods2.size())), factory);
+		checkThat("ISCOMi", ISCOMiClass.iscomClass(methods1), ISCOMiClass.iscomClass(methods2), factory);
+		checkThat("NHD", NHDClass.nhdClass(methods1, NHDClass.NHD), NHDClass.nhdClass(methods2, NHDClass.NHD), factory);
+		checkThat("NHDM", NHDMClass.nhdClass(methods1, NHDMClass.NHDM), NHDMClass.nhdClass(methods2, NHDMClass.NHDM), factory);
+		checkThat("WIC", WICClass.icClass(methods1, WICClass.createMMWeight(methods1), WICClass.createPPWeight(methods1)), WICClass.icClass(methods2, WICClass.createMMWeight(methods2), WICClass.createPPWeight(methods2)), factory);
 	}
 	
-	public void print(Map<String, Set<String>> methods, Set<String> values) {
-		System.out.println("CAMC -> " + CAMCClass.getMetric(methods, values.size()));
-		System.out.println("CCi -> " + CCiClass.cci(methods));
-		System.out.println("D3C2i -> " + D3C2iClass.getMetric(methods));
+	public void print(Map<String, Set<String>> methods) {
+		System.out.println("CAMC -> " + CAMCClass.camcClass(methods));
+		System.out.println("CCi -> " + CCiClass.cciClass(methods));
+		System.out.println("D3C2i -> " + D3C2iClass.d3c2iClass(methods));
 		System.out.println("IC -> " + ICClass.icClass(methods, new MMWeight(){}, new PPWeight(){}));
-		System.out.println("ISCOMi -> " + ISCOMiClass.iscomClass(methods, values.size()));
-		System.out.println("NHD -> " + NHDClass.nhdClass(methods, values, NHDClass.NHD));
-		System.out.println("NHDM -> " + NHDMClass.nhdClass(methods, values, NHDMClass.NHDM));
-		System.out.println("WIC -> " + WICClass.icClass(methods, WICClass.createMMWeight(values.size()), WICClass.createPPWeight(methods.size())));
+		System.out.println("ISCOMi -> " + ISCOMiClass.iscomClass(methods));
+		System.out.println("NHD -> " + NHDClass.nhdClass(methods, NHDClass.NHD));
+		System.out.println("NHDM -> " + NHDMClass.nhdClass(methods, NHDMClass.NHDM));
+		System.out.println("WIC -> " + WICClass.icClass(methods, WICClass.createMMWeight(methods), WICClass.createPPWeight(methods)));
+	}
+	
+	public void print(Set<String> method, Map<String, Set<String>> methods) {
+		System.out.println("CAMC -> " + CAMCMethod.camcMethod(method, methods));
+		System.out.println("CCi -> " + CCiMethod.cciMethod(method, methods));
+		//System.out.println("D3C2i -> " + D3C2iClass.getMetric(methods));
+		System.out.println("IC -> " + ICMethod.icMethod(method, methods, new MMWeight(){}, new PPWeight(){}));
+		System.out.println("ISCOMi -> " + ISCOMiMethod.iscomMethod(method, methods));
+		System.out.println("NHD -> " + NHDMethod.nhdMethod(method, methods, NHDClass.NHD));
+		System.out.println("NHDM -> " + NHDMMethod.nhdMethod(method, methods, NHDMClass.NHDM));
+		System.out.println("WIC -> " + WICMethod.icMethod(method, methods, WICMethod.createMMWeight(method, methods), WICMethod.createPPWeight(method, methods)));
 	}
 	
 }

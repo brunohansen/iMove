@@ -7,6 +7,7 @@ import java.util.Set;
 import org.eclipse.core.runtime.IProgressMonitor;
 
 import br.com.bhansen.jdt.Type;
+import br.com.bhansen.metric.AbsMetric;
 import br.com.bhansen.metric.DeclarationMetricMethod;
 
 public class ISCOMiMethod extends DeclarationMetricMethod {
@@ -17,7 +18,11 @@ public class ISCOMiMethod extends DeclarationMetricMethod {
 
 	@Override
 	public double getMetric(Set<String> method, Map<String, Set<String>> methods) {
-		Set<String> valuesCopy = new HashSet<>(getValues());
+		return iscomMethod(method, methods);
+	}
+	
+	public static double iscomMethod(Set<String> method, Map<String, Set<String>> methods) {
+		Set<String> valuesCopy = new HashSet<>(AbsMetric.uniqueValues(methods));
 		valuesCopy.addAll(method);
 		
 		return ISCOMiClass.iscomMethod(method, methods, valuesCopy.size());

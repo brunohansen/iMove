@@ -18,7 +18,11 @@ public class ICMethod extends DeclarationMetricMethod {
 
 	@Override
 	final public double getMetric(Set<String> method, Map<String, Set<String>> methods) {
-		return ICClass.icMethod(getMethod(), getMethods(), createMMWeight(), createPPWeight());
+		return icMethod(getMethod(), getMethods(), createMMWeight(), createPPWeight());
+	}
+	
+	public static double icMethod(Set<String> method, Map<String, Set<String>> methods, MMWeight mmWeight, PPWeight ppWeight) {
+		return ICClass.icMethod(method, methods, mmWeight, ppWeight);
 	}
 
 	protected MMWeight createMMWeight() {

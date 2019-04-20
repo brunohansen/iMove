@@ -41,10 +41,6 @@ public abstract class AbsMetric implements Metric {
 		}
 	}
 	
-	protected final Set<String> getValues() {
-		return uniqueValues(getMethods());
-	}
-	
 	protected static <T> Set<T> uniqueValues(Map<?, ? extends Collection<T>> m) {
 		Set<T> values = new HashSet<>();
 		

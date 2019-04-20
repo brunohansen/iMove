@@ -20,11 +20,11 @@ public class IUCClass extends UsageMetricClass {
 	}
 		
 	public double getMetric() throws Exception {
-		return getMetric(getMethods());
+		return iucClass(getMethods());
 	}
 	
-	public static double getMetric(Map<String, Set<String>> methods) {
-		return CAMCClass.getMetric(methods, uniqueValues(methods).size());
+	public static double iucClass(Map<String, Set<String>> methods) {
+		return CAMCClass.camcClass(methods);
 	}
 	
 	public Map<String, Set<String>> getMethodsWithoutThis() {

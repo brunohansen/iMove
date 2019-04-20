@@ -15,12 +15,12 @@ public class UWICClass extends UICClass {
 
 	@Override
 	protected MMWeight createMMWeight() {
-		return WICClass.createMMWeight(getValues().size());
+		return WICClass.createMMWeight(getMethods());
 	}
 	
 	@Override
 	protected PPWeight createPPWeight() {
-		return WICClass.createPPWeight(getMethods().size());
+		return WICClass.createPPWeight(getMethods());
 	}
 
 }

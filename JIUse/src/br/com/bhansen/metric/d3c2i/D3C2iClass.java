@@ -19,10 +19,10 @@ public class D3C2iClass extends DeclarationMetricClass {
 
 	@Override
 	public double getMetric() throws Exception {
-		return getMetric(getMethods());
+		return d3c2iClass(getMethods());
 	}
 	
-	public static double getMetric(Map<String, Set<String>> methods) {
+	public static double d3c2iClass(Map<String, Set<String>> methods) {
 		double k = methods.size();
 		double l = AbsMetric.uniqueValues(methods).size();
 		
@@ -33,13 +33,13 @@ public class D3C2iClass extends DeclarationMetricClass {
 	}
 	
 	public static double mmac(Map<String, Set<String>> methods) {
-		return NHDClass.nhdClass(methods, AbsMetric.uniqueValues(methods), NHDClass.NHD);
+		return NHDClass.nhdClass(methods, NHDClass.NHD);
 	}
 	
 	public static double aac(Map<String, Set<String>> methods) {
 		Map<String, Set<String>> parameters = AbsMetric.transpose(methods);
 		
-		return NHDClass.nhdClass(parameters, AbsMetric.uniqueValues(parameters), NHDClass.NHD);
+		return NHDClass.nhdClass(parameters, NHDClass.NHD);
 	}
 	
 	public static double amc(Map<String, Set<String>> methods) {

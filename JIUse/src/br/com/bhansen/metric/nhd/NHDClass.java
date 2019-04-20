@@ -2,7 +2,6 @@ package br.com.bhansen.metric.nhd;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -30,18 +29,18 @@ public class NHDClass extends DeclarationMetricClass {
 	
 	@Override
 	final public double getMetric() throws Exception {
-		return nhdClass(getMethods(), getValues(), getPredicate());
+		return nhdClass(getMethods(), getPredicate());
 	}
 	
 	protected BiPredicate<Boolean, Boolean> getPredicate() {
 		return NHD;
 	}
 	
-	public static double nhdClass(Map<String, Set<String>> methods, Set<String> values, BiPredicate<Boolean, Boolean> predicate) {
-		return nhdClass(OccMtrx.createOccMtrx(methods, values), predicate);
+	public static double nhdClass(Map<String, Set<String>> methods, BiPredicate<Boolean, Boolean> predicate) {
+		return nhdClass(OccMtrx.createOccMtrx(methods, uniqueValues(methods)), predicate);
 	}
 	
-	protected static double nhdClass(boolean[][] poMtrx, BiPredicate<Boolean, Boolean> predicate) {
+	public static double nhdClass(boolean[][] poMtrx, BiPredicate<Boolean, Boolean> predicate) {
 		double metric = 0;
 		
 		List<boolean []> poList = new ArrayList<>(Arrays.asList(poMtrx));
@@ -53,13 +52,6 @@ public class NHDClass extends DeclarationMetricClass {
 		}
 		
 		return metric / poMtrx.length;
-	}
-	
-	protected static double nhdMethod(Set<String> method, Map<String, Set<String>> methods, Set<String> values, BiPredicate<Boolean, Boolean> predicate) {
-		Set<String> valuesCopy = new HashSet<>(values);
-		valuesCopy.addAll(method);
-		
-		return nhdMethod(OccMtrx.createOccArray(method, valuesCopy), OccMtrx.createOccMtrx(methods, valuesCopy), predicate);
 	}
 	
 	protected static double nhdMethod(boolean[] method, boolean[][] poMtrx, BiPredicate<Boolean, Boolean> predicate) {
