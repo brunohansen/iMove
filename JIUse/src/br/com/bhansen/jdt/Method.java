@@ -32,6 +32,10 @@ public class Method {
 		return iMethod;
 	}
 	
+	public boolean isAccessorMethod() {
+		return Signature.isAccessorMethod(signature);
+	}
+	
 	public MethodWithCallers getMethodWithCallers() throws IllegalArgumentException, JavaModelException {
 		return new MethodWithCallers(this);
 	}

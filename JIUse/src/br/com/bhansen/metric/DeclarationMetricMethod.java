@@ -42,7 +42,11 @@ public abstract class DeclarationMetricMethod extends DeclarationMetric {
 				
 				// Dont add constructor
 				if (Config.isMetricTight() && m.isConstructor())
-					continue;				
+					continue;	
+				
+				// Dont add accessor
+//				if (Config.isMetricTight() && m.isAccessorMethod())
+//					continue;
 				
 				MethodWithParameters mp = m.getMethodWithParameters();
 				

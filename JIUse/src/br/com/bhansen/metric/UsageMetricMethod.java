@@ -50,6 +50,10 @@ public abstract class UsageMetricMethod extends UsageMetric {
 				// Dont add constructor
 				if (Config.isMetricTight() && m.isConstructor())
 					continue;
+				
+				// Dont add accessor
+//				if (Config.isMetricTight() && m.isAccessorMethod())
+//					continue;
 								
 				MethodWithCallers mc = m.getMethodWithCallers();
 

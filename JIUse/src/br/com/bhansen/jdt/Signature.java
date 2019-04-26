@@ -1,6 +1,10 @@
 package br.com.bhansen.jdt;
 
+import java.util.regex.Pattern;
+
 public class Signature {
+	
+	final protected static Pattern accessorPattern = Pattern.compile("^(get|set|is)[A-Z|0-9|_|$]{1,}");
 
 	public static String normalizeSignature(String signature) {
 		signature = signature.replaceAll("\\s", " ");// Change whitespace character: [\t\n\x0B\f\r]
@@ -18,6 +22,10 @@ public class Signature {
 		signature = signature.replaceAll("([a-z|0-9|_|$]*\\.){2,}", "");// Remove just packages
 	
 		return signature;
+	}
+	
+	public static boolean isAccessorMethod(String signature) {
+		return accessorPattern.matcher(signature).find();
 	}
 
 }
