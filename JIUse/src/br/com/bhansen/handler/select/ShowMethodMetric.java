@@ -7,6 +7,7 @@ import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.ui.IWorkbenchWindow;
 
 import br.com.bhansen.config.Config;
+import br.com.bhansen.config.MoveMethodConfig;
 import br.com.bhansen.dialog.MessageDialog;
 import br.com.bhansen.dialog.ProgressDialog;
 import br.com.bhansen.jdt.Method;
@@ -17,7 +18,7 @@ import br.com.bhansen.metric.MetricFactory;
 public class ShowMethodMetric extends SelectionHandler {
 	
 	@Override
-	protected Object execute(IWorkbenchWindow window, ExecutionEvent event, Config.Metric metric, Config.MetricContext context) throws Exception {
+	protected Object execute(IWorkbenchWindow window, ExecutionEvent event, MoveMethodConfig.Metric metric, Config.MetricContext context) throws Exception {
 		
 		Type selection = getType();
 		String strMethod = new Method(getMethod()).getSignature();

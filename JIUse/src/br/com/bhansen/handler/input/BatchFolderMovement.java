@@ -9,6 +9,7 @@ import org.eclipse.core.runtime.SubMonitor;
 import org.eclipse.ui.IWorkbenchWindow;
 
 import br.com.bhansen.config.Config;
+import br.com.bhansen.config.MoveMethodConfig;
 import br.com.bhansen.dialog.DirectoryDialog;
 import br.com.bhansen.dialog.MessageDialog;
 import br.com.bhansen.dialog.ProgressDialog;
@@ -21,7 +22,7 @@ import br.com.bhansen.view.Console;
 public class BatchFolderMovement extends BatchFileMovement {
 
 	@Override
-	protected Object execute(IWorkbenchWindow window, ExecutionEvent event, Config.Metric metric, Config.MetricContext context) throws Exception {
+	protected Object execute(IWorkbenchWindow window, ExecutionEvent event, MoveMethodConfig.Metric metric, Config.MetricContext context) throws Exception {
 
 		List<Path> paths = FileFinder.find(DirectoryDialog.open("Inform the batch folder", "Folder address"), "*.txt");
 		

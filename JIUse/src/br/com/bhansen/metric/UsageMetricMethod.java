@@ -7,7 +7,8 @@ import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.SubMonitor;
 import org.eclipse.jdt.core.IMethod;
 
-import br.com.bhansen.config.Config;
+import br.com.bhansen.config.MetricConfig;
+import br.com.bhansen.config.UsageMetricConfig;
 import br.com.bhansen.jdt.Method;
 import br.com.bhansen.jdt.MethodWithCallers;
 import br.com.bhansen.jdt.Type;
@@ -33,40 +34,24 @@ public abstract class UsageMetricMethod extends UsageMetric {
 				MethodWithCallers mc = m.getMethodWithCallers();
 				
 				//Remove fake public
-//				mc.removeCaller(type);
+				if(! UsageMetricConfig.useInternalCalls())
+					mc.removeCaller(type);
 				
 				this.method = mc.getCallers();
 
 			} else {
 				
-				// Add only public
-//				if(! m.isPublic())
-//					continue;
-				
-				// Dont add private
-				if (Config.isMetricTight() && m.isPrivate())
+				if(! MetricConfig.use(m))
 					continue;
-				
-				// Dont add constructor
-				if (Config.isMetricTight() && m.isConstructor())
-					continue;
-				
-				// Dont add accessor
-//				if (Config.isMetricTight() && m.isAccessorMethod())
-//					continue;
 								
 				MethodWithCallers mc = m.getMethodWithCallers();
 
-				// Dont add not called
-				if (Config.isMetricTight() && ! mc.hasCaller())
-					continue;
-				
-				// Dont add fake public
-				if(Config.isMetricTight() && mc.isCalledOnlyBy(type))
+				if(! UsageMetricConfig.use(mc, type))
 					continue;
 				
 				//Remove fake public
-//				mc.removeCaller(type);
+				if(! UsageMetricConfig.useInternalCalls())
+					mc.removeCaller(type);
 				
 				if (getMethods().put(mc.getSignature(), mc.getCallers()) != null) {
 					Console.println("Method " + mc.getSignature() + " colision!");

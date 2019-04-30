@@ -17,6 +17,7 @@ import org.eclipse.core.runtime.SubMonitor;
 import org.eclipse.ui.IWorkbenchWindow;
 
 import br.com.bhansen.config.Config;
+import br.com.bhansen.config.MoveMethodConfig;
 import br.com.bhansen.dialog.FileDialog;
 import br.com.bhansen.dialog.MessageDialog;
 import br.com.bhansen.dialog.ProgressDialog;
@@ -33,7 +34,7 @@ public class BatchFileMovement extends IMoveHandler {
 	private Project project;
 
 	@Override
-	protected Object execute(IWorkbenchWindow window, ExecutionEvent event, Config.Metric metric, Config.MetricContext context) throws Exception {
+	protected Object execute(IWorkbenchWindow window, ExecutionEvent event, MoveMethodConfig.Metric metric, Config.MetricContext context) throws Exception {
 
 		Path inFile = FileDialog.open("Inform the batch file");
 

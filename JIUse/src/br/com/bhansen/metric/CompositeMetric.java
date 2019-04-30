@@ -3,7 +3,7 @@ package br.com.bhansen.metric;
 import java.util.Map;
 import java.util.Set;
 
-import br.com.bhansen.config.Config;
+import br.com.bhansen.config.MoveMethodConfig;
 
 public class CompositeMetric implements Metric {
 		
@@ -20,7 +20,7 @@ public class CompositeMetric implements Metric {
 		double iucM = usa.getMetric();
 		double decM = dec.getMetric();
 		
-		return (iucM * Config.getMucWeight()) + (decM * Config.getMdcWeight());
+		return (iucM * MoveMethodConfig.getMucWeight()) + (decM * MoveMethodConfig.getMdcWeight());
 	}
 
 	@Override

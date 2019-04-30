@@ -5,6 +5,7 @@ import org.eclipse.core.runtime.SubMonitor;
 
 import br.com.bhansen.config.Config;
 import br.com.bhansen.config.Config.MetricContext;
+import br.com.bhansen.config.MoveMethodConfig;
 import br.com.bhansen.jdt.Type;
 import br.com.bhansen.metric.camc.CAMCClass;
 import br.com.bhansen.metric.camc.CAMCMethod;
@@ -62,21 +63,21 @@ public abstract class MetricFactory {
 	
 	public abstract Metric create(Type type, String method, String parameter, boolean skipUsage, IProgressMonitor monitor) throws Exception;
 	
-	public static MetricFactory createClassMetricFactory(Config.Metric metric, Config.MetricContext context) throws Exception {
+	public static MetricFactory createClassMetricFactory(MoveMethodConfig.Metric metric, Config.MetricContext context) throws Exception {
 		if(context == MetricContext.DATA)
 			return createClassMetricFactory(metric);
 		else
 			return createUClassMetricFactory(metric);
 	}
 	
-	public static MetricFactory createMethodMetricFactory(Config.Metric metric, Config.MetricContext context) throws Exception {
+	public static MetricFactory createMethodMetricFactory(MoveMethodConfig.Metric metric, Config.MetricContext context) throws Exception {
 		if(context == MetricContext.DATA)
 			return createMethodMetricFactory(metric);
 		else
 			return createUMethodMetricFactory(metric);
 	}
 	
-	public static MetricFactory createSkipUsageMethodMetricFactory(Config.Metric metric) throws Exception {
+	public static MetricFactory createSkipUsageMethodMetricFactory(MoveMethodConfig.Metric metric) throws Exception {
 		return new MetricFactory() {
 
 			@Override
@@ -89,7 +90,7 @@ public abstract class MetricFactory {
 		};
 	}
 	
-	public static MetricFactory createCompositeMethodMetricFactory(Config.Metric metric) throws Exception {
+	public static MetricFactory createCompositeMethodMetricFactory(MoveMethodConfig.Metric metric) throws Exception {
 		return new MetricFactory() {
 
 			@Override
@@ -118,7 +119,7 @@ public abstract class MetricFactory {
 		};
 	}
 	
-	public static MetricFactory createClassMetricFactory(Config.Metric metric) throws Exception {
+	public static MetricFactory createClassMetricFactory(MoveMethodConfig.Metric metric) throws Exception {
 		return new MetricFactory() {
 
 			@Override
@@ -145,7 +146,7 @@ public abstract class MetricFactory {
 		};
 	}
 	
-	public static MetricFactory createUClassMetricFactory(Config.Metric metric) throws Exception {
+	public static MetricFactory createUClassMetricFactory(MoveMethodConfig.Metric metric) throws Exception {
 		return new MetricFactory() {
 
 			@Override
@@ -172,7 +173,7 @@ public abstract class MetricFactory {
 		};
 	}
 	
-	public static MetricFactory createMethodMetricFactory(Config.Metric metric) throws Exception {
+	public static MetricFactory createMethodMetricFactory(MoveMethodConfig.Metric metric) throws Exception {
 		return new MetricFactory() {
 
 			@Override
@@ -199,7 +200,7 @@ public abstract class MetricFactory {
 		};
 	}
 	
-	public static MetricFactory createUMethodMetricFactory(Config.Metric metric) throws Exception {
+	public static MetricFactory createUMethodMetricFactory(MoveMethodConfig.Metric metric) throws Exception {
 		return new MetricFactory() {
 
 			@Override

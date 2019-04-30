@@ -16,7 +16,7 @@ import org.eclipse.jdt.core.search.SearchEngine;
 import org.eclipse.jdt.internal.corext.callhierarchy.CallHierarchy;
 import org.eclipse.jdt.internal.corext.callhierarchy.MethodWrapper;
 
-import br.com.bhansen.config.Config;
+import br.com.bhansen.config.UsageMetricConfig;
 
 @SuppressWarnings("restriction")
 public class MethodWithCallers extends Method {
@@ -92,7 +92,7 @@ public class MethodWithCallers extends Method {
 
 	private IJavaSearchScope getScope() throws JavaModelException {
 
-		switch (Config.getUsageScope()) {
+		switch (UsageMetricConfig.getUsageScope()) {
 
 		case PROJECT:
 

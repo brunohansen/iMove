@@ -4,6 +4,7 @@ import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.ui.IWorkbenchWindow;
 
 import br.com.bhansen.config.Config;
+import br.com.bhansen.config.MoveMethodConfig;
 import br.com.bhansen.dialog.MessageDialog;
 import br.com.bhansen.dialog.ProgressDialog;
 import br.com.bhansen.dialog.SelectProjectDlg;
@@ -15,7 +16,7 @@ import br.com.bhansen.view.MoveMethod;
 public class Movement extends IMoveHandler {
 	
 	@Override
-	protected Object execute(IWorkbenchWindow window, ExecutionEvent event, Config.Metric metric, Config.MetricContext context) throws Exception {
+	protected Object execute(IWorkbenchWindow window, ExecutionEvent event, MoveMethodConfig.Metric metric, Config.MetricContext context) throws Exception {
 				
 		SelectProjectDlg inDlg = SelectProjectDlg.askProject(window.getShell(), "iMove - Inform the movement", "Movement");
 		

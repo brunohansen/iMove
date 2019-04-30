@@ -5,6 +5,7 @@ import org.eclipse.jface.dialogs.TitleAreaDialog;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
+import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Combo;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
@@ -14,22 +15,35 @@ import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Text;
 import org.eclipse.ui.PlatformUI;
 
-import br.com.bhansen.config.Config;
-import br.com.bhansen.config.Config.UsageScope;
-import br.com.bhansen.config.Config.Metric;
-import br.com.bhansen.config.Config.MetricType;
+import br.com.bhansen.config.DataMetricConfig;
+import br.com.bhansen.config.MetricConfig;
+import br.com.bhansen.config.MoveMethodConfig;
+import br.com.bhansen.config.UsageMetricConfig;
 
 public class ConfigDialog extends TitleAreaDialog {
 	
-	private Combo metric;
-	private Combo metricType;
+	private Button constructor; 
+	private Button accessor; 
+	private Button publ; 
+	private Button prot; 
+	private Button def; 
+	private Button priv;
 	
+	private Button primitives;
+	private Button arraysAndCollections;
+	private Button _return;
+	private Button extractGenerics;
+	private Button _this;
+	private Button parameterlessMethods;
+	
+	private Button hideMethods;
+	private Button internalCalls;
+	private Combo usageScope;
+	
+	private Combo metric;
     private Text threshold;
-    
     private Text mucWeight;
     private Text mdcWeight;
-    
-    private Combo usageScope;
     
     public static void openDlg() {
     	new ConfigDialog(PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell()).open();
@@ -58,25 +72,89 @@ public class ConfigDialog extends TitleAreaDialog {
         container.setLayoutData(gridData);
         container.setLayout(new GridLayout(1, false));
         
-        Group group1 = new Group(container, SWT.SHADOW_ETCHED_IN);
-        group1.setText("Common Configuration");
-        group1.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true));
-        group1.setLayout(new GridLayout(2, false));
-
-        metricType = createComboField(group1, "Metric Type", MetricType.values(), Config.getMetricType().ordinal());
-        usageScope = createComboField(group1, "Usage Scope", UsageScope.values(), Config.getUsageScope().ordinal());
-        
-        Group group2 = new Group(container, SWT.SHADOW_ETCHED_IN);
-        group2.setText("Move Method Configuration");
-        group2.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true));
-        group2.setLayout(new GridLayout(2, false));
-        
-        metric = createComboField(group2, "Metric", Metric.values(), Config.getMetric().ordinal());
-        threshold = createTextField(group2, "Threshold", Config.getThreshold().toString());
-        mucWeight = createTextField(group2, "MUC Weight", Config.getMucWeight().toString());
-        mdcWeight = createTextField(group2, "MDC Weight", Config.getMdcWeight().toString());
+        createMetricConfig(container);
+        createDataMetricConfig(container);
+        createUsageMetricConfig(container);
+        createMoveMethodConfig(container);
         
         return area;
+    }
+    
+    private void createMetricConfig(Composite container) {
+        Group common = new Group(container, SWT.SHADOW_ETCHED_IN);
+        common.setText("Metric Configuration");
+        common.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true));
+        common.setLayout(new GridLayout(2, false));
+        
+    	constructor = createCheckBox(common, "Constructor", false); 
+    	accessor = createCheckBox(common, "Accessor methods (get, set and is)", true);
+    	publ = createCheckBox(common, "Public methods", true);
+    	prot = createCheckBox(common, "Protected methods", true);
+    	def = createCheckBox(common, "Default methods", true);
+    	priv = createCheckBox(common, "Private methods", false);
+    }
+    
+    private void createDataMetricConfig(Composite container) {
+        Group data = new Group(container, SWT.SHADOW_ETCHED_IN);
+        data.setText("Data Configuration");
+        data.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true));
+        data.setLayout(new GridLayout(2, false));
+        
+    	primitives = createCheckBox(data, "Primitives", false);
+    	arraysAndCollections = createCheckBox(data, "Arrays and Collections", true);
+    	_return = createCheckBox(data, "Return", true);
+    	extractGenerics = createCheckBox(data, "Extract generics", true);
+    	_this = createCheckBox(data, "This", false);
+    	parameterlessMethods = createCheckBox(data, "Parameterless methods", true);
+    }
+    
+    private void createUsageMetricConfig(Composite container) {
+        Group usage = new Group(container, SWT.SHADOW_ETCHED_IN);
+        usage.setText("Usage Configuration");
+        usage.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true));
+        usage.setLayout(new GridLayout(2, false));
+
+    	hideMethods = createCheckBox(usage, "Hide methods", true);
+    	internalCalls = createCheckBox(usage, "Internal calls", true);
+        usageScope = createComboField(usage, "Usage Scope", UsageMetricConfig.UsageScope.values(), UsageMetricConfig.getUsageScope().ordinal());
+    }
+    
+    private void createMoveMethodConfig(Composite container) {
+        Group move = new Group(container, SWT.SHADOW_ETCHED_IN);
+        move.setText("Move Method Configuration");
+        move.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true));
+        move.setLayout(new GridLayout(2, false));
+        
+        metric = createComboField(move, "Metric", MoveMethodConfig.Metric.values(), MoveMethodConfig.getMetric().ordinal());
+        threshold = createTextField(move, "Threshold", MoveMethodConfig.getThreshold().toString());
+        mucWeight = createTextField(move, "MUC Weight", MoveMethodConfig.getMucWeight().toString());
+        mdcWeight = createTextField(move, "MDC Weight", MoveMethodConfig.getMdcWeight().toString());
+    }
+    
+    // save content of the Text fields because they get disposed
+    // as soon as the Dialog closes
+    private void saveInput() {
+    	try {
+    		MetricConfig.setMetricConfig(constructor.getSelection(), accessor.getSelection(), publ.getSelection(), prot.getSelection(), def.getSelection(), priv.getSelection());
+    		DataMetricConfig.setDataMetricConfig(primitives.getSelection(), arraysAndCollections.getSelection(), _return.getSelection(), extractGenerics.getSelection(), _this.getSelection(), parameterlessMethods.getSelection());
+    		UsageMetricConfig.setUsageMetricConfig(hideMethods.getSelection(), internalCalls.getSelection(), UsageMetricConfig.UsageScope.values()[usageScope.getSelectionIndex()]);
+    		MoveMethodConfig.set(Double.parseDouble(threshold.getText()), Double.parseDouble(mucWeight.getText()), Double.parseDouble(mdcWeight.getText()), MoveMethodConfig.Metric.values()[metric.getSelectionIndex()]);
+		} catch (Exception e) {
+			ErrorDialog.open(e);
+		}
+    }
+    
+    private Button createCheckBox(Composite container, String label, boolean checked) {
+        GridData gridData = new GridData();
+        gridData.grabExcessHorizontalSpace = true;
+        gridData.horizontalAlignment = GridData.FILL;
+        
+        Button checkBox = new Button(container, SWT.CHECK);
+        checkBox.setText(label);
+        checkBox.setSelection(checked);
+        checkBox.setLayoutData(gridData);
+        
+        return checkBox;
     }
 
     private Text createTextField(Composite container, String label, String text) {
@@ -119,16 +197,6 @@ public class ConfigDialog extends TitleAreaDialog {
     @Override
     protected boolean isResizable() {
         return true;
-    }
-
-    // save content of the Text fields because they get disposed
-    // as soon as the Dialog closes
-    private void saveInput() {
-    	try {
-    		Config.set(Double.parseDouble(threshold.getText()), Double.parseDouble(mucWeight.getText()), Double.parseDouble(mdcWeight.getText()), UsageScope.values()[usageScope.getSelectionIndex()], MetricType.values()[metricType.getSelectionIndex()], Metric.values()[metric.getSelectionIndex()]);
-		} catch (Exception e) {
-			ErrorDialog.open(e);
-		}
     }
 
     @Override

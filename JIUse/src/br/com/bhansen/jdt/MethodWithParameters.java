@@ -5,7 +5,7 @@ import java.util.Set;
 
 import org.eclipse.jdt.core.JavaModelException;
 
-import br.com.bhansen.config.Config;
+import br.com.bhansen.config.DataMetricConfig;
 
 public class MethodWithParameters extends Method {
 	
@@ -30,17 +30,20 @@ public class MethodWithParameters extends Method {
 	}
 		
 	private Set<String> createParametersSet(String without) throws IllegalArgumentException, JavaModelException {
-		//String strParams = getSignature().replaceAll(".*\\(", "").replaceAll("\\).*", "");
 		String strParams = getParametersAndReturn();
 		
 		// Remove arrays
-		//strParams = strParams.replaceAll("\\[\\]", "");
+		if(! DataMetricConfig.useArraysAndCollections()) {
+			strParams = strParams.replaceAll("\\[\\]", "");
+		}
 		
 		if(without != null) {
 			strParams = strParams.replaceFirst(without + "(, )*", "");
 		}
 		
-		strParams = ParameterHelper.explodGenerics(strParams);
+		if(DataMetricConfig.extractGenerics()) {
+			strParams = ParameterHelper.explodGenerics(strParams);
+		}
 	
 		Set<String> params = new HashSet<>();
 	
@@ -50,12 +53,17 @@ public class MethodWithParameters extends Method {
 			}
 		}
 		
-		if(Config.isMetricTight()) {
+		if(! DataMetricConfig.usePrimitives()) {
 			ParameterHelper.removePrimitives(params);
 		}
 		
-		//ParameterHelper.removeCollections(params);		
-		ParameterHelper.removeSelfParameter(params, Type.getName(getIMethod().getDeclaringType()));
+		if(! DataMetricConfig.useArraysAndCollections()) {
+			ParameterHelper.removeCollections(params);
+		}
+		
+		if(! DataMetricConfig.useThis()) {
+			ParameterHelper.removeSelfParameter(params, Type.getName(getIMethod().getDeclaringType()));
+		}
 		
 		return params;
 	}
@@ -65,7 +73,7 @@ public class MethodWithParameters extends Method {
 	
 		String ret = getSignature().split(":", 2)[1];
 	
-		if (! ret.equals("void")) {
+		if (! ret.equals("void") && DataMetricConfig.useReturn()) {
 			if (! strParams.isEmpty()) {
 				strParams = strParams + ", " + ret;
 			} else {

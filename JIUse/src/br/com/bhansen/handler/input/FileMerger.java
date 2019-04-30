@@ -17,6 +17,7 @@ import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.ui.IWorkbenchWindow;
 
 import br.com.bhansen.config.Config;
+import br.com.bhansen.config.MoveMethodConfig;
 import br.com.bhansen.dialog.DirectoryDialog;
 import br.com.bhansen.dialog.MessageDialog;
 import br.com.bhansen.handler.IMoveHandler;
@@ -29,7 +30,7 @@ public class FileMerger extends IMoveHandler {
 	private static final String AND = "1";
 	
 	@Override
-	protected Object execute(IWorkbenchWindow window, ExecutionEvent event, Config.Metric metric, Config.MetricContext context)	throws Exception {
+	protected Object execute(IWorkbenchWindow window, ExecutionEvent event, MoveMethodConfig.Metric metric, Config.MetricContext context)	throws Exception {
 		
 		mergeDir(DirectoryDialog.open("Inform the batch folder", "Folder address"));
 		

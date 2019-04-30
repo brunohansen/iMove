@@ -2,7 +2,7 @@ package br.com.bhansen.refactory;
 
 import org.eclipse.core.runtime.IProgressMonitor;
 
-import br.com.bhansen.config.Config;
+import br.com.bhansen.config.MoveMethodConfig;
 import br.com.bhansen.jdt.Project;
 import br.com.bhansen.jdt.Type;
 import br.com.bhansen.metric.MetricFactory;
@@ -16,7 +16,7 @@ public class EvaluatorFactory {
 	
 	public static MoveMethodEvaluator create(Type classFrom, String method, Type classTo, IProgressMonitor monitor) throws Exception {
 //		return new EvaluateSumClass(classFrom, method, classTo, MetricFactory.createSkipUsageMethodMetricFactory(Config.getMetric()), monitor);
-		return new EvaluateSumMethod(classFrom, method, classTo, MetricFactory.createSkipUsageMethodMetricFactory(Config.getMetric()), monitor);
+		return new EvaluateSumMethod(classFrom, method, classTo, MetricFactory.createSkipUsageMethodMetricFactory(MoveMethodConfig.getMetric()), monitor);
 	}
 		
 }

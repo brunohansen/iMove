@@ -14,6 +14,7 @@ import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.SubMonitor;
 
 import br.com.bhansen.config.Config;
+import br.com.bhansen.config.MoveMethodConfig;
 import br.com.bhansen.jdt.Method;
 import br.com.bhansen.jdt.ParameterHelper;
 import br.com.bhansen.jdt.Type;
@@ -40,9 +41,9 @@ public class DependencyMatrix {
 		
 		SubMonitor subMonitor = SubMonitor.convert(monitor, 100);
 		
-		Map<String, Set<String>> ms = MetricFactory.createClassMetricFactory(Config.getMetric(), context).create(type, subMonitor.split(5)).getMethods();
+		Map<String, Set<String>> ms = MetricFactory.createClassMetricFactory(MoveMethodConfig.getMetric(), context).create(type, subMonitor.split(5)).getMethods();
 		
-		MetricFactory factoryL = MetricFactory.createMethodMetricFactory(Config.getMetric(), context);
+		MetricFactory factoryL = MetricFactory.createMethodMetricFactory(MoveMethodConfig.getMetric(), context);
 		
 		subMonitor = SubMonitor.convert(subMonitor.split(95), ms.size());
 

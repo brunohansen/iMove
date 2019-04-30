@@ -5,7 +5,7 @@ import java.math.RoundingMode;
 
 import org.eclipse.jdt.core.IMethod;
 
-import br.com.bhansen.config.Config;
+import br.com.bhansen.config.MoveMethodConfig;
 import br.com.bhansen.jdt.Method;
 import br.com.bhansen.jdt.Signature;
 import br.com.bhansen.jdt.Type;
@@ -60,7 +60,7 @@ public abstract class MoveMethodEvaluator {
 	}
 	
 	public boolean shouldMove() {
-		return this.valueDifference >= Config.getThreshold();
+		return this.valueDifference >= MoveMethodConfig.getThreshold();
 	}
 
 	public String toLineString() {

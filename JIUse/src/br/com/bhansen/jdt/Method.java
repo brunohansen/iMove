@@ -133,6 +133,10 @@ public class Method {
 		return Flags.isProtected(iMethod.getFlags());
 	}
 	
+	public boolean isDefault() throws JavaModelException {
+		return Flags.isPackageDefault(iMethod.getFlags());
+	}
+	
 	public boolean isConstructor() throws JavaModelException {
 		return iMethod.isConstructor();
 	}
