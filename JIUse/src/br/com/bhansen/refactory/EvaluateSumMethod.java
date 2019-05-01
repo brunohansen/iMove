@@ -5,7 +5,8 @@ import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.core.runtime.SubMonitor;
 import org.eclipse.ltk.core.refactoring.Change;
 
-import br.com.bhansen.config.Config;
+import br.com.bhansen.config.MoveMethodConfig;
+import br.com.bhansen.config.UsageMetricConfig;
 import br.com.bhansen.jdt.MethodWithCallers;
 import br.com.bhansen.jdt.Type;
 import br.com.bhansen.metric.MetricFactory;
@@ -20,14 +21,15 @@ public class EvaluateSumMethod extends MoveMethodEvaluator  {
 		
 		boolean skipUsage = false;
 		
-		if(Config.isMetricTight()) {
-			MethodWithCallers m = this.method.getMethodWithCallers();
-			
-			if(! m.hasCaller() || m.isPrivate() || m.isCalledOnlyBy(classTo) || m.isCalledOnlyBy(classFrom)) {
-				skipUsage = true;
-			} else {
-				skipUsage = false;
-			}
+		MethodWithCallers m = this.method.getMethodWithCallers();
+		
+		if((! m.hasCaller()) 
+				|| (MoveMethodConfig.skipIfPrivate() && m.isPrivate()) 
+				|| (MoveMethodConfig.skipIfPrivate() && UsageMetricConfig.hideMethods() && m.isCalledOnlyBy(classFrom)) 
+				|| (MoveMethodConfig.skipIfEnviedByDestination() && m.isCalledOnlyBy(classTo))) {
+			skipUsage = true;
+		} else {
+			skipUsage = false;
 		}
 		
 		SubMonitor subMonitor = SubMonitor.convert(monitor, 100);

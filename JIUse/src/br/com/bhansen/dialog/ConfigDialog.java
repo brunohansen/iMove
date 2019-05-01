@@ -44,6 +44,10 @@ public class ConfigDialog extends TitleAreaDialog {
     private Text threshold;
     private Text mucWeight;
     private Text mdcWeight;
+    private Button removeIfNotUsed;
+    private Button removeIfAttribute;
+    private Button skipIfPrivate;
+    private Button skipIfEnviedByDestination;
     
     public static void openDlg() {
     	new ConfigDialog(PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell()).open();
@@ -67,12 +71,12 @@ public class ConfigDialog extends TitleAreaDialog {
         Composite container = new Composite(area, SWT.NONE);
         
         GridData gridData = new GridData(SWT.FILL, SWT.FILL, true, true);
-        gridData.heightHint = 300;
+        gridData.heightHint = 550;
         
         container.setLayoutData(gridData);
         container.setLayout(new GridLayout(1, false));
         
-        createMetricConfig(container);
+        createMetricConfig(container);        
         createDataMetricConfig(container);
         createUsageMetricConfig(container);
         createMoveMethodConfig(container);
@@ -86,49 +90,61 @@ public class ConfigDialog extends TitleAreaDialog {
         common.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true));
         common.setLayout(new GridLayout(2, false));
         
-    	constructor = createCheckBox(common, "Constructor", false); 
-    	accessor = createCheckBox(common, "Accessor methods (get, set and is)", true);
-    	publ = createCheckBox(common, "Public methods", true);
-    	prot = createCheckBox(common, "Protected methods", true);
-    	def = createCheckBox(common, "Default methods", true);
-    	priv = createCheckBox(common, "Private methods", false);
+    	constructor = createCheckBox(common, "Constructor", MetricConfig.useConstructor()); 
+    	accessor = createCheckBox(common, "Accessor methods (get, set and is)", MetricConfig.useAccessorMethods());
+    	publ = createCheckBox(common, "Public methods", MetricConfig.usePublicMethods());
+    	prot = createCheckBox(common, "Protected methods", MetricConfig.useProtectedMethods());
+    	def = createCheckBox(common, "Default methods", MetricConfig.useDefaultMethods());
+    	priv = createCheckBox(common, "Private methods", MetricConfig.usePrivateMethods());
+    	
     }
     
     private void createDataMetricConfig(Composite container) {
         Group data = new Group(container, SWT.SHADOW_ETCHED_IN);
-        data.setText("Data Configuration");
+        data.setText("Data Metric Configuration");
         data.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true));
         data.setLayout(new GridLayout(2, false));
-        
-    	primitives = createCheckBox(data, "Primitives", false);
-    	arraysAndCollections = createCheckBox(data, "Arrays and Collections", true);
-    	_return = createCheckBox(data, "Return", true);
-    	extractGenerics = createCheckBox(data, "Extract generics", true);
-    	_this = createCheckBox(data, "This", false);
-    	parameterlessMethods = createCheckBox(data, "Parameterless methods", true);
+    	        
+    	primitives = createCheckBox(data, "Primitives", DataMetricConfig.usePrimitives());
+    	arraysAndCollections = createCheckBox(data, "Arrays and Collections", DataMetricConfig.useArraysAndCollections());
+    	_return = createCheckBox(data, "Return", DataMetricConfig.useReturn());
+    	extractGenerics = createCheckBox(data, "Extract generics", DataMetricConfig.extractGenerics());
+    	_this = createCheckBox(data, "This", DataMetricConfig.useThis());
+    	parameterlessMethods = createCheckBox(data, "Parameterless methods", DataMetricConfig.useParameterlessMethods());
     }
     
     private void createUsageMetricConfig(Composite container) {
         Group usage = new Group(container, SWT.SHADOW_ETCHED_IN);
-        usage.setText("Usage Configuration");
+        usage.setText("Usage Metric Configuration");
         usage.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true));
         usage.setLayout(new GridLayout(2, false));
-
-    	hideMethods = createCheckBox(usage, "Hide methods", true);
-    	internalCalls = createCheckBox(usage, "Internal calls", true);
-        usageScope = createComboField(usage, "Usage Scope", UsageMetricConfig.UsageScope.values(), UsageMetricConfig.getUsageScope().ordinal());
+        
+    	hideMethods = createCheckBox(usage, "Hide methods", UsageMetricConfig.hideMethods());
+        createLabel(usage, "Usage Scope");
+    	internalCalls = createCheckBox(usage, "Internal calls", UsageMetricConfig.useInternalCalls());
+        usageScope = createComboField(usage, UsageMetricConfig.UsageScope.values(), UsageMetricConfig.getUsageScope().ordinal());
     }
-    
+
     private void createMoveMethodConfig(Composite container) {
         Group move = new Group(container, SWT.SHADOW_ETCHED_IN);
         move.setText("Move Method Configuration");
         move.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true));
         move.setLayout(new GridLayout(2, false));
         
-        metric = createComboField(move, "Metric", MoveMethodConfig.Metric.values(), MoveMethodConfig.getMetric().ordinal());
-        threshold = createTextField(move, "Threshold", MoveMethodConfig.getThreshold().toString());
-        mucWeight = createTextField(move, "MUC Weight", MoveMethodConfig.getMucWeight().toString());
-        mdcWeight = createTextField(move, "MDC Weight", MoveMethodConfig.getMdcWeight().toString());
+        createLabel(move, "Metric");
+        createLabel(move, "Threshold");
+        metric = createComboField(move, MoveMethodConfig.Metric.values(), MoveMethodConfig.getMetric().ordinal());
+        threshold = createTextField(move, MoveMethodConfig.getThreshold().toString());
+        createLabel(move, "Data Weight");
+        createLabel(move, "Usage Weight");
+        mdcWeight = createTextField(move, MoveMethodConfig.getMdcWeight().toString());
+        mucWeight = createTextField(move, MoveMethodConfig.getMucWeight().toString());
+        
+        removeIfNotUsed = createCheckBox(move, "Remove parameter if not used", MoveMethodConfig.removeIfNotUsed());
+        skipIfPrivate = createCheckBox(move, "Skip usage if private", MoveMethodConfig.skipIfPrivate());
+        
+        removeIfAttribute = createCheckBox(move, "Remove parameter if attribute", MoveMethodConfig.removeIfAttribute());
+        skipIfEnviedByDestination = createCheckBox(move, "Skip usage if envied by destination", MoveMethodConfig.skipIfEnviedByDestination());
     }
     
     // save content of the Text fields because they get disposed
@@ -138,7 +154,7 @@ public class ConfigDialog extends TitleAreaDialog {
     		MetricConfig.setMetricConfig(constructor.getSelection(), accessor.getSelection(), publ.getSelection(), prot.getSelection(), def.getSelection(), priv.getSelection());
     		DataMetricConfig.setDataMetricConfig(primitives.getSelection(), arraysAndCollections.getSelection(), _return.getSelection(), extractGenerics.getSelection(), _this.getSelection(), parameterlessMethods.getSelection());
     		UsageMetricConfig.setUsageMetricConfig(hideMethods.getSelection(), internalCalls.getSelection(), UsageMetricConfig.UsageScope.values()[usageScope.getSelectionIndex()]);
-    		MoveMethodConfig.set(Double.parseDouble(threshold.getText()), Double.parseDouble(mucWeight.getText()), Double.parseDouble(mdcWeight.getText()), MoveMethodConfig.Metric.values()[metric.getSelectionIndex()]);
+    		MoveMethodConfig.setMoveMethodConfig(Double.parseDouble(threshold.getText()), Double.parseDouble(mucWeight.getText()), Double.parseDouble(mdcWeight.getText()), MoveMethodConfig.Metric.values()[metric.getSelectionIndex()], removeIfNotUsed.getSelection(), removeIfAttribute.getSelection(), skipIfPrivate.getSelection(), skipIfEnviedByDestination.getSelection());
 		} catch (Exception e) {
 			ErrorDialog.open(e);
 		}
@@ -157,11 +173,8 @@ public class ConfigDialog extends TitleAreaDialog {
         return checkBox;
     }
 
-    private Text createTextField(Composite container, String label, String text) {
-        Label lbl = new Label(container, SWT.NONE);
-        lbl.setText(label);
-
-        GridData gridData = new GridData();
+	private Text createTextField(Composite container, String text) {
+		GridData gridData = new GridData();
         gridData.grabExcessHorizontalSpace = true;
         gridData.horizontalAlignment = GridData.FILL;
 
@@ -170,29 +183,31 @@ public class ConfigDialog extends TitleAreaDialog {
         txt.setText(text);
         
         return txt;
-    }
-    
-    private Combo createComboField(Composite container, String label, Enum<?> [] values, int index) {
-        String [] items = new String[values.length]; 
+	}
+
+	private Combo createComboField(Composite container, Enum<?>[] values, int index) {
+		String [] items = new String[values.length]; 
         
         for (Enum<?> value : values) {
         	items[value.ordinal()] = value.toString();
 		}
     	
-        Label lbl = new Label(container, SWT.NONE);
-        lbl.setText(label);
-
         GridData gridData = new GridData();
         gridData.grabExcessHorizontalSpace = true;
         gridData.horizontalAlignment = GridData.FILL;
 
         Combo combo = new Combo(container, SWT.BORDER);
-        combo.setLayoutData(gridData);       
+        combo.setLayoutData(gridData);
         combo.setItems(items);
         combo.select(index);
         
         return combo;
-    }
+	}
+    
+	private void createLabel(Composite container, String text) {
+		Label lbl = new Label(container, SWT.NONE);
+        lbl.setText(text);
+	}
 
     @Override
     protected boolean isResizable() {

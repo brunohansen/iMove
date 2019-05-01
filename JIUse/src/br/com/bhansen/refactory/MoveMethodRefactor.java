@@ -31,6 +31,7 @@ import org.eclipse.ltk.core.refactoring.Refactoring;
 import org.eclipse.ltk.core.refactoring.participants.MoveRefactoring;
 import org.eclipse.swt.widgets.Shell;
 
+import br.com.bhansen.config.MoveMethodConfig;
 import br.com.bhansen.jdt.Method;
 import br.com.bhansen.jdt.Type;
 
@@ -104,7 +105,8 @@ public class MoveMethodRefactor {
 				if(processor.needsTargetNode()) {
 					this.typeNotUsed = getTypeIfNotUsed(classTo.getMethod(processor.getMethodName()).getIMethod(), processor.getTargetName());
 					
-					//checkFakeParameter(classFrom, classTo, processor);
+					if(MoveMethodConfig.removeIfAttribute())
+						checkFakeParameter(classFrom, classTo, processor);
 				}
 				
 				return undo;
@@ -117,7 +119,8 @@ public class MoveMethodRefactor {
 			IVariableBinding bestTarget = getBestTarget(classTo, processor, refactoring, selectedTargets, waitUndo);
 			Change undo = performRefactoring(processor, refactoring, bestTarget);
 			
-			//checkFakeParameter(classFrom, classTo, processor);
+			if(MoveMethodConfig.removeIfAttribute())
+				checkFakeParameter(classFrom, classTo, processor);
 					
 			return undo;
 		}
@@ -308,7 +311,11 @@ public class MoveMethodRefactor {
 	}
 
 	public String getTypeNotUsed() {
-		return typeNotUsed;
+		if(MoveMethodConfig.removeIfNotUsed() || MoveMethodConfig.removeIfAttribute()) {
+			return typeNotUsed;
+		} else {
+			return null;
+		}
 	}
 
 }
