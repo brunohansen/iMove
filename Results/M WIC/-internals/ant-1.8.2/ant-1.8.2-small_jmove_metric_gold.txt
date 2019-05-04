@@ -1,0 +1,124 @@
+-0.000473-111	org.apache.tools.ant.taskdefs.Replace::processFile(File):void	org.apache.tools.ant.util.FileUtils
+-0.001170-111	org.apache.tools.ant.taskdefs.XSLTProcess::processResources(Resource):void	org.apache.tools.ant.util.FileUtils
+-0.001268-111	org.apache.tools.ant.taskdefs.Javadoc::doSourceAndPackageNames(Commandline, Vector, Vector, boolean, File, BufferedWriter):void	org.apache.tools.ant.types.Commandline
+-0.001465-111	org.apache.tools.ant.taskdefs.optional.ejb.WeblogicDeploymentTool::isRebuildRequired(File, File):boolean	org.apache.tools.ant.util.FileUtils
+-0.001792-111	org.apache.tools.ant.taskdefs.optional.Javah::logAndAddFilesToCompile(Commandline):void	org.apache.tools.ant.types.Commandline
+-0.001870-111	org.apache.tools.ant.taskdefs.Property::loadProperties(Properties, InputStream, boolean):void	org.apache.tools.ant.Project
+-0.002551-111	org.apache.tools.ant.taskdefs.optional.vss.MSVSS::run(Commandline):int	org.apache.tools.ant.types.Commandline
+-0.002835-111	org.apache.tools.ant.taskdefs.Javadoc::parsePackages(Vector, Path):void	org.apache.tools.ant.types.Path
+-0.003403-111	org.apache.tools.ant.taskdefs.optional.junit.JUnitTask::getOutput(FormatterElement, JUnitTest):File	org.apache.tools.ant.taskdefs.optional.junit.JUnitTest
+-0.003519-111	org.apache.tools.ant.taskdefs.optional.ejb.GenericDeploymentTool::parseEjbFiles(String, SAXParser):Hashtable	org.apache.tools.ant.taskdefs.optional.ejb.DescriptorHandler
+-0.004762-111	org.apache.tools.ant.taskdefs.optional.TraXLiaison::resourceToURI(Resource):String	org.apache.tools.ant.util.FileUtils
+-0.004794-111	org.apache.tools.ant.taskdefs.optional.ejb.WebsphereDeploymentTool::getClassLoaderFromJar(File):ClassLoader	org.apache.tools.ant.util.FileUtils
+-0.006944-111	org.apache.tools.ant.taskdefs.optional.sos.SOS::run(Commandline):int	org.apache.tools.ant.types.Commandline
+-0.007863-111	org.apache.tools.ant.taskdefs.optional.net.FTP::getFile(FTPClient, String, String):void	org.apache.tools.ant.util.FileUtils
+-0.008242-111	org.apache.tools.ant.taskdefs.optional.ejb.WebsphereDeploymentTool::getWebsphereDescriptorHandler(File):DescriptorHandler	org.apache.tools.ant.util.FileUtils
+-0.008668-111	org.apache.tools.ant.AntClassLoader::findClassInComponents(String):Class	org.apache.tools.ant.util.FileUtils
+-0.009600-111	org.apache.tools.ant.taskdefs.SignJar::isSigned(File):boolean	org.apache.tools.ant.util.FileUtils
+-0.009900-111	org.apache.tools.ant.ProjectHelper::parseAntlibDescriptor(Project, Resource):UnknownElement	org.apache.tools.ant.Project
+-0.010163-111	org.apache.tools.ant.taskdefs.AbstractCvsTask::configureCommandline(Commandline):void	org.apache.tools.ant.types.Commandline
+-0.010353-111	org.apache.tools.ant.taskdefs.optional.ejb.WebsphereDeploymentTool::isRebuildRequired(File, File):boolean	org.apache.tools.ant.util.FileUtils
+-0.011010-111	org.apache.tools.ant.taskdefs.optional.net.FTP::transferFiles(FTPClient, FileSet):int	org.apache.tools.ant.util.FileUtils
+-0.011584-111	org.apache.tools.ant.taskdefs.Truncate::shouldProcess(File):boolean	org.apache.tools.ant.util.FileUtils
+-0.012121-111	org.apache.tools.ant.taskdefs.optional.net.FTP::sendFile(FTPClient, String, String):void	org.apache.tools.ant.util.FileUtils
+-0.012629-111	org.apache.tools.ant.taskdefs.optional.Cab::createListFile(Vector):File	org.apache.tools.ant.util.FileUtils
+-0.013750-111	org.apache.tools.ant.taskdefs.Tar::asTarFileSet(ArchiveFileSet):TarFileSet	org.apache.tools.ant.types.ArchiveFileSet
+-0.014286-111	org.apache.tools.ant.taskdefs.optional.ReplaceRegExp::doReplace(RegularExpression, Substitution, String, int):String	org.apache.tools.ant.types.RegularExpression
+-0.015000-111	org.apache.tools.ant.taskdefs.Replace::getProperties(Resource):Properties	org.apache.tools.ant.util.FileUtils
+-0.015828-111	org.apache.tools.ant.taskdefs.Redirector::handleInput(byte[], int, int):int	org.apache.tools.ant.ProjectComponent
+-0.019231-111	org.apache.tools.ant.taskdefs.optional.ssh.Scp::createDirectory(FileSet):Directory	org.apache.tools.ant.types.FileSet
+-0.019256-111	org.apache.tools.ant.taskdefs.Zip::addParentDirs(File, String, ZipOutputStream, String, int):void	org.apache.tools.zip.ZipOutputStream
+-0.019256-111	org.apache.tools.ant.taskdefs.Zip::zipDir(File, ZipOutputStream, String, int):void	org.apache.tools.zip.ZipOutputStream
+-0.020833-111	org.apache.tools.ant.filters.ReplaceTokens::getProperties(Resource):Properties	org.apache.tools.ant.types.Resource
+-0.023199-111	org.apache.tools.ant.taskdefs.optional.sound.AntSoundPlayer::play(Project, File, int, Long):void	org.apache.tools.ant.Project
+-0.029602-111	org.apache.tools.ant.taskdefs.optional.AbstractXSLTLiaisonTest::getFile(String):File	org.apache.tools.ant.util.FileUtils
+-0.031426-111	org.apache.tools.ant.taskdefs.SignJar::signOneJar(File, File):void	org.apache.tools.ant.util.FileUtils
+-0.032407-111	org.apache.tools.ant.taskdefs.Tar::tarFile(File, TarOutputStream, String, TarFileSet):void	org.apache.tools.tar.TarOutputStream
+-0.036587-111	org.apache.tools.ant.taskdefs.Zip::zipDir(Resource, ZipOutputStream, String, int, ZipExtraField[]):void	org.apache.tools.zip.ZipOutputStream
+-0.042857-111	org.apache.tools.ant.filters.util.ChainReaderHelper::expandReader(AntFilterReader, Reader, List):Reader	org.apache.tools.ant.types.AntFilterReader
+-0.053941-111	org.apache.tools.ant.taskdefs.Expand::extractFile(FileUtils, File, File, InputStream, String, Date, boolean, FileNameMapper):void	org.apache.tools.ant.util.FileUtils
+-0.174809-111	org.apache.tools.ant.taskdefs.AbstractJarSignerTask::bindToKeystore(ExecTask):void	org.apache.tools.ant.taskdefs.ExecTask
+-0.181750-111	org.apache.tools.ant.taskdefs.optional.ccm.Continuus::run(Commandline, ExecuteStreamHandler):int	org.apache.tools.ant.types.Commandline
+-0.262205-111	org.apache.tools.ant.taskdefs.optional.clearcase.ClearCase::run(Commandline):int	org.apache.tools.ant.types.Commandline
+-0.516563-111	org.apache.tools.ant.taskdefs.Rmic::isValidRmiRemote(String):boolean	org.apache.tools.ant.AntClassLoader
+-0.543884-111	org.apache.tools.ant.taskdefs.Execute::execute():int	org.apache.tools.ant.taskdefs.ProcessDestroyer
+-1.000000-111	org.apache.tools.ant.DirectoryScanner::shouldSkipPattern(String):boolean	org.apache.tools.ant.util.FileUtils
+-1.000000-111	org.apache.tools.ant.filters.ConcatFilterTest::read(String):String	org.apache.tools.ant.util.FileUtils
+-1.000000-111	org.apache.tools.ant.filters.ConcatFilterTest::testFilterReaderNoArgs():void	org.apache.tools.ant.util.FileUtils
+-1.000000-111	org.apache.tools.ant.filters.EscapeUnicodeTest::testEscapeUnicode():void	org.apache.tools.ant.util.FileUtils
+-1.000000-111	org.apache.tools.ant.filters.LineContainsTest::testLineContains():void	org.apache.tools.ant.util.FileUtils
+-1.000000-111	org.apache.tools.ant.filters.StripJavaCommentsTest::testStripJavaComments():void	org.apache.tools.ant.util.FileUtils
+-1.000000-111	org.apache.tools.ant.taskdefs.Available::checkResource(String):boolean	org.apache.tools.ant.AntClassLoader
+-1.000000-111	org.apache.tools.ant.taskdefs.ConcatTest::getFileString(String):String	org.apache.tools.ant.util.FileUtils
+-1.000000-111	org.apache.tools.ant.taskdefs.Copy::doFileOperations():void	org.apache.tools.ant.util.FileUtils
+-1.000000-111	org.apache.tools.ant.taskdefs.ExecTask::resolveExecutable(String, boolean):String	org.apache.tools.ant.util.FileUtils
+-1.000000-111	org.apache.tools.ant.taskdefs.InitializeClassTest::testAll():void	org.apache.tools.ant.util.FileUtils
+-1.000000-111	org.apache.tools.ant.taskdefs.JavaTest::testSpawn():void	org.apache.tools.ant.util.FileUtils
+-1.000000-111	org.apache.tools.ant.taskdefs.Javac::checkParameters():void	org.apache.tools.ant.types.Path
+-1.000000-111	org.apache.tools.ant.taskdefs.Javac::generateMissingPackageInfoClasses():void	org.apache.tools.ant.util.FileUtils
+-1.000000-111	org.apache.tools.ant.taskdefs.StyleTest::getFileString(String):String	org.apache.tools.ant.util.FileUtils
+-1.000000-111	org.apache.tools.ant.taskdefs.UntarTest::testDocumentationClaimsOnCopy():void	org.apache.tools.ant.util.FileUtils
+-1.000000-111	org.apache.tools.ant.taskdefs.UnzipTest::assertLogoUncorrupted():void	org.apache.tools.ant.util.FileUtils
+-1.000000-111	org.apache.tools.ant.taskdefs.email.EmailTask::setFiles(String):void	org.apache.tools.ant.types.Path
+-1.000000-111	org.apache.tools.ant.types.FlexIntegerTest::execute():void	org.apache.tools.ant.Project
+-1.000000-111	org.apache.tools.ant.types.resolver.ApacheCatalogResolver::parseCatalog(String):void	org.apache.tools.ant.types.XMLCatalog
+-1.000000-111	org.apache.tools.ant.types.resources.TarResourceTest::testUncompressSource():void	org.apache.tools.ant.util.FileUtils
+-1.000000-111	org.apache.tools.ant.types.selectors.ModifiedSelectorTest::testCreatePropertiesCacheViaCustomSelector():void	org.apache.tools.ant.util.FileUtils
+-1.000000-111	org.apache.tools.ant.types.selectors.ModifiedSelectorTest::testSeldirs():void	org.apache.tools.ant.util.FileUtils
+0.000000-011	org.apache.tools.ant.ComponentHelper::createComponent(UnknownElement, String, String):Object	org.apache.tools.ant.UnknownElement
+0.000000-011	org.apache.tools.ant.ProjectTest::testNullThrowableMessageLog():void	org.apache.tools.ant.Project
+0.000000-011	org.apache.tools.ant.listener.MailLogger::sendMimeMail(Project, Values, String):void	org.apache.tools.ant.Project
+0.000000-011	org.apache.tools.ant.taskdefs.JavaTest::testReleasedInput():void	org.apache.tools.ant.Project
+0.000000-011	org.apache.tools.ant.taskdefs.Javadoc::setAccess(AccessType):void	org.apache.tools.ant.types.Commandline
+0.000000-011	org.apache.tools.ant.taskdefs.Javadoc::writeExternalArgs(Commandline):void	org.apache.tools.ant.util.FileUtils
+0.000000-011	org.apache.tools.ant.taskdefs.Redirector::setPropertyFromBAOS(ByteArrayOutputStream, String):void	org.apache.tools.ant.ProjectComponent
+0.000000-011	org.apache.tools.ant.taskdefs.TouchTest::getTargetTime():long	org.apache.tools.ant.util.FileUtils
+0.000000-011	org.apache.tools.ant.taskdefs.XmlPropertyTest::doTest(String, boolean, boolean, boolean, boolean, boolean):void	org.apache.tools.ant.util.FileUtils
+0.000000-011	org.apache.tools.ant.taskdefs.cvslib.ChangeLogWriterTest::testNonUTF8Characters():void	org.apache.tools.ant.taskdefs.cvslib.ChangeLogWriter
+0.000000-011	org.apache.tools.ant.taskdefs.email.EmailTask::logBuildException(String, BuildException):void	org.apache.tools.ant.BuildException
+0.000000-011	org.apache.tools.ant.taskdefs.email.MimeMailer::didntReach(Address, String, MessagingException):void	org.apache.tools.ant.Task
+0.000000-011	org.apache.tools.ant.taskdefs.optional.extension.JarLibManifestTask::toExtensions(ArrayList):ArrayList	org.apache.tools.ant.taskdefs.optional.extension.Extension
+0.000000-011	org.apache.tools.ant.taskdefs.optional.pvcs.Pvcs::runCmd(Commandline, ExecuteStreamHandler):int	org.apache.tools.ant.types.Commandline
+0.000000-011	org.apache.tools.ant.types.resources.ResourceList::parse(String):Resource	org.apache.tools.ant.types.resources.Union
+0.000321-011	org.apache.tools.ant.taskdefs.Expand::expandFile(FileUtils, File, File):void	org.apache.tools.ant.util.FileUtils
+0.000406-011	org.apache.tools.ant.Project::fireMessageLogged(Target, String, Throwable, int):void	org.apache.tools.ant.Target
+0.001099-011	org.apache.tools.ant.taskdefs.optional.junit.JUnitTask::execute(List):void	org.apache.tools.ant.util.FileUtils
+0.001723-011	org.apache.tools.ant.taskdefs.optional.ejb.WeblogicDeploymentTool::getClassLoaderFromJar(File):ClassLoader	org.apache.tools.ant.util.FileUtils
+0.002857-011	org.apache.tools.ant.taskdefs.optional.junit.JUnitTask::addAssertions(Assertions):void	org.apache.tools.ant.types.CommandlineJava
+0.003087-011	org.apache.tools.ant.Project::fireMessageLogged(Task, String, Throwable, int):void	org.apache.tools.ant.Task
+0.003195-011	org.apache.tools.ant.taskdefs.optional.depend.DependTest::getResultFiles():Hashtable	org.apache.tools.ant.Project
+0.003910-011	org.apache.tools.ant.Project::fireTargetStarted(Target):void	org.apache.tools.ant.Target
+0.004600-011	org.apache.tools.ant.taskdefs.AbstractJarSignerTask::declareSysProperty(ExecTask, Environment.Variable):void	org.apache.tools.ant.types.Environment
+0.004899-011	org.apache.tools.ant.taskdefs.optional.i18n.Translate::translateOneFile(File, File):void	org.apache.tools.ant.util.FileUtils
+0.006284-011	org.apache.tools.ant.AntClassLoader::defineClassFromData(File, byte[], String):Class	org.apache.tools.ant.util.FileUtils
+0.007416-011	org.apache.tools.ant.IntrospectionHelperTest::assertAttrMethod(String, String, Class, Object, Object):void	org.apache.tools.ant.IntrospectionHelper
+0.007477-011	org.apache.tools.ant.taskdefs.optional.net.FTP::findFileName(FTPClient):File	org.apache.tools.ant.util.FileUtils
+0.008950-011	org.apache.tools.ant.taskdefs.Zip::renameFile():File	org.apache.tools.ant.util.FileUtils
+0.009148-011	org.apache.tools.ant.AntClassLoader::getResourceURL(File, String):URL	org.apache.tools.ant.util.FileUtils
+0.009183-011	org.apache.tools.ant.taskdefs.Zip::createEmptyZip(File):boolean	org.apache.tools.ant.util.FileUtils
+0.011530-011	org.apache.tools.ant.taskdefs.Rmic::moveGeneratedFile(File, File, String, RmicAdapter):void	org.apache.tools.ant.util.FileUtils
+0.012591-011	org.apache.tools.ant.AntClassLoader::definePackage(File, String, Manifest):void	org.apache.tools.ant.util.FileUtils
+0.013019-011	org.apache.tools.ant.taskdefs.Touch::touch(File, long):void	org.apache.tools.ant.util.FileUtils
+0.013362-011	org.apache.tools.ant.IntrospectionHelperTest::assertMethod(Method, String, Class, Object, Object):void	org.apache.tools.ant.IntrospectionHelper
+0.014326-011	org.apache.tools.ant.taskdefs.Checksum::readChecksum(File):String	org.apache.tools.ant.util.FileUtils
+0.015263-011	org.apache.tools.ant.taskdefs.Javac::lookForPackageInfos(File, File[]):void	org.apache.tools.ant.util.FileUtils
+0.015625-011	org.apache.tools.ant.Project::fireMessageLoggedEvent(BuildEvent, String, int):void	org.apache.tools.ant.BuildEvent
+0.016667-011	org.apache.tools.ant.taskdefs.DependSet::logFuture(ResourceCollection, ResourceSelector):void	org.apache.tools.ant.types.resources.Union
+0.016987-011	org.apache.tools.ant.taskdefs.optional.ReplaceRegExp::doReplace(File, int):void	org.apache.tools.ant.util.FileUtils
+0.017560-011	org.apache.tools.ant.taskdefs.XSLTProcess::setLiaisonDynamicFileParameters(XSLTLiaison, File):void	org.apache.tools.ant.util.FileUtils
+0.018750-011	org.apache.tools.ant.taskdefs.ManifestTask::addConfiguredSection(Manifest.Section):void	org.apache.tools.ant.taskdefs.Manifest
+0.020483-011	org.apache.tools.ant.taskdefs.Delete::delete(File):boolean	org.apache.tools.ant.util.FileUtils
+0.021809-011	org.apache.tools.ant.taskdefs.optional.junit.JUnitTask::createTempPropertiesFile(String):File	org.apache.tools.ant.util.FileUtils
+0.022130-011	org.apache.tools.ant.taskdefs.optional.XMLValidateTask::doValidate(File):boolean	org.apache.tools.ant.util.FileUtils
+0.024130-011	org.apache.tools.ant.taskdefs.Available::setFile(File):void	org.apache.tools.ant.util.FileUtils
+0.029402-011	org.apache.tools.ant.taskdefs.Zip::getNonFileSetResourcesToAdd(ResourceCollection[], File, boolean):ArchiveState	org.apache.tools.ant.types.ZipScanner
+0.031049-011	org.apache.tools.ant.taskdefs.Zip::addResources(FileSet, Resource[], ZipOutputStream):void	org.apache.tools.ant.types.ZipScanner
+0.032170-011	org.apache.tools.ant.types.resources.AbstractClasspathResource::getClassLoader():ClassLoaderWithFlag	org.apache.tools.ant.types.Reference
+0.032551-011	org.apache.tools.ant.Project::setFileLastModified(File, long):void	org.apache.tools.ant.util.FileUtils
+0.045833-011	org.apache.tools.ant.types.DataType::getCheckedRef(Class, String, Project):Object	org.apache.tools.ant.types.Reference
+0.054907-011	org.apache.tools.ant.types.selectors.TokenizedPath::isSymlink(File):boolean	org.apache.tools.ant.util.SymbolicLinkUtils
+0.093006-011	org.apache.tools.ant.DirectoryScanner::causesIllegalSymlinkLoop(String, File, LinkedList):boolean	org.apache.tools.ant.util.SymbolicLinkUtils
+0.112729-011	org.apache.tools.ant.taskdefs.Zip::addDirectoryResource(Resource, String, String, File, ZipOutputStream, int, int):void	org.apache.tools.ant.types.ZipScanner
+0.131770-011	org.apache.tools.ant.taskdefs.Delete::isDanglingSymlink(File):boolean	org.apache.tools.ant.util.SymbolicLinkUtils
+0.165715-011	org.apache.tools.ant.taskdefs.Zip::getUnixMode(Resource, ZipFile, int):int	org.apache.tools.ant.types.ZipScanner
+1.000000-011	org.apache.tools.ant.types.ResourceOutputTest::testoutput(Resource):void	org.apache.tools.ant.types.Resource
