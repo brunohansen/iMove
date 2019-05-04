@@ -5,9 +5,11 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Set;
 
+import org.junit.Test;
+
 public class NHDMinMaxTest extends MetricTest {
 	
-//	@Test
+	@Test
 	public void testNHDMinMax() {
 		System.out.println("\nA5b - Test NHD min\n");
 		

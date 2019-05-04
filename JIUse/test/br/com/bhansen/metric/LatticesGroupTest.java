@@ -6,9 +6,11 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
+import org.junit.Test;
+
 public class LatticesGroupTest extends MetricTest {
 	
-//	@Test
+	@Test
 	public void testLatices() {
 		Map<String, Set<String>> partition = new HashMap<>();
 
