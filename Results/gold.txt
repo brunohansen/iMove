@@ -25,9 +25,13 @@ DR JAVA
 
 JEDIT
     CC  4
+        SRC EU NÃO MOVERIA
         org.gjt.sp.jedit.Mode::accept(Buffer, String, String):boolean   gnu.regexp.RE
+        SRC TEM MAIS INTERPRETER
         bsh.Name::resolveThisFieldReference(NameSpace, Interpreter, String, boolean):Object bsh.NameSpace
+        INVERTE INVEJA
         org.gjt.sp.jedit.textarea.JEditTextArea::xToOffset(int, int):int    org.gjt.sp.jedit.textarea.TextAreaPainter
+        NIGUEM USA, PASSA BUFFER COMO PARAMETRO
         org.gjt.sp.jedit.Buffer::tokenizeLines(int, int):void   org.gjt.sp.jedit.syntax.TokenMarker
     IC  3
         bsh.Name::resolveThisFieldReference(NameSpace, Interpreter, String, boolean):Object bsh.NameSpace
@@ -48,9 +52,13 @@ JEDIT
 
 JFREE-0.9
     CC  4
+        Chamado por dois me fudeu
         com.jrefinery.chart.axis.DateAxis::previousStandardDate(Date, DateTickUnit):Date    com.jrefinery.chart.axis.DateTickUnit
+        Passando parâmetros corretos moveria, menos NHDM
         com.jrefinery.data.DynamicTimeSeriesCollection::getX(RegularTimePeriod):long    com.jrefinery.data.RegularTimePeriod
+        Só se previous ja estiver lá, 
         com.jrefinery.chart.axis.DateAxis::nextStandardDate(Date, DateTickUnit):Date    com.jrefinery.chart.axis.DateTickUnit
+        Inverte inveja absurda
         com.jrefinery.chart.ui.AxisPropertyEditPanel::setAxisProperties(Axis):void  com.jrefinery.chart.axis.Axis
     IC  4
         com.jrefinery.data.DynamicTimeSeriesCollection::getX(RegularTimePeriod):long    com.jrefinery.data.RegularTimePeriod
