@@ -1,7 +1,6 @@
 ANT
     CC  0
-    IC  1
-        org.apache.tools.ant.util.ScriptRunnerHelper::executeScript2(ScriptDef, Map, Map, ScriptDefBase):void   org.apache.tools.ant.taskdefs.optional.script.ScriptDef
+    IC  0
     IS  2
         org.apache.tools.ant.util.ScriptRunnerHelper::executeScript2(ScriptDef, Map, Map, ScriptDefBase):void   org.apache.tools.ant.taskdefs.optional.script.ScriptDef
         org.apache.tools.ant.util.LineTokenizer::chain(HeadFilter, Reader):Reader   org.apache.tools.ant.filters.HeadFilter
