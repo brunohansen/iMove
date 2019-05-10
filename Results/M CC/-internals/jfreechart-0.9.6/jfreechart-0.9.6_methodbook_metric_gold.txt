@@ -1,0 +1,10 @@
+-0.100424-111	com.jrefinery.chart.plot.ContourPlot::drawDomainMarker(Graphics2D, ContourPlot, ValueAxis, Marker, Rectangle2D):void	com.jrefinery.chart.Marker
+-0.100424-111	com.jrefinery.chart.plot.ContourPlot::drawRangeMarker(Graphics2D, ContourPlot, ValueAxis, Marker, Rectangle2D):void	com.jrefinery.chart.Marker
+-0.111111-100	com.jrefinery.data.DynamicTimeSeriesCollection::getX(RegularTimePeriod):long	com.jrefinery.data.RegularTimePeriod
+-0.250244-100	com.jrefinery.chart.ui.AxisPropertyEditPanel::setAxisProperties(Axis):void	com.jrefinery.chart.axis.Axis
+-0.500000-111	com.jrefinery.chart.renderer.VerticalIntervalBarRenderer::drawRangeMarker(Graphics2D, CategoryPlot, ValueAxis, Marker, Rectangle2D, Shape):void	com.jrefinery.chart.Marker
+-0.533333-111	com.jrefinery.chart.renderer.VerticalBarRenderer3D::drawRangeMarker(Graphics2D, CategoryPlot, ValueAxis, Marker, Rectangle2D):void	com.jrefinery.chart.Marker
+0.000000-000	com.jrefinery.chart.ui.LegendPropertyEditPanel::setLegendProperties(Legend):void	com.jrefinery.chart.Legend
+0.000000-000	com.jrefinery.chart.ui.PlotPropertyEditPanel::updatePlotProperties(Plot):void	com.jrefinery.chart.plot.Plot
+0.000000-000	com.jrefinery.data.TimeSeriesCollection::getX(RegularTimePeriod):long	com.jrefinery.data.RegularTimePeriod
+0.091914-000	com.jrefinery.chart.ui.ChartPropertyEditPanel::updateChartProperties(JFreeChart):void	com.jrefinery.chart.JFreeChart
