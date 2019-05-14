@@ -1,0 +1,10 @@
+-0.013889-100	com.jrefinery.data.DynamicTimeSeriesCollection::getX(RegularTimePeriod):long	com.jrefinery.data.RegularTimePeriod
+-0.015417-100	com.jrefinery.chart.axis.DateAxis::nextStandardDate(Date, DateTickUnit):Date	com.jrefinery.chart.axis.DateTickUnit
+-0.086351-100	com.jrefinery.chart.ui.AxisPropertyEditPanel::setAxisProperties(Axis):void	com.jrefinery.chart.axis.Axis
+0.000000-000	com.jrefinery.chart.MeterLegend::createLegendItem(Graphics, LegendItem, double, double):DrawableLegendItem	com.jrefinery.chart.LegendItem
+0.000000-000	com.jrefinery.chart.ui.LegendPropertyEditPanel::setLegendProperties(Legend):void	com.jrefinery.chart.Legend
+0.000000-000	com.jrefinery.chart.ui.PlotPropertyEditPanel::updatePlotProperties(Plot):void	com.jrefinery.chart.plot.Plot
+0.000000-000	com.jrefinery.data.TimeSeriesCollection::getX(RegularTimePeriod):long	com.jrefinery.data.RegularTimePeriod
+0.006219-000	com.jrefinery.chart.ui.ChartPropertyEditPanel::updateChartProperties(JFreeChart):void	com.jrefinery.chart.JFreeChart
+0.021546-000	com.jrefinery.chart.JFreeChart::drawTitle(AbstractTitle, Graphics2D, Rectangle2D):void	com.jrefinery.chart.AbstractTitle
+0.067917-000	com.jrefinery.chart.axis.DateAxis::previousStandardDate(Date, DateTickUnit):Date	com.jrefinery.chart.axis.DateTickUnit
