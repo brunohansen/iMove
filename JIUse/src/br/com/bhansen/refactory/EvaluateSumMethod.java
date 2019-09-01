@@ -9,9 +9,13 @@ import br.com.bhansen.config.MoveMethodConfig;
 import br.com.bhansen.config.UsageMetricConfig;
 import br.com.bhansen.jdt.MethodWithCallers;
 import br.com.bhansen.jdt.Type;
+import br.com.bhansen.metric.Metric;
 import br.com.bhansen.metric.MetricFactory;
 
 public class EvaluateSumMethod extends MoveMethodEvaluator  {
+	
+	private Metric oldMetric;
+	private Metric newMetric;
 
 	private double oldValue;
 	private double newValue;
@@ -34,7 +38,8 @@ public class EvaluateSumMethod extends MoveMethodEvaluator  {
 		
 		SubMonitor subMonitor = SubMonitor.convert(monitor, 100);
 		
-		this.oldValue = factory.create(classFrom, method, skipUsage, subMonitor.split(30)).getMetric();
+		this.oldMetric = factory.create(classFrom, method, skipUsage, subMonitor.split(30));
+		this.oldValue = this.oldMetric.getMetric();
 		
 		this.move(subMonitor.split(70));
 	}
@@ -47,7 +52,8 @@ public class EvaluateSumMethod extends MoveMethodEvaluator  {
 		Change undo = refactor.move(this.classFrom, this.method, this.classTo, subMonitor.split(50));
 		
 		try {
-			this.newValue = factory.create(this.classTo, this.method.getMoveName(), refactor.getTypeNotUsed(), subMonitor.split(50)).getMetric();
+			this.newMetric = factory.create(this.classTo, this.method.getMoveName(), refactor.getTypeNotUsed(), subMonitor.split(50));
+			this.newValue = this.newMetric.getMetric();
 			
 			this.valueDifference = (this.newValue - this.oldValue);
 			
@@ -70,6 +76,8 @@ public class EvaluateSumMethod extends MoveMethodEvaluator  {
 		txt.append(this.classTo.getName()).append(" ").append(this.newValue).append("\n");
 		txt.append("Skip Usage: ").append(this.factory.skipUsage()).append("\n");
 		txt.append("Value difference: ").append(this.valueDifference).append("\n\n");
+		txt.append("Original Metric: ").append(this.oldMetric.toString()).append("\n");
+		txt.append("Destination Metric: ").append(this.newMetric.toString()).append("\n\n");
 
 		return txt.toString();
 	}
