@@ -23,11 +23,11 @@ public class CompositeMetric implements Metric {
 		return getUsageMetric() + getDeclarationMetric();
 	}
 	
-	public double getUsageMetric() throws Exception {
+	public double getUsageMetric() {
 		return usa;
 	}
 	
-	public double getDeclarationMetric() throws Exception {
+	public double getDeclarationMetric() {
 		return dec;
 	}
 

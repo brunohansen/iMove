@@ -63,7 +63,7 @@ public abstract class MoveMethodEvaluator {
 		return this.valueDifference >= MoveMethodConfig.getThreshold();
 	}
 	
-	public String getMessage() throws Exception { 
+	public String getMessage() { 
 		if(shouldMove()) {
 			return "Value difference is greater than or equals to " + MoveMethodConfig.getThreshold() +"!";
 		} else {

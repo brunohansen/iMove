@@ -68,7 +68,7 @@ public class EvaluateSumMethod extends MoveMethodEvaluator  {
 	}
 	
 	@Override
-	public String getMessage() throws Exception {
+	public String getMessage() {
 		
 		if(oldMetric instanceof CompositeMetric && newMetric instanceof CompositeMetric) {
 			double oldUsageMetric = ((CompositeMetric) oldMetric).getUsageMetric();
@@ -118,8 +118,7 @@ public class EvaluateSumMethod extends MoveMethodEvaluator  {
 		txt.append(this.classTo.getName()).append(" ").append(this.newValue).append("\n");
 		txt.append("Skip Usage: ").append(this.factory.skipUsage()).append("\n");
 		txt.append("Value difference: ").append(this.valueDifference).append("\n\n");
-		txt.append("Original Metric: ").append(this.oldMetric.toString()).append("\n");
-		txt.append("Destination Metric: ").append(this.newMetric.toString()).append("\n\n");
+		txt.append("Message: ").append(this.getMessage()).append("\n\n");
 
 		return txt.toString();
 	}
