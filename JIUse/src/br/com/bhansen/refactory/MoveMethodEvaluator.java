@@ -62,10 +62,18 @@ public abstract class MoveMethodEvaluator {
 	public boolean shouldMove() {
 		return this.valueDifference >= MoveMethodConfig.getThreshold();
 	}
+	
+	public String getMessage() throws Exception { 
+		if(shouldMove()) {
+			return "Value difference is greater than or equals to " + MoveMethodConfig.getThreshold() +"!";
+		} else {
+			return "Value difference is less than " + MoveMethodConfig.getThreshold() +"!";
+		}
+	}
 
-	public String toLineString() {
+	public String toLineString() throws Exception {
 		return new StringBuilder().append(new BigDecimal(this.valueDifference).setScale(6, RoundingMode.HALF_EVEN) + "-").append((shouldMove()) ? "0" : "1").append("\t").append(this.classFrom.getName()).append("::").append(this.mSig)
-				.append("\t").append(this.classTo.getName()).toString();
+				.append("\t").append(this.classTo.getName()).append("\t").append("Message: " + getMessage()).toString();
 	}
 
 }

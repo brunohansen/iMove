@@ -7,30 +7,42 @@ import br.com.bhansen.config.MoveMethodConfig;
 
 public class CompositeMetric implements Metric {
 		
-	private Metric usa;
-	private Metric dec;
+	private String name;
+	private double usa;
+	private double dec;
 	
 	public CompositeMetric(UsageMetric usa, DeclarationMetric dec) throws Exception {
-		this.usa = usa;
-		this.dec = dec;
+		this.name = usa.getName();
+		
+		this.usa = usa.getMetric() * MoveMethodConfig.getMucWeight();
+		this.dec = dec.getMetric() * MoveMethodConfig.getMdcWeight();
 	}
 	
 	@Override
 	public double getMetric() throws Exception {
-		double iucM = usa.getMetric();
-		double decM = dec.getMetric();
-		
-		return (iucM * MoveMethodConfig.getMucWeight()) + (decM * MoveMethodConfig.getMdcWeight());
+		return getUsageMetric() + getDeclarationMetric();
+	}
+	
+	public double getUsageMetric() throws Exception {
+		return usa;
+	}
+	
+	public double getDeclarationMetric() throws Exception {
+		return dec;
 	}
 
 	@Override
 	public String getName() {
-		return usa.getName();
+		return name;
 	}
 	
 	@Override
 	public String toString() {
-		return "Usage Metric: \n\n" + usa.toString() + "\n\n Data Metric: \n\n" + dec.toString();
+		try {
+			return "Usage Metric: \n\n" + getUsageMetric() + "\n\n Data Metric: \n\n" + getDeclarationMetric();
+		} catch (Exception e) {
+			throw new RuntimeException(e);
+		}
 	}
 
 	@Override

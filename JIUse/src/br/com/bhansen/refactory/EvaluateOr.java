@@ -32,7 +32,7 @@ public class EvaluateOr extends MoveMethodEvaluator {
 		return evaluator.toString();
 	}
 
-	public String toLineString() {
+	public String toLineString() throws Exception {
 		return evaluator.toLineString();
 	}
 

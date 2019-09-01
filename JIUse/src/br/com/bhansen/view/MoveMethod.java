@@ -142,17 +142,13 @@ public class MoveMethod extends ViewPart {
 			}
 		});
 		
-		TableViewerColumn error = new TableViewerColumn(viewer, SWT.NONE);
-		error.getColumn().setWidth(400);
-		error.getColumn().setText("Error");
-		error.setLabelProvider(new ColumnLabelProvider() {
+		TableViewerColumn message = new TableViewerColumn(viewer, SWT.NONE);
+		message.getColumn().setWidth(400);
+		message.getColumn().setText("Message");
+		message.setLabelProvider(new ColumnLabelProvider() {
 			@Override
 			public String getText(Object element) {
-				if(Movement.hasError(element.toString())) {
-					return Movement.getError(element.toString());
-				} else {
-					return "";
-				}
+				return Movement.getMessage(element.toString());
 			}
 		});
 
@@ -281,7 +277,7 @@ public class MoveMethod extends ViewPart {
 		manager.add(new Action() {
 			@Override
 			public String getText() {
-				return "View Error";
+				return "View Message";
 			}
 
 			@Override
@@ -291,9 +287,9 @@ public class MoveMethod extends ViewPart {
 
 				try {
 					if(Movement.hasError(obj.toString())) {
-						ErrorDialog.open(Movement.getError(obj.toString()));
+						ErrorDialog.open(Movement.getMessage(obj.toString()));
 					} else {
-						MessageDialog.open("There's no error!");
+						MessageDialog.open(Movement.getMessage(obj.toString()));
 					}
 				} catch (Exception e) {
 					ErrorDialog.open(e);

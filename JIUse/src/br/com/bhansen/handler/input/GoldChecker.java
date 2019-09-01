@@ -103,16 +103,17 @@ public class GoldChecker extends IMoveHandler {
 			public void accept(String inLine) {
 
 				String[] reg = inLine.split("\\t", 2);
+				String movement = reg[1].substring(0, reg[1].lastIndexOf("\t"));
 
 				boolean exact = goldLines.get().anyMatch(new Predicate<Object>() {
 					public boolean test(Object goldLine) {
-						return reg[1].equals(goldLine);
+						return movement.equals(goldLine);
 					}
 				});
 
 				boolean origin = goldLines.get().anyMatch(new Predicate<Object>() {
 					public boolean test(Object goldLine) {
-						String[] in = reg[1].split("\\t", 2);
+						String[] in = movement.split("\\t", 2);
 						String[] gold = ((String) goldLine).split("\\t", 2);
 						return in[0].equals(gold[0]);
 					}

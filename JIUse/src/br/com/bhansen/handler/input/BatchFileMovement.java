@@ -81,7 +81,7 @@ public class BatchFileMovement extends IMoveHandler {
 					outSet.add(str);
 					Console.println(str);
 				} catch (Exception e) {
-					String str = "E\t" + movement + "\t Error: " + e.getMessage();
+					String str = "E\t" + movement + "\t Message: " + e.getMessage();
 					outSet.add(str);
 					Console.println(str);
 				}

@@ -22,6 +22,11 @@ public class Movement {
 			throw new Exception("Invalid syntax: " + movement);
 		}
 	}
+	
+	public static String removeMessage(String movement) throws Exception {
+		String[] m = getMovement(movement);
+		return m[SOURCE_CLASS] + "::" + m[METHOD] + "\t" + m[TARGET_CLASS];
+	}
 
 	public static String getSourceClass(String movement) throws Exception {
 		return getMovement(movement)[SOURCE_CLASS];
@@ -43,7 +48,11 @@ public class Movement {
 		return movement.startsWith("E");
 	}
 	
-	public static String getError(String movement) {
-		return movement.substring(movement.lastIndexOf("Error: ") + "Error: ".length());
+	public static String getMessage(String movement) {
+		if(movement.contains("Message")) {
+			return movement.substring(movement.lastIndexOf("Message: ") + "Message: ".length());
+		} else {
+			return "There's no message";
+		}
 	}
 }
