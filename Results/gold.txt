@@ -5,9 +5,11 @@ ANT
         
         Usage skipped
         org.apache.tools.ant.util.LineTokenizer::chain(HeadFilter, Reader):Reader   org.apache.tools.ant.filters.HeadFilter
+    
     NH  1
         Correlação uso baixa o suficiente (Não move removendo ScriptRunnerHelper por ser atributo, porém invejado pelo destino parece incorreto)
         org.apache.tools.ant.util.ScriptRunnerHelper::executeScript2(ScriptDef, Map, Map, ScriptDefBase):void   org.apache.tools.ant.taskdefs.optional.script.ScriptDef
+    
     WI  1
         Correlação uso baixa o suficiente (Não move removendo ScriptRunnerHelper por ser atributo, porém invejado pelo destino parece incorreto)
         org.apache.tools.ant.util.ScriptRunnerHelper::executeScript2(ScriptDef, Map, Map, ScriptDefBase):void   org.apache.tools.ant.taskdefs.optional.script.ScriptDef
@@ -19,9 +21,11 @@ DR JAVA
         
         Usage skipped (Não move removendo VectorFileOptionComponent por ser atributo)
         edu.rice.cs.drjava.ui.config.VectorFileOptionComponent::reset2(ProjectPropertiesFrame, File):void   edu.rice.cs.drjava.ui.ProjectPropertiesFrame
+    
     NH  1 (Se remover internals perde 2 como na WIC)
         Usage skipped (Não move removendo VectorFileOptionComponent por ser atributo)
         edu.rice.cs.drjava.ui.config.VectorFileOptionComponent::reset2(ProjectPropertiesFrame, File):void   edu.rice.cs.drjava.ui.ProjectPropertiesFrame
+    
     WI  2
         Correlação uso baixa o suficiente (Move removendo FindReplaceMachine por ser atributo, também invejado pelo destino parece incorreto)
         edu.rice.cs.drjava.model.FindReplaceMachine::findPrevious(FindReplacePanel):void    edu.rice.cs.drjava.ui.FindReplacePanel
@@ -39,6 +43,7 @@ JEDIT
         
         Usage skipped (Ninguém usa)
         org.gjt.sp.jedit.Buffer::tokenizeLines(int, int):void   org.gjt.sp.jedit.syntax.TokenMarker
+    
     NH  3
         Usage skipped (SRC tem mais Interpreter)
         bsh.Name::resolveThisFieldReference(NameSpace, Interpreter, String, boolean):Object bsh.NameSpace
@@ -48,6 +53,7 @@ JEDIT
         
         Usage skipped (Ninguém usa)
         org.gjt.sp.jedit.Buffer::tokenizeLines(int, int):void   org.gjt.sp.jedit.syntax.TokenMarker
+    
     WI  3
         Usage skipped (SRC tem mais Interpreter)
         bsh.Name::resolveThisFieldReference(NameSpace, Interpreter, String, boolean):Object bsh.NameSpace
@@ -65,12 +71,14 @@ JFREE-0.9
         
         Tanto dados quanto uso não suportam (Inverte inveja absurda)
         com.jrefinery.chart.ui.AxisPropertyEditPanel::setAxisProperties(Axis):void  com.jrefinery.chart.axis.Axis
+    
     NH  2
         Usage skipped (Passando parâmetros corretos moveria, menos NHDM)
         com.jrefinery.data.DynamicTimeSeriesCollection::getX(RegularTimePeriod):long    com.jrefinery.data.RegularTimePeriod
         
         Tanto dados quanto uso não suportam (Inverte inveja absurda)
         com.jrefinery.chart.ui.AxisPropertyEditPanel::setAxisProperties(Axis):void  com.jrefinery.chart.axis.Axis
+    
     WI  3
         Usage skipped (Passando parâmetros corretos moveria, menos NHDM)
         com.jrefinery.data.DynamicTimeSeriesCollection::getX(RegularTimePeriod):long    com.jrefinery.data.RegularTimePeriod
@@ -97,31 +105,19 @@ JFREE-1.0
         org.jfree.data.general.DatasetGroup::setDatasetGroup(Plot):void org.jfree.chart.plot.Plot
         org.jfree.chart.event.TitleChangeEvent::notifyListeners(Title):void org.jfree.chart.title.Title
     WI  4
-        Eclipse adiciona parametro que é atributo, mas não pode ser removido
+        Correlação de dados baixa o suficiente (Pô mover método set? Cachorro!)
         org.jfree.chart.plot.Plot::setPlot(Axis):void   org.jfree.chart.axis.Axis
         
         Usage skipped (Não encontrei nada)
         org.jfree.chart.title.Title::drawTitle(JFreeChart, Graphics2D, Rectangle2D, boolean):EntityCollection   org.jfree.chart.JFreeChart
         
-        Pô mover método set? Cachorro
+        Correlação de dados baixa o suficiente (Pô mover método set? Cachorro!)
         org.jfree.data.general.DatasetGroup::setDatasetGroup(Plot):void org.jfree.chart.plot.Plot
         
-        Bem questionavél Tanto pelo IUC quanto pelo CAMC
+        Correlação de dados baixa o suficiente (Bem questionavél!)
         org.jfree.chart.event.TitleChangeEvent::notifyListeners(Title):void org.jfree.chart.title.Title
         
 JGROUPS
-    CC  2
-        org.jgroups.stack.Protocol::down(NAKACK, Event):Object  org.jgroups.protocols.pbcast.NAKACK
-        org.jgroups.stack.AckReceiverWindow::getList(Remover):List<Message> org.jgroups.tests.AckReceiverWindowTest.Remover
-    IC  3
-        org.jgroups.util.Queue::up(JChannel, Event):Object  org.jgroups.JChannel
-            Chamado por 4 JChannel X de 24 métodos IUC 0.000159 CAMC 0.16
-            Chamado por 4 JChannel X de 92 metodos IUC 0.015 CAMC 0.04 / 0.059
-                Eclipse adiciona parametro Queue que é atributo, mesmo assim não moveria muito Object em Queue (Trocar Object por Generics)
-                Identificado pelo JDeodorant e JMove
-                
-        org.jgroups.util.AckCollector::fetchServiceStates(Multiplexer, Address, Set<String>, long):boolean  org.jgroups.mux.Multiplexer
-        org.jgroups.stack.AckReceiverWindow::getList(Remover):List<Message> org.jgroups.tests.AckReceiverWindowTest.Remover
     IS  4
         org.jgroups.stack.Protocol::down(NAKACK, Event):Object  org.jgroups.protocols.pbcast.NAKACK
         org.jgroups.util.UUID::stopFlush(JChannel, List<Address>):void  org.jgroups.JChannel
