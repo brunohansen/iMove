@@ -1,113 +1,112 @@
 ANT
-    CC  0
-    IC  0
     IS  2
-        Usage muito alto
+        Correlação uso baixa o suficiente (Não move removendo ScriptRunnerHelper por ser atributo, porém invejado pelo destino parece incorreto)
         org.apache.tools.ant.util.ScriptRunnerHelper::executeScript2(ScriptDef, Map, Map, ScriptDefBase):void   org.apache.tools.ant.taskdefs.optional.script.ScriptDef
+        
+        Usage skipped
         org.apache.tools.ant.util.LineTokenizer::chain(HeadFilter, Reader):Reader   org.apache.tools.ant.filters.HeadFilter
     NH  1
+        Correlação uso baixa o suficiente (Não move removendo ScriptRunnerHelper por ser atributo, porém invejado pelo destino parece incorreto)
         org.apache.tools.ant.util.ScriptRunnerHelper::executeScript2(ScriptDef, Map, Map, ScriptDefBase):void   org.apache.tools.ant.taskdefs.optional.script.ScriptDef
     WI  1
+        Correlação uso baixa o suficiente (Não move removendo ScriptRunnerHelper por ser atributo, porém invejado pelo destino parece incorreto)
         org.apache.tools.ant.util.ScriptRunnerHelper::executeScript2(ScriptDef, Map, Map, ScriptDefBase):void   org.apache.tools.ant.taskdefs.optional.script.ScriptDef
     
 DR JAVA
-    CC  1
-    IC  1
-        Muitos File na origem
-        edu.rice.cs.drjava.ui.config.VectorFileOptionComponent::reset2(ProjectPropertiesFrame, File):void   edu.rice.cs.drjava.ui.ProjectPropertiesFrame
-    IS  2
-        Viola encapsulamento remover atributo 
+   IS  2
+        Correlação uso baixa o suficiente (Move removendo FindReplaceMachine por ser atributo, também invejado pelo destino parece incorreto) 
         edu.rice.cs.drjava.model.FindReplaceMachine::findPrevious(FindReplacePanel):void    edu.rice.cs.drjava.ui.FindReplacePanel
+        
+        Usage skipped (Não move removendo VectorFileOptionComponent por ser atributo)
         edu.rice.cs.drjava.ui.config.VectorFileOptionComponent::reset2(ProjectPropertiesFrame, File):void   edu.rice.cs.drjava.ui.ProjectPropertiesFrame
-    NH  1 Se remover self se iguala
+    NH  1 (Se remover internals perde 2 como na WIC)
+        Usage skipped (Não move removendo VectorFileOptionComponent por ser atributo)
         edu.rice.cs.drjava.ui.config.VectorFileOptionComponent::reset2(ProjectPropertiesFrame, File):void   edu.rice.cs.drjava.ui.ProjectPropertiesFrame
     WI  2
+        Correlação uso baixa o suficiente (Move removendo FindReplaceMachine por ser atributo, também invejado pelo destino parece incorreto)
         edu.rice.cs.drjava.model.FindReplaceMachine::findPrevious(FindReplacePanel):void    edu.rice.cs.drjava.ui.FindReplacePanel
+        
+        Usage skipped (Não move removendo VectorFileOptionComponent por ser atributo)
         edu.rice.cs.drjava.ui.config.VectorFileOptionComponent::reset2(ProjectPropertiesFrame, File):void   edu.rice.cs.drjava.ui.ProjectPropertiesFrame
 
 JEDIT
-    CC  4
-        SRC EU NÃƒO MOVERIA
-        org.gjt.sp.jedit.Mode::accept(Buffer, String, String):boolean   gnu.regexp.RE
-        SRC TEM MAIS INTERPRETER
-        bsh.Name::resolveThisFieldReference(NameSpace, Interpreter, String, boolean):Object bsh.NameSpace
-        INVERTE INVEJA
-        org.gjt.sp.jedit.textarea.JEditTextArea::xToOffset(int, int):int    org.gjt.sp.jedit.textarea.TextAreaPainter
-        NIGUEM USA, PASSA BUFFER COMO PARAMETRO
-        org.gjt.sp.jedit.Buffer::tokenizeLines(int, int):void   org.gjt.sp.jedit.syntax.TokenMarker
-    IC  3
-        bsh.Name::resolveThisFieldReference(NameSpace, Interpreter, String, boolean):Object bsh.NameSpace
-        org.gjt.sp.jedit.textarea.JEditTextArea::xToOffset(int, int):int    org.gjt.sp.jedit.textarea.TextAreaPainter
-        org.gjt.sp.jedit.Buffer::tokenizeLines(int, int):void   org.gjt.sp.jedit.syntax.TokenMarker
     IS  3
+        Usage skipped (SRC tem mais Interpreter)
         bsh.Name::resolveThisFieldReference(NameSpace, Interpreter, String, boolean):Object bsh.NameSpace
+        
+        Correlação de dados baixa o suficiente (Move removendo JEditTextArea por ser atributo)
         org.gjt.sp.jedit.textarea.JEditTextArea::xToOffset(int, int):int    org.gjt.sp.jedit.textarea.TextAreaPainter
+        
+        Usage skipped (Ninguém usa)
         org.gjt.sp.jedit.Buffer::tokenizeLines(int, int):void   org.gjt.sp.jedit.syntax.TokenMarker
     NH  3
+        Usage skipped (SRC tem mais Interpreter)
         bsh.Name::resolveThisFieldReference(NameSpace, Interpreter, String, boolean):Object bsh.NameSpace
+        
+        Correlação de dados baixa o suficiente (Move removendo JEditTextArea por ser atributo)
         org.gjt.sp.jedit.textarea.JEditTextArea::xToOffset(int, int):int    org.gjt.sp.jedit.textarea.TextAreaPainter
+        
+        Usage skipped (Ninguém usa)
         org.gjt.sp.jedit.Buffer::tokenizeLines(int, int):void   org.gjt.sp.jedit.syntax.TokenMarker
     WI  3
+        Usage skipped (SRC tem mais Interpreter)
         bsh.Name::resolveThisFieldReference(NameSpace, Interpreter, String, boolean):Object bsh.NameSpace
+        
+        Correlação de dados baixa o suficiente (Move removendo JEditTextArea por ser atributo)
         org.gjt.sp.jedit.textarea.JEditTextArea::xToOffset(int, int):int    org.gjt.sp.jedit.textarea.TextAreaPainter
+        
+        Usage skipped (Ninguém usa)
         org.gjt.sp.jedit.Buffer::tokenizeLines(int, int):void   org.gjt.sp.jedit.syntax.TokenMarker
 
 JFREE-0.9
-    CC  4
-        Chamado por dois me fudeu
-        com.jrefinery.chart.axis.DateAxis::previousStandardDate(Date, DateTickUnit):Date    com.jrefinery.chart.axis.DateTickUnit
-        Passando parÃ¢metros corretos moveria, menos NHDM
-        com.jrefinery.data.DynamicTimeSeriesCollection::getX(RegularTimePeriod):long    com.jrefinery.data.RegularTimePeriod
-        SÃ³ se previous ja estiver lÃ¡, 
-        com.jrefinery.chart.axis.DateAxis::nextStandardDate(Date, DateTickUnit):Date    com.jrefinery.chart.axis.DateTickUnit
-        Inverte inveja absurda
-        com.jrefinery.chart.ui.AxisPropertyEditPanel::setAxisProperties(Axis):void  com.jrefinery.chart.axis.Axis
-    IC  4
-        com.jrefinery.data.DynamicTimeSeriesCollection::getX(RegularTimePeriod):long    com.jrefinery.data.RegularTimePeriod
-        com.jrefinery.chart.axis.DateAxis::previousStandardDate(Date, DateTickUnit):Date    com.jrefinery.chart.axis.DateTickUnit
-        com.jrefinery.chart.ui.AxisPropertyEditPanel::setAxisProperties(Axis):void  com.jrefinery.chart.axis.Axis
-        com.jrefinery.chart.axis.DateAxis::nextStandardDate(Date, DateTickUnit):Date    com.jrefinery.chart.axis.DateTickUnit
     IS  2
+        Usage skipped (Passando parâmetros corretos moveria, menos NHDM)
         com.jrefinery.data.DynamicTimeSeriesCollection::getX(RegularTimePeriod):long    com.jrefinery.data.RegularTimePeriod
+        
+        Tanto dados quanto uso não suportam (Inverte inveja absurda)
         com.jrefinery.chart.ui.AxisPropertyEditPanel::setAxisProperties(Axis):void  com.jrefinery.chart.axis.Axis
     NH  2
+        Usage skipped (Passando parâmetros corretos moveria, menos NHDM)
         com.jrefinery.data.DynamicTimeSeriesCollection::getX(RegularTimePeriod):long    com.jrefinery.data.RegularTimePeriod
+        
+        Tanto dados quanto uso não suportam (Inverte inveja absurda)
         com.jrefinery.chart.ui.AxisPropertyEditPanel::setAxisProperties(Axis):void  com.jrefinery.chart.axis.Axis
     WI  3
+        Usage skipped (Passando parâmetros corretos moveria, menos NHDM)
         com.jrefinery.data.DynamicTimeSeriesCollection::getX(RegularTimePeriod):long    com.jrefinery.data.RegularTimePeriod
+        
+        Só se previous já estiver lá
         com.jrefinery.chart.axis.DateAxis::nextStandardDate(Date, DateTickUnit):Date    com.jrefinery.chart.axis.DateTickUnit
+        
+        Tanto dados quanto uso não suportam (Inverte inveja absurda)
         com.jrefinery.chart.ui.AxisPropertyEditPanel::setAxisProperties(Axis):void  com.jrefinery.chart.axis.Axis
 
 JFREE-1.0
-    CC  2
-        org.jfree.chart.plot.Plot::setPlot(Axis):void   org.jfree.chart.axis.Axis
-            Chamado por 6 Axis 1 de 66 IUC 0.082 CAMC 0
-            Chamado por 6 Axis 11 de 65 IUC 0.042 CAMC 0.0187
-                Eclipse adiciona parametro que é atributo, mas não pode ser removido
-                Identificado pelo JDeodorant
-                
-        org.jfree.chart.event.TitleChangeEvent::notifyListeners(Title):void org.jfree.chart.title.Title
-            Chamado por 6 Title 2 de 3 IUC 0.5 CAMC 1.0
-            Chamado por 6 Title 4 de 22 IUC 0.120 CAMC 0.0
-                Bem questionavél Tanto pelo IUC quanto pelo CAMC
-                Ninguém identificou
-    IC  2
-        org.jfree.chart.title.Title::drawTitle(JFreeChart, Graphics2D, Rectangle2D, boolean):EntityCollection   org.jfree.chart.JFreeChart
-        org.jfree.chart.event.TitleChangeEvent::notifyListeners(Title):void org.jfree.chart.title.Title
     IS  4
         org.jfree.chart.plot.Plot::setPlot(Axis):void   org.jfree.chart.axis.Axis
+        
+        Usage skipped (Não encontrei nada)
         org.jfree.chart.title.Title::drawTitle(JFreeChart, Graphics2D, Rectangle2D, boolean):EntityCollection   org.jfree.chart.JFreeChart
         org.jfree.data.general.DatasetGroup::setDatasetGroup(Plot):void org.jfree.chart.plot.Plot
         org.jfree.chart.event.TitleChangeEvent::notifyListeners(Title):void org.jfree.chart.title.Title
     NH  4
         org.jfree.chart.plot.Plot::setPlot(Axis):void   org.jfree.chart.axis.Axis
+        
+        Usage skipped (Não encontrei nada)
         org.jfree.chart.title.Title::drawTitle(JFreeChart, Graphics2D, Rectangle2D, boolean):EntityCollection   org.jfree.chart.JFreeChart
         org.jfree.data.general.DatasetGroup::setDatasetGroup(Plot):void org.jfree.chart.plot.Plot
         org.jfree.chart.event.TitleChangeEvent::notifyListeners(Title):void org.jfree.chart.title.Title
     WI  4
+        Eclipse adiciona parametro que é atributo, mas não pode ser removido
         org.jfree.chart.plot.Plot::setPlot(Axis):void   org.jfree.chart.axis.Axis
+        
+        Usage skipped (Não encontrei nada)
         org.jfree.chart.title.Title::drawTitle(JFreeChart, Graphics2D, Rectangle2D, boolean):EntityCollection   org.jfree.chart.JFreeChart
+        
+        Pô mover método set? Cachorro
         org.jfree.data.general.DatasetGroup::setDatasetGroup(Plot):void org.jfree.chart.plot.Plot
+        
+        Bem questionavél Tanto pelo IUC quanto pelo CAMC
         org.jfree.chart.event.TitleChangeEvent::notifyListeners(Title):void org.jfree.chart.title.Title
         
 JGROUPS
@@ -139,29 +138,21 @@ JGROUPS
         org.jgroups.stack.AckReceiverWindow::getList(Remover):List<Message> org.jgroups.tests.AckReceiverWindowTest.Remover
         
 JTOPEN
-    CC  0
-    IC  0
     IS  0
     NH  0
     WI  0
     
 JUNIT
-    CC  0
-    IC  0
     IS  0
     NH  0
     WI  0
     
 MVN
-    CC  0
-    IC  0
     IS  0
     NH  0
     WI  0
     
 TAPESTRY
-    CC  0
-    IC  0
     IS  0
     NH  0
     WI  0
