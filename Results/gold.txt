@@ -120,7 +120,7 @@ JFREE-1.0
         Correlação de dados baixa o suficiente (Pô mover método set? Cachorro!)
         org.jfree.chart.plot.Plot::setPlot(Axis):void   org.jfree.chart.axis.Axis
         
-        Usage skipped (Não encontrei nada)
+        Usage skipped (Muitos métodos no destino)
         org.jfree.chart.title.Title::drawTitle(JFreeChart, Graphics2D, Rectangle2D, boolean):EntityCollection   org.jfree.chart.JFreeChart
         
         Correlação de dados baixa o suficiente (Pô mover método set? Cachorro!)
@@ -131,18 +131,39 @@ JFREE-1.0
         
 JGROUPS
     IS  4
+        Usage skipped (Muitos métodos no destino)
         org.jgroups.stack.Protocol::down(NAKACK, Event):Object  org.jgroups.protocols.pbcast.NAKACK
+        
+        Usage skipped (Muitos métodos no destino)
         org.jgroups.util.UUID::stopFlush(JChannel, List<Address>):void  org.jgroups.JChannel
+        
+        Usage skipped (Não identifiquei)
         org.jgroups.util.AckCollector::fetchServiceStates(Multiplexer, Address, Set<String>, long):boolean  org.jgroups.mux.Multiplexer
+        
+        Tanto dados quanto uso não suportam (Pô mover método get? Com origem cheia de Message! Cachorro!)
         org.jgroups.stack.AckReceiverWindow::getList(Remover):List<Message> org.jgroups.tests.AckReceiverWindowTest.Remover
+    
     NH  4
+        Usage skipped (Muitos métodos no destino)
         org.jgroups.stack.Protocol::down(NAKACK, Event):Object  org.jgroups.protocols.pbcast.NAKACK
+        
+        Usage skipped (Muitos métodos no destino)
         org.jgroups.util.UUID::stopFlush(JChannel, List<Address>):void  org.jgroups.JChannel
+        
+        Usage skipped (Não identifiquei)
         org.jgroups.util.AckCollector::fetchServiceStates(Multiplexer, Address, Set<String>, long):boolean  org.jgroups.mux.Multiplexer
+        
+        Tanto dados quanto uso não suportam (Pô mover método get? Com origem cheia de Message! Cachorro!)
         org.jgroups.stack.AckReceiverWindow::getList(Remover):List<Message> org.jgroups.tests.AckReceiverWindowTest.Remover
+    
     WI  3
+        Usage skipped (Muitos métodos no destino)
         org.jgroups.util.UUID::stopFlush(JChannel, List<Address>):void  org.jgroups.JChannel
+        
+        Usage skipped (Não identifiquei)
         org.jgroups.util.AckCollector::fetchServiceStates(Multiplexer, Address, Set<String>, long):boolean  org.jgroups.mux.Multiplexer
+        
+        Tanto dados quanto uso não suportam (Pô mover método get? Com origem cheia de Message! Cachorro!)
         org.jgroups.stack.AckReceiverWindow::getList(Remover):List<Message> org.jgroups.tests.AckReceiverWindowTest.Remover
         
 JTOPEN
