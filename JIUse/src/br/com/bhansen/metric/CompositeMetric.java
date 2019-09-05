@@ -11,11 +11,17 @@ public class CompositeMetric implements Metric {
 	private double usa;
 	private double dec;
 	
+	private UsageMetric uMetric;
+	private DeclarationMetric dMetric;
+	
 	public CompositeMetric(UsageMetric usa, DeclarationMetric dec) throws Exception {
 		this.name = usa.getName();
 		
-		this.usa = usa.getMetric() * MoveMethodConfig.getMucWeight();
-		this.dec = dec.getMetric() * MoveMethodConfig.getMdcWeight();
+		this.uMetric = usa;
+		this.dMetric = dec;
+		
+		this.usa = this.uMetric.getMetric() * MoveMethodConfig.getMucWeight();
+		this.dec = this.dMetric.getMetric() * MoveMethodConfig.getMdcWeight();
 	}
 	
 	@Override
@@ -29,6 +35,14 @@ public class CompositeMetric implements Metric {
 	
 	public double getDeclarationMetric() {
 		return dec;
+	}
+	
+	public UsageMetric getUMetric() {
+		return uMetric;
+	}
+	
+	public DeclarationMetric getDMetric() {
+		return dMetric;
 	}
 
 	@Override
