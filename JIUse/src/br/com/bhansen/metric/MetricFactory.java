@@ -43,6 +43,10 @@ public abstract class MetricFactory {
 	public boolean skipUsage() {
 		return skipUsage;
 	}
+	
+	public void setSkipUsage(boolean skipUsage) {
+		this.skipUsage = skipUsage;
+	}
 
 	public Metric create(Type type, IProgressMonitor monitor) throws Exception {
 		return create(type, null, monitor);

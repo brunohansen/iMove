@@ -42,12 +42,14 @@ public class EvaluateSumMethod extends MoveMethodEvaluator  {
 		
 		this.oldMetric = factory.create(classFrom, method, skipUsage, subMonitor.split(30));
 		
-		if((! skipUsage) && (oldMetric instanceof CompositeMetric)) {
-			UsageMetric uMetric = ((CompositeMetric) oldMetric).getUMetric();
+		if((! skipUsage) && (MoveMethodConfig.skipIfEnviedByDestination()) && (oldMetric instanceof CompositeMetric)) {
+			CompositeMetric cMetric = (CompositeMetric) oldMetric;
+			UsageMetric uMetric = cMetric.getUMetric();
 			
-			if(uM)
-			
-			uMetric.get
+			if(m.isCalledBy(classTo) && uMetric.doesntShareCallers(m, classTo)) {
+				factory.setSkipUsage(true);
+				this.oldMetric = cMetric.getDMetric();
+			}
 		}
 		
 		this.oldValue = this.oldMetric.getMetric();

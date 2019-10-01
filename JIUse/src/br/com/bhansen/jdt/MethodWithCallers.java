@@ -35,9 +35,13 @@ public class MethodWithCallers extends Method {
 	public void removeCaller(Type caller) {
 		callers.remove(caller.getName());
 	}
+	
+	public boolean isCalledBy(Type caller) {
+		return callers.contains(caller.getName());
+	}
 
 	public boolean isCalledOnlyBy(Type caller) {
-		return (!callers.isEmpty()) && (callers.size() == 1) && (callers.contains(caller.getName()));
+		return (!callers.isEmpty()) && (callers.size() == 1) && (isCalledBy(caller));
 	}
 
 	public boolean hasCaller() throws Exception {
