@@ -91,39 +91,39 @@ JFREE-0.9
 
 JFREE-1.0
     IS  4
-        Correlação de dados baixa o suficiente (Pô mover método set? Cachorro!)
+        Correlação de dados baixa o suficiente (Move removendo Plot por ser atributo! Pô mover método set? Cachorro!)
         org.jfree.chart.plot.Plot::setPlot(Axis):void   org.jfree.chart.axis.Axis
         
         Usage skipped (Não encontrei nada)
         org.jfree.chart.title.Title::drawTitle(JFreeChart, Graphics2D, Rectangle2D, boolean):EntityCollection   org.jfree.chart.JFreeChart
         
-        Correlação de dados baixa o suficiente (Pô mover método set? Cachorro!)
+        Correlação de dados baixa o suficiente (Move removendo DatasetGroup por ser atributo! Pô mover método set? Cachorro!)
         org.jfree.data.general.DatasetGroup::setDatasetGroup(Plot):void org.jfree.chart.plot.Plot
         
         Correlação de dados baixa o suficiente (Bem questionavél!)
         org.jfree.chart.event.TitleChangeEvent::notifyListeners(Title):void org.jfree.chart.title.Title
     
     NH  4
-        Correlação de dados baixa o suficiente (Pô mover método set? Cachorro!)
+        Correlação de dados baixa o suficiente (Move removendo Plot por ser atributo! Pô mover método set? Cachorro!)
         org.jfree.chart.plot.Plot::setPlot(Axis):void   org.jfree.chart.axis.Axis
         
         Usage skipped (Não encontrei nada)
         org.jfree.chart.title.Title::drawTitle(JFreeChart, Graphics2D, Rectangle2D, boolean):EntityCollection   org.jfree.chart.JFreeChart
         
-        Correlação de dados baixa o suficiente (Pô mover método set? Cachorro!)
+        Correlação de dados baixa o suficiente (Move removendo DatasetGroup por ser atributo! Pô mover método set? Cachorro!)
         org.jfree.data.general.DatasetGroup::setDatasetGroup(Plot):void org.jfree.chart.plot.Plot
         
         Correlação de dados baixa o suficiente (Bem questionavél!)
         org.jfree.chart.event.TitleChangeEvent::notifyListeners(Title):void org.jfree.chart.title.Title
         
     WI  4
-        Correlação de dados baixa o suficiente (Pô mover método set? Cachorro!)
+        Correlação de dados baixa o suficiente (Move removendo Plot por ser atributo! Pô mover método set? Cachorro!)
         org.jfree.chart.plot.Plot::setPlot(Axis):void   org.jfree.chart.axis.Axis
         
-        Usage skipped (Muitos métodos no destino)
+        Usage skipped (Não encontrei nada)
         org.jfree.chart.title.Title::drawTitle(JFreeChart, Graphics2D, Rectangle2D, boolean):EntityCollection   org.jfree.chart.JFreeChart
         
-        Correlação de dados baixa o suficiente (Pô mover método set? Cachorro!)
+        Correlação de dados baixa o suficiente (Move removendo DatasetGroup por ser atributo! Pô mover método set? Cachorro!)
         org.jfree.data.general.DatasetGroup::setDatasetGroup(Plot):void org.jfree.chart.plot.Plot
         
         Correlação de dados baixa o suficiente (Bem questionavél!)
