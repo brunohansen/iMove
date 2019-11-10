@@ -5,6 +5,11 @@ Correto, classe especializada e é privado -0.180769-111	org.junit.runners.Parame
 Correto, não faz sentido -0.189815-111	org.junit.runners.ParentRunner::runLeaf(Statement, Description, RunNotifier):void	org.junit.runner.Description
 Correto, só um método chama -0.396970-111	org.junit.experimental.theories.internal.Assignments::getAnnotatedSupplier(ParameterSignature):ParameterSupplier	org.junit.experimental.theories.ParameterSignature
 Depende, é só uma indireção -0.409314-111	org.junit.internal.runners.JUnit4ClassRunner::classAnnotations():Annotation[]	org.junit.internal.runners.TestClass
+
+    protected Annotation[] classAnnotations() {
+        return fTestClass.getJavaClass().getAnnotations();
+    }
+
 Depende, é privado -0.607026-111	org.junit.internal.runners.JUnit4ClassRunner::testAborted(RunNotifier, Description, Throwable):void	org.junit.runner.notification.RunNotifier
 Correto, especializado e privado -0.615714-111	org.junit.experimental.theories.internal.AllMembersSupplier::addSinglePointMethods(ParameterSignature, List<PotentialAssignment>):void	org.junit.runners.model.TestClass
 Correto, não faz sentido -0.700000-111	org.junit.experimental.theories.Theories.TheoryAnchor::runWithIncompleteAssignment(Assignments):void	org.junit.experimental.theories.internal.Assignments

@@ -16,3 +16,9 @@
 0.225970-011	com.jrefinery.chart.plot.PiePlot::getOutlinePaint(int):Paint	com.jrefinery.chart.renderer.PaintTable
 0.267637-011	com.jrefinery.chart.plot.PiePlot::getPaint(int):Paint	com.jrefinery.chart.renderer.PaintTable
 E11	com.jrefinery.chart.renderer.HorizontalShapeRenderer::drawRangeMarkerHorizontalShapeRenderer(java.awt.Graphics2D, CategoryPlot, ValueAxis, Marker, java.awt.geom.Rectangle2D, java.awt.Shape):void	com.jrefinery.chart.Marker	 Error: Method drawRangeMarkerHorizontalShapeRenderer(java.awt.Graphics2D, CategoryPlot, ValueAxis, Marker, java.awt.geom.Rectangle2D, java.awt.Shape):void not found!
+
+3 com origem PiePlot que possui 62 métodos excluindo construtores e privados, PaintTable possui 4 e StrokeTable possui 5
+
+1 origem MeterLegend private 0 dc pouco em MeterPlot
+
+DynamicTimeSeriesCollection::getX

@@ -16,3 +16,7 @@
 0.029167-011	bsh.BshMethod::invokeDeclaredMethod(Object[], Interpreter):Object	bsh.BSHMethodDeclaration
 0.984615-000	org.gjt.sp.jedit.EditPane::initTextArea(JEditTextArea):void	org.gjt.sp.jedit.textarea.JEditTextArea
 E11	bsh.BSHMethodDeclaration::invokeDeclaredMethod(java.lang.Object[], Interpreter, NameSpace):java.lang.Object	bsh.BSHFormalParameters	 Error: Method invokeDeclaredMethod(java.lang.Object[], Interpreter, NameSpace):java.lang.Object not found!
+
+
+BshMethod 3 metodos sem interpreter BSHMethodDeclaration 3 metodos 1 interpreter, existe inveja de dados porém parece correto arquitetura
+JEditTextArea::setText errado mas niguem chama
