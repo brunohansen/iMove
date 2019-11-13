@@ -5,6 +5,7 @@ import java.util.Set;
 
 import org.eclipse.core.runtime.IProgressMonitor;
 
+import br.com.bhansen.jdt.Method;
 import br.com.bhansen.jdt.Type;
 import br.com.bhansen.metric.UsageMetricMethod;
 import br.com.bhansen.metric.ic.ICClass.MMWeight;
@@ -13,6 +14,10 @@ import br.com.bhansen.metric.ic.ICClass.PPWeight;
 public class UICMethod extends UsageMetricMethod {
 
 	public UICMethod(Type type, String method, IProgressMonitor monitor) throws Exception {
+		super(type, method, monitor);
+	}
+	
+	public UICMethod(Type type, Method method, IProgressMonitor monitor) throws Exception {
 		super(type, method, monitor);
 	}
 

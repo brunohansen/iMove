@@ -6,6 +6,7 @@ import java.util.Set;
 
 import org.eclipse.core.runtime.IProgressMonitor;
 
+import br.com.bhansen.jdt.Method;
 import br.com.bhansen.jdt.Type;
 import br.com.bhansen.metric.ic.ICClass.MMWeight;
 import br.com.bhansen.metric.ic.ICClass.PPWeight;
@@ -14,6 +15,10 @@ import br.com.bhansen.metric.ic.ICMethod;
 public class WICMethod extends ICMethod {
 
 	public WICMethod(Type type, String method, String parameter, IProgressMonitor monitor) throws Exception {
+		super(type, method, parameter, monitor);
+	}
+
+	public WICMethod(Type type, Method method, String parameter, IProgressMonitor monitor) throws Exception {
 		super(type, method, parameter, monitor);
 	}
 

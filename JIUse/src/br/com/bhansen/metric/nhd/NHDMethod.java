@@ -7,6 +7,7 @@ import java.util.function.BiPredicate;
 
 import org.eclipse.core.runtime.IProgressMonitor;
 
+import br.com.bhansen.jdt.Method;
 import br.com.bhansen.jdt.Type;
 import br.com.bhansen.metric.DeclarationMetricMethod;
 import br.com.bhansen.utils.OccMtrx;
@@ -14,6 +15,10 @@ import br.com.bhansen.utils.OccMtrx;
 public class NHDMethod extends DeclarationMetricMethod {
 
 	public NHDMethod(Type type, String method, String parameter, IProgressMonitor monitor) throws Exception {
+		super(type, method, parameter, monitor);
+	}
+	
+	public NHDMethod(Type type, Method method, String parameter, IProgressMonitor monitor) throws Exception {
 		super(type, method, parameter, monitor);
 	}
 

@@ -68,15 +68,18 @@ public class EvaluateSumMethod extends MoveMethodEvaluator  {
 			this.newMetric = factory.create(this.classTo, this.method.getMoveName(), refactor.getTypeNotUsed(), subMonitor.split(50));
 			this.newValue = this.newMetric.getMetric();
 			
-			this.valueDifference = (this.newValue - this.oldValue);
-			
-//			if(this.factory.skipUsage())
-//				this.valueDifference += 0.1;
-			
+			this.valueDifference = (this.newValue - this.oldValue);			
 		} finally {
 			undo.perform(new NullProgressMonitor());
 		}
 		
+	}
+	
+	private void calc(IProgressMonitor monitor) throws Exception {
+		this.newMetric = factory.create(this.classTo, this.method, monitor);
+		this.newValue = this.newMetric.getMetric();
+		
+		this.valueDifference = (this.newValue - this.oldValue);	
 	}
 	
 	@Override

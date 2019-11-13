@@ -6,6 +6,7 @@ import org.eclipse.core.runtime.SubMonitor;
 import br.com.bhansen.config.Config;
 import br.com.bhansen.config.Config.MetricContext;
 import br.com.bhansen.config.MoveMethodConfig;
+import br.com.bhansen.jdt.Method;
 import br.com.bhansen.jdt.Type;
 import br.com.bhansen.metric.camc.CAMCClass;
 import br.com.bhansen.metric.camc.CAMCMethod;
@@ -49,7 +50,7 @@ public abstract class MetricFactory {
 	}
 
 	public Metric create(Type type, IProgressMonitor monitor) throws Exception {
-		return create(type, null, monitor);
+		return create(type, (String) null, monitor);
 	}
 		
 	public Metric create(Type type, String method, IProgressMonitor monitor) throws Exception {
@@ -64,6 +65,12 @@ public abstract class MetricFactory {
 	public Metric create(Type type, String method, String parameter, IProgressMonitor monitor) throws Exception {
 		return create(type, method, parameter, this.skipUsage, monitor);
 	}
+	
+	public Metric create(Type type, Method method, IProgressMonitor monitor) throws Exception {
+		return create(type, method, null, this.skipUsage, monitor);
+	}
+	
+	public abstract Metric create(Type type, Method method, String parameter, boolean skipUsage, IProgressMonitor monitor) throws Exception;
 	
 	public abstract Metric create(Type type, String method, String parameter, boolean skipUsage, IProgressMonitor monitor) throws Exception;
 	
@@ -90,6 +97,16 @@ public abstract class MetricFactory {
 					return createMethodMetricFactory(metric).create(type, method, parameter, skipUsage, monitor);
 				else
 					return createCompositeMethodMetricFactory(metric).create(type, method, parameter, skipUsage, monitor);
+			}
+
+			@Override
+			public Metric create(Type type, Method method, String parameter, boolean skipUsage, IProgressMonitor monitor) throws Exception {
+				SubMonitor subMonitor = SubMonitor.convert(monitor, 100);
+				
+				if(skipUsage)
+					return new ISCOMiMethod(type, method, parameter, subMonitor.split(50));
+				else
+					return new CompositeMetric(new UISCOMiMethod(type, method, subMonitor.split(50)), new ISCOMiMethod(type, method, parameter, subMonitor.split(50)));
 			}
 		};
 	}
@@ -120,6 +137,11 @@ public abstract class MetricFactory {
 						throw new Exception("Invalid metric: " + metric + "!");
 				}
 			}
+			
+			@Override
+			public Metric create(Type type, Method method, String parameter, boolean skipUsage, IProgressMonitor monitor) throws Exception {
+				throw new UnsupportedOperationException();
+			}
 		};
 	}
 	
@@ -146,6 +168,11 @@ public abstract class MetricFactory {
 					default:
 						throw new Exception("Invalid metric: " + metric + "!");
 				}
+			}
+			
+			@Override
+			public Metric create(Type type, Method method, String parameter, boolean skipUsage, IProgressMonitor monitor) throws Exception {
+				throw new UnsupportedOperationException();
 			}
 		};
 	}
@@ -174,6 +201,11 @@ public abstract class MetricFactory {
 						throw new Exception("Invalid metric: " + metric + "!");
 				}
 			}
+			
+			@Override
+			public Metric create(Type type, Method method, String parameter, boolean skipUsage, IProgressMonitor monitor) throws Exception {
+				throw new UnsupportedOperationException();
+			}
 		};
 	}
 	
@@ -201,6 +233,11 @@ public abstract class MetricFactory {
 						throw new Exception("Invalid metric: " + metric + "!");
 				}
 			}
+			
+			@Override
+			public Metric create(Type type, Method method, String parameter, boolean skipUsage, IProgressMonitor monitor) throws Exception {
+				throw new UnsupportedOperationException();
+			}
 		};
 	}
 	
@@ -227,6 +264,11 @@ public abstract class MetricFactory {
 					default:
 						throw new Exception("Invalid metric: " + metric + "!");
 				}
+			}
+			
+			@Override
+			public Metric create(Type type, Method method, String parameter, boolean skipUsage, IProgressMonitor monitor) throws Exception {
+				throw new UnsupportedOperationException();
 			}
 		};
 	}

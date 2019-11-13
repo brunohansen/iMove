@@ -17,6 +17,45 @@ import br.com.bhansen.view.Console;
 public abstract class UsageMetricMethod extends UsageMetric {
 	
 	private Set<String> method;
+	
+	public UsageMetricMethod(Type type, Method method, IProgressMonitor monitor) throws Exception {
+		super(type);
+
+		IMethod[] iMethods = type.getIType().getMethods();
+		
+		SubMonitor subMonitor = SubMonitor.convert(monitor, iMethods.length);
+		
+		MethodWithCallers mc = method.getMethodWithCallers();
+		
+		//Remove fake public
+		if(! UsageMetricConfig.useInternalCalls())
+			mc.removeCaller(type);
+		
+		this.method = mc.getCallers();
+
+		for (IMethod iMethod : iMethods) {
+			subMonitor.split(1).done();
+			
+			Method m = new Method(iMethod);
+				
+			if(! MetricConfig.use(m))
+				continue;
+							
+			mc = m.getMethodWithCallers();
+
+			if(! UsageMetricConfig.use(mc, type))
+				continue;
+			
+			//Remove fake public
+			if(! UsageMetricConfig.useInternalCalls())
+				mc.removeCaller(type);
+			
+			if (getMethods().put(mc.getSignature(), mc.getCallers()) != null) {
+				Console.println("Method " + mc.getSignature() + " colision!");
+			}
+
+		}
+	}
 
 	public UsageMetricMethod(Type type, String method, IProgressMonitor monitor) throws Exception {
 		super(type);
