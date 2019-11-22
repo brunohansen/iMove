@@ -1,0 +1,20 @@
+org.jhotdraw.samples.draw.DrawingPanel::load(java.awt.event.ActionEvent):void org.jhotdraw.samples.draw.DrawLiveConnectApplet
+org.jhotdraw.gui.JMDIDesktopPane::show(View):void org.jhotdraw.app.MDIApplication
+org.jhotdraw.draw.text.FloatingTextArea::endEdit():void org.jhotdraw.draw.tool.TextAreaCreationTool
+org.jhotdraw.io.StreamPosTokenizer::readViewportAttributes(IXMLElement, HashMap<AttributeKey,Object>):void org.jhotdraw.samples.svg.io.SVGInputFormat
+org.jhotdraw.gui.JFontChooser::applySelectedFontToFigures():void org.jhotdraw.draw.action.FontChooserHandler
+org.jhotdraw.undo.UndoRedoManager::getLineOfOffset(int):int org.jhotdraw.samples.teddy.TeddyView
+org.jhotdraw.samples.teddy.regex.Matcher::initComponents():void org.jhotdraw.samples.teddy.FindDialog
+org.jhotdraw.draw.AttributeKey::calculateLayout2():Rectangle2D.Double org.jhotdraw.draw.layouter.LocatorLayouter
+org.jhotdraw.samples.svg.gui.ViewToolBar::setEditor():void org.jhotdraw.samples.svg.SVGDrawingPanel
+org.jhotdraw.samples.svg.gui.ProgressIndicator::loadDrawing():Drawing org.jhotdraw.samples.svg.SVGApplet
+org.jhotdraw.draw.AttributeKey::getDrawingArea2():Rectangle2D.Double org.jhotdraw.draw.DiamondFigure
+org.jhotdraw.geom.BezierPath.Node::trackEnd2(Point, Point, int):void org.jhotdraw.draw.handle.BezierNodeHandle
+org.jhotdraw.samples.svg.SVGDrawingPanel::getOpenChooser():JFileChooser org.jhotdraw.samples.mini.SVGDrawingPanelSample
+org.jhotdraw.geom.BezierPath::chop(Point2D.Double):Point2D.Double org.jhotdraw.draw.BezierFigure
+org.jhotdraw.samples.odg.io.ODGStylesReader::readEnhancedGeometryElement(IXMLElement, Map<AttributeKey,Object>, Rectangle2D.Double):ODGFigure org.jhotdraw.samples.odg.io.ODGInputFormat
+org.jhotdraw.draw.connector.LocatorConnector::findCompatibleConnector(Connector, boolean):Connector org.jhotdraw.samples.net.figures.NodeFigure
+org.jhotdraw.samples.svg.figures.SVGTextAreaFigure::writeTextAreaElement(IXMLElement, SVGTextAreaFigure):void org.jhotdraw.samples.svg.io.SVGOutputFormat
+net.n3.nanoxml.XMLElement::print():void org.jhotdraw.xml.NanoXMLDOMOutput
+org.jhotdraw.app.OSXApplication::setPalette():void org.jhotdraw.app.action.window.TogglePaletteAction
+org.jhotdraw.draw.event.HandleMulticaster::updateHoverHandles():void org.jhotdraw.draw.tool.DefaultHandleTracker
