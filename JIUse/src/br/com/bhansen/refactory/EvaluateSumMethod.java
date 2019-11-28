@@ -12,7 +12,6 @@ import br.com.bhansen.jdt.Type;
 import br.com.bhansen.metric.CompositeMetric;
 import br.com.bhansen.metric.Metric;
 import br.com.bhansen.metric.MetricFactory;
-import br.com.bhansen.metric.UsageMetric;
 
 public class EvaluateSumMethod extends MoveMethodEvaluator  {
 	
@@ -42,7 +41,8 @@ public class EvaluateSumMethod extends MoveMethodEvaluator  {
 		
 		this.oldMetric = factory.create(classFrom, method, skipUsage, subMonitor.split(30));
 		
-		if((! skipUsage) && (MoveMethodConfig.skipIfEnviedByDestination()) && (oldMetric instanceof CompositeMetric)) {
+		// Doesn't Share Callers
+		/* if((! skipUsage) && (MoveMethodConfig.skipIfEnviedByDestination()) && (oldMetric instanceof CompositeMetric)) {
 			CompositeMetric cMetric = (CompositeMetric) oldMetric;
 			UsageMetric uMetric = cMetric.getUMetric();
 			
@@ -50,7 +50,7 @@ public class EvaluateSumMethod extends MoveMethodEvaluator  {
 				factory.setSkipUsage(true);
 				this.oldMetric = cMetric.getDMetric();
 			}
-		}
+		} */
 		
 		this.oldValue = this.oldMetric.getMetric();
 		
@@ -97,23 +97,23 @@ public class EvaluateSumMethod extends MoveMethodEvaluator  {
 			
 			if (shouldMove()) {
 				if (usageDifference >= MoveMethodConfig.getThreshold() && declarationDifference >= MoveMethodConfig.getThreshold()) {
-					return "Tanto a correlação de dados quanto a de correlação de uso suportam a movimentação!";
+					return "Tanto a correlaï¿½ï¿½o de dados quanto a de correlaï¿½ï¿½o de uso suportam a movimentaï¿½ï¿½o!";
 				} else if (usageDifference >= MoveMethodConfig.getThreshold() && declarationDifference < MoveMethodConfig.getThreshold()) {
-					return "A correlação de uso é alta o suficiente para suportar a movimentação!";
+					return "A correlaï¿½ï¿½o de uso ï¿½ alta o suficiente para suportar a movimentaï¿½ï¿½o!";
 				} else if (usageDifference < MoveMethodConfig.getThreshold() && declarationDifference >= MoveMethodConfig.getThreshold()) {
-					return "A correlação de dados é alta o suficiente para suportar a movimentação!";
+					return "A correlaï¿½ï¿½o de dados ï¿½ alta o suficiente para suportar a movimentaï¿½ï¿½o!";
 				} else if (usageDifference < MoveMethodConfig.getThreshold() && declarationDifference < MoveMethodConfig.getThreshold()) {
-					return "A correlação de uso e de dados combinadas suportam a movimentação!";
+					return "A correlaï¿½ï¿½o de uso e de dados combinadas suportam a movimentaï¿½ï¿½o!";
 				}
 			} else {
 				if (usageDifference < MoveMethodConfig.getThreshold() && declarationDifference < MoveMethodConfig.getThreshold()) {
-					return "Tanto a correlação de dados quanto a de correlação de uso não suportam a movimentação!";
+					return "Tanto a correlaï¿½ï¿½o de dados quanto a de correlaï¿½ï¿½o de uso nï¿½o suportam a movimentaï¿½ï¿½o!";
 				} else if (usageDifference < MoveMethodConfig.getThreshold() && declarationDifference >= MoveMethodConfig.getThreshold()) {
-					return "A correlação de uso é baixa o suficiente para não suportar a movimentação!";
+					return "A correlaï¿½ï¿½o de uso ï¿½ baixa o suficiente para nï¿½o suportar a movimentaï¿½ï¿½o!";
 				} else if (usageDifference >= MoveMethodConfig.getThreshold() && declarationDifference < MoveMethodConfig.getThreshold()) {
-					return "A correlação de dados é baixa o suficiente para não suportar a movimentação!";
+					return "A correlaï¿½ï¿½o de dados ï¿½ baixa o suficiente para nï¿½o suportar a movimentaï¿½ï¿½o!";
 				} else if (usageDifference >= MoveMethodConfig.getThreshold() && declarationDifference >= MoveMethodConfig.getThreshold()) {
-					return "A correlação de uso e de dados combinadas não suportam a movimentação!";
+					return "A correlaï¿½ï¿½o de uso e de dados combinadas nï¿½o suportam a movimentaï¿½ï¿½o!";
 				}
 			}
 			
