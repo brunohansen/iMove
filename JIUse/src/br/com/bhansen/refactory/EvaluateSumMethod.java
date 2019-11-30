@@ -1,8 +1,12 @@
 package br.com.bhansen.refactory;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
+
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.core.runtime.SubMonitor;
+import org.eclipse.jdt.core.JavaModelException;
 import org.eclipse.ltk.core.refactoring.Change;
 
 import br.com.bhansen.config.MoveMethodConfig;
@@ -20,6 +24,15 @@ public class EvaluateSumMethod extends MoveMethodEvaluator  {
 
 	private double oldValue;
 	private double newValue;
+
+	private double oldUsageMetric;
+	private double oldDeclarationMetric;
+	
+	private double newUsageMetric;
+	private double newDeclarationMetric;
+	
+	private double usageDifference;
+	private double declarationDifference;
 	
 	public EvaluateSumMethod(Type classFrom, String method, Type classTo, MetricFactory factory, IProgressMonitor monitor) throws Exception {
 		super(classFrom, method, classTo, factory);
@@ -65,55 +78,68 @@ public class EvaluateSumMethod extends MoveMethodEvaluator  {
 		Change undo = refactor.move(this.classFrom, this.method, this.classTo, subMonitor.split(50));
 		
 		try {
-			this.newMetric = factory.create(this.classTo, this.method.getMoveName(), refactor.getTypeNotUsed(), subMonitor.split(50));
-			this.newValue = this.newMetric.getMetric();
-			
-			this.valueDifference = (this.newValue - this.oldValue);			
+			calc(refactor, subMonitor);			
 		} finally {
 			undo.perform(new NullProgressMonitor());
 		}
 		
 	}
-	
-	private void calc(IProgressMonitor monitor) throws Exception {
-		this.newMetric = factory.create(this.classTo, this.method, monitor);
-		this.newValue = this.newMetric.getMetric();
-		
-		this.valueDifference = (this.newValue - this.oldValue);	
+
+	private void calc(MoveMethodRefactor refactor, SubMonitor subMonitor) throws Exception, JavaModelException {
+		this.newMetric = factory.create(this.classTo, this.method.getMoveName(), refactor.getTypeNotUsed(), subMonitor.split(50));
+		calc();
 	}
 	
+//	private void calc(IProgressMonitor monitor) throws Exception {
+//		this.newMetric = factory.create(this.classTo, this.method, monitor);
+//		calc();	
+//	}
+
+	private void calc() throws Exception {
+		this.newValue = this.newMetric.getMetric();
+		
+		this.valueDifference = (this.newValue - this.oldValue);
+		
+		if(oldMetric instanceof CompositeMetric && newMetric instanceof CompositeMetric) {
+			oldUsageMetric = ((CompositeMetric) oldMetric).getUsageMetric();
+			oldDeclarationMetric = ((CompositeMetric) oldMetric).getDeclarationMetric();
+			
+			newUsageMetric = ((CompositeMetric) newMetric).getUsageMetric();
+			newDeclarationMetric = ((CompositeMetric) newMetric).getDeclarationMetric();
+			
+			usageDifference = (newUsageMetric - oldUsageMetric);
+			declarationDifference = (newDeclarationMetric - oldDeclarationMetric);
+		} else {
+			oldDeclarationMetric = this.oldValue;
+			newDeclarationMetric = this.newValue;
+			declarationDifference = this.valueDifference;
+		}
+	}
+		
 	@Override
 	public String getMessage() {
 		
 		if(oldMetric instanceof CompositeMetric && newMetric instanceof CompositeMetric) {
-			double oldUsageMetric = ((CompositeMetric) oldMetric).getUsageMetric();
-			double oldDeclarationMetric = ((CompositeMetric) oldMetric).getDeclarationMetric();
-			
-			double newUsageMetric = ((CompositeMetric) newMetric).getUsageMetric();
-			double newDeclarationMetric = ((CompositeMetric) newMetric).getDeclarationMetric();
-			
-			double usageDifference = (newUsageMetric - oldUsageMetric);
-			double declarationDifference = (newDeclarationMetric - oldDeclarationMetric);
 			
 			if (shouldMove()) {
 				if (usageDifference >= MoveMethodConfig.getThreshold() && declarationDifference >= MoveMethodConfig.getThreshold()) {
-					return "Tanto a correlaï¿½ï¿½o de dados quanto a de correlaï¿½ï¿½o de uso suportam a movimentaï¿½ï¿½o!";
+					return "Tanto a correlação de dados quanto a de correlação de uso suportam a movimentação!";
 				} else if (usageDifference >= MoveMethodConfig.getThreshold() && declarationDifference < MoveMethodConfig.getThreshold()) {
-					return "A correlaï¿½ï¿½o de uso ï¿½ alta o suficiente para suportar a movimentaï¿½ï¿½o!";
+					return "A correlação de uso é alta o suficiente para suportar a movimentação!";
 				} else if (usageDifference < MoveMethodConfig.getThreshold() && declarationDifference >= MoveMethodConfig.getThreshold()) {
-					return "A correlaï¿½ï¿½o de dados ï¿½ alta o suficiente para suportar a movimentaï¿½ï¿½o!";
+					return "A correlação de dados é alta o suficiente para suportar a movimentação!";
 				} else if (usageDifference < MoveMethodConfig.getThreshold() && declarationDifference < MoveMethodConfig.getThreshold()) {
-					return "A correlaï¿½ï¿½o de uso e de dados combinadas suportam a movimentaï¿½ï¿½o!";
+					return "A correlação de uso e de dados combinadas suportam a movimentação!";
 				}
 			} else {
 				if (usageDifference < MoveMethodConfig.getThreshold() && declarationDifference < MoveMethodConfig.getThreshold()) {
-					return "Tanto a correlaï¿½ï¿½o de dados quanto a de correlaï¿½ï¿½o de uso nï¿½o suportam a movimentaï¿½ï¿½o!";
+					return "Tanto a correlação de dados quanto a de correlação de uso não suportam a movimentação!";
 				} else if (usageDifference < MoveMethodConfig.getThreshold() && declarationDifference >= MoveMethodConfig.getThreshold()) {
-					return "A correlaï¿½ï¿½o de uso ï¿½ baixa o suficiente para nï¿½o suportar a movimentaï¿½ï¿½o!";
+					return "A correlação de uso é baixa o suficiente para não suportar a movimentação!";
 				} else if (usageDifference >= MoveMethodConfig.getThreshold() && declarationDifference < MoveMethodConfig.getThreshold()) {
-					return "A correlaï¿½ï¿½o de dados ï¿½ baixa o suficiente para nï¿½o suportar a movimentaï¿½ï¿½o!";
+					return "A correlação de dados é baixa o suficiente para não suportar a movimentação!";
 				} else if (usageDifference >= MoveMethodConfig.getThreshold() && declarationDifference >= MoveMethodConfig.getThreshold()) {
-					return "A correlaï¿½ï¿½o de uso e de dados combinadas nï¿½o suportam a movimentaï¿½ï¿½o!";
+					return "A correlação de uso e de dados combinadas não suportam a movimentação!";
 				}
 			}
 			
@@ -121,6 +147,22 @@ public class EvaluateSumMethod extends MoveMethodEvaluator  {
 		} 
 		
 		return ((this.factory.skipUsage())? "Usage skipped! " : "Usage not skipped!") + super.getMessage();
+	}
+	
+	@Override
+	public String getValueText() {
+		return new StringBuilder().append("BD" + super.getValueText() + 
+				":BI" + new BigDecimal(this.oldValue).setScale(6, RoundingMode.HALF_EVEN) +
+				":BF" + new BigDecimal(this.newValue).setScale(6, RoundingMode.HALF_EVEN) +
+				
+				"\tDD" + new BigDecimal(this.declarationDifference).setScale(6, RoundingMode.HALF_EVEN) +
+				":DI" + new BigDecimal(this.oldDeclarationMetric).setScale(6, RoundingMode.HALF_EVEN) +
+				":DF" + new BigDecimal(this.newDeclarationMetric).setScale(6, RoundingMode.HALF_EVEN) +
+				
+				"\tUD" + new BigDecimal(this.usageDifference).setScale(6, RoundingMode.HALF_EVEN) + 
+				":UI" + new BigDecimal(this.oldUsageMetric).setScale(6, RoundingMode.HALF_EVEN) + 
+				":UF" + new BigDecimal(this.newUsageMetric).setScale(6, RoundingMode.HALF_EVEN)
+				).toString();
 	}
 
 	@Override

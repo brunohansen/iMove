@@ -25,6 +25,7 @@ import br.com.bhansen.dialog.ProgressDialog;
 import br.com.bhansen.handler.IMoveHandler;
 import br.com.bhansen.jdt.Project;
 import br.com.bhansen.utils.FileFinder;
+import br.com.bhansen.utils.Movement;
 import br.com.bhansen.view.Console;
 
 public class GoldChecker extends IMoveHandler {
@@ -101,9 +102,8 @@ public class GoldChecker extends IMoveHandler {
 		inStream.forEach(new Consumer<String>() {
 			@Override
 			public void accept(String inLine) {
-
-				String[] reg = inLine.split("\\t", 2);
-				String movement = reg[1].substring(0, reg[1].lastIndexOf("\t"));
+				
+				String movement = Movement.getMovementString(inLine);
 
 				boolean exact = goldLines.get().anyMatch(new Predicate<Object>() {
 					public boolean test(Object goldLine) {
@@ -119,6 +119,7 @@ public class GoldChecker extends IMoveHandler {
 					}
 				});
 
+				String[] reg = inLine.split("\\t", 2);
 				String outLine = reg[0] + ((origin) ? "0" : "1") + ((exact) ? "0\t" : "1\t") + reg[1];
 
 				outSet.add(outLine);

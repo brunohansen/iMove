@@ -11,7 +11,7 @@ public class Movement {
 	public final static int METHOD = 1;
 	public final static int TARGET_CLASS = 2;
 
-	public static String[] getMovement(String movement) throws Exception {
+	public static String[] getMovement(String movement) {
 		Matcher matcher = linePattern.matcher(movement);
 		
 		if(matcher.find()) {
@@ -19,24 +19,24 @@ public class Movement {
 	
 			return new String[]{method[0], method[1], matcher.group(5)};
 		} else {
-			throw new Exception("Invalid syntax: " + movement);
+			throw new RuntimeException("Invalid syntax: " + movement);
 		}
 	}
 	
-	public static String removeMessage(String movement) throws Exception {
+	public static String getMovementString(String movement) {
 		String[] m = getMovement(movement);
 		return m[SOURCE_CLASS] + "::" + m[METHOD] + "\t" + m[TARGET_CLASS];
 	}
 
-	public static String getSourceClass(String movement) throws Exception {
+	public static String getSourceClass(String movement) {
 		return getMovement(movement)[SOURCE_CLASS];
 	}
 	
-	public static String getMethod(String movement) throws Exception {
+	public static String getMethod(String movement) {
 		return getMovement(movement)[METHOD];
 	}
 	
-	public static String getTargetClass(String movement) throws Exception {
+	public static String getTargetClass(String movement) {
 		return getMovement(movement)[TARGET_CLASS];
 	}
 	

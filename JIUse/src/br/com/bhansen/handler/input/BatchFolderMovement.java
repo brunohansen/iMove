@@ -38,7 +38,7 @@ public class BatchFolderMovement extends BatchFileMovement {
 				try {
 					project = new Project(path);
 				} catch (Exception e) {
-					project = SyncDialog.open(() -> ProjectDialog.open());
+					project = SyncDialog.open(() -> ProjectDialog.open("Select project for the file:\n" + path));
 				}
 				
 				goldCheck(project, path, subMonitor.split(1));

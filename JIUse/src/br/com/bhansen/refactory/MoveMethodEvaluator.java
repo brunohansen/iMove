@@ -19,8 +19,6 @@ public abstract class MoveMethodEvaluator {
 	protected String mSig;
 	
 	protected double valueDifference;
-	protected double usageDifference;
-	protected double declarationDifference;
 	
 	protected MetricFactory factory;
 	
@@ -65,6 +63,10 @@ public abstract class MoveMethodEvaluator {
 		return this.valueDifference >= MoveMethodConfig.getThreshold();
 	}
 	
+	public String getValueText() {
+		return new BigDecimal(this.valueDifference).setScale(6, RoundingMode.HALF_EVEN).toString();
+	}
+	
 	public String getMessage() { 
 		if(shouldMove()) {
 			return "Value difference is greater than or equals to " + MoveMethodConfig.getThreshold() +"!";
@@ -74,8 +76,11 @@ public abstract class MoveMethodEvaluator {
 	}
 
 	public String toLineString() throws Exception {
-		return new StringBuilder().append(new BigDecimal(this.valueDifference).setScale(6, RoundingMode.HALF_EVEN) + ":D" + new BigDecimal(this.declarationDifference).setScale(6, RoundingMode.HALF_EVEN) + ":U" + new BigDecimal(this.usageDifference).setScale(6, RoundingMode.HALF_EVEN) + "-").append((shouldMove()) ? "0" : "1").append("\t").append(this.classFrom.getName()).append("::").append(this.mSig)
-				.append("\t").append(this.classTo.getName()).append("\t").append("Message: " + getMessage()).toString();
+		return new StringBuilder()
+				.append((shouldMove()) ? "0" : "1").append("\t")
+				.append(getValueText()).append("\t")
+				.append(this.classFrom.getName()).append("::").append(this.mSig).append("\t").append(this.classTo.getName()).append("\t")
+				.append("Message: " + getMessage()).toString();
 	}
 
 }

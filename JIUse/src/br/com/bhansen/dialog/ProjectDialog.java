@@ -9,9 +9,13 @@ import br.com.bhansen.jdt.Project;
 public class ProjectDialog {
 	
 	public static Project open() {
+		return open("Project's name:");
+	}
+	
+	public static Project open(String message) {
 		ElementListSelectionDialog dlg = new ElementListSelectionDialog(PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell(), new LabelProvider());
 		dlg.setTitle("iMove Select Project");
-		dlg.setMessage("Project name");
+		dlg.setMessage(message);
 		dlg.setElements(Project.getProjectsNames());
 		dlg.setMultipleSelection(false);
 		dlg.setEmptySelectionMessage("Select!");
