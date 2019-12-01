@@ -103,19 +103,28 @@ public class GoldChecker extends IMoveHandler {
 			@Override
 			public void accept(String inLine) {
 				
-				String movement = Movement.getMovementString(inLine);
+				String movStr = Movement.getMovementString(inLine);
+				String movOrig = Movement.getSourceClassAndMethod(inLine);
 
 				boolean exact = goldLines.get().anyMatch(new Predicate<Object>() {
 					public boolean test(Object goldLine) {
-						return movement.equals(goldLine);
+						String goldStr = Movement.getMovementString(goldLine.toString());
+								
+						if(movStr.equals(goldStr))
+							return true;
+						else
+							return false;
 					}
 				});
 
 				boolean origin = goldLines.get().anyMatch(new Predicate<Object>() {
 					public boolean test(Object goldLine) {
-						String[] in = movement.split("\\t", 2);
-						String[] gold = ((String) goldLine).split("\\t", 2);
-						return in[0].equals(gold[0]);
+						String goldOrig = Movement.getSourceClassAndMethod(goldLine.toString());
+						
+						if(movOrig.equals(goldOrig))
+							return true;
+						else
+							return false;
 					}
 				});
 
