@@ -19,13 +19,17 @@ public class Method {
 		this.isStatic = Flags.isStatic(iMethod.getFlags());
 	}
 	
-	public Method(Method method) throws IllegalArgumentException, JavaModelException {
+	public Method(Method method) {
 		this.iMethod = method.iMethod;
 		this.signature = method.signature;
 	}
 	
-	public String getSignature() throws IllegalArgumentException, JavaModelException {
+	public String getSignature() {
 		return signature;
+	}
+	
+	public boolean isSetterOrGetterFor(Type type) {
+		return Signature.isSetterOrGetterFor(getSignature(), type);
 	}
 	
 	public IMethod getIMethod() {

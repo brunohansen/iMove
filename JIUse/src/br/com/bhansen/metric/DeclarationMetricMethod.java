@@ -77,6 +77,14 @@ public abstract class DeclarationMetricMethod extends DeclarationMetric {
 	public Set<String> getMethod() {
 		return method;
 	}
+	
+	public Set<String> getAllParams() {
+		return uniqueValues(getMethod(), getMethods());
+	}
+	
+	public Set<String> getMethodsParams() {
+		return uniqueValues(getMethods());
+	}
 		
 	@Override
 	public final double getMetric() throws Exception {

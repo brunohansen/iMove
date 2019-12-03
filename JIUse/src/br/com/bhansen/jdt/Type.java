@@ -19,6 +19,10 @@ public class Type {
 		return this.name;
 	}
 	
+	public String getSimpleName() {
+		return this.iType.getElementName();
+	}
+	
 	public IType getIType() {
 		return iType;
 	}

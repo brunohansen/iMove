@@ -6,7 +6,6 @@ import java.math.RoundingMode;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.core.runtime.SubMonitor;
-import org.eclipse.jdt.core.JavaModelException;
 import org.eclipse.ltk.core.refactoring.Change;
 
 import br.com.bhansen.config.MoveMethodConfig;
@@ -14,8 +13,10 @@ import br.com.bhansen.config.UsageMetricConfig;
 import br.com.bhansen.jdt.MethodWithCallers;
 import br.com.bhansen.jdt.Type;
 import br.com.bhansen.metric.CompositeMetric;
+import br.com.bhansen.metric.DeclarationMetricMethod;
 import br.com.bhansen.metric.Metric;
 import br.com.bhansen.metric.MetricFactory;
+import br.com.bhansen.metric.UsageMetricMethod;
 
 public class EvaluateSumMethod extends MoveMethodEvaluator  {
 	
@@ -78,22 +79,15 @@ public class EvaluateSumMethod extends MoveMethodEvaluator  {
 		Change undo = refactor.move(this.classFrom, this.method, this.classTo, subMonitor.split(50));
 		
 		try {
-			calc(refactor, subMonitor);			
+			//this.newMetric = factory.create(this.classTo, this.method, monitor);
+			this.newMetric = factory.create(this.classTo, this.method.getMoveName(), refactor.getTypeNotUsed(), subMonitor.split(50));
+			
+			calc();		
 		} finally {
 			undo.perform(new NullProgressMonitor());
 		}
 		
 	}
-
-	private void calc(MoveMethodRefactor refactor, SubMonitor subMonitor) throws Exception, JavaModelException {
-		this.newMetric = factory.create(this.classTo, this.method.getMoveName(), refactor.getTypeNotUsed(), subMonitor.split(50));
-		calc();
-	}
-	
-//	private void calc(IProgressMonitor monitor) throws Exception {
-//		this.newMetric = factory.create(this.classTo, this.method, monitor);
-//		calc();	
-//	}
 
 	private void calc() throws Exception {
 		this.newValue = this.newMetric.getMetric();
@@ -151,7 +145,73 @@ public class EvaluateSumMethod extends MoveMethodEvaluator  {
 	
 	@Override
 	public String getValueText() {
-		return new StringBuilder().append("BD" + super.getValueText() + 
+		//Verificar se a assinatura diminuiu
+		
+		String additionals = "";
+		
+//		if(this.oldDeclarationMetric == 0 && this.newDeclarationMetric == 0 &&
+//				this.oldUsageMetric == 0 && this.newUsageMetric == 0) {
+			int oldNumParams = 0;
+			int newNumParams = 0;
+			
+			int oldNumTypes = 0;
+			int newNumTypes = 0;
+			
+			int oldNumCallers = 0;
+			int newNumCallers = 0;
+			
+			if(oldMetric instanceof CompositeMetric && newMetric instanceof CompositeMetric) {
+				oldNumParams = ((DeclarationMetricMethod) ((CompositeMetric) oldMetric).getDMetric()).getMethod().size();
+				newNumParams = ((DeclarationMetricMethod) ((CompositeMetric) newMetric).getDMetric()).getMethod().size();
+				
+				oldNumTypes = ((DeclarationMetricMethod) ((CompositeMetric) oldMetric).getDMetric()).getAllParams().size() + 
+						((DeclarationMetricMethod) ((CompositeMetric) newMetric).getDMetric()).getMethodsParams().size();
+				newNumTypes = ((DeclarationMetricMethod) ((CompositeMetric) oldMetric).getDMetric()).getMethodsParams().size() + 
+						((DeclarationMetricMethod) ((CompositeMetric) newMetric).getDMetric()).getAllParams().size();
+				
+				oldNumCallers = ((UsageMetricMethod) ((CompositeMetric) oldMetric).getUMetric()).getAllCallers().size() + 
+						((UsageMetricMethod) ((CompositeMetric) newMetric).getUMetric()).getMethodsCallers().size();
+				newNumCallers = ((UsageMetricMethod) ((CompositeMetric) oldMetric).getUMetric()).getMethodsCallers().size() + 
+						((UsageMetricMethod) ((CompositeMetric) newMetric).getUMetric()).getAllCallers().size();
+			} else {
+				oldNumParams = ((DeclarationMetricMethod) oldMetric).getMethod().size();
+				newNumParams = ((DeclarationMetricMethod) newMetric).getMethod().size();
+				
+				oldNumTypes = ((DeclarationMetricMethod) oldMetric).getAllParams().size();
+					((DeclarationMetricMethod) newMetric).getMethodsParams().size();
+				newNumTypes = ((DeclarationMetricMethod) oldMetric).getMethodsParams().size();
+					((DeclarationMetricMethod) newMetric).getAllParams().size();
+				
+				oldNumCallers = 0;
+				newNumCallers = 0;
+			}
+			
+			if (oldNumParams > newNumParams) {
+				additionals = "-";
+			} else if (oldNumParams < newNumParams) {
+				additionals = "+";
+			} else {
+				additionals = "=";
+			}
+			
+			if (oldNumTypes > newNumTypes) {
+				additionals += "-";
+			} else if (oldNumTypes < newNumTypes) {
+				additionals += "+";
+			} else {
+				additionals += "=";
+			}
+			
+			if (oldNumCallers > newNumCallers) {
+				additionals += "-";
+			} else if (oldNumCallers < newNumCallers) {
+				additionals += "+";
+			} else {
+				additionals += "=";
+			}
+//		}
+		
+		return new StringBuilder().append(additionals + "BD" + super.getValueText() + 
 				":BI" + new BigDecimal(this.oldValue).setScale(6, RoundingMode.HALF_EVEN) +
 				":BF" + new BigDecimal(this.newValue).setScale(6, RoundingMode.HALF_EVEN) +
 				

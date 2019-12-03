@@ -104,6 +104,14 @@ public abstract class UsageMetricMethod extends UsageMetric {
 		return method;
 	}
 	
+	public Set<String> getAllCallers() {
+		return uniqueValues(getMethod(), getMethods());
+	}
+	
+	public Set<String> getMethodsCallers() {
+		return uniqueValues(getMethods());
+	}
+	
 	@Override
 	public final double getMetric() throws Exception {
 		

@@ -31,5 +31,10 @@ public class Signature {
 	public static boolean isAccessorMethod(String signature) {
 		return accessorPattern.matcher(signature).find();
 	}
+	
+	public static boolean isSetterOrGetterFor(String signature, Type type) {
+		return signature.equals("get" + type.getSimpleName() + "():" + type.getSimpleName()) ||
+				signature.equals("set" + type.getSimpleName() + "(" + type.getSimpleName() + "):void");
+	}
 
 }
