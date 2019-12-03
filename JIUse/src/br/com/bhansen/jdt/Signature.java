@@ -4,7 +4,7 @@ import java.util.regex.Pattern;
 
 public class Signature {
 	
-	final protected static Pattern accessorPattern = Pattern.compile("^(get|set|is)[A-Z|0-9|_|$]{1,}");
+	final protected static Pattern accessorPattern = Pattern.compile("^(get|set|is)[A-Z|0-9|_|\\$]{1,}");
 
 	public static String normalizeSignature(String signature) {
 		signature = normalizeSpaces(signature);
@@ -33,8 +33,22 @@ public class Signature {
 	}
 	
 	public static boolean isSetterOrGetterFor(String signature, Type type) {
-		return signature.equals("get" + type.getSimpleName() + "():" + type.getSimpleName()) ||
-				signature.equals("set" + type.getSimpleName() + "(" + type.getSimpleName() + "):void");
+		if(signature.equals("get" + type.getSimpleName() + "():" + type.getSimpleName())) return true;
+		if(signature.equals("set" + type.getSimpleName() + "(" + type.getSimpleName() + "):void")) return true;
+		
+		return isSetterOrGetter(signature);
+	}
+	
+	public static boolean isSetterOrGetter(String signature) {		
+		if(signature.matches("^get[a-z|A-Z|0-9|_|\\$]+\\(\\):Date$")) return true;
+		if(signature.matches("^set[a-z|A-Z|0-9|_|\\$]+\\(Date\\):void$")) return true;
+		
+		for (String primitive : ParameterHelper.primitives) {
+			if(signature.matches("^get[a-z|A-Z|0-9|_|\\$]+\\(\\):" + primitive + "$")) return true;
+			if(signature.matches("^set[a-z|A-Z|0-9|_|\\$]+\\(" + primitive + "\\):void$")) return true;
+		}
+		
+		return false;
 	}
 
 }
