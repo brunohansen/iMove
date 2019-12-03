@@ -117,23 +117,23 @@ public class EvaluateSumMethod extends MoveMethodEvaluator  {
 			
 			if (shouldMove()) {
 				if (usageDifference >= MoveMethodConfig.getThreshold() && declarationDifference >= MoveMethodConfig.getThreshold()) {
-					return "Tanto a correlação de dados quanto a de correlação de uso suportam a movimentação!";
+					return "Tanto a correlaï¿½ï¿½o de dados quanto a de correlaï¿½ï¿½o de uso suportam a movimentaï¿½ï¿½o!";
 				} else if (usageDifference >= MoveMethodConfig.getThreshold() && declarationDifference < MoveMethodConfig.getThreshold()) {
-					return "A correlação de uso é alta o suficiente para suportar a movimentação!";
+					return "A correlaï¿½ï¿½o de uso ï¿½ alta o suficiente para suportar a movimentaï¿½ï¿½o!";
 				} else if (usageDifference < MoveMethodConfig.getThreshold() && declarationDifference >= MoveMethodConfig.getThreshold()) {
-					return "A correlação de dados é alta o suficiente para suportar a movimentação!";
+					return "A correlaï¿½ï¿½o de dados ï¿½ alta o suficiente para suportar a movimentaï¿½ï¿½o!";
 				} else if (usageDifference < MoveMethodConfig.getThreshold() && declarationDifference < MoveMethodConfig.getThreshold()) {
-					return "A correlação de uso e de dados combinadas suportam a movimentação!";
+					return "A correlaï¿½ï¿½o de uso e de dados combinadas suportam a movimentaï¿½ï¿½o!";
 				}
 			} else {
 				if (usageDifference < MoveMethodConfig.getThreshold() && declarationDifference < MoveMethodConfig.getThreshold()) {
-					return "Tanto a correlação de dados quanto a de correlação de uso não suportam a movimentação!";
+					return "Tanto a correlaï¿½ï¿½o de dados quanto a de correlaï¿½ï¿½o de uso nï¿½o suportam a movimentaï¿½ï¿½o!";
 				} else if (usageDifference < MoveMethodConfig.getThreshold() && declarationDifference >= MoveMethodConfig.getThreshold()) {
-					return "A correlação de uso é baixa o suficiente para não suportar a movimentação!";
+					return "A correlaï¿½ï¿½o de uso ï¿½ baixa o suficiente para nï¿½o suportar a movimentaï¿½ï¿½o!";
 				} else if (usageDifference >= MoveMethodConfig.getThreshold() && declarationDifference < MoveMethodConfig.getThreshold()) {
-					return "A correlação de dados é baixa o suficiente para não suportar a movimentação!";
+					return "A correlaï¿½ï¿½o de dados ï¿½ baixa o suficiente para nï¿½o suportar a movimentaï¿½ï¿½o!";
 				} else if (usageDifference >= MoveMethodConfig.getThreshold() && declarationDifference >= MoveMethodConfig.getThreshold()) {
-					return "A correlação de uso e de dados combinadas não suportam a movimentação!";
+					return "A correlaï¿½ï¿½o de uso e de dados combinadas nï¿½o suportam a movimentaï¿½ï¿½o!";
 				}
 			}
 			
@@ -160,6 +160,9 @@ public class EvaluateSumMethod extends MoveMethodEvaluator  {
 			int oldNumCallers = 0;
 			int newNumCallers = 0;
 			
+			int oldNumMts = 0;
+			int newNumMts = 0;
+			
 			if(oldMetric instanceof CompositeMetric && newMetric instanceof CompositeMetric) {
 				oldNumParams = ((DeclarationMetricMethod) ((CompositeMetric) oldMetric).getDMetric()).getMethod().size();
 				newNumParams = ((DeclarationMetricMethod) ((CompositeMetric) newMetric).getDMetric()).getMethod().size();
@@ -173,6 +176,9 @@ public class EvaluateSumMethod extends MoveMethodEvaluator  {
 						((UsageMetricMethod) ((CompositeMetric) newMetric).getUMetric()).getMethodsCallers().size();
 				newNumCallers = ((UsageMetricMethod) ((CompositeMetric) oldMetric).getUMetric()).getMethodsCallers().size() + 
 						((UsageMetricMethod) ((CompositeMetric) newMetric).getUMetric()).getAllCallers().size();
+				
+				oldNumMts = ((DeclarationMetricMethod) ((CompositeMetric) oldMetric).getDMetric()).getMethods().size() + 1;
+				newNumMts = ((DeclarationMetricMethod) ((CompositeMetric) newMetric).getDMetric()).getMethods().size();
 			} else {
 				oldNumParams = ((DeclarationMetricMethod) oldMetric).getMethod().size();
 				newNumParams = ((DeclarationMetricMethod) newMetric).getMethod().size();
@@ -184,6 +190,9 @@ public class EvaluateSumMethod extends MoveMethodEvaluator  {
 				
 				oldNumCallers = 0;
 				newNumCallers = 0;
+				
+				oldNumMts = ((DeclarationMetricMethod) oldMetric).getMethods().size() + 1;
+				newNumMts = ((DeclarationMetricMethod) newMetric).getMethods().size();
 			}
 			
 			if (oldNumParams > newNumParams) {
@@ -205,6 +214,14 @@ public class EvaluateSumMethod extends MoveMethodEvaluator  {
 			if (oldNumCallers > newNumCallers) {
 				additionals += "-";
 			} else if (oldNumCallers < newNumCallers) {
+				additionals += "+";
+			} else {
+				additionals += "=";
+			}
+			
+			if (oldNumMts > newNumMts) {
+				additionals += "-";
+			} else if (oldNumMts < newNumMts) {
 				additionals += "+";
 			} else {
 				additionals += "=";
