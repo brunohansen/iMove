@@ -35,6 +35,14 @@ public class EvaluateSumMethod extends MoveMethodEvaluator  {
 	private double usageDifference;
 	private double declarationDifference;
 	
+	private double oldFromValue;
+	private double oldToValue;
+
+	private double newFromValue;
+	private double newToValue;
+	
+	private double classValueDifference;
+	
 	public EvaluateSumMethod(Type classFrom, String method, Type classTo, MetricFactory factory, IProgressMonitor monitor) throws Exception {
 		super(classFrom, method, classTo, factory);
 		
@@ -68,6 +76,9 @@ public class EvaluateSumMethod extends MoveMethodEvaluator  {
 		
 		this.oldValue = this.oldMetric.getMetric();
 		
+		this.oldFromValue = factory.createClassMetricFactory(MoveMethodConfig.getMetric()).create(classFrom, subMonitor.split(20)).getMetric();
+		this.oldToValue = factory.createClassMetricFactory(MoveMethodConfig.getMetric()).create(classTo, subMonitor.split(20)).getMetric();
+		
 		this.move(subMonitor.split(70));
 	}
 	
@@ -82,6 +93,9 @@ public class EvaluateSumMethod extends MoveMethodEvaluator  {
 			//this.newMetric = factory.create(this.classTo, this.method, monitor);
 			this.newMetric = factory.create(this.classTo, this.method.getMoveName(), refactor.getTypeNotUsed(), subMonitor.split(50));
 			
+			this.newFromValue = factory.createClassMetricFactory(MoveMethodConfig.getMetric()).create(this.classFrom, subMonitor.split(30)).getMetric();
+			this.newToValue = factory.createClassMetricFactory(MoveMethodConfig.getMetric()).create(this.classTo, this.method.getMoveName(), refactor.getTypeNotUsed(), subMonitor.split(30)).getMetric();
+			
 			calc();		
 		} finally {
 			undo.perform(new NullProgressMonitor());
@@ -94,6 +108,8 @@ public class EvaluateSumMethod extends MoveMethodEvaluator  {
 		
 		this.valueDifference = (this.newValue - this.oldValue);
 		
+		this.classValueDifference = (this.newFromValue - this.oldFromValue) + (this.newToValue - this.oldToValue);
+				
 		if(oldMetric instanceof CompositeMetric && newMetric instanceof CompositeMetric) {
 			oldUsageMetric = ((CompositeMetric) oldMetric).getUsageMetric();
 			oldDeclarationMetric = ((CompositeMetric) oldMetric).getDeclarationMetric();
@@ -228,7 +244,11 @@ public class EvaluateSumMethod extends MoveMethodEvaluator  {
 			}
 //		}
 		
-		return new StringBuilder().append(additionals + "BD" + super.getValueText() + 
+		return new StringBuilder().append(additionals + ":CD" + new BigDecimal(this.declarationDifference).setScale(6, RoundingMode.HALF_EVEN) +
+				":CI" + new BigDecimal(this.oldDeclarationMetric).setScale(6, RoundingMode.HALF_EVEN) +
+				":CF" + new BigDecimal(this.newDeclarationMetric).setScale(6, RoundingMode.HALF_EVEN) +
+				
+				"\tBD" + super.getValueText() + 
 				":BI" + new BigDecimal(this.oldValue).setScale(6, RoundingMode.HALF_EVEN) +
 				":BF" + new BigDecimal(this.newValue).setScale(6, RoundingMode.HALF_EVEN) +
 				
