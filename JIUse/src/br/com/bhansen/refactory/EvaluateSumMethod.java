@@ -212,41 +212,41 @@ public class EvaluateSumMethod extends MoveMethodEvaluator  {
 			}
 			
 			if (oldNumParams > newNumParams) {
-				additionals = "-";
+				additionals = "-" + oldNumParams + ":" + newNumParams;
 			} else if (oldNumParams < newNumParams) {
-				additionals = "+";
+				additionals = "+" + oldNumParams + ":" + newNumParams;
 			} else {
-				additionals = "=";
+				additionals = "=" + oldNumParams + ":" + newNumParams;
 			}
 			
 			if (oldNumTypes > newNumTypes) {
-				additionals += "-";
+				additionals += "-" + oldNumTypes + ":" + newNumTypes;
 			} else if (oldNumTypes < newNumTypes) {
-				additionals += "+";
+				additionals += "+" + oldNumTypes + ":" + newNumTypes;
 			} else {
-				additionals += "=";
+				additionals += "=" + oldNumTypes + ":" + newNumTypes;
 			}
 			
 			if (oldNumCallers > newNumCallers) {
-				additionals += "-";
+				additionals += "-" + oldNumCallers + ":" + newNumCallers;
 			} else if (oldNumCallers < newNumCallers) {
-				additionals += "+";
+				additionals += "+" + oldNumCallers + ":" + newNumCallers;
 			} else {
-				additionals += "=";
+				additionals += "=" + oldNumCallers + ":" + newNumCallers;
 			}
 			
 			if (oldNumMts > newNumMts) {
-				additionals += "-";
+				additionals += "-" + oldNumMts + ":" + newNumMts;
 			} else if (oldNumMts < newNumMts) {
-				additionals += "+";
+				additionals += "+" + oldNumMts + ":" + newNumMts;
 			} else {
-				additionals += "=";
+				additionals += "=" + oldNumMts + ":" + newNumMts;
 			}
 //		}
 		
-		return new StringBuilder().append(additionals + ":CD" + new BigDecimal(this.declarationDifference).setScale(6, RoundingMode.HALF_EVEN) +
-				":CI" + new BigDecimal(this.oldDeclarationMetric).setScale(6, RoundingMode.HALF_EVEN) +
-				":CF" + new BigDecimal(this.newDeclarationMetric).setScale(6, RoundingMode.HALF_EVEN) +
+		return new StringBuilder().append(additionals + "\tCD" + new BigDecimal(this.classValueDifference).setScale(6, RoundingMode.HALF_EVEN) +
+				":CI" + new BigDecimal(this.oldFromValue).setScale(6, RoundingMode.HALF_EVEN) + ":" + new BigDecimal(this.newFromValue).setScale(6, RoundingMode.HALF_EVEN) +
+				":CF" + new BigDecimal(this.oldToValue).setScale(6, RoundingMode.HALF_EVEN) + ":" + new BigDecimal(this.newToValue).setScale(6, RoundingMode.HALF_EVEN) +
 				
 				"\tBD" + super.getValueText() + 
 				":BI" + new BigDecimal(this.oldValue).setScale(6, RoundingMode.HALF_EVEN) +
