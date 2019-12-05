@@ -23,6 +23,9 @@ public class CAMCMethod extends DeclarationMetricMethod {
 		Set<String> values = uniqueValues(methods);
 		values.addAll(method);
 		
+		if(values.size() == 0)
+			return (double) 0.0;
+		
 		return (double) method.size() / (double) values.size();
 	}
 

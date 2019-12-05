@@ -43,6 +43,9 @@ public class NHDClass extends DeclarationMetricClass {
 	public static double nhdClass(boolean[][] poMtrx, BiPredicate<Boolean, Boolean> predicate) {
 		double metric = 0;
 		
+		if(poMtrx.length == 0)
+			return 0;
+		
 		List<boolean []> poList = new ArrayList<>(Arrays.asList(poMtrx));
 				
 		for (int i = 0; i < poMtrx.length; i++) {
@@ -56,6 +59,9 @@ public class NHDClass extends DeclarationMetricClass {
 	
 	protected static double nhdMethod(boolean[] method, boolean[][] poMtrx, BiPredicate<Boolean, Boolean> predicate) {
 		double metric = 0;
+		
+		if(method.length == 0 || poMtrx.length == 0)
+			return 0;
 		
 		for (int i = 0; i < poMtrx.length; i++) {
 			double agree = 0;

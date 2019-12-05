@@ -25,10 +25,10 @@ public class ISCOMiClass extends DeclarationMetricClass {
 	public static double iscomClass(Map<String, Set<String>> methods) {
 		double r = 0;
 		
-		double numValues = uniqueValues(methods).size();
-		
 		if (methods.size() < 2)
 			return 0;
+		
+		double numValues = uniqueValues(methods).size();
 
 		for (Entry<String, Set<String>> method : methods.entrySet()) {
 			Map<String, Set<String>> mtdsCopy = new HashMap<>(methods);
@@ -41,6 +41,9 @@ public class ISCOMiClass extends DeclarationMetricClass {
 
 	protected static double iscomMethod(Set<String> mi, Map<String, Set<String>> methods, double a) {
 		double r = 0;
+		
+		if(methods.size() == 0)
+			return 0;
 				
 		for (Entry<String, Set<String>> mj : methods.entrySet()) {
 			r = r + (c(mi, mj.getValue()) * w(mi, mj.getValue(), a));
@@ -60,6 +63,9 @@ public class ISCOMiClass extends DeclarationMetricClass {
 	}
 	
 	private static double w(Set<String> i, Set<String> j, double a) {
+		if(a == 0)
+			return 0;
+		
 		Set<String> union = new HashSet<>(i);
 		union.addAll(j);
 		

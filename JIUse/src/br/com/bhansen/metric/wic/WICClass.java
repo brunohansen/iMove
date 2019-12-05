@@ -34,6 +34,9 @@ public class WICClass extends ICClass {
 			
 			@Override
 			public Double apply(Set<String> m1, Set<String> m2) {
+				if(values == 0)
+					return 0.0;
+				
 				Set<String> union = new HashSet<>(m1);
 				union.addAll(m2);
 				
@@ -51,6 +54,9 @@ public class WICClass extends ICClass {
 			
 			@Override
 			public Double apply(Set<String> m1, Set<String> m2) {
+				if(values == 0)
+					return 0.0;
+				
 				Set<String> union = new HashSet<>(m1);
 				union.addAll(m2);
 				
