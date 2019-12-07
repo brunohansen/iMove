@@ -15,7 +15,6 @@ public class EvaluatorFactory {
 	}
 	
 	public static MoveMethodEvaluator create(Type classFrom, String method, Type classTo, IProgressMonitor monitor) throws Exception {
-//		return new EvaluateSumClass(classFrom, method, classTo, MetricFactory.createSkipUsageMethodMetricFactory(Config.getMetric()), monitor);
 		return new EvaluateSumMethod(classFrom, method, classTo, MetricFactory.createSkipUsageMethodMetricFactory(MoveMethodConfig.getMetric()), monitor);
 	}
 		
