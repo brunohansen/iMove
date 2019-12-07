@@ -6,7 +6,6 @@ import java.util.Set;
 
 import org.eclipse.core.runtime.IProgressMonitor;
 
-import br.com.bhansen.jdt.Method;
 import br.com.bhansen.jdt.Type;
 import br.com.bhansen.metric.AbsMetric;
 import br.com.bhansen.metric.DeclarationMetricMethod;
@@ -14,10 +13,6 @@ import br.com.bhansen.metric.DeclarationMetricMethod;
 public class ISCOMiMethod extends DeclarationMetricMethod {
 
 	public ISCOMiMethod(Type type, String method, String parameter, IProgressMonitor monitor) throws Exception {
-		super(type, method, parameter, monitor);
-	}
-	
-	public ISCOMiMethod(Type type, Method method, String parameter, IProgressMonitor monitor) throws Exception {
 		super(type, method, parameter, monitor);
 	}
 

@@ -6,7 +6,6 @@ import java.util.function.BiPredicate;
 
 import org.eclipse.core.runtime.IProgressMonitor;
 
-import br.com.bhansen.jdt.Method;
 import br.com.bhansen.jdt.Type;
 import br.com.bhansen.metric.UsageMetricMethod;
 
@@ -15,14 +14,10 @@ public class UNHDMethod extends UsageMetricMethod {
 	public UNHDMethod(Type type, String method, IProgressMonitor monitor) throws Exception {
 		super(type, method, monitor);
 	}
-	
-	public UNHDMethod(Type type, Method method, IProgressMonitor monitor) throws Exception {
-		super(type, method, monitor);
-	}
 
 	@Override
 	final public double getMetric(Set<String> method, Map<String, Set<String>> methods) {
-		return NHDMethod.nhdMethod(getMethod(), getMethods(), getPredicate());
+		return NHDMethod.nhdMethod(method, methods, getPredicate());
 	}
 	
 	protected BiPredicate<Boolean, Boolean> getPredicate() {
