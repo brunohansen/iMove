@@ -15,6 +15,10 @@ import br.com.bhansen.utils.Jaccard;
 
 public class ICClass extends DeclarationMetricClass {
 	
+	public ICClass(Type type, String method, String parameter, IProgressMonitor monitor) throws Exception {
+		super(type, method, parameter, monitor);
+	}
+
 	public interface MMWeight extends BiFunction<Set<String>, Set<String>, Double> {
 		
 		@Override
@@ -31,10 +35,6 @@ public class ICClass extends DeclarationMetricClass {
 			return 1.0;
 		}
 		
-	}
-	
-	public ICClass(Type type, IProgressMonitor monitor) throws Exception {
-		super(type, monitor);
 	}
 	
 	@Override

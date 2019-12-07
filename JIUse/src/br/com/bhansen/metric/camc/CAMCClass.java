@@ -9,9 +9,9 @@ import br.com.bhansen.jdt.Type;
 import br.com.bhansen.metric.DeclarationMetricClass;
 
 public class CAMCClass extends DeclarationMetricClass {
-		
-	public CAMCClass(Type type, IProgressMonitor monitor) throws Exception {
-		super(type, monitor);
+
+	public CAMCClass(Type type, String method, String parameter, IProgressMonitor monitor) throws Exception {
+		super(type, method, parameter, monitor);
 	}
 
 	@Override

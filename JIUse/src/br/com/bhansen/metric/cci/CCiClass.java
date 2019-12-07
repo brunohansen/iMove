@@ -13,8 +13,8 @@ import br.com.bhansen.utils.Jaccard;
 
 public class CCiClass extends DeclarationMetricClass {
 
-	public CCiClass(Type type, IProgressMonitor monitor) throws Exception {
-		super(type, monitor);
+	public CCiClass(Type type, String method, String parameter, IProgressMonitor monitor) throws Exception {
+		super(type, method, parameter, monitor);
 	}
 
 	@Override

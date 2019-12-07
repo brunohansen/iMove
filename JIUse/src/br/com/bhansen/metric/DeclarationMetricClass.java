@@ -11,30 +11,35 @@ import br.com.bhansen.jdt.MethodWithParameters;
 import br.com.bhansen.jdt.Type;
 
 public abstract class DeclarationMetricClass extends DeclarationMetric {
-
-	protected DeclarationMetricClass(Type type, IProgressMonitor monitor) throws Exception {
+	
+	public DeclarationMetricClass(Type type, String method, String parameter, IProgressMonitor monitor) throws Exception {
 		super(type);
 
 		IMethod[] iMethods = type.getIType().getMethods();
-
+		
 		SubMonitor subMonitor = SubMonitor.convert(monitor, iMethods.length);
 
 		for (IMethod iMethod : iMethods) {
 			subMonitor.split(1).done();
-
+			
 			Method m = new Method(iMethod);
-
+				
 			if(! MetricConfig.use(m))
 				continue;
-
-			MethodWithParameters mp = m.getMethodWithParameters();
+			
+			MethodWithParameters mp;
+			
+			if (m.isMethod(method)) {
+				mp = m.getMethodWithParameters(parameter);
+			} else {
+				mp = m.getMethodWithParameters();
+			}
 
 			if(! DataMetricConfig.use(mp))
 				continue;
-
+			
 			getMethods().put(mp.getSignature(), mp.getParameters());
 		}
-
 	}
 
 }

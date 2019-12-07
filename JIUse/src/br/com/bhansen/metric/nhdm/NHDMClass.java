@@ -9,6 +9,10 @@ import br.com.bhansen.metric.nhd.NHDClass;
 
 public class NHDMClass extends NHDClass {
 	
+	public NHDMClass(Type type, String method, String parameter, IProgressMonitor monitor) throws Exception {
+		super(type, method, parameter, monitor);
+	}
+
 	public static final BiPredicate<Boolean, Boolean> NHDM = new BiPredicate<Boolean, Boolean>() {
 		
 		@Override
@@ -16,10 +20,6 @@ public class NHDMClass extends NHDClass {
 			return v1 && v2;
 		}
 	};
-	
-	public NHDMClass(Type type, IProgressMonitor monitor) throws Exception {
-		super(type, monitor);
-	}
 	
 	@Override
 	protected BiPredicate<Boolean, Boolean> getPredicate() {

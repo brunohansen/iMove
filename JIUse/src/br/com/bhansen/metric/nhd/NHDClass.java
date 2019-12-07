@@ -15,6 +15,10 @@ import br.com.bhansen.utils.OccMtrx;
 
 public class NHDClass extends DeclarationMetricClass {
 	
+	public NHDClass(Type type, String method, String parameter, IProgressMonitor monitor) throws Exception {
+		super(type, method, parameter, monitor);
+	}
+
 	public static final BiPredicate<Boolean, Boolean> NHD = new BiPredicate<Boolean, Boolean>() {
 		
 		@Override
@@ -22,10 +26,6 @@ public class NHDClass extends DeclarationMetricClass {
 			return (v1 && v2) || (! v1 && ! v2);
 		}
 	};
-	
-	public NHDClass(Type type, IProgressMonitor monitor) throws Exception {
-		super(type, monitor);
-	}
 	
 	@Override
 	final public double getMetric() throws Exception {

@@ -13,8 +13,8 @@ import br.com.bhansen.metric.nhd.NHDClass;
 
 public class D3C2iClass extends DeclarationMetricClass {
 
-	protected D3C2iClass(Type type, IProgressMonitor monitor) throws Exception {
-		super(type, monitor);
+	public D3C2iClass(Type type, String method, String parameter, IProgressMonitor monitor) throws Exception {
+		super(type, method, parameter, monitor);
 	}
 
 	@Override

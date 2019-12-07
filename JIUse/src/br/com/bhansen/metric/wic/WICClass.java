@@ -11,10 +11,10 @@ import br.com.bhansen.metric.ic.ICClass;
 
 public class WICClass extends ICClass {
 	
-	public WICClass(Type type, IProgressMonitor monitor) throws Exception {
-		super(type, monitor);
+	public WICClass(Type type, String method, String parameter, IProgressMonitor monitor) throws Exception {
+		super(type, method, parameter, monitor);
 	}
-	
+
 	@Override
 	protected MMWeight createMMWeight() {
 		return createMMWeight(getMethods());

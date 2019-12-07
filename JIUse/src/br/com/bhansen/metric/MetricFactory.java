@@ -149,19 +149,19 @@ public abstract class MetricFactory {
 				
 				switch (metric) {
 					case CAMC_IUC:
-						return new CompositeMetric(new IUCClass(type, subMonitor.split(50)), new CAMCClass(type, subMonitor.split(50)));
+						return new CompositeMetric(new IUCClass(type, subMonitor.split(50)), new CAMCClass(type, method, parameter, subMonitor.split(50)));
 					case CCi:
-						return new CompositeMetric(new UCCiClass(type, subMonitor.split(50)), new CCiClass(type, subMonitor.split(50)));
+						return new CompositeMetric(new UCCiClass(type, subMonitor.split(50)), new CCiClass(type, method, parameter, subMonitor.split(50)));
 					case IC:
-						return new CompositeMetric(new UICClass(type, subMonitor.split(50)), new ICClass(type, subMonitor.split(50)));
+						return new CompositeMetric(new UICClass(type, subMonitor.split(50)), new ICClass(type, method, parameter, subMonitor.split(50)));
 					case ISCOMi:
-						return new CompositeMetric(new UISCOMiClass(type, subMonitor.split(50)), new ISCOMiClass(type, subMonitor.split(50)));
+						return new CompositeMetric(new UISCOMiClass(type, subMonitor.split(50)), new ISCOMiClass(type, method, parameter, subMonitor.split(50)));
 					case NHD:
-						return new CompositeMetric(new UNHDClass(type, subMonitor.split(50)), new NHDClass(type, subMonitor.split(50)));
+						return new CompositeMetric(new UNHDClass(type, subMonitor.split(50)), new NHDClass(type, method, parameter, subMonitor.split(50)));
 					case NHDM:
-						return new CompositeMetric(new UNHDMClass(type, subMonitor.split(50)), new NHDMClass(type, subMonitor.split(50)));
+						return new CompositeMetric(new UNHDMClass(type, subMonitor.split(50)), new NHDMClass(type, method, parameter, subMonitor.split(50)));
 					case WIC:
-						return new CompositeMetric(new UWICClass(type, subMonitor.split(50)), new WICClass(type, subMonitor.split(50)));
+						return new CompositeMetric(new UWICClass(type, subMonitor.split(50)), new WICClass(type, method, parameter, subMonitor.split(50)));
 					default:
 						throw new Exception("Invalid metric: " + metric + "!");
 				}
@@ -176,19 +176,19 @@ public abstract class MetricFactory {
 			public DeclarationMetric create(Type type, String method, String parameter, boolean skipUsage, IProgressMonitor monitor) throws Exception {
 				switch (metric) {
 					case CAMC_IUC:
-						return new CAMCClass(type, monitor);
+						return new CAMCClass(type, method, parameter, monitor);
 					case CCi:
-						return new CCiClass(type, monitor);
+						return new CCiClass(type, method, parameter, monitor);
 					case IC:
-						return new ICClass(type, monitor);
+						return new ICClass(type, method, parameter, monitor);
 					case ISCOMi:
-						return new ISCOMiClass(type, monitor);
+						return new ISCOMiClass(type, method, parameter, monitor);
 					case NHD:
-						return new NHDClass(type, monitor);
+						return new NHDClass(type, method, parameter, monitor);
 					case NHDM:
-						return new NHDMClass(type, monitor);
+						return new NHDMClass(type, method, parameter, monitor);
 					case WIC:
-						return new WICClass(type, monitor);
+						return new WICClass(type, method, parameter, monitor);
 					default:
 						throw new Exception("Invalid metric: " + metric + "!");
 				}
