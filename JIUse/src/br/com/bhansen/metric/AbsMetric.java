@@ -1,11 +1,13 @@
 package br.com.bhansen.metric;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
-import java.util.Set;
 import java.util.Map.Entry;
+import java.util.Set;
 
 import br.com.bhansen.jdt.Type;
 
@@ -19,6 +21,17 @@ public abstract class AbsMetric implements Metric {
 		this.name = type.getName();
 		this.methods = new HashMap<>();
 	}
+	
+	@Override
+	public final double getMetric() throws Exception {
+		return getMetricValue();
+	}
+	
+	public static double round(double value) {
+		return new BigDecimal(value).setScale(6, RoundingMode.HALF_UP).doubleValue();
+	}
+	
+	protected abstract double getMetricValue() throws Exception;
 	
 	public String getName() {
 		return name;

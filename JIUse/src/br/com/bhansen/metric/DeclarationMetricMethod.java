@@ -60,7 +60,7 @@ public abstract class DeclarationMetricMethod extends DeclarationMetric {
 	}
 		
 	@Override
-	public final double getMetric() throws Exception {
+	public final double getMetricValue() throws Exception {
 		
 		if (this.getMethod().size() == 0)
 			return 1;

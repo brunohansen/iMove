@@ -14,7 +14,7 @@ public class UNHDClass extends UsageMetricClass {
 	}
 
 	@Override
-	final public double getMetric() throws Exception {
+	final public double getMetricValue() throws Exception {
 		return NHDClass.nhdClass(getMethods(), getPredicate());
 	}
 	

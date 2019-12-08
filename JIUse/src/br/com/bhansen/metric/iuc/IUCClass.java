@@ -19,7 +19,7 @@ public class IUCClass extends UsageMetricClass {
 		super(type, monitor);				
 	}
 		
-	public double getMetric() throws Exception {
+	public double getMetricValue() throws Exception {
 		return iucClass(getMethods());
 	}
 	

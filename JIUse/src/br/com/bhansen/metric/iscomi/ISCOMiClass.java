@@ -18,7 +18,7 @@ public class ISCOMiClass extends DeclarationMetricClass {
 	}
 
 	@Override
-	public double getMetric() throws Exception {
+	public double getMetricValue() throws Exception {
 		return iscomClass(getMethods());
 	}
 	

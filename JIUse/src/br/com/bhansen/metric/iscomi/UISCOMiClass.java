@@ -12,7 +12,7 @@ public class UISCOMiClass extends UsageMetricClass {
 	}
 	
 	@Override
-	public double getMetric() throws Exception {
+	public double getMetricValue() throws Exception {
 		return ISCOMiClass.iscomClass(getMethods());
 	}
 

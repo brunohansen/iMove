@@ -18,7 +18,7 @@ public class D3C2iClass extends DeclarationMetricClass {
 	}
 
 	@Override
-	public double getMetric() throws Exception {
+	public double getMetricValue() throws Exception {
 		return d3c2iClass(getMethods());
 	}
 	

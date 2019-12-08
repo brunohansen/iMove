@@ -38,7 +38,7 @@ public class ICClass extends DeclarationMetricClass {
 	}
 	
 	@Override
-	final public double getMetric() throws Exception {
+	final public double getMetricValue() throws Exception {
 		return icClass(getMethods(), createMMWeight(), createPPWeight());
 	}
 	

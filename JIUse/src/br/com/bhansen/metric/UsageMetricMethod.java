@@ -74,7 +74,7 @@ public abstract class UsageMetricMethod extends UsageMetric {
 	}
 	
 	@Override
-	public final double getMetric() throws Exception {
+	public final double getMetricValue() throws Exception {
 		
 		if (this.getMethod().size() == 0)
 			return 0;
