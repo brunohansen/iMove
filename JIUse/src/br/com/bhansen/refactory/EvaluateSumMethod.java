@@ -1,5 +1,8 @@
 package br.com.bhansen.refactory;
 
+import java.util.Collection;
+import java.util.Map;
+
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.core.runtime.SubMonitor;
@@ -92,13 +95,8 @@ public class EvaluateSumMethod extends MoveMethodEvaluator  {
 			}
 		} */
 		
-		this.oldValue = this.oldMetric.getMetric();
-
 		this.oldClassFromMetric = factory.createCompositeClassMetricFactory(MoveMethodConfig.getMetric()).create(classFrom, subMonitor.split(30));
-		this.oldClassFromValue = this.oldClassFromMetric.getMetric();
-		
 		this.oldClassToMetric = factory.createCompositeClassMetricFactory(MoveMethodConfig.getMetric()).create(classTo, subMonitor.split(30));
-		this.oldClassToValue = this.oldClassToMetric.getMetric();
 		
 		this.move(subMonitor.split(70));
 	}
@@ -125,46 +123,83 @@ public class EvaluateSumMethod extends MoveMethodEvaluator  {
 	
 	@Override
 	public boolean shouldMove() {
-		return this.valueDifference >= MoveMethodConfig.getThreshold() && 
-				this.classValueDifference >= MoveMethodConfig.getThreshold();
+		return this.valueDifference >= MoveMethodConfig.getThreshold(); // && 
+				//this.classValueDifference >= MoveMethodConfig.getThreshold();
 	}
-
+	
+	public static <T> double kl(Map<?, ? extends Collection<T>> m1, Map<?, ? extends Collection<T>> m2) {
+		return AbsMetric.uniqueValues(m1, m2).size() * (m1.size() + m2.size());
+	}
+	
+	public static <T> double kl(Map<?, ? extends Collection<T>> m) {
+		return AbsMetric.uniqueValues(m).size() * m.size();
+	}
+	
 	private void calc() throws Exception {
-		this.newValue = this.newMetric.getMetric();
-		this.valueDifference = (this.newValue - this.oldValue);
 		
-		this.newClassFromValue = this.newClassFromMetric.getMetric();
-		this.newClassToValue = this.newClassToMetric.getMetric();
+		Metric usageFrom = ((CompositeMetric) oldClassFromMetric).getUMetric();
+		Metric declarationFrom = ((CompositeMetric) oldClassFromMetric).getDMetric();
 		
-		this.classValueDifference = (this.newClassFromValue - this.oldClassFromValue) + (this.newClassToValue - this.oldClassToValue);
+		Metric usageTo = ((CompositeMetric) oldClassToMetric).getUMetric();
+		Metric declarationTo = ((CompositeMetric) oldClassToMetric).getDMetric();
+		
+		double klUsage = kl(usageFrom.getMethods(), usageTo.getMethods());
+		double klDeclaration = kl(declarationFrom.getMethods(), declarationTo.getMethods());
+		
+		double klUsageFrom = kl(usageFrom.getMethods()) / klUsage;
+		double klDeclarationFrom = kl(declarationFrom.getMethods()) / klDeclaration;
+		
+		double klUsageTo = kl(usageTo.getMethods()) / klUsage;
+		double klDeclarationTo = kl(declarationTo.getMethods()) / klDeclaration;
 				
 		if(oldMetric instanceof CompositeMetric && newMetric instanceof CompositeMetric) {
-			oldUsageMetric = ((CompositeMetric) oldMetric).getUsageMetric();
-			oldDeclarationMetric = ((CompositeMetric) oldMetric).getDeclarationMetric();
+			oldUsageMetric = ((CompositeMetric) oldMetric).getUsageMetric() * klUsageTo;
+			oldDeclarationMetric = ((CompositeMetric) oldMetric).getDeclarationMetric() * klDeclarationTo;
 			
-			newUsageMetric = ((CompositeMetric) newMetric).getUsageMetric();
-			newDeclarationMetric = ((CompositeMetric) newMetric).getDeclarationMetric();
+			newUsageMetric = ((CompositeMetric) newMetric).getUsageMetric() * klUsageFrom;
+			newDeclarationMetric = ((CompositeMetric) newMetric).getDeclarationMetric() * klDeclarationFrom;
 			
 			usageDifference = (newUsageMetric - oldUsageMetric);
 			declarationDifference = (newDeclarationMetric - oldDeclarationMetric);
+			
+			oldValue = oldUsageMetric + oldDeclarationMetric;
+			newValue = newUsageMetric + newDeclarationMetric;
+			valueDifference = newValue - oldValue;
 		} else {
-			oldDeclarationMetric = this.oldValue;
-			newDeclarationMetric = this.newValue;
-			declarationDifference = this.valueDifference;
+			oldUsageMetric = 0;
+			oldDeclarationMetric = oldMetric.getMetric() * klDeclarationTo;
+			
+			newUsageMetric = 0;
+			newDeclarationMetric = newMetric.getMetric() * klDeclarationFrom;
+			
+			usageDifference = 0;
+			declarationDifference = (newDeclarationMetric - oldDeclarationMetric);
+			
+			oldValue = oldUsageMetric + oldDeclarationMetric;
+			newValue = newUsageMetric + newDeclarationMetric;
+			valueDifference = newValue - oldValue;
 		}
 		
-		oldUsageClassFromMetric = ((CompositeMetric) oldClassFromMetric).getUsageMetric();
-		oldDeclarationClassFromMetric = ((CompositeMetric) oldClassFromMetric).getDeclarationMetric();
-		oldUsageClassToMetric = ((CompositeMetric) oldClassToMetric).getUsageMetric();
-		oldDeclarationClassToMetric = ((CompositeMetric) oldClassToMetric).getDeclarationMetric();
+		oldUsageClassFromMetric = ((CompositeMetric) oldClassFromMetric).getUsageMetric() * klUsageTo;
+		oldDeclarationClassFromMetric = ((CompositeMetric) oldClassFromMetric).getDeclarationMetric() * klDeclarationTo;
+		oldUsageClassToMetric = ((CompositeMetric) oldClassToMetric).getUsageMetric() * klUsageFrom;
+		oldDeclarationClassToMetric = ((CompositeMetric) oldClassToMetric).getDeclarationMetric() * klDeclarationFrom;
 		
-		newUsageClassFromMetric = ((CompositeMetric) newClassFromMetric).getUsageMetric();
-		newDeclarationClassFromMetric = ((CompositeMetric) newClassFromMetric).getDeclarationMetric();
-		newUsageClassToMetric = ((CompositeMetric) newClassToMetric).getUsageMetric();
-		newDeclarationClassToMetric = ((CompositeMetric) newClassToMetric).getDeclarationMetric();
+		newUsageClassFromMetric = ((CompositeMetric) newClassFromMetric).getUsageMetric() * klUsageTo;
+		newDeclarationClassFromMetric = ((CompositeMetric) newClassFromMetric).getDeclarationMetric() * klDeclarationTo;
+		newUsageClassToMetric = ((CompositeMetric) newClassToMetric).getUsageMetric() * klUsageFrom;
+		newDeclarationClassToMetric = ((CompositeMetric) newClassToMetric).getDeclarationMetric() * klDeclarationFrom;
 		
 		usageClassDifference = (newUsageClassFromMetric - oldUsageClassFromMetric) + (newUsageClassToMetric - oldUsageClassToMetric);
 		declarationClassDifference = (newDeclarationClassFromMetric - oldDeclarationClassFromMetric) + (newDeclarationClassToMetric - oldDeclarationClassToMetric);
+		
+		oldClassFromValue = oldUsageClassFromMetric + oldDeclarationClassFromMetric;
+		oldClassToValue = oldUsageClassToMetric + oldDeclarationClassToMetric;
+		
+		newClassFromValue = newUsageClassFromMetric + newDeclarationClassFromMetric;
+		newClassToValue = newUsageClassToMetric + newDeclarationClassToMetric;
+		
+		classValueDifference = (newClassFromValue - oldClassFromValue) + (newClassToValue - oldClassToValue);
 	}
 		
 	@Override

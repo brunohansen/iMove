@@ -54,7 +54,7 @@ public abstract class AbsMetric implements Metric {
 		}
 	}
 	
-	protected static <T> Set<T> uniqueValues(Map<?, ? extends Collection<T>> m) {
+	public static <T> Set<T> uniqueValues(Map<?, ? extends Collection<T>> m) {
 		Set<T> values = new HashSet<>();
 		
 		for (Collection<T> mValues : m.values()) {
@@ -70,6 +70,10 @@ public abstract class AbsMetric implements Metric {
 		values.addAll(uniqueValues(m));
 		
 		return values;
+	}
+	
+	public static <T> Set<T> uniqueValues(Map<?, ? extends Collection<T>> m1, Map<?, ? extends Collection<T>> m2) {
+		return uniqueValues(uniqueValues(m1), m2);
 	}
 	
 	public static <T> Map<T, Set<T>> transpose(Map<T, Set<T>> m) {
