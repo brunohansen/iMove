@@ -123,8 +123,8 @@ public class EvaluateSumMethod extends MoveMethodEvaluator  {
 	
 	@Override
 	public boolean shouldMove() {
-		return this.valueDifference >= MoveMethodConfig.getThreshold(); // && 
-				//this.classValueDifference >= MoveMethodConfig.getThreshold();
+		return this.valueDifference >= MoveMethodConfig.getThreshold() && 
+				this.classValueDifference >= MoveMethodConfig.getThreshold();
 	}
 	
 	public static <T> double kl(Map<?, ? extends Collection<T>> m1, Map<?, ? extends Collection<T>> m2) {
