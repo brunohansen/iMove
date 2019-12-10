@@ -1,8 +1,5 @@
 package br.com.bhansen.handler.select;
 
-import java.math.BigDecimal;
-import java.math.RoundingMode;
-
 import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.ui.IWorkbenchWindow;
 
@@ -12,6 +9,7 @@ import br.com.bhansen.dialog.MessageDialog;
 import br.com.bhansen.dialog.ProgressDialog;
 import br.com.bhansen.jdt.Method;
 import br.com.bhansen.jdt.Type;
+import br.com.bhansen.metric.AbsMetric;
 import br.com.bhansen.metric.Metric;
 import br.com.bhansen.metric.MetricFactory;
 
@@ -27,7 +25,7 @@ public class ShowMethodMetric extends SelectionHandler {
 		
 		Metric m = ProgressDialog.open(window, monitor -> MetricFactory.createMethodMetricFactory(metric, context).create(selection, strMethod, monitor));
 						
-		MessageDialog.open((metric.equals("IUC")? "MUC" : "MDC") + " - " + m.getName(), strMethod + ": " + new BigDecimal(m.getMetric()).setScale(6, RoundingMode.HALF_EVEN));
+		MessageDialog.open((metric.equals("IUC")? "MUC" : "MDC") + " - " + m.getName(), strMethod + ": " + AbsMetric.round(m.getMetric()));
 		
 		return null;
 	}

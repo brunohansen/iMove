@@ -1,14 +1,12 @@
 package br.com.bhansen.refactory;
 
-import java.math.BigDecimal;
-import java.math.RoundingMode;
-
 import org.eclipse.jdt.core.IMethod;
 
 import br.com.bhansen.config.MoveMethodConfig;
 import br.com.bhansen.jdt.Method;
 import br.com.bhansen.jdt.Signature;
 import br.com.bhansen.jdt.Type;
+import br.com.bhansen.metric.AbsMetric;
 import br.com.bhansen.metric.MetricFactory;
 
 public abstract class MoveMethodEvaluator {
@@ -70,7 +68,7 @@ public abstract class MoveMethodEvaluator {
 	}
 	
 	public String getValueText() {
-		return new BigDecimal(this.valueDifference).setScale(6, RoundingMode.HALF_EVEN).toString();
+		return AbsMetric.round(this.valueDifference).toString();
 	}
 	
 	public String getMessage() { 

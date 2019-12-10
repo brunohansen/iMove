@@ -1,8 +1,5 @@
 package br.com.bhansen.refactory;
 
-import java.math.BigDecimal;
-import java.math.RoundingMode;
-
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.core.runtime.SubMonitor;
@@ -12,6 +9,7 @@ import br.com.bhansen.config.MoveMethodConfig;
 import br.com.bhansen.config.UsageMetricConfig;
 import br.com.bhansen.jdt.MethodWithCallers;
 import br.com.bhansen.jdt.Type;
+import br.com.bhansen.metric.AbsMetric;
 import br.com.bhansen.metric.CompositeMetric;
 import br.com.bhansen.metric.DeclarationMetricMethod;
 import br.com.bhansen.metric.Metric;
@@ -35,12 +33,32 @@ public class EvaluateSumMethod extends MoveMethodEvaluator  {
 	private double usageDifference;
 	private double declarationDifference;
 	
-	private double oldFromValue;
-	private double oldToValue;
+	private Metric oldClassFromMetric;
+	private Metric newClassFromMetric;
 
-	private double newFromValue;
-	private double newToValue;
+	private double oldClassFromValue;
+	private double newClassFromValue;
+
+	private double oldUsageClassFromMetric;
+	private double oldDeclarationClassFromMetric;
 	
+	private double newUsageClassFromMetric;
+	private double newDeclarationClassFromMetric;
+	
+	private Metric oldClassToMetric;
+	private Metric newClassToMetric;
+
+	private double oldClassToValue;
+	private double newClassToValue;
+
+	private double oldUsageClassToMetric;
+	private double oldDeclarationClassToMetric;
+	
+	private double newUsageClassToMetric;
+	private double newDeclarationClassToMetric;
+	
+	private double usageClassDifference;
+	private double declarationClassDifference;
 	private double classValueDifference;
 	
 	public EvaluateSumMethod(Type classFrom, String method, Type classTo, MetricFactory factory, IProgressMonitor monitor) throws Exception {
@@ -75,9 +93,12 @@ public class EvaluateSumMethod extends MoveMethodEvaluator  {
 		} */
 		
 		this.oldValue = this.oldMetric.getMetric();
+
+		this.oldClassFromMetric = factory.createCompositeClassMetricFactory(MoveMethodConfig.getMetric()).create(classFrom, subMonitor.split(30));
+		this.oldClassFromValue = this.oldClassFromMetric.getMetric();
 		
-		this.oldFromValue = factory.createClassMetricFactory(MoveMethodConfig.getMetric()).create(classFrom, subMonitor.split(20)).getMetric();
-		this.oldToValue = factory.createClassMetricFactory(MoveMethodConfig.getMetric()).create(classTo, subMonitor.split(20)).getMetric();
+		this.oldClassToMetric = factory.createCompositeClassMetricFactory(MoveMethodConfig.getMetric()).create(classTo, subMonitor.split(30));
+		this.oldClassToValue = this.oldClassToMetric.getMetric();
 		
 		this.move(subMonitor.split(70));
 	}
@@ -90,25 +111,32 @@ public class EvaluateSumMethod extends MoveMethodEvaluator  {
 		Change undo = refactor.move(this.classFrom, this.method, this.classTo, subMonitor.split(50));
 		
 		try {
-			//this.newMetric = factory.create(this.classTo, this.method, monitor);
 			this.newMetric = factory.create(this.classTo, this.method.getMoveName(), refactor.getTypeNotUsed(), subMonitor.split(50));
 			
-			this.newFromValue = factory.createClassMetricFactory(MoveMethodConfig.getMetric()).create(this.classFrom, subMonitor.split(30)).getMetric();
-			this.newToValue = factory.createClassMetricFactory(MoveMethodConfig.getMetric()).create(this.classTo, this.method.getMoveName(), refactor.getTypeNotUsed(), subMonitor.split(30)).getMetric();
-			
+			this.newClassFromMetric = factory.createCompositeClassMetricFactory(MoveMethodConfig.getMetric()).create(this.classFrom, subMonitor.split(50));
+			this.newClassToMetric = factory.createCompositeClassMetricFactory(MoveMethodConfig.getMetric()).create(this.classTo, this.method.getMoveName(), refactor.getTypeNotUsed(), subMonitor.split(50));
+
 			calc();		
 		} finally {
 			undo.perform(new NullProgressMonitor());
 		}
 		
 	}
+	
+	@Override
+	public boolean shouldMove() {
+		return this.valueDifference >= MoveMethodConfig.getThreshold() && 
+				this.classValueDifference >= MoveMethodConfig.getThreshold();
+	}
 
 	private void calc() throws Exception {
 		this.newValue = this.newMetric.getMetric();
-		
 		this.valueDifference = (this.newValue - this.oldValue);
 		
-		this.classValueDifference = (this.newFromValue - this.oldFromValue) + (this.newToValue - this.oldToValue);
+		this.newClassFromValue = this.newClassFromMetric.getMetric();
+		this.newClassToValue = this.newClassToMetric.getMetric();
+		
+		this.classValueDifference = (this.newClassFromValue - this.oldClassFromValue) + (this.newClassToValue - this.oldClassToValue);
 				
 		if(oldMetric instanceof CompositeMetric && newMetric instanceof CompositeMetric) {
 			oldUsageMetric = ((CompositeMetric) oldMetric).getUsageMetric();
@@ -124,6 +152,19 @@ public class EvaluateSumMethod extends MoveMethodEvaluator  {
 			newDeclarationMetric = this.newValue;
 			declarationDifference = this.valueDifference;
 		}
+		
+		oldUsageClassFromMetric = ((CompositeMetric) oldClassFromMetric).getUsageMetric();
+		oldDeclarationClassFromMetric = ((CompositeMetric) oldClassFromMetric).getDeclarationMetric();
+		oldUsageClassToMetric = ((CompositeMetric) oldClassToMetric).getUsageMetric();
+		oldDeclarationClassToMetric = ((CompositeMetric) oldClassToMetric).getDeclarationMetric();
+		
+		newUsageClassFromMetric = ((CompositeMetric) newClassFromMetric).getUsageMetric();
+		newDeclarationClassFromMetric = ((CompositeMetric) newClassFromMetric).getDeclarationMetric();
+		newUsageClassToMetric = ((CompositeMetric) newClassToMetric).getUsageMetric();
+		newDeclarationClassToMetric = ((CompositeMetric) newClassToMetric).getDeclarationMetric();
+		
+		usageClassDifference = (newUsageClassFromMetric - oldUsageClassFromMetric) + (newUsageClassToMetric - oldUsageClassToMetric);
+		declarationClassDifference = (newDeclarationClassFromMetric - oldDeclarationClassFromMetric) + (newDeclarationClassToMetric - oldDeclarationClassToMetric);
 	}
 		
 	@Override
@@ -161,105 +202,110 @@ public class EvaluateSumMethod extends MoveMethodEvaluator  {
 	
 	@Override
 	public String getValueText() {
-		//Verificar se a assinatura diminuiu
 		
 		String additionals = "";
 		
-//		if(this.oldDeclarationMetric == 0 && this.newDeclarationMetric == 0 &&
-//				this.oldUsageMetric == 0 && this.newUsageMetric == 0) {
-			int oldNumParams = 0;
-			int newNumParams = 0;
-			
-			int oldNumTypes = 0;
-			int newNumTypes = 0;
-			
-			int oldNumCallers = 0;
-			int newNumCallers = 0;
-			
-			int oldNumMts = 0;
-			int newNumMts = 0;
-			
-			if(oldMetric instanceof CompositeMetric && newMetric instanceof CompositeMetric) {
-				oldNumParams = ((DeclarationMetricMethod) ((CompositeMetric) oldMetric).getDMetric()).getMethod().size();
-				newNumParams = ((DeclarationMetricMethod) ((CompositeMetric) newMetric).getDMetric()).getMethod().size();
-				
-				oldNumTypes = ((DeclarationMetricMethod) ((CompositeMetric) oldMetric).getDMetric()).getAllParams().size() + 
-						((DeclarationMetricMethod) ((CompositeMetric) newMetric).getDMetric()).getMethodsParams().size();
-				newNumTypes = ((DeclarationMetricMethod) ((CompositeMetric) oldMetric).getDMetric()).getMethodsParams().size() + 
-						((DeclarationMetricMethod) ((CompositeMetric) newMetric).getDMetric()).getAllParams().size();
-				
-				oldNumCallers = ((UsageMetricMethod) ((CompositeMetric) oldMetric).getUMetric()).getAllCallers().size() + 
-						((UsageMetricMethod) ((CompositeMetric) newMetric).getUMetric()).getMethodsCallers().size();
-				newNumCallers = ((UsageMetricMethod) ((CompositeMetric) oldMetric).getUMetric()).getMethodsCallers().size() + 
-						((UsageMetricMethod) ((CompositeMetric) newMetric).getUMetric()).getAllCallers().size();
-				
-				oldNumMts = ((DeclarationMetricMethod) ((CompositeMetric) oldMetric).getDMetric()).getMethods().size() + 1;
-				newNumMts = ((DeclarationMetricMethod) ((CompositeMetric) newMetric).getDMetric()).getMethods().size();
-			} else {
-				oldNumParams = ((DeclarationMetricMethod) oldMetric).getMethod().size();
-				newNumParams = ((DeclarationMetricMethod) newMetric).getMethod().size();
-				
-				oldNumTypes = ((DeclarationMetricMethod) oldMetric).getAllParams().size();
-					((DeclarationMetricMethod) newMetric).getMethodsParams().size();
-				newNumTypes = ((DeclarationMetricMethod) oldMetric).getMethodsParams().size();
-					((DeclarationMetricMethod) newMetric).getAllParams().size();
-				
-				oldNumCallers = 0;
-				newNumCallers = 0;
-				
-				oldNumMts = ((DeclarationMetricMethod) oldMetric).getMethods().size() + 1;
-				newNumMts = ((DeclarationMetricMethod) newMetric).getMethods().size();
-			}
-			
-			if (oldNumParams > newNumParams) {
-				additionals = "-" + oldNumParams + ":" + newNumParams;
-			} else if (oldNumParams < newNumParams) {
-				additionals = "+" + oldNumParams + ":" + newNumParams;
-			} else {
-				additionals = "=" + oldNumParams + ":" + newNumParams;
-			}
-			
-			if (oldNumTypes > newNumTypes) {
-				additionals += "-" + oldNumTypes + ":" + newNumTypes;
-			} else if (oldNumTypes < newNumTypes) {
-				additionals += "+" + oldNumTypes + ":" + newNumTypes;
-			} else {
-				additionals += "=" + oldNumTypes + ":" + newNumTypes;
-			}
-			
-			if (oldNumCallers > newNumCallers) {
-				additionals += "-" + oldNumCallers + ":" + newNumCallers;
-			} else if (oldNumCallers < newNumCallers) {
-				additionals += "+" + oldNumCallers + ":" + newNumCallers;
-			} else {
-				additionals += "=" + oldNumCallers + ":" + newNumCallers;
-			}
-			
-			if (oldNumMts > newNumMts) {
-				additionals += "-" + oldNumMts + ":" + newNumMts;
-			} else if (oldNumMts < newNumMts) {
-				additionals += "+" + oldNumMts + ":" + newNumMts;
-			} else {
-				additionals += "=" + oldNumMts + ":" + newNumMts;
-			}
-//		}
+		int oldNumParams = 0;
+		int newNumParams = 0;
 		
-		return new StringBuilder().append(additionals + "\tCD" + new BigDecimal(this.classValueDifference).setScale(6, RoundingMode.HALF_EVEN) +
-				":CI" + new BigDecimal(this.oldFromValue).setScale(6, RoundingMode.HALF_EVEN) + ":" + new BigDecimal(this.newFromValue).setScale(6, RoundingMode.HALF_EVEN) +
-				":CF" + new BigDecimal(this.oldToValue).setScale(6, RoundingMode.HALF_EVEN) + ":" + new BigDecimal(this.newToValue).setScale(6, RoundingMode.HALF_EVEN) +
+		int oldNumTypes = 0;
+		int newNumTypes = 0;
+		
+		int oldNumCallers = 0;
+		int newNumCallers = 0;
+		
+		int oldNumMts = 0;
+		int newNumMts = 0;
+		
+		if(oldMetric instanceof CompositeMetric && newMetric instanceof CompositeMetric) {
+			oldNumParams = ((DeclarationMetricMethod) ((CompositeMetric) oldMetric).getDMetric()).getMethod().size();
+			newNumParams = ((DeclarationMetricMethod) ((CompositeMetric) newMetric).getDMetric()).getMethod().size();
+			
+			oldNumTypes = ((DeclarationMetricMethod) ((CompositeMetric) oldMetric).getDMetric()).getAllParams().size() + 
+					((DeclarationMetricMethod) ((CompositeMetric) newMetric).getDMetric()).getMethodsParams().size();
+			newNumTypes = ((DeclarationMetricMethod) ((CompositeMetric) oldMetric).getDMetric()).getMethodsParams().size() + 
+					((DeclarationMetricMethod) ((CompositeMetric) newMetric).getDMetric()).getAllParams().size();
+			
+			oldNumCallers = ((UsageMetricMethod) ((CompositeMetric) oldMetric).getUMetric()).getAllCallers().size() + 
+					((UsageMetricMethod) ((CompositeMetric) newMetric).getUMetric()).getMethodsCallers().size();
+			newNumCallers = ((UsageMetricMethod) ((CompositeMetric) oldMetric).getUMetric()).getMethodsCallers().size() + 
+					((UsageMetricMethod) ((CompositeMetric) newMetric).getUMetric()).getAllCallers().size();
+			
+			oldNumMts = ((DeclarationMetricMethod) ((CompositeMetric) oldMetric).getDMetric()).getMethods().size() + 1;
+			newNumMts = ((DeclarationMetricMethod) ((CompositeMetric) newMetric).getDMetric()).getMethods().size();
+		} else {
+			oldNumParams = ((DeclarationMetricMethod) oldMetric).getMethod().size();
+			newNumParams = ((DeclarationMetricMethod) newMetric).getMethod().size();
+			
+			oldNumTypes = ((DeclarationMetricMethod) oldMetric).getAllParams().size();
+				((DeclarationMetricMethod) newMetric).getMethodsParams().size();
+			newNumTypes = ((DeclarationMetricMethod) oldMetric).getMethodsParams().size();
+				((DeclarationMetricMethod) newMetric).getAllParams().size();
+			
+			oldNumCallers = 0;
+			newNumCallers = 0;
+			
+			oldNumMts = ((DeclarationMetricMethod) oldMetric).getMethods().size() + 1;
+			newNumMts = ((DeclarationMetricMethod) newMetric).getMethods().size();
+		}
+		
+		if (oldNumParams > newNumParams) {
+			additionals = "-" + oldNumParams + ":" + newNumParams;
+		} else if (oldNumParams < newNumParams) {
+			additionals = "+" + oldNumParams + ":" + newNumParams;
+		} else {
+			additionals = "=" + oldNumParams + ":" + newNumParams;
+		}
+		
+		if (oldNumTypes > newNumTypes) {
+			additionals += "-" + oldNumTypes + ":" + newNumTypes;
+		} else if (oldNumTypes < newNumTypes) {
+			additionals += "+" + oldNumTypes + ":" + newNumTypes;
+		} else {
+			additionals += "=" + oldNumTypes + ":" + newNumTypes;
+		}
+		
+		if (oldNumCallers > newNumCallers) {
+			additionals += "-" + oldNumCallers + ":" + newNumCallers;
+		} else if (oldNumCallers < newNumCallers) {
+			additionals += "+" + oldNumCallers + ":" + newNumCallers;
+		} else {
+			additionals += "=" + oldNumCallers + ":" + newNumCallers;
+		}
+		
+		if (oldNumMts > newNumMts) {
+			additionals += "-" + oldNumMts + ":" + newNumMts;
+		} else if (oldNumMts < newNumMts) {
+			additionals += "+" + oldNumMts + ":" + newNumMts;
+		} else {
+			additionals += "=" + oldNumMts + ":" + newNumMts;
+		}
+		
+		return new StringBuilder().append(additionals + 
+				
+				"\tCB" + AbsMetric.round(this.classValueDifference) +
+				":CBI" + AbsMetric.round(this.oldClassFromValue) + ":" + AbsMetric.round(this.newClassFromValue) +
+				":CBF" + AbsMetric.round(this.oldClassToValue) + ":" + AbsMetric.round(this.newClassToValue) +
+
+				"\tCD" + AbsMetric.round(this.declarationClassDifference) +
+				":CDI" + AbsMetric.round(this.oldDeclarationClassFromMetric) + ":" + AbsMetric.round(this.newDeclarationClassFromMetric) +
+				":CDF" + AbsMetric.round(this.oldDeclarationClassToMetric) + ":" + AbsMetric.round(this.newDeclarationClassToMetric) +
+
+				"\tCU" + AbsMetric.round(this.usageClassDifference) +
+				":CUI" + AbsMetric.round(this.oldUsageClassFromMetric) + ":" + AbsMetric.round(this.newUsageClassFromMetric) +
+				":CUF" + AbsMetric.round(this.oldUsageClassToMetric) + ":" + AbsMetric.round(this.newUsageClassToMetric) +
 				
 				"\tBD" + super.getValueText() + 
-				":BI" + new BigDecimal(this.oldValue).setScale(6, RoundingMode.HALF_EVEN) +
-				":BF" + new BigDecimal(this.newValue).setScale(6, RoundingMode.HALF_EVEN) +
+				":BI" + AbsMetric.round(this.oldValue) +
+				":BF" + AbsMetric.round(this.newValue) +
 				
-				"\tDD" + new BigDecimal(this.declarationDifference).setScale(6, RoundingMode.HALF_EVEN) +
-				":DI" + new BigDecimal(this.oldDeclarationMetric).setScale(6, RoundingMode.HALF_EVEN) +
-				":DF" + new BigDecimal(this.newDeclarationMetric).setScale(6, RoundingMode.HALF_EVEN) +
+				"\tDD" + AbsMetric.round(this.declarationDifference) +
+				":DI" + AbsMetric.round(this.oldDeclarationMetric) +
+				":DF" + AbsMetric.round(this.newDeclarationMetric) +
 				
-				"\tUD" + new BigDecimal(this.usageDifference).setScale(6, RoundingMode.HALF_EVEN) + 
-				":UI" + new BigDecimal(this.oldUsageMetric).setScale(6, RoundingMode.HALF_EVEN) + 
-				":UF" + new BigDecimal(this.newUsageMetric).setScale(6, RoundingMode.HALF_EVEN)
-				).toString();
+				"\tUD" + AbsMetric.round(this.usageDifference) + 
+				":UI" + AbsMetric.round(this.oldUsageMetric) + 
+				":UF" + AbsMetric.round(this.newUsageMetric)).toString();
 	}
 
 	@Override

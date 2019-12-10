@@ -27,8 +27,8 @@ public abstract class AbsMetric implements Metric {
 		return getMetricValue();
 	}
 	
-	public static double round(double value) {
-		return new BigDecimal(value).setScale(6, RoundingMode.HALF_UP).doubleValue();
+	public static BigDecimal round(double value) {
+		return new BigDecimal(value).setScale(6, RoundingMode.HALF_UP);
 	}
 	
 	protected abstract double getMetricValue() throws Exception;
