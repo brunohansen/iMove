@@ -126,6 +126,8 @@ public class EvaluateSumMethod extends MoveMethodEvaluator  {
 		//return AbsMetric.round(this.valueDifference + this.classValueDifference).doubleValue() >= MoveMethodConfig.getThreshold();
 		return AbsMetric.round(this.valueDifference).doubleValue() >= MoveMethodConfig.getThreshold()
 		 && AbsMetric.round(this.classValueDifference).doubleValue() >= MoveMethodConfig.getThreshold();
+		//return AbsMetric.round(usageDifference + usageClassDifference).doubleValue() >= MoveMethodConfig.getThreshold()
+		// && AbsMetric.round(declarationDifference + declarationClassDifference).doubleValue() >= MoveMethodConfig.getThreshold();
 	}
 	
 	public static <T> double kl(Map<?, ? extends Collection<T>> m1, Map<?, ? extends Collection<T>> m2) {
