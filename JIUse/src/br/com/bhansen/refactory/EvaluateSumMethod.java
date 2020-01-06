@@ -64,6 +64,12 @@ public class EvaluateSumMethod extends MoveMethodEvaluator  {
 	private double declarationClassDifference;
 	private double classValueDifference;
 	
+	private double klUsageFrom;
+	private double klDeclarationFrom;
+	
+	private double klUsageTo;
+	private double klDeclarationTo;
+	
 	public EvaluateSumMethod(Type classFrom, String method, Type classTo, MetricFactory factory, IProgressMonitor monitor) throws Exception {
 		super(classFrom, method, classTo, factory);
 		
@@ -149,11 +155,11 @@ public class EvaluateSumMethod extends MoveMethodEvaluator  {
 		double klUsage = kl(usageFrom.getMethods(), usageTo.getMethods());
 		double klDeclaration = kl(declarationFrom.getMethods(), declarationTo.getMethods());
 		
-		double klUsageFrom = kl(usageFrom.getMethods()) / klUsage;
-		double klDeclarationFrom = kl(declarationFrom.getMethods()) / klDeclaration;
+		klUsageFrom = kl(usageFrom.getMethods()) / klUsage;
+		klDeclarationFrom = kl(declarationFrom.getMethods()) / klDeclaration;
 		
-		double klUsageTo = kl(usageTo.getMethods()) / klUsage;
-		double klDeclarationTo = kl(declarationTo.getMethods()) / klDeclaration;
+		klUsageTo = kl(usageTo.getMethods()) / klUsage;
+		klDeclarationTo = kl(declarationTo.getMethods()) / klDeclaration;
 				
 		if(oldMetric instanceof CompositeMetric && newMetric instanceof CompositeMetric) {
 			oldUsageMetric = ((CompositeMetric) oldMetric).getUsageMetric() * klUsageTo;
@@ -168,6 +174,27 @@ public class EvaluateSumMethod extends MoveMethodEvaluator  {
 			oldValue = oldUsageMetric + oldDeclarationMetric;
 			newValue = newUsageMetric + newDeclarationMetric;
 			valueDifference = newValue - oldValue;
+			
+			oldUsageClassFromMetric = ((CompositeMetric) oldClassFromMetric).getUsageMetric() * klUsageTo;
+			oldDeclarationClassFromMetric = ((CompositeMetric) oldClassFromMetric).getDeclarationMetric() * klDeclarationTo;
+			oldUsageClassToMetric = ((CompositeMetric) oldClassToMetric).getUsageMetric() * klUsageFrom;
+			oldDeclarationClassToMetric = ((CompositeMetric) oldClassToMetric).getDeclarationMetric() * klDeclarationFrom;
+			
+			newUsageClassFromMetric = ((CompositeMetric) newClassFromMetric).getUsageMetric() * klUsageTo;
+			newDeclarationClassFromMetric = ((CompositeMetric) newClassFromMetric).getDeclarationMetric() * klDeclarationTo;
+			newUsageClassToMetric = ((CompositeMetric) newClassToMetric).getUsageMetric() * klUsageFrom;
+			newDeclarationClassToMetric = ((CompositeMetric) newClassToMetric).getDeclarationMetric() * klDeclarationFrom;
+			
+			usageClassDifference = (newUsageClassFromMetric - oldUsageClassFromMetric) + (newUsageClassToMetric - oldUsageClassToMetric);
+			declarationClassDifference = (newDeclarationClassFromMetric - oldDeclarationClassFromMetric) + (newDeclarationClassToMetric - oldDeclarationClassToMetric);
+			
+			oldClassFromValue = oldUsageClassFromMetric + oldDeclarationClassFromMetric;
+			oldClassToValue = oldUsageClassToMetric + oldDeclarationClassToMetric;
+			
+			newClassFromValue = newUsageClassFromMetric + newDeclarationClassFromMetric;
+			newClassToValue = newUsageClassToMetric + newDeclarationClassToMetric;
+			
+			classValueDifference = (newClassFromValue - oldClassFromValue) + (newClassToValue - oldClassToValue);
 		} else {
 			oldUsageMetric = 0;
 			oldDeclarationMetric = oldMetric.getMetric() * klDeclarationTo;
@@ -181,28 +208,30 @@ public class EvaluateSumMethod extends MoveMethodEvaluator  {
 			oldValue = oldUsageMetric + oldDeclarationMetric;
 			newValue = newUsageMetric + newDeclarationMetric;
 			valueDifference = newValue - oldValue;
+			
+			oldUsageClassFromMetric = 0;
+			oldDeclarationClassFromMetric = ((CompositeMetric) oldClassFromMetric).getDeclarationMetric() * klDeclarationTo;
+			oldUsageClassToMetric = 0;
+			oldDeclarationClassToMetric = ((CompositeMetric) oldClassToMetric).getDeclarationMetric() * klDeclarationFrom;
+			
+			newUsageClassFromMetric = 0;
+			newDeclarationClassFromMetric = ((CompositeMetric) newClassFromMetric).getDeclarationMetric() * klDeclarationTo;
+			newUsageClassToMetric = 0;
+			newDeclarationClassToMetric = ((CompositeMetric) newClassToMetric).getDeclarationMetric() * klDeclarationFrom;
+			
+			usageClassDifference = (newUsageClassFromMetric - oldUsageClassFromMetric) + (newUsageClassToMetric - oldUsageClassToMetric);
+			declarationClassDifference = (newDeclarationClassFromMetric - oldDeclarationClassFromMetric) + (newDeclarationClassToMetric - oldDeclarationClassToMetric);
+			
+			oldClassFromValue = oldUsageClassFromMetric + oldDeclarationClassFromMetric;
+			oldClassToValue = oldUsageClassToMetric + oldDeclarationClassToMetric;
+			
+			newClassFromValue = newUsageClassFromMetric + newDeclarationClassFromMetric;
+			newClassToValue = newUsageClassToMetric + newDeclarationClassToMetric;
+			
+			classValueDifference = (newClassFromValue - oldClassFromValue) + (newClassToValue - oldClassToValue);
 		}
 		
-		oldUsageClassFromMetric = ((CompositeMetric) oldClassFromMetric).getUsageMetric() * klUsageTo;
-		oldDeclarationClassFromMetric = ((CompositeMetric) oldClassFromMetric).getDeclarationMetric() * klDeclarationTo;
-		oldUsageClassToMetric = ((CompositeMetric) oldClassToMetric).getUsageMetric() * klUsageFrom;
-		oldDeclarationClassToMetric = ((CompositeMetric) oldClassToMetric).getDeclarationMetric() * klDeclarationFrom;
-		
-		newUsageClassFromMetric = ((CompositeMetric) newClassFromMetric).getUsageMetric() * klUsageTo;
-		newDeclarationClassFromMetric = ((CompositeMetric) newClassFromMetric).getDeclarationMetric() * klDeclarationTo;
-		newUsageClassToMetric = ((CompositeMetric) newClassToMetric).getUsageMetric() * klUsageFrom;
-		newDeclarationClassToMetric = ((CompositeMetric) newClassToMetric).getDeclarationMetric() * klDeclarationFrom;
-		
-		usageClassDifference = (newUsageClassFromMetric - oldUsageClassFromMetric) + (newUsageClassToMetric - oldUsageClassToMetric);
-		declarationClassDifference = (newDeclarationClassFromMetric - oldDeclarationClassFromMetric) + (newDeclarationClassToMetric - oldDeclarationClassToMetric);
-		
-		oldClassFromValue = oldUsageClassFromMetric + oldDeclarationClassFromMetric;
-		oldClassToValue = oldUsageClassToMetric + oldDeclarationClassToMetric;
-		
-		newClassFromValue = newUsageClassFromMetric + newDeclarationClassFromMetric;
-		newClassToValue = newUsageClassToMetric + newDeclarationClassToMetric;
-		
-		classValueDifference = (newClassFromValue - oldClassFromValue) + (newClassToValue - oldClassToValue);
+
 	}
 		
 	@Override
@@ -295,6 +324,8 @@ public class EvaluateSumMethod extends MoveMethodEvaluator  {
 			additionals = "=" + oldNumParams + ":" + newNumParams;
 		}
 		
+		additionals += "\t";
+		
 		if (oldNumTypes > newNumTypes) {
 			additionals += "-" + oldNumTypes + ":" + newNumTypes;
 		} else if (oldNumTypes < newNumTypes) {
@@ -302,6 +333,8 @@ public class EvaluateSumMethod extends MoveMethodEvaluator  {
 		} else {
 			additionals += "=" + oldNumTypes + ":" + newNumTypes;
 		}
+		
+		additionals += "\t";
 		
 		if (oldNumCallers > newNumCallers) {
 			additionals += "-" + oldNumCallers + ":" + newNumCallers;
@@ -311,12 +344,34 @@ public class EvaluateSumMethod extends MoveMethodEvaluator  {
 			additionals += "=" + oldNumCallers + ":" + newNumCallers;
 		}
 		
+		additionals += "\t";
+		
 		if (oldNumMts > newNumMts) {
 			additionals += "-" + oldNumMts + ":" + newNumMts;
 		} else if (oldNumMts < newNumMts) {
 			additionals += "+" + oldNumMts + ":" + newNumMts;
 		} else {
 			additionals += "=" + oldNumMts + ":" + newNumMts;
+		}
+		
+		additionals += "\t";
+		
+		if (klDeclarationFrom > klDeclarationTo) {
+			additionals += "-" + klDeclarationFrom + ":" + klDeclarationTo;
+		} else if (klDeclarationFrom < klDeclarationTo) {
+			additionals += "+" + klDeclarationFrom + ":" + klDeclarationTo;
+		} else {
+			additionals += "=" + klDeclarationFrom + ":" + klDeclarationTo;
+		}
+		
+		additionals += "\t";
+		
+		if (klUsageFrom > klUsageTo) {
+			additionals += "-" + klUsageFrom + ":" + klUsageTo;
+		} else if (klUsageFrom < klUsageTo) {
+			additionals += "+" + klUsageFrom + ":" + klUsageTo;
+		} else {
+			additionals += "=" + klUsageFrom + ":" + klUsageTo;
 		}
 		
 		return new StringBuilder().append(additionals + 

@@ -63,6 +63,9 @@ public class MethodWithParameters extends Method {
 		
 		if(! DataMetricConfig.useThis()) {
 			ParameterHelper.removeSelfParameter(params, Type.getName(getIMethod().getDeclaringType()));
+		} else {
+			//Add self na porra toda
+			params.add(Signature.normalizeInnerSignature(Type.getName(getIMethod().getDeclaringType())));
 		}
 		
 		return params;
