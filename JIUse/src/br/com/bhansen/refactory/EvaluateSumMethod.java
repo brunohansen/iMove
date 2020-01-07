@@ -175,26 +175,6 @@ public class EvaluateSumMethod extends MoveMethodEvaluator  {
 			newValue = newUsageMetric + newDeclarationMetric;
 			valueDifference = newValue - oldValue;
 			
-			oldUsageClassFromMetric = ((CompositeMetric) oldClassFromMetric).getUsageMetric() * klUsageTo;
-			oldDeclarationClassFromMetric = ((CompositeMetric) oldClassFromMetric).getDeclarationMetric() * klDeclarationTo;
-			oldUsageClassToMetric = ((CompositeMetric) oldClassToMetric).getUsageMetric() * klUsageFrom;
-			oldDeclarationClassToMetric = ((CompositeMetric) oldClassToMetric).getDeclarationMetric() * klDeclarationFrom;
-			
-			newUsageClassFromMetric = ((CompositeMetric) newClassFromMetric).getUsageMetric() * klUsageTo;
-			newDeclarationClassFromMetric = ((CompositeMetric) newClassFromMetric).getDeclarationMetric() * klDeclarationTo;
-			newUsageClassToMetric = ((CompositeMetric) newClassToMetric).getUsageMetric() * klUsageFrom;
-			newDeclarationClassToMetric = ((CompositeMetric) newClassToMetric).getDeclarationMetric() * klDeclarationFrom;
-			
-			usageClassDifference = (newUsageClassFromMetric - oldUsageClassFromMetric) + (newUsageClassToMetric - oldUsageClassToMetric);
-			declarationClassDifference = (newDeclarationClassFromMetric - oldDeclarationClassFromMetric) + (newDeclarationClassToMetric - oldDeclarationClassToMetric);
-			
-			oldClassFromValue = oldUsageClassFromMetric + oldDeclarationClassFromMetric;
-			oldClassToValue = oldUsageClassToMetric + oldDeclarationClassToMetric;
-			
-			newClassFromValue = newUsageClassFromMetric + newDeclarationClassFromMetric;
-			newClassToValue = newUsageClassToMetric + newDeclarationClassToMetric;
-			
-			classValueDifference = (newClassFromValue - oldClassFromValue) + (newClassToValue - oldClassToValue);
 		} else {
 			oldUsageMetric = 0;
 			oldDeclarationMetric = oldMetric.getMetric() * klDeclarationTo;
@@ -209,28 +189,28 @@ public class EvaluateSumMethod extends MoveMethodEvaluator  {
 			newValue = newUsageMetric + newDeclarationMetric;
 			valueDifference = newValue - oldValue;
 			
-			oldUsageClassFromMetric = 0;
-			oldDeclarationClassFromMetric = ((CompositeMetric) oldClassFromMetric).getDeclarationMetric() * klDeclarationTo;
-			oldUsageClassToMetric = 0;
-			oldDeclarationClassToMetric = ((CompositeMetric) oldClassToMetric).getDeclarationMetric() * klDeclarationFrom;
-			
-			newUsageClassFromMetric = 0;
-			newDeclarationClassFromMetric = ((CompositeMetric) newClassFromMetric).getDeclarationMetric() * klDeclarationTo;
-			newUsageClassToMetric = 0;
-			newDeclarationClassToMetric = ((CompositeMetric) newClassToMetric).getDeclarationMetric() * klDeclarationFrom;
-			
-			usageClassDifference = (newUsageClassFromMetric - oldUsageClassFromMetric) + (newUsageClassToMetric - oldUsageClassToMetric);
-			declarationClassDifference = (newDeclarationClassFromMetric - oldDeclarationClassFromMetric) + (newDeclarationClassToMetric - oldDeclarationClassToMetric);
-			
-			oldClassFromValue = oldUsageClassFromMetric + oldDeclarationClassFromMetric;
-			oldClassToValue = oldUsageClassToMetric + oldDeclarationClassToMetric;
-			
-			newClassFromValue = newUsageClassFromMetric + newDeclarationClassFromMetric;
-			newClassToValue = newUsageClassToMetric + newDeclarationClassToMetric;
-			
-			classValueDifference = (newClassFromValue - oldClassFromValue) + (newClassToValue - oldClassToValue);
 		}
 		
+		oldUsageClassFromMetric = ((CompositeMetric) oldClassFromMetric).getUsageMetric() * klUsageTo;
+		oldDeclarationClassFromMetric = ((CompositeMetric) oldClassFromMetric).getDeclarationMetric() * klDeclarationTo;
+		oldUsageClassToMetric = ((CompositeMetric) oldClassToMetric).getUsageMetric() * klUsageFrom;
+		oldDeclarationClassToMetric = ((CompositeMetric) oldClassToMetric).getDeclarationMetric() * klDeclarationFrom;
+		
+		newUsageClassFromMetric = ((CompositeMetric) newClassFromMetric).getUsageMetric() * klUsageTo;
+		newDeclarationClassFromMetric = ((CompositeMetric) newClassFromMetric).getDeclarationMetric() * klDeclarationTo;
+		newUsageClassToMetric = ((CompositeMetric) newClassToMetric).getUsageMetric() * klUsageFrom;
+		newDeclarationClassToMetric = ((CompositeMetric) newClassToMetric).getDeclarationMetric() * klDeclarationFrom;
+		
+		usageClassDifference = (newUsageClassFromMetric - oldUsageClassFromMetric) + (newUsageClassToMetric - oldUsageClassToMetric);
+		declarationClassDifference = (newDeclarationClassFromMetric - oldDeclarationClassFromMetric) + (newDeclarationClassToMetric - oldDeclarationClassToMetric);
+		
+		oldClassFromValue = oldUsageClassFromMetric + oldDeclarationClassFromMetric;
+		oldClassToValue = oldUsageClassToMetric + oldDeclarationClassToMetric;
+		
+		newClassFromValue = newUsageClassFromMetric + newDeclarationClassFromMetric;
+		newClassToValue = newUsageClassToMetric + newDeclarationClassToMetric;
+		
+		classValueDifference = (newClassFromValue - oldClassFromValue) + (newClassToValue - oldClassToValue);
 
 	}
 		
