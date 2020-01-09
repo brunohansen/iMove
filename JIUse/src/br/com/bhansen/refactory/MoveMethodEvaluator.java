@@ -31,11 +31,11 @@ public abstract class MoveMethodEvaluator {
 		
 		setMethod(method);
 		
-		if(this.method.isSetterOrGetterFor(classTo)) {
-			//br.com.linkcom.sgm.filtro.PainelControleFiltro::getPlanoGestao():PlanoGestao	br.com.linkcom.sgm.beans.PlanoGestao
-	        //br.com.linkcom.sgm.filtro.PainelControleFiltro::setPlanoGestao(PlanoGestao):void	br.com.linkcom.sgm.beans.PlanoGestao
-			throw new Exception("Don't move a setter or getter to its own class!");
-		}
+//		if(this.method.isSetterOrGetterFor(classTo)) {
+//			//br.com.linkcom.sgm.filtro.PainelControleFiltro::getPlanoGestao():PlanoGestao	br.com.linkcom.sgm.beans.PlanoGestao
+//	        //br.com.linkcom.sgm.filtro.PainelControleFiltro::setPlanoGestao(PlanoGestao):void	br.com.linkcom.sgm.beans.PlanoGestao
+//			throw new Exception("Don't move a setter or getter to its own class!");
+//		}
 	}
 	
 	private void setMethod(String method) throws Exception {
