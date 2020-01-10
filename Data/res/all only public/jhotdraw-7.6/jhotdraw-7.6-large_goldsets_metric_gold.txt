@@ -1,0 +1,20 @@
+E00	net.n3.nanoxml.XMLElement::print():void org.jhotdraw.xml.NanoXMLDOMOutput	 Message: Method print():void not found!
+E00	org.jhotdraw.app.OSXApplication::setPalette():void org.jhotdraw.app.action.window.TogglePaletteAction	 Message: Method setPalette():void not found!
+E00	org.jhotdraw.draw.AttributeKey::calculateLayout2():Rectangle2D.Double org.jhotdraw.draw.layouter.LocatorLayouter	 Message: Method calculateLayout2():Rectangle2D.Double not found!
+E00	org.jhotdraw.draw.AttributeKey::getDrawingArea2():Rectangle2D.Double org.jhotdraw.draw.DiamondFigure	 Message: Method getDrawingArea2():Rectangle2D.Double not found!
+E00	org.jhotdraw.draw.connector.LocatorConnector::findCompatibleConnector(Connector, boolean):Connector org.jhotdraw.samples.net.figures.NodeFigure	 Message: Method findCompatibleConnector(Connector, boolean):Connector not found!
+E00	org.jhotdraw.draw.event.HandleMulticaster::updateHoverHandles():void org.jhotdraw.draw.tool.DefaultHandleTracker	 Message: Method updateHoverHandles():void not found!
+E00	org.jhotdraw.draw.text.FloatingTextArea::endEdit():void org.jhotdraw.draw.tool.TextAreaCreationTool	 Message: Method endEdit():void not found!
+E00	org.jhotdraw.geom.BezierPath.Node::trackEnd2(Point, Point, int):void org.jhotdraw.draw.handle.BezierNodeHandle	 Message: Method trackEnd2(Point, Point, int):void not found!
+E00	org.jhotdraw.geom.BezierPath::chop(Point2D.Double):Point2D.Double org.jhotdraw.draw.BezierFigure	 Message: Invalid target!
+E00	org.jhotdraw.gui.JFontChooser::applySelectedFontToFigures():void org.jhotdraw.draw.action.FontChooserHandler	 Message: Method applySelectedFontToFigures():void not found!
+E00	org.jhotdraw.gui.JMDIDesktopPane::show(View):void org.jhotdraw.app.MDIApplication	 Message: Method show(View):void not found!
+E00	org.jhotdraw.io.StreamPosTokenizer::readViewportAttributes(IXMLElement, HashMap<AttributeKey,Object>):void org.jhotdraw.samples.svg.io.SVGInputFormat	 Message: Method readViewportAttributes(IXMLElement, HashMap<AttributeKey, Object>):void not found!
+E00	org.jhotdraw.samples.draw.DrawingPanel::load(java.awt.event.ActionEvent):void org.jhotdraw.samples.draw.DrawLiveConnectApplet	 Message: Method load(ActionEvent):void not found!
+E00	org.jhotdraw.samples.svg.SVGDrawingPanel::getOpenChooser():JFileChooser org.jhotdraw.samples.mini.SVGDrawingPanelSample	 Message: Method getOpenChooser():JFileChooser not found!
+E00	org.jhotdraw.samples.svg.figures.SVGTextAreaFigure::writeTextAreaElement(IXMLElement, SVGTextAreaFigure):void org.jhotdraw.samples.svg.io.SVGOutputFormat	 Message: Method writeTextAreaElement(IXMLElement, SVGTextAreaFigure):void not found!
+E00	org.jhotdraw.samples.svg.gui.ProgressIndicator::loadDrawing():Drawing org.jhotdraw.samples.svg.SVGApplet	 Message: Method loadDrawing():Drawing not found!
+E00	org.jhotdraw.samples.svg.gui.ViewToolBar::setEditor():void org.jhotdraw.samples.svg.SVGDrawingPanel	 Message: Method setEditor():void not found!
+E00	org.jhotdraw.samples.teddy.regex.Matcher::initComponents():void org.jhotdraw.samples.teddy.FindDialog	 Message: Method initComponents():void not found!
+E00	org.jhotdraw.undo.UndoRedoManager::getLineOfOffset(int):int org.jhotdraw.samples.teddy.TeddyView	 Message: Method getLineOfOffset(int):int not found!
+E11	org.jhotdraw.samples.odg.io.ODGStylesReader::readEnhancedGeometryElement(IXMLElement, Map<AttributeKey,Object>, Rectangle2D.Double):ODGFigure org.jhotdraw.samples.odg.io.ODGInputFormat	 Message: Method readEnhancedGeometryElement(IXMLElement, Map<AttributeKey, Object>, Rectangle2D.Double):ODGFigure not found!
