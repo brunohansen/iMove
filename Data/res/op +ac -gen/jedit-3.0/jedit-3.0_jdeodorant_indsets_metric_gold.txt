@@ -1,0 +1,2 @@
+011	=0:0	=1:1	=0:0	+3:12	BD0.000000:BI1.000000:BF1.000000	DD0.000000:DI1.000000:DF1.000000	UD0.000000:UI0.000000:UF0.000000	org.gjt.sp.jedit.textarea.JEditTextArea::setText(String):void	org.gjt.sp.jedit.Buffer	Message: Usage skipped! Value difference is greater than or equals to 0.0!
+111	+0:1	=1:1	=0:0	-3:2	BD-1.000000:BI1.000000:BF0.000000	DD-1.000000:DI1.000000:DF0.000000	UD0.000000:UI0.000000:UF0.000000	org.gjt.sp.jedit.textarea.JEditTextArea::lineToY(int):int	org.gjt.sp.jedit.textarea.TextAreaPainter	Message: Usage skipped! Value difference is less than 0.0!
