@@ -1,5 +1,8 @@
 package br.com.bhansen.refactory;
 
+import java.util.Collection;
+import java.util.Map;
+
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.core.runtime.SubMonitor;
@@ -60,10 +63,10 @@ public class EvaluateSumMethod extends MoveMethodEvaluator  {
 //	private double classValueDifference;
 //	
 //	private double klUsageFrom;
-//	private double klDeclarationFrom;
+	private double klDeclarationFrom;
 //	
 //	private double klUsageTo;
-//	private double klDeclarationTo;
+	private double klDeclarationTo;
 	
 	public EvaluateSumMethod(Type classFrom, String method, Type classTo, MetricFactory factory, IProgressMonitor monitor) throws Exception {
 		super(classFrom, method, classTo, factory);
@@ -136,13 +139,13 @@ public class EvaluateSumMethod extends MoveMethodEvaluator  {
 		// && AbsMetric.round(declarationDifference + declarationClassDifference).doubleValue() >= MoveMethodConfig.getThreshold();
 	}
 	
-//	private static <T> double kl(Map<?, ? extends Collection<T>> m1, Map<?, ? extends Collection<T>> m2) {
-//		return AbsMetric.uniqueValues(m1, m2).size() * (m1.size() + m2.size());
-//	}
-//	
-//	private static <T> double kl(Map<?, ? extends Collection<T>> m) {
-//		return AbsMetric.uniqueValues(m).size() * m.size();
-//	}
+	private static <T> double kl(Map<?, ? extends Collection<T>> m1, Map<?, ? extends Collection<T>> m2) {
+		return AbsMetric.uniqueValues(m1, m2).size() * (m1.size() + m2.size());
+	}
+	
+	private static <T> double kl(Map<?, ? extends Collection<T>> m) {
+		return AbsMetric.uniqueValues(m).size() * m.size();
+	}
 	
 	private void calc() throws Exception {
 		
@@ -170,12 +173,16 @@ public class EvaluateSumMethod extends MoveMethodEvaluator  {
 //			klUsageFrom = klDeclarationFrom = 1 - klDeclarationTo;
 //		}
 				
+		double klDeclaration = kl(oldMetric.getMethods(), newMetric.getMethods());
+		klDeclarationFrom = kl(oldMetric.getMethods()) / klDeclaration;
+		klDeclarationTo = kl(newMetric.getMethods()) / klDeclaration;
+		
 		if(oldMetric instanceof CompositeMetric && newMetric instanceof CompositeMetric) {
 			oldUsageMetric = ((CompositeMetric) oldMetric).getUsageMetric();// * klUsageFrom;
-			oldDeclarationMetric = ((CompositeMetric) oldMetric).getDeclarationMetric();// * klDeclarationFrom;
+			oldDeclarationMetric = ((CompositeMetric) oldMetric).getDeclarationMetric() * klDeclarationFrom;
 			
 			newUsageMetric = ((CompositeMetric) newMetric).getUsageMetric();// * klUsageTo;
-			newDeclarationMetric = ((CompositeMetric) newMetric).getDeclarationMetric();// * klDeclarationTo;
+			newDeclarationMetric = ((CompositeMetric) newMetric).getDeclarationMetric() * klDeclarationTo;
 			
 			usageDifference = (newUsageMetric - oldUsageMetric);
 			declarationDifference = (newDeclarationMetric - oldDeclarationMetric);
@@ -186,10 +193,10 @@ public class EvaluateSumMethod extends MoveMethodEvaluator  {
 			
 		} else {
 			oldUsageMetric = 0;
-			oldDeclarationMetric = oldMetric.getMetric();// * klDeclarationFrom;
+			oldDeclarationMetric = oldMetric.getMetric() * klDeclarationFrom;
 			
 			newUsageMetric = 0;
-			newDeclarationMetric = newMetric.getMetric();// * klDeclarationTo;
+			newDeclarationMetric = newMetric.getMetric() * klDeclarationTo;
 			
 			usageDifference = 0;
 			declarationDifference = (newDeclarationMetric - oldDeclarationMetric);
@@ -343,15 +350,15 @@ public class EvaluateSumMethod extends MoveMethodEvaluator  {
 			additionals += "=" + oldNumMts + ":" + newNumMts;
 		}
 		
-//		additionals += "\t";
-//		
-//		if (klDeclarationFrom > klDeclarationTo) {
-//			additionals += "-" + klDeclarationFrom + ":" + klDeclarationTo;
-//		} else if (klDeclarationFrom < klDeclarationTo) {
-//			additionals += "+" + klDeclarationFrom + ":" + klDeclarationTo;
-//		} else {
-//			additionals += "=" + klDeclarationFrom + ":" + klDeclarationTo;
-//		}
+		additionals += "\t";
+		
+		if (klDeclarationFrom > klDeclarationTo) {
+			additionals += "-" + klDeclarationFrom + ":" + klDeclarationTo;
+		} else if (klDeclarationFrom < klDeclarationTo) {
+			additionals += "+" + klDeclarationFrom + ":" + klDeclarationTo;
+		} else {
+			additionals += "=" + klDeclarationFrom + ":" + klDeclarationTo;
+		}
 //		
 //		additionals += "\t";
 //		
