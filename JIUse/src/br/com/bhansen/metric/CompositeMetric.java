@@ -66,7 +66,7 @@ public class CompositeMetric implements Metric {
 
 	@Override
 	public Map<String, Set<String>> getMethods() {
-		throw new UnsupportedOperationException();
+		return dMetric.getMethods();
 	}
 
 }
