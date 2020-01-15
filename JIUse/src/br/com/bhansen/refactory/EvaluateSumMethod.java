@@ -174,8 +174,14 @@ public class EvaluateSumMethod extends MoveMethodEvaluator  {
 //		}
 				
 		double klDeclaration = kl(oldMetric.getMethods(), newMetric.getMethods());
-		klDeclarationFrom = kl(oldMetric.getMethods()) / klDeclaration;
-		klDeclarationTo = kl(newMetric.getMethods()) / klDeclaration;
+		
+		if(klDeclaration > 0) {
+			klDeclarationFrom = kl(oldMetric.getMethods()) / klDeclaration;
+			klDeclarationTo = kl(newMetric.getMethods()) / klDeclaration;
+		} else {
+			klDeclarationFrom = 0;
+			klDeclarationTo = 0;
+		}
 		
 		if(oldMetric instanceof CompositeMetric && newMetric instanceof CompositeMetric) {
 			oldUsageMetric = ((CompositeMetric) oldMetric).getUsageMetric();// * klUsageFrom;
