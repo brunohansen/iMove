@@ -34,45 +34,45 @@ public class EvaluateSumMethod extends MoveMethodEvaluator  {
 	private double usageDifference;
 	private double declarationDifference;
 	
-//	private Metric oldClassFromMetric;
-//	private Metric newClassFromMetric;
-//
-//	private double oldClassFromValue;
-//	private double newClassFromValue;
-//
-//	private double oldUsageClassFromMetric;
-//	private double oldDeclarationClassFromMetric;
-//	
-//	private double newUsageClassFromMetric;
-//	private double newDeclarationClassFromMetric;
-//	
-//	private Metric oldClassToMetric;
-//	private Metric newClassToMetric;
-//
-//	private double oldClassToValue;
-//	private double newClassToValue;
-//
-//	private double oldUsageClassToMetric;
-//	private double oldDeclarationClassToMetric;
-//	
-//	private double newUsageClassToMetric;
-//	private double newDeclarationClassToMetric;
-//	
-//	private double usageClassDifference;
-//	private double declarationClassDifference;
-//	private double classValueDifference;
-//	
-//	private double klUsageFrom;
+	private Metric oldClassFromMetric;
+	private Metric newClassFromMetric;
+
+	private double oldClassFromValue;
+	private double newClassFromValue;
+
+	private double oldUsageClassFromMetric;
+	private double oldDeclarationClassFromMetric;
+	
+	private double newUsageClassFromMetric;
+	private double newDeclarationClassFromMetric;
+	
+	private Metric oldClassToMetric;
+	private Metric newClassToMetric;
+
+	private double oldClassToValue;
+	private double newClassToValue;
+
+	private double oldUsageClassToMetric;
+	private double oldDeclarationClassToMetric;
+	
+	private double newUsageClassToMetric;
+	private double newDeclarationClassToMetric;
+	
+	private double usageClassDifference;
+	private double declarationClassDifference;
+	private double classValueDifference;
+	
+	private double klUsageFrom;
 	private double klDeclarationFrom;
 //	
-//	private double klUsageTo;
+	private double klUsageTo;
 	private double klDeclarationTo;
 	
 	public EvaluateSumMethod(Type classFrom, String method, Type classTo, MetricFactory factory, IProgressMonitor monitor) throws Exception {
 		super(classFrom, method, classTo, factory);
 		
-		//Atenção
-		boolean skipUsage = true;
+		//Atenï¿½ï¿½o
+		boolean skipUsage = false;
 		
 //		MethodWithCallers m = this.method.getMethodWithCallers();
 //		
@@ -100,8 +100,8 @@ public class EvaluateSumMethod extends MoveMethodEvaluator  {
 			}
 		} */
 		
-//		this.oldClassFromMetric = factory.createCompositeClassMetricFactory(MoveMethodConfig.getMetric()).create(classFrom, subMonitor.split(30));
-//		this.oldClassToMetric = factory.createCompositeClassMetricFactory(MoveMethodConfig.getMetric()).create(classTo, subMonitor.split(30));
+		this.oldClassFromMetric = factory.createCompositeClassMetricFactory(MoveMethodConfig.getMetric()).create(classFrom, subMonitor.split(30));
+		this.oldClassToMetric = factory.createCompositeClassMetricFactory(MoveMethodConfig.getMetric()).create(classTo, subMonitor.split(30));
 		
 		this.move(subMonitor.split(70));
 	}
@@ -116,8 +116,8 @@ public class EvaluateSumMethod extends MoveMethodEvaluator  {
 		try {
 			this.newMetric = factory.create(this.classTo, this.method.getMoveName(), refactor.getTypeNotUsed(), subMonitor.split(50));
 			
-//			this.newClassFromMetric = factory.createCompositeClassMetricFactory(MoveMethodConfig.getMetric()).create(this.classFrom, subMonitor.split(50));
-//			this.newClassToMetric = factory.createCompositeClassMetricFactory(MoveMethodConfig.getMetric()).create(this.classTo, this.method.getMoveName(), refactor.getTypeNotUsed(), subMonitor.split(50));
+			this.newClassFromMetric = factory.createCompositeClassMetricFactory(MoveMethodConfig.getMetric()).create(this.classFrom, subMonitor.split(50));
+			this.newClassToMetric = factory.createCompositeClassMetricFactory(MoveMethodConfig.getMetric()).create(this.classTo, this.method.getMoveName(), refactor.getTypeNotUsed(), subMonitor.split(50));
 
 			calc();		
 		} finally {
@@ -148,32 +148,8 @@ public class EvaluateSumMethod extends MoveMethodEvaluator  {
 	}
 	
 	private void calc() throws Exception {
-		
-//		Metric usageFrom = ((CompositeMetric) oldClassFromMetric).getUMetric();
-//		Metric declarationFrom = ((CompositeMetric) oldClassFromMetric).getDMetric();
-//		
-//		Metric usageTo = ((CompositeMetric) oldClassToMetric).getUMetric();
-//		Metric declarationTo = ((CompositeMetric) oldClassToMetric).getDMetric();
-//		
-//		double klUsage = kl(usageFrom.getMethods(), usageTo.getMethods());
-//		double klDeclaration = kl(declarationFrom.getMethods(), declarationTo.getMethods());
-//		
-//		double numMtdsFrom = 1;//declarationFrom.getMethods().size();
-//		double numMtdsTo = 1;//declarationTo.getMethods().size();
-//		
-//		if(numMtdsFrom == numMtdsTo) {
-//			klUsageFrom = klDeclarationFrom = klUsageTo = klDeclarationTo = 1;
-//		} else if (numMtdsTo > numMtdsFrom) {
-//			klUsageFrom = klDeclarationFrom = numMtdsFrom / numMtdsTo;
-//			
-//			klUsageTo = klDeclarationTo = 1 - klDeclarationFrom;
-//		} else if (numMtdsFrom > numMtdsTo) {
-//			klUsageTo = klDeclarationTo = numMtdsTo / numMtdsFrom;
-//			
-//			klUsageFrom = klDeclarationFrom = 1 - klDeclarationTo;
-//		}
-				
 		double klDeclaration = kl(oldMetric.getMethods(), newMetric.getMethods());
+		double klUsage = kl(oldMetric.getMethods(), newMetric.getMethods());
 		
 		if(klDeclaration > 0) {
 			klDeclarationFrom = kl(oldMetric.getMethods()) / klDeclaration;
@@ -183,12 +159,20 @@ public class EvaluateSumMethod extends MoveMethodEvaluator  {
 			klDeclarationTo = 0;
 		}
 		
+		if(klUsage > 0) {
+			klUsageFrom = kl(oldMetric.getMethods()) / klUsage;
+			klUsageTo = kl(newMetric.getMethods()) / klUsage;
+		} else {
+			klUsageFrom = 0;
+			klUsageTo = 0;
+		}
+		
 		if(oldMetric instanceof CompositeMetric && newMetric instanceof CompositeMetric) {
 			oldUsageMetric = ((CompositeMetric) oldMetric).getUsageMetric();// * klUsageFrom;
-			oldDeclarationMetric = ((CompositeMetric) oldMetric).getDeclarationMetric() * klDeclarationFrom;
+			oldDeclarationMetric = ((CompositeMetric) oldMetric).getDeclarationMetric();// * klDeclarationFrom;
 			
 			newUsageMetric = ((CompositeMetric) newMetric).getUsageMetric();// * klUsageTo;
-			newDeclarationMetric = ((CompositeMetric) newMetric).getDeclarationMetric() * klDeclarationTo;
+			newDeclarationMetric = ((CompositeMetric) newMetric).getDeclarationMetric();// * klDeclarationTo;
 			
 			usageDifference = (newUsageMetric - oldUsageMetric);
 			declarationDifference = (newDeclarationMetric - oldDeclarationMetric);
@@ -199,10 +183,10 @@ public class EvaluateSumMethod extends MoveMethodEvaluator  {
 			
 		} else {
 			oldUsageMetric = 0;
-			oldDeclarationMetric = oldMetric.getMetric() * klDeclarationFrom;
+			oldDeclarationMetric = oldMetric.getMetric();// * klDeclarationFrom;
 			
 			newUsageMetric = 0;
-			newDeclarationMetric = newMetric.getMetric() * klDeclarationTo;
+			newDeclarationMetric = newMetric.getMetric();// * klDeclarationTo;
 			
 			usageDifference = 0;
 			declarationDifference = (newDeclarationMetric - oldDeclarationMetric);
@@ -213,26 +197,26 @@ public class EvaluateSumMethod extends MoveMethodEvaluator  {
 			
 		}
 		
-//		oldUsageClassFromMetric = ((CompositeMetric) oldClassFromMetric).getUsageMetric() * klUsageFrom;
-//		oldDeclarationClassFromMetric = ((CompositeMetric) oldClassFromMetric).getDeclarationMetric() * klDeclarationFrom;
-//		oldUsageClassToMetric = ((CompositeMetric) oldClassToMetric).getUsageMetric() * klUsageTo;
-//		oldDeclarationClassToMetric = ((CompositeMetric) oldClassToMetric).getDeclarationMetric() * klDeclarationTo;
-//		
-//		newUsageClassFromMetric = ((CompositeMetric) newClassFromMetric).getUsageMetric() * klUsageFrom;
-//		newDeclarationClassFromMetric = ((CompositeMetric) newClassFromMetric).getDeclarationMetric() * klDeclarationFrom;
-//		newUsageClassToMetric = ((CompositeMetric) newClassToMetric).getUsageMetric() * klUsageTo;
-//		newDeclarationClassToMetric = ((CompositeMetric) newClassToMetric).getDeclarationMetric() * klDeclarationTo;
-//		
-//		usageClassDifference = (newUsageClassFromMetric - oldUsageClassFromMetric) + (newUsageClassToMetric - oldUsageClassToMetric);
-//		declarationClassDifference = (newDeclarationClassFromMetric - oldDeclarationClassFromMetric) + (newDeclarationClassToMetric - oldDeclarationClassToMetric);
-//		
-//		oldClassFromValue = oldUsageClassFromMetric + oldDeclarationClassFromMetric;
-//		oldClassToValue = oldUsageClassToMetric + oldDeclarationClassToMetric;
-//		
-//		newClassFromValue = newUsageClassFromMetric + newDeclarationClassFromMetric;
-//		newClassToValue = newUsageClassToMetric + newDeclarationClassToMetric;
-//		
-//		classValueDifference = (newClassFromValue - oldClassFromValue) + (newClassToValue - oldClassToValue);
+		oldUsageClassFromMetric = ((CompositeMetric) oldClassFromMetric).getUsageMetric();// * klUsageFrom;
+		oldDeclarationClassFromMetric = ((CompositeMetric) oldClassFromMetric).getDeclarationMetric();// * klDeclarationFrom;
+		oldUsageClassToMetric = ((CompositeMetric) oldClassToMetric).getUsageMetric();// * klUsageTo;
+		oldDeclarationClassToMetric = ((CompositeMetric) oldClassToMetric).getDeclarationMetric();// * klDeclarationTo;
+		
+		newUsageClassFromMetric = ((CompositeMetric) newClassFromMetric).getUsageMetric();// * klUsageFrom;
+		newDeclarationClassFromMetric = ((CompositeMetric) newClassFromMetric).getDeclarationMetric();// * klDeclarationFrom;
+		newUsageClassToMetric = ((CompositeMetric) newClassToMetric).getUsageMetric();// * klUsageTo;
+		newDeclarationClassToMetric = ((CompositeMetric) newClassToMetric).getDeclarationMetric();// * klDeclarationTo;
+		
+		usageClassDifference = (newUsageClassFromMetric - oldUsageClassFromMetric) + (newUsageClassToMetric - oldUsageClassToMetric);
+		declarationClassDifference = (newDeclarationClassFromMetric - oldDeclarationClassFromMetric) + (newDeclarationClassToMetric - oldDeclarationClassToMetric);
+		
+		oldClassFromValue = oldUsageClassFromMetric + oldDeclarationClassFromMetric;
+		oldClassToValue = oldUsageClassToMetric + oldDeclarationClassToMetric;
+		
+		newClassFromValue = newUsageClassFromMetric + newDeclarationClassFromMetric;
+		newClassToValue = newUsageClassToMetric + newDeclarationClassToMetric;
+		
+		classValueDifference = (newClassFromValue - oldClassFromValue) + (newClassToValue - oldClassToValue);
 
 	}
 		
@@ -365,30 +349,30 @@ public class EvaluateSumMethod extends MoveMethodEvaluator  {
 		} else {
 			additionals += "=" + klDeclarationFrom + ":" + klDeclarationTo;
 		}
-//		
-//		additionals += "\t";
-//		
-//		if (klUsageFrom > klUsageTo) {
-//			additionals += "-" + klUsageFrom + ":" + klUsageTo;
-//		} else if (klUsageFrom < klUsageTo) {
-//			additionals += "+" + klUsageFrom + ":" + klUsageTo;
-//		} else {
-//			additionals += "=" + klUsageFrom + ":" + klUsageTo;
-//		}
+		
+		additionals += "\t";
+		
+		if (klUsageFrom > klUsageTo) {
+			additionals += "-" + klUsageFrom + ":" + klUsageTo;
+		} else if (klUsageFrom < klUsageTo) {
+			additionals += "+" + klUsageFrom + ":" + klUsageTo;
+		} else {
+			additionals += "=" + klUsageFrom + ":" + klUsageTo;
+		}
 		
 		return new StringBuilder().append(additionals + 
 				
-//				"\tCB" + AbsMetric.round(this.classValueDifference) +
-//				":CBI" + AbsMetric.round(this.oldClassFromValue) + ":" + AbsMetric.round(this.newClassFromValue) +
-//				":CBF" + AbsMetric.round(this.oldClassToValue) + ":" + AbsMetric.round(this.newClassToValue) +
-//
-//				"\tCD" + AbsMetric.round(this.declarationClassDifference) +
-//				":CDI" + AbsMetric.round(this.oldDeclarationClassFromMetric) + ":" + AbsMetric.round(this.newDeclarationClassFromMetric) +
-//				":CDF" + AbsMetric.round(this.oldDeclarationClassToMetric) + ":" + AbsMetric.round(this.newDeclarationClassToMetric) +
-//
-//				"\tCU" + AbsMetric.round(this.usageClassDifference) +
-//				":CUI" + AbsMetric.round(this.oldUsageClassFromMetric) + ":" + AbsMetric.round(this.newUsageClassFromMetric) +
-//				":CUF" + AbsMetric.round(this.oldUsageClassToMetric) + ":" + AbsMetric.round(this.newUsageClassToMetric) +
+				"\tCB" + AbsMetric.round(this.classValueDifference) +
+				":CBI" + AbsMetric.round(this.oldClassFromValue) + ":" + AbsMetric.round(this.newClassFromValue) +
+				":CBF" + AbsMetric.round(this.oldClassToValue) + ":" + AbsMetric.round(this.newClassToValue) +
+
+				"\tCD" + AbsMetric.round(this.declarationClassDifference) +
+				":CDI" + AbsMetric.round(this.oldDeclarationClassFromMetric) + ":" + AbsMetric.round(this.newDeclarationClassFromMetric) +
+				":CDF" + AbsMetric.round(this.oldDeclarationClassToMetric) + ":" + AbsMetric.round(this.newDeclarationClassToMetric) +
+
+				"\tCU" + AbsMetric.round(this.usageClassDifference) +
+				":CUI" + AbsMetric.round(this.oldUsageClassFromMetric) + ":" + AbsMetric.round(this.newUsageClassFromMetric) +
+				":CUF" + AbsMetric.round(this.oldUsageClassToMetric) + ":" + AbsMetric.round(this.newUsageClassToMetric) +
 				
 				"\tBD" + super.getValueText() + 
 				":BI" + AbsMetric.round(this.oldValue) +
