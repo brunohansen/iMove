@@ -27,6 +27,7 @@ public abstract class IMoveHandler extends AbstractHandler {
 				
 			} catch (Exception e) {
 				Console.printStackTrace(e);
+				e.printStackTrace();
 				if(e.getCause() != null)
 					ErrorDialog.open(e.getCause());
 				else
