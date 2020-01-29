@@ -97,6 +97,10 @@ public class RemoveTest {
 	public static void remTest(String dir) throws Exception {
 
 		List<Path> files = FileFinder.find(dir, "*-all_*.txt");
+		
+		if(files.isEmpty()) {
+			files = FileFinder.find(dir, "*.txt");
+		}
 
 		files.forEach(p -> {
 			try {
