@@ -1,8 +1,5 @@
 package br.com.bhansen.refactory;
 
-import java.util.Collection;
-import java.util.Map;
-
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.core.runtime.SubMonitor;
@@ -127,8 +124,18 @@ public class EvaluateSumMethod extends MoveMethodEvaluator  {
 	}
 	
 	@Override
-	public boolean shouldMove() { 
-		return AbsMetric.round(this.declarationDifference).doubleValue() >= MoveMethodConfig.getThreshold();
+	public boolean shouldMove() {
+		if((AbsMetric.round(this.declarationDifference).doubleValue() == 0) && (this.oldMetric instanceof DeclarationMetricMethod)) {
+			DeclarationMetricMethod dMetric = (DeclarationMetricMethod) this.oldMetric;
+			
+			if(dMetric.getMethod().contains(this.classTo.getSimpleName())) {
+				return true;
+			} else {
+				return false;
+			}
+		} else {
+			return AbsMetric.round(this.declarationDifference).doubleValue() >= MoveMethodConfig.getThreshold();
+		}
 		
 		//return AbsMetric.round(this.valueDifference + this.classValueDifference).doubleValue() >= MoveMethodConfig.getThreshold();
 		
