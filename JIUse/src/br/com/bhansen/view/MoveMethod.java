@@ -3,6 +3,8 @@ package br.com.bhansen.view;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
@@ -39,6 +41,7 @@ import org.eclipse.ui.part.ViewPart;
 
 import br.com.bhansen.dialog.ErrorDialog;
 import br.com.bhansen.dialog.MessageDialog;
+import br.com.bhansen.dialog.ProjectDialog;
 import br.com.bhansen.jdt.Project;
 import br.com.bhansen.refactory.MoveMethodRefactor;
 import br.com.bhansen.utils.Movement;
@@ -67,6 +70,7 @@ public class MoveMethod extends ViewPart {
 
 	private TableViewer viewer;
 	private Action saveResultsAction;
+	private Action openResultsAction;
 
 	private Project project;
 	
@@ -191,6 +195,7 @@ public class MoveMethod extends ViewPart {
 
 	private void fillLocalToolBar(IToolBarManager manager) {
 		manager.add(saveResultsAction);
+		manager.add(openResultsAction);
 	}
 
 	private void fillContextMenu(IMenuManager manager) {
@@ -308,7 +313,36 @@ public class MoveMethod extends ViewPart {
 		saveResultsAction.setToolTipText("Save Results");
 		saveResultsAction.setImageDescriptor(
 				PlatformUI.getWorkbench().getSharedImages().getImageDescriptor(ISharedImages.IMG_ETOOL_SAVE_EDIT));
+		
+		openResultsAction = new Action() {
+			public void run() {
+				try {
+					openResults();
+				} catch (IOException e) {
+					throw new RuntimeException(e);
+				}
+			}
+		};
+		openResultsAction.setToolTipText("Open Results");
+		openResultsAction.setImageDescriptor(
+				PlatformUI.getWorkbench().getSharedImages().getImageDescriptor(ISharedImages.IMG_OBJ_FOLDER));
 
+	}
+	
+	private void openResults() throws IOException {
+		
+		Path inFile = br.com.bhansen.dialog.FileDialog.open("Inform the batch file");
+		
+		try {
+			project = new Project(inFile);
+		} catch (Exception e) {
+			project = ProjectDialog.open();
+		}
+		
+		List<String> movements = Files.readAllLines(inFile);
+		
+		update(project, movements);
+		
 	}
 
 	private void hookDoubleClickAction() {
